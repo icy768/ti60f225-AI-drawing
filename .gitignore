@@ -1,0 +1,17 @@
+# Efinity / simulation generated files. Keep the selected bitstreams in outflow.
+**/work_syn/
+**/work_pnr/
+**/work_dbg/
+**/work_sim/
+**/sim_build/
+**/outflow/*
+!**/outflow/*.bit
+*.wlf
+*.vcd
+*.fst
+*.log
+*.bak
+*.tmp
+*.lock
+~$*.docx
+Thumbs.db

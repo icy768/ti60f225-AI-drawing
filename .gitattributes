@@ -1,0 +1,7 @@
+# FPGA bitstreams and reference documents must never be line-ending converted.
+*.bit binary
+*.pdf binary
+*.docx binary
+*.pickle binary
+*.mem text eol=lf
+*.memh text eol=lf
