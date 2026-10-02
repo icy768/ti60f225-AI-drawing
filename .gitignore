@@ -1,0 +1,22 @@
+# Efinity-generated files
+**/work_syn/
+**/work_pnr/
+**/work_dbg/
+**/work_sim/
+**/sim_build/
+**/*.vdb
+**/*.wlf
+**/*.vcd
+**/*.fst
+**/*.log
+**/*.bak
+**/*.tmp
+**/*.lock
+**/outflow/*
+!**/outflow/*.bit
+
+# Local logic-analyzer and waveform viewer artifacts
+debug_profile*.json
+debug_top.v
+debug.json
+la*_waveform*
