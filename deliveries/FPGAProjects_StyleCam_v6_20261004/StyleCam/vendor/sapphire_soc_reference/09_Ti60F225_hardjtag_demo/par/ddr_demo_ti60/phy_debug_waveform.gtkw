@@ -1,0 +1,38 @@
+[dumpfile] "D:\FPGA_Prj\03_Ti60F225_DemoBoard\Prj_demo\02_Ti60F225_SoftDdr3_demo\Ti60F225_DDR3_Example\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\phy_debug_waveform.vcd"
+[dumpfile_mtime] "Wed Feb 21 07:52:12 2024"
+[dumpfile_size] 41693
+[savefile] "D:\FPGA_Prj\03_Ti60F225_DemoBoard\Prj_demo\02_Ti60F225_SoftDdr3_demo\Ti60F225_DDR3_Example\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\phy_debug_waveform.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*0.000000 c 512 1536 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[signals_width] 126
+[sst_expanded] 1
+@22
+top.idelay_ld
+top.mpr_rdlvl_dly
+top.wrlvl_dq_check[7:0]
+top.rd_level_dqs_check[7:0]
+top.pll_shift_ena
+top.pll_shift_sel[4:0]
+top.pll_shift[2:0]
+top.ddr_cs_n
+top.ddr_ras_n
+top.ddr_cas_n
+top.ddr_we_n
+top.ddr_addr[15:0]
+top.ddr_ba[2:0]
+top.ddr_dqs_oe
+top.ddr_dq_oe
+top.ddr_dqs_in_hi[1:0]
+top.ddr_dqs_in_lo[1:0]
+top.ddr_dq_in_hi[15:0]
+top.ddr_dq_in_lo[15:0]
+top.ddr_dqs_out_hi[1:0]
+top.ddr_dqs_out_lo[1:0]
+top.ddr_dq_out_hi[15:0]
+top.ddr_dq_out_lo[15:0]
+top.error
+top.init_cur_state[6:0]
+top.rdlvl_shift[2:0]
+top.wrlvl_shift[2:0]

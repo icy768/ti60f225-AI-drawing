@@ -1,0 +1,12 @@
+[
+  {
+    "project": "syn/vision_map.xml",
+    "declared_inputs": 17,
+    "missing": []
+  },
+  {
+    "project": "vendor/sc431hai_camera_v6/ti60f225_oob.xml",
+    "declared_inputs": 62,
+    "missing": []
+  }
+]

@@ -1,0 +1,219 @@
+{
+  "runs": [
+    {
+      "run": "art_styles_c24_strong_v3",
+      "path": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\runs\\art_styles_c24_strong_v3\\student.pt",
+      "sha256": "729f3e3c7ca299530c9892f1c3afc134bbfc6a01fff3741d843efdae6d7a2edb",
+      "steps": 3200,
+      "cfg": {
+        "C": 24,
+        "Fc": 16,
+        "n_res": 4,
+        "n_styles": 3,
+        "norm": "in",
+        "block": "dw1"
+      },
+      "args": {
+        "steps": 3200,
+        "batch": 4,
+        "crop": 256,
+        "lr": 4e-05,
+        "out": "runs/art_styles_c24_strong_v3",
+        "init": "runs/art_styles_c24_strong_v2/student.pt",
+        "style_weight": 900.0,
+        "content_weight": 0.012,
+        "palette_weight": 4.0,
+        "edge_weight": 3.0,
+        "ink_chroma_weight": 7.0,
+        "tv_weight": 0.008,
+        "proxy_weight": 0.32
+      },
+      "qat": false,
+      "seconds": null
+    },
+    {
+      "run": "art_styles_c24_texture_v4",
+      "path": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\runs\\art_styles_c24_texture_v4\\student.pt",
+      "sha256": "e6e6e82dd6eb6092de16590f19f912c048219905ebbe6ecc01cac802dc75a00a",
+      "steps": 2400,
+      "cfg": {
+        "C": 24,
+        "Fc": 16,
+        "n_res": 4,
+        "n_styles": 3,
+        "norm": "in",
+        "block": "dw1"
+      },
+      "args": {
+        "init": "runs/art_styles_c24_strong_v3/student.pt",
+        "out": "runs/art_styles_c24_texture_v4",
+        "steps": 2400,
+        "batch": 4,
+        "crop": 256,
+        "lr": 0.0003,
+        "content": 0.12,
+        "style": 1.0,
+        "prior": 0.15,
+        "save_every": 600,
+        "seed": 20261004
+      },
+      "qat": false,
+      "seconds": 261.9530000000086
+    },
+    {
+      "run": "art_styles_c24_differentiated_v5",
+      "path": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\runs\\art_styles_c24_differentiated_v5\\student.pt",
+      "sha256": "1183925190062d30519b3ae6ed3fe6bfbaf3c198316f9664ae9f9d97f1de21e9",
+      "steps": 3000,
+      "cfg": {
+        "C": 24,
+        "Fc": 16,
+        "n_res": 4,
+        "n_styles": 3,
+        "norm": "in",
+        "block": "dw1"
+      },
+      "args": {
+        "init": "runs/art_styles_c24_texture_v4/student.pt",
+        "out": "runs/art_styles_c24_differentiated_v5",
+        "steps": 3000,
+        "batch": 4,
+        "crop": 256,
+        "lr": 0.00025,
+        "content": 0.12,
+        "style": 1.0,
+        "prior": 0.15,
+        "save_every": 600,
+        "seed": 20261004,
+        "differentiated": true
+      },
+      "qat": false,
+      "seconds": 344.51600000000326
+    },
+    {
+      "run": "art_styles_c24_graphic_v6",
+      "path": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\runs\\art_styles_c24_graphic_v6\\student.pt",
+      "sha256": "637379c7d33d7c024de34a08e6304f4c16df493761d0b5b99e1b124327a05870",
+      "steps": 2400,
+      "cfg": {
+        "C": 24,
+        "Fc": 16,
+        "n_res": 4,
+        "n_styles": 3,
+        "norm": "in",
+        "block": "dw1"
+      },
+      "args": {
+        "init": "runs/art_styles_c24_differentiated_v5/student.pt",
+        "out": "runs/art_styles_c24_graphic_v6",
+        "steps": 2400,
+        "batch": 4,
+        "crop": 256,
+        "lr": 0.00015,
+        "content": 0.12,
+        "style": 1.0,
+        "prior": 0.15,
+        "save_every": 600,
+        "seed": 20261004,
+        "differentiated": true,
+        "graphic": true
+      },
+      "qat": false,
+      "seconds": 304.8280000000086
+    }
+  ],
+  "selected_candidate": "art_styles_c24_graphic_v6",
+  "float_shape_tests": [
+    {
+      "width": 640,
+      "height": 480,
+      "style": "van_gogh",
+      "finite": true,
+      "range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "width": 640,
+      "height": 480,
+      "style": "ukiyo_e",
+      "finite": true,
+      "range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "width": 640,
+      "height": 480,
+      "style": "ink_landscape",
+      "finite": true,
+      "range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "style": "van_gogh",
+      "finite": true,
+      "range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "style": "ukiyo_e",
+      "finite": true,
+      "range": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "style": "ink_landscape",
+      "finite": true,
+      "range": [
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "parameters": {
+    "conv_weights": 9384,
+    "norm_affine": 1632,
+    "output_bias": 12
+  },
+  "conv_macs_vga": 339148800.0,
+  "conv_macs_720p": 1017446400.0,
+  "torch_version": "2.7.1+cu118",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "inference_postprocessing": "Only network clamp and float-to-uint8 conversion; no artistic filter",
+  "quantization_ready": false,
+  "stale_activation_ranges": true,
+  "deployment_headers_untouched": {
+    "sw/net_blob.h": {
+      "sha256": "4dfc4629f32922639faa0765365365c3ff31642d609c0d0432c22a81c20c685a",
+      "equals_previous_delivery": true
+    },
+    "sw/in_params.h": {
+      "sha256": "30948e193f40387abcc2efe907742513abe26ad31025b37f9576c045f02bdab4",
+      "equals_previous_delivery": true
+    }
+  },
+  "efinity": {
+    "map_pass": true,
+    "stage": "C:\\CodexTemp\\stylecam_efinity_20261004",
+    "rams": 172,
+    "dsp": 120,
+    "scope": "Old c24_gram vision_top subsystem; no new art weights, no SDC, no board interface",
+    "full_board_timing_pass": false,
+    "board_fps_measured": false
+  }
+}

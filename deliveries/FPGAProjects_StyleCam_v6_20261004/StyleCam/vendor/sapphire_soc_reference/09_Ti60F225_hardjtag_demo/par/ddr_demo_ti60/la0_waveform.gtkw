@@ -1,0 +1,13 @@
+[dumpfile] "C:\Users\ADMINI~1\AppData\Local\Temp\tmpr_zmhca4\la0tmp_continous.vcd"
+[dumpfile_mtime] "Tue Mar 31 05:44:30 2026"
+[dumpfile_size] 229
+[savefile] "E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\la0_waveform.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*0.000000 c 512 1536 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[signals_width] 126
+[sst_expanded] 1
+@22
+top.cal_done
+top.ddr_rstn

@@ -1,0 +1,1329 @@
+!SESSION 2024-03-12 12:04:52.992 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2024-03-12 12:05:11.725
+!MESSAGE MenuAdditionCacheEntry.mergeIntoModel: Invalid menu URI: com.ashling.riscfree.efinix.newproject.wizard.CreateNewEfinixProject
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-12 12:05:56.040
+!MESSAGE Indexed 'memTest' (1 sources, 44 headers) in 0.869 sec: 1,442 declarations; 1,917 references; 0 unresolved inclusions; 5 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 12:06:26.886
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-12 12:06:28.947
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 12:07:08.432
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-12 12:07:15.636
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 12:07:37.179
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 12:07:39.402
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 12:08:25.521
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 12:08:27.834
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:10:32.572
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:10:35.058
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:11:52.119
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:11:54.576
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:12:55.338
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:12:57.759
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:14:26.440
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:14:28.709
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:15:20.781
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:15:23.056
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:17:52.474
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:17:54.808
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:18:42.032
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:18:44.399
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:19:52.327
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:19:54.699
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:21:02.377
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:21:04.734
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:55:13.114
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v1\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 13:55:15.362
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+!SESSION 2024-03-12 14:27:29.030 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2024-03-12 14:27:51.125
+!MESSAGE MenuAdditionCacheEntry.mergeIntoModel: Invalid menu URI: com.ashling.riscfree.efinix.newproject.wizard.CreateNewEfinixProject
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-12 14:28:33.118
+!MESSAGE Indexed 'gpioDemo' (1 sources, 0 headers) in 0.058 sec: 1 declarations; 4 references; 6 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 14:28:49.867
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-12 14:28:57.799
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 14:29:20.502
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 14:29:22.780
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-12 14:44:23.356
+!MESSAGE Indexed 'memTest' (1 sources, 44 headers) in 0.598 sec: 1,442 declarations; 1,917 references; 0 unresolved inclusions; 5 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 14:44:58.757
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-12 14:45:01.076
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 0 2024-03-12 21:26:38.669
+!MESSAGE TimeoutException while shutting down launch org.eclipse.embedcdt.debug.gdbjtag.openocd.core.dsf.Launch@6508e3a7
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-03-12 21:26:40.146
+!MESSAGE An internal error occurred during: "OpenOCD Monitor".
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "org.eclipse.cdt.internal.core.CConfigBasedDescriptorManager.getDescriptor(org.eclipse.core.resources.IProject, boolean)" because the return value of "org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getDescriptorManager()" is null
+	at org.eclipse.cdt.core.CCorePlugin.getCProjectDescription(CCorePlugin.java:881)
+	at org.eclipse.cdt.make.internal.core.scannerconfig2.ScannerConfigInfoFactory2$ScannerConfigInfoSet.load(ScannerConfigInfoFactory2.java:102)
+	at org.eclipse.cdt.make.internal.core.scannerconfig2.ScannerConfigInfoFactory2$ScannerConfigInfoSet.<init>(ScannerConfigInfoFactory2.java:96)
+	at org.eclipse.cdt.make.internal.core.scannerconfig2.ScannerConfigInfoFactory2.createInfoSet(ScannerConfigInfoFactory2.java:1373)
+	at org.eclipse.cdt.make.internal.core.scannerconfig2.ScannerConfigProfileManager.createScannerConfigBuildInfo2Set(ScannerConfigProfileManager.java:223)
+	at org.eclipse.cdt.build.internal.core.scannerconfig2.CfgScannerConfigInfoFactory2$CfgInfo.getContainer(CfgScannerConfigInfoFactory2.java:118)
+	at org.eclipse.cdt.build.internal.core.scannerconfig2.CfgScannerConfigInfoFactory2$CfgInfo.createMap(CfgScannerConfigInfoFactory2.java:144)
+	at org.eclipse.cdt.build.internal.core.scannerconfig2.CfgScannerConfigInfoFactory2$CfgInfo.getInfo(CfgScannerConfigInfoFactory2.java:83)
+	at org.eclipse.cdt.build.internal.core.scannerconfig.CfgDiscoveredPathManager.getContextInfo(CfgDiscoveredPathManager.java:436)
+	at org.eclipse.cdt.build.internal.core.scannerconfig.CfgDiscoveredPathManager.getContextInfo(CfgDiscoveredPathManager.java:418)
+	at org.eclipse.cdt.build.internal.core.scannerconfig.CfgDiscoveredPathManager.getDiscoveredInfo(CfgDiscoveredPathManager.java:168)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ProfileInfoProvider.getEntryValues(ProfileInfoProvider.java:68)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.BuildEntryStorage.getDiscoveredEntries(BuildEntryStorage.java:203)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.BuildEntryStorage.putEntriesToLevel(BuildEntryStorage.java:193)
+	at org.eclipse.cdt.core.settings.model.util.AbstractEntryStorage.initCache(AbstractEntryStorage.java:74)
+	at org.eclipse.cdt.core.settings.model.util.AbstractEntryStorage.getEntries(AbstractEntryStorage.java:37)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.BuildLanguageData.getEntries(BuildLanguageData.java:179)
+	at org.eclipse.cdt.core.settings.model.extension.impl.CDefaultLanguageData.getEntriesToCopy(CDefaultLanguageData.java:100)
+	at org.eclipse.cdt.core.settings.model.extension.impl.CDefaultLanguageData.createStore(CDefaultLanguageData.java:91)
+	at org.eclipse.cdt.core.settings.model.extension.impl.CDefaultLanguageData.copySettingsFrom(CDefaultLanguageData.java:84)
+	at org.eclipse.cdt.internal.core.settings.model.CLanguageSettingCache.copySettingsFrom(CLanguageSettingCache.java:49)
+	at org.eclipse.cdt.internal.core.settings.model.CLanguageSettingCache.<init>(CLanguageSettingCache.java:38)
+	at org.eclipse.cdt.internal.core.settings.model.CFolderDescriptionCache.copyLanguageData(CFolderDescriptionCache.java:82)
+	at org.eclipse.cdt.core.settings.model.extension.impl.CDefaultFolderData.copyDataFrom(CDefaultFolderData.java:60)
+	at org.eclipse.cdt.internal.core.settings.model.CFolderDescriptionCache.<init>(CFolderDescriptionCache.java:40)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescriptionCache.copyFolderData(CConfigurationDescriptionCache.java:242)
+	at org.eclipse.cdt.core.settings.model.extension.impl.CDefaultConfigurationData.copySettingsFrom(CDefaultConfigurationData.java:117)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescriptionCache.loadData(CConfigurationDescriptionCache.java:154)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescription.loadDatas(CProjectDescription.java:199)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.loadProjectDescription(XmlProjectDescriptionStorage.java:510)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.getProjectDescription(XmlProjectDescriptionStorage.java:240)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescriptionInternal(CProjectDescriptionManager.java:427)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:409)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:403)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:396)
+	at org.eclipse.cdt.core.model.CoreModel.getProjectDescription(CoreModel.java:1436)
+	at org.eclipse.embedcdt.core.EclipseUtils.getBuildConfigDescription(EclipseUtils.java:425)
+	at org.eclipse.embedcdt.core.EclipseUtils.getProjectByLaunchConfiguration(EclipseUtils.java:183)
+	at org.eclipse.embedcdt.debug.gdbjtag.openocd.core.Configuration.resolveAll(Configuration.java:213)
+	at org.eclipse.embedcdt.debug.gdbjtag.openocd.core.Configuration.getGdbServerCommand(Configuration.java:53)
+	at org.eclipse.embedcdt.debug.gdbjtag.openocd.core.Configuration.getGdbServerCommandLineArray(Configuration.java:78)
+	at org.eclipse.embedcdt.debug.gdbjtag.openocd.core.dsf.GdbServerBackend.getServerCommandLineArray(GdbServerBackend.java:123)
+	at org.eclipse.embedcdt.debug.gdbjtag.openocd.core.dsf.GdbServerBackend.getServerCommandName(GdbServerBackend.java:131)
+	at org.eclipse.embedcdt.debug.gdbjtag.openocd.core.dsf.GdbServerBackend.prepareMessageBoxText(GdbServerBackend.java:186)
+	at org.eclipse.embedcdt.debug.gdbjtag.core.dsf.GnuMcuGdbServerBackend$GdbServerMonitorJob.run(GnuMcuGdbServerBackend.java:961)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.dsf 4 -1 2024-03-12 21:26:40.156
+!MESSAGE Invocation exception when calling a service event handler method
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:119)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:541)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:408)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@4f966719 is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:84)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:254)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 9 more
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1272)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:789)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:81)
+	... 12 more
+Root exception:
+java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@4f966719 is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:84)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:254)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:541)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:408)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1272)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:789)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:81)
+	... 12 more
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-03-12 21:26:40.769
+!MESSAGE An internal error occurred during: "Execute Debug Command".
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: The application has not been initialized.
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:113)
+	at org.eclipse.core.internal.runtime.InternalPlatform.assertInitialized(InternalPlatform.java:139)
+	at org.eclipse.core.internal.runtime.InternalPlatform.getAdapterManager(InternalPlatform.java:160)
+	at org.eclipse.core.runtime.Platform.getAdapterManager(Platform.java:649)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunch.getAdapter(GdbLaunch.java:458)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunch.disconnect(GdbLaunch.java:342)
+	at org.eclipse.debug.internal.core.commands.DisconnectCommand.execute(DisconnectCommand.java:35)
+	at org.eclipse.debug.internal.core.commands.ForEachCommand.doExecute(ForEachCommand.java:36)
+	at org.eclipse.debug.core.commands.AbstractDebugCommand$1.run(AbstractDebugCommand.java:215)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-03-12 21:26:41.187
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$ErrorReadJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-03-12 21:26:41.189
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$OutputReadJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-03-12 21:26:41.189
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$InputReadJob
+!SESSION 2024-03-13 15:09:38.783 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2024-03-13 15:10:22.359
+!MESSAGE MenuAdditionCacheEntry.mergeIntoModel: Invalid menu URI: com.ashling.riscfree.efinix.newproject.wizard.CreateNewEfinixProject
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 16:54:44.566
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 16:54:47.378
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:27:17.156
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:27:19.419
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:27:59.535
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:28:01.780
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:28:56.379
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:28:58.622
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:30:25.337
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:30:27.561
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:32:06.879
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:32:09.133
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:38:20.820
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:38:23.052
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:39:03.706
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:39:05.932
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:40:04.432
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:40:06.656
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:40:59.053
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:41:01.298
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:42:44.456
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 18:42:46.675
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 19:49:52.773
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 19:49:55.023
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 19:50:42.847
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 19:50:45.108
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 20:01:09.648
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-13 20:01:16.891
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 20:01:52.648
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-13 20:01:54.878
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 20:02:26.209
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-13 20:02:33.422
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 20:02:50.554
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-13 20:02:52.777
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 20:03:30.686
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-13 20:03:37.906
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 20:05:13.588
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-13 20:05:20.796
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 20:06:02.529
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-13 20:06:04.783
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 20:06:35.695
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-03-13 20:06:37.943
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 20:12:31.560
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 1 2024-03-13 20:12:33.796
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+!SESSION 2024-12-14 21:28:37.638 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 4 567 2024-12-14 21:28:59.284
+!MESSAGE Workspace restored, but some problems occurred.
+!SUBENTRY 1 org.eclipse.core.resources 4 567 2024-12-14 21:28:59.284
+!MESSAGE Could not read metadata for 'gpioDemo'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/gpioDemo)[567]: java.lang.Exception: The project description file (.project) for 'gpioDemo' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:888)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:868)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:724)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1555)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2482)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2233)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:475)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:813)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:805)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:762)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1032)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:371)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:605)
+	at org.eclipse.osgi.container.Module.start(Module.java:468)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:513)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:570)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:335)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:397)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:41)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:484)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:153)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2024-12-14 21:28:59.287
+!MESSAGE The project description file (.project) for 'gpioDemo' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!STACK 0
+java.lang.Exception: The project description file (.project) for 'gpioDemo' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:888)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:868)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:724)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1555)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2482)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2233)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:475)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:813)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:805)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:762)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1032)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:371)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:605)
+	at org.eclipse.osgi.container.Module.start(Module.java:468)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:513)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:570)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:335)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:397)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:41)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:484)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:153)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+!SUBENTRY 1 org.eclipse.core.resources 4 567 2024-12-14 21:28:59.288
+!MESSAGE Could not read metadata for 'memTest'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/memTest)[567]: java.lang.Exception: The project description file (.project) for 'memTest' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:888)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:868)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:724)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1555)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2482)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2233)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:475)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:813)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:805)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:762)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1032)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:371)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:605)
+	at org.eclipse.osgi.container.Module.start(Module.java:468)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:513)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:570)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:335)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:397)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:41)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:484)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:153)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2024-12-14 21:28:59.288
+!MESSAGE The project description file (.project) for 'memTest' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!STACK 0
+java.lang.Exception: The project description file (.project) for 'memTest' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:888)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:868)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:724)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1555)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2482)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2233)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:475)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:813)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:805)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:762)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1032)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:371)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:605)
+	at org.eclipse.osgi.container.Module.start(Module.java:468)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:513)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:570)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:335)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:397)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:41)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:484)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:153)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 4 2024-12-14 21:29:14.607
+!MESSAGE MenuAdditionCacheEntry.mergeIntoModel: Invalid menu URI: com.ashling.riscfree.efinix.newproject.wizard.CreateNewEfinixProject
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-12-14 21:29:47.638
+!MESSAGE Indexed 'gpioDemo' (1 sources, 46 headers) in 0.479 sec: 1,512 declarations; 2,117 references; 0 unresolved inclusions; 5 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:29:58.280
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-12-14 21:30:03.553
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:31:44.169
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-12-14 21:31:45.658
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:33:55.512
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-12-14 21:34:11.527
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitorWithProgress@7ba1722a): Status ERROR: org.eclipse.embedcdt.debug.gdbjtag.core code=5010 Starting OpenOCD timed out.' resulted in an error.
+!SUBENTRY 1 org.eclipse.embedcdt.debug.gdbjtag.core 4 5010 2024-12-14 21:34:11.527
+!MESSAGE Starting OpenOCD timed out.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2024-12-14 21:34:11.534
+!MESSAGE Error in services launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Starting OpenOCD timed out.
+	at org.eclipse.cdt.dsf.concurrent.Sequence.abortExecution(Sequence.java:599)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleErrorOrWarning(Sequence.java:448)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleFailure(RequestMonitor.java:433)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:393)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+!SUBENTRY 1 org.eclipse.embedcdt.debug.gdbjtag.core 4 5010 2024-12-14 21:34:11.534
+!MESSAGE Starting OpenOCD timed out.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:34:29.656
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-12-14 21:34:45.660
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitorWithProgress@68398d40): Status ERROR: org.eclipse.embedcdt.debug.gdbjtag.core code=5010 Starting OpenOCD timed out.' resulted in an error.
+!SUBENTRY 1 org.eclipse.embedcdt.debug.gdbjtag.core 4 5010 2024-12-14 21:34:45.660
+!MESSAGE Starting OpenOCD timed out.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2024-12-14 21:34:45.665
+!MESSAGE Error in services launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Starting OpenOCD timed out.
+	at org.eclipse.cdt.dsf.concurrent.Sequence.abortExecution(Sequence.java:599)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleErrorOrWarning(Sequence.java:448)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleFailure(RequestMonitor.java:433)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:393)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+!SUBENTRY 1 org.eclipse.embedcdt.debug.gdbjtag.core 4 5010 2024-12-14 21:34:45.665
+!MESSAGE Starting OpenOCD timed out.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:36:15.495
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:36:20.877
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 0 2024-12-14 21:36:21.414
+!MESSAGE Invalid register description file
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at com.ashling.riscfree.debug.opxd.registers.core.RegisterDescriptionCache.init(RegisterDescriptionCache.java:65)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.doInitialize(RiscFreeRegister.java:106)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister$1.handleSuccess(RiscFreeRegister.java:94)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.doInitialize(GDBRegisters.java:320)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters$1.handleSuccess(GDBRegisters.java:312)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.doInitialize(MIRegisters.java:316)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters$1.handleSuccess(MIRegisters.java:274)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.service.AbstractDsfService.initialize(AbstractDsfService.java:102)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.initialize(MIRegisters.java:271)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.initialize(GDBRegisters.java:309)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.initialize(RiscFreeRegister.java:91)
+	at org.eclipse.cdt.dsf.gdb.launching.ServicesLaunchSequence$14.execute(ServicesLaunchSequence.java:133)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 150 2024-12-14 21:36:24.474
+!MESSAGE Internal Error
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.createFormattedTempRegisterFile(RiscFreeRegister.java:681)
+	at org.eclipse.embedcdt.debug.gdbjtag.core.dsf.GnuMcuFinalLaunchSequence.stepAddTargetDescription(GnuMcuFinalLaunchSequence.java:439)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:50:18.496
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2024-12-14 21:50:21.156
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:50:40.650
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:50:42.875
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 0 2024-12-14 21:50:43.320
+!MESSAGE Invalid register description file
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at com.ashling.riscfree.debug.opxd.registers.core.RegisterDescriptionCache.init(RegisterDescriptionCache.java:65)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.doInitialize(RiscFreeRegister.java:106)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister$1.handleSuccess(RiscFreeRegister.java:94)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.doInitialize(GDBRegisters.java:320)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters$1.handleSuccess(GDBRegisters.java:312)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.doInitialize(MIRegisters.java:316)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters$1.handleSuccess(MIRegisters.java:274)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.service.AbstractDsfService.initialize(AbstractDsfService.java:102)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.initialize(MIRegisters.java:271)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.initialize(GDBRegisters.java:309)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.initialize(RiscFreeRegister.java:91)
+	at org.eclipse.cdt.dsf.gdb.launching.ServicesLaunchSequence$14.execute(ServicesLaunchSequence.java:133)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 150 2024-12-14 21:50:46.302
+!MESSAGE Internal Error
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.createFormattedTempRegisterFile(RiscFreeRegister.java:681)
+	at org.eclipse.embedcdt.debug.gdbjtag.core.dsf.GnuMcuFinalLaunchSequence.stepAddTargetDescription(GnuMcuFinalLaunchSequence.java:439)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:52:03.952
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:52:06.446
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 0 2024-12-14 21:52:06.960
+!MESSAGE Invalid register description file
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at com.ashling.riscfree.debug.opxd.registers.core.RegisterDescriptionCache.init(RegisterDescriptionCache.java:65)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.doInitialize(RiscFreeRegister.java:106)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister$1.handleSuccess(RiscFreeRegister.java:94)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.doInitialize(GDBRegisters.java:320)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters$1.handleSuccess(GDBRegisters.java:312)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.doInitialize(MIRegisters.java:316)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters$1.handleSuccess(MIRegisters.java:274)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.service.AbstractDsfService.initialize(AbstractDsfService.java:102)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.initialize(MIRegisters.java:271)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.initialize(GDBRegisters.java:309)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.initialize(RiscFreeRegister.java:91)
+	at org.eclipse.cdt.dsf.gdb.launching.ServicesLaunchSequence$14.execute(ServicesLaunchSequence.java:133)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 150 2024-12-14 21:52:09.964
+!MESSAGE Internal Error
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.createFormattedTempRegisterFile(RiscFreeRegister.java:681)
+	at org.eclipse.embedcdt.debug.gdbjtag.core.dsf.GnuMcuFinalLaunchSequence.stepAddTargetDescription(GnuMcuFinalLaunchSequence.java:439)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:56:40.073
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 21:56:42.520
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 0 2024-12-14 21:56:42.975
+!MESSAGE Invalid register description file
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at com.ashling.riscfree.debug.opxd.registers.core.RegisterDescriptionCache.init(RegisterDescriptionCache.java:65)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.doInitialize(RiscFreeRegister.java:106)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister$1.handleSuccess(RiscFreeRegister.java:94)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.doInitialize(GDBRegisters.java:320)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters$1.handleSuccess(GDBRegisters.java:312)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.doInitialize(MIRegisters.java:316)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters$1.handleSuccess(MIRegisters.java:274)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.service.AbstractDsfService.initialize(AbstractDsfService.java:102)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.initialize(MIRegisters.java:271)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.initialize(GDBRegisters.java:309)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.initialize(RiscFreeRegister.java:91)
+	at org.eclipse.cdt.dsf.gdb.launching.ServicesLaunchSequence$14.execute(ServicesLaunchSequence.java:133)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 150 2024-12-14 21:56:46.006
+!MESSAGE Internal Error
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.createFormattedTempRegisterFile(RiscFreeRegister.java:681)
+	at org.eclipse.embedcdt.debug.gdbjtag.core.dsf.GnuMcuFinalLaunchSequence.stepAddTargetDescription(GnuMcuFinalLaunchSequence.java:439)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 22:03:08.323
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 22:03:10.714
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 0 2024-12-14 22:03:11.171
+!MESSAGE Invalid register description file
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at com.ashling.riscfree.debug.opxd.registers.core.RegisterDescriptionCache.init(RegisterDescriptionCache.java:65)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.doInitialize(RiscFreeRegister.java:106)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister$1.handleSuccess(RiscFreeRegister.java:94)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.doInitialize(GDBRegisters.java:320)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters$1.handleSuccess(GDBRegisters.java:312)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.doInitialize(MIRegisters.java:316)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters$1.handleSuccess(MIRegisters.java:274)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.service.AbstractDsfService.initialize(AbstractDsfService.java:102)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.initialize(MIRegisters.java:271)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.initialize(GDBRegisters.java:309)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.initialize(RiscFreeRegister.java:91)
+	at org.eclipse.cdt.dsf.gdb.launching.ServicesLaunchSequence$14.execute(ServicesLaunchSequence.java:133)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 150 2024-12-14 22:03:14.147
+!MESSAGE Internal Error
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.createFormattedTempRegisterFile(RiscFreeRegister.java:681)
+	at org.eclipse.embedcdt.debug.gdbjtag.core.dsf.GnuMcuFinalLaunchSequence.stepAddTargetDescription(GnuMcuFinalLaunchSequence.java:439)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 22:04:58.011
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 22:05:00.474
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 0 2024-12-14 22:05:00.953
+!MESSAGE Invalid register description file
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at com.ashling.riscfree.debug.opxd.registers.core.RegisterDescriptionCache.init(RegisterDescriptionCache.java:65)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.doInitialize(RiscFreeRegister.java:106)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister$1.handleSuccess(RiscFreeRegister.java:94)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.doInitialize(GDBRegisters.java:320)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters$1.handleSuccess(GDBRegisters.java:312)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.doInitialize(MIRegisters.java:316)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters$1.handleSuccess(MIRegisters.java:274)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.service.AbstractDsfService.initialize(AbstractDsfService.java:102)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.initialize(MIRegisters.java:271)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.initialize(GDBRegisters.java:309)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.initialize(RiscFreeRegister.java:91)
+	at org.eclipse.cdt.dsf.gdb.launching.ServicesLaunchSequence$14.execute(ServicesLaunchSequence.java:133)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 150 2024-12-14 22:05:03.962
+!MESSAGE Internal Error
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.createFormattedTempRegisterFile(RiscFreeRegister.java:681)
+	at org.eclipse.embedcdt.debug.gdbjtag.core.dsf.GnuMcuFinalLaunchSequence.stepAddTargetDescription(GnuMcuFinalLaunchSequence.java:439)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 22:21:05.875
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 22:21:08.209
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 0 2024-12-14 22:21:08.691
+!MESSAGE Invalid register description file
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at com.ashling.riscfree.debug.opxd.registers.core.RegisterDescriptionCache.init(RegisterDescriptionCache.java:65)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.doInitialize(RiscFreeRegister.java:106)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister$1.handleSuccess(RiscFreeRegister.java:94)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.doInitialize(GDBRegisters.java:320)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters$1.handleSuccess(GDBRegisters.java:312)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.doInitialize(MIRegisters.java:316)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters$1.handleSuccess(MIRegisters.java:274)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.service.AbstractDsfService.initialize(AbstractDsfService.java:102)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.initialize(MIRegisters.java:271)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.initialize(GDBRegisters.java:309)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.initialize(RiscFreeRegister.java:91)
+	at org.eclipse.cdt.dsf.gdb.launching.ServicesLaunchSequence$14.execute(ServicesLaunchSequence.java:133)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 150 2024-12-14 22:21:11.659
+!MESSAGE Internal Error
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.createFormattedTempRegisterFile(RiscFreeRegister.java:681)
+	at org.eclipse.embedcdt.debug.gdbjtag.core.dsf.GnuMcuFinalLaunchSequence.stepAddTargetDescription(GnuMcuFinalLaunchSequence.java:439)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+!SESSION 2024-12-14 23:11:12.426 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2024-12-14 23:11:22.919
+!MESSAGE MenuAdditionCacheEntry.mergeIntoModel: Invalid menu URI: com.ashling.riscfree.efinix.newproject.wizard.CreateNewEfinixProject
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 23:11:39.219
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/external.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj\08_ti60f225_soc_demo\09_Ti60F225_memtest_and_soc_demo_v3\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_softTap.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2024-12-14 23:11:40.743
+!MESSAGE C:\Efinity\efinity-riscv-ide-2023.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 0 2024-12-14 23:11:41.028
+!MESSAGE Invalid register description file
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at com.ashling.riscfree.debug.opxd.registers.core.RegisterDescriptionCache.init(RegisterDescriptionCache.java:65)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.doInitialize(RiscFreeRegister.java:106)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister$1.handleSuccess(RiscFreeRegister.java:94)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.doInitialize(GDBRegisters.java:320)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters$1.handleSuccess(GDBRegisters.java:312)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.doInitialize(MIRegisters.java:316)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters$1.handleSuccess(MIRegisters.java:274)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at org.eclipse.cdt.dsf.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:67)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.done(RequestMonitor.java:314)
+	at org.eclipse.cdt.dsf.service.AbstractDsfService.initialize(AbstractDsfService.java:102)
+	at org.eclipse.cdt.dsf.mi.service.MIRegisters.initialize(MIRegisters.java:271)
+	at org.eclipse.cdt.dsf.gdb.service.GDBRegisters.initialize(GDBRegisters.java:309)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.initialize(RiscFreeRegister.java:91)
+	at org.eclipse.cdt.dsf.gdb.launching.ServicesLaunchSequence$14.execute(ServicesLaunchSequence.java:133)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY com.ashling.riscfree.dsf.registers 4 150 2024-12-14 23:11:44.141
+!MESSAGE Internal Error
+!STACK 0
+java.io.FileNotFoundException: D:\Onboard_tranning\DDR3_Controller_V17_ti60_soc_v2\par\ddr_demo_ti60\embedded_sw\soc\bsp\efinix\EfxSapphireSoc\openocd\sapphire_soc_32bit-reg.xml (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
+	at com.ashling.riscfree.debug.opxd.registers.core.RiscFreeRegister.createFormattedTempRegisterFile(RiscFreeRegister.java:681)
+	at org.eclipse.embedcdt.debug.gdbjtag.core.dsf.GnuMcuFinalLaunchSequence.stepAddTargetDescription(GnuMcuFinalLaunchSequence.java:439)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+!ENTRY org.eclipse.cdt.dsf 4 -1 2024-12-14 23:11:57.215
+!MESSAGE Invocation exception when calling a service event handler method
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:119)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:541)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:408)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@58a2b4c is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:84)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:254)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 9 more
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1272)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:789)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:81)
+	... 12 more
+Root exception:
+java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@58a2b4c is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:84)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:254)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:541)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:408)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1272)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:789)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:81)
+	... 12 more
+
+!ENTRY org.eclipse.core.jobs 2 2 2024-12-14 23:11:58.141
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$InputReadJob
