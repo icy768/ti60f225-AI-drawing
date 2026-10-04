@@ -1,0 +1,191 @@
+[
+  {
+    "style": "van_gogh",
+    "static": [
+      {
+        "frame": 0,
+        "psnr": 19.32029540033663,
+        "exact_match": false,
+        "ssim": 0.7219163967012764,
+        "mae": 21.868876953125
+      },
+      {
+        "frame": 12,
+        "psnr": null,
+        "exact_match": true,
+        "ssim": 1.0,
+        "mae": 0.0
+      },
+      {
+        "frame": 24,
+        "psnr": null,
+        "exact_match": true,
+        "ssim": 1.0,
+        "mae": 0.0
+      }
+    ],
+    "synthetic_exposure_step": [
+      {
+        "frame": 0,
+        "psnr": 14.939082984396064,
+        "exact_match": false,
+        "ssim": 0.5850352626960013,
+        "mae": 36.477978515625
+      },
+      {
+        "frame": 6,
+        "psnr": 21.94218234832455,
+        "exact_match": false,
+        "ssim": 0.7684868156940675,
+        "mae": 15.477881944444444
+      },
+      {
+        "frame": 12,
+        "psnr": 14.309543348189697,
+        "exact_match": false,
+        "ssim": 0.6635782363410242,
+        "mae": 40.993648003472224
+      },
+      {
+        "frame": 18,
+        "psnr": 32.38051814134608,
+        "exact_match": false,
+        "ssim": 0.9732984521907645,
+        "mae": 4.573715277777778
+      },
+      {
+        "frame": 24,
+        "psnr": null,
+        "exact_match": true,
+        "ssim": 1.0,
+        "mae": 0.0
+      }
+    ]
+  },
+  {
+    "style": "ukiyo_e",
+    "static": [
+      {
+        "frame": 0,
+        "psnr": 18.06671151984593,
+        "exact_match": false,
+        "ssim": 0.7250715007471579,
+        "mae": 25.425760633680557
+      },
+      {
+        "frame": 12,
+        "psnr": null,
+        "exact_match": true,
+        "ssim": 1.0,
+        "mae": 0.0
+      },
+      {
+        "frame": 24,
+        "psnr": null,
+        "exact_match": true,
+        "ssim": 1.0,
+        "mae": 0.0
+      }
+    ],
+    "synthetic_exposure_step": [
+      {
+        "frame": 0,
+        "psnr": 10.884378061207471,
+        "exact_match": false,
+        "ssim": 0.4309803428115275,
+        "mae": 56.9631640625
+      },
+      {
+        "frame": 6,
+        "psnr": 25.36044353173997,
+        "exact_match": false,
+        "ssim": 0.8022623303277521,
+        "mae": 10.204359809027778
+      },
+      {
+        "frame": 12,
+        "psnr": 13.644491786622158,
+        "exact_match": false,
+        "ssim": 0.6194416956300869,
+        "mae": 42.22384874131944
+      },
+      {
+        "frame": 18,
+        "psnr": 35.223189090123,
+        "exact_match": false,
+        "ssim": 0.9630835443145926,
+        "mae": 3.1487608506944444
+      },
+      {
+        "frame": 24,
+        "psnr": null,
+        "exact_match": true,
+        "ssim": 1.0,
+        "mae": 0.0
+      }
+    ]
+  },
+  {
+    "style": "ink_landscape",
+    "static": [
+      {
+        "frame": 0,
+        "psnr": 16.04146524245619,
+        "exact_match": false,
+        "ssim": 0.7297824807677745,
+        "mae": 34.243655598958334
+      },
+      {
+        "frame": 12,
+        "psnr": null,
+        "exact_match": true,
+        "ssim": 1.0,
+        "mae": 0.0
+      },
+      {
+        "frame": 24,
+        "psnr": null,
+        "exact_match": true,
+        "ssim": 1.0,
+        "mae": 0.0
+      }
+    ],
+    "synthetic_exposure_step": [
+      {
+        "frame": 0,
+        "psnr": 8.770394063148201,
+        "exact_match": false,
+        "ssim": 0.4848427869468959,
+        "mae": 81.757734375
+      },
+      {
+        "frame": 6,
+        "psnr": 28.233261691871,
+        "exact_match": false,
+        "ssim": 0.8681315187363378,
+        "mae": 7.143854166666666
+      },
+      {
+        "frame": 12,
+        "psnr": 14.670969515774747,
+        "exact_match": false,
+        "ssim": 0.6733578030570918,
+        "mae": 37.961841362847224
+      },
+      {
+        "frame": 18,
+        "psnr": 36.01216500223097,
+        "exact_match": false,
+        "ssim": 0.9639944568993563,
+        "mae": 2.9952842881944446
+      },
+      {
+        "frame": 24,
+        "psnr": null,
+        "exact_match": true,
+        "ssim": 1.0,
+        "mae": 0.0
+      }
+    ]
+  }
+]

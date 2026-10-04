@@ -1,0 +1,5 @@
+标定 R/S: [('e1', 1, 22), ('e2', 0, 23), ('r0a', 0, 17), ('r0d', 0, 17), ('r1a', 0, 19), ('r1d', 0, 17), ('r2a', 0, 20), ('r2d', 0, 17), ('r3a', 0, 20), ('r3d', 0, 18), ('d1a', 0, 20), ('d1b', 0, 19), ('d2', 0, 22)]
+{}
+RTL/镜像输出：C:\CodexTemp\stylecam_v6_delivery_20261004\art_styles_c24_graphic_v6_cal100；cfg 写次数 4050，镜像 48616 字节
+C:\Users\蔡哲涵\Desktop\fpga\FPGAProjects\StyleCam\algo\golden.py:138: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:209.)
+  streams = [(torch.from_numpy(np.ascontiguousarray(im)).permute(2, 0, 1)[None].to(torch.uint8), s)

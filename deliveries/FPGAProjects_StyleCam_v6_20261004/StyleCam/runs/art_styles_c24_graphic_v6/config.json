@@ -1,0 +1,30 @@
+{
+  "args": {
+    "init": "runs/art_styles_c24_differentiated_v5/student.pt",
+    "out": "runs/art_styles_c24_graphic_v6",
+    "steps": 2400,
+    "batch": 4,
+    "crop": 256,
+    "lr": 0.00015,
+    "content": 0.12,
+    "style": 1.0,
+    "prior": 0.15,
+    "save_every": 600,
+    "seed": 20261004,
+    "differentiated": true,
+    "graphic": true
+  },
+  "cfg": {
+    "C": 24,
+    "Fc": 16,
+    "n_res": 4,
+    "n_styles": 3,
+    "norm": "in",
+    "block": "dw1"
+  },
+  "train_images": 4800,
+  "evaluation_images": 200,
+  "init_sha256": "1183925190062d30519b3ae6ed3fe6bfbaf3c198316f9664ae9f9d97f1de21e9",
+  "inference_graph_changed": false,
+  "quantization_validated": false
+}

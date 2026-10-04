@@ -1,0 +1,326 @@
+!SESSION 2025-09-12 13:29:56.723 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2025-09-12 13:31:04.000
+!MESSAGE MenuAdditionCacheEntry.mergeIntoModel: Invalid menu URI: com.ashling.riscfree.efinix.newproject.wizard.CreateNewEfinixProject
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-12 13:31:35.266
+!MESSAGE Indexed 'gpioDemo' (1 sources, 47 headers) in 0.644 sec: 1,508 declarations; 2,123 references; 0 unresolved inclusions; 5 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 13:33:30.778
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2025-09-12 13:33:31.367
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 13:34:23.348
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2025-09-12 13:34:24.223
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 13:44:11.016
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2025-09-12 13:44:11.882
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 14:03:34.638
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2025-09-12 14:03:50.651
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitorWithProgress@4a8c690a): Status ERROR: org.eclipse.embedcdt.debug.gdbjtag.core code=5010 Starting OpenOCD timed out.' resulted in an error.
+!SUBENTRY 1 org.eclipse.embedcdt.debug.gdbjtag.core 4 5010 2025-09-12 14:03:50.651
+!MESSAGE Starting OpenOCD timed out.
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2025-09-12 14:03:50.654
+!MESSAGE Error in services launch sequence
+!STACK 1
+org.eclipse.core.runtime.CoreException: Starting OpenOCD timed out.
+	at org.eclipse.cdt.dsf.concurrent.Sequence.abortExecution(Sequence.java:599)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleErrorOrWarning(Sequence.java:448)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleFailure(RequestMonitor.java:433)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:393)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+!SUBENTRY 1 org.eclipse.embedcdt.debug.gdbjtag.core 4 5010 2025-09-12 14:03:50.654
+!MESSAGE Starting OpenOCD timed out.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 14:03:56.040
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2025-09-12 14:03:56.915
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 14:04:02.636
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2025-09-12 14:04:03.495
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 14:09:58.859
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2025-09-12 14:09:59.739
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 14:13:16.963
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2025-09-12 14:13:17.841
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 14:22:08.803
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 14:22:09.698
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+!SESSION 2025-09-12 14:37:03.702 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2025-09-12 14:37:07.242
+!MESSAGE MenuAdditionCacheEntry.mergeIntoModel: Invalid menu URI: com.ashling.riscfree.efinix.newproject.wizard.CreateNewEfinixProject
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 14:39:02.574
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\09_Ti60F225_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2025-09-12 14:39:03.454
+!MESSAGE C:\Efinity\efinity-riscv-ide-2025.1\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+!SESSION 2026-03-31 12:02:13.789 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 4 567 2026-03-31 12:02:43.443
+!MESSAGE Workspace restored, but some problems occurred.
+!SUBENTRY 1 org.eclipse.core.resources 4 567 2026-03-31 12:02:43.443
+!MESSAGE Could not read metadata for 'gpioDemo'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/gpioDemo)[567]: java.lang.Exception: The project description file (.project) for 'gpioDemo' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:888)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:868)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:724)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1555)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2482)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2233)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:475)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:813)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:805)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:762)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1032)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:371)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:605)
+	at org.eclipse.osgi.container.Module.start(Module.java:468)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:513)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:570)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:335)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:397)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:41)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:484)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:153)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2026-03-31 12:02:43.448
+!MESSAGE The project description file (.project) for 'gpioDemo' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!STACK 0
+java.lang.Exception: The project description file (.project) for 'gpioDemo' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:908)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:888)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:868)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:724)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1555)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2482)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2233)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:475)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:813)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$2.run(BundleContextImpl.java:1)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:805)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:762)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:1032)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:371)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:605)
+	at org.eclipse.osgi.container.Module.start(Module.java:468)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:513)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:117)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:570)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:335)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:397)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:41)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:484)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:153)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 4 2026-03-31 12:03:05.027
+!MESSAGE MenuAdditionCacheEntry.mergeIntoModel: Invalid menu URI: com.ashling.riscfree.efinix.newproject.wizard.CreateNewEfinixProject
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-31 12:03:39.488
+!MESSAGE Indexed 'gpioDemo' (1 sources, 47 headers) in 0.555 sec: 1,508 declarations; 2,123 references; 0 unresolved inclusions; 5 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2026-03-31 12:03:57.948
+!MESSAGE C:\Efinity\efinity-riscv-ide-2024.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2026-03-31 12:03:58.142
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2026-03-31 12:05:08.527
+!MESSAGE C:\Efinity\efinity-riscv-ide-2024.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2026-03-31 12:05:08.594
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2026-03-31 12:07:26.462
+!MESSAGE C:\Efinity\efinity-riscv-ide-2024.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2026-03-31 12:07:32.351
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+!SESSION 2026-03-31 13:26:10.836 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=18.0.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2026-03-31 13:26:40.182
+!MESSAGE MenuAdditionCacheEntry.mergeIntoModel: Invalid menu URI: com.ashling.riscfree.efinix.newproject.wizard.CreateNewEfinixProject
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2026-03-31 13:27:05.627
+!MESSAGE C:\Efinity\efinity-riscv-ide-2024.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.core 4 0 2026-03-31 13:27:05.789
+!MESSAGE OpenOCD failed with code (1).
+
+For more details, see the openocd.exe console.
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2026-03-31 13:27:48.740
+!MESSAGE C:\Efinity\efinity-riscv-ide-2024.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2026-03-31 13:27:49.638
+!MESSAGE C:\Efinity\efinity-riscv-ide-2024.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2026-03-31 13:29:00.411
+!MESSAGE C:\Efinity\efinity-riscv-ide-2024.2\Efinity-RISCV-IDE\/../openocd/bin/openocd.exe -c gdb_port 3333 -c telnet_port 4444 -c tcl_port 6666 -c set bsp_loc {E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc} -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/ftdi_ti.cfg -f E:\FPGA_Demo\02_Ti60F225_DemoBoard\FPGA_Prj_v4\08_ti60f225_soc_demo\09_Ti60F225_hardjtag_demo\par\ddr_demo_ti60\embedded_sw\soc/bsp/efinix/EfxSapphireSoc/openocd/debug_ti.cfg -c echo "Started by GNU MCU Eclipse"
+
+!ENTRY org.eclipse.embedcdt.debug.gdbjtag.openocd.core 4 1 2026-03-31 13:29:01.300
+!MESSAGE C:\Efinity\efinity-riscv-ide-2024.2\Efinity-RISCV-IDE\/../toolchain/bin/riscv-none-embed-gdb.exe --interpreter=mi2 --nx
+
+!ENTRY org.eclipse.cdt.dsf 4 -1 2026-03-31 13:29:59.817
+!MESSAGE Invocation exception when calling a service event handler method
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:119)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:541)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:408)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@f3021cb is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:84)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:254)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 9 more
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1272)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:789)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:81)
+	... 12 more
+Root exception:
+java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@f3021cb is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:84)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:254)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:102)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:541)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:408)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1272)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:789)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:81)
+	... 12 more
+
+!ENTRY org.eclipse.core.jobs 2 2 2026-03-31 13:30:00.777
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$InputReadJob
