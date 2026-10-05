@@ -23,14 +23,16 @@ STAGE=Path("C:/CodexTemp/stylecam_pc_20261004")
 
 
 def simulate_verilator(outdir):
-    wd=Path(outdir);tools=Path("C:/CodexTemp/verilator_py548")
+    wd=Path(outdir).resolve()
+    tools=Path(os.environ.get("STYLECAM_VERILATOR_ROOT", "C:/CodexTemp/verilator_py548"))
+    compiler=Path(os.environ.get("STYLECAM_COMPILER_BIN", "C:/mingw64/bin"))
     env=dict(os.environ,VERILATOR_ROOT=str(tools).replace("\\","/"),
-             PATH="C:/mingw64/bin;C:/Program Files/Git/usr/bin;"+os.environ["PATH"])
+             PATH=str(compiler)+os.pathsep+"C:/Program Files/Git/usr/bin"+os.pathsep+os.environ["PATH"])
     src=["tb_top.v","stylenet_top.v"]+[str(Path(gen_rtl.RTL)/s) for s in ("common.v","swg3.v","swg3b.v","mac.v","requant.v","conv_layer.v")]
     commands=[([str(tools/"bin/verilator_bin.exe"),"--cc","--timing","--main","--exe","--top-module","tb_top",
                 "--Mdir","obj_vlt","--compiler","gcc","-Wno-fatal"]+src,"verilate.log"),
-              (["C:/mingw64/bin/mingw32-make.exe","-C","obj_vlt","-f","Vtb_top.mk","-j","4","CXX=g++","LINK=g++",
-                "AR=ar","PYTHON3=D:/Anaconda3/python.exe","CFG_CXXFLAGS_STD=-std=c++20",
+              ([str(compiler/"mingw32-make.exe"),"-C","obj_vlt","-f","Vtb_top.mk","-j","4","CXX=g++","LINK=g++",
+                "AR=ar","PYTHON3="+sys.executable,"CFG_CXXFLAGS_STD=-std=c++20",
                 "CFG_CXXFLAGS_COROUTINES=-fcoroutines","CFG_CXXFLAGS_PCH_I=-include"],"compile.log"),
               ([str(wd/"obj_vlt/Vtb_top.exe")],"simulation.log")]
     for cmd,log in commands:

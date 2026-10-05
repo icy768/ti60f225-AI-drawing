@@ -1,4 +1,5 @@
 # 整链路仿真：生成 NN、摄像头帧 → iverilog → 比对显示输出的原图区、风格图区（模式 0）与 1.5 倍全屏（模式 1）
+import argparse
 import os
 import subprocess
 import sys
@@ -39,16 +40,19 @@ def read_frame(path):
 
 
 def main():
-    calib = gen_rtl.load_crops(4, 96, 64, seed=101)
-    cfg = dict(C=24, Fc=16, n_res=4, n_styles=4, norm="in", block="dw1")
-    q = gen_rtl.random_qparams(cfg, calib, seed=3)
-    golden.calibrate(q, calib, 4)
-    cam = gen_rtl.load_crops(1, IW, IH, seed=21)[0]
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--contract', required=True)
+    ap.add_argument('--image', required=True)
+    args = ap.parse_args()
+    from PIL import Image
+    q = golden.load(args.contract)
+    cam = np.asarray(Image.open(args.image).convert('RGB').resize((IW, IH))).copy()
     A = downscale(cam)
     B, st_gold, dumps = golden.run(q, A, 0, dump=True)
-    coefs = [([d["M"]] * 8, [d["B"]] * 8) for d in dumps]
+    banks = 2 * len(q['styles'])
+    coefs = [([d["M"]] * banks, [d["B"]] * banks) for d in dumps]
     wd = os.path.join(HERE, "work", "sys")
-    gen_rtl.generate(q, NW, NH, wd, coefs, 8)
+    gen_rtl.generate(q, NW, NH, wd, coefs, banks, relative_mem=True)
     with open(os.path.join(wd, "cam.hex"), "w") as f:
         for y in range(IH):
             for x in range(0, IW, 2):
@@ -61,9 +65,11 @@ def main():
            [os.path.join(ROOT, "rtl", f) for f in RTL_FILES]
     exe = os.path.join(wd, "tb_sys.vvp")
     nn_async = int(os.environ.get("NN_ASYNC", "1"))
-    subprocess.run([IV, "-g2012", f"-Ptb_sys.NN_ASYNC={nn_async}", "-o", exe] + srcs, check=True, capture_output=True)
+    subprocess.run([IV, "-g2012", "-I", HERE, f"-Ptb_sys.NN_ASYNC={nn_async}", "-o", exe] + srcs, check=True, capture_output=True)
     print(f"NN_ASYNC={nn_async}")
-    r = subprocess.run([VVP, "-n", exe], cwd=wd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    r = subprocess.run([VVP, "-n", exe], cwd=wd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=240, check=True)
+    if 'error:' in r.stderr.lower() or 'TIMEOUT' in r.stdout:
+        raise RuntimeError(r.stdout + r.stderr)
     sim_text = "\n".join(l for l in r.stdout.splitlines() if "$finish" not in l)
     # Windows consoles may use GBK; simulation diagnostics are UTF-8-safe even
     # when a vendor message contains a replacement character.

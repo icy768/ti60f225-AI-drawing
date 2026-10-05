@@ -6,8 +6,8 @@ module vision_top #(
     // 0：RGB 每拍 2 像素（cam_scale3，仿真用）
     // 1：CSI RX RAW10 每拍 4 像素，3x3 分块去马赛克（SC431HAI 1920x1440）
     // 2：CSI RX RAW10 每拍 4 像素，2x2 去马赛克 + 黑电平 + gamma（IMX219 2x2 合并输出 1280x960）
-    parameter CAM_RAW = 2,
-    parameter IW = 1280, IH = 960, XOFF = 0, CW = 1920,
+    parameter CAM_RAW = 1,
+    parameter IW = 1920, IH = 1440, XOFF = 0, CW = 1920,
     parameter GAMMA = "gamma_srgb.mem",
     // NN / 缓冲
     parameter NW = 640, NH = 480, STRIDE = 32'h200000, DW = 128, AW = 32, BL = 16, MBS = 16,

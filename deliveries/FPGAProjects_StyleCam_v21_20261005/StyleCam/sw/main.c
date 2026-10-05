@@ -6,8 +6,18 @@
 #include <stdint.h>
 #include "hal.h"
 #include "vision.h"
+#ifndef STYLECAM_CAMERA_SC431HAI
+#define STYLECAM_CAMERA_SC431HAI 1
+#endif
+#if STYLECAM_CAMERA_SC431HAI
+#include "sc431hai.h"
+#ifndef SC431HAI_BAYER
+#define SC431HAI_BAYER 0
+#endif
+#else
 #include "imx219.h"
 #include "isp.h"
+#endif
 #include "net_blob.h"
 
 // 帧首跳过行数：CSI RX 已按数据类型滤掉嵌入数据行时为 0，否则为 2（上板后看画面顶行是否有杂点确定，也可按 k 切换）
@@ -46,7 +56,10 @@ static void upper(char *d, const char *s, int n)
     d[n - 1] = 0;
 }
 
-static int mode, nn_on = 1, tp_on;
+static int mode, nn_on = 1;
+#if !STYLECAM_CAMERA_SC431HAI
+static int tp_on;
+#endif
 
 static void draw_labels(void)
 {
@@ -87,20 +100,44 @@ int main(void)
 {
     hal_init();
     hal_puts("\r\nStyleCam boot\r\n");
+    if (!STYLECAM_BOARD_CONFIRMED) {
+        hal_puts("STOP: confirm sw/board_profile.h against BSP, clocks and DDR linker map\r\n");
+        while (1) ;
+    }
     if (vision_id() != 0x53544C31u) {
         hal_puts("vision core not found\r\n");
         while (1) ;
     }
     int n = vision_load_blob(net_blob, NET_BLOB_WORDS);
     hal_puts(n > 0 ? "net blob loaded\r\n" : "net blob error\r\n");
+    if (n <= 0) {
+        vision_enable(0);
+        while (1) ;
+    }
+    if (vision_set_buffer_base(STYLECAM_FRAME_BASE) != 0) {
+        hal_puts("STOP: invalid frame buffer base/alignment\r\n");
+        while (1) ;
+    }
     // IMX219 上电：XCLR 拉低 10ms 后拉高，等待 ≥6.2ms（手册 t4+t5）再访问 I2C
     vision_cam_power(0);
     hal_delay_ms(10);
     vision_cam_power(1);
     hal_delay_ms(10);
+#if STYLECAM_CAMERA_SC431HAI
+    int cr = sc431hai_init();
+    hal_puts(cr == 0 ? "SC431HAI ID/init ok; verify MIPI timing on board\r\n" : "SC431HAI init failed\r\n");
+    vision_cam_bayer(SC431HAI_BAYER);
+    vision_cam_gains(256, 256, 256);
+    vision_cam_ctrl(0, 0, 0);
+#else
     int cr = imx219_init();
     hal_puts(cr == 0 ? "IMX219 ok\r\n" : cr == -2 ? "IMX219 ID mismatch\r\n" : "IMX219 init failed\r\n");
     isp_init(CAM_SKIP);
+#endif
+    if (cr != 0) {
+        vision_enable(0);
+        while (1) ;
+    }
 
     osd_clear();
     vision_set_style(0);
@@ -113,7 +150,9 @@ int main(void)
     uint32_t fps10 = 0;
     while (1) {
         in_refresh_poll();
+#if !STYLECAM_CAMERA_SC431HAI
         isp_poll();
+#endif
 
         // 按键（上升沿）
         uint32_t k = hal_keys(), kp = k & ~keys_last;
@@ -127,12 +166,14 @@ int main(void)
         if ((kp & 2) || ch == 'm') { mode = (mode + 1) % 3; sc = 1; }
         if ((kp & 4) || ch == 'i') in_refresh_enable(!in_refresh_enabled());
         if ((kp & 8) || ch == 'o') { nn_on = !nn_on; vision_enable(nn_on); }
+#if !STYLECAM_CAMERA_SC431HAI
         if (ch == 'a') { isp_auto(!isp_auto_on()); hal_puts(isp_auto_on() ? "AE/AWB on\r\n" : "AE/AWB off\r\n"); }
         if (ch == 'e') isp_manual_ev(-1);
         if (ch == 'E') isp_manual_ev(1);
         if (ch == 'f') { char b[] = "flip 0\r\n"; b[5] = (char)('0' + isp_flip()); hal_puts(b); }
         if (ch == 't') { tp_on = !tp_on; isp_test_pattern(tp_on); }
         if (ch == 'k') hal_puts(isp_skip_toggle() ? "skip 2\r\n" : "skip 0\r\n");
+#endif
         if (sc) {
             if (style != vision_style()) vision_set_style(style);
             apply(1);
@@ -154,7 +195,11 @@ int main(void)
                 p = cat(p, "fps ");
                 p = fmt1(p, fps10);
                 p = cat(p, "  ");
+#if STYLECAM_CAMERA_SC431HAI
+                p = cat(p, "SC431HAI fixed exposure/gain; AE/AWB not enabled");
+#else
                 isp_status(p);
+#endif
                 while (*p) p++;
                 p = cat(p, "\r\n");
                 hal_puts(b);

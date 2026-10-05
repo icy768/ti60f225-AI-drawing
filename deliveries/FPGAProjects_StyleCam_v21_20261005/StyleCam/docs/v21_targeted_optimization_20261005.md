@@ -35,7 +35,7 @@ v21b 的浮世绘输入 PSNR/SSIM 为 **14.83 dB / 0.4812**，高于 v19 的 14.
 - INT8：[v21b_ukiyoe_qat900_soft15/student.pt](../runs/art_styles_c24_v21b_ukiyoe_qat900_soft15/student.pt)
 - 合同：[v21b_ukiyoe_qat900_soft15_export](../audits/v21b_ukiyoe_qat900_soft15_export.json)
 
-24 张留出图的 INT8 结果：
+24 张留出图的 INT8 结果，参考是 `v21b_ukiyoe_color_block/student.pt` 的 FP32 输出（SHA256 `053c88a13198669e0c4e6684a923ce2472b8762ead139f1321cf4faa147f654f`）。评估器中 `*_vs_v10` 是历史字段名，不能按字段名误判为 v10 模型：
 
 | 风格 | INT8 对浮点 PSNR | INT8 对浮点 SSIM | edge-F1 | 风格指标 |
 |---|---:|---:|---:|---|

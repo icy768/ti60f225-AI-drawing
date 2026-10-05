@@ -26,6 +26,8 @@ def main():
     ap.add_argument('--rtl', action='store_true')
     ap.add_argument('--vga', action='store_true')
     ap.add_argument('--verilator', action='store_true')
+    ap.add_argument('--verilator-root', help='Verilator installation directory containing bin and include')
+    ap.add_argument('--compiler-bin', help='Directory containing g++, ar and make for Verilator')
     ap.add_argument('--gcc', default=shutil.which('gcc'))
     ap.add_argument('--iverilog', default=shutil.which('iverilog'))
     ap.add_argument('--vvp', default=shutil.which('vvp'))
@@ -34,8 +36,8 @@ def main():
     if not str(wd).isascii():
         raise ValueError('Use an ASCII-only workdir for RTL tools')
     wd.mkdir(parents=True, exist_ok=False)
-    exp = ROOT / 'rtl/gen/v6_cal100_640x480'
-    ckpath = ROOT / 'runs/art_styles_c24_graphic_v6_cal100/student.pt'
+    exp = ROOT / 'rtl/gen/v21b_ukiyoe_qat900_640x480'
+    ckpath = ROOT / 'runs/art_styles_c24_v21b_ukiyoe_qat900_soft15/student.pt'
     info = json.loads((exp / 'export.json').read_text(encoding='utf-8'))
     assert sha(ckpath) == info['checkpoint_sha256']
     assert sha(exp / 'net_blob.bin') == info['blob_sha256']
@@ -118,6 +120,10 @@ def main():
         shutil.copytree(ROOT / 'rtl', rtl, ignore=shutil.ignore_patterns('gen'))
         gen_rtl.RTL = str(rtl)
         if args.verilator:
+            if args.verilator_root:
+                os.environ['STYLECAM_VERILATOR_ROOT'] = str(Path(args.verilator_root).resolve())
+            if args.compiler_bin:
+                os.environ['STYLECAM_COMPILER_BIN'] = str(Path(args.compiler_bin).resolve())
             gen_rtl.simulate = simulate_verilator
             os.environ['STYLECAM_SIMULATOR'] = 'Verilator'
         else:

@@ -21,7 +21,7 @@
         <efx:design_file name="../rtl/mac.v" version="default" library="default" />
         <efx:design_file name="../rtl/requant.v" version="default" library="default" />
         <efx:design_file name="../rtl/common.v" version="default" library="default" />
-        <efx:design_file name="../rtl/gen/v6_cal100_640x480/stylenet_top.v" version="default" library="default" />
+        <efx:design_file name="../rtl/gen/v21b_ukiyoe_qat900_640x480/stylenet_top.v" version="default" library="default" />
         <efx:top_vhdl_arch name="" />
         <efx:msg_config name="" />
         <efx:partition_definitions name="" />

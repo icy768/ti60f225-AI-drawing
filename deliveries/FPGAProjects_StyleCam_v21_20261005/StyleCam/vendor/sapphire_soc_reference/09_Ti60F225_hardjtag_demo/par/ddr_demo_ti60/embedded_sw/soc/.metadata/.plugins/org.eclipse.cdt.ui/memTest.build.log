@@ -1,0 +1,6 @@
+20:06:35 **** Incremental Build of configuration Default for project memTest ****
+make all 
+make: Nothing to be done for 'all'.
+
+20:06:35 Build Finished. 0 errors, 0 warnings. (took 148ms)
+

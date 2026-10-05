@@ -53,6 +53,7 @@
 
 uint32_t vision_id(void);
 int      vision_load_blob(const uint32_t *blob, uint32_t nwords);
+int      vision_set_buffer_base(uint32_t base); // Call before camera streaming; reserves 7 x 2 MiB.
 void     vision_enable(int en);
 void     vision_set_mode(int mode);
 void     vision_set_style(int style);          // 风格号 0..NET_NSTYLE-1

@@ -93,7 +93,9 @@ def run(IW, IH, NF, vsmode, bay, gains, seed):
                    [os.path.join(wd, "tb_raw.v"), os.path.join(HERE, "..", "rtl", "raw_bin3.v"),
                     os.path.join(HERE, "..", "rtl", "common.v"), os.path.join(HERE, "..", "rtl", "axi_frame.v")],
                    check=True)
-    subprocess.run([VVP, "-n", exe], cwd=wd, check=True, capture_output=True)
+    result = subprocess.run([VVP, "-n", exe], cwd=wd, check=True, capture_output=True, timeout=180)
+    if b'error:' in result.stderr.lower():
+        raise RuntimeError(result.stderr.decode('utf-8', errors='replace'))
     got = [(int(a, 16), int(b)) for a, b in (l.split() for l in open(os.path.join(wd, "raw_out.txt")))]
     exp = sum((ref(img, IW, IH, bay, gains) for img in frames), [])
     ok = got == exp

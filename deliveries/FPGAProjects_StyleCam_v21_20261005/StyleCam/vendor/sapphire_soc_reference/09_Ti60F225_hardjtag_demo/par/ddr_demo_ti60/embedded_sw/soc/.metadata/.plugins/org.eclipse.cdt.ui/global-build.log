@@ -1,0 +1,85 @@
+18:40:51 **** Build of configuration Default for project memTest ****
+make all 
+CC src/main.c
+CC ../common/start.S
+LD memTest
+Memory region         Used Size  Region Size  %age Used
+             ram:        5632 B       124 KB      4.44%
+18:40:58 **** Incremental Build of configuration Default for project memTest ****
+make all 
+make: Nothing to be done for 'all'.
+18:42:43 **** Incremental Build of configuration Default for project memTest ****
+make all 
+make: Nothing to be done for 'all'.
+19:49:52 **** Incremental Build of configuration Default for project memTest ****
+make all 
+make: Nothing to be done for 'all'.
+19:50:42 **** Incremental Build of configuration Default for project memTest ****
+make all 
+make: Nothing to be done for 'all'.
+20:01:09 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+20:01:52 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+20:02:25 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+20:02:50 **** Incremental Build of configuration Default for project memTest ****
+make all 
+make: Nothing to be done for 'all'.
+20:03:30 **** Incremental Build of configuration Default for project memTest ****
+make all 
+make: Nothing to be done for 'all'.
+20:05:13 **** Incremental Build of configuration Default for project memTest ****
+make all 
+make: Nothing to be done for 'all'.
+20:06:02 **** Incremental Build of configuration Default for project memTest ****
+make all 
+make: Nothing to be done for 'all'.
+20:06:35 **** Incremental Build of configuration Default for project memTest ****
+make all 
+make: Nothing to be done for 'all'.
+20:12:31 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+21:29:55 **** Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+21:31:43 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+21:33:54 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+21:34:28 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+21:36:14 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+21:50:17 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+21:50:39 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+21:52:03 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+21:56:39 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+22:03:07 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+22:04:57 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+22:21:04 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+23:11:38 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.

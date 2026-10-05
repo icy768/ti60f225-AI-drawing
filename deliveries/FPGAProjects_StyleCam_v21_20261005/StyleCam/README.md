@@ -1,5 +1,9 @@
 # StyleCam：Ti60F225 实时风格化视频（嵌入式芯片与系统设计竞赛 · FPGA 赛道 · 赛题一）
 
+> 2026-10-05 交付默认已切换到 v21b QAT900。部署顶层为 `rtl/gen/v21b_ukiyoe_qat900_640x480/stylenet_top.v`，固件默认 SC431HAI，`vision_top` 默认 1920×1440 RAW10 前端。先阅读 [v21 硬件接入说明](docs/v21_hardware_handoff_20261005.md) 和 [板级集成步骤](docs/板级集成与烧录步骤.md)。`tools/verify_delivery.py` 使用包内 v21 样本复验，无需 COCO 数据。VGA RTL 和本版子系统 map 已通过，完整板级 bitstream/ELF 与实板验收仍未完成。
+
+以下保留历史算法和 IMX219 开发说明；当前交付版本、默认摄像头和验证状态以上述 v21 接入说明及包根 `deployment_status.json` 为准。
+
 > **2026-10-03 最终路线执行记录：** [训练路线](docs/final_route_20261003.md) · [实测结果与部署门槛](docs/final_route_20261003_results.md) · [固定配置](algo/final_route_config.json)。主线仍为 C24/Fc16、4 个 dw1 残差块、IN、共享卷积；新增相机域增强和训练期时间一致性只作用于训练，不改变 RTL 图。候选权重尚未替换现有 RTL，必须完成整数对拍、Efinity 综合、板端帧率和唯一 frame_id 验收后再部署。
 
 ## 数据流

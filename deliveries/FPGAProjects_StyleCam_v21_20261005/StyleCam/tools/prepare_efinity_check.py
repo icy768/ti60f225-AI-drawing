@@ -1,4 +1,5 @@
 """Copy the current subsystem sources into an ASCII-only synthesis workspace."""
+import argparse
 import hashlib
 import json
 import re
@@ -9,7 +10,12 @@ from pathlib import Path
 
 def main():
     root = Path(__file__).resolve().parents[1]
-    stage = Path("C:/CodexTemp/stylecam_efinity_20261004")
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--stage', required=True, help='New ASCII-only synthesis workspace')
+    args = ap.parse_args()
+    stage = Path(args.stage).resolve()
+    if not str(stage).isascii():
+        raise ValueError('Efinity staging path must be ASCII-only')
     if stage.exists():
         raise FileExistsError(f"Refusing to replace existing stage {stage}")
     stage.mkdir(parents=True)
@@ -40,7 +46,7 @@ def main():
         node.set("name", dest.as_posix())
     tree.write(stage / "vision_map.xml", encoding="utf-8", xml_declaration=True)
     (stage / "sources.json").write_text(json.dumps(dict(sources=sources,
-        scope="Existing vision_top subsystem and old c24_gram weights; not the new FP32 art model, not the complete board design",
+        scope="v21b QAT900 integer network; SC431HAI vision_top subsystem; not the complete board design",
         constraints="Existing XML has no SDC or board interface constraints"), indent=2), encoding="utf-8")
     print(stage)
 

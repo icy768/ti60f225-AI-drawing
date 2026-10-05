@@ -165,4 +165,5 @@ module tb_sys;
         end
         $finish;
     end
+`include "frame_id_monitor.vh"
 endmodule

@@ -2,6 +2,7 @@
 #ifndef HAL_H
 #define HAL_H
 #include <stdint.h>
+#include "board_profile.h"
 
 // 视觉子系统 APB 基址：取 Sapphire IP 生成的 soc.h 中 APB 用户从口 0 的地址宏
 #ifndef VISION_BASE

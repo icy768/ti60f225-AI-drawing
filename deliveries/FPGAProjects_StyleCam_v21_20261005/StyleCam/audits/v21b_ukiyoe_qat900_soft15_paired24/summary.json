@@ -1,6 +1,6 @@
 {
-  "protocol": "same held-out RGB VGA images; uint8 RGB; mean per image; v10 FP32 artistic reference",
-  "caveat": "PSNR/SSIM are fidelity to v10 stylization, not a same-domain quality threshold",
+  "protocol": "same held-out RGB VGA images; uint8 RGB; mean per image; v21b_ukiyoe_color_block FP32 teacher reference",
+  "caveat": "PSNR/SSIM are fidelity to the teacher checkpoint below, not a same-domain quality threshold. v10 and *_vs_v10 are legacy field labels, not the teacher version.",
   "teacher": "runs\\art_styles_c24_v21b_ukiyoe_color_block\\student.pt",
   "candidates": [
     "runs\\art_styles_c24_v21b_ukiyoe_qat900_soft15\\student.pt"

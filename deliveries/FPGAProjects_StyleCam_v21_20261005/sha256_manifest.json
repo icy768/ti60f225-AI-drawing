@@ -1,12 +1,12 @@
 {
   "files": {
     "README.md": {
-      "bytes": 1102,
-      "sha256": "0a900f0fd0d2bd76ddd4f3790260306d395c9ad9c24905eac4b4c6181ac83679"
+      "bytes": 1558,
+      "sha256": "81038b02e3671a377fcb0c34f8108b0c2549493ee2366d62375eaac3cf37d458"
     },
     "StyleCam/README.md": {
-      "bytes": 17039,
-      "sha256": "dc9d66ccd44e2659b65c8dce5e91ae835512f1d16c7a39683c438078dd694b56"
+      "bytes": 17728,
+      "sha256": "378d6a6c491a73bc5ff18d8d48dd4f24ee10e13a5cdec528751796821d1a33fd"
     },
     "StyleCam/algo/analyze_skill_network_gap.py": {
       "bytes": 3738,
@@ -113,8 +113,8 @@
       "sha256": "87524fc43dc9409aad8fc86540afdf0cbbadce9ceaa0cc68c89c4f862b5bfffb"
     },
     "StyleCam/algo/gen_rtl.py": {
-      "bytes": 18546,
-      "sha256": "b63473f152cf42e749185596822240823d4a763b40750ddda098f7f936bba701"
+      "bytes": 18583,
+      "sha256": "68d87a89c597b6775935f81d72bbe74c78d01cde7c50166c232e7c8c042b96f8"
     },
     "StyleCam/algo/golden.py": {
       "bytes": 8603,
@@ -157,8 +157,8 @@
       "sha256": "18ca05efa8a91a6b5e7118c26311aabff1eece399719d517bf175cee9074f8fc"
     },
     "StyleCam/algo/pc_extra_validate.py": {
-      "bytes": 7678,
-      "sha256": "488233451fb114d63b43eb7c2ce5dc943387774262424f02906b6215bf3e7509"
+      "bytes": 7823,
+      "sha256": "9bf16373b0e8a6353726aca19e090053aaab0bbfdc0bc3bba2996b34c8a4a164"
     },
     "StyleCam/algo/pc_finalize.py": {
       "bytes": 6353,
@@ -887,6 +887,166 @@
     "StyleCam/audits/delivery_pc_20261004/system/system.log": {
       "bytes": 682,
       "sha256": "01c0953b09ed8dcc60da31b1623603a425061c9061a0c1139b039837d8ff7dbd"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/efinity/sources.json": {
+      "bytes": 5687,
+      "sha256": "c80b1d1e34c6daa100124b4b5e8211ac774fe289e252b27b5142c67c31b7cb1e"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/efinity/vision_map.err.log": {
+      "bytes": 135,
+      "sha256": "0ed6575c6cd9689bf4d39f05a0c9ba17b0faab91b92504fffc64efdfc45d8084"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/efinity/vision_map.info.log": {
+      "bytes": 1024709,
+      "sha256": "c3343050efd5d9a2581ba72bbe081a5a2746430b5d636b487254fa73ec55fafc"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/efinity/vision_map.log": {
+      "bytes": 982985,
+      "sha256": "af3d58394a812226cca3b60508e17be8c9f78310ab4add7092a99d91bf1401e2"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/efinity/vision_map.map.rpt": {
+      "bytes": 200389,
+      "sha256": "77723f6251231a601d59f16862fe6ee9955922e98cd754d74124ff6d4c33ba34"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/efinity/vision_map.proj_state.ini": {
+      "bytes": 143,
+      "sha256": "0324abf5e24578c0c9aa55ca815bcf6d437525948bb8eb58b7a6fce8d28cb6b2"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/efinity/vision_map.res.csv": {
+      "bytes": 25471,
+      "sha256": "63c889682abe2af39ca06e7415404b4d4d79ea11d4f281d6fcecb35a7a349ceb"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/efinity/vision_map.warn.log": {
+      "bytes": 935110,
+      "sha256": "a169bb8e441b91acf128c1749fc150a190276e13109f8f8c7acc0094b4ecf8db"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/efinity/vision_map.xml": {
+      "bytes": 8230,
+      "sha256": "b0dc10b4daf0f565dcd1aa702441c4388f5e6be114dbbafa616996aedcb49914"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/firmware/events_style0.txt": {
+      "bytes": 26319,
+      "sha256": "aebee9418387cffc1c417b127d51e3f6967f2ff81dc389c1fb4b361c7f5db380"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/firmware/events_style1.txt": {
+      "bytes": 26304,
+      "sha256": "1ba5558a5481f5deca965e09fa9881e0d1e8112e0bf2a48d789e4ebd917d3901"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/firmware/events_style2.txt": {
+      "bytes": 26326,
+      "sha256": "5a14f39db0690d7cf2c5cd75cfdcec1974fa88e21a4896684567028d07f95ef7"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/gcc_guard.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/gcc_host.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/gcc_main_camera0.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/gcc_main_camera1.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/guard_test.log": {
+      "bytes": 22,
+      "sha256": "779983ebddde67a62786cfeccc1ee9e959fa2a884dac4e9ac5dae212016b337a"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/python_environment.json": {
+      "bytes": 137,
+      "sha256": "e6da8f0ca29d763f67e4709743a9172278737cc96d9a3af4ba5571f16cb4325c"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_serialized_switch/compile.log": {
+      "bytes": 4337,
+      "sha256": "3166631a1f6ec0b46b831d71674157f20fae599c1e35cd3acf295b785dd60efa"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_serialized_switch/result.json": {
+      "bytes": 1949,
+      "sha256": "a1b621cc59139610d68eed1f6f25e293c8575a41ec565d1ad41aa6bbb15b338e"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_serialized_switch/simulation.log": {
+      "bytes": 255,
+      "sha256": "0b841bcda8d9338823eefe09ae008c7bf14b379f18c0e25e31e782d6d3ed451f"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_serialized_switch/verilate.log": {
+      "bytes": 32802,
+      "sha256": "1f9eb164b5bf9586c577f6c68a2972407b58b1bb0ebd43c7086ca59fb55ac4e8"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style0/compile.log": {
+      "bytes": 4315,
+      "sha256": "fc8f98d5ace7a217b5e16605a40ac7c5f71f1cbc5cda3a9849c43176cb9cd1e0"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style0/result.json": {
+      "bytes": 2000,
+      "sha256": "cb319141565f523a65295e5c67b0cb75564d67a8990f55e05bb706ad60115ea1"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style0/simulation.log": {
+      "bytes": 259,
+      "sha256": "d4386c03c576997b941c8e250f0c3c95e3a8d45ef69778bdd6d7ed8f40c36302"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style0/verilate.log": {
+      "bytes": 37414,
+      "sha256": "54f03b37e28a0f35f38f35c296abfe74557fb3068857ec691951769234076f26"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style1/compile.log": {
+      "bytes": 4315,
+      "sha256": "6685d234aa23a2b73e5f850ead5aacd583fd350b890dab48a4fe75106d7a315b"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style1/result.json": {
+      "bytes": 1999,
+      "sha256": "739542a0c77f2bf83b0acf9f179f861831e27020d06eb63c277c46ee61679da9"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style1/simulation.log": {
+      "bytes": 257,
+      "sha256": "8cb3080d8e824ff263efdda347cae58407c5bae8250af629695172f637271fc4"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style1/verilate.log": {
+      "bytes": 37414,
+      "sha256": "7754b2c66508bbdff4bffb209ae329857e75a71485988e4e6a68224001876e46"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style2/compile.log": {
+      "bytes": 4315,
+      "sha256": "41c3c828d6e7b3ee453f5d5d8307d883deea7ff9e8dbd83b44ca9f3774b5e26a"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style2/result.json": {
+      "bytes": 2006,
+      "sha256": "6c53db0b621114b3f327c7954d3513a6fe2ae27a5aa8e2fe1a9b7e191da48dac"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style2/simulation.log": {
+      "bytes": 257,
+      "sha256": "ba5f8b862340d77df734538e7f86ea6dee6c990987038229de04f572e2b45d1c"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/rtl_style2/verilate.log": {
+      "bytes": 37414,
+      "sha256": "f01bca34102e54cd9ee09599a1e92beb35384e940a6976690f0e3c826551ca1d"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/system/frame_ids.csv": {
+      "bytes": 1269,
+      "sha256": "1395e903007b344834b1188aabd728d21c01f2957a2bcde8fe5c4cc6b83c95fb"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/system/sim_display.png": {
+      "bytes": 11613,
+      "sha256": "c2eaa40d0c4fc0bbc7841d715416d970fe170f3a78be339652ddf91f8d8c09d6"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/system/stats_sys.txt": {
+      "bytes": 681,
+      "sha256": "b5f568e87527e9ebe5b60cf658768c89ef8a91ed9fb04c57ec7ef28c1bcb5c52"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/system/system.log": {
+      "bytes": 682,
+      "sha256": "01c0953b09ed8dcc60da31b1623603a425061c9061a0c1139b039837d8ff7dbd"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/verification.json": {
+      "bytes": 30135,
+      "sha256": "3bd51e71f1da69cec4be50087abe51871af54ed80de23bf9f8800063b3010604"
+    },
+    "StyleCam/audits/delivery_pc_v21_20261005/vga_and_bank_vectors.zip": {
+      "bytes": 31482102,
+      "sha256": "3a60a789a040d04ba6f9e10de789264d6a56e62c9e26eca0fbdd131f6cbfc304"
     },
     "StyleCam/audits/fp32_training/README.md": {
       "bytes": 11081,
@@ -3177,8 +3337,8 @@
       "sha256": "bfa965cc1974b98bf68b6e3ce4a458b358d101f499c6f29bb9fc6ae08c24b87e"
     },
     "StyleCam/audits/v21b_ukiyoe_qat900_soft15_paired24/summary.json": {
-      "bytes": 119797,
-      "sha256": "f1bfa3c6a5d0fc41f3b9f9f8164bf47787d4c78072d098d198313b432e76558f"
+      "bytes": 119899,
+      "sha256": "20eb86c7a97b7d111ece077ed687dc472dfebfdc40e2ae32f289f4b868e7c986"
     },
     "StyleCam/dataset_v2/manifests/SHA256SUMS.txt": {
       "bytes": 39750,
@@ -3301,8 +3461,8 @@
       "sha256": "d48537fdd109c84e550a9f2433e8151555056f1d48566a6318badc2a53878830"
     },
     "StyleCam/docs/PC验证报告.md": {
-      "bytes": 5026,
-      "sha256": "c1971ce2005150af61285ee7bb6a3b908171d247351a915055fa7fd13b44d5c3"
+      "bytes": 5351,
+      "sha256": "48be2fa2e703e57759a4a19017038fb130444fdc8959e369b61b0d0f9553f0f8"
     },
     "StyleCam/docs/competition_objectives_priority_20261004.md": {
       "bytes": 6830,
@@ -3377,16 +3537,16 @@
       "sha256": "c606ac5555ce6102deb5398460e91ee5ffd9191c76d6afd6a7f5a41299eb15ec"
     },
     "StyleCam/docs/v21_hardware_handoff_20261005.md": {
-      "bytes": 3712,
-      "sha256": "8b52e37b6cfdf1255389139c1295f8ae0d8f7751b9168e2d6d135e1bf0c8ae0e"
+      "bytes": 5556,
+      "sha256": "5264342204f1864024c3b9692b64527fa572796616d33d4bb30c3c872a112510"
     },
     "StyleCam/docs/v21_targeted_optimization_20261005.md": {
-      "bytes": 4497,
-      "sha256": "79df7cca66649ea39d38ac628cef0b63bf57ee7f017cc89f67899443303af59a"
+      "bytes": 4727,
+      "sha256": "71a9705346b763df071b519e9e65d3aa0168359c558d5e0d5a0bbe1ca831ffa2"
     },
     "StyleCam/docs/板级集成与烧录步骤.md": {
-      "bytes": 7999,
-      "sha256": "bfa7d2a7dd079e4009b47c7f5ceab507698a8252d57ad1ab13d63efdd92fa4b2"
+      "bytes": 8023,
+      "sha256": "ac2ffbddb763948688682f93a45330ea58621d2cb31bed8796bc7ccc415e1938"
     },
     "StyleCam/docs/硬件组实测与回填.md": {
       "bytes": 8560,
@@ -4113,8 +4273,8 @@
       "sha256": "76a5ee2c8c9466ddf6decff943315bc8b4c7a1280c77e58b92ab2bcdece71427"
     },
     "StyleCam/rtl/vision_top.v": {
-      "bytes": 8715,
-      "sha256": "bb65c0e49a4bc02e9a0a4aa6b214198e3d046f3a167e6a7992f749d71cee30d8"
+      "bytes": 8716,
+      "sha256": "c635d0f74ae762a1230c766f3b8d8f9ead640b155d1b87d46297457146556830"
     },
     "StyleCam/runs/art_styles_c24_graphic_v6/config.json": {
       "bytes": 702,
@@ -4441,32 +4601,32 @@
       "sha256": "5f9cee34281e0a38b55c7c2539e0f81306362b01d09293e62bbc464c6121d780"
     },
     "StyleCam/samples/ink_landscape_fp32.png": {
-      "bytes": 591492,
-      "sha256": "db54fc35e53af4eadecf9bfd9a43a24015bacda0b55244e355fcf9680f79a26c"
+      "bytes": 651571,
+      "sha256": "c49ad15e408b5c324cda212c30f89d8b08475a4d9d2a8f10734d98c51e5992a1"
     },
     "StyleCam/samples/ink_landscape_int.png": {
-      "bytes": 616153,
-      "sha256": "a366de64debc1f7e4b04274ef50e00753e2c026b3d2bb7b4a8cce8029fb14fcb"
+      "bytes": 678562,
+      "sha256": "b547687b6a25bb033107c1503fffdcaf8551d982a8aae860a502dd049da66660"
     },
     "StyleCam/samples/input.png": {
       "bytes": 527863,
       "sha256": "9502d260a9c6bfef3223634f285bd8e1bd3643d06ac44acb77cd6eee1e013e00"
     },
     "StyleCam/samples/ukiyo_e_fp32.png": {
-      "bytes": 582561,
-      "sha256": "2359bf1029df9efd79b71a46dab1bbca036dfd548746be4db9867b2e1fb6c8c1"
+      "bytes": 619203,
+      "sha256": "8512f18e31f5cb67cf00a96a52da522323e237222bf4b7f78537191da96f9e5c"
     },
     "StyleCam/samples/ukiyo_e_int.png": {
-      "bytes": 627108,
-      "sha256": "c8904733e519583704759eafcbea4fafe5acc2d3f26061ed2475a3769304b496"
+      "bytes": 671217,
+      "sha256": "06e66f34d7e12178c41cd6154effec3c6c92b64c3eeb6aca606eb7a268d5dda1"
     },
     "StyleCam/samples/van_gogh_fp32.png": {
-      "bytes": 756966,
-      "sha256": "5063d1f1092b86d202acde01bd846da80af60e24bc9e1c16a62bd5fb7368787c"
+      "bytes": 735233,
+      "sha256": "d3a3e3e60fc1cabcf33dd6019a6cae6b8c4abe56361cc7ce714afeb76644be5e"
     },
     "StyleCam/samples/van_gogh_int.png": {
-      "bytes": 775944,
-      "sha256": "bfaf6cd415886833e3912eab104c847ac3dbba0ea0e4e234f603e84010ce6eb6"
+      "bytes": 763046,
+      "sha256": "6a35a87952e2eb65f23943520e54fba38cb65edce0b862baf0d1267cd6a26bc1"
     },
     "StyleCam/sim/axi_mem.v": {
       "bytes": 3507,
@@ -4481,8 +4641,8 @@
       "sha256": "85f3a49438bd87869176580c5e7cecaf4f39e1874c7f650c1b8f4ec3a4ca4f96"
     },
     "StyleCam/sim/run_rawbin.py": {
-      "bytes": 5273,
-      "sha256": "4d873d02df7f3cb22472a85dbd59d290d67e6c41c4370c7b783abb297ae19091"
+      "bytes": 5414,
+      "sha256": "e955359136607980a71c1918211d3ebcaf8d81dd97eb39186b4852d522d37a1b"
     },
     "StyleCam/sim/run_rawbin2.py": {
       "bytes": 5992,
@@ -4497,8 +4657,8 @@
       "sha256": "9b8a009558b5842f7d0816b1ad35a5ab901e5c1b75957570ce9aa9e1fa1a0d9d"
     },
     "StyleCam/sim/run_sys.py": {
-      "bytes": 5870,
-      "sha256": "20db28aaeb0624f1d97ea457b9a53588852bc6e7d9534ac9ee6fd5e740f85db4"
+      "bytes": 6152,
+      "sha256": "89d8ec9f4fca73cc0513ab7e678d0c673121fbfcaf44fdb75ef0e79a22ba3a91"
     },
     "StyleCam/sim/tb_axi.v": {
       "bytes": 5580,
@@ -4509,16 +4669,16 @@
       "sha256": "8103323b48c9b09869df63d1f2bb47a7b23f96abe79754076851575c99652688"
     },
     "StyleCam/sim/tb_sys.v": {
-      "bytes": 7746,
-      "sha256": "16d64bd4b84715c488779b5e8298f0056106b2e2faaa9b6a884b2ac0c2229878"
+      "bytes": 7778,
+      "sha256": "6f37bb9c6517706cf0a2ed0880e69aec1af633d720757a8ced1446b8c84bdc35"
     },
     "StyleCam/sw/board_profile.h": {
       "bytes": 539,
       "sha256": "45acaa58deaccb06a599d8596d5c8ad15e79ad977d02bd3b4085ac4bbf331519"
     },
     "StyleCam/sw/hal.h": {
-      "bytes": 927,
-      "sha256": "07e195e133507c0767752044a68c98cbdccde6ff2703ef5c237105ca3e02943c"
+      "bytes": 954,
+      "sha256": "6fb292d104ce9f4c4a936c682d6149493ad5637bde6dfd16cd8fe024d916781b"
     },
     "StyleCam/sw/hal_sapphire.c": {
       "bytes": 1842,
@@ -4545,8 +4705,8 @@
       "sha256": "f44197d404de7edeeb8ebf4e6b878288fe0945c2f7d8173048640455574afe2b"
     },
     "StyleCam/sw/main.c": {
-      "bytes": 6043,
-      "sha256": "dbe41602e154866d2cf361bbb465bd7ff6d06a785d0f41496a3db98eb5c4a064"
+      "bytes": 7266,
+      "sha256": "459be298c07617bf1bab623fb0dc7419110eec8dd4a056891a20b8a0d0078662"
     },
     "StyleCam/sw/net_blob.h": {
       "bytes": 156292,
@@ -4605,16 +4765,16 @@
       "sha256": "dcfb7ffd4a5f05e83a2dc6e72f5bcc857d2d8f8a8dd48c67ad87c2069beef802"
     },
     "StyleCam/sw/vision.c": {
-      "bytes": 9381,
-      "sha256": "c89f41ffb899401c4db570ae8e09f850babffc000ab91b9fad1b433c94477a26"
+      "bytes": 9712,
+      "sha256": "4468f315f2785b2acd8dcb451db4d52b7960eedc475ca82a8a24996549189104"
     },
     "StyleCam/sw/vision.h": {
-      "bytes": 4113,
-      "sha256": "6ea9b7739a182571b7b5f689c648b05458e2c39bc4a7786375ca0fc0f1137888"
+      "bytes": 4215,
+      "sha256": "67a3c2c102ce81ca8a92c942a617c0f3378cf58dbd412f42e01edff5046e9d6a"
     },
     "StyleCam/syn/vision_map.xml": {
-      "bytes": 7651,
-      "sha256": "75ac10d7dfe549a7fde609de0fe1b3dbbaf8a46dc42fa1c699649fdaf5c8f8a1"
+      "bytes": 7660,
+      "sha256": "270bccc8700a4b46cb046674be95ab4315371f9c687e57093fa2f7cc37d10496"
     },
     "StyleCam/tools/build_v6_delivery.py": {
       "bytes": 2436,
@@ -4629,8 +4789,8 @@
       "sha256": "11b33762d6796dddd0120b37314a5fdf2b9f9e997aabba8d486bd4e3e93496c6"
     },
     "StyleCam/tools/check_system.py": {
-      "bytes": 1592,
-      "sha256": "e047eed0b72b94c05a9d43685a5060ae5386d7348f1b49c716c84c0ee282a692"
+      "bytes": 1602,
+      "sha256": "8435ab5d8cb435460114dec27d2a89b879784a335947972eb4163e53be7e31ba"
     },
     "StyleCam/tools/dl_coco.sh": {
       "bytes": 974,
@@ -4653,8 +4813,8 @@
       "sha256": "80fe40c037cc4584bf20b8f1dafc188a42c98a8d0bee6fab7ea91df5ad9e3cd3"
     },
     "StyleCam/tools/prepare_efinity_check.py": {
-      "bytes": 2179,
-      "sha256": "a5854e9b4ed9b835c4e98431194320814b856cc9a49beed0359316e4da0ec7af"
+      "bytes": 2403,
+      "sha256": "b4c6c0e7be4ca47c600ff56441ddf70257617a66710e8b49ee28befda9298feb"
     },
     "StyleCam/tools/regress.ps1": {
       "bytes": 3002,
@@ -4669,8 +4829,8 @@
       "sha256": "1e52805240a134967fceaa0fb8a97be723b27cd80fbeb5d19221431a51525018"
     },
     "StyleCam/tools/verify_delivery.py": {
-      "bytes": 7490,
-      "sha256": "bda5367a0592d7dc9bd6c65fa443245b8046b59696f9ac49f400af91fd0fa981"
+      "bytes": 7973,
+      "sha256": "976e6b0ca13fe5b32e6bc378fe2f999445b1a0a778c494f8d95f4a2e528f33fd"
     },
     "StyleCam/vendor/sapphire_soc_reference/09_Ti60F225_hardjtag_demo/par/ddr_demo_ti60/ddr_demo_ti60.peri.xml": {
       "bytes": 57250,
@@ -7765,12 +7925,12 @@
       "sha256": "4f16f36d7bc669e11a25ef2fb3e476864b78e06d667e2a9288ee4fc4ab1ee971"
     },
     "deployment_status.json": {
-      "bytes": 1402,
-      "sha256": "3325cff8e52fa0cdd0a85963c30f85447efefe54e9a8d06cd1063d4ebb477dbc"
+      "bytes": 1978,
+      "sha256": "183366a2000bdba98b65c6ca7414b03355320d17f13594759a86de8fb01960f2"
     },
     "交付说明.md": {
-      "bytes": 3540,
-      "sha256": "64aeb7126235d5d16735351d7a59bb7cd05b9df91d7a9d1bb80c084c73f8150b"
+      "bytes": 4580,
+      "sha256": "12fccd476fa40990f2a73ea867ea77f5d96e6f2a1cde97c62da7075a322ab012"
     }
   }
 }

@@ -1,4 +1,4 @@
-"""Run the packaged v6 contract through the reduced synthetic system fixture."""
+"""Run the packaged v21 contract through the reduced synthetic system fixture."""
 import argparse
 import os
 from pathlib import Path
@@ -25,7 +25,7 @@ def main():
     env = dict(os.environ, IVERILOG=args.iverilog, VVP=args.vvp, PYTHONIOENCODING='utf-8')
     env['PATH'] = str(Path(args.iverilog).parent) + os.pathsep + env['PATH']
     cmd = [sys.executable, '-X', 'utf8', '-u', str(stage / 'sim/run_sys.py'),
-           '--contract', str(stage / 'rtl/gen/v6_cal100_640x480/qparams'), '--image', str(stage / 'input.png')]
+           '--contract', str(stage / 'rtl/gen/v21b_ukiyoe_qat900_640x480/qparams'), '--image', str(stage / 'input.png')]
     r = subprocess.run(cmd, cwd=stage, env=env, capture_output=True, timeout=300)
     (stage / 'system.log').write_bytes(r.stdout + r.stderr)
     print(r.stdout.decode('utf-8', errors='replace'))

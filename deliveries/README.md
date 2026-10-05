@@ -1,7 +1,7 @@
 # StyleCam 交付索引
 
 - [v21b 硬件交付（2026-10-05）](FPGAProjects_StyleCam_v21_20261005/README.md)：固定 v6/v8 推理图的最新训练监督候选，包含 v21b INT8 RTL、blob、固件头、PC/RTL/固件复验和风格评估。
-- [v6 硬件交付（2026-10-04）](FPGAProjects_StyleCam_v6_20261004/README.md)：上一版硬件组交付与板级集成基线。
+- [v6 硬件交付（2026-10-04）](FPGAProjects_StyleCam_v6_20261004/交付说明.md)：上一版硬件组交付与板级集成基线。
 
 v21b 与 v6 使用不同权重/系数/blob，硬件组必须整套取用同一目录中的部署文件。
 # StyleCam v6 硬件交付

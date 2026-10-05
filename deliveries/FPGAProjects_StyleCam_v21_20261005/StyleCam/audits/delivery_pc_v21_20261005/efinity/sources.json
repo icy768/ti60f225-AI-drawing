@@ -1,0 +1,86 @@
+{
+  "sources": [
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\vision_top.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\vision_top.v",
+      "sha256": "c635d0f74ae762a1230c766f3b8d8f9ead640b155d1b87d46297457146556830"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\vision_core.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\vision_core.v",
+      "sha256": "76a5ee2c8c9466ddf6decff943315bc8b4c7a1280c77e58b92ab2bcdece71427"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\disp.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\disp.v",
+      "sha256": "f296ea91f61b4a4e8bf9843f2158dd7181ff00377de31f59d2795456a5456120"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\cam_scale3.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\cam_scale3.v",
+      "sha256": "7c65fb24fdc7e7e9385796eceeb5256b4f7178924412662af698558626712d5a"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\raw_bin3.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\raw_bin3.v",
+      "sha256": "0de4f2b2d0a20030b2ba34b64a6f582e256fe74539a30e6d5e182c48a54bbc0c"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\raw_bin2.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\raw_bin2.v",
+      "sha256": "57771b810ae88eea44eb0bf2507fd672d6ea452ee3e95ccfbdd7bcd56c18e3d3"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\motion_det.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\motion_det.v",
+      "sha256": "3d2d68577accdc064272edff2aecc0fb80ac089fe12c07a33f7203bda72392ec"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\axi_frame.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\axi_frame.v",
+      "sha256": "7beaccb9f14e317da3b94e778a35720c152ad642758570300f8916538afe80d8"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\axi_arb.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\axi_arb.v",
+      "sha256": "c5bc7a6d320c4d87101ba4856427b558dadc626db541aa89f7a7ac4c246131de"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\conv_layer.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\conv_layer.v",
+      "sha256": "57bad6453a48587eca7183931521973b2cc027483577e3d555ea9e01eab7fc21"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\swg3.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\swg3.v",
+      "sha256": "744e3bf138aed08d6dfa2f52e3b74f5a18cd4f317f50453624c84ba7ed7f6bdb"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\swg3b.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\swg3b.v",
+      "sha256": "7da6afa86be298e89de225cfa80e3a67265780b4dd27bb42fedfb4a5d42bb507"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\mac.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\mac.v",
+      "sha256": "c654f3081fb89e24eb41f2dd3f6c2767b1be8dd8682859ac30274e0706ad1861"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\requant.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\requant.v",
+      "sha256": "1d55ae86dca265d72384af8eed102187af1049d31479530a6d235645aaf9e061"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\common.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\common.v",
+      "sha256": "bbbbbf33b5434db29a435992dd36eafdf0a9244e29b9ef42060e67b409ccee30"
+    },
+    {
+      "source": "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\_stylecam_upload_v21\\deliveries\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\rtl\\gen\\v21b_ukiyoe_qat900_640x480\\stylenet_top.v",
+      "staged": "C:\\CodexTemp\\stylecam_v21_map_20261005\\rtl\\gen\\v21b_ukiyoe_qat900_640x480\\stylenet_top.v",
+      "sha256": "2f8abfa49e09cd4d85962261d32485f40ae8dcee801ba2bdcf54545f080e8be3"
+    }
+  ],
+  "scope": "v21b QAT900 integer network; SC431HAI vision_top subsystem; not the complete board design",
+  "constraints": "Existing XML has no SDC or board interface constraints"
+}

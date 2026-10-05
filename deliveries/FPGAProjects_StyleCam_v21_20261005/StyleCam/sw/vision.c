@@ -50,12 +50,20 @@ static void cfg_write(uint32_t addr, uint32_t lo, uint32_t hi)
 // 装载权重与各风格系数镜像（格式见 algo/export_blob.py）
 int vision_load_blob(const uint32_t *blob, uint32_t nwords)
 {
-    if (nwords < 4 || blob[0] != 0x53544E31u) return -1;
+    if (!blob || nwords < 4 || blob[0] != 0x53544E31u) return -1;
     uint32_t n = blob[1];
-    if (4 + 3 * n > nwords) return -2;
+    if (n == 0 || n > (nwords - 4u) / 3u || 4u + 3u * n != nwords) return -2;
+    if (blob[2] != NET_NSTYLE || blob[3] != 0) return -3;
     const uint32_t *p = blob + 4;
     for (uint32_t i = 0; i < n; i++, p += 3) cfg_write(p[0], p[1], p[2]);
     return (int)n;
+}
+
+int vision_set_buffer_base(uint32_t base)
+{
+    if ((base & 0x1fffffu) || base > UINT32_MAX - STYLECAM_FRAME_RESERVED_BYTES) return -1;
+    REG_WR(V_BUF_BASE, base);
+    return REG_RD(V_BUF_BASE) == base ? 0 : -2;
 }
 
 // ---------------- IN 逐帧刷新 ----------------

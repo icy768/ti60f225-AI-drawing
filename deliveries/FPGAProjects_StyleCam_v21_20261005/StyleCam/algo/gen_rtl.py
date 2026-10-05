@@ -270,6 +270,7 @@ def make_tb(outdir, n, W, H, nfr, seed, rin, rout, load=0, stl=0, stc=24, bank=0
 
 
 def simulate(outdir):
+    outdir = os.path.abspath(outdir)
     srcs = [os.path.join(outdir, "tb_top.v"), os.path.join(outdir, "stylenet_top.v")] + \
            [os.path.join(RTL, f) for f in ("common.v", "swg3.v", "swg3b.v", "mac.v", "requant.v", "conv_layer.v")]
     exe = os.path.join(outdir, "tb.vvp")
