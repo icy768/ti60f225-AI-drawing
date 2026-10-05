@@ -1,0 +1,42 @@
+{
+  "name": "c24_dw1_shared_training_route",
+  "deployment_graph": {
+    "C": 24,
+    "Fc": 16,
+    "n_res": 4,
+    "block": "dw1",
+    "norm": "in",
+    "styles": ["candy", "mosaic", "rain_princess", "udnie"],
+    "graph_change": false,
+    "rtl_change": false
+  },
+  "quality_experiments": [
+    {
+      "name": "camera_temporal_fp32_candidate",
+      "base_checkpoint": "runs/c24_dw1_in/student.pt",
+      "weights_only": true,
+      "iters": 3000,
+      "lr": 0.0002,
+      "qat_frac": 1.0,
+      "camera_aug_prob": 0.75,
+      "temporal_weight": 0.005,
+      "temporal_shift": 1,
+      "w_gram": 0.0,
+      "out": "runs/final_route_camera_temporal_fp32"
+    },
+    {
+      "name": "camera_temporal_qat_candidate",
+      "base_checkpoint": "runs/final_route_camera_temporal_fp32/student.pt",
+      "weights_only": true,
+      "iters": 3000,
+      "lr": 0.0002,
+      "qat_frac": 0.5,
+      "camera_aug_prob": 0.75,
+      "temporal_weight": 0.005,
+      "temporal_shift": 1,
+      "w_gram": 0.0,
+      "out": "runs/final_route_camera_temporal_qat"
+    }
+  ],
+  "deployment_rule": "Do not regenerate or overwrite RTL until same-protocol quality, integer golden, synthesis, full-system FPS, frame-id loss, IN and style-switch gates pass."
+}

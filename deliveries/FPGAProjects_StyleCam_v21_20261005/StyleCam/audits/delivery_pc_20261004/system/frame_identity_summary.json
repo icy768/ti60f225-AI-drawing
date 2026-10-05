@@ -1,0 +1,13 @@
+{
+  "event_counts": {
+    "source": 19,
+    "camera_complete": 18,
+    "nn_start": 6,
+    "nn_complete": 5,
+    "display_commit": 8
+  },
+  "unique_nn_completed": 5,
+  "display_commits": 8,
+  "unique_display_ids": 5,
+  "caveat": "Source tap is post-camera-frontend cam_go; synthetic fixture, not physical camera or performance acceptance"
+}

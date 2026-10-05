@@ -1,0 +1,284 @@
+[
+  {
+    "style": "van_gogh",
+    "object_id": 436535,
+    "weight": 0.6,
+    "crop": [
+      0.03,
+      0.03,
+      0.97,
+      0.97
+    ],
+    "additional_center_crop_fraction": 0.5,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\data\\styles_art\\van_gogh_wheat_field.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/ep/original/DP-42549-001.jpg",
+    "sha256": "b46d02a42fd3bb13b022cefc5beaa997b1d7a28cd7b53e4413d940aa0dc4014d",
+    "title": "Van Gogh, Wheat Field with Cypresses",
+    "transform": "color 1.35 contrast 1.08"
+  },
+  {
+    "style": "van_gogh",
+    "object_id": 436524,
+    "weight": 0.25,
+    "crop": [
+      0.03,
+      0.03,
+      0.97,
+      0.97
+    ],
+    "additional_center_crop_fraction": 0.5,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\van_gogh\\candidate\\met_436524_Vincent_van_Gogh_Sunflowers.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/ep/original/DP-41223-001.jpg",
+    "sha256": "ba7160774025633fab2891c33840d8316af28e5c1eba8f79a48115a065391f3c",
+    "title": "Sunflowers",
+    "transform": "color 1.35 contrast 1.08"
+  },
+  {
+    "style": "van_gogh",
+    "object_id": 437998,
+    "weight": 0.15,
+    "crop": [
+      0.03,
+      0.03,
+      0.97,
+      0.97
+    ],
+    "additional_center_crop_fraction": 0.5,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\van_gogh\\candidate\\met_437998_Vincent_van_Gogh_Olive_Trees.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/ep/original/DT1946.jpg",
+    "sha256": "04e9591ae681528da4d6d1589288174cfdae5fa011b6e31d400a5ca4396a6dbb",
+    "title": "Olive Trees",
+    "transform": "color 1.35 contrast 1.08"
+  },
+  {
+    "style": "ukiyo_e",
+    "object_id": 39799,
+    "weight": 0.7,
+    "crop": [
+      0.04,
+      0.06,
+      0.96,
+      0.96
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\data\\styles_art\\ukiyo_e_hokusai_great_wave.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP141042.jpg",
+    "sha256": "b410eeec0473c4e63eef12434a5a7c4613401c6e18670718d7727f36a441495c",
+    "title": "Hokusai, Under the Wave off Kanagawa",
+    "transform": "color 1.20"
+  },
+  {
+    "style": "ukiyo_e",
+    "object_id": 36492,
+    "weight": 0.2,
+    "crop": [
+      0.04,
+      0.08,
+      0.96,
+      0.96
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\ukiyo_e\\candidate\\met_36492_Katsushika_Hokusai_Storm_below_Mount_Fuji_Sanka_no_haku_u_from_the_series_Thirty-six_Views_of_Mount.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP140976.jpg",
+    "sha256": "5eecfe6970d0cc223a67e4f9dffc25fcd08053e2a0e310cf8fe5538a793d16d5",
+    "title": "Storm below Mount Fuji (Sanka no haku u), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+    "transform": "color 1.20"
+  },
+  {
+    "style": "ukiyo_e",
+    "object_id": 45287,
+    "weight": 0.1,
+    "crop": [
+      0.04,
+      0.08,
+      0.96,
+      0.96
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\ukiyo_e\\candidate\\met_45287_Utagawa_Kuniyoshi_Concise_Illustrated_Biography_of_Monk_Nichiren_Calming_the_Stormy_Sea_at_Ts.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP124477.jpg",
+    "sha256": "0b4e5367f2508fc2f02e1f8920c6bbe4ee4dc9aec34844749efc311bccc75cec",
+    "title": "Concise Illustrated Biography of Monk Nichiren: Calming the Stormy Sea at Tsunoda in Exile to Sado Island",
+    "transform": "color 1.20"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 45636,
+    "weight": 0.55,
+    "crop": [
+      0.1,
+      0.32,
+      0.9,
+      0.88
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\data\\styles_art\\ink_ni_zan_woods_valleys.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP-19459-002.jpg",
+    "sha256": "056fc972ea8060eb6a9a47f0c223d0352d660d7decf4d0b034b7536135d04bc2",
+    "title": "Ni Zan, Woods and Valleys of Mount Yu",
+    "transform": "grayscale autocontrast cutoff 1 percent"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 49173,
+    "weight": 0.25,
+    "crop": [
+      0.08,
+      0.15,
+      0.9,
+      0.9
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\ink_wash\\candidate\\met_49173_Shitao_Zhu_Ruoji_Returning_Home.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP143725_CRD.jpg",
+    "sha256": "00e99cbd1d9fa6ff1ee9b680b50602993490a03f9406251778d28b5347091fac",
+    "title": "Returning Home",
+    "transform": "grayscale autocontrast cutoff 1 percent"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 49180,
+    "weight": 0.2,
+    "crop": [
+      0.08,
+      0.26,
+      0.9,
+      0.86
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\ink_wash\\candidate\\met_49180_Shitao_Zhu_Ruoji_Landscapes_of_the_Four_Seasons.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP162815.jpg",
+    "sha256": "d2ec1cb3e084e7e17cffbe27b7cf59cc9fe1f77f2d661e24c9365b71959bb0c9",
+    "title": "Landscapes of the Four Seasons",
+    "transform": "grayscale autocontrast cutoff 1 percent"
+  },
+  {
+    "style": "van_gogh",
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\skill_teacher_expanded_20261005\\city_street_vangogh_imagegen_20261005.png",
+    "source_kind": "synthetic_skill_teacher",
+    "weight": 0.1,
+    "sha256": "fdaa42b689d945196c124d190115b8a85a95bb51d2ba8f3d0a6941cca05599d6"
+  },
+  {
+    "style": "van_gogh",
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\skill_teacher_expanded_20261005\\procedural_oil_wheatfield.jpg",
+    "source_kind": "synthetic_skill_teacher",
+    "weight": 0.1,
+    "sha256": "7c081ac8dfd681ca952a6a6560ce6c302d5b7551683dbe33e2a1056f897702b2"
+  },
+  {
+    "style": "ukiyo_e",
+    "object_id": 54437,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references_expanded_20261005\\ukiyo_e_met_54437.jpg",
+    "source_kind": "The Met Open Access/public domain",
+    "weight": 0.15,
+    "sha256": "fc512532676fa7cf57186d3c1d4cd4ebaafdb64ff02fbd173397f952c716b1a1"
+  },
+  {
+    "style": "ukiyo_e",
+    "object_id": 54905,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references_expanded_20261005\\ukiyo_e_met_54905.jpg",
+    "source_kind": "The Met Open Access/public domain",
+    "weight": 0.15,
+    "sha256": "a8535f403f3cc5c798f4b7ee1b0976b3621dbb7c13992e82efcf0961a24f00b3"
+  },
+  {
+    "style": "ukiyo_e",
+    "object_id": 55118,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references_expanded_20261005\\ukiyo_e_met_55118.jpg",
+    "source_kind": "The Met Open Access/public domain",
+    "weight": 0.15,
+    "sha256": "d48537fdd109c84e550a9f2433e8151555056f1d48566a6318badc2a53878830"
+  },
+  {
+    "style": "ukiyo_e",
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\skill_teacher_expanded_20261005\\city_street_ukiyoe_imagegen_prior.png",
+    "source_kind": "synthetic_skill_teacher",
+    "weight": 0.1,
+    "sha256": "fed980cebec54e8cee94ff0829758ef1d09bcdc32db45034643cea9b5f5bf411"
+  },
+  {
+    "style": "ukiyo_e",
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\skill_teacher_expanded_20261005\\procedural_ukiyoe_fuji.jpg",
+    "source_kind": "synthetic_skill_teacher",
+    "weight": 0.1,
+    "sha256": "bcf7a2a18e0afe6fb854a141914a52730f20ab81a7f0326e793e95da69a69785"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 45070,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references_expanded_20261005\\ink_wash_met_45070.jpg",
+    "source_kind": "The Met Open Access/public domain",
+    "weight": 0.15,
+    "sha256": "5425551e914e25474c3475ea0565fd70b7cf4688441c965b888ef9d4eff4b572"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 45420,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references_expanded_20261005\\ink_wash_met_45420.jpg",
+    "source_kind": "The Met Open Access/public domain",
+    "weight": 0.15,
+    "sha256": "91bf099077630e3bf8cda55019873055cc9032d7436b4408fe1b75d5b1505694"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 45700,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references_expanded_20261005\\ink_wash_met_45700.jpg",
+    "source_kind": "The Met Open Access/public domain",
+    "weight": 0.15,
+    "sha256": "b130cd032e5b236036ba953cedc484614c95d2215c7f0555cca791b9b062651c"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 42342,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references_expanded_20261005\\ink_wash_met_42342.jpg",
+    "source_kind": "The Met Open Access/public domain",
+    "weight": 0.15,
+    "sha256": "f67094810f2a71080a143940726661231cdc62b9035cd9982e43faf34711fb67"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 42346,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references_expanded_20261005\\ink_wash_met_42346.jpg",
+    "source_kind": "The Met Open Access/public domain",
+    "weight": 0.15,
+    "sha256": "bfcc0d3658b52d3876cea4ebd9fa0c464e9fe887641f86ee464a412cd6ef0652"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 42344,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references_expanded_20261005\\ink_wash_met_42344.jpg",
+    "source_kind": "The Met Open Access/public domain",
+    "weight": 0.15,
+    "sha256": "5a3b9d719df79050284069d8be23910143967617d7b5a00c25295f81883d5df8"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 49131,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references_expanded_20261005\\ink_wash_met_49131.jpg",
+    "source_kind": "The Met Open Access/public domain",
+    "weight": 0.15,
+    "sha256": "b17ce366beeb9aa5f987dbcda23af695e0e2e7908f3e59afaf37261e234632d3"
+  },
+  {
+    "style": "ink_landscape",
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\skill_teacher_expanded_20261005\\city_street_ink_imagegen_prior.png",
+    "source_kind": "synthetic_skill_teacher",
+    "weight": 0.08,
+    "sha256": "520499c6a40486286126a4b6045284a7b64f4b05576e73b2c3262a57703055cf"
+  },
+  {
+    "style": "ink_landscape",
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\skill_teacher_expanded_20261005\\ink_output_e1.png",
+    "source_kind": "synthetic_skill_teacher",
+    "weight": 0.06,
+    "sha256": "593b2dbd4f96f5b7a03a07f99bea374bc98bf7cdae1af7d7e078e5429fe9657d"
+  },
+  {
+    "style": "ink_landscape",
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\skill_teacher_expanded_20261005\\ink_output_e4.png",
+    "source_kind": "synthetic_skill_teacher",
+    "weight": 0.06,
+    "sha256": "c728f30c1a4326db77c8962673230127d95de1462c1c2f642ce1fec7b2f60b15"
+  }
+]

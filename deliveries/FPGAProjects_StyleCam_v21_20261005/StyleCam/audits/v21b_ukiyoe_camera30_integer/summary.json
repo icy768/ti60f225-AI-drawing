@@ -1,0 +1,31 @@
+{
+  "qparams": "audits\\v21b_ukiyoe_qat900_soft15_export",
+  "qparams_sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+  "frames_dir": "audits\\v10_region_20261004\\pc_camera30\\raw",
+  "frame_count": 30,
+  "styles": [
+    "van_gogh",
+    "ukiyo_e",
+    "ink_landscape"
+  ],
+  "models": {
+    "van_gogh": {
+      "aligned_mae_255": 14.369371677267141,
+      "mean_valid_fraction": 0.8576501885775862,
+      "raw_delta_255": 14.50282675644447,
+      "golden_cpu_latency_ms_median": 95.9019999972952
+    },
+    "ukiyo_e": {
+      "aligned_mae_255": 7.364041986136601,
+      "mean_valid_fraction": 0.8576501885775862,
+      "raw_delta_255": 7.323884437824118,
+      "golden_cpu_latency_ms_median": 88.92575000209035
+    },
+    "ink_landscape": {
+      "aligned_mae_255": 7.01053994277428,
+      "mean_valid_fraction": 0.8576501885775862,
+      "raw_delta_255": 6.984477783071584,
+      "golden_cpu_latency_ms_median": 87.97095000045374
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "base": "runs\\art_styles_c24_graphic_v6\\student.pt",
+  "candidate": "runs\\art_styles_c24_v21b_ukiyoe_qat900_soft15\\student.pt",
+  "qparams": "audits\\v21b_ukiyoe_qat900_soft15_export",
+  "base_sha256": "637379c7d33d7c024de34a08e6304f4c16df493761d0b5b99e1b124327a05870",
+  "candidate_sha256": "d0d19437fa91a8424a38baddc2f03d2bbf79bb6a93da94342fb8bef97fd907eb",
+  "qparams_json_sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+  "cfg_equal": true,
+  "styles_equal": true,
+  "cfg": {
+    "C": 24,
+    "Fc": 16,
+    "n_res": 4,
+    "n_styles": 3,
+    "norm": "in",
+    "block": "dw1"
+  },
+  "layers": 13,
+  "params": 11028,
+  "conv_MACs_VGA": 339148800.0,
+  "input_shape": [
+    1,
+    3,
+    480,
+    640
+  ],
+  "output_shape": [
+    1,
+    3,
+    480,
+    640
+  ],
+  "graph_changed": false,
+  "quantization_validated": true,
+  "board_validated": false
+}

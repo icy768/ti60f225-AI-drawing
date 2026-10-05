@@ -1,0 +1,21 @@
+{
+  "status": "proposed",
+  "summary": {
+    "van_gogh": {
+      "core": 12,
+      "extension": 2,
+      "holdout": 1
+    },
+    "ukiyo_e": {
+      "core": 12,
+      "extension": 15,
+      "holdout": 12
+    },
+    "ink_wash": {
+      "core": 12,
+      "extension": 11,
+      "holdout": 11
+    }
+  },
+  "rule": "reversible copies; final core/extension/holdout requires manual content/style review"
+}

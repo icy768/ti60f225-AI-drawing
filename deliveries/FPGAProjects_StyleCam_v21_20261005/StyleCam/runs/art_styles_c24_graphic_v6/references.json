@@ -1,0 +1,155 @@
+[
+  {
+    "style": "van_gogh",
+    "object_id": 436535,
+    "weight": 0.6,
+    "crop": [
+      0.03,
+      0.03,
+      0.97,
+      0.97
+    ],
+    "additional_center_crop_fraction": 0.5,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\data\\styles_art\\van_gogh_wheat_field.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/ep/original/DP-42549-001.jpg",
+    "sha256": "b46d02a42fd3bb13b022cefc5beaa997b1d7a28cd7b53e4413d940aa0dc4014d",
+    "title": "Van Gogh, Wheat Field with Cypresses",
+    "transform": "color 1.35 contrast 1.08"
+  },
+  {
+    "style": "van_gogh",
+    "object_id": 436524,
+    "weight": 0.25,
+    "crop": [
+      0.03,
+      0.03,
+      0.97,
+      0.97
+    ],
+    "additional_center_crop_fraction": 0.5,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\van_gogh\\candidate\\met_436524_Vincent_van_Gogh_Sunflowers.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/ep/original/DP-41223-001.jpg",
+    "sha256": "ba7160774025633fab2891c33840d8316af28e5c1eba8f79a48115a065391f3c",
+    "title": "Sunflowers",
+    "transform": "color 1.35 contrast 1.08"
+  },
+  {
+    "style": "van_gogh",
+    "object_id": 437998,
+    "weight": 0.15,
+    "crop": [
+      0.03,
+      0.03,
+      0.97,
+      0.97
+    ],
+    "additional_center_crop_fraction": 0.5,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\van_gogh\\candidate\\met_437998_Vincent_van_Gogh_Olive_Trees.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/ep/original/DT1946.jpg",
+    "sha256": "04e9591ae681528da4d6d1589288174cfdae5fa011b6e31d400a5ca4396a6dbb",
+    "title": "Olive Trees",
+    "transform": "color 1.35 contrast 1.08"
+  },
+  {
+    "style": "ukiyo_e",
+    "object_id": 39799,
+    "weight": 0.7,
+    "crop": [
+      0.04,
+      0.06,
+      0.96,
+      0.96
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\data\\styles_art\\ukiyo_e_hokusai_great_wave.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP141042.jpg",
+    "sha256": "b410eeec0473c4e63eef12434a5a7c4613401c6e18670718d7727f36a441495c",
+    "title": "Hokusai, Under the Wave off Kanagawa",
+    "transform": "color 1.20"
+  },
+  {
+    "style": "ukiyo_e",
+    "object_id": 36492,
+    "weight": 0.2,
+    "crop": [
+      0.04,
+      0.08,
+      0.96,
+      0.96
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\ukiyo_e\\candidate\\met_36492_Katsushika_Hokusai_Storm_below_Mount_Fuji_Sanka_no_haku_u_from_the_series_Thirty-six_Views_of_Mount.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP140976.jpg",
+    "sha256": "5eecfe6970d0cc223a67e4f9dffc25fcd08053e2a0e310cf8fe5538a793d16d5",
+    "title": "Storm below Mount Fuji (Sanka no haku u), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+    "transform": "color 1.20"
+  },
+  {
+    "style": "ukiyo_e",
+    "object_id": 45287,
+    "weight": 0.1,
+    "crop": [
+      0.04,
+      0.08,
+      0.96,
+      0.96
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\ukiyo_e\\candidate\\met_45287_Utagawa_Kuniyoshi_Concise_Illustrated_Biography_of_Monk_Nichiren_Calming_the_Stormy_Sea_at_Ts.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP124477.jpg",
+    "sha256": "0b4e5367f2508fc2f02e1f8920c6bbe4ee4dc9aec34844749efc311bccc75cec",
+    "title": "Concise Illustrated Biography of Monk Nichiren: Calming the Stormy Sea at Tsunoda in Exile to Sado Island",
+    "transform": "color 1.20"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 45636,
+    "weight": 0.55,
+    "crop": [
+      0.1,
+      0.32,
+      0.9,
+      0.88
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\data\\styles_art\\ink_ni_zan_woods_valleys.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP-19459-002.jpg",
+    "sha256": "056fc972ea8060eb6a9a47f0c223d0352d660d7decf4d0b034b7536135d04bc2",
+    "title": "Ni Zan, Woods and Valleys of Mount Yu",
+    "transform": "grayscale autocontrast cutoff 1 percent"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 49173,
+    "weight": 0.25,
+    "crop": [
+      0.08,
+      0.15,
+      0.9,
+      0.9
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\ink_wash\\candidate\\met_49173_Shitao_Zhu_Ruoji_Returning_Home.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP143725_CRD.jpg",
+    "sha256": "00e99cbd1d9fa6ff1ee9b680b50602993490a03f9406251778d28b5347091fac",
+    "title": "Returning Home",
+    "transform": "grayscale autocontrast cutoff 1 percent"
+  },
+  {
+    "style": "ink_landscape",
+    "object_id": 49180,
+    "weight": 0.2,
+    "crop": [
+      0.08,
+      0.26,
+      0.9,
+      0.86
+    ],
+    "additional_center_crop_fraction": 1.0,
+    "source": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\dataset_v2\\style_references\\ink_wash\\candidate\\met_49180_Shitao_Zhu_Ruoji_Landscapes_of_the_Four_Seasons.jpg",
+    "url": "https://images.metmuseum.org/CRDImages/as/original/DP162815.jpg",
+    "sha256": "d2ec1cb3e084e7e17cffbe27b7cf59cc9fe1f77f2d661e24c9365b71959bb0c9",
+    "title": "Landscapes of the Four Seasons",
+    "transform": "grayscale autocontrast cutoff 1 percent"
+  }
+]

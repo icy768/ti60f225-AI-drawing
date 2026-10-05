@@ -1,0 +1,51 @@
+[
+  {
+    "file": "city_street_ink_imagegen_prior.png",
+    "bytes": 3199193,
+    "sha256": "520499c6a40486286126a4b6045284a7b64f4b05576e73b2c3262a57703055cf",
+    "kind": "synthetic_skill_teacher",
+    "source_note": "OpenAI imagegen output or prior local skill/procedural result; not an artwork-license claim"
+  },
+  {
+    "file": "city_street_ukiyoe_imagegen_prior.png",
+    "bytes": 3307522,
+    "sha256": "fed980cebec54e8cee94ff0829758ef1d09bcdc32db45034643cea9b5f5bf411",
+    "kind": "synthetic_skill_teacher",
+    "source_note": "OpenAI imagegen output or prior local skill/procedural result; not an artwork-license claim"
+  },
+  {
+    "file": "city_street_vangogh_imagegen_20261005.png",
+    "bytes": 3568945,
+    "sha256": "fdaa42b689d945196c124d190115b8a85a95bb51d2ba8f3d0a6941cca05599d6",
+    "kind": "synthetic_skill_teacher",
+    "source_note": "OpenAI imagegen output or prior local skill/procedural result; not an artwork-license claim"
+  },
+  {
+    "file": "ink_output_e1.png",
+    "bytes": 2620241,
+    "sha256": "593b2dbd4f96f5b7a03a07f99bea374bc98bf7cdae1af7d7e078e5429fe9657d",
+    "kind": "synthetic_skill_teacher",
+    "source_note": "OpenAI imagegen output or prior local skill/procedural result; not an artwork-license claim"
+  },
+  {
+    "file": "ink_output_e4.png",
+    "bytes": 2784555,
+    "sha256": "c728f30c1a4326db77c8962673230127d95de1462c1c2f642ce1fec7b2f60b15",
+    "kind": "synthetic_skill_teacher",
+    "source_note": "OpenAI imagegen output or prior local skill/procedural result; not an artwork-license claim"
+  },
+  {
+    "file": "procedural_oil_wheatfield.jpg",
+    "bytes": 979158,
+    "sha256": "7c081ac8dfd681ca952a6a6560ce6c302d5b7551683dbe33e2a1056f897702b2",
+    "kind": "synthetic_skill_teacher",
+    "source_note": "OpenAI imagegen output or prior local skill/procedural result; not an artwork-license claim"
+  },
+  {
+    "file": "procedural_ukiyoe_fuji.jpg",
+    "bytes": 499324,
+    "sha256": "bcf7a2a18e0afe6fb854a141914a52730f20ab81a7f0326e793e95da69a69785",
+    "kind": "synthetic_skill_teacher",
+    "source_note": "OpenAI imagegen output or prior local skill/procedural result; not an artwork-license claim"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "input": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\audits\\v15_v6_restart_20261005\\new_scenes_comparisons\\city_street_000000026204_input.png",
+  "rows": [
+    {
+      "style": "van_gogh",
+      "candidate": "runs/art_styles_c24_v21c_vg_texture/student.pt",
+      "skill": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\audits\\skill_network_comparison\\city_street_skill_vangogh_imagegen.png"
+    },
+    {
+      "style": "ukiyo_e",
+      "candidate": "runs/art_styles_c24_v21b_ukiyoe_color_block/student.pt",
+      "skill": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\audits\\skill_network_comparison\\city_street_skill_ukiyoe_imagegen.png"
+    },
+    {
+      "style": "ink_landscape",
+      "candidate": "runs/art_styles_c24_v19_expanded_skill/student.pt",
+      "skill": "C:\\Users\\蔡哲涵\\Desktop\\fpga\\FPGAProjects\\StyleCam\\audits\\skill_network_comparison\\city_street_skill_ink_imagegen.png"
+    }
+  ],
+  "note": "v21 float candidates only; no integer output until a candidate passes the 8-image gate."
+}
