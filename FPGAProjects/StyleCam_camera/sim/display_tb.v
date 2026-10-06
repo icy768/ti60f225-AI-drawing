@@ -7,8 +7,8 @@ module tb;
  reg reading=0,stall=0;reg [31:0] read_addr;reg [3:0] beat=0;
  wire rvalid=reading&&!stall;wire [127:0] rd=memory[read_addr[21]*64+read_addr[19:4]+beat];
  sc_display #(.IW(64),.IH(4)) dut(.uc(clk),.urst(rst),.ac(clk),.arst(rst),.pc(pc),.prst(rst),.calibrated(1'b1),
- .pixel(pixel),.pv(pv),.pready(pready),.new_frame(nf),.original_frame(1'b0),.mode(2'd2),.status(status),
- .write_bank(bank),.publish(pub),.publish_bank(pb),.output_complete(complete),.shown_valid(shown_valid),.shown_bank(shown_bank),
+ .pixel(pixel),.pv(pv),.pready(pready),.new_frame(nf),.original_frame(1'b0),.mode(2'd1),.status(status),
+ .write_bank(bank),.publish(pub),.publish_bank(pb),.publish_orig(2'd0),.osd_we(1'b0),.osd_addr(11'd0),.osd_data(8'd0),.output_complete(complete),.shown_valid(shown_valid),.shown_bank(shown_bank),
  .awaddr(awaddr),.awvalid(av),.awready(awready),.wdata(wd),.wvalid(wv),.wready(wready),.bvalid(bvalid),.bresp(bresp),.bready(br),
  .araddr(araddr),.arvalid(arv),.arready(!reading),.rdata(rd),.rvalid(rvalid),.rlast(beat==15),.rresp(2'd0),.rready(rr),.hs(),.vs(),.de(),.red(),.green(),.blue());
  always @(posedge clk)begin

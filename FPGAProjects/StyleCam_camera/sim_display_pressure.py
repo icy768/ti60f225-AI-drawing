@@ -1,14 +1,20 @@
-"""Reproduce the old HDMI shortage and verify deadline arbitration + burst credits."""
+"""Reproduce the old HDMI shortage and verify deadline arbitration + burst credits.
+
+Runs: legacy SCU09 display without credits (must underflow), then the current display under a
+permanently queued replay client for the stylized 2x, original 2x and side-by-side 1.5x layouts
+(pixel-exact, no underflow, no R back-pressure). LAT = DDR cycles from AR to the first R beat.
+"""
 from pathlib import Path
-import json, subprocess
+import json, os, subprocess
 ROOT=Path(__file__).resolve().parent
-S=ROOT/'validation/display_pressure';S.mkdir(exist_ok=True)
-BIN=ROOT.parent/'tools/iverilog/mingw64/bin'
-before=(ROOT/'rtl/sc_display.v').read_text()
+S=ROOT/'validation/display_pressure';S.mkdir(parents=True,exist_ok=True)
+BIN=Path(os.environ.get('ICARUS_BIN',ROOT.parent/'tools/iverilog/mingw64/bin'))
+before=(ROOT/'sim/legacy_sc_display_scu09.v').read_text()
 before=before.replace('wire [95:0] rf_data;', 'wire [127:0] rf_data;')
 before=before.replace('wire [23:0] selected_pixel=rf_data>>(x[2:1]*24);', 'wire [31:0] selected_pixel=rf_data>>(x[2:1]*32);')
 before=before.replace('sc_async_fifo #(.W(96),.AW(9)) display_fifo(ac,arst||flush,compact_read,rf_write,rf_ready,\n  pc,pf_reset,rf_data,rf_valid,rf_take,rf_level);', 'sc_async_fifo #(.W(128),.AW(8)) display_fifo(ac,arst||flush,rdata,rf_write,rf_ready,\n  pc,pf_reset,rf_data,rf_valid,rf_take,);')
 before=before.replace('&&rf_level<=496', '')
+assert 'rdata,rf_write' in before and 'rf_level<=496' not in before, 'legacy baseline rewrite failed'
 (S/'before_sc_display.v').write_text(before)
 tb=r'''
 `timescale 1ns/1ps
@@ -19,12 +25,27 @@ module tb;
  reg reading=0;reg [31:0] addr;reg [3:0] beat;integer delay=0;
  wire mv=reading&&delay==0;wire last=beat==15;
  wire hs,vs,de;wire [7:0] r,g,b;
+ // stylized output bank 0 at 0x400000; original = input bank 2 at 0x800000
  function [23:0] pattern(input integer i);begin pattern={8'(i*7+3),8'(i*5+2),8'(i*3+1)};end endfunction
- wire [31:0] ix=(addr-32'h400000)/4+beat*4;
- assign data={8'd0,pattern(ix+3),8'd0,pattern(ix+2),8'd0,pattern(ix+1),8'd0,pattern(ix)};
- sc_display #(.IW(640),.IH(32)) dut(.uc(ac),.urst(rst),.ac(ac),.arst(rst),.pc(pc),.prst(rst),.calibrated(1'b1),
+ function [23:0] opattern(input integer i);begin opattern={8'(i*11+9),8'(i*13+4),8'(i*2+7)};end endfunction
+ function [23:0] word_px(input [31:0] a,input integer k);
+  integer i;begin
+   if(a>=32'h400000&&a<32'h800000)begin i=(a-32'h400000)/4+k;word_px=pattern(i);end
+   else begin i=(a-32'h800000)/4+k;word_px=opattern(i);end
+  end
+ endfunction
+ wire [31:0] base_addr=addr+beat*16;
+ assign data={8'd0,word_px(base_addr,3),8'd0,word_px(base_addr,2),8'd0,word_px(base_addr,1),8'd0,word_px(base_addr,0)};
+`ifdef LEGACY
+ sc_display_scu09 #(.IW(640),.IH(32)) dut(.uc(ac),.urst(rst),.ac(ac),.arst(rst),.pc(pc),.prst(rst),.calibrated(1'b1),
  .pixel(24'd0),.pv(1'b0),.pready(),.new_frame(1'b0),.original_frame(1'b0),.mode(2'd2),.status(status),
  .write_bank(1'b1),.publish(pub),.publish_bank(1'b0),.output_complete(),.shown_valid(),.shown_bank(),
+`else
+ sc_display #(.IW(640),.IH(32),.TEXT("")) dut(.uc(ac),.urst(rst),.ac(ac),.arst(rst),.pc(pc),.prst(rst),.calibrated(1'b1),
+ .pixel(24'd0),.pv(1'b0),.pready(),.new_frame(1'b0),.original_frame(1'b0),.mode(2'd`MODE),.status(status),
+ .write_bank(1'b1),.publish(pub),.publish_bank(1'b0),.publish_orig(2'd2),.output_complete(),.shown_valid(),.shown_bank(),
+ .osd_we(1'b0),.osd_addr(11'd0),.osd_data(8'd0),
+`endif
  .awaddr(),.awvalid(),.awready(1'b0),.wdata(),.wvalid(),.wready(1'b0),.bvalid(1'b0),.bresp(2'd0),.bready(),
  .araddr(da),.arvalid(dav),.arready(dardy),.rdata(data),.rvalid(drv),.rlast(last),.rresp(2'd0),.rready(drr),
  .hs(hs),.vs(vs),.de(de),.red(r),.green(g),.blue(b));
@@ -37,7 +58,7 @@ module tb;
  always @(posedge ac)begin
   if(rst)begin reading<=0;delay<=0;beat<=0;end
   else begin
-   if(mav&&!reading)begin reading<=1;addr<=ma;beat<=0;delay<=90;
+   if(mav&&!reading)begin reading<=1;addr<=ma;beat<=0;delay<=`LAT;
     if(ma==0)replay_bursts<=replay_bursts+1;else display_bursts<=display_bursts+1;
    end
    if(delay>0)delay<=delay-1;
@@ -45,12 +66,27 @@ module tb;
    if(drv&&!drr)blocked_display<=blocked_display+1;
   end
  end
- integer seen=0,mismatches=0,ex,ey,idx;
+ // output register latency: legacy 1 pixel clock, current 4 (OSD pipeline)
+`ifdef LEGACY
+ localparam PIPE=1,TOTAL=81920;
+`else
+ localparam PIPE=4,TOTAL=(`MODE==0)?92160:81920;
+`endif
+ integer seen=0,mismatches=0,ex,ey,idx,u;reg [23:0] want;reg inwin;
  always @(negedge pc)begin
-  ex=dut.x==0?2199:dut.x-1;ey=dut.x==0?(dut.y==0?1124:dut.y-1):dut.y;
-  if(!rst&&ex>=320&&ex<1600&&ey>=60&&ey<124&&dut.image_enable)begin
-   idx=((ey-60)/2)*640+(ex-320)/2;
-   if({b,g,r}!==pattern(idx))mismatches=mismatches+1;
+  ex=dut.x-PIPE;ey=dut.y;if(ex<0)begin ex=ex+2200;ey=dut.y==0?1124:dut.y-1;end
+`ifdef LEGACY
+  inwin=ex>=320&&ex<1600&&ey>=60&&ey<124;idx=((ey-60)/2)*640+(ex-320)/2;want=pattern(idx);
+`else
+  if(`MODE==0)begin
+   inwin=ey>=516&&ey<564&&ex<1920;u=ex<960?ex:ex-960;idx=(((ey-516)*2)/3)*640+(u*2)/3;want=ex<960?opattern(idx):pattern(idx);
+  end else begin
+   inwin=ex>=320&&ex<1600&&ey>=508&&ey<572;idx=((ey-508)/2)*640+(ex-320)/2;
+   want=(`MODE==2)?opattern(idx):pattern(idx);
+  end
+`endif
+  if(!rst&&inwin&&dut.image_enable)begin
+   if({b,g,r}!==want)begin if(mismatches<5)$display("mismatch x=%0d y=%0d got %h want %h",ex,ey,{b,g,r},want);mismatches=mismatches+1;end
    if(!de)$fatal(1,"DE alignment");seen=seen+1;
   end
  end
@@ -58,9 +94,9 @@ module tb;
   repeat(20)@(negedge ac);rst=0;force dut.valid_banks=2'b01;
   repeat(10)@(negedge ac);pub=1;@(negedge ac);pub=0;repeat(10)@(negedge pc);
   dut.x=2190;dut.y=1079;
-  wait(seen==81920);repeat(10)@(negedge pc);
+  wait(seen==TOTAL);repeat(10)@(negedge pc);
   if(replay_bursts==0||display_bursts==0)$fatal(1,"No concurrent replay traffic");
-  $display("RESULT priority=%0d pixels=%0d mismatches=%0d underflow=%0d display_R_stalls=%0d replay_bursts=%0d",`PRIORITY,seen,mismatches,dut.underflow,blocked_display,replay_bursts);
+  $display("RESULT priority=%0d mode=%0d latency=%0d pixels=%0d mismatches=%0d underflow=%0d display_R_stalls=%0d replay_bursts=%0d display_bursts=%0d",`PRIORITY,`MODE,`LAT,seen,mismatches,dut.underflow,blocked_display,replay_bursts,display_bursts);
   if(`PRIORITY&& (mismatches!=0||dut.underflow!=0||blocked_display!=0))$fatal(1,"HDMI pressure test failed");
   if(!`PRIORITY&&dut.underflow==0)$fatal(1,"Baseline did not reproduce shortage");
   if(status[5]!==!`PRIORITY)$fatal(1,"Underflow history flag mismatch");
@@ -68,17 +104,21 @@ module tb;
   if(status[5]!==0)$fatal(1,"Underflow history did not clear on reset");
   $display("PASS");$finish;
  end
- initial begin #10000000;$fatal(1,"Pressure test timeout");end
+ initial begin #20000000;$fatal(1,"Pressure test timeout");end
 endmodule
 '''
 (S/'tb.v').write_text(tb)
+# (name, priority, mode, latency, legacy)
+runs=[('legacy',0,1,90,True),('stylized_2x',1,1,90,False),('original_2x',1,2,90,False),
+      ('side_by_side',1,0,90,False)]
 results={}
-for priority in [0,1]:
- src=ROOT/'rtl/sc_display.v' if priority else S/'before_sc_display.v'
- exe=S/f'pressure_{priority}.vvp'
- subprocess.run([str(BIN/'iverilog.exe'),'-g2012',f'-DPRIORITY={priority}','-s','tb','-o',str(exe),str(S/'tb.v'),str(src),str(ROOT/'rtl/sc_async_fifo.v'),str(ROOT/'rtl/sc_read_arbiter.v')],check=True)
- run=subprocess.run([str(BIN/'vvp.exe'),str(exe)],capture_output=True,text=True,encoding='utf-8',errors='replace')
- (S/f'pressure_{priority}.log').write_text(run.stdout+run.stderr,encoding='utf-8');print(run.stdout,flush=True)
+for name,priority,mode,lat,legacy in runs:
+ src=[str(S/'before_sc_display.v')] if legacy else [str(ROOT/'rtl/sc_display.v'),str(ROOT/'rtl/common.v')]
+ defs=[f'-DPRIORITY={priority}',f'-DMODE={mode}',f'-DLAT={lat}']+(['-DLEGACY'] if legacy else [])
+ exe=S/f'pressure_{name}.vvp'
+ subprocess.run([str(BIN/'iverilog.exe'),'-g2012',*defs,'-s','tb','-o',str(exe),str(S/'tb.v'),*src,str(ROOT/'rtl/sc_async_fifo.v'),str(ROOT/'rtl/sc_read_arbiter.v')],cwd=ROOT,check=True)
+ run=subprocess.run([str(BIN/'vvp.exe'),str(exe)],cwd=ROOT,capture_output=True,text=True,encoding='utf-8',errors='replace')
+ (S/f'pressure_{name}.log').write_text(run.stdout+run.stderr,encoding='utf-8');print(name,run.stdout,flush=True)
  assert run.returncode==0 and 'PASS' in run.stdout,run.stdout+run.stderr
- results[str(priority)]={'passed':True,'log':run.stdout}
-(S/'result.json').write_text(json.dumps({'passed':True,'baseline_underflow_reproduced':True,'fixed_pixels_exact':81920,'fixed_underflow':0,'fixed_R_backpressure':0,'concurrent_replay':True,'underflow_history_and_reset':True,'tests':results},indent=2),encoding='utf-8')
+ results[name]={'passed':True,'priority':priority,'mode':mode,'latency_cycles':lat,'log':run.stdout}
+(S/'result.json').write_text(json.dumps({'passed':True,'baseline_underflow_reproduced':True,'fixed_underflow':0,'fixed_R_backpressure':0,'concurrent_replay':True,'underflow_history_and_reset':True,'tests':results},indent=2),encoding='utf-8')

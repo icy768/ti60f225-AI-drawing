@@ -2,7 +2,7 @@ from pathlib import Path
 import subprocess,json
 ROOT=Path(__file__).resolve().parent
 S=ROOT/'validation/camera_sim';S.mkdir(exist_ok=True)
-BIN=ROOT.parent/'tools/iverilog/mingw64/bin'
+BIN=Path(__import__('os').environ.get('ICARUS_BIN',ROOT.parent/'tools/iverilog/mingw64/bin'))
 gamma=[int(x,16)>>2 for x in (ROOT/'model/camera_gamma.mem').read_text().split()]
 expected=[]
 def raw(f,x,y):return (f*31+x*7+y*11)%240
@@ -20,7 +20,7 @@ for name,files in {
  'camera_rgb':['sc_camera_rgb'],
  'capture':['sc_capture','sc_write_arbiter','sc_async_fifo'],
  'schedule':['sc_video_schedule','sc_button'],
- 'display':['sc_display','sc_async_fifo']}.items():
+ 'display':['sc_display','sc_async_fifo','common']}.items():
  exe=S/(name+'.vvp')
  subprocess.run([str(BIN/'iverilog.exe'),'-g2012','-s','tb','-o',str(exe),str(ROOT/f'sim/{name}_tb.v'),*[str(ROOT/f'rtl/{f}.v') for f in files]],cwd=ROOT,check=True)
  r=subprocess.run([str(BIN/'vvp.exe'),str(exe)],cwd=ROOT,capture_output=True,text=True,encoding='utf-8',errors='replace')

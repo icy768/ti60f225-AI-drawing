@@ -1,8 +1,8 @@
-// Replay bank 0 once, converting four padded RGB pixels per DDR beat to RGB24.
+// Replay one input bank (0, 0x200000 or 0x800000) once, converting four padded RGB pixels per DDR beat to RGB24.
 // Start is accepted only after the prior frame was entirely consumed; no abort.
 // Reserve FIFO room for all 16 beats BEFORE ARVALID to avoid blocking HDMI on R.
 module sc_replay #(parameter PIXELS=640*480)(
- input uc,urst,input ac,arst,input start,input bank,
+ input uc,urst,input ac,arst,input start,input [1:0] bank,
  output [23:0] pixel,output valid,input ready,output reg busy,
  output [31:0] errors,
  output reg [31:0] araddr,output reg arvalid,input arready,
@@ -27,7 +27,7 @@ module sc_replay #(parameter PIXELS=640*480)(
  end
  (* async_reg="true" *) reg t1,t2,t3;
  (* async_reg="true" *) reg [31:0] g1,g2;
- reg seen,active,inflight,frame_bank;reg [31:0] issued,frame_issued,error_count;
+ reg seen,active,inflight;reg [1:0] frame_bank;reg [31:0] issued,frame_issued,error_count;
  reg [3:0] beat;reg [31:0] taken_sync;integer j;
  always @*begin
   taken_sync[31]=g2[31];
@@ -43,7 +43,7 @@ module sc_replay #(parameter PIXELS=640*480)(
    t1<=toggle;t2<=t1;t3<=t2;g1<=words_gray;g2<=g1;
    if(t3!=seen)begin seen<=t3;active<=1;frame_issued<=0;frame_bank<=bank;end
    if(active&&!arvalid&&!inflight&&(issued-taken_sync<=48))begin
-    araddr<=(frame_bank?32'h200000:0)+(frame_issued<<4);arvalid<=1;
+    araddr<=(frame_bank==0?32'h0:frame_bank==1?32'h200000:32'h800000)+(frame_issued<<4);arvalid<=1;
    end
    if(arvalid&&arready)begin
     arvalid<=0;inflight<=1;beat<=0;issued<=issued+16;frame_issued<=frame_issued+16;

@@ -6,7 +6,7 @@ from reference import ROOT, run, pack_coef, load, coef
 from compact_in_constants import compact
 from export_in_constants import export
 S=ROOT/'validation/video_engine';S.mkdir(exist_ok=True)
-BIN=ROOT.parent/'tools/iverilog/mingw64/bin'
+BIN=Path(__import__('os').environ.get('ICARUS_BIN',ROOT.parent/'tools/iverilog/mingw64/bin'))
 sys.path.insert(0,str(ROOT.parent/'StyleCam/algo'))
 import golden, torch
 torch.set_num_threads(2)

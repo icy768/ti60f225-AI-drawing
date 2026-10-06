@@ -46,6 +46,7 @@ module ti60f225_oob_top #(
    //Clocks 
 	input	wire	i_arstn,
  input wire style_key_n,
+ input wire mode_key_n,
     output wire uart_tx,
  input wire uart_rx,
     input	wire	i_mipi_rx_pclk,
@@ -323,7 +324,7 @@ always @(posedge core_clk or posedge global_reset)if(global_reset)rs_a<=7;else r
 always @(posedge hdmi_tx_slow_clk or posedge global_reset)if(global_reset)rs_p<=7;else rs_p<={rs_p[1:0],1'b0};
 
 // Autonomous camera input ownership, network execution, and HDMI publication.
-wire frame_ready,ready_bank,take_frame,release_frame,input_bank,cap_locked,cap_locked_bank;
+wire frame_ready,take_frame,release_frame,cap_locked,hold_swap;wire [1:0] ready_bank,input_bank,cap_locked_bank;
 wire engine_start,engine_idle,engine_done,engine_ok,engine_mode;
 wire [1:0] engine_style,requested_style;wire [2:0] styles_ready;
 wire output_bank,publish,publish_bank,output_complete,shown_valid,shown_bank;
@@ -346,7 +347,7 @@ always @(posedge core_clk)begin
  setup1<={setup_index,3'd0,setup_error,setup_finished,config_ok};setup2<=setup1;
 end
 sc_video_schedule schedule(.clk(core_clk),.rst(rs_a[2]),.key_n(style_key_n),
- .frame_ready(frame_ready),.ready_bank(ready_bank),.take_frame(take_frame),.release_frame(release_frame),.input_bank(input_bank),
+ .frame_ready(frame_ready),.ready_bank(ready_bank),.take_frame(take_frame),.release_frame(release_frame),.input_bank(input_bank),.hold_swap(hold_swap),
  .engine_idle(engine_idle),.engine_done(engine_done),.engine_ok(engine_ok),.styles_ready(styles_ready),
  .engine_start(engine_start),.engine_style(engine_style),.engine_mode(engine_mode),
  .output_complete(output_complete),.shown_valid(shown_valid),.shown_bank(shown_bank),
@@ -362,7 +363,7 @@ always @(posedge i_mipi_rx_pclk or posedge global_reset)if(global_reset)camera_r
 sc_camera_rgb preprocess(.clk(i_mipi_rx_pclk),.rst(camera_reset[2]),.vs(camera_vs),.valid(camera_de&&camera_hs),.raw(camera_raw),
  .rgb(camera_rgb),.rgb_valid(camera_valid),.sof(camera_sof),.eof(camera_eof),.frames(camera_frames),.format_errors(camera_format_errors));
 sc_capture capture(.cc(i_mipi_rx_pclk),.crst(camera_reset[2]),.rgb(camera_rgb),.cv(camera_valid),.sof(camera_sof),.eof(camera_eof),
- .ac(core_clk),.arst(rs_a[2]),.calibrated(cal_done),.take_frame(take_frame),.release_frame(release_frame),
+ .ac(core_clk),.arst(rs_a[2]),.calibrated(cal_done),.take_frame(take_frame),.release_frame(release_frame),.hold_publish(publish),.hold_swap(hold_swap),
  .frame_ready(frame_ready),.ready_bank(ready_bank),.locked(cap_locked),.locked_bank(cap_locked_bank),
  .completed(captured),.skipped(skipped),.errors(capture_errors),.overflow(capture_overflow),
  .awaddr(cap_awaddr),.awvalid(cap_awvalid),.awready(cap_awready),.wdata(cap_wdata),.wvalid(cap_wvalid),.wready(cap_wready),
@@ -462,11 +463,15 @@ StyleCam_uart #(.IN_TRACE(0),.DIV(108),.KEY_CYCLES(1000000),.CLOCK_HZ(100000000)
  .video_enabled(1'b1),.video_start(engine_start),.video_style(engine_style),.video_mode(engine_mode),
  .video_idle(engine_idle),.video_done(engine_done),.video_ok(engine_ok),.video_styles_ready(styles_ready),
  .video_status(video_status),.sensor_diagnostics(diag_sync2));
+// KEY2 cycles the HDMI layout: side by side -> stylized -> original
+wire view_press,view_released;reg [1:0] view_mode;
+sc_button #(.CYCLES(1000000)) view_key(core_clk,rs_a[2],mode_key_n,view_press,view_released);
+always @(posedge core_clk)if(rs_a[2])view_mode<=0;else if(view_press)view_mode<=view_mode==2?2'd0:view_mode+1'b1;
 wire hs,vs,de;wire [7:0] red,green,blue;
 sc_display display(.uc(core_clk),.urst(rs_a[2]),.ac(core_clk),.arst(rs_a[2]),
  .pc(hdmi_tx_slow_clk),.prst(rs_p[2]),.calibrated(cal_done),
  .pixel(sink_data),.pv(sink_valid),.pready(sink_ready),.new_frame(new_frame),.original_frame(original_frame),
- .mode(2'd2),.status(display_status),.write_bank(output_bank),
+ .mode(view_mode),.status(display_status),.write_bank(output_bank),.publish_orig(input_bank),.osd_we(1'b0),.osd_addr(11'd0),.osd_data(8'd0),
  .publish(publish),.publish_bank(publish_bank),.output_complete(output_complete),.shown_valid(shown_valid),.shown_bank(shown_bank),
  .awaddr(out_awaddr),.awvalid(out_awvalid),.awready(out_awready),
  .wdata(out_wdata),.wvalid(out_wvalid),.wready(out_wready),.bvalid(out_bvalid),.bresp(s_axi_bresp),.bready(out_bready),
