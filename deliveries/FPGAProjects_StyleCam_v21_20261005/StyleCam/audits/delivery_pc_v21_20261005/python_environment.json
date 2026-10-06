@@ -1,7 +1,0 @@
-{
-  "torch": "2.7.1+cu118",
-  "torchvision": "0.22.1+cu118",
-  "numpy": "2.2.6",
-  "Pillow": "12.3.0",
-  "scikit-image": "0.25.2"
-}

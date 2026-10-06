@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "paired_artifacts": true,
+  "firmware_blob_guards": true,
+  "regenerated_rtl_mem_exact": true,
+  "integer_sample_exact": [
+    "van_gogh",
+    "ukiyo_e",
+    "ink_landscape"
+  ],
+  "rtl_simulated": false,
+  "board_tested": false,
+  "source_commit": "42452f5ebb7f5f05fcac4753ca86af70a2fd4f9e"
+}

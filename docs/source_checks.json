@@ -1,0 +1,8 @@
+{
+  "source_checks_pass": true,
+  "xml_references": 74,
+  "python_files": 115,
+  "obsolete_sensor_references": [],
+  "network_version": "v21b",
+  "board_tested": false
+}

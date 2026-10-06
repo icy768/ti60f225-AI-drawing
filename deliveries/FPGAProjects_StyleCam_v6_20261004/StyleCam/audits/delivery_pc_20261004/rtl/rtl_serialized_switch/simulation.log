@@ -1,6 +1,0 @@
-装载 cfg 字数 4050
-DONE cycles=146484
-- tb_top.v:100: Verilog $finish
-- S i m u l a t i o n   R e p o r t: Verilator 5.49
-- Verilator: $finish at 1ms; walltime 0.424 s; speed 0.000 s/s
-- Verilator: cpu 0.000 s on 1 threads; allocated 5 MB
