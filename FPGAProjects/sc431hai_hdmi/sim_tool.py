@@ -10,6 +10,9 @@ def executable(name):
         path = Path(directory) / name
         if path.is_file():
             return str(path)
+    bundled = Path(__file__).resolve().parent.parent / "tools/iverilog/mingw64/bin" / name
+    if bundled.is_file():
+        return str(bundled)
     found = shutil.which(name)
     if found:
         return found

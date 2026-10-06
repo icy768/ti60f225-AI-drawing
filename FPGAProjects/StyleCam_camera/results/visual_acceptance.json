@@ -1,0 +1,11 @@
+{
+  "time": "2026-10-06T13:42:55.4547320+08:00",
+  "firmware": "SCU09",
+  "network": "v21b_ukiyoe_qat900_640x480",
+  "bit_sha256": "83ffe2006540cb03bd2321ad7e4f64063226b892cce610a5014463f934f27d14",
+  "user_confirmed": true,
+  "physical_KEY3_three_style_switch_confirmed": true,
+  "returned_to_style": "van_gogh",
+  "feedback": "三种风格均正常，已回到梵高",
+  "scope": "用户确认实际屏幕和 KEY3；对应 SCU09 临时 JTAG 运行，Flash 重启验收另行记录"
+}

@@ -1,0 +1,15 @@
+{
+  "time": "2026-10-06T13:46:07.307581",
+  "address": 0,
+  "flash_payload_bytes": 1058000,
+  "hex_sha256": "246c29d253d1b5cfc384b0abd1cf2e600bc52e9de69e18983bf6b3f517b483f4",
+  "bitstream_sha256": "83ffe2006540cb03bd2321ad7e4f64063226b892cce610a5014463f934f27d14",
+  "host_readback_verified": true,
+  "independent_readback_bytes_exact": true,
+  "independent_payload_sha256": "fa9b70aa8abc129edc846018d825899f82722aa5e3db806ff108ec6841e88ddf",
+  "programmer_retry_observed": true,
+  "boot_reload_pending": false,
+  "autonomous_boot_passed": true,
+  "boot_identity": "534355098002e0011b00030d",
+  "evidence": "results/flash_boot_validation.json"
+}

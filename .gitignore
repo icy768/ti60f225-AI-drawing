@@ -1,3 +1,4 @@
+# Local reference materials and tools
 /DEMO/
 /other/
 /_tmp_pdf/
@@ -12,27 +13,48 @@
 **/ooc/
 **/validation/
 **/outflow/
-!sc431hai_hdmi/outflow/
-sc431hai_hdmi/outflow/*
-!sc431hai_hdmi/outflow/ti60f225_oob.bit
+!FPGAProjects/sc431hai_hdmi/outflow/
+FPGAProjects/sc431hai_hdmi/outflow/*
+!FPGAProjects/sc431hai_hdmi/outflow/ti60f225_oob.bit
+
+# Local training/build scratch directories
 /FPGAProjects/StyleCam/runs/_rand/
 /FPGAProjects/StyleCam/runs/backup_pe12_20260930/
-
 /FPGAProjects/StyleCam/runs/c24_dw1_in/
 /FPGAProjects/StyleCam/runs/c24_gram/
 /FPGAProjects/StyleCam/runs/mosaic_a/
 /FPGAProjects/StyleCam/runs/mosaic_b/
 /FPGAProjects/StyleCam/runs/*.txt
-/FPGAProjects/StyleCam/syn/bisect/
-/FPGAProjects/StyleCam/syn/ip/
-/FPGAProjects/StyleCam/syn/outflow*/
-
 /FPGAProjects/StyleCam/syn/*
 !/FPGAProjects/StyleCam/syn/vision_map.xml
 /FPGAProjects/StyleCam/*.md
 !/FPGAProjects/StyleCam/README.md
 
-/FPGAProjects/StyleCam/syn/*
-!/FPGAProjects/StyleCam/syn/vision_map.xml
-/FPGAProjects/StyleCam/*.md
-!/FPGAProjects/StyleCam/README.md
+# Historical projects, raw backups and compiler binaries stay local
+/FPGAProjects/_archive/
+/FPGAProjects/tools/*
+!/FPGAProjects/tools/README.md
+/FPGAProjects/docs/工程迁移_20261006/
+/FPGAProjects/StyleCam_camera/results/camera_failure.json
+
+# Compact acceptance records needed for the complete board project
+!/FPGAProjects/StyleCam_camera/validation/
+/FPGAProjects/StyleCam_camera/validation/*
+!/FPGAProjects/StyleCam_camera/validation/source_sha256.json
+!/FPGAProjects/StyleCam_camera/validation/compact_IN.json
+!/FPGAProjects/StyleCam_camera/validation/in_constants.json
+!/FPGAProjects/StyleCam_camera/validation/video_engine/
+/FPGAProjects/StyleCam_camera/validation/video_engine/*
+!/FPGAProjects/StyleCam_camera/validation/video_engine/result.json
+!/FPGAProjects/StyleCam_camera/validation/in_math/
+/FPGAProjects/StyleCam_camera/validation/in_math/*
+!/FPGAProjects/StyleCam_camera/validation/in_math/result.json
+!/FPGAProjects/StyleCam_camera/validation/camera_sim/
+/FPGAProjects/StyleCam_camera/validation/camera_sim/*
+!/FPGAProjects/StyleCam_camera/validation/camera_sim/result.json
+!/FPGAProjects/StyleCam_camera/validation/display_pressure/
+/FPGAProjects/StyleCam_camera/validation/display_pressure/*
+!/FPGAProjects/StyleCam_camera/validation/display_pressure/result.json
+
+# Original export provenance is duplicated upstream and stays local here
+/FPGAProjects/StyleCam_camera/model/export.json

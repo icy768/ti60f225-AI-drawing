@@ -1,0 +1,63 @@
+{
+  "created_at": "2026-10-06T13:33:03.807816",
+  "project": "FPGAProjects\\StyleCam_camera",
+  "efinity_project": "FPGAProjects\\StyleCam_camera\\ti60f225_oob.xml",
+  "firmware": "SCU09",
+  "network": "v21b_ukiyoe_qat900_640x480",
+  "checkpoint_sha256": "d0d19437fa91a8424a38baddc2f03d2bbf79bb6a93da94342fb8bef97fd907eb",
+  "network_blob_sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b",
+  "camera": "SC431HAI",
+  "flash_payload_bytes": 1058000,
+  "files": [
+    {
+      "source": "FPGAProjects\\StyleCam_camera\\outflow\\ti60f225_oob.bit",
+      "release_file": "FPGAProjects\\烧录文件\\20261006_SCU09_V21b_摄像头版\\StyleCam_SCU09_V21b_SC431HAI_640x480.bit",
+      "sha256": "83ffe2006540cb03bd2321ad7e4f64063226b892cce610a5014463f934f27d14",
+      "file_bytes": 3173940
+    },
+    {
+      "source": "FPGAProjects\\StyleCam_camera\\outflow\\ti60f225_oob.hex",
+      "release_file": "FPGAProjects\\烧录文件\\20261006_SCU09_V21b_摄像头版\\StyleCam_SCU09_V21b_SC431HAI_640x480.hex",
+      "sha256": "246c29d253d1b5cfc384b0abd1cf2e600bc52e9de69e18983bf6b3f517b483f4",
+      "file_bytes": 3174000
+    }
+  ],
+  "resources": {
+    "XLR": {
+      "used": 57258,
+      "total": 60800,
+      "percent": 94.17
+    },
+    "RAM10": {
+      "used": 252,
+      "total": 256,
+      "percent": 98.44
+    },
+    "DSP": {
+      "used": 117,
+      "total": 160,
+      "percent": 73.12
+    }
+  },
+  "timing": {
+    "setup_min_ns": 0.172,
+    "hold_min_ns": 0.012
+  },
+  "evidence": [
+    "FPGAProjects\\StyleCam_camera\\results\\offline_check.json",
+    "FPGAProjects\\StyleCam_camera\\validation\\source_sha256.json",
+    "FPGAProjects\\StyleCam_camera\\validation\\video_engine\\result.json",
+    "FPGAProjects\\StyleCam_camera\\validation\\in_math\\result.json"
+  ],
+  "board_validation_file": "FPGAProjects\\StyleCam_camera\\results\\camera_video_latest.json",
+  "board_validation_status": "Physical SCU09 camera protocol passed; user confirmed all three styles/KEY3; persistent boot status is recorded separately",
+  "Flash_modified": true,
+  "Flash_previous_firmware": "SCU07",
+  "Flash_current_firmware": "SCU09",
+  "persistent_boot_passed": true,
+  "independent_readback_bytes_exact": true,
+  "programmer_retry_observed": true,
+  "persistent_programming_evidence": "FPGAProjects\\StyleCam_camera\\validation\\programming.json",
+  "persistent_boot_evidence": "FPGAProjects\\StyleCam_camera\\results\\flash_boot_validation.json",
+  "visual_acceptance_evidence": "FPGAProjects\\StyleCam_camera\\results\\visual_acceptance.json"
+}

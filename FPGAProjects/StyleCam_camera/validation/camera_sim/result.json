@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "tests": {
+    "camera_rgb": {
+      "passed": true,
+      "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\camera_rgb.log"
+    },
+    "capture": {
+      "passed": true,
+      "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\capture.log"
+    },
+    "schedule": {
+      "passed": true,
+      "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\schedule.log"
+    },
+    "display": {
+      "passed": true,
+      "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\display.log"
+    }
+  }
+}

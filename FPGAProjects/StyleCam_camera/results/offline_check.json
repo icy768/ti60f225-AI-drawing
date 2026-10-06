@@ -1,0 +1,184 @@
+{
+  "ready_to_program": true,
+  "firmware_version": 9,
+  "network": "v21b_ukiyoe_qat900_640x480",
+  "network_blob_sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b",
+  "checkpoint_sha256": "d0d19437fa91a8424a38baddc2f03d2bbf79bb6a93da94342fb8bef97fd907eb",
+  "camera": "SC431HAI 1920x1080 RAW10; center crop 1280x960 -> RGB640x480",
+  "resources": {
+    "XLR": {
+      "used": 57258,
+      "total": 60800,
+      "percent": 94.17
+    },
+    "RAM10": {
+      "used": 252,
+      "total": 256,
+      "percent": 98.44
+    },
+    "DSP": {
+      "used": 117,
+      "total": 160,
+      "percent": 73.12
+    }
+  },
+  "timing": {
+    "setup_min_ns": 0.172,
+    "hold_min_ns": 0.012
+  },
+  "network_simulation": {
+    "passed": true,
+    "tests": {
+      "validation/camera_sim/result.json": {
+        "passed": true,
+        "tests": {
+          "camera_rgb": {
+            "passed": true,
+            "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\camera_rgb.log"
+          },
+          "capture": {
+            "passed": true,
+            "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\capture.log"
+          },
+          "schedule": {
+            "passed": true,
+            "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\schedule.log"
+          },
+          "display": {
+            "passed": true,
+            "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\display.log"
+          }
+        }
+      },
+      "validation/video_engine/result.json": {
+        "passed": true,
+        "network": "v21b_ukiyoe_qat900_640x480",
+        "real_network": true,
+        "styles": [
+          0,
+          1,
+          2
+        ],
+        "initial_coefficients_exact": 816,
+        "changed_frame_coefficients_exact": 120,
+        "pixels_exact": 6912,
+        "frames": 9,
+        "no_reset_style_switching": true,
+        "independent_official_golden_reference": true,
+        "host_IN_writes": 0,
+        "input_backpressure": true,
+        "output_backpressure": true,
+        "network_blob_sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b"
+      },
+      "validation/compact_IN.json": {
+        "words_exact": 864,
+        "old_bits": 262656,
+        "new_bits": 149760,
+        "lossless": true
+      },
+      "validation/display_pressure/result.json": {
+        "passed": true,
+        "baseline_underflow_reproduced": true,
+        "fixed_pixels_exact": 81920,
+        "fixed_underflow": 0,
+        "fixed_R_backpressure": 0,
+        "concurrent_replay": true,
+        "underflow_history_and_reset": true,
+        "tests": {
+          "0": {
+            "passed": true,
+            "log": "RESULT priority=0 pixels=81920 mismatches=70786 underflow=24589 display_R_stalls=152207 replay_bursts=453\nPASS\nFPGAProjects\\StyleCam_camera\\validation\\display_pressure\\tb.v:57: $finish called at 2500370000 (1ps)\n"
+          },
+          "1": {
+            "passed": true,
+            "log": "RESULT priority=1 pixels=81920 mismatches=0 underflow=0 display_R_stalls=0 replay_bursts=1669\nPASS\nFPGAProjects\\StyleCam_camera\\validation\\display_pressure\\tb.v:57: $finish called at 2500370000 (1ps)\n"
+          }
+        }
+      },
+      "validation/in_math/result.json": {
+        "passed": true,
+        "RTL": true,
+        "network": "v21b_ukiyoe_qat900_640x480",
+        "official_golden_statistics": true,
+        "VGA_statistics_included": true,
+        "vectors": 3273,
+        "model_coefficients_exact": true,
+        "cases": [
+          {
+            "image": "room",
+            "style": 0,
+            "channels": 272
+          },
+          {
+            "image": "room",
+            "style": 1,
+            "channels": 272
+          },
+          {
+            "image": "room",
+            "style": 2,
+            "channels": 272
+          },
+          {
+            "image": "random32",
+            "style": 0,
+            "channels": 272
+          },
+          {
+            "image": "random32",
+            "style": 1,
+            "channels": 272
+          },
+          {
+            "image": "random32",
+            "style": 2,
+            "channels": 272
+          },
+          {
+            "image": "black32",
+            "style": 0,
+            "channels": 272
+          },
+          {
+            "image": "black32",
+            "style": 1,
+            "channels": 272
+          },
+          {
+            "image": "black32",
+            "style": 2,
+            "channels": 272
+          },
+          {
+            "image": "white32",
+            "style": 0,
+            "channels": 272
+          },
+          {
+            "image": "white32",
+            "style": 1,
+            "channels": 272
+          },
+          {
+            "image": "white32",
+            "style": 2,
+            "channels": 272
+          }
+        ],
+        "corner_cases": 9,
+        "zero_N_rejected": true,
+        "reset_during_arithmetic": true
+      }
+    }
+  },
+  "replay_display_simulation": {
+    "passed": true,
+    "output_double_buffer": true
+  },
+  "hex_sha256": "246c29d253d1b5cfc384b0abd1cf2e600bc52e9de69e18983bf6b3f517b483f4",
+  "bit_sha256": "83ffe2006540cb03bd2321ad7e4f64063226b892cce610a5014463f934f27d14",
+  "flash_bytes": 1058000,
+  "autonomous_camera_start": true,
+  "host_RGB_upload_required": false,
+  "host_IN_coefficients_required": false
+}

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "network": "v21b_ukiyoe_qat900_640x480",
+  "real_network": true,
+  "styles": [
+    0,
+    1,
+    2
+  ],
+  "initial_coefficients_exact": 816,
+  "changed_frame_coefficients_exact": 120,
+  "pixels_exact": 6912,
+  "frames": 9,
+  "no_reset_style_switching": true,
+  "independent_official_golden_reference": true,
+  "host_IN_writes": 0,
+  "input_backpressure": true,
+  "output_backpressure": true,
+  "network_blob_sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b"
+}

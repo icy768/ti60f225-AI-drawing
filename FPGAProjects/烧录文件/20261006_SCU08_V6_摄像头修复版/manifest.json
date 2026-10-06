@@ -1,0 +1,35 @@
+{
+  "created_at": "2026-10-06T12:09:19.695098",
+  "project": "FPGAProjects\\_archive\\StyleCam_v8_camera_SCU08_V6",
+  "efinity_project": "FPGAProjects\\_archive\\StyleCam_v8_camera_SCU08_V6\\ti60f225_oob.xml",
+  "board": "Ti60F225",
+  "camera": "SC431HAI",
+  "network": "v6_cal100_640x480",
+  "firmware": "SCU08",
+  "network_blob_sha256": "3d19ff507477d59a5715866b3623c3a8837a77b063458534d958d120c3558f7a",
+  "live_identity_at_inventory": "534355088002e0011b00030d",
+  "deployment": "SCU08 temporarily loaded; SCU07 still in Flash",
+  "flash_payload_bytes": 1058450,
+  "files": [
+    {
+      "purpose": "临时 JTAG 下载",
+      "source": "FPGAProjects\\_archive\\StyleCam_v8_camera_SCU08_V6\\outflow\\ti60f225_oob.bit",
+      "release_file": "FPGAProjects\\烧录文件\\20261006_SCU08_V6_摄像头修复版\\StyleCam_SCU08_SC431HAI_640x480.bit",
+      "sha256": "b22ae6140ab036bfe14c23bb624bd73f01f58644d8fdda33f1f35db2a2070660"
+    },
+    {
+      "purpose": "后续 Flash 固化，地址 0",
+      "source": "FPGAProjects\\_archive\\StyleCam_v8_camera_SCU08_V6\\outflow\\ti60f225_oob.hex",
+      "release_file": "FPGAProjects\\烧录文件\\20261006_SCU08_V6_摄像头修复版\\StyleCam_SCU08_SC431HAI_640x480.hex",
+      "sha256": "95265e41e15762583db8f930e7a933531a7760e717a95c0922470f91e1d9e8a7"
+    }
+  ],
+  "evidence": [
+    "FPGAProjects\\_archive\\StyleCam_v8_camera_SCU08_V6\\results\\offline_check.json",
+    "FPGAProjects\\_archive\\StyleCam_v8_camera_SCU08_V6\\validation\\ram_programming.json",
+    "FPGAProjects\\_archive\\StyleCam_v8_camera_SCU08_V6\\results\\camera_video_latest.json",
+    "FPGAProjects\\_archive\\StyleCam_v8_camera_SCU08_V6\\results\\visual_acceptance.json"
+  ],
+  "relocated_at": "2026-10-06T13:08:51.515547",
+  "network_version_notice": "V6_cal100; not V21b. V21b source is ../StyleCam."
+}

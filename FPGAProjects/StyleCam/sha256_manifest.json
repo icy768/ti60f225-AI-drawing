@@ -4,8 +4,8 @@
   "scope": "Retained consolidated sources; PC verification only; no board execution",
   "files": {
     "README.md": {
-      "bytes": 1228,
-      "sha256": "674463b5084ba8798b85b4cff5514913a4d76af683929e92171eb01537fe79fe"
+      "bytes": 1815,
+      "sha256": "3c487661715eb0975bd5178985b8d9d799a61047aa6b77c1a4c0fa677077aa58"
     },
     "algo/analyze_skill_network_gap.py": {
       "bytes": 3738,

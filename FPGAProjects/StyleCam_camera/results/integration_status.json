@@ -1,0 +1,20 @@
+{
+  "updated_at": "2026-10-06T13:54:36.791627",
+  "source_integrated": true,
+  "offline_passed": true,
+  "firmware": "SCU09",
+  "network": "v21b_ukiyoe_qat900_640x480",
+  "temporary_JTAG_programmed": true,
+  "Flash_modified": true,
+  "Flash_firmware": "SCU09",
+  "persistent_boot_passed": true,
+  "physical_camera_protocol_passed": true,
+  "observed_styles": [
+    0
+  ],
+  "styled_fps": 15.004442104568822,
+  "sensor_fps": 30.008884209137644,
+  "visual_acceptance": "User confirmed all three styles and KEY3; see visual_acceptance.json",
+  "baseline_archive": "FPGAProjects\\_archive\\StyleCam_v8_camera_SCU08_V6",
+  "bit_sha256": "83ffe2006540cb03bd2321ad7e4f64063226b892cce610a5014463f934f27d14"
+}

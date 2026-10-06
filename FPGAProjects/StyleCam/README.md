@@ -1,3 +1,9 @@
+## 2026-10-06 本机整机接入
+
+本目录这套 V21b 网络已接入相邻 [StyleCam_camera](../StyleCam_camera/README.md) 的摄像头、板内 IN、DDR 双缓冲及 HDMI 工程。
+已完成三风格数值对拍、完整编译和 SCU09 临时 JTAG 板测。实际板测/显示反馈见该整机工程 results；下方与 audits/deployment_status 中的交付状态保留历史范围。
+整机使用全 RTL 自主 IN，软件头参数由匹配 V21b qparams 生成的 RTL 常数 ROM 提供；本目录原 vision_top/BSP/ELF 入口仍按自身交付状态解释。
+
 # StyleCam v21b 三风格网络
 
 本目录是当前网络工程。三风格：van_gogh、ukiyo_e、ink_landscape；640×480 输入输出；固定 C24/Fc16、13 层图。
@@ -6,7 +12,7 @@
 
 固件仅保留 SC431HAI。已移除旧传感器驱动、专用 ISP 与 RAW2 前端。`sw/board_profile.h` 默认未确认，主程序会停止等待板级配置确认。
 
-独立摄像头例程位于仓库根的 `sc431hai_hdmi`，其 1920×1080 模式与这里 1920×1440 RAW3 默认尚未完成视频接口统一；这两个工程没有被标成已完成整机集成。
+独立摄像头例程位于相邻的 `../sc431hai_hdmi`，其 1920×1080 模式与这里 1920×1440 RAW3 默认尚未完成视频接口统一；这两个工程没有被标成已完成整机集成。
 
 来源是 develop 的 801488c / PR #2。算法、权重和量化合同来自 v21b；模型检查点、导出 RTL/mem、blob、固件头保持同一版本。
 

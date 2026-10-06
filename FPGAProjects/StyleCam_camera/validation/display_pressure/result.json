@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "baseline_underflow_reproduced": true,
+  "fixed_pixels_exact": 81920,
+  "fixed_underflow": 0,
+  "fixed_R_backpressure": 0,
+  "concurrent_replay": true,
+  "underflow_history_and_reset": true,
+  "tests": {
+    "0": {
+      "passed": true,
+      "log": "RESULT priority=0 pixels=81920 mismatches=70786 underflow=24589 display_R_stalls=152207 replay_bursts=453\nPASS\nFPGAProjects\\StyleCam_camera\\validation\\display_pressure\\tb.v:57: $finish called at 2500370000 (1ps)\n"
+    },
+    "1": {
+      "passed": true,
+      "log": "RESULT priority=1 pixels=81920 mismatches=0 underflow=0 display_R_stalls=0 replay_bursts=1669\nPASS\nFPGAProjects\\StyleCam_camera\\validation\\display_pressure\\tb.v:57: $finish called at 2500370000 (1ps)\n"
+    }
+  }
+}

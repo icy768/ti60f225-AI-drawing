@@ -1,0 +1,21 @@
+{
+  "time": "2026-10-06T13:54:29.498286",
+  "passed": true,
+  "firmware": "SCU09",
+  "network": "v21b_ukiyoe_qat900_640x480",
+  "identity": "534355098002e0011b00030d",
+  "bit_sha256": "83ffe2006540cb03bd2321ad7e4f64063226b892cce610a5014463f934f27d14",
+  "hex_sha256": "246c29d253d1b5cfc384b0abd1cf2e600bc52e9de69e18983bf6b3f517b483f4",
+  "user_action": "user explicitly confirmed pressing RESET_N after Flash verification",
+  "no_JTAG_RAM_configuration_after_Flash_write": true,
+  "autonomous_camera_start": true,
+  "host_RGB_upload_required": false,
+  "host_IN_writes": 0,
+  "independent_flash_bytes_exact": 1058000,
+  "report": "FPGAProjects\\StyleCam_camera\\results\\camera_video_latest.json",
+  "duration_seconds": 30.39100000000326,
+  "sensor_fps": 30.008884209137644,
+  "styled_fps": 15.004442104568822,
+  "no_HDMI_underflow_since_reset": true,
+  "current_style": 0
+}
