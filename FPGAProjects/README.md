@@ -1,6 +1,6 @@
 # FPGA 工程统一入口
 
-统一工程目录为仓库内的 `FPGAProjects`；后续在这里开发、编译和存放烧录文件。Git 根目录为上一级 FPGA，当前集成在 develop 分支。
+统一工程目录为仓库内的 `FPGAProjects`；后续在这里开发、编译和存放烧录文件。Git 根目录为上一级 FPGA，main 保存当前稳定版，develop 用于后续开发。
 
 | 目录 | 用途与状态 | 工程入口 |
 |---|---|---|
@@ -8,7 +8,7 @@
 | [StyleCam](StyleCam/README.md) | V21b 训练、量化与网络源码；整机使用同版导出参数 | `StyleCam/syn/vision_map.xml` 是交付视觉子系统入口 |
 | [sc431hai_hdmi](sc431hai_hdmi/README.md) | 独立 SC431HAI 摄像头基线，曝光 1120 半行 | `sc431hai_hdmi/ti60f225_oob.xml` |
 | [烧录文件](烧录文件/README.md) | 当前 V21b 与旧 V6 恢复包分别保存 | `.bit` 临时下载，`.hex` 固化（当前已完成） |
-| [_archive](_archive/README.md) | SCU08 / V6 完整工程及更早版本，保留恢复和对拍 | 当前版本从 StyleCam_camera 开始 |
+| [_archive](_archive/README.md) | 本地恢复资料：历史源码压缩包、Git 提交备份和厂家例程 | 当前版本从 StyleCam_camera 开始 |
 | tools | 共用 Icarus Verilog | `tools/iverilog/mingw64/bin` |
 
 ## 当前下载与固化文件

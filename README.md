@@ -1,7 +1,7 @@
 # Ti60F225 摄像头与三风格 AI 绘画
 
 当前已验收整机：**V21b 网络 / SCU09 固件**，SC431HAI 摄像头输入，板内 IN，DDR 双缓冲，HDMI 输出。
-整机源码位于 **develop** 分支；main 保留独立摄像头基线。
+**main** 保存当前已验收的完整整机；**develop** 用于后续开发，本次发布后两者同步。
 
 所有当前工程统一位于 [FPGAProjects](FPGAProjects/README.md)。
 
