@@ -2,13 +2,13 @@
 from pathlib import Path
 import os,sys,shutil,subprocess,datetime,xml.etree.ElementTree as E
 ROOT=Path(__file__).resolve().parent
-BUILD=Path(os.environ['TEMP'])/'stylecam_v21_camera_build'
+BUILD=Path(os.environ.get('STYLECAM_BUILD_DIR',Path(os.environ['TEMP'])/'stylecam_v21_camera_build'))
 BUILD.mkdir(exist_ok=True)
 flow=sys.argv[1]; assert flow in ['interface','map','pnr','pgm']
 for folder in ['rtl','model','ip']:
     shutil.copytree(ROOT/folder,BUILD/folder,dirs_exist_ok=True)
 for p in ROOT.glob('ti60f225_oob.*'): shutil.copy2(p,BUILD/p.name)
-home=Path('D:/ELS/efinity/2026.1'); name='ti60f225_oob'
+home=Path(os.environ.get('STYLECAM_EFINITY','D:/ELS/efinity/2026.1')); name='ti60f225_oob'
 env=os.environ.copy(); env.update(EFINITY_HOME=home.as_posix(),PYTHONHOME=str(home/'python311'),PROCESSOR_ARCHITECTURE='AMD64',PYTHONDONTWRITEBYTECODE='1')
 env['EFINITY_USER_DIR_INI']=os.environ['LOCALAPPDATA']+'/efinity/user_dir.ini'
 for key,folder in [('EFXPT_HOME','pt'),('EFXPGM_HOME','pgm'),('EFXDBG_HOME','debugger'),('EFXIPM_HOME','ipm')]: env[key]=(home/folder).as_posix()
