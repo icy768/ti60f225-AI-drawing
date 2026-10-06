@@ -148,7 +148,7 @@ module csi_rx_controller
     .HS_BYTECLK_MHZ (70),
     .CLOCK_FREQ_MHZ (100),
     .DPHY_CLOCK_MODE ("Continuous"),
-    .PIXEL_FIFO_DEPTH (4096),
+    .PIXEL_FIFO_DEPTH (1024),
     .AREGISTER (8),
     .ENABLE_USER_DESKEWCAL (1'b0),
     .FRAME_MODE ("GENERIC"),
