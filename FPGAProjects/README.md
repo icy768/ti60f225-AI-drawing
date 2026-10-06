@@ -11,6 +11,10 @@
 | [_archive](_archive/README.md) | 本地恢复资料：历史源码压缩包、Git 提交备份和厂家例程 | 当前版本从 StyleCam_camera 开始 |
 | tools | 共用 Icarus Verilog | `tools/iverilog/mingw64/bin` |
 
+## 项目交接
+
+接手操作、当前烧录版本、重新构建步骤、验收证据及后续待办见 [项目交接文档（2026-10-06）](docs/项目交接文档_20261006.md)。
+
 ## 当前下载与固化文件
 
 工程产物：`StyleCam_camera/outflow/ti60f225_oob.bit`。

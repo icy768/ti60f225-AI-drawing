@@ -5,6 +5,8 @@
 
 所有当前工程统一位于 [FPGAProjects](FPGAProjects/README.md)。
 
+项目交接：[2026-10-06 交接文档](FPGAProjects/docs/项目交接文档_20261006.md)（操作、烧录、构建、验收与后续待办）。
+
 | 路径 | 用途 |
 |---|---|
 | [FPGAProjects/StyleCam_camera](FPGAProjects/StyleCam_camera/README.md) | 当前完整上板工程；Efinity 入口 ti60f225_oob.xml |
