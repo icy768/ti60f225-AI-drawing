@@ -1,0 +1,14 @@
+{
+  "source": "Metropolitan Museum of Art Collection API",
+  "api_search": "https://collectionapi.metmuseum.org/public/collection/v1.1/search",
+  "api_object": "https://collectionapi.metmuseum.org/public/collection/v1/objects/{objectID}",
+  "generated": "2026-10-04",
+  "records": 140,
+  "counts": {
+    "van_gogh": 36,
+    "ukiyo_e": 60,
+    "ink_wash": 44
+  },
+  "bytes": 397507091,
+  "note": "Candidate pool only; visual screening required before training."
+}

@@ -1,3 +1,9 @@
+# StyleCam 交付索引
+
+- [v21b 硬件交付（2026-10-05）](FPGAProjects_StyleCam_v21_20261005/README.md)：固定 v6/v8 推理图的最新训练监督候选，包含 v21b INT8 RTL、blob、固件头、PC/RTL/固件复验和风格评估。
+- [v6 硬件交付（2026-10-04）](FPGAProjects_StyleCam_v6_20261004/交付说明.md)：上一版硬件组交付与板级集成基线。
+
+v21b 与 v6 使用不同权重/系数/blob，硬件组必须整套取用同一目录中的部署文件。
 # StyleCam v6 硬件交付
 
 本目录保存 2026-10-04 交付快照，与本地原始 ZIP 的内容逐文件一致。它是待集成的网络与视觉子系统，不是已经板测通过的完整 StyleCam FPGA 工程。
@@ -24,3 +30,4 @@ python -X utf8 deliveries/FPGAProjects_StyleCam_v6_20261004/StyleCam/tools/check
 ZIP 超过 GitHub 普通 Git 单文件限制，因此保存在 Release 附件中。仓库保存解压后的快照，便于审阅源码与验证报告。保留的厂商镜像只用于原厂摄像头演示，不含本版网络；`net_blob.bin` 也不是 FPGA 配置文件。
 
 本目录 `.gitattributes` 禁止对封存快照做自动换行转换，以保持 `sha256_manifest.json` 校验有效。后续集成修改应在自己的工作目录/分支中进行，并重新记录模型、固件与 bitstream 的配套版本。
+

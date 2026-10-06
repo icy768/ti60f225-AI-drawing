@@ -1,0 +1,132 @@
+{
+  "camera_index": 0,
+  "camera_kind": "PC USB camera; not SC431HAI",
+  "inference_kind": "FP32 CUDA; not FPGA",
+  "frame_count": 30,
+  "replayed_from": "audits\\v10_region_20261004\\pc_camera30\\raw",
+  "image_size": [
+    640,
+    480
+  ],
+  "frame_sha256": [
+    "1ed302500c8dbaa574615460b46ea5c24abb4bc03b37655eedd1541be3ba67e3",
+    "d3679bcb6fed803f9fd4d6ea8242554e2bc63601c86e5ce72ae573347d3c3b0c",
+    "262a10b1540019c26a4231d523a759581d3bfa63edf29882e1fc3217b1d2f772",
+    "864de574b2747e5da4941f5944400d14d7d169ee823d7b6226c0ddd7ee68a3f5",
+    "299b7d3536897a68d9eb0363651b30e2bcfbb513f722fafef2e575217e34ac93",
+    "abba66a8d555046d1138824c6e46c5a54405f85875da19ffc8062ad66f02f2e7",
+    "b8a25ab70f5bf9e579ddb13b11f5d604150f6936fde2374bbbabca86807866f0",
+    "a18836bd8a2c5d06ea3bd44e1a34b7a4953a87aa4adca848ec854ca979166e26",
+    "1c5ff119b0bbd0f1545c4048ff06f7d7ec1f8a367bbc115a0b115396da88b047",
+    "3cefe53110f378f419f12f934583ecbfb0aa8c7edf73c80883b17ba049bd70e5",
+    "eeebcb7d2951202d180d0a7eba9337d1d780db0c2cd1e10a42565c479196d8bb",
+    "f2802f41029087cec667919acd5ae6545783c8916ef65d0349f6f2750762ee6a",
+    "98c76ead39c4de750383d9c350ddafb18a25f1886b7503bda71eb832dfa3a59f",
+    "43d8c923dc06c5d160293f49969fe5ab3e4e79def4e6f6ae336b110030310906",
+    "b80877409f44e9133ba248c2384b76c0acc6b271781929f1ebfa5d5eb828b071",
+    "0206cedeab823f4b8394f7c1d5712782581d62a8d8cb871f2281f8faa10b9c85",
+    "80c3e953b586a3b0e4c8cb837acc7313c8eb4c5b9c121888f313b3ce4c6d7cbb",
+    "e3598028b5d1c51afd8881b7d00c33c4bacc28289fbba1ca874aec770a04a89d",
+    "e937f53da445efd55560561bb0209903c5afbdef7435b95d532435c18c226406",
+    "1ad2fb371a225c9ab0f847c947b48b463e15f13ea5649702112ce078d21f0cb1",
+    "2badc826b5ddeeff9fe092d87bf76476238cb5a330a7ce371b7a3efbb895b7ec",
+    "7bdc5e05a4b5ec3e119cba7a429c5983ab41ba1127c90588f07ba9d51f4815e7",
+    "5a8eefbef6d5c75375089d4821f0122ef5668e6c549068af11083917e7d4499c",
+    "383d5464591fc8d5df6c4e23c54d4316eabd7db0572ccecaf63c62e240c1ce94",
+    "64a0cdaa9cc952205fa03f1230b58441bd04cad891cd60acaad9408b54642d39",
+    "eb47038cfc7df339a43d2332e389193a705f39972c0743e0e8793f9f55c48133",
+    "0afed9593a43b44ed8fdb80734d8489de76fca81836987a0f5b9248b029a7df6",
+    "573a24d2d3c2bb2f75deffc3e08244aaea96ed9502c2db714de42bcbb7a8e8e4",
+    "0e0ee50bc56929cb891815270a193f7417f185a6fe406bafd59a4207dc171fc9",
+    "630d31dd43c321b02045f59d71e72cd06a87d20150305d4ee5460babba654390"
+  ],
+  "capture_timestamps_monotonic_ns": [
+    92876890000000,
+    92876937000000,
+    92876968000000,
+    92877015000000,
+    92877046000000,
+    92877078000000,
+    92877109000000,
+    92877171000000,
+    92877203000000,
+    92877234000000,
+    92877265000000,
+    92877296000000,
+    92877328000000,
+    92877359000000,
+    92877390000000,
+    92877437000000,
+    92877468000000,
+    92877500000000,
+    92877531000000,
+    92877562000000,
+    92877593000000,
+    92877625000000,
+    92877656000000,
+    92877687000000,
+    92877718000000,
+    92877765000000,
+    92877796000000,
+    92877828000000,
+    92877875000000,
+    92877906000000
+  ],
+  "capture_elapsed_s": 1.016,
+  "capture_interval_ms": {
+    "mean": 35.0344827586207,
+    "p95": 47.0
+  },
+  "unique_frames": 30,
+  "input_delta_255": 2.098995438937483,
+  "models": {
+    "art_styles_c24_v20_qat900_soft1": {
+      "checkpoint": "runs\\art_styles_c24_v20_qat900_soft1\\student.pt",
+      "sha256": "43dd257f6980bf17892b6f8985c892b75be9f3c792183b7c7b89af919d2dfacf",
+      "styles": {
+        "van_gogh": {
+          "aligned_mae_255": 8.62031002702384,
+          "mean_valid_fraction": 0.8576501885775862,
+          "raw_delta_255": 8.773516654968262,
+          "pc_cuda_latency_ms_median": 4.2901999986497685
+        },
+        "ukiyo_e": {
+          "aligned_mae_255": 3.518588140093047,
+          "mean_valid_fraction": 0.8576501885775862,
+          "raw_delta_255": 3.512282371520996,
+          "pc_cuda_latency_ms_median": 4.074849999597063
+        },
+        "ink_landscape": {
+          "aligned_mae_255": 4.401765922020221,
+          "mean_valid_fraction": 0.8576501885775862,
+          "raw_delta_255": 4.350697994232178,
+          "pc_cuda_latency_ms_median": 4.303850000724196
+        }
+      }
+    },
+    "art_styles_c24_v21b_ukiyoe_qat900_soft15": {
+      "checkpoint": "runs\\art_styles_c24_v21b_ukiyoe_qat900_soft15\\student.pt",
+      "sha256": "d0d19437fa91a8424a38baddc2f03d2bbf79bb6a93da94342fb8bef97fd907eb",
+      "styles": {
+        "van_gogh": {
+          "aligned_mae_255": 9.252889698949353,
+          "mean_valid_fraction": 0.8576501885775862,
+          "raw_delta_255": 9.40672492980957,
+          "pc_cuda_latency_ms_median": 4.310649997933069
+        },
+        "ukiyo_e": {
+          "aligned_mae_255": 3.3854501740685823,
+          "mean_valid_fraction": 0.8576501885775862,
+          "raw_delta_255": 3.362992286682129,
+          "pc_cuda_latency_ms_median": 4.077550001966301
+        },
+        "ink_landscape": {
+          "aligned_mae_255": 4.500274921285695,
+          "mean_valid_fraction": 0.8576501885775862,
+          "raw_delta_255": 4.452134609222412,
+          "pc_cuda_latency_ms_median": 4.213349999190541
+        }
+      }
+    }
+  }
+}

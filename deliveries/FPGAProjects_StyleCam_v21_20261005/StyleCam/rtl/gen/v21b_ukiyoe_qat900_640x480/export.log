@@ -1,0 +1,5 @@
+Frozen R/S contract: C:\Users\蔡哲涵\Desktop\fpga\FPGAProjects\StyleCam\audits\v21b_ukiyoe_qat900_soft15_export
+{}
+RTL/镜像输出：C:\Users\蔡哲涵\Desktop\fpga\FPGAProjects\StyleCam\audits\v21b_pc_validation_ncal16\art_styles_c24_v21b_ukiyoe_qat900_soft15；cfg 写次数 4050，镜像 48616 字节
+C:\Users\蔡哲涵\Desktop\fpga\FPGAProjects\StyleCam\algo\golden.py:116: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:209.)
+  x = torch.from_numpy(np.ascontiguousarray(img)).permute(2, 0, 1)[None].double()

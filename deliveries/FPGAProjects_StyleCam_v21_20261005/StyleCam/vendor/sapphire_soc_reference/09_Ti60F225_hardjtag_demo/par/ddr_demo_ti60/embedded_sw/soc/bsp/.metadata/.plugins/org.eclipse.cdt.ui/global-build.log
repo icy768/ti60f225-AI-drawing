@@ -1,0 +1,26 @@
+12:03:45 **** Build of configuration Default for project gpioDemo ****
+make all 
+CC src/main.c
+CC ../../common/start.S
+CC ../../common/trap.S
+LD gpioDemo
+Memory region         Used Size  Region Size  %age Used
+             ram:        6720 B       124 KB      5.29%
+12:03:56 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+12:05:08 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+12:07:26 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+13:27:04 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+13:27:48 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.
+13:29:00 **** Incremental Build of configuration Default for project gpioDemo ****
+make all 
+make: Nothing to be done for 'all'.

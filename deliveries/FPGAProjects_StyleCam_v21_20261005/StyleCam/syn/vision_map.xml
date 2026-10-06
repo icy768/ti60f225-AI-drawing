@@ -1,0 +1,109 @@
+<efx:project xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="vision_map" description="vision_top synthesis-only resource check" sw_version="2026.1.132.4.5" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
+    <efx:device_info>
+        <efx:family name="Titanium" />
+        <efx:device name="Ti60F225" />
+        <efx:timing_model name="I3" />
+    </efx:device_info>
+    <efx:design_info def_veri_version="verilog_2k" def_vhdl_version="vhdl_2008" unified_flow="false" partition_interface_allowed_off_perimeter="true">
+        <efx:top_module name="vision_top" />
+        <efx:design_file name="../rtl/vision_top.v" version="default" library="default" />
+        <efx:design_file name="../rtl/vision_core.v" version="default" library="default" />
+        <efx:design_file name="../rtl/disp.v" version="default" library="default" />
+        <efx:design_file name="../rtl/cam_scale3.v" version="default" library="default" />
+        <efx:design_file name="../rtl/raw_bin3.v" version="default" library="default" />
+        <efx:design_file name="../rtl/raw_bin2.v" version="default" library="default" />
+        <efx:design_file name="../rtl/motion_det.v" version="default" library="default" />
+        <efx:design_file name="../rtl/axi_frame.v" version="default" library="default" />
+        <efx:design_file name="../rtl/axi_arb.v" version="default" library="default" />
+        <efx:design_file name="../rtl/conv_layer.v" version="default" library="default" />
+        <efx:design_file name="../rtl/swg3.v" version="default" library="default" />
+        <efx:design_file name="../rtl/swg3b.v" version="default" library="default" />
+        <efx:design_file name="../rtl/mac.v" version="default" library="default" />
+        <efx:design_file name="../rtl/requant.v" version="default" library="default" />
+        <efx:design_file name="../rtl/common.v" version="default" library="default" />
+        <efx:design_file name="../rtl/gen/v21b_ukiyoe_qat900_640x480/stylenet_top.v" version="default" library="default" />
+        <efx:top_vhdl_arch name="" />
+        <efx:msg_config name="" />
+        <efx:partition_definitions name="" />
+        <efx:partition_interface_assignments name="" />
+    </efx:design_info>
+    <efx:interface_info />
+    <efx:constraint_info>
+        <efx:sdc_file name="" />
+        <efx:inter_file name="" />
+    </efx:constraint_info>
+    <efx:sim_info />
+    <efx:misc_info />
+    <efx:ooc_info />
+    <efx:ip_info />
+    <efx:synthesis tool_name="efx_map">
+        <efx:param name="work_dir" value="work_syn" value_type="e_string" />
+        <efx:param name="write_efx_verilog" value="on" value_type="e_bool" />
+        <efx:param name="mode" value="speed" value_type="e_option" />
+        <efx:param name="max_ram" value="-1" value_type="e_integer" />
+        <efx:param name="max_mult" value="-1" value_type="e_integer" />
+        <efx:param name="infer-clk-enable" value="3" value_type="e_option" />
+        <efx:param name="infer-sync-set-reset" value="1" value_type="e_option" />
+        <efx:param name="fanout-limit" value="0" value_type="e_integer" />
+        <efx:param name="bram_output_regs_packing" value="1" value_type="e_option" />
+        <efx:param name="retiming" value="0" value_type="e_option" />
+        <efx:param name="seq_opt" value="0" value_type="e_option" />
+        <efx:param name="blast_const_operand_adders" value="1" value_type="e_option" />
+        <efx:param name="operator-sharing" value="0" value_type="e_option" />
+        <efx:param name="optimize-adder-tree" value="0" value_type="e_option" />
+        <efx:param name="dsp-mac-packing" value="1" value_type="e_option" />
+        <efx:param name="dsp-output-regs-packing" value="1" value_type="e_option" />
+        <efx:param name="dsp-input-regs-packing" value="1" value_type="e_option" />
+        <efx:param name="min-sr-fanout" value="0" value_type="e_integer" />
+        <efx:param name="seq-opt-sync-only" value="0" value_type="e_option" />
+        <efx:param name="blackbox-error" value="1" value_type="e_option" />
+        <efx:param name="allow-const-ram-index" value="0" value_type="e_option" />
+        <efx:param name="hdl-compile-unit" value="1" value_type="e_option" />
+        <efx:param name="create-onehot-fsms" value="0" value_type="e_option" />
+        <efx:param name="min-ce-fanout" value="0" value_type="e_integer" />
+        <efx:param name="mult-decomp-retime" value="0" value_type="e_option" />
+        <efx:param name="optimize-zero-init-rom" value="1" value_type="e_option" />
+        <efx:param name="insert-carry-skip" value="0" value_type="e_option" />
+        <efx:param name="bram-push-tco-outreg" value="0" value_type="e_option" />
+        <efx:param name="hdl-loop-limit" value="20000" value_type="e_integer" />
+        <efx:param name="max-bit-blast-mem-size" value="10240" value_type="e_integer" />
+        <efx:param name="mult-auto-pipeline" value="0" value_type="e_integer" />
+        <efx:param name="peri-syn-instantiation" value="0" value_type="e_option" />
+        <efx:param name="peri-syn-inference" value="0" value_type="e_option" />
+        <efx:param name="ram-decomp-mode" value="0" value_type="e_option" />
+        <efx:param name="use-logic-for-small-mem" value="64" value_type="e_integer" />
+        <efx:param name="use-logic-for-small-rom" value="64" value_type="e_integer" />
+        <efx:param name="max_threads" value="-1" value_type="e_integer" />
+        <efx:param name="enable-mark-debug" value="1" value_type="e_option" />
+    </efx:synthesis>
+    <efx:place_and_route tool_name="efx_pnr">
+        <efx:param name="work_dir" value="work_pnr" value_type="e_string" />
+        <efx:param name="verbose" value="off" value_type="e_bool" />
+        <efx:param name="optimization_level" value="TIMING_2" value_type="e_option" />
+        <efx:param name="seed" value="1" value_type="e_integer" />
+        <efx:param name="placer_effort_level" value="2" value_type="e_option" />
+        <efx:param name="max_threads" value="-1" value_type="e_integer" />
+        <efx:param name="beneficial_skew" value="on" value_type="e_option" />
+        <efx:param name="print_critical_path" value="10" value_type="e_integer" />
+        <efx:param name="classic_flow" value="off" value_type="e_noarg" />
+    </efx:place_and_route>
+    <efx:bitstream_generation tool_name="efx_pgm">
+        <efx:param name="mode" value="active" value_type="e_option" />
+        <efx:param name="width" value="1" value_type="e_option" />
+        <efx:param name="generate_bit" value="on" value_type="e_bool" />
+        <efx:param name="generate_hex" value="on" value_type="e_bool" />
+    </efx:bitstream_generation>
+    <efx:debugger>
+        <efx:param name="work_dir" value="work_dbg" value_type="e_string" />
+        <efx:param name="auto_instantiation" value="off" value_type="e_bool" />
+        <efx:param name="profile" value="debug_profile.wizard.json" value_type="e_string" />
+    </efx:debugger>
+    <efx:security>
+        <efx:param name="randomize_iv_value" value="on" value_type="e_bool" />
+        <efx:param name="iv_value" value="" value_type="e_string" />
+        <efx:param name="enable_bitstream_encrypt" value="off" value_type="e_bool" />
+        <efx:param name="enable_bitstream_auth" value="off" value_type="e_bool" />
+        <efx:param name="encryption_key_file" value="NONE" value_type="e_string" />
+        <efx:param name="auth_key_file" value="NONE" value_type="e_string" />
+    </efx:security>
+</efx:project>

@@ -1,0 +1,3285 @@
+{
+  "protocol": "same held-out RGB VGA images; uint8 RGB; mean per image; v21b_ukiyoe_color_block FP32 teacher reference",
+  "caveat": "PSNR/SSIM are fidelity to the teacher checkpoint below, not a same-domain quality threshold. v10 and *_vs_v10 are legacy field labels, not the teacher version.",
+  "teacher": "runs\\art_styles_c24_v21b_ukiyoe_color_block\\student.pt",
+  "candidates": [
+    "runs\\art_styles_c24_v21b_ukiyoe_qat900_soft15\\student.pt"
+  ],
+  "paths_sha256": {
+    "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\FPGAProjects\\StyleCam\\runs\\art_styles_c24_v21b_ukiyoe_color_block\\student.pt": "053c88a13198669e0c4e6684a923ce2472b8762ead139f1321cf4faa147f654f",
+    "C:\\Users\\\u8521\u54f2\u6db5\\Desktop\\fpga\\FPGAProjects\\StyleCam\\runs\\art_styles_c24_v21b_ukiyoe_qat900_soft15\\student.pt": "d0d19437fa91a8424a38baddc2f03d2bbf79bb6a93da94342fb8bef97fd907eb"
+  },
+  "contract_json_sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+  "image_sha256": {
+    "000_input.png": "9502d260a9c6bfef3223634f285bd8e1bd3643d06ac44acb77cd6eee1e013e00",
+    "001_input.png": "d0b27a321cf0c8ebd31691b91ab740844aa529230ff10ce40eead973f0291971",
+    "002_input.png": "03dd057253a60f1690e61c22ffb627fdd9e1cee6fab47d67461640a920ff30c4",
+    "003_input.png": "1c379341cadddca09b74fa239e041536418d76efb1752d7c65c260b8bf37b858",
+    "004_input.png": "b656a91b72bdffb4cf790fe540a8bd5f968e41ebd81018fe09a4e3c46ca20b24",
+    "005_input.png": "e0350d76083fc373ac0e311ac5c457fade30b231c70b9d101a35c657624dc2a0",
+    "006_input.png": "ed15d9853b0ce52065fd4d43f6ba9ccbd52da2704b4291198252131a19233ba2",
+    "007_input.png": "e4aa2136173ae2910016fc8650db8ffee0ba8200c33ef2e4ef511cc4fe1c5ecb",
+    "008_input.png": "b918d7d3d8ce5c66d3a7882096097d999a912b1f33be4cb03ac1e0821d6cf76b",
+    "009_input.png": "c67450de28230de8713cd8533eaef8f4128740b177ba1f2310bba73df88328eb",
+    "010_input.png": "da055bcae24af3e245215eb1cd7a0cdcf275a16ec450cf8596662c897fba6a25",
+    "011_input.png": "8777fc0768609b51a4020822a72dfc5038e27a666ff32efeb897af82ff0bf8d5",
+    "012_input.png": "4d0b0e824f7968fe69496a2d4f158ef15f5df6da0d269b4e13987f5f57c5b357",
+    "013_input.png": "e452fd6304a64bbc223f4846ac72efc095d0c9b7b998e629a926366e8b972f71",
+    "014_input.png": "546a571f2037583fd0cd5a17ec8d4b5eb6a1e5ed5cd49a84393622ecc038148a",
+    "015_input.png": "96297da32644f3b0bffadf8643fb9fbfae30042feedaff2c89e813896df23ebc",
+    "016_input.png": "e0482138de372e2ae11b4573b2bbe6dcf68b752752e20a7344467def8b7fb951",
+    "017_input.png": "436148b2002f28d580348fbf694540454e05ad609d4eba4319fa06ecc69cddad",
+    "018_input.png": "4bffc9574f6d93824904810b576923dc307174a8cde513b8d5bae42fae038f32",
+    "019_input.png": "f9d82fdf02a30c0566dda19947dff01c3e85090bae7c8bd8d8db99d91159f9d4",
+    "020_input.png": "720325c99e5ab3e30fbfeab91967aa756fa4b5faf98b78c568cc55526e7fbe8d",
+    "021_input.png": "b559c4ba9f75da2bae8d4f952f3d0d2e99ad453dcc72a55302e54e7cfdc6ca9c",
+    "022_input.png": "be271c53d5bac6413757ecb30bfc875ac8f49223f137980e85ff90f3102f7a18",
+    "023_input.png": "323c6f7c1b304b1796c98abffb514c25ff8a7c2e8184255b8381fe23bc3f6c82"
+  },
+  "graph_unchanged": true,
+  "board_validated": false,
+  "summary": {
+    "van_gogh": {
+      "v10": {
+        "fp32_structure": {
+          "edge_recall": 0.9599419855617984,
+          "edge_precision": 0.8759910173920656,
+          "edge_f1": 0.9150210266025915,
+          "surface_detail": 0.04198396485298872
+        }
+      },
+      "candidate_0": {
+        "fp32_structure": {
+          "edge_recall": 0.9563992404040599,
+          "edge_precision": 0.8822242232483707,
+          "edge_f1": 0.916975126332078,
+          "surface_detail": 0.036295554134994745
+        },
+        "integer_structure": {
+          "edge_recall": 0.9571004621175169,
+          "edge_precision": 0.8592978994866064,
+          "edge_f1": 0.9042782636508129,
+          "surface_detail": 0.052670480528225504
+        },
+        "fp32_vs_v10": {
+          "psnr": 28.90267620167622,
+          "ssim": 0.9703342866593858,
+          "mae": 7.2529986346209485
+        },
+        "integer_vs_v10": {
+          "psnr": 25.1439445566181,
+          "ssim": 0.8851160628236644,
+          "mae": 11.140318648726852
+        },
+        "integer_vs_own_fp32": {
+          "psnr": 22.11659842333422,
+          "ssim": 0.8434588258433293,
+          "mae": 16.176298059534144
+        }
+      }
+    },
+    "ukiyo_e": {
+      "v10": {
+        "fp32_structure": {
+          "edge_recall": 0.9347575364714865,
+          "edge_precision": 0.9266004774305555,
+          "edge_f1": 0.9302989234759137,
+          "flat_interior_fraction": 0.3148230615416149,
+          "mean_boundary_gradient": 0.12691037418941656
+        }
+      },
+      "candidate_0": {
+        "fp32_structure": {
+          "edge_recall": 0.9327867826691767,
+          "edge_precision": 0.9325018988715277,
+          "edge_f1": 0.9322514239849973,
+          "flat_interior_fraction": 0.4116320801337596,
+          "mean_boundary_gradient": 0.11764667214204867
+        },
+        "integer_structure": {
+          "edge_recall": 0.9331380738576653,
+          "edge_precision": 0.9020480685763888,
+          "edge_f1": 0.9168151680572194,
+          "flat_interior_fraction": 0.22855462156762352,
+          "mean_boundary_gradient": 0.14363357021162906
+        },
+        "fp32_vs_v10": {
+          "psnr": 31.89469443277423,
+          "ssim": 0.9779005328171885,
+          "mae": 4.838497495298032
+        },
+        "integer_vs_v10": {
+          "psnr": 27.203056461473295,
+          "ssim": 0.8867060823526408,
+          "mae": 8.156553412543403
+        },
+        "integer_vs_own_fp32": {
+          "psnr": 24.45598388864246,
+          "ssim": 0.8445144622833958,
+          "mae": 11.740557092737268
+        }
+      }
+    },
+    "ink_landscape": {
+      "v10": {
+        "fp32_structure": {
+          "edge_recall": 0.8891588651229684,
+          "edge_precision": 0.8848227294682581,
+          "edge_f1": 0.8858021960347523,
+          "background_paper_fraction": 0.8330217498829242,
+          "subject_dark_fraction": 0.4170116758823033,
+          "foreground_background_contrast": 0.6077919056018194
+        }
+      },
+      "candidate_0": {
+        "fp32_structure": {
+          "edge_recall": 0.8969238809727313,
+          "edge_precision": 0.8930121527777778,
+          "edge_f1": 0.8939245218192498,
+          "background_paper_fraction": 0.7648730429139784,
+          "subject_dark_fraction": 0.3084153912218179,
+          "foreground_background_contrast": 0.569238469004631
+        },
+        "integer_structure": {
+          "edge_recall": 0.8659465463925412,
+          "edge_precision": 0.8583279079861111,
+          "edge_f1": 0.8604400197492271,
+          "background_paper_fraction": 0.8829534892689225,
+          "subject_dark_fraction": 0.5217960730241838,
+          "foreground_background_contrast": 0.6527386779586474
+        },
+        "fp32_vs_v10": {
+          "psnr": 30.421008545555964,
+          "ssim": 0.9773352780889816,
+          "mae": 6.28869068287037
+        },
+        "integer_vs_v10": {
+          "psnr": 26.28871541291153,
+          "ssim": 0.890059054089364,
+          "mae": 9.83848415798611
+        },
+        "integer_vs_own_fp32": {
+          "psnr": 22.969757143817798,
+          "ssim": 0.8517731058037189,
+          "mae": 15.151285264756945
+        }
+      }
+    }
+  },
+  "records": {
+    "van_gogh": {
+      "v10": [
+        {
+          "fp32_structure": {
+            "edge_recall": 0.972884997233163,
+            "edge_precision": 0.9075520833333334,
+            "edge_f1": 0.9390835941362183,
+            "surface_detail": 0.040791772305965424
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9760091145833333,
+            "edge_precision": 0.90400390625,
+            "edge_f1": 0.9386275970874313,
+            "surface_detail": 0.04247337952256203
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9654947916666666,
+            "edge_precision": 0.8773763020833333,
+            "edge_f1": 0.9193288156356902,
+            "surface_detail": 0.04496827721595764
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9000325520833333,
+            "edge_precision": 0.6483512906480908,
+            "edge_f1": 0.753737220273671,
+            "surface_detail": 0.04226110503077507
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9249348958333333,
+            "edge_precision": 0.7194010416666666,
+            "edge_f1": 0.8093226114707474,
+            "surface_detail": 0.040353234857320786
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9705078125,
+            "edge_precision": 0.9101888020833333,
+            "edge_f1": 0.9393810106555603,
+            "surface_detail": 0.037859052419662476
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.946484375,
+            "edge_precision": 0.9046875,
+            "edge_f1": 0.9251140799746782,
+            "surface_detail": 0.0477430485188961
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9497721354166667,
+            "edge_precision": 0.8382486979166667,
+            "edge_f1": 0.89053241549354,
+            "surface_detail": 0.04249680042266846
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9617513020833334,
+            "edge_precision": 0.8799479166666667,
+            "edge_f1": 0.9190328648714732,
+            "surface_detail": 0.038632575422525406
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9530924479166667,
+            "edge_precision": 0.88212890625,
+            "edge_f1": 0.9162386833904625,
+            "surface_detail": 0.04754285141825676
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9720377604166667,
+            "edge_precision": 0.9264997884183458,
+            "edge_f1": 0.9487226417126271,
+            "surface_detail": 0.04377032071352005
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9646484375,
+            "edge_precision": 0.9407552083333334,
+            "edge_f1": 0.9525520157088189,
+            "surface_detail": 0.04310111328959465
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9886393229166667,
+            "edge_precision": 0.9230794270833333,
+            "edge_f1": 0.9547352295309876,
+            "surface_detail": 0.03871756047010422
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9423177083333333,
+            "edge_precision": 0.7514322916666667,
+            "edge_f1": 0.8361186185104038,
+            "surface_detail": 0.03939857706427574
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9322591145833333,
+            "edge_precision": 0.8618209042674392,
+            "edge_f1": 0.8956572557520901,
+            "surface_detail": 0.047618333250284195
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.94833984375,
+            "edge_precision": 0.85341796875,
+            "edge_f1": 0.8983785251524391,
+            "surface_detail": 0.03956398367881775
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.96806640625,
+            "edge_precision": 0.8893229166666666,
+            "edge_f1": 0.9270255075886362,
+            "surface_detail": 0.05852602422237396
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.97509765625,
+            "edge_precision": 0.9422526041666667,
+            "edge_f1": 0.9583938051242763,
+            "surface_detail": 0.03929648548364639
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9748372395833333,
+            "edge_precision": 0.8859049479166666,
+            "edge_f1": 0.9282458792645609,
+            "surface_detail": 0.04281231760978699
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9595052083333333,
+            "edge_precision": 0.9060251944923667,
+            "edge_f1": 0.9319986333965642,
+            "surface_detail": 0.037275079637765884
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9623697916666667,
+            "edge_precision": 0.9168294270833334,
+            "edge_f1": 0.9390477985862102,
+            "surface_detail": 0.03667321801185608
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9765299479166667,
+            "edge_precision": 0.93486328125,
+            "edge_f1": 0.9552424665083534,
+            "surface_detail": 0.03646715357899666
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9798828125,
+            "edge_precision": 0.9149088541666667,
+            "edge_f1": 0.9462818282066039,
+            "surface_detail": 0.039046511054039
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9731119791666667,
+            "edge_precision": 0.90478515625,
+            "edge_f1": 0.9377055404301513,
+            "surface_detail": 0.04022638127207756
+          }
+        }
+      ],
+      "candidate_0": [
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.739107354518325,
+            "exact_match": false,
+            "ssim": 0.9684491693005673,
+            "mae": 7.3367708333333335
+          },
+          "integer_vs_v10": {
+            "psnr": 27.716952284621055,
+            "exact_match": false,
+            "ssim": 0.9173719994156508,
+            "mae": 7.979235026041667
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.23433472440058,
+            "exact_match": false,
+            "ssim": 0.8808778675891636,
+            "mae": 12.427874348958333
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9680348946974382,
+            "edge_precision": 0.90791015625,
+            "edge_f1": 0.9370090153294462,
+            "surface_detail": 0.03508993983268738
+          },
+          "integer_structure": {
+            "edge_recall": 0.9712899970704079,
+            "edge_precision": 0.9008138020833333,
+            "edge_f1": 0.9347253454450695,
+            "surface_detail": 0.04766785353422165
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.066701786217187,
+            "exact_match": false,
+            "ssim": 0.9764773179306684,
+            "mae": 7.102149522569444
+          },
+          "integer_vs_v10": {
+            "psnr": 23.351377726920198,
+            "exact_match": false,
+            "ssim": 0.8802149942027969,
+            "mae": 13.716583116319445
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 20.481929700365615,
+            "exact_match": false,
+            "ssim": 0.8308147001998684,
+            "mae": 19.349403211805555
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9759440104166667,
+            "edge_precision": 0.9070638020833334,
+            "edge_f1": 0.9402440912166932,
+            "surface_detail": 0.036685191094875336
+          },
+          "integer_structure": {
+            "edge_recall": 0.97099609375,
+            "edge_precision": 0.88203125,
+            "edge_f1": 0.9243780467720685,
+            "surface_detail": 0.05642952769994736
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.742261463642205,
+            "exact_match": false,
+            "ssim": 0.9747860716549767,
+            "mae": 7.420534939236111
+          },
+          "integer_vs_v10": {
+            "psnr": 24.6919621863921,
+            "exact_match": false,
+            "ssim": 0.8998887684158469,
+            "mae": 11.58787109375
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 21.375011914565967,
+            "exact_match": false,
+            "ssim": 0.8530128581071191,
+            "mae": 17.41474066840278
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9630859375,
+            "edge_precision": 0.8800455729166666,
+            "edge_f1": 0.9196951067735468,
+            "surface_detail": 0.03884424269199371
+          },
+          "integer_structure": {
+            "edge_recall": 0.9634440104166667,
+            "edge_precision": 0.8643229166666667,
+            "edge_f1": 0.9111957600165037,
+            "surface_detail": 0.057340167462825775
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 26.92141418759165,
+            "exact_match": false,
+            "ssim": 0.9247229045207415,
+            "mae": 8.952991536458333
+          },
+          "integer_vs_v10": {
+            "psnr": 24.65732519290656,
+            "exact_match": false,
+            "ssim": 0.827114284651706,
+            "mae": 11.308581814236112
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.210000073909427,
+            "exact_match": false,
+            "ssim": 0.8060056798236408,
+            "mae": 15.666358506944444
+          },
+          "fp32_structure": {
+            "edge_recall": 0.8951497395833333,
+            "edge_precision": 0.6696614583333333,
+            "edge_f1": 0.7661592412351869,
+            "surface_detail": 0.035920657217502594
+          },
+          "integer_structure": {
+            "edge_recall": 0.9054036458333333,
+            "edge_precision": 0.61279296875,
+            "edge_f1": 0.7309000464337786,
+            "surface_detail": 0.04907221719622612
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.049901849605895,
+            "exact_match": false,
+            "ssim": 0.96002632933875,
+            "mae": 8.186564670138889
+          },
+          "integer_vs_v10": {
+            "psnr": 25.76526387639527,
+            "exact_match": false,
+            "ssim": 0.8828435320628466,
+            "mae": 9.784051649305555
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.885679813960067,
+            "exact_match": false,
+            "ssim": 0.8454262041162385,
+            "mae": 14.46914279513889
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9091796875,
+            "edge_precision": 0.7246834412942287,
+            "edge_f1": 0.8065148825269687,
+            "surface_detail": 0.03471265360713005
+          },
+          "integer_structure": {
+            "edge_recall": 0.9249674479166666,
+            "edge_precision": 0.70068359375,
+            "edge_f1": 0.7973537972129054,
+            "surface_detail": 0.050476543605327606
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.97110968405884,
+            "exact_match": false,
+            "ssim": 0.9753578499089314,
+            "mae": 7.367120225694444
+          },
+          "integer_vs_v10": {
+            "psnr": 25.626835796470225,
+            "exact_match": false,
+            "ssim": 0.9065200887432919,
+            "mae": 10.559106987847223
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.04795700404491,
+            "exact_match": false,
+            "ssim": 0.8588817262540588,
+            "mae": 16.482548828125
+          },
+          "fp32_structure": {
+            "edge_recall": 0.97060546875,
+            "edge_precision": 0.9156901041666666,
+            "edge_f1": 0.9423484161712427,
+            "surface_detail": 0.03256792575120926
+          },
+          "integer_structure": {
+            "edge_recall": 0.9649088541666667,
+            "edge_precision": 0.9010091145833333,
+            "edge_f1": 0.9318648374759396,
+            "surface_detail": 0.04722586274147034
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.388422909130796,
+            "exact_match": false,
+            "ssim": 0.9788913765541066,
+            "mae": 6.858395182291667
+          },
+          "integer_vs_v10": {
+            "psnr": 24.959000587589983,
+            "exact_match": false,
+            "ssim": 0.908007277524784,
+            "mae": 11.406695963541667
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 21.796912320326463,
+            "exact_match": false,
+            "ssim": 0.8622477397038475,
+            "mae": 16.6942578125
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9435546875,
+            "edge_precision": 0.9114908854166667,
+            "edge_f1": 0.9272456807583309,
+            "surface_detail": 0.04161347076296806
+          },
+          "integer_structure": {
+            "edge_recall": 0.9425130208333333,
+            "edge_precision": 0.8889973958333334,
+            "edge_f1": 0.9149733612597161,
+            "surface_detail": 0.06025046855211258
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.50521013806615,
+            "exact_match": false,
+            "ssim": 0.963149883391849,
+            "mae": 7.356561414930556
+          },
+          "integer_vs_v10": {
+            "psnr": 25.94823475003214,
+            "exact_match": false,
+            "ssim": 0.8828601079609579,
+            "mae": 9.76768337673611
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.258055223156187,
+            "exact_match": false,
+            "ssim": 0.8470466926013839,
+            "mae": 13.958487413194444
+          },
+          "fp32_structure": {
+            "edge_recall": 0.94423828125,
+            "edge_precision": 0.8458984375,
+            "edge_f1": 0.8923672458881131,
+            "surface_detail": 0.03693082183599472
+          },
+          "integer_structure": {
+            "edge_recall": 0.9546875,
+            "edge_precision": 0.8233072916666667,
+            "edge_f1": 0.8841433998535335,
+            "surface_detail": 0.051683757454156876
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.774193680103583,
+            "exact_match": false,
+            "ssim": 0.9689060125116388,
+            "mae": 7.296340060763889
+          },
+          "integer_vs_v10": {
+            "psnr": 20.97480545931536,
+            "exact_match": false,
+            "ssim": 0.774749076638937,
+            "mae": 18.01993923611111
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 18.8961610029357,
+            "exact_match": false,
+            "ssim": 0.7261761312323166,
+            "mae": 23.250537109375
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9538736979166667,
+            "edge_precision": 0.8832356770833333,
+            "edge_f1": 0.9171966491449755,
+            "surface_detail": 0.03298977389931679
+          },
+          "integer_structure": {
+            "edge_recall": 0.9618815104166667,
+            "edge_precision": 0.85224609375,
+            "edge_f1": 0.9037509357336713,
+            "surface_detail": 0.052332621067762375
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.12651520396791,
+            "exact_match": false,
+            "ssim": 0.9821770875217578,
+            "mae": 5.993580729166666
+          },
+          "integer_vs_v10": {
+            "psnr": 24.734455155799353,
+            "exact_match": false,
+            "ssim": 0.9197653473468886,
+            "mae": 11.149647352430556
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 21.848348322095923,
+            "exact_match": false,
+            "ssim": 0.8764331513545832,
+            "mae": 15.660059678819444
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9512369791666667,
+            "edge_precision": 0.8926106770833333,
+            "edge_f1": 0.9209917979531158,
+            "surface_detail": 0.04131845757365227
+          },
+          "integer_structure": {
+            "edge_recall": 0.9427408854166667,
+            "edge_precision": 0.8594075520833333,
+            "edge_f1": 0.8991475060830684,
+            "surface_detail": 0.06171862408518791
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.03949363267264,
+            "exact_match": false,
+            "ssim": 0.9732977487134331,
+            "mae": 7.161078559027778
+          },
+          "integer_vs_v10": {
+            "psnr": 23.369738203686946,
+            "exact_match": false,
+            "ssim": 0.8691545974627922,
+            "mae": 13.742545572916667
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 20.544466644892317,
+            "exact_match": false,
+            "ssim": 0.8232022719206498,
+            "mae": 19.316334635416666
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9734375,
+            "edge_precision": 0.9355794270833333,
+            "edge_f1": 0.9541330782675419,
+            "surface_detail": 0.03770761936903
+          },
+          "integer_structure": {
+            "edge_recall": 0.9626302083333333,
+            "edge_precision": 0.9078450520833333,
+            "edge_f1": 0.9344353171788982,
+            "surface_detail": 0.05725856125354767
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.701159071642984,
+            "exact_match": false,
+            "ssim": 0.9759098690723732,
+            "mae": 6.725539279513889
+          },
+          "integer_vs_v10": {
+            "psnr": 26.614555540204567,
+            "exact_match": false,
+            "ssim": 0.8905200978701154,
+            "mae": 9.285055338541667
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.606037598897448,
+            "exact_match": false,
+            "ssim": 0.850699868675746,
+            "mae": 13.637180989583333
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9652669270833333,
+            "edge_precision": 0.9430338541666666,
+            "edge_f1": 0.9540208750014215,
+            "surface_detail": 0.03761323541402817
+          },
+          "integer_structure": {
+            "edge_recall": 0.9624348958333333,
+            "edge_precision": 0.9305035643370984,
+            "edge_f1": 0.9461999107299974,
+            "surface_detail": 0.053203534334897995
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.65780526787284,
+            "exact_match": false,
+            "ssim": 0.9696692709483016,
+            "mae": 7.441231553819445
+          },
+          "integer_vs_v10": {
+            "psnr": 25.268443551718672,
+            "exact_match": false,
+            "ssim": 0.8890585832869874,
+            "mae": 10.734002821180555
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.058930680044533,
+            "exact_match": false,
+            "ssim": 0.8498323474985474,
+            "mae": 16.012582465277777
+          },
+          "fp32_structure": {
+            "edge_recall": 0.98720703125,
+            "edge_precision": 0.9275716145833334,
+            "edge_f1": 0.9564606560629951,
+            "surface_detail": 0.03324258700013161
+          },
+          "integer_structure": {
+            "edge_recall": 0.9889973958333333,
+            "edge_precision": 0.91650390625,
+            "edge_f1": 0.9513716685066711,
+            "surface_detail": 0.04840795323252678
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.02273467105662,
+            "exact_match": false,
+            "ssim": 0.9664323359733186,
+            "mae": 7.014632161458334
+          },
+          "integer_vs_v10": {
+            "psnr": 25.972014022427583,
+            "exact_match": false,
+            "ssim": 0.8890834079049726,
+            "mae": 9.862637803819444
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.311167357183976,
+            "exact_match": false,
+            "ssim": 0.855495588239903,
+            "mae": 13.918919270833333
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9315104166666667,
+            "edge_precision": 0.7568359375,
+            "edge_f1": 0.8351373611807349,
+            "surface_detail": 0.03421732410788536
+          },
+          "integer_structure": {
+            "edge_recall": 0.93720703125,
+            "edge_precision": 0.7359049479166667,
+            "edge_f1": 0.8244460623163838,
+            "surface_detail": 0.04899110645055771
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.952751198238285,
+            "exact_match": false,
+            "ssim": 0.9751917014623889,
+            "mae": 6.198474392361111
+          },
+          "integer_vs_v10": {
+            "psnr": 27.893703252133765,
+            "exact_match": false,
+            "ssim": 0.9324928681524861,
+            "mae": 7.833173828125
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.575816091718718,
+            "exact_match": false,
+            "ssim": 0.8938594100830853,
+            "mae": 11.846769748263888
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9251953125,
+            "edge_precision": 0.8666666666666667,
+            "edge_f1": 0.8949751117247393,
+            "surface_detail": 0.04181762412190437
+          },
+          "integer_structure": {
+            "edge_recall": 0.9222330729166667,
+            "edge_precision": 0.848828125,
+            "edge_f1": 0.8840093961944235,
+            "surface_detail": 0.056502554565668106
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.401080103910143,
+            "exact_match": false,
+            "ssim": 0.972292123489538,
+            "mae": 6.749264322916667
+          },
+          "integer_vs_v10": {
+            "psnr": 26.68543002723681,
+            "exact_match": false,
+            "ssim": 0.8951805267954022,
+            "mae": 9.055865885416667
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.608419869599622,
+            "exact_match": false,
+            "ssim": 0.8590090878568651,
+            "mae": 13.381686197916666
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9469075520833333,
+            "edge_precision": 0.8655924479166667,
+            "edge_f1": 0.9044259596784453,
+            "surface_detail": 0.03438141942024231
+          },
+          "integer_structure": {
+            "edge_recall": 0.94384765625,
+            "edge_precision": 0.8346354166666666,
+            "edge_f1": 0.8858883099203807,
+            "surface_detail": 0.04793159291148186
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.051232793052847,
+            "exact_match": false,
+            "ssim": 0.979760776456787,
+            "mae": 6.105289713541667
+          },
+          "integer_vs_v10": {
+            "psnr": 25.29543870586313,
+            "exact_match": false,
+            "ssim": 0.9096729349664777,
+            "mae": 10.831692708333334
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.395894333627112,
+            "exact_match": false,
+            "ssim": 0.8663843729210585,
+            "mae": 15.266359592013888
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9684895833333333,
+            "edge_precision": 0.9076171875,
+            "edge_f1": 0.9370658487177708,
+            "surface_detail": 0.051061805337667465
+          },
+          "integer_structure": {
+            "edge_recall": 0.9536458333333333,
+            "edge_precision": 0.8522135416666666,
+            "edge_f1": 0.9000810410507848,
+            "surface_detail": 0.07297206670045853
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.41722506045166,
+            "exact_match": false,
+            "ssim": 0.9688276623714153,
+            "mae": 7.830104166666667
+          },
+          "integer_vs_v10": {
+            "psnr": 25.468226676385385,
+            "exact_match": false,
+            "ssim": 0.8886499043286128,
+            "mae": 10.284913194444444
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.1459592823858,
+            "exact_match": false,
+            "ssim": 0.8456542888262947,
+            "mae": 15.734455295138888
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9703450520833333,
+            "edge_precision": 0.9385091145833333,
+            "edge_f1": 0.9541616028858999,
+            "surface_detail": 0.033755891025066376
+          },
+          "integer_structure": {
+            "edge_recall": 0.973828125,
+            "edge_precision": 0.9319010416666667,
+            "edge_f1": 0.9524033739580486,
+            "surface_detail": 0.04796986281871796
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.55734724400049,
+            "exact_match": false,
+            "ssim": 0.9711178817222308,
+            "mae": 7.411771918402778
+          },
+          "integer_vs_v10": {
+            "psnr": 25.18020116540886,
+            "exact_match": false,
+            "ssim": 0.8923269751477947,
+            "mae": 10.887036675347222
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 21.942714167893076,
+            "exact_match": false,
+            "ssim": 0.8504535953380555,
+            "mae": 16.20123046875
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9705403645833334,
+            "edge_precision": 0.89638671875,
+            "edge_f1": 0.9319908641209113,
+            "surface_detail": 0.03665947914123535
+          },
+          "integer_structure": {
+            "edge_recall": 0.9740559895833333,
+            "edge_precision": 0.87294921875,
+            "edge_f1": 0.9207352651623634,
+            "surface_detail": 0.0535992756485939
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.85300112535177,
+            "exact_match": false,
+            "ssim": 0.9745208344076149,
+            "mae": 7.185338541666667
+          },
+          "integer_vs_v10": {
+            "psnr": 21.663515956171217,
+            "exact_match": false,
+            "ssim": 0.8337947974258025,
+            "mae": 16.737342664930555
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 19.17947357404063,
+            "exact_match": false,
+            "ssim": 0.7811327631801713,
+            "mae": 22.446863064236112
+          },
+          "fp32_structure": {
+            "edge_recall": 0.95654296875,
+            "edge_precision": 0.9180013020833333,
+            "edge_f1": 0.9368759164282552,
+            "surface_detail": 0.031836383044719696
+          },
+          "integer_structure": {
+            "edge_recall": 0.9643229166666667,
+            "edge_precision": 0.8741536458333333,
+            "edge_f1": 0.9170270761771546,
+            "surface_detail": 0.05099363625049591
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.736033160419264,
+            "exact_match": false,
+            "ssim": 0.9746060934033002,
+            "mae": 7.619064670138889
+          },
+          "integer_vs_v10": {
+            "psnr": 24.43420305369685,
+            "exact_match": false,
+            "ssim": 0.8879147726808082,
+            "mae": 12.203861762152778
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 21.138536096449478,
+            "exact_match": false,
+            "ssim": 0.8415264185217618,
+            "mae": 18.571103515625
+          },
+          "fp32_structure": {
+            "edge_recall": 0.960546875,
+            "edge_precision": 0.9192057291666667,
+            "edge_f1": 0.9394216969573649,
+            "surface_detail": 0.03189675137400627
+          },
+          "integer_structure": {
+            "edge_recall": 0.9577799479166667,
+            "edge_precision": 0.9120442708333333,
+            "edge_f1": 0.9343527647753057,
+            "surface_detail": 0.04768411070108414
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.529915198002588,
+            "exact_match": false,
+            "ssim": 0.9754599178262281,
+            "mae": 6.901322699652778
+          },
+          "integer_vs_v10": {
+            "psnr": 26.54454005642303,
+            "exact_match": false,
+            "ssim": 0.8908683404045551,
+            "mae": 9.273590494791666
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.431210521448776,
+            "exact_match": false,
+            "ssim": 0.8502079438280448,
+            "mae": 13.802697482638889
+          },
+          "fp32_structure": {
+            "edge_recall": 0.97607421875,
+            "edge_precision": 0.93740234375,
+            "edge_f1": 0.9563474967624016,
+            "surface_detail": 0.03156348690390587
+          },
+          "integer_structure": {
+            "edge_recall": 0.9750325520833333,
+            "edge_precision": 0.9265625,
+            "edge_f1": 0.9501797956930346,
+            "surface_detail": 0.044128794223070145
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 28.581291305379896,
+            "exact_match": false,
+            "ssim": 0.968788307884609,
+            "mae": 7.47162109375
+          },
+          "integer_vs_v10": {
+            "psnr": 25.467604573758805,
+            "exact_match": false,
+            "ssim": 0.8953975023075893,
+            "mae": 10.475396050347221
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.203882129127386,
+            "exact_match": false,
+            "ssim": 0.8538177516383358,
+            "mae": 15.741357421875
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9767252604166666,
+            "edge_precision": 0.9148763020833334,
+            "edge_f1": 0.9447896556190128,
+            "surface_detail": 0.03380431607365608
+          },
+          "integer_structure": {
+            "edge_recall": 0.9822591145833334,
+            "edge_precision": 0.9141629504247909,
+            "edge_f1": 0.9469884440152788,
+            "surface_detail": 0.04871232435107231
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 27.878320751274657,
+            "exact_match": false,
+            "ssim": 0.969204353459733,
+            "mae": 8.386225043402778
+          },
+          "integer_vs_v10": {
+            "psnr": 25.170841557276518,
+            "exact_match": false,
+            "ssim": 0.8793347220698428,
+            "mae": 10.881137152777777
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 21.62146371295162,
+            "exact_match": false,
+            "ssim": 0.8348133607291639,
+            "mae": 16.98020290798611
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9698893229166666,
+            "edge_precision": 0.9078125,
+            "edge_f1": 0.937824781564759,
+            "surface_detail": 0.03486224263906479
+          },
+          "integer_structure": {
+            "edge_recall": 0.9693033854166667,
+            "edge_precision": 0.8793294270833333,
+            "edge_f1": 0.9221268656545314,
+            "surface_detail": 0.05153851583600044
+          }
+        }
+      ]
+    },
+    "ukiyo_e": {
+      "v10": [
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9635103023990105,
+            "edge_precision": 0.9460611979166667,
+            "edge_f1": 0.9547060277575029,
+            "flat_interior_fraction": 0.29636070053409513,
+            "mean_boundary_gradient": 0.1147918775677681
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9567708333333333,
+            "edge_precision": 0.9380859375,
+            "edge_f1": 0.9473362609517265,
+            "flat_interior_fraction": 0.3129999948816903,
+            "mean_boundary_gradient": 0.10979335755109787
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.94248046875,
+            "edge_precision": 0.9173828125,
+            "edge_f1": 0.9297623022775006,
+            "flat_interior_fraction": 0.25723582497393305,
+            "mean_boundary_gradient": 0.12007592618465424
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9560221354166667,
+            "edge_precision": 0.841015625,
+            "edge_f1": 0.8948387968707545,
+            "flat_interior_fraction": 0.21682814344622772,
+            "mean_boundary_gradient": 0.15447670221328735
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9026041666666667,
+            "edge_precision": 0.865234375,
+            "edge_f1": 0.8835242966045518,
+            "flat_interior_fraction": 0.21194339921166136,
+            "mean_boundary_gradient": 0.15433081984519958
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9283203125,
+            "edge_precision": 0.9141927083333333,
+            "edge_f1": 0.92120234819441,
+            "flat_interior_fraction": 0.3291479820627803,
+            "mean_boundary_gradient": 0.09722031652927399
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9112955729166666,
+            "edge_precision": 0.9324869791666667,
+            "edge_f1": 0.9217694949513897,
+            "flat_interior_fraction": 0.2502027575020276,
+            "mean_boundary_gradient": 0.11546526849269867
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9254231770833333,
+            "edge_precision": 0.9218424479166667,
+            "edge_f1": 0.9236293420674885,
+            "flat_interior_fraction": 0.247440889566858,
+            "mean_boundary_gradient": 0.13868016004562378
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9365885416666667,
+            "edge_precision": 0.94296875,
+            "edge_f1": 0.9397678169379979,
+            "flat_interior_fraction": 0.34412966155076363,
+            "mean_boundary_gradient": 0.17186762392520905
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9090169270833334,
+            "edge_precision": 0.9467447916666667,
+            "edge_f1": 0.9274973533053261,
+            "flat_interior_fraction": 0.14945758321283434,
+            "mean_boundary_gradient": 0.10607519000768661
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9462565104166667,
+            "edge_precision": 0.9542643229166666,
+            "edge_f1": 0.9502435462751639,
+            "flat_interior_fraction": 0.46145071658379644,
+            "mean_boundary_gradient": 0.1032787337899208
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.8982747395833334,
+            "edge_precision": 0.9395182291666667,
+            "edge_f1": 0.9184336940983109,
+            "flat_interior_fraction": 0.4538973135433305,
+            "mean_boundary_gradient": 0.12755455076694489
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9764973958333333,
+            "edge_precision": 0.9563151041666667,
+            "edge_f1": 0.9663008789676525,
+            "flat_interior_fraction": 0.37381481216116164,
+            "mean_boundary_gradient": 0.12060663104057312
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.96123046875,
+            "edge_precision": 0.88173828125,
+            "edge_f1": 0.9197700193242635,
+            "flat_interior_fraction": 0.272287403365166,
+            "mean_boundary_gradient": 0.15020056068897247
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.8638997395833333,
+            "edge_precision": 0.8907877604166666,
+            "edge_f1": 0.8771377401936004,
+            "flat_interior_fraction": 0.18816285213855788,
+            "mean_boundary_gradient": 0.12627854943275452
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.8794270833333333,
+            "edge_precision": 0.8232747395833333,
+            "edge_f1": 0.8504250048591329,
+            "flat_interior_fraction": 0.41753338409821145,
+            "mean_boundary_gradient": 0.10920814424753189
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.93369140625,
+            "edge_precision": 0.95224609375,
+            "edge_f1": 0.9428774753877123,
+            "flat_interior_fraction": 0.22318759522477868,
+            "mean_boundary_gradient": 0.13806277513504028
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9449869791666666,
+            "edge_precision": 0.9597981770833334,
+            "edge_f1": 0.9523349937872055,
+            "flat_interior_fraction": 0.29749276382695766,
+            "mean_boundary_gradient": 0.14954644441604614
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9598307291666667,
+            "edge_precision": 0.9523763020833333,
+            "edge_f1": 0.9560889856912029,
+            "flat_interior_fraction": 0.3043352266141185,
+            "mean_boundary_gradient": 0.14387689530849457
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.94189453125,
+            "edge_precision": 0.9737955729166666,
+            "edge_f1": 0.9575794359335175,
+            "flat_interior_fraction": 0.3487591077233494,
+            "mean_boundary_gradient": 0.12784186005592346
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.934375,
+            "edge_precision": 0.9400065104166667,
+            "edge_f1": 0.9371822953752105,
+            "flat_interior_fraction": 0.41886848050289754,
+            "mean_boundary_gradient": 0.11144960671663284
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.94814453125,
+            "edge_precision": 0.9425455729166666,
+            "edge_f1": 0.9453367619002014,
+            "flat_interior_fraction": 0.40926649518028324,
+            "mean_boundary_gradient": 0.11165568977594376
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9810221354166667,
+            "edge_precision": 0.9553059895833333,
+            "edge_f1": 0.9679932959475798,
+            "flat_interior_fraction": 0.3856832161798025,
+            "mean_boundary_gradient": 0.11481531709432602
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9326171875,
+            "edge_precision": 0.9504231770833333,
+            "edge_f1": 0.9414359957625288,
+            "flat_interior_fraction": 0.3852671729134736,
+            "mean_boundary_gradient": 0.12869597971439362
+          }
+        }
+      ],
+      "candidate_0": [
+        {
+          "fp32_vs_v10": {
+            "psnr": 32.034231898323725,
+            "exact_match": false,
+            "ssim": 0.9752887674780671,
+            "mae": 4.941034071180556
+          },
+          "integer_vs_v10": {
+            "psnr": 29.43046682563709,
+            "exact_match": false,
+            "ssim": 0.9107452013399464,
+            "mae": 6.101822916666666
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 26.041163800352038,
+            "exact_match": false,
+            "ssim": 0.8712598291485237,
+            "mae": 9.826175130208334
+          },
+          "fp32_structure": {
+            "edge_recall": 0.960873669476905,
+            "edge_precision": 0.9549479166666667,
+            "edge_f1": 0.9579016287146709,
+            "flat_interior_fraction": 0.4209725499937896,
+            "mean_boundary_gradient": 0.10711171478033066
+          },
+          "integer_structure": {
+            "edge_recall": 0.9609062205006348,
+            "edge_precision": 0.9228515625,
+            "edge_f1": 0.941494511669584,
+            "flat_interior_fraction": 0.23422112603580744,
+            "mean_boundary_gradient": 0.12605901062488556
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.764398009895874,
+            "exact_match": false,
+            "ssim": 0.9803656645396007,
+            "mae": 4.923287760416667
+          },
+          "integer_vs_v10": {
+            "psnr": 24.746378209373926,
+            "exact_match": false,
+            "ssim": 0.8650026604342352,
+            "mae": 11.478369140625
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.245759094110078,
+            "exact_match": false,
+            "ssim": 0.8110919197141496,
+            "mae": 15.547637803819445
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9569986979166667,
+            "edge_precision": 0.9444661458333333,
+            "edge_f1": 0.9506911208585133,
+            "flat_interior_fraction": 0.3912435957149511,
+            "mean_boundary_gradient": 0.09912144392728806
+          },
+          "integer_structure": {
+            "edge_recall": 0.954296875,
+            "edge_precision": 0.9045572916666667,
+            "edge_f1": 0.9287616125840572,
+            "flat_interior_fraction": 0.2007605808257881,
+            "mean_boundary_gradient": 0.14072434604167938
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.76090182869528,
+            "exact_match": false,
+            "ssim": 0.9794521109518124,
+            "mae": 4.967883029513889
+          },
+          "integer_vs_v10": {
+            "psnr": 27.38921114296458,
+            "exact_match": false,
+            "ssim": 0.8986317299149086,
+            "mae": 8.037881944444445
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.30531684623418,
+            "exact_match": false,
+            "ssim": 0.852438534799416,
+            "mae": 11.976127387152777
+          },
+          "fp32_structure": {
+            "edge_recall": 0.941796875,
+            "edge_precision": 0.92587890625,
+            "edge_f1": 0.9337700571895425,
+            "flat_interior_fraction": 0.3496925897961385,
+            "mean_boundary_gradient": 0.10995315760374069
+          },
+          "integer_structure": {
+            "edge_recall": 0.93623046875,
+            "edge_precision": 0.8869791666666667,
+            "edge_f1": 0.9109395922976665,
+            "flat_interior_fraction": 0.1746036026318628,
+            "mean_boundary_gradient": 0.14163653552532196
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.782089920544582,
+            "exact_match": false,
+            "ssim": 0.9569018189484703,
+            "mae": 5.306126302083333
+          },
+          "integer_vs_v10": {
+            "psnr": 26.183003030471678,
+            "exact_match": false,
+            "ssim": 0.8323310634365199,
+            "mae": 8.169483506944445
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.70136934100274,
+            "exact_match": false,
+            "ssim": 0.8053002125172273,
+            "mae": 10.95556640625
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9476236979166667,
+            "edge_precision": 0.8290364583333333,
+            "edge_f1": 0.8843723900599743,
+            "flat_interior_fraction": 0.324372681941467,
+            "mean_boundary_gradient": 0.14850415289402008
+          },
+          "integer_structure": {
+            "edge_recall": 0.9436197916666667,
+            "edge_precision": 0.7794596354166666,
+            "edge_f1": 0.8537198311623498,
+            "flat_interior_fraction": 0.15572336803662742,
+            "mean_boundary_gradient": 0.13048528134822845
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.553803632877177,
+            "exact_match": false,
+            "ssim": 0.9693407769586749,
+            "mae": 5.258715277777778
+          },
+          "integer_vs_v10": {
+            "psnr": 26.674524333852144,
+            "exact_match": false,
+            "ssim": 0.8419202159801982,
+            "mae": 7.822752821180556
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.555654197992503,
+            "exact_match": false,
+            "ssim": 0.7958421799107462,
+            "mae": 11.174347873263889
+          },
+          "fp32_structure": {
+            "edge_recall": 0.8984700520833333,
+            "edge_precision": 0.8641276041666667,
+            "edge_f1": 0.8809642640443298,
+            "flat_interior_fraction": 0.30311827143338677,
+            "mean_boundary_gradient": 0.14896418154239655
+          },
+          "integer_structure": {
+            "edge_recall": 0.8964518229166667,
+            "edge_precision": 0.80517578125,
+            "edge_f1": 0.8483657588798925,
+            "flat_interior_fraction": 0.132421630471421,
+            "mean_boundary_gradient": 0.14614813029766083
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.873980103328883,
+            "exact_match": false,
+            "ssim": 0.9814404186851196,
+            "mae": 5.037828776041667
+          },
+          "integer_vs_v10": {
+            "psnr": 27.137602440928337,
+            "exact_match": false,
+            "ssim": 0.9101645410876689,
+            "mae": 8.318825954861111
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.12374977811991,
+            "exact_match": false,
+            "ssim": 0.863728486246965,
+            "mae": 12.351185980902779
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9275390625,
+            "edge_precision": 0.9180989583333333,
+            "edge_f1": 0.9227948682052276,
+            "flat_interior_fraction": 0.4225514148755219,
+            "mean_boundary_gradient": 0.08712880313396454
+          },
+          "integer_structure": {
+            "edge_recall": 0.93125,
+            "edge_precision": 0.9009440104166667,
+            "edge_f1": 0.9158463622634805,
+            "flat_interior_fraction": 0.23987629503633834,
+            "mean_boundary_gradient": 0.12204728275537491
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.798555168388663,
+            "exact_match": false,
+            "ssim": 0.980598328815747,
+            "mae": 4.890107421875
+          },
+          "integer_vs_v10": {
+            "psnr": 27.809602811820117,
+            "exact_match": false,
+            "ssim": 0.9138279774355672,
+            "mae": 7.575030381944444
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.75961441943911,
+            "exact_match": false,
+            "ssim": 0.869729661077493,
+            "mae": 11.237967664930556
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9075520833333334,
+            "edge_precision": 0.940625,
+            "edge_f1": 0.9237926236437932,
+            "flat_interior_fraction": 0.32115735035443066,
+            "mean_boundary_gradient": 0.10497497767210007
+          },
+          "integer_structure": {
+            "edge_recall": 0.9025065104166666,
+            "edge_precision": 0.91298828125,
+            "edge_f1": 0.907717137547739,
+            "flat_interior_fraction": 0.18593652900222243,
+            "mean_boundary_gradient": 0.14056278765201569
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.922740131888435,
+            "exact_match": false,
+            "ssim": 0.9716472803908053,
+            "mae": 4.966883680555555
+          },
+          "integer_vs_v10": {
+            "psnr": 29.17666058603299,
+            "exact_match": false,
+            "ssim": 0.8932621155786111,
+            "mae": 5.770046657986111
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 26.38515654461807,
+            "exact_match": false,
+            "ssim": 0.8562390499260945,
+            "mae": 9.023733723958333
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9228190104166667,
+            "edge_precision": 0.93447265625,
+            "edge_f1": 0.9286092727156215,
+            "flat_interior_fraction": 0.35649457523328504,
+            "mean_boundary_gradient": 0.13185884058475494
+          },
+          "integer_structure": {
+            "edge_recall": 0.93173828125,
+            "edge_precision": 0.9002278645833334,
+            "edge_f1": 0.9157120781821937,
+            "flat_interior_fraction": 0.1933464953415979,
+            "mean_boundary_gradient": 0.13657450675964355
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.954458006246288,
+            "exact_match": false,
+            "ssim": 0.9774522255340585,
+            "mae": 4.382108289930556
+          },
+          "integer_vs_v10": {
+            "psnr": 23.899838635847473,
+            "exact_match": false,
+            "ssim": 0.7926579470795975,
+            "mae": 11.879352213541667
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 21.97979006499577,
+            "exact_match": false,
+            "ssim": 0.7431076573566774,
+            "mae": 15.149377170138889
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9311197916666667,
+            "edge_precision": 0.9468098958333333,
+            "edge_f1": 0.9388992983330444,
+            "flat_interior_fraction": 0.4618758981747957,
+            "mean_boundary_gradient": 0.15953600406646729
+          },
+          "integer_structure": {
+            "edge_recall": 0.9442708333333333,
+            "edge_precision": 0.9163736979166667,
+            "edge_f1": 0.9301131310613086,
+            "flat_interior_fraction": 0.18488162009044926,
+            "mean_boundary_gradient": 0.19188229739665985
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 32.72760039359058,
+            "exact_match": false,
+            "ssim": 0.9816556349204753,
+            "mae": 4.231809895833333
+          },
+          "integer_vs_v10": {
+            "psnr": 28.096379634494063,
+            "exact_match": false,
+            "ssim": 0.9203682106247415,
+            "mae": 7.191724175347222
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 25.424771848630797,
+            "exact_match": false,
+            "ssim": 0.8750246403523526,
+            "mae": 10.096240234375
+          },
+          "fp32_structure": {
+            "edge_recall": 0.90595703125,
+            "edge_precision": 0.95205078125,
+            "edge_f1": 0.9284321557506833,
+            "flat_interior_fraction": 0.20334290472241828,
+            "mean_boundary_gradient": 0.09523183852434158
+          },
+          "integer_structure": {
+            "edge_recall": 0.9013346354166667,
+            "edge_precision": 0.9351236979166667,
+            "edge_f1": 0.9179183235824797,
+            "flat_interior_fraction": 0.10630409605197333,
+            "mean_boundary_gradient": 0.13331665098667145
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.95597335710611,
+            "exact_match": false,
+            "ssim": 0.9834216490954443,
+            "mae": 4.623822699652778
+          },
+          "integer_vs_v10": {
+            "psnr": 24.853781958555878,
+            "exact_match": false,
+            "ssim": 0.8770571471533439,
+            "mae": 10.796342230902777
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.41217884099261,
+            "exact_match": false,
+            "ssim": 0.8303297281459204,
+            "mae": 14.509038628472222
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9433268229166667,
+            "edge_precision": 0.9580078125,
+            "edge_f1": 0.9506106387179202,
+            "flat_interior_fraction": 0.5305118455688798,
+            "mean_boundary_gradient": 0.09225576370954514
+          },
+          "integer_structure": {
+            "edge_recall": 0.9430338541666666,
+            "edge_precision": 0.9345377604166667,
+            "edge_f1": 0.9387665846935915,
+            "flat_interior_fraction": 0.3284937116115823,
+            "mean_boundary_gradient": 0.13785505294799805
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.193142931819086,
+            "exact_match": false,
+            "ssim": 0.9809677412663156,
+            "mae": 5.370252821180555
+          },
+          "integer_vs_v10": {
+            "psnr": 27.251736244780496,
+            "exact_match": false,
+            "ssim": 0.9004028066204618,
+            "mae": 8.117598741319444
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.892780694057137,
+            "exact_match": false,
+            "ssim": 0.8616202930646736,
+            "mae": 12.733003472222222
+          },
+          "fp32_structure": {
+            "edge_recall": 0.8958333333333334,
+            "edge_precision": 0.9467122395833333,
+            "edge_f1": 0.9205703172387801,
+            "flat_interior_fraction": 0.5568211536836685,
+            "mean_boundary_gradient": 0.12051145732402802
+          },
+          "integer_structure": {
+            "edge_recall": 0.9068359375,
+            "edge_precision": 0.9134114583333334,
+            "edge_f1": 0.9101118211041168,
+            "flat_interior_fraction": 0.39663961568018413,
+            "mean_boundary_gradient": 0.1404086947441101
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 32.02698815187324,
+            "exact_match": false,
+            "ssim": 0.9804157143561988,
+            "mae": 4.646031901041667
+          },
+          "integer_vs_v10": {
+            "psnr": 27.410986658646642,
+            "exact_match": false,
+            "ssim": 0.8914574979551936,
+            "mae": 7.683351779513889
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.538391292026212,
+            "exact_match": false,
+            "ssim": 0.8515356628848271,
+            "mae": 11.222701822916667
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9754231770833334,
+            "edge_precision": 0.9619791666666667,
+            "edge_f1": 0.9686545265778406,
+            "flat_interior_fraction": 0.4761147333476631,
+            "mean_boundary_gradient": 0.11046117544174194
+          },
+          "integer_structure": {
+            "edge_recall": 0.9792317708333333,
+            "edge_precision": 0.9389973958333333,
+            "edge_f1": 0.958692630378032,
+            "flat_interior_fraction": 0.263351723149674,
+            "mean_boundary_gradient": 0.1403704583644867
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.954016346317534,
+            "exact_match": false,
+            "ssim": 0.9745802426585014,
+            "mae": 4.699747178819444
+          },
+          "integer_vs_v10": {
+            "psnr": 29.284919001378377,
+            "exact_match": false,
+            "ssim": 0.9042788511881442,
+            "mae": 5.877738715277777
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 26.937372401373377,
+            "exact_match": false,
+            "ssim": 0.877386241792351,
+            "mae": 8.438100043402779
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9594401041666667,
+            "edge_precision": 0.8895182291666667,
+            "edge_f1": 0.9231570523400822,
+            "flat_interior_fraction": 0.3716962255570714,
+            "mean_boundary_gradient": 0.14686588943004608
+          },
+          "integer_structure": {
+            "edge_recall": 0.9621744791666667,
+            "edge_precision": 0.8638346354166667,
+            "edge_f1": 0.9103565078401225,
+            "flat_interior_fraction": 0.21777899045020463,
+            "mean_boundary_gradient": 0.1431843638420105
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 32.513652847483634,
+            "exact_match": false,
+            "ssim": 0.976438106379269,
+            "mae": 4.523900824652777
+          },
+          "integer_vs_v10": {
+            "psnr": 29.225618118653003,
+            "exact_match": false,
+            "ssim": 0.9177481934899131,
+            "mae": 6.177036675347222
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 26.404450078053618,
+            "exact_match": false,
+            "ssim": 0.8717304569616348,
+            "mae": 9.083426649305556
+          },
+          "fp32_structure": {
+            "edge_recall": 0.8633463541666667,
+            "edge_precision": 0.8996419270833333,
+            "edge_f1": 0.881120522539344,
+            "flat_interior_fraction": 0.25412359659107614,
+            "mean_boundary_gradient": 0.11812598258256912
+          },
+          "integer_structure": {
+            "edge_recall": 0.85537109375,
+            "edge_precision": 0.8625,
+            "edge_f1": 0.8589207549314991,
+            "flat_interior_fraction": 0.14709279614920973,
+            "mean_boundary_gradient": 0.13785989582538605
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 32.12383411100363,
+            "exact_match": false,
+            "ssim": 0.9796193899238309,
+            "mae": 4.818512369791667
+          },
+          "integer_vs_v10": {
+            "psnr": 30.488672203018716,
+            "exact_match": false,
+            "ssim": 0.9370578446942464,
+            "mae": 5.3053591579861115
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 26.87675481540208,
+            "exact_match": false,
+            "ssim": 0.9044134063526066,
+            "mae": 8.728960503472223
+          },
+          "fp32_structure": {
+            "edge_recall": 0.8861653645833333,
+            "edge_precision": 0.84130859375,
+            "edge_f1": 0.8631545883642213,
+            "flat_interior_fraction": 0.5047220622922199,
+            "mean_boundary_gradient": 0.09912833571434021
+          },
+          "integer_structure": {
+            "edge_recall": 0.8727213541666666,
+            "edge_precision": 0.8045247395833334,
+            "edge_f1": 0.8372366140021025,
+            "flat_interior_fraction": 0.36122615753208404,
+            "mean_boundary_gradient": 0.12578997015953064
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 32.76635551237867,
+            "exact_match": false,
+            "ssim": 0.9816675650089995,
+            "mae": 4.067330729166667
+          },
+          "integer_vs_v10": {
+            "psnr": 26.878192110413725,
+            "exact_match": false,
+            "ssim": 0.8976118499192549,
+            "mae": 8.147404513888889
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.611001207905122,
+            "exact_match": false,
+            "ssim": 0.8533856110901237,
+            "mae": 10.839932725694444
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9320638020833333,
+            "edge_precision": 0.9587239583333333,
+            "edge_f1": 0.9452059257625319,
+            "flat_interior_fraction": 0.28263196466799095,
+            "mean_boundary_gradient": 0.125795379281044
+          },
+          "integer_structure": {
+            "edge_recall": 0.9300130208333334,
+            "edge_precision": 0.9337890625,
+            "edge_f1": 0.9318972165580901,
+            "flat_interior_fraction": 0.15203178337929837,
+            "mean_boundary_gradient": 0.17058520019054413
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 32.156593301659484,
+            "exact_match": false,
+            "ssim": 0.9781717014137871,
+            "mae": 4.791218532986111
+          },
+          "integer_vs_v10": {
+            "psnr": 28.06292142712809,
+            "exact_match": false,
+            "ssim": 0.8915236711512442,
+            "mae": 7.019742838541666
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 25.167563393000073,
+            "exact_match": false,
+            "ssim": 0.853671499250355,
+            "mae": 10.695572916666666
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9421223958333333,
+            "edge_precision": 0.9626302083333333,
+            "edge_f1": 0.9522659018212166,
+            "flat_interior_fraction": 0.4275483063443636,
+            "mean_boundary_gradient": 0.13966399431228638
+          },
+          "integer_structure": {
+            "edge_recall": 0.9525065104166667,
+            "edge_precision": 0.9453450520833333,
+            "edge_f1": 0.9489122695279892,
+            "flat_interior_fraction": 0.2192325745130251,
+            "mean_boundary_gradient": 0.1637124866247177
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.90887459849713,
+            "exact_match": false,
+            "ssim": 0.9793473630445985,
+            "mae": 4.623741319444444
+          },
+          "integer_vs_v10": {
+            "psnr": 27.304082703105784,
+            "exact_match": false,
+            "ssim": 0.894776608765667,
+            "mae": 7.858041449652778
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.414661983010745,
+            "exact_match": false,
+            "ssim": 0.8532091092239827,
+            "mae": 11.328011067708333
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9574869791666667,
+            "edge_precision": 0.9586588541666666,
+            "edge_f1": 0.9580725583194596,
+            "flat_interior_fraction": 0.40710228684031863,
+            "mean_boundary_gradient": 0.13284680247306824
+          },
+          "integer_structure": {
+            "edge_recall": 0.9630859375,
+            "edge_precision": 0.9380859375,
+            "edge_f1": 0.9504215651967332,
+            "flat_interior_fraction": 0.21977926443557602,
+            "mean_boundary_gradient": 0.16304191946983337
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 32.18323454093427,
+            "exact_match": false,
+            "ssim": 0.980991694034441,
+            "mae": 4.435782335069445
+          },
+          "integer_vs_v10": {
+            "psnr": 23.325687015348954,
+            "exact_match": false,
+            "ssim": 0.8132390024123389,
+            "mae": 12.870364583333334
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 21.305592344798207,
+            "exact_match": false,
+            "ssim": 0.7619390821599406,
+            "mae": 16.33930881076389
+          },
+          "fp32_structure": {
+            "edge_recall": 0.94013671875,
+            "edge_precision": 0.9758138020833333,
+            "edge_f1": 0.9576430873617435,
+            "flat_interior_fraction": 0.46453984979262414,
+            "mean_boundary_gradient": 0.11663186550140381
+          },
+          "integer_structure": {
+            "edge_recall": 0.93876953125,
+            "edge_precision": 0.9527018229166667,
+            "edge_f1": 0.9456843655076498,
+            "flat_interior_fraction": 0.17289989911444906,
+            "mean_boundary_gradient": 0.16602438688278198
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.634770102517184,
+            "exact_match": false,
+            "ssim": 0.9823160779803715,
+            "mae": 4.862542317708333
+          },
+          "integer_vs_v10": {
+            "psnr": 26.31001997822739,
+            "exact_match": false,
+            "ssim": 0.8933735879646904,
+            "mae": 9.300696614583334
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.391542512032007,
+            "exact_match": false,
+            "ssim": 0.852530361030051,
+            "mae": 13.284610460069445
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9311848958333333,
+            "edge_precision": 0.94560546875,
+            "edge_f1": 0.9383397810792645,
+            "flat_interior_fraction": 0.5145172379923386,
+            "mean_boundary_gradient": 0.10011312365531921
+          },
+          "integer_structure": {
+            "edge_recall": 0.93564453125,
+            "edge_precision": 0.9245768229166667,
+            "edge_f1": 0.9300777524618957,
+            "flat_interior_fraction": 0.2976082899518711,
+            "mean_boundary_gradient": 0.1409749835729599
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.535156498085183,
+            "exact_match": false,
+            "ssim": 0.9790515509967971,
+            "mae": 5.321008029513889
+          },
+          "integer_vs_v10": {
+            "psnr": 28.0033607640018,
+            "exact_match": false,
+            "ssim": 0.901582573640737,
+            "mae": 7.383433159722222
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.597272309458006,
+            "exact_match": false,
+            "ssim": 0.8593934890264386,
+            "mae": 11.871183810763888
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9501302083333333,
+            "edge_precision": 0.9513346354166666,
+            "edge_f1": 0.9507320404205114,
+            "flat_interior_fraction": 0.5439915977605896,
+            "mean_boundary_gradient": 0.10386097431182861
+          },
+          "integer_structure": {
+            "edge_recall": 0.9404947916666667,
+            "edge_precision": 0.9144856770833333,
+            "edge_f1": 0.927307894438595,
+            "flat_interior_fraction": 0.33981896022287295,
+            "mean_boundary_gradient": 0.12647290527820587
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.850252522088816,
+            "exact_match": false,
+            "ssim": 0.9791582975654886,
+            "mae": 5.116016710069444
+          },
+          "integer_vs_v10": {
+            "psnr": 27.243231494891592,
+            "exact_match": false,
+            "ssim": 0.8957972784620388,
+            "mae": 8.005125868055556
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.230077829437352,
+            "exact_match": false,
+            "ssim": 0.8524291238269504,
+            "mae": 12.000751953125
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9783203125,
+            "edge_precision": 0.9619466145833333,
+            "edge_f1": 0.9700643756291418,
+            "flat_interior_fraction": 0.4810140634697966,
+            "mean_boundary_gradient": 0.10505229234695435
+          },
+          "integer_structure": {
+            "edge_recall": 0.9818359375,
+            "edge_precision": 0.9316731770833333,
+            "edge_f1": 0.9560970473499991,
+            "flat_interior_fraction": 0.29377362203731083,
+            "mean_boundary_gradient": 0.13665233552455902
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.497062471038163,
+            "exact_match": false,
+            "ssim": 0.9793226666656453,
+            "mae": 5.318247612847222
+          },
+          "integer_vs_v10": {
+            "psnr": 26.686477745786227,
+            "exact_match": false,
+            "ssim": 0.8861274001341086,
+            "mae": 8.869755859375
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.64162769037732,
+            "exact_match": false,
+            "ssim": 0.8410108589419991,
+            "mae": 13.360407986111111
+          },
+          "fp32_structure": {
+            "edge_recall": 0.93115234375,
+            "edge_precision": 0.9576497395833333,
+            "edge_f1": 0.9442151799524766,
+            "flat_interior_fraction": 0.5090131670614463,
+            "mean_boundary_gradient": 0.11982198059558868
+          },
+          "integer_structure": {
+            "edge_recall": 0.9309895833333334,
+            "edge_precision": 0.9260091145833333,
+            "edge_f1": 0.9284926701520969,
+            "flat_interior_fraction": 0.2675081858715341,
+            "mean_boundary_gradient": 0.1448362022638321
+          }
+        }
+      ]
+    },
+    "ink_landscape": {
+      "v10": [
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9519221379512386,
+            "edge_precision": 0.9412760416666667,
+            "edge_f1": 0.9465691565015681,
+            "background_paper_fraction": 0.5177389335533511,
+            "subject_dark_fraction": 0.7554103985220375,
+            "foreground_background_contrast": 0.7145916223526001
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.94296875,
+            "edge_precision": 0.9587565104166667,
+            "edge_f1": 0.9507970967203573,
+            "background_paper_fraction": 0.9400602887513883,
+            "subject_dark_fraction": 0.37194769059543686,
+            "foreground_background_contrast": 0.6379886865615845
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.92197265625,
+            "edge_precision": 0.9436867289476254,
+            "edge_f1": 0.9327033295132307,
+            "background_paper_fraction": 0.9395153112958832,
+            "subject_dark_fraction": 0.36429536996644746,
+            "foreground_background_contrast": 0.5847265720367432
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.8891276041666667,
+            "edge_precision": 0.6896809895833333,
+            "edge_f1": 0.7768065214935431,
+            "background_paper_fraction": 0.9886363636363636,
+            "subject_dark_fraction": 0.27353971774841673,
+            "foreground_background_contrast": 0.4538770914077759
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9259440104166666,
+            "edge_precision": 0.8368489583333333,
+            "edge_f1": 0.8791449640755513,
+            "background_paper_fraction": 0.7575090284506298,
+            "subject_dark_fraction": 0.570873569098932,
+            "foreground_background_contrast": 0.6729281544685364
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.8775716145833333,
+            "edge_precision": 0.9255208333333333,
+            "edge_f1": 0.9009086727386518,
+            "background_paper_fraction": 0.8340253748558247,
+            "subject_dark_fraction": 0.37113023241571486,
+            "foreground_background_contrast": 0.5816169381141663
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.7405924479166667,
+            "edge_precision": 0.8412109375,
+            "edge_f1": 0.7877015224029181,
+            "background_paper_fraction": 0.9515397180712687,
+            "subject_dark_fraction": 0.26290486766611143,
+            "foreground_background_contrast": 0.5504169464111328
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.8931315104166667,
+            "edge_precision": 0.8516276041666667,
+            "edge_f1": 0.8718859148685921,
+            "background_paper_fraction": 0.5941062281916534,
+            "subject_dark_fraction": 0.6905362131225727,
+            "foreground_background_contrast": 0.7101816534996033
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9508138020833333,
+            "edge_precision": 0.9095377604166667,
+            "edge_f1": 0.929717880805264,
+            "background_paper_fraction": 0.9964106245513281,
+            "subject_dark_fraction": 0.1941260899207004,
+            "foreground_background_contrast": 0.48915189504623413
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.6993815104166666,
+            "edge_precision": 0.8030598958333334,
+            "edge_f1": 0.7476434562660239,
+            "background_paper_fraction": 0.8883423826253594,
+            "subject_dark_fraction": 0.23019514028504443,
+            "foreground_background_contrast": 0.5882667303085327
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9071614583333333,
+            "edge_precision": 0.92587890625,
+            "edge_f1": 0.9164246189687628,
+            "background_paper_fraction": 0.9405134416742371,
+            "subject_dark_fraction": 0.2924312629331272,
+            "foreground_background_contrast": 0.5692403316497803
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9088216145833333,
+            "edge_precision": 0.9445963541666667,
+            "edge_f1": 0.9263637217267916,
+            "background_paper_fraction": 0.8399319350210179,
+            "subject_dark_fraction": 0.6938206299591247,
+            "foreground_background_contrast": 0.7225617170333862
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9597981770833334,
+            "edge_precision": 0.9162109375,
+            "edge_f1": 0.9374982038204266,
+            "background_paper_fraction": 0.9097884850145743,
+            "subject_dark_fraction": 0.29910108032511096,
+            "foreground_background_contrast": 0.5835564136505127
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.8822591145833333,
+            "edge_precision": 0.78583984375,
+            "edge_f1": 0.8312628711715031,
+            "background_paper_fraction": 0.9673209331004008,
+            "subject_dark_fraction": 0.2632586426061165,
+            "foreground_background_contrast": 0.564173698425293
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.8411783854166667,
+            "edge_precision": 0.85263671875,
+            "edge_f1": 0.8468687953729773,
+            "background_paper_fraction": 0.33532640358139393,
+            "subject_dark_fraction": 0.922159212497325,
+            "foreground_background_contrast": 0.6918304562568665
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.8680338541666667,
+            "edge_precision": 0.86689453125,
+            "edge_f1": 0.867463818613149,
+            "background_paper_fraction": 0.6455109131106936,
+            "subject_dark_fraction": 0.6352065769248684,
+            "foreground_background_contrast": 0.685718297958374
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.7416015625,
+            "edge_precision": 0.7494791666666667,
+            "edge_f1": 0.7455195552984324,
+            "background_paper_fraction": 0.9929859719438878,
+            "subject_dark_fraction": 0.10436061258346244,
+            "foreground_background_contrast": 0.4608747363090515
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9248372395833333,
+            "edge_precision": 0.94677734375,
+            "edge_f1": 0.9356786946320179,
+            "background_paper_fraction": 0.9497155335900236,
+            "subject_dark_fraction": 0.23464418564534892,
+            "foreground_background_contrast": 0.5420360565185547
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.8616861979166667,
+            "edge_precision": 0.8421875,
+            "edge_f1": 0.8518252798846073,
+            "background_paper_fraction": 0.9866017403330836,
+            "subject_dark_fraction": 0.24255001769792175,
+            "foreground_background_contrast": 0.5421008467674255
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9213541666666667,
+            "edge_precision": 0.8886067708333333,
+            "edge_f1": 0.9046842214908336,
+            "background_paper_fraction": 0.9891437576606549,
+            "subject_dark_fraction": 0.19232437301395341,
+            "foreground_background_contrast": 0.5553449392318726
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.907421875,
+            "edge_precision": 0.9412760416666667,
+            "edge_f1": 0.9240389821629807,
+            "background_paper_fraction": 0.9102881584871679,
+            "subject_dark_fraction": 0.33983537974898814,
+            "foreground_background_contrast": 0.6319162249565125
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9362955729166667,
+            "edge_precision": 0.9591471354166666,
+            "edge_f1": 0.9475836043137178,
+            "background_paper_fraction": 0.5586563618320152,
+            "subject_dark_fraction": 0.713235453110472,
+            "foreground_background_contrast": 0.707537055015564
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9591796875,
+            "edge_precision": 0.9543309137072361,
+            "edge_f1": 0.9567491572858653,
+            "background_paper_fraction": 0.7687878651212435,
+            "subject_dark_fraction": 0.4475661880978848,
+            "foreground_background_contrast": 0.6448876261711121
+          }
+        },
+        {
+          "fp32_structure": {
+            "edge_recall": 0.9267578125,
+            "edge_precision": 0.9606770833333333,
+            "edge_f1": 0.9434126647062882,
+            "background_paper_fraction": 0.790066242736736,
+            "subject_dark_fraction": 0.5428273166901622,
+            "foreground_background_contrast": 0.70148104429245
+          }
+        }
+      ],
+      "candidate_0": [
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.177942777183176,
+            "exact_match": false,
+            "ssim": 0.9706957433650095,
+            "mae": 6.368293185763889
+          },
+          "integer_vs_v10": {
+            "psnr": 27.55058398138479,
+            "exact_match": false,
+            "ssim": 0.9013789534683442,
+            "mae": 8.505266927083333
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.669706765856805,
+            "exact_match": false,
+            "ssim": 0.8575794077246881,
+            "mae": 14.034156901041667
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9610364245955535,
+            "edge_precision": 0.9465494791666667,
+            "edge_f1": 0.9537379421467003,
+            "background_paper_fraction": 0.3706468138994954,
+            "subject_dark_fraction": 0.6395486935866983,
+            "foreground_background_contrast": 0.6541988849639893
+          },
+          "integer_structure": {
+            "edge_recall": 0.9302757071709905,
+            "edge_precision": 0.9208333333333333,
+            "edge_f1": 0.9255304378178646,
+            "background_paper_fraction": 0.6583328536434049,
+            "subject_dark_fraction": 0.829400897334389,
+            "foreground_background_contrast": 0.7737698554992676
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.274199959227353,
+            "exact_match": false,
+            "ssim": 0.9815703689896526,
+            "mae": 6.703559027777778
+          },
+          "integer_vs_v10": {
+            "psnr": 25.018928070334425,
+            "exact_match": false,
+            "ssim": 0.8805180441655412,
+            "mae": 11.425182291666667
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 21.776697998132498,
+            "exact_match": false,
+            "ssim": 0.8390729573551416,
+            "mae": 17.488973524305557
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9464192708333333,
+            "edge_precision": 0.9626302083333333,
+            "edge_f1": 0.954455910960111,
+            "background_paper_fraction": 0.909313025543392,
+            "subject_dark_fraction": 0.14639398998330552,
+            "foreground_background_contrast": 0.5928274393081665
+          },
+          "integer_structure": {
+            "edge_recall": 0.9399739583333333,
+            "edge_precision": 0.9471028645833334,
+            "edge_f1": 0.943524945842174,
+            "background_paper_fraction": 0.9626368396001904,
+            "subject_dark_fraction": 0.5919977740678909,
+            "foreground_background_contrast": 0.7044568061828613
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.175046296507062,
+            "exact_match": false,
+            "ssim": 0.978173626975432,
+            "mae": 6.441361762152778
+          },
+          "integer_vs_v10": {
+            "psnr": 27.061888819147946,
+            "exact_match": false,
+            "ssim": 0.9084692618969646,
+            "mae": 8.770499131944444
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.298864292081056,
+            "exact_match": false,
+            "ssim": 0.8648326868082142,
+            "mae": 14.327153862847222
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9262369791666667,
+            "edge_precision": 0.94755859375,
+            "edge_f1": 0.9367764788688047,
+            "background_paper_fraction": 0.9119008990738863,
+            "subject_dark_fraction": 0.291885458237065,
+            "foreground_background_contrast": 0.5464736819267273
+          },
+          "integer_structure": {
+            "edge_recall": 0.9136393229166667,
+            "edge_precision": 0.9294921875,
+            "edge_f1": 0.9214975795751577,
+            "background_paper_fraction": 0.9554012032718178,
+            "subject_dark_fraction": 0.4211892567280091,
+            "foreground_background_contrast": 0.6242104768753052
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.48855220695998,
+            "exact_match": false,
+            "ssim": 0.9655040036618333,
+            "mae": 7.2404144965277775
+          },
+          "integer_vs_v10": {
+            "psnr": 25.83180167607345,
+            "exact_match": false,
+            "ssim": 0.8580635495358685,
+            "mae": 9.683102213541666
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.722142828919818,
+            "exact_match": false,
+            "ssim": 0.8246831885014446,
+            "mae": 15.522462022569444
+          },
+          "fp32_structure": {
+            "edge_recall": 0.8898763020833333,
+            "edge_precision": 0.7025065104166667,
+            "edge_f1": 0.7851678513128263,
+            "background_paper_fraction": 0.9900568181818182,
+            "subject_dark_fraction": 0.16244646614016853,
+            "foreground_background_contrast": 0.44154036045074463
+          },
+          "integer_structure": {
+            "edge_recall": 0.8641276041666667,
+            "edge_precision": 0.6289713541666667,
+            "edge_f1": 0.7280314627935962,
+            "background_paper_fraction": 0.9779829545454546,
+            "subject_dark_fraction": 0.3609476966599158,
+            "foreground_background_contrast": 0.4636268615722656
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.70421183556364,
+            "exact_match": false,
+            "ssim": 0.967004724859846,
+            "mae": 6.829639756944444
+          },
+          "integer_vs_v10": {
+            "psnr": 25.287974696660292,
+            "exact_match": false,
+            "ssim": 0.8571994325194114,
+            "mae": 11.053751085069445
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.224842870148514,
+            "exact_match": false,
+            "ssim": 0.8121480980913504,
+            "mae": 16.877865668402777
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9324544270833334,
+            "edge_precision": 0.8432942708333333,
+            "edge_f1": 0.8856359879019938,
+            "background_paper_fraction": 0.5746624554869072,
+            "subject_dark_fraction": 0.4670892754364648,
+            "foreground_background_contrast": 0.6224262714385986
+          },
+          "integer_structure": {
+            "edge_recall": 0.8875651041666667,
+            "edge_precision": 0.7958984375,
+            "edge_f1": 0.8392360892905484,
+            "background_paper_fraction": 0.8603012419624769,
+            "subject_dark_fraction": 0.6660644624928055,
+            "foreground_background_contrast": 0.7443788051605225
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.43773854745039,
+            "exact_match": false,
+            "ssim": 0.9816604815360056,
+            "mae": 6.224368489583333
+          },
+          "integer_vs_v10": {
+            "psnr": 26.188991430337833,
+            "exact_match": false,
+            "ssim": 0.9097254142293322,
+            "mae": 9.90473415798611
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.678153666790337,
+            "exact_match": false,
+            "ssim": 0.8684053822519474,
+            "mae": 15.323985460069444
+          },
+          "fp32_structure": {
+            "edge_recall": 0.8798177083333333,
+            "edge_precision": 0.9307291666666667,
+            "edge_f1": 0.9045576381397579,
+            "background_paper_fraction": 0.7904844290657439,
+            "subject_dark_fraction": 0.28232844413142666,
+            "foreground_background_contrast": 0.5429978370666504
+          },
+          "integer_structure": {
+            "edge_recall": 0.8632161458333333,
+            "edge_precision": 0.9116861979166667,
+            "edge_f1": 0.8867893478717713,
+            "background_paper_fraction": 0.884083044982699,
+            "subject_dark_fraction": 0.459527819456778,
+            "foreground_background_contrast": 0.6317267417907715
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.26693586410964,
+            "exact_match": false,
+            "ssim": 0.9811897204162426,
+            "mae": 6.469521484375
+          },
+          "integer_vs_v10": {
+            "psnr": 27.9610593505503,
+            "exact_match": false,
+            "ssim": 0.9229148072182064,
+            "mae": 7.820469835069445
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.916288067990816,
+            "exact_match": false,
+            "ssim": 0.887151110199618,
+            "mae": 13.304717881944445
+          },
+          "fp32_structure": {
+            "edge_recall": 0.7717122395833333,
+            "edge_precision": 0.8547526041666667,
+            "edge_f1": 0.8111125782839654,
+            "background_paper_fraction": 0.9426462580918386,
+            "subject_dark_fraction": 0.1574912085878216,
+            "foreground_background_contrast": 0.5224186182022095
+          },
+          "integer_structure": {
+            "edge_recall": 0.7077473958333333,
+            "edge_precision": 0.8216471354166667,
+            "edge_f1": 0.760455995497485,
+            "background_paper_fraction": 0.9558351987416057,
+            "subject_dark_fraction": 0.36151212289468815,
+            "foreground_background_contrast": 0.5764927864074707
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.993377186820172,
+            "exact_match": false,
+            "ssim": 0.9656173812790932,
+            "mae": 6.557400173611111
+          },
+          "integer_vs_v10": {
+            "psnr": 27.45553082410178,
+            "exact_match": false,
+            "ssim": 0.8849356499174723,
+            "mae": 8.553350694444445
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.725976423517277,
+            "exact_match": false,
+            "ssim": 0.8424600961907697,
+            "mae": 14.03879123263889
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9082356770833333,
+            "edge_precision": 0.8661458333333333,
+            "edge_f1": 0.8866915517009423,
+            "background_paper_fraction": 0.4416095693664165,
+            "subject_dark_fraction": 0.581828711589562,
+            "foreground_background_contrast": 0.6514418125152588
+          },
+          "integer_structure": {
+            "edge_recall": 0.8782552083333334,
+            "edge_precision": 0.8258138020833333,
+            "edge_f1": 0.8512275833428846,
+            "background_paper_fraction": 0.7047490036949462,
+            "subject_dark_fraction": 0.7725920374281756,
+            "foreground_background_contrast": 0.7674179077148438
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.6010946380686,
+            "exact_match": false,
+            "ssim": 0.9830827268785444,
+            "mae": 6.235364583333333
+          },
+          "integer_vs_v10": {
+            "psnr": 22.419475649116357,
+            "exact_match": false,
+            "ssim": 0.8079151571716792,
+            "mae": 15.240361328125
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 20.314757709168163,
+            "exact_match": false,
+            "ssim": 0.7765830346606108,
+            "mae": 20.49294596354167
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9542317708333333,
+            "edge_precision": 0.9127278645833333,
+            "edge_f1": 0.9330184863004841,
+            "background_paper_fraction": 0.99628010180774,
+            "subject_dark_fraction": 0.06588682765797123,
+            "foreground_background_contrast": 0.47749871015548706
+          },
+          "integer_structure": {
+            "edge_recall": 0.9024088541666667,
+            "edge_precision": 0.8365234375,
+            "edge_f1": 0.8682179982918383,
+            "background_paper_fraction": 0.9960190563205639,
+            "subject_dark_fraction": 0.35084143672180557,
+            "foreground_background_contrast": 0.5089997053146362
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.110022564387776,
+            "exact_match": false,
+            "ssim": 0.986211400383362,
+            "mae": 5.655282118055555
+          },
+          "integer_vs_v10": {
+            "psnr": 28.270234779188918,
+            "exact_match": false,
+            "ssim": 0.943864123773789,
+            "mae": 7.487235243055555
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.543044384839973,
+            "exact_match": false,
+            "ssim": 0.9152945162486351,
+            "mae": 12.046449652777778
+          },
+          "fp32_structure": {
+            "edge_recall": 0.71337890625,
+            "edge_precision": 0.8152994791666667,
+            "edge_f1": 0.7609415509012797,
+            "background_paper_fraction": 0.8671989779623124,
+            "subject_dark_fraction": 0.13288152580493132,
+            "foreground_background_contrast": 0.5573500394821167
+          },
+          "integer_structure": {
+            "edge_recall": 0.6681966145833333,
+            "edge_precision": 0.7820963541666667,
+            "edge_f1": 0.720673887818067,
+            "background_paper_fraction": 0.9051421271159374,
+            "subject_dark_fraction": 0.3303365289966174,
+            "foreground_background_contrast": 0.6198410987854004
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.807165781586498,
+            "exact_match": false,
+            "ssim": 0.982387079595464,
+            "mae": 6.066652560763889
+          },
+          "integer_vs_v10": {
+            "psnr": 23.367870319647682,
+            "exact_match": false,
+            "ssim": 0.8630175518084918,
+            "mae": 13.990161675347222
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 20.882159952901862,
+            "exact_match": false,
+            "ssim": 0.821527898736255,
+            "mae": 19.149268663194444
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9100911458333333,
+            "edge_precision": 0.93349609375,
+            "edge_f1": 0.9216450530259557,
+            "background_paper_fraction": 0.929813936274015,
+            "subject_dark_fraction": 0.12129211073349391,
+            "foreground_background_contrast": 0.5391759276390076
+          },
+          "integer_structure": {
+            "edge_recall": 0.8807942708333333,
+            "edge_precision": 0.9040690104166667,
+            "edge_f1": 0.8922798885248917,
+            "background_paper_fraction": 0.9635274721577336,
+            "subject_dark_fraction": 0.4734219817203946,
+            "foreground_background_contrast": 0.6193726062774658
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.157334380635163,
+            "exact_match": false,
+            "ssim": 0.9712393926622026,
+            "mae": 6.649951171875
+          },
+          "integer_vs_v10": {
+            "psnr": 26.155082317066874,
+            "exact_match": false,
+            "ssim": 0.8935762332150236,
+            "mae": 10.375940755208333
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.626464605666996,
+            "exact_match": false,
+            "ssim": 0.8530511891490434,
+            "mae": 16.382330729166668
+          },
+          "fp32_structure": {
+            "edge_recall": 0.92294921875,
+            "edge_precision": 0.9491536458333333,
+            "edge_f1": 0.9358680363865174,
+            "background_paper_fraction": 0.6569712526407625,
+            "subject_dark_fraction": 0.6175522962250541,
+            "foreground_background_contrast": 0.6605777740478516
+          },
+          "integer_structure": {
+            "edge_recall": 0.8743815104166667,
+            "edge_precision": 0.92314453125,
+            "edge_f1": 0.898101602821668,
+            "background_paper_fraction": 0.8944704414850279,
+            "subject_dark_fraction": 0.7702171996473511,
+            "foreground_background_contrast": 0.7993836402893066
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.381897084540242,
+            "exact_match": false,
+            "ssim": 0.9811618455063952,
+            "mae": 6.409836154513889
+          },
+          "integer_vs_v10": {
+            "psnr": 25.186623306072736,
+            "exact_match": false,
+            "ssim": 0.8772433664816021,
+            "mae": 11.168264973958333
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.014990609342284,
+            "exact_match": false,
+            "ssim": 0.8392334089331808,
+            "mae": 16.735056423611113
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9607421875,
+            "edge_precision": 0.9216145833333333,
+            "edge_f1": 0.9407717224950713,
+            "background_paper_fraction": 0.8692045143127631,
+            "subject_dark_fraction": 0.16035125767679428,
+            "foreground_background_contrast": 0.548170804977417
+          },
+          "integer_structure": {
+            "edge_recall": 0.9536783854166667,
+            "edge_precision": 0.8937825520833333,
+            "edge_f1": 0.9227595386540303,
+            "background_paper_fraction": 0.9356237076160343,
+            "subject_dark_fraction": 0.46031882765470133,
+            "foreground_background_contrast": 0.6353737115859985
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.301506959398207,
+            "exact_match": false,
+            "ssim": 0.9737497924525679,
+            "mae": 6.1126877170138885
+          },
+          "integer_vs_v10": {
+            "psnr": 28.114858644309,
+            "exact_match": false,
+            "ssim": 0.9022699078961787,
+            "mae": 7.314542100694444
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.753662997564035,
+            "exact_match": false,
+            "ssim": 0.8706849623275299,
+            "mae": 11.736001519097222
+          },
+          "fp32_structure": {
+            "edge_recall": 0.88701171875,
+            "edge_precision": 0.7988932291666667,
+            "edge_f1": 0.8406495955499025,
+            "background_paper_fraction": 0.963758435241325,
+            "subject_dark_fraction": 0.20473068966376712,
+            "foreground_background_contrast": 0.5386277437210083
+          },
+          "integer_structure": {
+            "edge_recall": 0.8911783854166667,
+            "edge_precision": 0.7655924479166667,
+            "edge_f1": 0.8236256069873698,
+            "background_paper_fraction": 0.9587914911108828,
+            "subject_dark_fraction": 0.31214077415817154,
+            "foreground_background_contrast": 0.579342246055603
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.15301142002427,
+            "exact_match": false,
+            "ssim": 0.9741098241458849,
+            "mae": 5.445947265625
+          },
+          "integer_vs_v10": {
+            "psnr": 28.099970029320396,
+            "exact_match": false,
+            "ssim": 0.9188474551333554,
+            "mae": 7.540360243055556
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.629796488442928,
+            "exact_match": false,
+            "ssim": 0.874466492214307,
+            "mae": 11.828768446180556
+          },
+          "fp32_structure": {
+            "edge_recall": 0.85615234375,
+            "edge_precision": 0.8673502604166666,
+            "edge_f1": 0.8617149246106882,
+            "background_paper_fraction": 0.2775212338637966,
+            "subject_dark_fraction": 0.8388080462229831,
+            "foreground_background_contrast": 0.6379578113555908
+          },
+          "integer_structure": {
+            "edge_recall": 0.8008138020833333,
+            "edge_precision": 0.8242838541666667,
+            "edge_f1": 0.812379348050164,
+            "background_paper_fraction": 0.39032287738018584,
+            "subject_dark_fraction": 0.9341161994436122,
+            "foreground_background_contrast": 0.7220146059989929
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.246655874762126,
+            "exact_match": false,
+            "ssim": 0.9741694967769469,
+            "mae": 6.459976128472222
+          },
+          "integer_vs_v10": {
+            "psnr": 28.69062756671545,
+            "exact_match": false,
+            "ssim": 0.9139389530284369,
+            "mae": 7.362817925347223
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.42289794342087,
+            "exact_match": false,
+            "ssim": 0.8743122973555163,
+            "mae": 12.81787868923611
+          },
+          "fp32_structure": {
+            "edge_recall": 0.89111328125,
+            "edge_precision": 0.8798828125,
+            "edge_f1": 0.8854624388268542,
+            "background_paper_fraction": 0.4721395681300597,
+            "subject_dark_fraction": 0.5339908705575481,
+            "foreground_background_contrast": 0.6270231008529663
+          },
+          "integer_structure": {
+            "edge_recall": 0.8374348958333333,
+            "edge_precision": 0.8499348958333334,
+            "edge_f1": 0.8436385959645162,
+            "background_paper_fraction": 0.7298568745116945,
+            "subject_dark_fraction": 0.7133192044343006,
+            "foreground_background_contrast": 0.7366969585418701
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.688707623432318,
+            "exact_match": false,
+            "ssim": 0.9874944670514395,
+            "mae": 5.318910590277778
+          },
+          "integer_vs_v10": {
+            "psnr": 25.817737852417423,
+            "exact_match": false,
+            "ssim": 0.9216943325036571,
+            "mae": 10.312655164930556
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.09547690944089,
+            "exact_match": false,
+            "ssim": 0.8923420737491017,
+            "mae": 14.576057942708333
+          },
+          "fp32_structure": {
+            "edge_recall": 0.7466145833333333,
+            "edge_precision": 0.7669270833333334,
+            "edge_f1": 0.7566345312858453,
+            "background_paper_fraction": 0.9934869739478958,
+            "subject_dark_fraction": 0.047301095465950065,
+            "foreground_background_contrast": 0.448580265045166
+          },
+          "integer_structure": {
+            "edge_recall": 0.6874348958333333,
+            "edge_precision": 0.7100911458333333,
+            "edge_f1": 0.6985793728551353,
+            "background_paper_fraction": 0.9954909819639278,
+            "subject_dark_fraction": 0.20887204025391776,
+            "foreground_background_contrast": 0.4779665470123291
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.69496054802475,
+            "exact_match": false,
+            "ssim": 0.97808130019644,
+            "mae": 5.792068142361111
+          },
+          "integer_vs_v10": {
+            "psnr": 28.451815899123254,
+            "exact_match": false,
+            "ssim": 0.8964963126681686,
+            "mae": 6.777948133680556
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 24.976563435568192,
+            "exact_match": false,
+            "ssim": 0.8655235873239766,
+            "mae": 11.142145182291667
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9294596354166667,
+            "edge_precision": 0.9543619791666667,
+            "edge_f1": 0.9417462145511856,
+            "background_paper_fraction": 0.9471294753175105,
+            "subject_dark_fraction": 0.18311534940089436,
+            "foreground_background_contrast": 0.5197051763534546
+          },
+          "integer_structure": {
+            "edge_recall": 0.9218424479166667,
+            "edge_precision": 0.9239583333333333,
+            "edge_f1": 0.9228991778800653,
+            "background_paper_fraction": 0.9533934831331533,
+            "subject_dark_fraction": 0.2623724495437597,
+            "foreground_background_contrast": 0.557224690914154
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.6910986783968,
+            "exact_match": false,
+            "ssim": 0.9794414636235399,
+            "mae": 5.952835286458333
+          },
+          "integer_vs_v10": {
+            "psnr": 27.304364750715262,
+            "exact_match": false,
+            "ssim": 0.9102513577284631,
+            "mae": 8.242566189236111
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 23.78420676455417,
+            "exact_match": false,
+            "ssim": 0.8736075734567086,
+            "mae": 13.16044921875
+          },
+          "fp32_structure": {
+            "edge_recall": 0.8651692708333333,
+            "edge_precision": 0.8540364583333333,
+            "edge_f1": 0.8595668190094796,
+            "background_paper_fraction": 0.9787356653028295,
+            "subject_dark_fraction": 0.1523369684302786,
+            "foreground_background_contrast": 0.5207613706588745
+          },
+          "integer_structure": {
+            "edge_recall": 0.8419921875,
+            "edge_precision": 0.8159505208333333,
+            "edge_f1": 0.8287668331059058,
+            "background_paper_fraction": 0.9875525845675099,
+            "subject_dark_fraction": 0.3201048391174636,
+            "foreground_background_contrast": 0.5628951787948608
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 31.023966099741997,
+            "exact_match": false,
+            "ssim": 0.9824390395368896,
+            "mae": 5.824520399305555
+          },
+          "integer_vs_v10": {
+            "psnr": 24.88553023794568,
+            "exact_match": false,
+            "ssim": 0.873859818961274,
+            "mae": 11.1723828125
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.177374840583973,
+            "exact_match": false,
+            "ssim": 0.8361298293584102,
+            "mae": 16.08262152777778
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9251953125,
+            "edge_precision": 0.8965494791666667,
+            "edge_f1": 0.9106471766448073,
+            "background_paper_fraction": 0.9882244790754684,
+            "subject_dark_fraction": 0.09214839156289878,
+            "foreground_background_contrast": 0.5351581573486328
+          },
+          "integer_structure": {
+            "edge_recall": 0.8774739583333333,
+            "edge_precision": 0.8510416666666667,
+            "edge_f1": 0.8640557124921531,
+            "background_paper_fraction": 0.9938277009280336,
+            "subject_dark_fraction": 0.3271420111927539,
+            "foreground_background_contrast": 0.5845130681991577
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.719553523789635,
+            "exact_match": false,
+            "ssim": 0.9808973099806587,
+            "mae": 6.121800130208333
+          },
+          "integer_vs_v10": {
+            "psnr": 25.635943876683314,
+            "exact_match": false,
+            "ssim": 0.8964878015156051,
+            "mae": 10.142579210069444
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.736337425040624,
+            "exact_match": false,
+            "ssim": 0.8609140585065124,
+            "mae": 15.333615451388889
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9094401041666667,
+            "edge_precision": 0.94462890625,
+            "edge_f1": 0.9267005770252119,
+            "background_paper_fraction": 0.8834233828605733,
+            "subject_dark_fraction": 0.17377526841490654,
+            "foreground_background_contrast": 0.5917418003082275
+          },
+          "integer_structure": {
+            "edge_recall": 0.8925130208333333,
+            "edge_precision": 0.9245768229166667,
+            "edge_f1": 0.9082620279367681,
+            "background_paper_fraction": 0.9401358247035869,
+            "subject_dark_fraction": 0.5508259356257723,
+            "foreground_background_contrast": 0.6828856468200684
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.679310126162832,
+            "exact_match": false,
+            "ssim": 0.9752696293703066,
+            "mae": 7.03236328125
+          },
+          "integer_vs_v10": {
+            "psnr": 24.56667159678333,
+            "exact_match": false,
+            "ssim": 0.8595886350458432,
+            "mae": 12.878802083333333
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 21.261393859646425,
+            "exact_match": false,
+            "ssim": 0.8130783178407555,
+            "mae": 19.46980685763889
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9431640625,
+            "edge_precision": 0.9626627604166667,
+            "edge_f1": 0.9528136649294584,
+            "background_paper_fraction": 0.19738369470423722,
+            "subject_dark_fraction": 0.5956278245075356,
+            "foreground_background_contrast": 0.6458938717842102
+          },
+          "integer_structure": {
+            "edge_recall": 0.9052734375,
+            "edge_precision": 0.93408203125,
+            "edge_f1": 0.9194521295128749,
+            "background_paper_fraction": 0.8501368297597209,
+            "subject_dark_fraction": 0.8287240253421844,
+            "foreground_background_contrast": 0.8085538744926453
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 30.38149827844365,
+            "exact_match": false,
+            "ssim": 0.977795820070864,
+            "mae": 6.224269748263889
+          },
+          "integer_vs_v10": {
+            "psnr": 25.544848500682498,
+            "exact_match": false,
+            "ssim": 0.8669772927118563,
+            "mae": 10.633996310763889
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.32938799428533,
+            "exact_match": false,
+            "ssim": 0.827154265631965,
+            "mae": 16.01372612847222
+          },
+          "fp32_structure": {
+            "edge_recall": 0.9619791666666667,
+            "edge_precision": 0.957421875,
+            "edge_f1": 0.9596951105759446,
+            "background_paper_fraction": 0.6840752266269787,
+            "subject_dark_fraction": 0.3597094142881746,
+            "foreground_background_contrast": 0.595147430896759
+          },
+          "integer_structure": {
+            "edge_recall": 0.9565755208333333,
+            "edge_precision": 0.9419921875,
+            "edge_f1": 0.9492278452052328,
+            "background_paper_fraction": 0.8664742404425804,
+            "subject_dark_fraction": 0.532596953233862,
+            "foreground_background_contrast": 0.7154318690299988
+          }
+        },
+        {
+          "fp32_vs_v10": {
+            "psnr": 29.94841683812691,
+            "exact_match": false,
+            "ssim": 0.9771000348209359,
+            "mae": 6.791552734375
+          },
+          "integer_vs_v10": {
+            "psnr": 26.060755735497814,
+            "exact_match": false,
+            "ssim": 0.892183885550172,
+            "mae": 9.766649305555555
+          },
+          "integer_vs_own_fp32": {
+            "psnr": 22.7129826177233,
+            "exact_match": false,
+            "ssim": 0.8523181066735729,
+            "mae": 15.745617404513888
+          },
+          "fp32_structure": {
+            "edge_recall": 0.93369140625,
+            "edge_precision": 0.9631184895833333,
+            "edge_f1": 0.948176682228205,
+            "background_paper_fraction": 0.7202858431577178,
+            "subject_dark_fraction": 0.39344920501793396,
+            "foreground_background_contrast": 0.64402836561203
+          },
+          "integer_structure": {
+            "edge_recall": 0.9059244791666666,
+            "edge_precision": 0.9373046875,
+            "edge_f1": 0.9213474658492864,
+            "background_paper_fraction": 0.8707957088149714,
+            "subject_dark_fraction": 0.6845232784310926,
+            "foreground_background_contrast": 0.7691525816917419
+          }
+        }
+      ]
+    }
+  }
+}
