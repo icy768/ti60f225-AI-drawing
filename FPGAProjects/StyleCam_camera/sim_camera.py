@@ -20,7 +20,8 @@ for name,files in {
  'camera_rgb':['sc_camera_rgb'],
  'capture':['sc_capture','sc_write_arbiter','sc_async_fifo'],
  'schedule':['sc_video_schedule','sc_button'],
- 'display':['sc_display','sc_async_fifo','common']}.items():
+ 'display':['sc_display','sc_async_fifo','common'],
+ 'apb_regs':['sc_apb_regs','sc431hai/i2c_reg16']}.items():
  exe=S/(name+'.vvp')
  subprocess.run([str(BIN/'iverilog.exe'),'-g2012','-s','tb','-o',str(exe),str(ROOT/f'sim/{name}_tb.v'),*[str(ROOT/f'rtl/{f}.v') for f in files]],cwd=ROOT,check=True)
  r=subprocess.run([str(BIN/'vvp.exe'),str(exe)],cwd=ROOT,capture_output=True,text=True,encoding='utf-8',errors='replace')

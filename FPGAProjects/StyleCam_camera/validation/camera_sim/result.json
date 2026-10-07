@@ -3,19 +3,23 @@
   "tests": {
     "camera_rgb": {
       "passed": true,
-      "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\camera_rgb.log"
+      "log": "C:\\Users\\satan\\Desktop\\claudeProject\\FPGAProjects\\ti60f225-AI-drawing\\FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\camera_rgb.log"
     },
     "capture": {
       "passed": true,
-      "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\capture.log"
+      "log": "C:\\Users\\satan\\Desktop\\claudeProject\\FPGAProjects\\ti60f225-AI-drawing\\FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\capture.log"
     },
     "schedule": {
       "passed": true,
-      "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\schedule.log"
+      "log": "C:\\Users\\satan\\Desktop\\claudeProject\\FPGAProjects\\ti60f225-AI-drawing\\FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\schedule.log"
     },
     "display": {
       "passed": true,
-      "log": "FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\display.log"
+      "log": "C:\\Users\\satan\\Desktop\\claudeProject\\FPGAProjects\\ti60f225-AI-drawing\\FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\display.log"
+    },
+    "apb_regs": {
+      "passed": true,
+      "log": "C:\\Users\\satan\\Desktop\\claudeProject\\FPGAProjects\\ti60f225-AI-drawing\\FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\apb_regs.log"
     }
   }
 }

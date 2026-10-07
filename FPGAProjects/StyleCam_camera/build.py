@@ -8,6 +8,8 @@ flow=sys.argv[1]; assert flow in ['interface','map','pnr','pgm']
 for folder in ['rtl','model','ip']:
     shutil.copytree(ROOT/folder,BUILD/folder,dirs_exist_ok=True)
 for p in ROOT.glob('ti60f225_oob.*'): shutil.copy2(p,BUILD/p.name)
+# Sapphire on-chip RAM images (firmware), read by $readmemb relative to the project directory
+for p in (ROOT/'fw_rom').glob('*.bin'): shutil.copy2(p,BUILD/p.name)
 home=Path(os.environ.get('STYLECAM_EFINITY','D:/ELS/efinity/2026.1')); name='ti60f225_oob'
 env=os.environ.copy(); env.update(EFINITY_HOME=home.as_posix(),PYTHONHOME=str(home/'python311'),PROCESSOR_ARCHITECTURE='AMD64',PYTHONDONTWRITEBYTECODE='1')
 env['EFINITY_USER_DIR_INI']=os.environ['LOCALAPPDATA']+'/efinity/user_dir.ini'

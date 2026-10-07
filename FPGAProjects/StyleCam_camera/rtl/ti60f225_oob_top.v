@@ -323,40 +323,30 @@ always @(posedge CLK_25M or posedge global_reset)if(global_reset)rs_u<=7;else rs
 always @(posedge core_clk or posedge global_reset)if(global_reset)rs_a<=7;else rs_a<={rs_a[1:0],1'b0};
 always @(posedge hdmi_tx_slow_clk or posedge global_reset)if(global_reset)rs_p<=7;else rs_p<={rs_p[1:0],1'b0};
 
-// Autonomous camera input ownership, network execution, and HDMI publication.
+// Camera input ownership, network execution and HDMI publication; the RISC-V (Sapphire) configures
+// the sensor over I2C, admits frames, selects style/layout and draws the OSD through APB registers.
 wire frame_ready,take_frame,release_frame,cap_locked,hold_swap;wire [1:0] ready_bank,input_bank,cap_locked_bank;
 wire engine_start,engine_idle,engine_done,engine_ok,engine_mode;
 wire [1:0] engine_style,requested_style;wire [2:0] styles_ready;
 wire output_bank,publish,publish_bank,output_complete,shown_valid,shown_bank;
 wire [31:0] processed,video_errors,schedule_status;
-wire [255:0] video_status;
 wire [31:0] cap_awaddr,out_awaddr;wire [127:0] cap_wdata,out_wdata;
 wire cap_awvalid,cap_awready,cap_wvalid,cap_wready,cap_bvalid,cap_bready;
 wire out_awvalid,out_awready,out_wvalid,out_wready,out_bvalid,out_bready;
 wire [31:0] captured,skipped,capture_errors,capture_overflow;
 wire [39:0] camera_raw;wire camera_vs,camera_hs,camera_de;
 wire [47:0] camera_rgb;wire camera_valid,camera_sof,camera_eof;
-wire cam_enable,id_ok,config_ok,stream_set,setup_finished,diag_valid;
-wire [2:0] setup_error;wire [7:0] setup_index;wire [287:0] diagnostics;
-reg [287:0] diag_sync1,diag_sync2;
-always @(posedge core_clk)begin diag_sync1<=diagnostics;diag_sync2<=diag_sync1;end
+wire cam_enable,cpu_run,cpu_step;wire [1:0] cpu_style,view_mode;
 wire [31:0] camera_frames,camera_format_errors;
-reg [31:0] cf1,cf2,ce1,ce2;reg [15:0] setup1,setup2;
-always @(posedge core_clk)begin
- cf1<=camera_frames;cf2<=cf1;ce1<=camera_format_errors;ce2<=ce1;
- setup1<={setup_index,3'd0,setup_error,setup_finished,config_ok};setup2<=setup1;
-end
-sc_video_schedule schedule(.clk(core_clk),.rst(rs_a[2]),.key_n(style_key_n),
+reg [31:0] cf1,cf2,ce1,ce2;
+always @(posedge core_clk)begin cf1<=camera_frames;cf2<=cf1;ce1<=camera_format_errors;ce2<=ce1;end
+sc_video_schedule schedule(.clk(core_clk),.rst(rs_a[2]),.run(cpu_run),.step(cpu_step),.style_req(cpu_style),
  .frame_ready(frame_ready),.ready_bank(ready_bank),.take_frame(take_frame),.release_frame(release_frame),.input_bank(input_bank),.hold_swap(hold_swap),
  .engine_idle(engine_idle),.engine_done(engine_done),.engine_ok(engine_ok),.styles_ready(styles_ready),
  .engine_start(engine_start),.engine_style(engine_style),.engine_mode(engine_mode),
  .output_complete(output_complete),.shown_valid(shown_valid),.shown_bank(shown_bank),
  .output_bank(output_bank),.publish(publish),.publish_bank(publish_bank),
  .requested_style(requested_style),.processed(processed),.errors(video_errors),.state_status(schedule_status));
-sc431hai_setup setup(.clk(CLK_25M),.reset(rs_u[2]),.scl_in(io_cam_scl_IN),.sda_in(io_cam_sda_IN),
- .scl_low(io_cam_scl_OE),.sda_low(io_cam_sda_OE),.cam_enable(cam_enable),.id_ok(id_ok),.config_ok(config_ok),
- .stream_set(stream_set),.finished(setup_finished),.error_code(setup_error),.command_index(setup_index),
- .diagnostic_words(diagnostics),.diagnostic_valid(diag_valid));
 assign io_cam_sda_OUT=0;assign io_cam_scl_OUT=0;assign o_cam_rst_p=~cam_enable;
 reg [2:0] camera_reset=7;
 always @(posedge i_mipi_rx_pclk or posedge global_reset)if(global_reset)camera_reset<=7;else camera_reset<={camera_reset[1:0],1'b0};
@@ -372,7 +362,6 @@ sc_write_arbiter writes(.clk(core_clk),.rst(rs_a[2]),
  .a_addr(cap_awaddr),.a_av(cap_awvalid),.a_ar(cap_awready),.a_data(cap_wdata),.a_wv(cap_wvalid),.a_wr(cap_wready),.a_bv(cap_bvalid),.a_br(cap_bready),
  .b_addr(out_awaddr),.b_av(out_awvalid),.b_ar(out_awready),.b_data(out_wdata),.b_wv(out_wvalid),.b_wr(out_wready),.b_bv(out_bvalid),.b_br(out_bready),
  .awaddr(s_axi_awaddr),.awvalid(s_axi_awvalid),.awready(s_axi_awready),.wdata(s_axi_wdata),.wvalid(s_axi_wvalid),.wready(s_axi_wready),.bvalid(s_axi_bvalid),.bready(s_axi_bready));
-assign video_status={cf2,video_errors,setup2,8'd0,3'd0,requested_style,styles_ready,capture_overflow,capture_errors,skipped,processed,captured};
 csi_rx_controller inst_efx_csi2_rx
 		(
               .reset_n			(i_arstn),
@@ -454,24 +443,46 @@ sc_read_arbiter #(.DISPLAY_PRIORITY(1)) reads(.clk(core_clk),.rst(rs_a[2]),
  .b_addr(ra),.b_valid(rav),.b_ready(rardy),.b_rvalid(rrv),.b_rready(rrr),
  .araddr(s_axi_araddr),.arvalid(s_axi_arvalid),.arready(s_axi_arready),
  .rvalid(s_axi_rvalid),.rlast(s_axi_rlast),.rready(s_axi_rready));
-wire [1:0] display_mode;wire [1:0] current_style;wire [255:0] display_status;
-StyleCam_uart #(.IN_TRACE(0),.DIV(108),.KEY_CYCLES(1000000),.CLOCK_HZ(100000000)) control(.clk_25m(core_clk),.uart_rx(uart_rx),.uart_tx(uart_tx),.system_reset(rs_a[2]),.style_key_n(1'b1),.current_style(current_style),
+wire [255:0] display_status;
+wire cfg_we,cfg_reject;wire [4:0] cfg_layer;wire [11:0] cfg_addr;wire [37:0] cfg_data;
+wire [31:0] run_cycles,first_output_cycles,input_stalls,output_stalls,auto_cycles,auto_frames,auto_writes,auto_errors,engine_errors;
+sc_engine engine(.clk(core_clk),.system_reset(rs_a[2]),
  .sink_ready(sink_ready),.sink_data(sink_data),.sink_valid(sink_valid),.new_frame(new_frame),
- .original_frame(original_frame),.display_mode(display_mode),.display_status(display_status),
- .replay_data(replay_data),.replay_valid(replay_valid),.replay_ready(replay_ready),
- .replay_start(replay_start),.replay_busy(replay_busy),.replay_errors(replay_errors),
- .video_enabled(1'b1),.video_start(engine_start),.video_style(engine_style),.video_mode(engine_mode),
+ .replay_data(replay_data),.replay_valid(replay_valid),.replay_ready(replay_ready),.replay_start(replay_start),.replay_busy(replay_busy),
+ .video_start(engine_start),.video_style(engine_style),.video_mode(engine_mode),
  .video_idle(engine_idle),.video_done(engine_done),.video_ok(engine_ok),.video_styles_ready(styles_ready),
- .video_status(video_status),.sensor_diagnostics(diag_sync2));
-// KEY2 cycles the HDMI layout: side by side -> stylized -> original
-wire view_press,view_released;reg [1:0] view_mode;
-sc_button #(.CYCLES(1000000)) view_key(core_clk,rs_a[2],mode_key_n,view_press,view_released);
-always @(posedge core_clk)if(rs_a[2])view_mode<=0;else if(view_press)view_mode<=view_mode==2?2'd0:view_mode+1'b1;
+ .cpu_cfg_we(cfg_we),.cpu_cfg_layer(cfg_layer),.cpu_cfg_addr(cfg_addr),.cpu_cfg_data(cfg_data),.cpu_cfg_rejects(cfg_reject),
+ .run_cycles(run_cycles),.first_output_cycles(first_output_cycles),.input_stalls(input_stalls),.output_stalls(output_stalls),
+ .auto_cycles(auto_cycles),.auto_frames(auto_frames),.auto_writes(auto_writes),.auto_errors(auto_errors),.errors(engine_errors));
+assign original_frame=1'b0;
+// Keys are events for the RISC-V: KEY3 style, KEY2 HDMI layout
+wire key3_press,key3_up,key2_press,key2_up;
+sc_button #(.CYCLES(1000000)) key3(core_clk,rs_a[2],style_key_n,key3_press,key3_up);
+sc_button #(.CYCLES(1000000)) key2(core_clk,rs_a[2],mode_key_n,key2_press,key2_up);
+// Sapphire RISC-V SoC (RV32I, 16 KB on-chip RAM, UART0 console, APB3 slave 0, user interrupt A)
+wire [15:0] apb_paddr;wire apb_penable,apb_psel,apb_pwrite,apb_pready,apb_pslverr,cpu_irq,cpu_reset;wire [31:0] apb_pwdata,apb_prdata;
+soc cpu(.io_systemClk(core_clk),.jtagCtrl_enable(1'b0),.jtagCtrl_tdi(1'b0),.jtagCtrl_capture(1'b0),.jtagCtrl_shift(1'b0),
+ .jtagCtrl_update(1'b0),.jtagCtrl_reset(1'b0),.jtagCtrl_tdo(),.jtagCtrl_tck(1'b0),.userInterruptA(cpu_irq),
+ .io_apbSlave_0_PADDR(apb_paddr),.io_apbSlave_0_PENABLE(apb_penable),.io_apbSlave_0_PRDATA(apb_prdata),.io_apbSlave_0_PREADY(apb_pready),
+ .io_apbSlave_0_PSEL(apb_psel),.io_apbSlave_0_PSLVERROR(apb_pslverr),.io_apbSlave_0_PWDATA(apb_pwdata),.io_apbSlave_0_PWRITE(apb_pwrite),
+ .io_asyncReset(global_reset),.io_systemReset(cpu_reset),.system_uart_0_io_txd(uart_tx),.system_uart_0_io_rxd(uart_rx));
+wire osd_we;wire [10:0] osd_addr;wire [7:0] osd_data;
+sc_apb_regs regs(.clk(core_clk),.rst(rs_a[2]),
+ .paddr(apb_paddr),.psel(apb_psel),.penable(apb_penable),.pwrite(apb_pwrite),.pwdata(apb_pwdata),.prdata(apb_prdata),.pready(apb_pready),.pslverr(apb_pslverr),
+ .irq(cpu_irq),.run(cpu_run),.step(cpu_step),.style(cpu_style),.view(view_mode),.cam_enable(cam_enable),
+ .ev_publish(publish),.ev_key3(key3_press),.ev_key2(key2_press),.ev_error(engine_done&&!engine_ok),
+ .st_captured(captured),.st_processed(processed),.st_skipped(skipped),.st_cap_errors(capture_errors+capture_overflow),
+ .st_sensor_frames(cf2),.st_video_errors(video_errors),.st_run_cycles(run_cycles),.st_auto_cycles(auto_cycles),.st_auto_frames(auto_frames),
+ .st_hdmi_frames(display_status[223:192]),.st_hdmi_underflow(display_status[191:160]),.st_hdmi_errors(display_status[159:128]+replay_errors),
+ .st_flags({display_status[5],cfg_reject,styles_ready,cal_done,engine_idle,frame_ready}),.st_sched(schedule_status[10:0]),.st_keys({!key2_up,!key3_up}),
+ .scl_in(io_cam_scl_IN),.sda_in(io_cam_sda_IN),.scl_low(io_cam_scl_OE),.sda_low(io_cam_sda_OE),
+ .osd_we(osd_we),.osd_addr(osd_addr),.osd_data(osd_data),
+ .cfg_we(cfg_we),.cfg_layer(cfg_layer),.cfg_addr(cfg_addr),.cfg_data(cfg_data));
 wire hs,vs,de;wire [7:0] red,green,blue;
 sc_display display(.uc(core_clk),.urst(rs_a[2]),.ac(core_clk),.arst(rs_a[2]),
  .pc(hdmi_tx_slow_clk),.prst(rs_p[2]),.calibrated(cal_done),
  .pixel(sink_data),.pv(sink_valid),.pready(sink_ready),.new_frame(new_frame),.original_frame(original_frame),
- .mode(view_mode),.status(display_status),.write_bank(output_bank),.publish_orig(input_bank),.osd_we(1'b0),.osd_addr(11'd0),.osd_data(8'd0),
+ .mode(view_mode),.status(display_status),.write_bank(output_bank),.publish_orig(input_bank),.osd_we(osd_we),.osd_addr(osd_addr),.osd_data(osd_data),
  .publish(publish),.publish_bank(publish_bank),.output_complete(output_complete),.shown_valid(shown_valid),.shown_bank(shown_bank),
  .awaddr(out_awaddr),.awvalid(out_awvalid),.awready(out_awready),
  .wdata(out_wdata),.wvalid(out_wvalid),.wready(out_wready),.bvalid(out_bvalid),.bresp(s_axi_bresp),.bready(out_bready),
@@ -484,7 +495,7 @@ assign s_axi_wstrb=16'hffff;assign s_axi_wlast=1;
 assign s_axi_arid=0;assign s_axi_arlen=15;assign s_axi_arsize=4;assign s_axi_arburst=1;
 assign s_axi_arlock=0;assign s_axi_arcache=0;assign s_axi_arprot=0;
 reg [25:0] heartbeat=0;always @(posedge CLK_25M)heartbeat<=heartbeat+1'b1;
-assign led={setup_finished,|setup_error,config_ok,stream_set,requested_style,cal_done,heartbeat[24]};
+assign led={cam_enable,cpu_run,styles_ready[2],styles_ready[0],requested_style,cal_done,heartbeat[24]};
 wire [9:0] td0,td1,td2,tck;
 dvi_encoder video(.pixelclk(hdmi_tx_slow_clk),.rst_p(rs_p[2]),.i_bdata(blue),.i_gdata(green),.i_rdata(red),
  .i_de(de),.i_hs(hs),.i_vs(vs),.video_format(2'd0),.video_VIC(8'd16),

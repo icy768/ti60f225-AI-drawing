@@ -1,8 +1,8 @@
 module tb;
- reg clk=0;always #5 clk=~clk;reg rst=1,key=1;
+ reg clk=0;always #5 clk=~clk;reg rst=1,run=1,step=0;reg [1:0] style_req=0;
  reg ready=1,idle=1,done=0,ok=1,complete=0,shown_valid=0,shown_bank=0;reg [1:0] rb=0;reg [2:0] styles=0;
  wire take,release_f,hold_swap,start,mode,ob,pub,pb;wire [1:0] ib;wire [1:0] style,requested;wire [31:0] processed,errors,status;
- sc_video_schedule #(.KEY_CYCLES(3)) dut(clk,rst,key,ready,rb,take,release_f,ib,hold_swap,idle,done,ok,styles,start,style,mode,complete,shown_valid,shown_bank,ob,pub,pb,requested,processed,errors,status);
+ sc_video_schedule dut(clk,rst,run,step,style_req,ready,rb,take,release_f,ib,hold_swap,idle,done,ok,styles,start,style,mode,complete,shown_valid,shown_bank,ob,pub,pb,requested,processed,errors,status);
  integer started=0,committed=0,swaps=0;reg [1:0] held_input;reg held_output;integer delay_engine=0,delay_output=0,delay_display=0;
  always @(posedge clk)begin
   done<=0;
@@ -10,7 +10,7 @@ module tb;
    if(take)begin ready<=0;held_input<=rb;rb<=rb==2?2'd0:rb+1'b1;end
    if(hold_swap)begin if(!(shown_valid&&shown_bank==pb))$fatal(1,"hold_swap before HDMI shows the bank");swaps<=swaps+1;end
    if(start)begin
-    if(style!==2'(started%3)||mode!==(started>=3))$fatal(1,"Style/calibration mode start %0d",started);
+    if(style!==2'(started<4?started%3:0)||mode!==(started>=3))$fatal(1,"Style/calibration mode start %0d",started);
     if(shown_valid&&ob==shown_bank)$fatal(1,"Writing HDMI front bank");
     held_output<=ob;idle<=0;complete<=0;started<=started+1;delay_engine<=32;
    end
@@ -24,14 +24,18 @@ module tb;
    if(release_f)ready<=1;
   end
  end
- task press;begin @(negedge clk);key=0;repeat(10)@(negedge clk);key=1;repeat(10)@(negedge clk);end endtask
+ task press;begin @(negedge clk);style_req=style_req==2?2'd0:style_req+1'b1;repeat(20)@(negedge clk);end endtask
  initial begin
   repeat(5)@(negedge clk);rst=0;
   wait(started==1);press;wait(started==2);press;wait(started==3);press;wait(started==4);
-  ready=0;wait(processed==4);repeat(15)@(negedge clk);
-  if(committed!=4||swaps!=4||requested!=0||styles!=7||errors)$fatal(1,"Scheduler totals");
+  run=0;ready=0;wait(processed==4);repeat(15)@(negedge clk);
+  // CPU single-step: with run=0 no frame is taken until one step command
+  @(negedge clk);ready=1;repeat(200)@(negedge clk);if(started!=4)$fatal(1,"Frame taken without run/step");
+  step=1;@(negedge clk);step=0;wait(processed==5);@(negedge clk);ready=1;repeat(200)@(negedge clk);
+  if(started!=5)$fatal(1,"Step must admit exactly one frame");
+  if(committed!=5||swaps!=5||requested!=0||styles!=7||errors)$fatal(1,"Scheduler totals");
   rst=1;repeat(5)@(negedge clk);if(processed||errors||requested)$fatal(1,"Schedule reset");
-  $display("PASS schedule: frame lock, deferred style changes, initial IN per style, rotating refresh, final-write gate, HDMI bank acknowledgement, reset");$finish;
+  $display("PASS schedule: frame lock, CPU style request at frame boundary, initial IN per style, rotating refresh, final-write gate, HDMI bank acknowledgement, run/step admission, reset");$finish;
  end
  initial begin #100000;$fatal(1,"Schedule timeout");end
 endmodule

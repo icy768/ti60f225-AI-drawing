@@ -58,3 +58,15 @@ FPGAProjects/sc431hai_hdmi/outflow/*
 
 # Original export provenance is duplicated upstream and stays local here
 /FPGAProjects/StyleCam_camera/model/export.json
+
+# Sapphire SoC IP: keep the generated core, ignore vendor devkit examples
+/FPGAProjects/StyleCam_camera/ip/soc/*_devkit/
+/FPGAProjects/StyleCam_camera/ip/soc/Testbench/
+/FPGAProjects/StyleCam_camera/ip/soc/source/
+/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/*/
+!/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/common/
+!/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/driver/
+!/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/include/
+!/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/stylecam/
+/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/stylecam/build/
+/FPGAProjects/StyleCam_camera/embedded_sw/soc/bsp/efinix/EfxSapphireSoc/app/

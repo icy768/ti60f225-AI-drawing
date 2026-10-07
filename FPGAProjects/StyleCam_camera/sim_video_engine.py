@@ -50,11 +50,13 @@ module tb;
  reg [23:0] images[0:1535],expected[0:6911];reg [37:0] coefficients[0:935];
  wire iv=source_busy&&(cycle%7!=0),sink_ready=cycle%11!=0;
  wire [10:0] input_base=epoch<3?0:768;
- StyleCam_uart #(.DIV(8),.WIDTH(32),.HEIGHT(24),.IN_FILE("validation/video_engine/constants.mem")) dut(
- .clk_25m(clk),.uart_rx(1'b1),.uart_tx(),.system_reset(reset),.style_key_n(1'b1),
- .sink_ready(sink_ready),.sink_data(sink),.sink_valid(sv),.display_status(256'h14),
- .replay_data(images[input_base+index]),.replay_valid(iv),.replay_ready(ready),.replay_start(replay_start),.replay_busy(source_busy),.replay_errors(32'd0),
- .video_enabled(1'b1),.video_start(start_video),.video_style(style),.video_mode(mode),.video_idle(idle),.video_done(done),.video_ok(ok),.video_styles_ready(styles_ready),.video_status(256'd0),.sensor_diagnostics(288'd0));
+ sc_engine #(.WIDTH(32),.HEIGHT(24),.IN_TRACE(1),.IN_FILE("validation/video_engine/constants.mem")) dut(
+ .clk(clk),.system_reset(reset),
+ .sink_ready(sink_ready),.sink_data(sink),.sink_valid(sv),.new_frame(),
+ .replay_data(images[input_base+index]),.replay_valid(iv),.replay_ready(ready),.replay_start(replay_start),.replay_busy(source_busy),
+ .video_start(start_video),.video_style(style),.video_mode(mode),.video_idle(idle),.video_done(done),.video_ok(ok),.video_styles_ready(styles_ready),
+ .cpu_cfg_we(1'b0),.cpu_cfg_layer(5'd0),.cpu_cfg_addr(12'd0),.cpu_cfg_data(38'd0),.cpu_cfg_rejects(),
+ .run_cycles(),.first_output_cycles(),.input_stalls(),.output_stalls(),.auto_cycles(),.auto_frames(),.auto_writes(),.auto_errors(),.errors());
  always @(posedge clk)begin
   cycle<=cycle+1;
   if(replay_start)begin index<=0;outindex<=0;source_busy<=1;end
@@ -105,7 +107,7 @@ module tb;
 endmodule
 '''
 (S/'tb.v').write_text(tb,encoding='ascii')
-files=['StyleCam_uart','uart_byte','sc_button','sc_in_refresh','sc_in_math','sc_in_alu','common','conv_layer','mac','requant','swg3','swg3b']
+files=['sc_engine','sc_in_refresh','sc_in_math','sc_in_alu','common','conv_layer','mac','requant','swg3','swg3b']
 exe=S/'engine.vvp'
 subprocess.run([str(BIN/'iverilog.exe'),'-g2012','-s','tb','-o',str(exe),str(S/'tb.v'),str(S/'net.v'),*[str(ROOT/f'rtl/{n}.v') for n in files]],cwd=ROOT,check=True)
 print('Running V21 13-layer network, all three styles and dynamic IN',flush=True)

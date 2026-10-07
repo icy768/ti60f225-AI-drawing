@@ -1,19 +1,38 @@
 {
   "passed": true,
   "baseline_underflow_reproduced": true,
-  "fixed_pixels_exact": 81920,
   "fixed_underflow": 0,
   "fixed_R_backpressure": 0,
   "concurrent_replay": true,
   "underflow_history_and_reset": true,
   "tests": {
-    "0": {
+    "legacy": {
       "passed": true,
-      "log": "RESULT priority=0 pixels=81920 mismatches=70786 underflow=24589 display_R_stalls=152207 replay_bursts=453\nPASS\nFPGAProjects\\StyleCam_camera\\validation\\display_pressure\\tb.v:57: $finish called at 2500370000 (1ps)\n"
+      "priority": 0,
+      "mode": 1,
+      "latency_cycles": 90,
+      "log": "mismatch x=1088 y=64 got ff00ff want 838281\nmismatch x=1089 y=64 got ff00ff want 838281\nmismatch x=1090 y=64 got ff00ff want 8a8784\nmismatch x=1091 y=64 got ff00ff want 8a8784\nmismatch x=1092 y=64 got ff00ff want 918c87\nRESULT priority=0 mode=1 latency=90 pixels=81920 mismatches=70786 underflow=24589 display_R_stalls=152207 replay_bursts=453 display_bursts=453\nPASS\nC:\\Users\\satan\\Desktop\\claudeProject\\FPGAProjects\\ti60f225-AI-drawing\\FPGAProjects\\StyleCam_camera\\validation\\display_pressure\\tb.v:87: $finish called at 2500370000 (1ps)\n"
     },
-    "1": {
+    "stylized_2x": {
       "passed": true,
-      "log": "RESULT priority=1 pixels=81920 mismatches=0 underflow=0 display_R_stalls=0 replay_bursts=1669\nPASS\nFPGAProjects\\StyleCam_camera\\validation\\display_pressure\\tb.v:57: $finish called at 2500370000 (1ps)\n"
+      "priority": 1,
+      "mode": 1,
+      "latency_cycles": 90,
+      "log": "RESULT priority=1 mode=1 latency=90 pixels=81920 mismatches=0 underflow=0 display_R_stalls=0 replay_bursts=7815 display_bursts=640\nPASS\nC:\\Users\\satan\\Desktop\\claudeProject\\FPGAProjects\\ti60f225-AI-drawing\\FPGAProjects\\StyleCam_camera\\validation\\display_pressure\\tb.v:87: $finish called at 9137420000 (1ps)\n"
+    },
+    "original_2x": {
+      "passed": true,
+      "priority": 1,
+      "mode": 2,
+      "latency_cycles": 90,
+      "log": "RESULT priority=1 mode=2 latency=90 pixels=81920 mismatches=0 underflow=0 display_R_stalls=0 replay_bursts=7815 display_bursts=640\nPASS\nC:\\Users\\satan\\Desktop\\claudeProject\\FPGAProjects\\ti60f225-AI-drawing\\FPGAProjects\\StyleCam_camera\\validation\\display_pressure\\tb.v:87: $finish called at 9137420000 (1ps)\n"
+    },
+    "side_by_side": {
+      "passed": true,
+      "priority": 1,
+      "mode": 0,
+      "latency_cycles": 90,
+      "log": "RESULT priority=1 mode=0 latency=90 pixels=92160 mismatches=0 underflow=0 display_R_stalls=0 replay_bursts=7707 display_bursts=640\nPASS\nC:\\Users\\satan\\Desktop\\claudeProject\\FPGAProjects\\ti60f225-AI-drawing\\FPGAProjects\\StyleCam_camera\\validation\\display_pressure\\tb.v:87: $finish called at 9021050000 (1ps)\n"
     }
   }
 }
