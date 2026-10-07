@@ -32,6 +32,7 @@ static volatile uint32_t ctrl;           /* CTRL 影子（不含 STEP） */
 static volatile uint32_t streaming;      /* 1: 发布中断里自动下发下一帧 */
 static volatile uint32_t frames;         /* 已发布帧数 */
 static volatile uint32_t last_pub_t;     /* 最近一次发布的时刻（100 MHz 计数） */
+static volatile uint32_t job_cycles, job_max, pass_cycles;  /* 刚完成那帧：作业总周期、运行中最大值、最后一遍网络 */
 static volatile uint32_t key3_count, key2_count, error_count;
 static volatile uint32_t switch_pending, switch_style, switch_t0, switch_us_last, switch_us_max;
 static volatile uint32_t osd_dirty;
@@ -115,6 +116,10 @@ static void on_irq(uint32_t pend)
     if (pend & IRQ_PUBLISH) {
         last_pub_t = now();
         frames++;
+        /* 作业计数器在下一帧启动时清零，发布时读到的是刚完成那帧的总耗时 */
+        job_cycles = SC_JOB_CYCLES;
+        pass_cycles = SC_RUN_CYCLES;
+        if (streaming && job_cycles > job_max) job_max = job_cycles;
         if (switch_pending && ST_ENGINE_STYLE(SC_STATUS) == switch_style) {
             uint32_t us = us_since(switch_t0);
             switch_us_last = us;
@@ -303,6 +308,8 @@ static void print_status(uint32_t t_ms)
     bsp_printf("[%d ms] fps=%d.%d%d", t_ms, fps_x100 / 100, fps_x100 / 10 % 10, fps_x100 % 10);
     bsp_printf(" cam="); print_x10(cam_fps_x10);
     bsp_printf(" nn_ms="); print_x10(nn_ms_x10);
+    bsp_printf(" pass_ms="); print_x10(pass_cycles / 10000);
+    bsp_printf(" nn_max_ms="); print_x10(job_max / 10000);
     bsp_printf(" style=%d view=%d ready=%d proc=%d cap=%d skip=%d caperr=%d vid_err=%d uf=%d hdmi_err=%d irq_err=%d k3=%d k2=%d sw_us=%d sw_max_us=%d\r\n",
                cur_style(), cur_view(), ST_STYLES_READY(st), SC_PROCESSED, SC_CAPTURED, SC_SKIPPED, SC_CAP_ERRORS,
                SC_VIDEO_ERRORS, SC_HDMI_UNDERFLOW, SC_HDMI_ERRORS, error_count, key3_count, key2_count,
@@ -426,7 +433,7 @@ void main()
             fps_x100 = (f != f_last && pub_10us) ? (f - f_last) * 10000000u / pub_10us : 0;
             fps_x10 = (fps_x100 + 5) / 10;                 /* 四舍五入到 0.1 */
             cam_fps_x10 = (s - s_last) * 10000000u / dt;
-            nn_ms_x10 = SC_JOB_CYCLES / 10000;          /* 100 MHz 周期 -> 0.1 ms */
+            nn_ms_x10 = job_cycles / 10000;             /* 100 MHz 周期 -> 0.1 ms */
             f_last = f; p_last = p; s_last = s; t_last = now(); uptime_ms += dt / 1000;
             osd_draw();
             if (++ticks % 2 == 0) print_status(uptime_ms);

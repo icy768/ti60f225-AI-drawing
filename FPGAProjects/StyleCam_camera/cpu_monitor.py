@@ -8,9 +8,9 @@ from pathlib import Path
 import serial
 
 ROOT = Path(__file__).resolve().parent
-STATUS = re.compile(r'\[(\d+) ms\] fps=([\d.]+) cam=([\d.]+) nn_ms=([\d.]+) style=(\d) view=(\d) ready=(\d) proc=(\d+) cap=(\d+) '
+STATUS = re.compile(r'\[(\d+) ms\] fps=([\d.]+) cam=([\d.]+) nn_ms=([\d.]+)(?: pass_ms=([\d.]+) nn_max_ms=([\d.]+))? style=(\d) view=(\d) ready=(\d) proc=(\d+) cap=(\d+) '
                     r'skip=(\d+) caperr=(\d+) vid_err=(\d+) uf=(\d+) hdmi_err=(\d+) irq_err=(\d+) k3=(\d+) k2=(\d+) sw_us=(\d+) sw_max_us=(\d+)')
-KEYS = ['ms', 'fps', 'cam_fps', 'nn_ms', 'style', 'view', 'styles_ready', 'processed', 'captured', 'skipped', 'capture_errors',
+KEYS = ['ms', 'fps', 'cam_fps', 'nn_ms', 'pass_ms', 'nn_max_ms', 'style', 'view', 'styles_ready', 'processed', 'captured', 'skipped', 'capture_errors',
         'video_errors', 'hdmi_underflow', 'hdmi_errors', 'irq_errors', 'key3', 'key2', 'switch_us', 'switch_max_us']
 
 
@@ -19,7 +19,7 @@ def parse(line):
     if not m:
         return None
     v = dict(zip(KEYS, m.groups()))
-    return {k: (float(x) if '.' in x else int(x)) for k, x in v.items()}
+    return {k: (None if x is None else float(x) if '.' in x else int(x)) for k, x in v.items()}
 
 
 def main():
@@ -27,13 +27,14 @@ def main():
     ap.add_argument('--port', default='COM21')
     ap.add_argument('--seconds', type=float, default=30)
     ap.add_argument('--boot', type=float, default=0, help='also wait this long for a fresh boot log')
-    ap.add_argument('--switch', action='store_true', help='cycle styles 1,2,0 via UART and measure switch latency')
+    ap.add_argument('--switch', action='store_true', help='cycle styles 1,2,0 and the three views via UART, measure switch latency')
+    ap.add_argument('--reload', action='store_true', help='also hot-reload the weights (pauses video ~0.3 s; not an acceptance run)')
     a = ap.parse_args()
     s = serial.Serial(a.port, 115200, timeout=0.2)
     log, samples, buf = [], [], b''
     t_end = time.monotonic() + a.boot + a.seconds
     t_switch = time.monotonic() + a.boot + 6
-    switches = [b'1', b'2', b'0', b'v', b'v', b'v', b'w'] if a.switch else []
+    switches = ([b'1', b'2', b'0', b'v', b'v', b'v'] if a.switch else []) + ([b'w'] if a.reload else [])
     while time.monotonic() < t_end:
         buf += s.read(256)
         while b'\n' in buf:
@@ -59,7 +60,7 @@ def main():
                   samples=samples,
                   min_fps=min(x['fps'] for x in steady) if steady else 0,
                   mean_fps=sum(x['fps'] for x in steady) / len(steady) if steady else 0,
-                  sensor_fps=last['cam_fps'], nn_ms=last['nn_ms'],
+                  sensor_fps=last['cam_fps'], nn_ms=last['nn_ms'], nn_max_ms=last['nn_max_ms'],
                   errors=dict(capture=last['capture_errors'], video=last['video_errors'], hdmi=last['hdmi_errors'],
                               irq=last['irq_errors'], hdmi_underflow_last_frame=last['hdmi_underflow']),
                   styles_ready=last['styles_ready'], switch_max_us=last['switch_max_us'])
