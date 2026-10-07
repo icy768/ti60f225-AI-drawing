@@ -48,6 +48,19 @@ port (
     jtagCtrl_reset : in std_logic;
     jtagCtrl_tdo : out std_logic;
     jtagCtrl_tck : in std_logic;
+    system_spi_0_io_data_0_read : in std_logic;
+    system_spi_0_io_data_0_write : out std_logic;
+    system_spi_0_io_data_0_writeEnable : out std_logic;
+    system_spi_0_io_data_1_read : in std_logic;
+    system_spi_0_io_data_1_write : out std_logic;
+    system_spi_0_io_data_1_writeEnable : out std_logic;
+    system_spi_0_io_data_2_read : in std_logic;
+    system_spi_0_io_data_2_write : out std_logic;
+    system_spi_0_io_data_2_writeEnable : out std_logic;
+    system_spi_0_io_data_3_read : in std_logic;
+    system_spi_0_io_data_3_write : out std_logic;
+    system_spi_0_io_data_3_writeEnable : out std_logic;
+    system_spi_0_io_sclk_write : out std_logic;
     userInterruptA : in std_logic;
     io_apbSlave_0_PADDR : out std_logic_vector(15 downto 0);
     io_apbSlave_0_PENABLE : out std_logic;
@@ -60,7 +73,8 @@ port (
     io_asyncReset : in std_logic;
     io_systemReset : out std_logic;
     system_uart_0_io_txd : out std_logic;
-    system_uart_0_io_rxd : in std_logic
+    system_uart_0_io_rxd : in std_logic;
+    system_spi_0_io_ss : out std_logic_vector(0 to 0)
 );
 end component soc;
 
@@ -77,6 +91,19 @@ port map (
     jtagCtrl_reset => jtagCtrl_reset,
     jtagCtrl_tdo => jtagCtrl_tdo,
     jtagCtrl_tck => jtagCtrl_tck,
+    system_spi_0_io_data_0_read => system_spi_0_io_data_0_read,
+    system_spi_0_io_data_0_write => system_spi_0_io_data_0_write,
+    system_spi_0_io_data_0_writeEnable => system_spi_0_io_data_0_writeEnable,
+    system_spi_0_io_data_1_read => system_spi_0_io_data_1_read,
+    system_spi_0_io_data_1_write => system_spi_0_io_data_1_write,
+    system_spi_0_io_data_1_writeEnable => system_spi_0_io_data_1_writeEnable,
+    system_spi_0_io_data_2_read => system_spi_0_io_data_2_read,
+    system_spi_0_io_data_2_write => system_spi_0_io_data_2_write,
+    system_spi_0_io_data_2_writeEnable => system_spi_0_io_data_2_writeEnable,
+    system_spi_0_io_data_3_read => system_spi_0_io_data_3_read,
+    system_spi_0_io_data_3_write => system_spi_0_io_data_3_write,
+    system_spi_0_io_data_3_writeEnable => system_spi_0_io_data_3_writeEnable,
+    system_spi_0_io_sclk_write => system_spi_0_io_sclk_write,
     userInterruptA => userInterruptA,
     io_apbSlave_0_PADDR => io_apbSlave_0_PADDR,
     io_apbSlave_0_PENABLE => io_apbSlave_0_PENABLE,
@@ -89,7 +116,8 @@ port map (
     io_asyncReset => io_asyncReset,
     io_systemReset => io_systemReset,
     system_uart_0_io_txd => system_uart_0_io_txd,
-    system_uart_0_io_rxd => system_uart_0_io_rxd
+    system_uart_0_io_rxd => system_uart_0_io_rxd,
+    system_spi_0_io_ss => system_spi_0_io_ss
 );
 
 ------------------------ End INSTANTIATION Template ---------

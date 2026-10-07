@@ -12,7 +12,7 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A01,parameter integer I2
  input [7:0] st_flags,input [10:0] st_sched,input [1:0] st_keys,
  input scl_in,sda_in,output scl_low,sda_low,
  output reg osd_we,output reg [10:0] osd_addr,output reg [7:0] osd_data,
- output reg cfg_we,output reg [4:0] cfg_layer,output reg [11:0] cfg_addr,output reg [37:0] cfg_data);
+ output reg cfg_we,output reg cfg_sel,output reg [4:0] cfg_lane,output reg [4:0] cfg_layer,output reg [11:0] cfg_addr,output reg [37:0] cfg_data);
  assign pready=1'b1;assign pslverr=1'b0;
  wire wr=psel&&penable&&pwrite;
  wire reg_sel=paddr[15:12]==4'h0;wire osd_sel=paddr[15:13]==3'b001;
@@ -29,7 +29,7 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A01,parameter integer I2
   step<=0;osd_we<=0;cfg_we<=0;i2c_start<=0;
   if(rst)begin
    run<=0;style<=0;view<=0;cam_enable<=0;pend<=0;en<=0;i2c_read<=0;i2c_addr<=0;i2c_wdata<=0;i2c_done<=0;
-   cfg_layer<=0;cfg_addr<=0;cfg_data<=0;osd_addr<=0;osd_data<=0;
+   cfg_sel<=0;cfg_lane<=0;cfg_layer<=0;cfg_addr<=0;cfg_data<=0;osd_addr<=0;osd_data<=0;
   end else begin
    if(i2c_fin)i2c_done<=1;
    // events set pending bits; a W1C write clears them (an event in the same cycle wins)
@@ -40,7 +40,8 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A01,parameter integer I2
     6'h01:begin run<=pwdata[0];cam_enable<=pwdata[1];step<=pwdata[2];style<=pwdata[5:4];view<=pwdata[9:8];end
     6'h04:en<=pwdata[3:0];
     6'h05:if(!i2c_busy)begin i2c_addr<=pwdata[15:0];i2c_wdata<=pwdata[23:16];i2c_read<=pwdata[24];i2c_start<=1;i2c_done<=0;end
-    6'h18:begin cfg_layer<=pwdata[4:0];cfg_addr<=pwdata[27:16];end
+    // weight-blob record word 0: [31] sel (1 weights, 0 IN coefficients) [25:21] lane [20:16] layer [11:0] address
+    6'h18:begin cfg_sel<=pwdata[31];cfg_lane<=pwdata[25:21];cfg_layer<=pwdata[20:16];cfg_addr<=pwdata[11:0];end
     6'h19:cfg_data[31:0]<=pwdata;
     6'h1a:begin cfg_data[37:32]<=pwdata[5:0];cfg_we<=1;end
     default:;

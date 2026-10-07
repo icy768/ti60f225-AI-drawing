@@ -47,6 +47,15 @@ module ti60f225_oob_top #(
 	input	wire	i_arstn,
  input wire style_key_n,
  input wire mode_key_n,
+ // configuration SPI flash (user mode, Sapphire SPI0): weight blob at 0x200000
+ output wire system_spi_0_io_sclk_write,
+ output wire system_spi_0_io_ss,
+ input wire system_spi_0_io_data_0_IN,
+ output wire system_spi_0_io_data_0_OUT,
+ output wire system_spi_0_io_data_0_OE,
+ input wire system_spi_0_io_data_1_IN,
+ output wire system_spi_0_io_data_1_OUT,
+ output wire system_spi_0_io_data_1_OE,
     output wire uart_tx,
  input wire uart_rx,
     input	wire	i_mipi_rx_pclk,
@@ -444,14 +453,14 @@ sc_read_arbiter #(.DISPLAY_PRIORITY(1)) reads(.clk(core_clk),.rst(rs_a[2]),
  .araddr(s_axi_araddr),.arvalid(s_axi_arvalid),.arready(s_axi_arready),
  .rvalid(s_axi_rvalid),.rlast(s_axi_rlast),.rready(s_axi_rready));
 wire [255:0] display_status;
-wire cfg_we,cfg_reject;wire [4:0] cfg_layer;wire [11:0] cfg_addr;wire [37:0] cfg_data;
+wire cfg_we,cfg_sel,cfg_reject;wire [4:0] cfg_lane,cfg_layer;wire [11:0] cfg_addr;wire [37:0] cfg_data;
 wire [31:0] run_cycles,first_output_cycles,input_stalls,output_stalls,auto_cycles,auto_frames,auto_writes,auto_errors,engine_errors;
 sc_engine engine(.clk(core_clk),.system_reset(rs_a[2]),
  .sink_ready(sink_ready),.sink_data(sink_data),.sink_valid(sink_valid),.new_frame(new_frame),
  .replay_data(replay_data),.replay_valid(replay_valid),.replay_ready(replay_ready),.replay_start(replay_start),.replay_busy(replay_busy),
  .video_start(engine_start),.video_style(engine_style),.video_mode(engine_mode),
  .video_idle(engine_idle),.video_done(engine_done),.video_ok(engine_ok),.video_styles_ready(styles_ready),
- .cpu_cfg_we(cfg_we),.cpu_cfg_layer(cfg_layer),.cpu_cfg_addr(cfg_addr),.cpu_cfg_data(cfg_data),.cpu_cfg_rejects(cfg_reject),
+ .cpu_cfg_we(cfg_we),.cpu_cfg_sel(cfg_sel),.cpu_cfg_lane(cfg_lane),.cpu_cfg_layer(cfg_layer),.cpu_cfg_addr(cfg_addr),.cpu_cfg_data(cfg_data),.cpu_cfg_rejects(cfg_reject),
  .run_cycles(run_cycles),.first_output_cycles(first_output_cycles),.input_stalls(input_stalls),.output_stalls(output_stalls),
  .auto_cycles(auto_cycles),.auto_frames(auto_frames),.auto_writes(auto_writes),.auto_errors(auto_errors),.errors(engine_errors));
 assign original_frame=1'b0;
@@ -459,13 +468,18 @@ assign original_frame=1'b0;
 wire key3_press,key3_up,key2_press,key2_up;
 sc_button #(.CYCLES(1000000)) key3(core_clk,rs_a[2],style_key_n,key3_press,key3_up);
 sc_button #(.CYCLES(1000000)) key2(core_clk,rs_a[2],mode_key_n,key2_press,key2_up);
-// Sapphire RISC-V SoC (RV32I, 16 KB on-chip RAM, UART0 console, APB3 slave 0, user interrupt A)
+// Sapphire RISC-V SoC (RV32I, 16 KB on-chip RAM, UART0 console, SPI0 flash, APB3 slave 0, user interrupt A)
 wire [15:0] apb_paddr;wire apb_penable,apb_psel,apb_pwrite,apb_pready,apb_pslverr,cpu_irq,cpu_reset;wire [31:0] apb_pwdata,apb_prdata;
 soc cpu(.io_systemClk(core_clk),.jtagCtrl_enable(1'b0),.jtagCtrl_tdi(1'b0),.jtagCtrl_capture(1'b0),.jtagCtrl_shift(1'b0),
  .jtagCtrl_update(1'b0),.jtagCtrl_reset(1'b0),.jtagCtrl_tdo(),.jtagCtrl_tck(1'b0),.userInterruptA(cpu_irq),
  .io_apbSlave_0_PADDR(apb_paddr),.io_apbSlave_0_PENABLE(apb_penable),.io_apbSlave_0_PRDATA(apb_prdata),.io_apbSlave_0_PREADY(apb_pready),
  .io_apbSlave_0_PSEL(apb_psel),.io_apbSlave_0_PSLVERROR(apb_pslverr),.io_apbSlave_0_PWDATA(apb_pwdata),.io_apbSlave_0_PWRITE(apb_pwrite),
- .io_asyncReset(global_reset),.io_systemReset(cpu_reset),.system_uart_0_io_txd(uart_tx),.system_uart_0_io_rxd(uart_rx));
+ .io_asyncReset(global_reset),.io_systemReset(cpu_reset),.system_uart_0_io_txd(uart_tx),.system_uart_0_io_rxd(uart_rx),
+ .system_spi_0_io_sclk_write(system_spi_0_io_sclk_write),.system_spi_0_io_ss(system_spi_0_io_ss),
+ .system_spi_0_io_data_0_read(system_spi_0_io_data_0_IN),.system_spi_0_io_data_0_write(system_spi_0_io_data_0_OUT),.system_spi_0_io_data_0_writeEnable(system_spi_0_io_data_0_OE),
+ .system_spi_0_io_data_1_read(system_spi_0_io_data_1_IN),.system_spi_0_io_data_1_write(system_spi_0_io_data_1_OUT),.system_spi_0_io_data_1_writeEnable(system_spi_0_io_data_1_OE),
+ .system_spi_0_io_data_2_read(1'b0),.system_spi_0_io_data_2_write(),.system_spi_0_io_data_2_writeEnable(),
+ .system_spi_0_io_data_3_read(1'b0),.system_spi_0_io_data_3_write(),.system_spi_0_io_data_3_writeEnable());
 wire osd_we;wire [10:0] osd_addr;wire [7:0] osd_data;
 sc_apb_regs regs(.clk(core_clk),.rst(rs_a[2]),
  .paddr(apb_paddr),.psel(apb_psel),.penable(apb_penable),.pwrite(apb_pwrite),.pwdata(apb_pwdata),.prdata(apb_prdata),.pready(apb_pready),.pslverr(apb_pslverr),
@@ -477,7 +491,7 @@ sc_apb_regs regs(.clk(core_clk),.rst(rs_a[2]),
  .st_flags({display_status[5],cfg_reject,styles_ready,cal_done,engine_idle,frame_ready}),.st_sched(schedule_status[10:0]),.st_keys({!key2_up,!key3_up}),
  .scl_in(io_cam_scl_IN),.sda_in(io_cam_sda_IN),.scl_low(io_cam_scl_OE),.sda_low(io_cam_sda_OE),
  .osd_we(osd_we),.osd_addr(osd_addr),.osd_data(osd_data),
- .cfg_we(cfg_we),.cfg_layer(cfg_layer),.cfg_addr(cfg_addr),.cfg_data(cfg_data));
+ .cfg_we(cfg_we),.cfg_sel(cfg_sel),.cfg_lane(cfg_lane),.cfg_layer(cfg_layer),.cfg_addr(cfg_addr),.cfg_data(cfg_data));
 wire hs,vs,de;wire [7:0] red,green,blue;
 sc_display display(.uc(core_clk),.urst(rs_a[2]),.ac(core_clk),.arst(rs_a[2]),
  .pc(hdmi_tx_slow_clk),.prst(rs_p[2]),.calibrated(cal_done),

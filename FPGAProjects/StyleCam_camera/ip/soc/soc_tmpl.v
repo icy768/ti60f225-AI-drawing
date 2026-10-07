@@ -54,6 +54,19 @@ soc u_soc
     .jtagCtrl_reset ( jtagCtrl_reset ),
     .jtagCtrl_tdo ( jtagCtrl_tdo ),
     .jtagCtrl_tck ( jtagCtrl_tck ),
+    .system_spi_0_io_data_0_read ( system_spi_0_io_data_0_read ),
+    .system_spi_0_io_data_0_write ( system_spi_0_io_data_0_write ),
+    .system_spi_0_io_data_0_writeEnable ( system_spi_0_io_data_0_writeEnable ),
+    .system_spi_0_io_data_1_read ( system_spi_0_io_data_1_read ),
+    .system_spi_0_io_data_1_write ( system_spi_0_io_data_1_write ),
+    .system_spi_0_io_data_1_writeEnable ( system_spi_0_io_data_1_writeEnable ),
+    .system_spi_0_io_data_2_read ( system_spi_0_io_data_2_read ),
+    .system_spi_0_io_data_2_write ( system_spi_0_io_data_2_write ),
+    .system_spi_0_io_data_2_writeEnable ( system_spi_0_io_data_2_writeEnable ),
+    .system_spi_0_io_data_3_read ( system_spi_0_io_data_3_read ),
+    .system_spi_0_io_data_3_write ( system_spi_0_io_data_3_write ),
+    .system_spi_0_io_data_3_writeEnable ( system_spi_0_io_data_3_writeEnable ),
+    .system_spi_0_io_sclk_write ( system_spi_0_io_sclk_write ),
     .userInterruptA ( userInterruptA ),
     .io_apbSlave_0_PADDR ( io_apbSlave_0_PADDR ),
     .io_apbSlave_0_PENABLE ( io_apbSlave_0_PENABLE ),
@@ -66,5 +79,6 @@ soc u_soc
     .io_asyncReset ( io_asyncReset ),
     .io_systemReset ( io_systemReset ),
     .system_uart_0_io_txd ( system_uart_0_io_txd ),
-    .system_uart_0_io_rxd ( system_uart_0_io_rxd )
+    .system_uart_0_io_rxd ( system_uart_0_io_rxd ),
+    .system_spi_0_io_ss ( system_spi_0_io_ss )
 );

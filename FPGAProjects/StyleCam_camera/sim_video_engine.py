@@ -5,6 +5,9 @@ import numpy as np
 from reference import ROOT, run, pack_coef, load, coef
 from compact_in_constants import compact
 from export_in_constants import export
+# Weight/coefficient RAMs have no init files (as in rtl/stylenet_top.v): the testbench first loads all
+# model/net_blob.bin records through the RISC-V configuration port, exactly as the firmware does from flash.
+CPU_BLOB=True
 S=ROOT/'validation/video_engine';S.mkdir(exist_ok=True)
 BIN=Path(__import__('os').environ.get('ICARUS_BIN',ROOT.parent/'tools/iverilog/mingw64/bin'))
 sys.path.insert(0,str(ROOT.parent/'StyleCam/algo'))
@@ -40,11 +43,17 @@ for name,values,digits in [
  ('coefficients',words,10)]:
     (S/(name+'.hex')).write_text('\n'.join(f'{x:0{digits}x}' for x in values)+'\n',encoding='ascii')
 net=re.sub(r'\.(W|H|WL|HL)\((\d+)\)',lambda m:f'.{m[1]}({int(m[2])//20})',(ROOT/'rtl/stylenet_top.v').read_text())
+blob=np.frombuffer((ROOT/'model/net_blob.bin').read_bytes(),dtype='<u4')
+assert blob[0]==0x53544E31 and len(blob)==4+3*int(blob[1])
+if CPU_BLOB:
+    net,nw=re.subn(r'\.WFILE\("[^"]*"\), \.CFILE\("[^"]*"\)','.WFILE(""), .CFILE("")',net); assert nw==13,nw
+(S/'blob.hex').write_text('\n'.join(f'{int(x):08x}' for x in blob[4:])+'\n',encoding='ascii')
 (S/'net.v').write_text(net,encoding='utf-8')
 tb=r'''
 module tb;
  reg clk=0;always #5 clk=~clk;
  reg reset=0,start_video=0,mode=0;reg [1:0] style=0;
+ reg [31:0] blob[0:NWORDS-1];reg cw=0,csel=0,loading=0;reg [4:0] clane=0,clayer=0;reg [11:0] caddr=0;reg [37:0] cdata=0;integer bi;
  wire idle,done,ok;wire [2:0] styles_ready;wire [23:0] sink;wire sv,ready,replay_start;
  reg source_busy=0;integer epoch=0,index=0,outindex=0,cycle=0,checked=0,ci,l,c,st;
  reg [23:0] images[0:1535],expected[0:6911];reg [37:0] coefficients[0:935];
@@ -55,7 +64,7 @@ module tb;
  .sink_ready(sink_ready),.sink_data(sink),.sink_valid(sv),.new_frame(),
  .replay_data(images[input_base+index]),.replay_valid(iv),.replay_ready(ready),.replay_start(replay_start),.replay_busy(source_busy),
  .video_start(start_video),.video_style(style),.video_mode(mode),.video_idle(idle),.video_done(done),.video_ok(ok),.video_styles_ready(styles_ready),
- .cpu_cfg_we(1'b0),.cpu_cfg_layer(5'd0),.cpu_cfg_addr(12'd0),.cpu_cfg_data(38'd0),.cpu_cfg_rejects(),
+ .cpu_cfg_we(cw),.cpu_cfg_sel(csel),.cpu_cfg_lane(clane),.cpu_cfg_layer(clayer),.cpu_cfg_addr(caddr),.cpu_cfg_data(cdata),.cpu_cfg_rejects(),
  .run_cycles(),.first_output_cycles(),.input_stalls(),.output_stalls(),.auto_cycles(),.auto_frames(),.auto_writes(),.auto_errors(),.errors());
  always @(posedge clk)begin
   cycle<=cycle+1;
@@ -69,7 +78,7 @@ module tb;
    outindex<=outindex+1;
   end
   if(dut.in_cfg_we&&dut.active)$fatal(1,"IN wrote during a frame");
-  if(dut.cfg_we)$fatal(1,"Unexpected host IN write");
+  if(dut.cfg_we&&!loading)$fatal(1,"Unexpected host IN write");
  end
  task job;begin
   wait(idle);@(negedge clk);start_video=1;@(negedge clk);start_video=0;wait(done);@(negedge clk);
@@ -78,6 +87,16 @@ module tb;
  initial begin
   $readmemh("validation/video_engine/images.hex",images);$readmemh("validation/video_engine/expected.hex",expected);$readmemh("validation/video_engine/coefficients.hex",coefficients);
   repeat(1200)@(negedge clk);
+`ifdef CPU_BLOB
+  // RISC-V weight deployment: every record of model/net_blob.bin through the configuration port
+  $readmemh("BLOBHEX",blob);loading=1;
+  for(bi=0;bi<NREC;bi=bi+1)begin
+   @(negedge clk);csel=blob[3*bi][31];clane=blob[3*bi][25:21];clayer=blob[3*bi][20:16];caddr=blob[3*bi][11:0];
+   cdata={blob[3*bi+2][5:0],blob[3*bi+1]};cw=1;@(negedge clk);cw=0;@(negedge clk);@(negedge clk);
+   if(dut.cpu_cfg_rejects)$fatal(1,"blob record %0d rejected",bi);
+  end
+  loading=0;repeat(20)@(negedge clk);$display("PASS RISC-V blob load: %0d records",NREC);
+`endif
   for(st=0;st<3;st=st+1)begin
    style=st;epoch=st;mode=0;job;
    if(dut.auto_frames!=13||dut.auto_writes!=272)$fatal(1,"Initial calibration counts");
@@ -106,15 +125,17 @@ module tb;
  initial begin #120000000;$fatal(1,"V21 video engine timeout");end
 endmodule
 '''
+tb=tb.replace('validation/video_engine/',S.relative_to(ROOT).as_posix()+'/')
+tb=tb.replace('NWORDS',str(len(blob)-4)).replace('NREC',str(int(blob[1]))).replace('BLOBHEX',(S/'blob.hex').relative_to(ROOT).as_posix())
 (S/'tb.v').write_text(tb,encoding='ascii')
 files=['sc_engine','sc_in_refresh','sc_in_math','sc_in_alu','common','conv_layer','mac','requant','swg3','swg3b']
 exe=S/'engine.vvp'
-subprocess.run([str(BIN/'iverilog.exe'),'-g2012','-s','tb','-o',str(exe),str(S/'tb.v'),str(S/'net.v'),*[str(ROOT/f'rtl/{n}.v') for n in files]],cwd=ROOT,check=True)
+subprocess.run([str(BIN/'iverilog.exe'),'-g2012',*(['-DCPU_BLOB'] if CPU_BLOB else []),'-s','tb','-o',str(exe),str(S/'tb.v'),str(S/'net.v'),*[str(ROOT/f'rtl/{n}.v') for n in files]],cwd=ROOT,check=True)
 print('Running V21 13-layer network, all three styles and dynamic IN',flush=True)
 with (S/'simulation.log').open('w',encoding='utf-8') as f:r=subprocess.run([str(BIN/'vvp.exe'),str(exe)],cwd=ROOT,stdout=f,stderr=subprocess.STDOUT)
 log=(S/'simulation.log').read_text(encoding='utf-8',errors='replace');print(log,flush=True)
 assert r.returncode==0 and 'PASS V21 all styles' in log,log
 (S/'result.json').write_text(json.dumps(dict(passed=True,network='v21b_ukiyoe_qat900_640x480',real_network=True,styles=[0,1,2],
  initial_coefficients_exact=816,changed_frame_coefficients_exact=120,pixels_exact=6912,frames=9,
- no_reset_style_switching=True,independent_official_golden_reference=True,host_IN_writes=0,input_backpressure=True,output_backpressure=True,
+ no_reset_style_switching=True,independent_official_golden_reference=True,cpu_blob_records=int(blob[1]),weights_from_cpu_only=True,input_backpressure=True,output_backpressure=True,
  network_blob_sha256=hashlib.sha256((ROOT/'model/net_blob.bin').read_bytes()).hexdigest()),indent=2),encoding='utf-8')

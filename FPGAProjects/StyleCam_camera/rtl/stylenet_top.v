@@ -1,4 +1,5 @@
 // 自动生成：algo/gen_rtl.py，勿手改
+// 整机版：权重与系数 RAM 不带初值，开机由 RISC-V 从 SPI Flash 装载 model/net_blob.bin（rtl 副本改动仅此一处）
 module stylenet_top (
     input clk, input rst, input [3:0] style,
     input cfg_we, input cfg_sel, input [4:0] cfg_layer, input [4:0] cfg_lane,
@@ -24,7 +25,7 @@ module stylenet_top (
     wire [31:0] d12, s12; wire v12, r12; wire sv12; wire [18:0] sa12; wire [7:0] sc12;
     // 第 0 层 e1
     conv_layer #(.K(3), .DW(0), .STRIDE(2), .UP(0), .GI(3), .CIN(3), .COUT(16), .G(4), .W(640), .H(480), .PE(4), .R(1), .S(20), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(0), .NSTY(6),
-        .WFILE("model/w0_e1.mem"), .CFILE("model/c0_e1.mem")) u_l0 (
+        .WFILE(""), .CFILE("")) u_l0 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 0), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -33,7 +34,7 @@ module stylenet_top (
         .st_v(sv0), .st_a(sa0), .st_ch(sc0));
     // 第 1 层 e2
     conv_layer #(.K(3), .DW(0), .STRIDE(2), .UP(0), .GI(4), .CIN(16), .COUT(24), .G(4), .W(320), .H(240), .PE(4), .R(1), .S(21), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(0), .NSTY(6),
-        .WFILE("model/w1_e2.mem"), .CFILE("model/c1_e2.mem")) u_l1 (
+        .WFILE(""), .CFILE("")) u_l1 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 1), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -42,7 +43,7 @@ module stylenet_top (
         .st_v(sv1), .st_a(sa1), .st_ch(sc1));
     // 第 2 层 r0a
     conv_layer #(.K(3), .DW(1), .STRIDE(1), .UP(0), .GI(4), .CIN(24), .COUT(24), .G(4), .W(160), .H(120), .PE(1), .R(0), .S(17), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(1), .NSTY(6),
-        .WFILE("model/w2_r0a.mem"), .CFILE("model/c2_r0a.mem")) u_l2 (
+        .WFILE(""), .CFILE("")) u_l2 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 2), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -51,7 +52,7 @@ module stylenet_top (
         .st_v(sv2), .st_a(sa2), .st_ch(sc2));
     // 第 3 层 r0d
     conv_layer #(.K(1), .DW(0), .STRIDE(1), .UP(0), .GI(4), .CIN(24), .COUT(24), .G(4), .W(160), .H(120), .PE(1), .R(0), .S(17), .S2(8), .KSK(70950), .SKIP_ADD(1), .FWD(0), .NSTY(6),
-        .WFILE("model/w3_r0d.mem"), .CFILE("model/c3_r0d.mem")) u_l3 (
+        .WFILE(""), .CFILE("")) u_l3 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 3), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -60,7 +61,7 @@ module stylenet_top (
         .st_v(sv3), .st_a(sa3), .st_ch(sc3));
     // 第 4 层 r1a
     conv_layer #(.K(3), .DW(1), .STRIDE(1), .UP(0), .GI(4), .CIN(24), .COUT(24), .G(4), .W(160), .H(120), .PE(1), .R(0), .S(19), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(1), .NSTY(6),
-        .WFILE("model/w4_r1a.mem"), .CFILE("model/c4_r1a.mem")) u_l4 (
+        .WFILE(""), .CFILE("")) u_l4 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 4), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -69,7 +70,7 @@ module stylenet_top (
         .st_v(sv4), .st_a(sa4), .st_ch(sc4));
     // 第 5 层 r1d
     conv_layer #(.K(1), .DW(0), .STRIDE(1), .UP(0), .GI(4), .CIN(24), .COUT(24), .G(4), .W(160), .H(120), .PE(1), .R(0), .S(17), .S2(8), .KSK(97034), .SKIP_ADD(1), .FWD(0), .NSTY(6),
-        .WFILE("model/w5_r1d.mem"), .CFILE("model/c5_r1d.mem")) u_l5 (
+        .WFILE(""), .CFILE("")) u_l5 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 5), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -78,7 +79,7 @@ module stylenet_top (
         .st_v(sv5), .st_a(sa5), .st_ch(sc5));
     // 第 6 层 r2a
     conv_layer #(.K(3), .DW(1), .STRIDE(1), .UP(0), .GI(4), .CIN(24), .COUT(24), .G(4), .W(160), .H(120), .PE(1), .R(0), .S(18), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(1), .NSTY(6),
-        .WFILE("model/w6_r2a.mem"), .CFILE("model/c6_r2a.mem")) u_l6 (
+        .WFILE(""), .CFILE("")) u_l6 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 6), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -87,7 +88,7 @@ module stylenet_top (
         .st_v(sv6), .st_a(sa6), .st_ch(sc6));
     // 第 7 层 r2d
     conv_layer #(.K(1), .DW(0), .STRIDE(1), .UP(0), .GI(4), .CIN(24), .COUT(24), .G(4), .W(160), .H(120), .PE(1), .R(0), .S(17), .S2(8), .KSK(113384), .SKIP_ADD(1), .FWD(0), .NSTY(6),
-        .WFILE("model/w7_r2d.mem"), .CFILE("model/c7_r2d.mem")) u_l7 (
+        .WFILE(""), .CFILE("")) u_l7 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 7), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -96,7 +97,7 @@ module stylenet_top (
         .st_v(sv7), .st_a(sa7), .st_ch(sc7));
     // 第 8 层 r3a
     conv_layer #(.K(3), .DW(1), .STRIDE(1), .UP(0), .GI(4), .CIN(24), .COUT(24), .G(4), .W(160), .H(120), .PE(1), .R(0), .S(19), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(1), .NSTY(6),
-        .WFILE("model/w8_r3a.mem"), .CFILE("model/c8_r3a.mem")) u_l8 (
+        .WFILE(""), .CFILE("")) u_l8 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 8), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -105,7 +106,7 @@ module stylenet_top (
         .st_v(sv8), .st_a(sa8), .st_ch(sc8));
     // 第 9 层 r3d
     conv_layer #(.K(1), .DW(0), .STRIDE(1), .UP(0), .GI(4), .CIN(24), .COUT(24), .G(4), .W(160), .H(120), .PE(1), .R(0), .S(18), .S2(8), .KSK(117607), .SKIP_ADD(1), .FWD(0), .NSTY(6),
-        .WFILE("model/w9_r3d.mem"), .CFILE("model/c9_r3d.mem")) u_l9 (
+        .WFILE(""), .CFILE("")) u_l9 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 9), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -114,7 +115,7 @@ module stylenet_top (
         .st_v(sv9), .st_a(sa9), .st_ch(sc9));
     // 第 10 层 d1a
     conv_layer #(.K(3), .DW(1), .STRIDE(1), .UP(1), .GI(4), .CIN(24), .COUT(24), .G(4), .W(160), .H(120), .PE(1), .R(0), .S(20), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(0), .NSTY(6),
-        .WFILE("model/w10_d1a.mem"), .CFILE("model/c10_d1a.mem")) u_l10 (
+        .WFILE(""), .CFILE("")) u_l10 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 10), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -123,7 +124,7 @@ module stylenet_top (
         .st_v(sv10), .st_a(sa10), .st_ch(sc10));
     // 第 11 层 d1b
     conv_layer #(.K(1), .DW(0), .STRIDE(1), .UP(0), .GI(4), .CIN(24), .COUT(16), .G(4), .W(320), .H(240), .PE(2), .R(0), .S(19), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(0), .NSTY(6),
-        .WFILE("model/w11_d1b.mem"), .CFILE("model/c11_d1b.mem")) u_l11 (
+        .WFILE(""), .CFILE("")) u_l11 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 11), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),
@@ -132,7 +133,7 @@ module stylenet_top (
         .st_v(sv11), .st_a(sa11), .st_ch(sc11));
     // 第 12 层 d2
     conv_layer #(.K(3), .DW(0), .STRIDE(1), .UP(0), .GI(4), .CIN(16), .COUT(12), .G(4), .W(320), .H(240), .PE(6), .R(1), .S(22), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(0), .NSTY(6),
-        .WFILE("model/w12_d2.mem"), .CFILE("model/c12_d2.mem")) u_l12 (
+        .WFILE(""), .CFILE("")) u_l12 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 12), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
         .cfg_addr(cfg_addr), .cfg_data(cfg_data),

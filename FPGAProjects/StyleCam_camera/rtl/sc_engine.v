@@ -3,7 +3,8 @@
 // mode 1 = one output pass + one rotating IN layer update (coefficients apply next frame).
 // All passes replay the locked input bank from DDR. Internal names follow StyleCam_uart so the
 // V21 video-engine bit-exact testbench applies unchanged.
-// The RISC-V writes IN coefficients ("weights") through cpu_cfg_*; accepted only while idle.
+// The RISC-V loads weights (cpu_cfg_sel=1, 32-bit lanes) and IN coefficients (sel=0) through cpu_cfg_*,
+// using the records of model/net_blob.bin; writes are accepted only while no job is running.
 module sc_engine #(parameter WIDTH=640, HEIGHT=480, N_STYLES=3, IN_TRACE=0, IN_FILE="model/in_constants.mem")(
  input clk,input system_reset,
  input sink_ready,output [23:0] sink_data,output sink_valid,output new_frame,
@@ -11,7 +12,7 @@ module sc_engine #(parameter WIDTH=640, HEIGHT=480, N_STYLES=3, IN_TRACE=0, IN_F
  output replay_start,input replay_busy,
  input video_start,input [1:0] video_style,input video_mode,
  output video_idle,output reg video_done,video_ok,output [2:0] video_styles_ready,
- input cpu_cfg_we,input [4:0] cpu_cfg_layer,input [11:0] cpu_cfg_addr,input [37:0] cpu_cfg_data,output reg cpu_cfg_rejects,
+ input cpu_cfg_we,input cpu_cfg_sel,input [4:0] cpu_cfg_lane,input [4:0] cpu_cfg_layer,input [11:0] cpu_cfg_addr,input [37:0] cpu_cfg_data,output reg cpu_cfg_rejects,
  output reg [31:0] run_cycles,first_output_cycles,input_stalls,output_stalls,
  output reg [31:0] auto_cycles,auto_frames,auto_writes,auto_errors,errors);
  reg [9:0] por=0; always @(posedge clk) if(!(&por)) por<=por+1'b1;
@@ -21,7 +22,7 @@ module sc_engine #(parameter WIDTH=640, HEIGHT=480, N_STYLES=3, IN_TRACE=0, IN_F
  reg [31:0] enqueued,consumed,produced;
  reg [4:0] reset_count,tail,st_sel; reg st_arm,st_fs,st_fe;
  wire [39:0] st_s1; wire [59:0] st_s2; wire st_done,st_busy;
- reg cfg_we; reg [4:0] cfg_layer; reg [11:0] cfg_addr; reg [37:0] cfg_data;
+ reg cfg_we,cfg_sel; reg [4:0] cfg_lane,cfg_layer; reg [11:0] cfg_addr; reg [37:0] cfg_data;
  reg [2:0] style_ready;
  assign video_styles_ready=style_ready;
  reg video_active;
@@ -45,8 +46,8 @@ module sc_engine #(parameter WIDTH=640, HEIGHT=480, N_STYLES=3, IN_TRACE=0, IN_F
  assign sink_data=net_data; assign sink_valid=net_valid&&!nrst;
  assign new_frame=st_fs;
  wire take=iv&&net_ready;
- stylenet_top net(.clk(clk),.rst(nrst),.style(style),.cfg_we(cfg_we||in_cfg_we),.cfg_sel(1'b0),
- .cfg_layer(in_cfg_we?in_cfg_layer:cfg_layer),.cfg_lane(5'd0),.cfg_addr(in_cfg_we?in_cfg_addr:cfg_addr),.cfg_data(in_cfg_we?in_cfg_data:cfg_data),
+ stylenet_top net(.clk(clk),.rst(nrst),.style(style),.cfg_we(cfg_we||in_cfg_we),.cfg_sel(!in_cfg_we&&cfg_sel),
+ .cfg_layer(in_cfg_we?in_cfg_layer:cfg_layer),.cfg_lane(in_cfg_we?5'd0:cfg_lane),.cfg_addr(in_cfg_we?in_cfg_addr:cfg_addr),.cfg_data(in_cfg_we?in_cfg_data:cfg_data),
  .i_data(replay_data),.i_valid(iv),.i_ready(net_ready),.o_data(net_data),.o_valid(net_valid),.o_ready(sink_ready),
  .st_sel(st_sel),.st_arm(st_arm),.st_fs(st_fs),.st_fe(st_fe),.st_idx(in_idx),
  .st_s1(st_s1),.st_s2(st_s2),.st_done(st_done),.st_busy(st_busy));
@@ -57,7 +58,7 @@ module sc_engine #(parameter WIDTH=640, HEIGHT=480, N_STYLES=3, IN_TRACE=0, IN_F
   if(rst) begin
    state<=0; reset_count<=0; tail<=0; active<=0; done<=0; style<=0;
    enqueued<=0; consumed<=0; produced<=0; errors<=0; st_sel<=31;
-   cfg_layer<=0; cfg_addr<=0; cfg_data<=0; cpu_cfg_rejects<=0;
+   cfg_sel<=0; cfg_lane<=0; cfg_layer<=0; cfg_addr<=0; cfg_data<=0; cpu_cfg_rejects<=0;
    run_cycles<=0;first_output_cycles<=0;input_stalls<=0;output_stalls<=0;
    style_ready<=0;
    video_active<=0;video_ok<=0;video_done<=0;auto_busy<=0;auto_done<=0;auto_mode<=0;auto_phase<=0;auto_layer<=0;
@@ -80,7 +81,7 @@ module sc_engine #(parameter WIDTH=640, HEIGHT=480, N_STYLES=3, IN_TRACE=0, IN_F
    // RISC-V coefficient write: only between jobs (same rule as the host write it replaces)
    if(cpu_cfg_we)begin
     if(state==0&&!active&&tail==0&&!auto_busy&&!in_busy&&cpu_cfg_layer<13)begin
-     cfg_layer<=cpu_cfg_layer;cfg_addr<=cpu_cfg_addr;cfg_data<=cpu_cfg_data;cfg_we<=1;
+     cfg_sel<=cpu_cfg_sel;cfg_lane<=cpu_cfg_lane;cfg_layer<=cpu_cfg_layer;cfg_addr<=cpu_cfg_addr;cfg_data<=cpu_cfg_data;cfg_we<=1;
     end else cpu_cfg_rejects<=1;
    end
    if(state==7&&reset_count==0)begin active<=1; st_arm<=1; st_fs<=1; state<=0; end

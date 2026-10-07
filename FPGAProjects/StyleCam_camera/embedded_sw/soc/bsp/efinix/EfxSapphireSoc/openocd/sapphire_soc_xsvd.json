@@ -98,6 +98,11 @@
                                     "bitOffset": "1",
                                     "bitWidth": "1"
                                 },
+                                "spi0_ip": {
+                                    "description": "SPI 0 Interrupt Pending",
+                                    "bitOffset": "4",
+                                    "bitWidth": "1"
+                                },
                                 "userIntA_ip": {
                                     "description": "User Interrupt A Pending",
                                     "bitOffset": "16",
@@ -119,6 +124,25 @@
                                 "uart0": {
                                     "addressOffset": "0x0004",
                                     "description": "The priority for UART 0 global interrupt",
+                                    "registers": {
+                                        "priority": {
+                                            "description": "The Priority Register",
+                                            "addressOffset": "0x0000",
+                                            "fields": {
+                                                "value": {
+                                                    "description": "The priority value",
+                                                    "bitOffset": "0",
+                                                    "bitWidth": "2",
+                                                    "resetMask": "all",
+                                                    "resetValue": "0x0"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "spi0": {
+                                    "addressOffset": "0x0010",
+                                    "description": "The priority for SPI 0 global interrupt",
                                     "registers": {
                                         "priority": {
                                             "description": "The Priority Register",
@@ -195,6 +219,11 @@
                                                 "uart0": {
                                                     "description": "UART 0 Interrupt Enable Bit",
                                                     "bitOffset": "1",
+                                                    "bitWidth": "1"
+                                                },
+                                                "spi0": {
+                                                    "description": "SPI 0 Interrupt Enable Bit",
+                                                    "bitOffset": "4",
                                                     "bitWidth": "1"
                                                 },
                                                 "axiA": {
@@ -404,6 +433,219 @@
                         "uart0": {
                             "description": "UART0 Interrupt",
                             "value": "1"
+                        }
+                    }
+                },
+                "spi0": {
+                    "description": "Serial Peripheral Interface (SPI) 0 Peripheral",
+                    "baseAddress": "0xf8014000",
+                    "size": "0x1000",
+                    "resetMask": "none",
+                    "groupName": "spi",
+                    "registers": {
+                        "cmd": {
+                            "description": "Command Register",
+                            "addressOffset": "0x0000",
+                            "fields": {
+                                "data": {
+                                    "description": "FIFO data value transmit/receive",
+                                    "bitOffset": "0",
+                                    "bitWidth": "8"
+                                },
+                                "wr": {
+                                    "description": "Write trigger",
+                                    "bitOffset": "8",
+                                    "bitWidth": "1",
+                                    "access": "w"
+                                },
+                                "rd": {
+                                    "description": "Read trigger",
+                                    "bitOffset": "9",
+                                    "bitWidth": "1",
+                                    "access": "w"
+                                },
+                                "ss": {
+                                    "description": "SPI chip select. Configure up to 8 chip select ID numbers",
+                                    "bitOffset": "11",
+                                    "bitWidth": "3"
+                                }
+                            }
+                        },
+                        "rsp": {
+                            "description": "Response Register",
+                            "addressOffset": "0x0004",
+                            "fields": {
+                                "fifoAvailability": {
+                                    "description": "FIFO availability",
+                                    "bitOffset": "0",
+                                    "bitWidth": "9",
+                                    "access": "r"
+                                },
+                                "fifoOccupancy": {
+                                    "description": "FIFO Occupancy",
+                                    "bitOffset": "16",
+                                    "bitWidth": "9",
+                                    "access": "r"
+                                }
+                            }
+                        },
+                        "config": {
+                            "description": "Config Register",
+                            "addressOffset": "0x0008",
+                            "fields": {
+                                "cpol": {
+                                    "description": "Clock polarity setting",
+                                    "bitOffset": "0",
+                                    "bitWidth": "1",
+                                    "access": "w"
+                                },
+                                "cpha": {
+                                    "description": "Clock phase setting",
+                                    "bitOffset": "1",
+                                    "bitWidth": "1",
+                                    "access": "w"
+                                },
+                                "mode": {
+                                    "description": "SPI Mode selection. 0: Full duplex dual line. 1: Half-duplex dual line. 2: Half-duplex quad line",
+                                    "bitOffset": "4",
+                                    "bitWidth": "2",
+                                    "access": "w"
+                                }
+                            }
+                        },
+                        "interrupt": {
+                            "description": "Interrupt Enable Register",
+                            "addressOffset": "0x000C",
+                            "fields": {
+                                "cmdIntEn": {
+                                    "description": "Command FIFO empty interrupt enable",
+                                    "bitOffset": "0",
+                                    "bitWidth": "1"
+                                },
+                                "rspIntEn": {
+                                    "description": "Read FIFO not empty interrupt enable",
+                                    "bitOffset": "1",
+                                    "bitWidth": "1"
+                                },
+                                "cmdInt": {
+                                    "description": "Command FIFO empty interrupt pending",
+                                    "bitOffset": "8",
+                                    "bitWidth": "1"
+                                },
+                                "rspInt": {
+                                    "description": "Read FIFO not empty interrupt pending",
+                                    "bitOffset": "9",
+                                    "bitWidth": "1"
+                                },
+                                "cmdValid": {
+                                    "description": "Command FIFO is not empty",
+                                    "bitOffset": "16",
+                                    "bitWidth": "1",
+                                    "access": "r"
+                                }
+                            }
+                        },
+                        "clkDiv": {
+                            "description": "Clock Divider Register",
+                            "addressOffset": "0x0020",
+                            "fields": {
+                                "clkDiv": {
+                                    "description": "Clock divider, SPI frequency = FCLK / ((clockDivider+1)*2",
+                                    "bitOffset": "0",
+                                    "bitWidth": "12",
+                                    "access": "w"
+                                }
+                            }
+                        },
+                        "ssSetup": {
+                            "description": "ssSetup Register",
+                            "addressOffset": "0x0024",
+                            "fields": {
+                                "ssSetup": {
+                                    "description": "Time between the chip select enable and the next byte",
+                                    "bitOffset": "0",
+                                    "bitWidth": "12",
+                                    "access": "w"
+                                }
+                            }
+                        },
+                        "ssHold": {
+                            "description": "ssHold Register",
+                            "addressOffset": "0x0028",
+                            "fields": {
+                                "ssHold": {
+                                    "description": "Time between the last byte transmission and the chip select disable",
+                                    "bitOffset": "0",
+                                    "bitWidth": "12",
+                                    "access": "w"
+                                }
+                            }
+                        },
+                        "ssDisable": {
+                            "description": "ssDisable Register",
+                            "addressOffset": "0x002C",
+                            "fields": {
+                                "ssDisable": {
+                                    "description": "Time between the chip select disable and the chip select enable",
+                                    "bitOffset": "0",
+                                    "bitWidth": "12",
+                                    "access": "w"
+                                }
+                            }
+                        },
+                        "ssActiveHigh": {
+                            "description": "ssActiveHigh Register",
+                            "addressOffset": "0x0030",
+                            "fields": {
+                                "ssActiveHigh": {
+                                    "description": "These bits correspond to the hardware SPI chip select. 0: Chip select is active low. 1: Chip select is active high.",
+                                    "bitOffset": "0",
+                                    "bitWidth": "8",
+                                    "access": "w"
+                                }
+                            }
+                        },
+                        "cmd_writeLarge": {
+                            "description": "cmd_writeLarge Register. Large data transmit",
+                            "addressOffset": "0x0050",
+                            "fields": {
+                                "data": {
+                                    "description": "Trigger to transmit data. The data width is configurable up to 16 bits.",
+                                    "bitOffset": "0",
+                                    "bitWidth": "16",
+                                    "access": "w"
+                                }
+                            }
+                        },
+                        "cmd_readWriteLarge": {
+                            "description": "cmd_readWriteLarge Register. Large data transmit",
+                            "addressOffset": "0x0054",
+                            "fields": {
+                                "data": {
+                                    "description": "Trigger to transmit data. The data width is configurable up to 16 bits.",
+                                    "bitOffset": "0",
+                                    "bitWidth": "16",
+                                    "access": "w"
+                                }
+                            }
+                        },
+                        "cmd_readLarge": {
+                            "description": "cmd_readLarge Register. Large data receive",
+                            "addressOffset": "0x0058",
+                            "fields": {
+                                "data": {
+                                    "description": "Trigger to receive data. The data width is configurable up to 16 bits.",
+                                    "bitOffset": "0",
+                                    "bitWidth": "16",
+                                    "access": "w"
+                                }
+                            }
+                        }
+                    },
+                    "interrupts": {
+                        "spi0": {
+                            "description": "SPI0 Interrupt",
+                            "value": "4"
                         }
                     }
                 }

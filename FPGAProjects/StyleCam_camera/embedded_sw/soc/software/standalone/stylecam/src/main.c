@@ -1,10 +1,12 @@
 /*
  * StyleCam RISC-V control firmware (Sapphire RV32I, 16 KB on-chip RAM)
  *
+ * - 权重加载：开机经 SPI0 从配置 Flash 0x200000 读出权重包（model/net_blob.bin，CRC32 校验），
+ *   逐条写入加速器的权重 / IN 系数 RAM（位流里不含权重）
  * - SC431HAI 初始化：通过 APB 下发 I2C 寄存器命令，时序与表格同原 RTL 状态机（rtl/sc431hai/sc_sequence.vh）
  * - 加速器调度：每帧由 CPU 下发单步启动，帧发布中断里统计帧率并下发下一帧
  * - 风格部署：开机依次触发三种风格的 IN 校准作业（13 遍），之后切换风格无需等待
- * - 交互：KEY3 / 串口 0 1 2 切风格，KEY2 / 串口 v 切画面布局；OSD 叠加 FPS、风格、耗时
+ * - 交互：KEY3 / 串口 0 1 2 切风格，KEY2 / 串口 v 切画面布局，串口 w 重新装载权重；OSD 叠加 FPS、风格、耗时
  */
 #include <stdint.h>
 #include "bsp.h"
@@ -12,8 +14,13 @@
 #include "clint.h"
 #include "riscv.h"
 #include "uart.h"
+#include "spi.h"
+#include "spiFlash.h"
 #include "stylecam_regs.h"
 #include "sc431hai_seq.h"
+#include "blob_info.h"
+
+#define FLASH_SPI SYSTEM_SPI_0_IO_CTRL
 
 void trap_entry();
 void main();
@@ -24,6 +31,7 @@ static const char *const VIEW_NAME[3] = {"ORIGINAL | STYLIZED", "STYLIZED FULL",
 static volatile uint32_t ctrl;           /* CTRL 影子（不含 STEP） */
 static volatile uint32_t streaming;      /* 1: 发布中断里自动下发下一帧 */
 static volatile uint32_t frames;         /* 已发布帧数 */
+static volatile uint32_t last_pub_t;     /* 最近一次发布的时刻（100 MHz 计数） */
 static volatile uint32_t key3_count, key2_count, error_count;
 static volatile uint32_t switch_pending, switch_style, switch_t0, switch_us_last, switch_us_max;
 static volatile uint32_t osd_dirty;
@@ -105,6 +113,7 @@ static void osd_message(const char *msg)
 static void on_irq(uint32_t pend)
 {
     if (pend & IRQ_PUBLISH) {
+        last_pub_t = now();
         frames++;
         if (switch_pending && ST_ENGINE_STYLE(SC_STATUS) == switch_style) {
             uint32_t us = us_since(switch_t0);
@@ -205,6 +214,86 @@ static uint32_t camera_init(void)
     return 0;
 }
 
+/* ---------------- 权重部署：SPI Flash -> 加速器 ---------------- */
+/* 权重包格式（algo/export_blob.py）：'STN1'、条数 n、风格数、保留，随后 n 条 {地址字, 数据低 32 位, 数据高 6 位}
+ * 地址字 [31] sel（1 卷积权重按 32 位分道，0 IN/重量化系数）[25:21] 分道 [20:16] 层 [11:0] 地址 */
+static uint32_t crc32_byte(uint32_t c, uint8_t b)
+{
+    c ^= b;
+    for (int k = 0; k < 8; k++) c = (c >> 1) ^ (0xEDB88320u & (0u - (c & 1)));
+    return c;
+}
+
+static uint32_t flash_word(uint32_t *crc)
+{
+    uint32_t w = 0;
+    for (int i = 0; i < 4; i++) {
+        uint8_t b = spi_read(FLASH_SPI);
+        *crc = crc32_byte(*crc, b);
+        w |= (uint32_t)b << (8 * i);
+    }
+    return w;
+}
+
+/* load=0 只读校验；1 写入全部记录；2 只写卷积权重（运行中重载，保留已校准的 IN 系数）。
+ * 返回条数；-1 包头不符，-2 CRC 不符，-3 加速器拒收 */
+static int weights_pass(int load)
+{
+    uint32_t crc = 0xFFFFFFFFu, a = BLOB_FLASH_ADDR;
+    spiFlash_select(FLASH_SPI, 0);
+    spi_write(FLASH_SPI, 0x03);                      /* READ，3 字节地址 */
+    spi_write(FLASH_SPI, (a >> 16) & 0xFF);
+    spi_write(FLASH_SPI, (a >> 8) & 0xFF);
+    spi_write(FLASH_SPI, a & 0xFF);
+    uint32_t magic = flash_word(&crc), n = flash_word(&crc), ns = flash_word(&crc);
+    (void)flash_word(&crc);
+    if (magic != 0x53544E31u || n != BLOB_RECORDS || ns != BLOB_STYLES) {
+        spiFlash_diselect(FLASH_SPI, 0);
+        return -1;
+    }
+    for (uint32_t i = 0; i < n; i++) {
+        uint32_t w0 = flash_word(&crc), lo = flash_word(&crc), hi = flash_word(&crc);
+        if (load == 1 || (load == 2 && (w0 >> 31))) { SC_CFG_ADDR = w0; SC_CFG_LO = lo; SC_CFG_HI = hi; }
+    }
+    spiFlash_diselect(FLASH_SPI, 0);
+    if ((crc ^ 0xFFFFFFFFu) != BLOB_CRC32) return -2;
+    if (load && (SC_STATUS & ST_CFG_REJECT)) return -3;
+    return (int)n;
+}
+
+/* 先校验整包再写入，避免把损坏的权重写进加速器 */
+static int weights_load(int mode, uint32_t *us)
+{
+    uint32_t t0 = now();
+    int r = weights_pass(0);
+    if (r > 0) r = weights_pass(mode);
+    *us = us_since(t0);
+    return r;
+}
+
+/* 暂停逐帧调度并等调度器回到空闲（加速器空闲时才接受权重写入） */
+static int pause_stream(void)
+{
+    csr_clear(mstatus, MSTATUS_MIE);
+    streaming = 0;
+    csr_set(mstatus, MSTATUS_MIE);
+    uint32_t t0 = now(), idle_since = now();
+    while (us_since(idle_since) < 120000) {
+        uint32_t st = SC_STATUS;
+        if (((st >> 16) & 7) != 0 || !(st & ST_ENGINE_IDLE)) idle_since = now();
+        if (us_since(t0) > 1000000) return 0;
+    }
+    return 1;
+}
+
+static void resume_stream(void)
+{
+    csr_clear(mstatus, MSTATUS_MIE);
+    streaming = 1;
+    step_frame();
+    csr_set(mstatus, MSTATUS_MIE);
+}
+
 /* ---------------- 控制台 ---------------- */
 static void print_x10(uint32_t v) { bsp_printf("%d.%d", v / 10, v % 10); }
 
@@ -239,7 +328,14 @@ static void console(void)
         }
         csr_set(mstatus, MSTATUS_MIE);
         if (c == 's') print_status(0);
-        if (c == 'h' || c == '?') bsp_printf("commands: 0 1 2 style, v view, s status\r\n");
+        if (c == 'w') {                                  /* 运行中重新从 Flash 装载权重 */
+            uint32_t us = 0;
+            int ok = pause_stream();
+            int r = ok ? weights_load(2, &us) : -4;
+            bsp_printf("weights reload: %d records, %d us\r\n", r, us);
+            resume_stream();
+        }
+        if (c == 'h' || c == '?') bsp_printf("commands: 0 1 2 style, v view, s status, w reload weights\r\n");
     }
 }
 
@@ -264,6 +360,19 @@ void main()
     while (!(SC_STATUS & ST_DDR_READY))
         if (us_since(t0) > 2000000) { bsp_printf("DDR calibration timeout\r\n"); osd_message("DDR CALIBRATION FAILED"); while (1); }
     irq_init();
+
+    /* 权重部署：位流里不含网络权重，由 CPU 从配置 Flash 读出写入 */
+    osd_message("LOADING NETWORK WEIGHTS FROM SPI FLASH");
+    spiFlash_init(FLASH_SPI, 0);
+    uint32_t wus;
+    int wr = weights_load(1, &wus);
+    if (wr < 0) {
+        bsp_printf("weight blob error %d at flash 0x%x (program it with flash_blob.py)\r\n", wr, BLOB_FLASH_ADDR);
+        osd_message(wr == -1 ? "NO WEIGHT BLOB IN FLASH 0x200000" : wr == -2 ? "WEIGHT BLOB CRC ERROR" : "WEIGHT LOAD REJECTED");
+        while (1);
+    }
+    bsp_printf("weights loaded from SPI flash 0x%x: %d records, %d B, crc %x, %d us\r\n", BLOB_FLASH_ADDR, wr, BLOB_BYTES,
+               BLOB_CRC32, wus);
 
     osd_message("CONFIGURING SC431HAI OVER I2C");
     uint32_t err = camera_init();
@@ -301,19 +410,23 @@ void main()
     step_frame();
     csr_set(mstatus, MSTATUS_MIE);
     osd_draw();
-    bsp_printf("streaming; commands: 0 1 2 style, v view, s status\r\n");
+    bsp_printf("streaming; commands: 0 1 2 style, v view, s status, w reload weights\r\n");
 
-    uint32_t t_last = now(), f_last = frames, s_last = SC_SENSOR_FRAMES, uptime_ms = 0, ticks = 0;
+    uint32_t t_last = now(), f_last = frames, p_last = last_pub_t, s_last = SC_SENSOR_FRAMES, uptime_ms = 0, ticks = 0;
     while (1) {
         console();
         if (osd_dirty) { osd_dirty = 0; osd_draw(); }
         uint32_t dt = us_since(t_last);
         if (dt >= 1000000) {
-            uint32_t f = frames, s = SC_SENSOR_FRAMES;
-            fps_x10 = (f - f_last) * 10000000u / dt;
+            csr_clear(mstatus, MSTATUS_MIE);
+            uint32_t f = frames, p = last_pub_t, s = SC_SENSOR_FRAMES;
+            csr_set(mstatus, MSTATUS_MIE);
+            /* 帧率 = 发布帧数 / 首末发布时刻之差（按帧间隔计，不受统计窗口量化影响） */
+            uint32_t pub_us = (p - p_last) / (BSP_CLINT_HZ / 1000000);
+            fps_x10 = (f != f_last && pub_us) ? (f - f_last) * 10000000u / pub_us : 0;
             cam_fps_x10 = (s - s_last) * 10000000u / dt;
             nn_ms_x10 = SC_JOB_CYCLES / 10000;          /* 100 MHz 周期 -> 0.1 ms */
-            f_last = f; s_last = s; t_last = now(); uptime_ms += dt / 1000;
+            f_last = f; p_last = p; s_last = s; t_last = now(); uptime_ms += dt / 1000;
             osd_draw();
             if (++ticks % 2 == 0) print_status(uptime_ms);
         }
