@@ -75,7 +75,7 @@ static char *fmt_x10(char *p, uint32_t v)   /* 153 -> "15.3" */
 }
 static char *cat(char *p, const char *s) { while (*s) *p++ = *s++; *p = 0; return p; }
 
-static uint32_t fps_x10, cam_fps_x10, nn_ms_x10;
+static uint32_t fps_x10, fps_x100, cam_fps_x10, nn_ms_x10;
 
 static void osd_draw(void)
 {
@@ -300,7 +300,7 @@ static void print_x10(uint32_t v) { bsp_printf("%d.%d", v / 10, v % 10); }
 static void print_status(uint32_t t_ms)
 {
     uint32_t st = SC_STATUS;
-    bsp_printf("[%d ms] fps=", t_ms); print_x10(fps_x10);
+    bsp_printf("[%d ms] fps=%d.%d%d", t_ms, fps_x100 / 100, fps_x100 / 10 % 10, fps_x100 % 10);
     bsp_printf(" cam="); print_x10(cam_fps_x10);
     bsp_printf(" nn_ms="); print_x10(nn_ms_x10);
     bsp_printf(" style=%d view=%d ready=%d proc=%d cap=%d skip=%d caperr=%d vid_err=%d uf=%d hdmi_err=%d irq_err=%d k3=%d k2=%d sw_us=%d sw_max_us=%d\r\n",
@@ -422,8 +422,9 @@ void main()
             uint32_t f = frames, p = last_pub_t, s = SC_SENSOR_FRAMES;
             csr_set(mstatus, MSTATUS_MIE);
             /* 帧率 = 发布帧数 / 首末发布时刻之差（按帧间隔计，不受统计窗口量化影响） */
-            uint32_t pub_us = (p - p_last) / (BSP_CLINT_HZ / 1000000);
-            fps_x10 = (f != f_last && pub_us) ? (f - f_last) * 10000000u / pub_us : 0;
+            uint32_t pub_10us = (p - p_last) / (BSP_CLINT_HZ / 100000);
+            fps_x100 = (f != f_last && pub_10us) ? (f - f_last) * 10000000u / pub_10us : 0;
+            fps_x10 = (fps_x100 + 5) / 10;                 /* 四舍五入到 0.1 */
             cam_fps_x10 = (s - s_last) * 10000000u / dt;
             nn_ms_x10 = SC_JOB_CYCLES / 10000;          /* 100 MHz 周期 -> 0.1 ms */
             f_last = f; p_last = p; s_last = s; t_last = now(); uptime_ms += dt / 1000;

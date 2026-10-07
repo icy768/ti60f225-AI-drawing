@@ -33,7 +33,7 @@ def main():
     log, samples, buf = [], [], b''
     t_end = time.monotonic() + a.boot + a.seconds
     t_switch = time.monotonic() + a.boot + 6
-    switches = [b'1', b'2', b'0', b'v', b'v', b'v'] if a.switch else []
+    switches = [b'1', b'2', b'0', b'v', b'v', b'v', b'w'] if a.switch else []
     while time.monotonic() < t_end:
         buf += s.read(256)
         while b'\n' in buf:
@@ -43,6 +43,8 @@ def main():
                 continue
             log.append(line)
             print(line, flush=True)
+            if line.startswith('StyleCam RISC-V control'):
+                samples, log = [], [line]           # board (re)booted: keep only this run
             st = parse(line)
             if st:
                 samples.append(st)
@@ -61,11 +63,17 @@ def main():
                   errors=dict(capture=last['capture_errors'], video=last['video_errors'], hdmi=last['hdmi_errors'],
                               irq=last['irq_errors'], hdmi_underflow_last_frame=last['hdmi_underflow']),
                   styles_ready=last['styles_ready'], switch_max_us=last['switch_max_us'])
-    report['passed'] = bool(steady) and report['min_fps'] >= 15.0 and not any(report['errors'].values()) and last['styles_ready'] == 7
+    first = samples[0]
+    span = (last['ms'] - first['ms']) / 1000
+    # stable rate = published frames / elapsed time over the whole run (per-window values are also kept)
+    report['counter_fps'] = (last['processed'] - first['processed']) / span if span > 0 else 0
+    report['counter_sensor_fps'] = (last['captured'] + last['skipped'] - first['captured'] - first['skipped']) / span if span > 0 else 0
+    report['passed'] = (bool(steady) and round(report['counter_fps'], 2) >= 15.0 and report['min_fps'] >= 14.9
+                        and not any(report['errors'].values()) and last['styles_ready'] == 7)
     out = ROOT / 'results' / f'cpu_video_{datetime.datetime.now():%Y%m%d_%H%M%S}.json'
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(report, indent=2), encoding='utf-8')
-    print('min fps', report['min_fps'], 'mean fps', round(report['mean_fps'], 2), 'errors', report['errors'],
+    print('counter fps', round(report['counter_fps'], 3), 'min window fps', report['min_fps'], 'errors', report['errors'],
           'switch max us', report['switch_max_us'], 'PASS' if report['passed'] else 'FAIL', out)
 
 

@@ -19,6 +19,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--url', default='ftdi://0x0403:0x6011:4:3/2')
     ap.add_argument('--efinity', default=os.environ.get('STYLECAM_EFINITY', 'D:/ELS/efinity/2026.1'))
+    ap.add_argument('--verify-only', action='store_true', help='skip programming, only read back and compare')
     a = ap.parse_args()
     home = Path(a.efinity)
     blob = (ROOT / 'model/net_blob.bin').read_bytes()
@@ -28,19 +29,25 @@ def main():
     hexf = work / 'net_blob.hex'
     hexf.write_text(''.join(f'{b:02X}\n' for b in blob))
     env = os.environ.copy()
-    env.update(EFINITY_HOME=home.as_posix(), PYTHONHOME=str(home / 'python311'), EFXPGM_HOME=(home / 'pgm').as_posix())
+    env.update(EFINITY_HOME=home.as_posix(), PYTHONHOME=str(home / 'python311'), EFXPGM_HOME=(home / 'pgm').as_posix(),
+               EFXDBG_HOME=(home / 'debugger').as_posix())
+    env['EFINITY_USER_DIR_INI'] = os.environ['LOCALAPPDATA'] + '/efinity/user_dir.ini'
     exe = str(home / 'pgm/bin/ftdi_pgm.bat')
     common = ['-u', a.url, '-b', PROFILE, '--jtag_clock_freq', '1000000']
 
     def run(args, label):
         r = subprocess.run([exe, *args], cwd=ROOT, env=env, capture_output=True, text=True, errors='replace')
         (work / f'{label}.log').write_text(r.stdout + r.stderr)
-        assert r.returncode == 0 and 'ERROR' not in r.stdout, r.stdout[-2000:] + r.stderr[-2000:]
+        out = r.stdout + r.stderr
+        # the vendor programmer may report a first verify mismatch and then succeed on its max-clock retry
+        recovered = 'Flash verify successful' in out and out.rfind('Flash verify successful') > out.rfind('ERROR:')
+        assert r.returncode == 0 and 'Traceback' not in out and ('ERROR' not in out or recovered), out[-2000:]
         return r.stdout
 
     run(['-m', 'jtag', *common, str(home / 'pgm/fli/titanium/u10660A79.bit')], 'bridge')
-    run(['-m', 'jtag_bridge', *common, '--address', str(ADDRESS), '--jtag_bridge_mode', 'all',
-         '--verify_method', 'hostx1', str(hexf)], 'program')
+    if not a.verify_only:
+        run(['-m', 'jtag_bridge', *common, '--address', str(ADDRESS), '--jtag_bridge_mode', 'all',
+             '--verify_method', 'hostx1', str(hexf)], 'program')
     back = work / 'readback.hex'
     run(['-m', 'jtag_bridge', *common, '--address', str(ADDRESS), '--jtag_bridge_mode', 'read',
          '--num_bytes', str(len(blob)), '-o', str(back)], 'readback')
