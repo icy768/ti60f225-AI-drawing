@@ -1,14 +1,18 @@
 # StyleCam 摄像头整机 — RISC-V 版（分支 feat/basic-requirements）
 
-## 当前入口与镜像修正（2026-10-08）
+## 当前入口与固化版本（2026-10-08）
 
-本机统一工程入口为 `C:\Users\lingye\Desktop\FPGA\FPGAProjects\StyleCam_camera\ti60f225_oob.xml`。Git 根目录为 `C:\Users\lingye\Desktop\FPGA`，开发分支为 `feat/basic-requirements`。
+唯一工程入口为 `C:\Users\lingye\Desktop\FPGA\FPGAProjects\StyleCam_camera\ti60f225_oob.xml`；Git 根目录为 `C:\Users\lingye\Desktop\FPGA`，分支 `feat/basic-requirements`。
 
-当前版本 `53430a04` 仅修正水平镜像：传感器 `3221=06`，预处理配套使用 GBRG 相位。曝光保持原值 `00/46/00`（1120 半行），模拟增益保持 `83/20`（6.16 倍），R/G/B 均使用原 Gamma。初始化表为 193 条命令。
+当前 ID `53430a04`：SC431HAI 水平翻转 `3221=06`，配套 GBRG 相位；曝光 `00/46/00`（1120 半行）、模拟增益 `83/20`（6.16 倍）、数字增益 `00/80`（1 倍）、三个通道使用原 Gamma。与原 RISC-V 版本逐条对比，摄像头表仅增加镜像写入和读校验，共 193 条。
 
-详细验收和目录整合说明见 `../docs/目录统一与水平镜像_20261008.md`。本机 UART 为 COM19、115200 8N1。下载脚本 `.\program_ram.ps1 -UartPort COM19` 使用当前项目目录及位流校验记录，执行 JTAG 临时加载。
+启动先通过 `0xAB` 唤醒配置 Flash，再从 `0x200000` 加载权重，修复配置后 Flash 休眠导致固化启动无法读取权重的问题。串口新增只读命令 `c`，回读实际曝光、增益和镜像寄存器。
 
-固件构建支持 `STYLECAM_PYTHON` 和 `STYLECAM_RISCV_BIN`：后者指向 RISC-V 编译器 bin 目录。在当前项目目录执行 `cmd /c embedded_sw\soc\software\standalone\stylecam\build_fw.bat`。Efinity 通过 `STYLECAM_EFINITY` 指定；构建临时目录通过 `STYLECAM_BUILD_DIR` 指定。
+固化状态：**已复位，从 Flash 自主启动验收通过**。配置区 1050510 字节已逐字节独立回读，模型权重 48616 字节保持一致。备份和日志见 `validation/camera_mirror_flash.json`；详细记录见 `../docs/固化烧录与恢复复核_20261008.md`。
+
+本机 UART 为 COM19、115200 8N1。临时加载：`.\program_ram.ps1 -UartPort COM19`；固化：`python program_flash_mirror.py`；固化后复位验收：`.\verify_flash_boot.ps1 -UartPort COM19`。固化脚本要求当前镜像已经过 JTAG 启动验收，先备份，后写入和独立回读，并核对权重区。
+
+固件构建：`cmd /c embedded_sw\soc\software\standalone\stylecam\build_fw.bat`。可通过 `STYLECAM_PYTHON`、`STYLECAM_RISCV_BIN`、`STYLECAM_EFINITY`、`STYLECAM_BUILD_DIR` 指定 Python、编译器、Efinity 和 ASCII 构建目录。目录整合记录见 `../docs/目录统一与水平镜像_20261008.md`。
 
 在已验收的 V21b / SCU09 全 RTL 整机上补齐赛题一基础要求：加入 Sapphire RISC-V，C 驱动负责摄像头初始化、权重加载、加速器调度与中断；HDMI 增加原画/风格画对比和 OSD 帧率叠加。
 网络、预处理、DDR 与 HDMI 时序沿用 V21b；整网逐位仿真（9 帧、6912 像素、936 个 IN 系数）在新结构下仍全部一致。
@@ -26,14 +30,14 @@
 
 ## 链路
 
-SC431HAI RAW10 → 中央裁剪 / 2×2 BGGR / 黑电平 / Gamma → 640×480 RGB 三缓冲 → V21b 13 层网络与板内 IN → 输出双缓冲 → HDMI 1080p60（布局 + OSD）。
+SC431HAI RAW10 → 中央裁剪 / 2×2 GBRG / 黑电平 / Gamma → 640×480 RGB 三缓冲 → V21b 13 层网络与板内 IN → 输出双缓冲 → HDMI 1080p60（布局 + OSD）。
 Sapphire（RV32I，16 KB 片上 RAM，100 MHz）：UART0 控制台、SPI0 读配置 Flash、APB3 从口 0（0xF8100000，`rtl/sc_apb_regs.v`）、用户中断 A。
 
 ## 上电与操作
 
 1. Flash 0x200000 需有权重包（一次性）：`python flash_blob.py --efinity <Efinity 目录>`（只擦写该处 48 KB，位流区不动，回读比对）。
 2. 下载位流后自动运行：装载权重 → 配置传感器（含 5 s 稳定）→ 部署三种风格 → 实时运行，约 8 s。
-3. KEY3 / 串口 `0` `1` `2`：风格；KEY2 / 串口 `v`：布局；串口 `s` 状态，`w` 重载权重。串口 COM21（FT4232 C 口），115200 8N1。
+3. KEY3 / 串口 `0` `1` `2`：风格；KEY2 / 串口 `v`：布局；串口 `s` 状态，`c` 只读摄像头寄存器，`w` 重载权重。串口 COM19（FT4232 C 口），115200 8N1。
 
 ## 编译、下载、验收
 
@@ -46,7 +50,7 @@ python -B build.py interface; python -B build.py map; python -B build.py pnr; py
 # 只改固件：不重新综合布线，约 10 s 出新位流（<构建目录>\outflow_fw）
 python -B fw_update.py D:\yilinsiFPGA\build\stylecam --efinity D:/yilinsiFPGA/efinity/2026.1
 # 串口验收（启动日志、帧率、错误计数、切换延迟）
-python -B cpu_monitor.py --port COM21 --boot 25 --seconds 60 --switch
+python -B cpu_monitor.py --port COM19 --boot 25 --seconds 60 --switch
 ```
 
 仿真（`$env:ICARUS_BIN` 指向 Icarus bin）：`sim_camera.py`（采集三缓冲、调度、显示、APB 寄存器）、`sim_display_pressure.py`（三种布局 90 拍 DDR 延迟下逐像素、无欠流；并复现旧版欠流）、`sim_osd.py`（OSD 逐像素）、`sim_video_engine.py`（权重 RAM 无初值，经 CPU 写口装载全部 4050 条后 9 帧逐位对拍，需 PyTorch 环境，`PYTHONUTF8=1`）。
@@ -58,4 +62,4 @@ python -B cpu_monitor.py --port COM21 --boot 25 --seconds 60 --switch
 - 去掉 `StyleCam_uart` 主机调试协议（拆出 `sc_engine`）与 `sc431hai_setup` 状态机；串口改由 RISC-V 控制台使用。旧工具 `camera_monitor.py`、`program.py` 的 SCU09 校验不适用于本版。
 - DDR AXI 去掉同时钟跨域桥（ASYN_AXI_CLK=0），CSI 像素 FIFO 4096→1024，共省 42 块 RAM。
 - `rtl/stylenet_top.v` 的权重/系数 RAM 不带初值（由 CPU 装载）。
-- SCU09 发布包与 Flash 地址 0 处的已固化版本未改动；本版目前只做 JTAG 临时下载。
+- 历史 SCU09 发布包保留；Flash 地址 0 已固化当前 RISC-V 水平镜像版，模型仍位于 0x200000。

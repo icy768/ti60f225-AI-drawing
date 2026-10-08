@@ -1,5 +1,5 @@
 {
-  "time": "2026-10-08T13:06:08.011223+08:00",
+  "time": "2026-10-08T13:59:45.432546+08:00",
   "fpga_id": "0x53430a04",
   "mirror_register": "3221=06",
   "bayer_phase": "GBRG",
@@ -8,8 +8,8 @@
   "analog_gain": 6.16,
   "green_display_gain": 1.0,
   "sensor_commands": 193,
-  "bit_sha256": "3553c9d15a5b54fe920597ed334c9162e637006fad3229892b1ae2a470a9c6b2",
-  "hex_sha256": "ea8566dd4ecd789fa81a145a8d8ae7f3afd32a7afcb6a7a7dade0a4776cc8ea3",
+  "bit_sha256": "e3a4f17c8532d7634bbcc8fee03fa1c615c9fbd638a41564d1100cecb63f0c54",
+  "hex_sha256": "d9e1763a6a8c27d6cbb943cbe33c18ee4d523642b34b1f65ed0e74e5d7537f76",
   "setup_min_ns": 0.301,
   "hold_min_ns": 0.026,
   "resources": {
@@ -27,30 +27,49 @@
     ]
   },
   "rgb_sim_passed": true,
-  "firmware_bytes": 9114,
-  "flash_modified": false,
+  "firmware_bytes": 9834,
+  "flash_modified": true,
   "rom_sha256": {
-    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin": "2ed13686a8cc70f772d9bd08e8ef9246e87edb9c0a4f857ca5616985dfd57a12",
-    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin": "b0b801e020d6339df77c19030ef3738531f2e6a1bddd344f6ab412deeb2d1648",
-    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": "6caa1cc7a971806429cae1abdee192019a598350173383fa9977b0924c8b64b6",
-    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin": "2608de5623885f9d96e2e9977d1d0c0dcd8779a42238ca6e2f4cd4ffa9a829e2"
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin": "5f10e98afc4533f9dc57ec95a2965ffd427f92c5cb4261432080bcb51da11071",
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin": "691d3279b90ba9c77f8753202f853659077ec33a115bb1297727ffec24d5de90",
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": "69d3aa5be9fd824e9585802675e25abd5b87fa5195701ddab8da07e93a8817a4",
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin": "5090508e175ca71db5e220c253c5a218def10e3ccb26fde4f13f605644e03bb3"
+  },
+  "restoration_check": {
+    "baseline_git_commit": "fbdb70f",
+    "sensor_sequence_only_mirror": true,
+    "gamma_bytes_exact": true,
+    "green_gain": 1.0,
+    "live_readback_command": "c",
+    "firmware_diagnostics_only": false,
+    "flash_wakeup_added": true,
+    "camera_settings_unchanged": true
+  },
+  "source_sha256": {
+    "embedded_sw/soc/software/standalone/stylecam/src/main.c": "bc460ee9887b2a45cdf52e87a1684d0d1a3664a3305f9ac0fac103e8a38667f7",
+    "rtl/sc_camera_rgb.v": "fd177fd8e7648ec00a8ea4ac0e83a23cb9932c33f2fef63dc57d324952ce08f1",
+    "rtl/sc431hai/sc_sequence.vh": "fcd41aa3ca28d64e87bdd57543063803813de72cebf70fe773a6fb7c942bac90",
+    "model/camera_gamma.mem": "b596fd5d031670e641085280016783b1892bd9a51978951df06069e8f8d474f8"
+  },
+  "flash_verification": {
+    "flash_payload_bytes": 1050510,
+    "hex_sha256": "d9e1763a6a8c27d6cbb943cbe33c18ee4d523642b34b1f65ed0e74e5d7537f76",
+    "backup_bytes": 1114112,
+    "backup_file": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\flash_mirror_20261008_135127\\config_before.hex",
+    "independent_readback_bytes_exact": true,
+    "weight_after_verified": true,
+    "flash_boot_verified": true,
+    "boot_reload_pending": false
   },
   "board_test": {
-    "time": "2026-10-08T13:27:29.7700341+08:00",
-    "id": "53430a04",
-    "commands": 193,
+    "fpga_id": "53430a04",
+    "sensor_commands": 193,
     "exposure_readback": "00/46/00",
+    "analog_gain_readback": "83/20",
+    "digital_gain_readback": "00/80",
+    "mirror_readback": "06",
     "styles_ready": 7,
-    "fps_range": [
-      14.99,
-      15.0
-    ],
-    "camera_fps": 30.0,
-    "capture_errors": 0,
-    "video_errors": 0,
-    "hdmi_underflow": 0,
-    "hdmi_errors": 0,
-    "irq_errors": 0,
-    "Flash_modified": false
+    "error_counters": 0,
+    "flash_boot_verified": true
   }
 }

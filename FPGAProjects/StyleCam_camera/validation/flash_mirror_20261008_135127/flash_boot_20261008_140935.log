@@ -1,0 +1,18 @@
+style 0 (VAN GOGH) deployed: 13 passes, 769115 us, ready=1
+style 1 (UKIYO-E) deployed: 13 passes, 777349 us, ready=3
+style 2 (INK WASH) deployed: 13 passes, 783224 us, ready=7
+streaming; commands: 0 1 2 style, v view, s status, c camera readback, w reload weights
+camera readback ID=53430a04: 00003e00=00000000 00003e01=00000046 00003e02=00000000 0000320e=00000005 0000320f=000000dc 00003e08=00000083 00003e09=00000020 00003e06=00000000 00003e07=00000080 00003221=00000006 00004501=000000a4 00000100=00000001
+[0 ms] fps=0.00 cam=0.0 nn_ms=0.0 pass_ms=59.3 nn_max_ms=59.5 style=0 view=0 ready=7 proc=5 cap=179 skip=47 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[2000 ms] fps=15.00 cam=30.0 nn_ms=59.4 pass_ms=59.2 nn_max_ms=59.5 style=0 view=0 ready=7 proc=32 cap=207 skip=75 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[4000 ms] fps=15.00 cam=30.0 nn_ms=59.4 pass_ms=59.2 nn_max_ms=59.5 style=0 view=0 ready=7 proc=62 cap=237 skip=105 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[6000 ms] fps=14.99 cam=29.9 nn_ms=59.5 pass_ms=59.3 nn_max_ms=59.5 style=0 view=0 ready=7 proc=92 cap=267 skip=135 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[8000 ms] fps=15.00 cam=29.9 nn_ms=59.5 pass_ms=59.3 nn_max_ms=59.5 style=0 view=0 ready=7 proc=122 cap=297 skip=165 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[10000 ms] fps=15.00 cam=29.9 nn_ms=59.5 pass_ms=59.3 nn_max_ms=59.5 style=0 view=0 ready=7 proc=152 cap=327 skip=195 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[12000 ms] fps=15.00 cam=29.9 nn_ms=59.5 pass_ms=59.3 nn_max_ms=59.5 style=0 view=0 ready=7 proc=182 cap=357 skip=225 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[14000 ms] fps=14.99 cam=29.9 nn_ms=59.5 pass_ms=59.3 nn_max_ms=59.5 style=0 view=0 ready=7 proc=212 cap=387 skip=255 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[16000 ms] fps=14.99 cam=29.9 nn_ms=59.5 pass_ms=59.3 nn_max_ms=59.5 style=0 view=0 ready=7 proc=242 cap=417 skip=285 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[18000 ms] fps=15.00 cam=30.0 nn_ms=59.5 pass_ms=59.3 nn_max_ms=59.5 style=0 view=0 ready=7 proc=272 cap=447 skip=315 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[20000 ms] fps=15.00 cam=30.0 nn_ms=59.4 pass_ms=59.2 nn_max_ms=59.5 style=0 view=0 ready=7 proc=302 cap=477 skip=345 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[22000 ms] fps=15.00 cam=30.0 nn_ms=59.5 pass_ms=59.3 nn_max_ms=59.5 style=0 view=0 ready=7 proc=332 cap=507 skip=375 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+

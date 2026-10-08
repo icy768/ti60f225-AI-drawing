@@ -219,6 +219,21 @@ static uint32_t camera_init(void)
     return 0;
 }
 
+/* Read-only: verify the live sensor settings without changing the image. */
+static void print_camera_registers(void)
+{
+    static const uint16_t regs[] = {0x3e00,0x3e01,0x3e02,0x320e,0x320f,
+                                  0x3e08,0x3e09,0x3e06,0x3e07,0x3221,0x4501,0x0100};
+    bsp_printf("camera readback ID=%x:", SC_ID);
+    for (uint32_t i=0; i<sizeof(regs)/sizeof(regs[0]); i++) {
+        uint8_t value=0;
+        int result=i2c_xfer(regs[i],0,1,&value);
+        if (result!=1) { bsp_printf(" I2C error %d at %x\r\n",result,regs[i]); return; }
+        bsp_printf(" %x=%x",regs[i],value);
+    }
+    bsp_printf("\r\n");
+}
+
 /* ---------------- 权重部署：SPI Flash -> 加速器 ---------------- */
 /* 权重包格式（algo/export_blob.py）：'STN1'、条数 n、风格数、保留，随后 n 条 {地址字, 数据低 32 位, 数据高 6 位}
  * 地址字 [31] sel（1 卷积权重按 32 位分道，0 IN/重量化系数）[25:21] 分道 [20:16] 层 [11:0] 地址 */
@@ -335,6 +350,7 @@ static void console(void)
         }
         csr_set(mstatus, MSTATUS_MIE);
         if (c == 's') print_status(0);
+        if (c == 'c') print_camera_registers();
         if (c == 'w') {                                  /* 运行中重新从 Flash 装载权重 */
             uint32_t us = 0;
             int ok = pause_stream();
@@ -342,7 +358,7 @@ static void console(void)
             bsp_printf("weights reload: %d records, %d us\r\n", r, us);
             resume_stream();
         }
-        if (c == 'h' || c == '?') bsp_printf("commands: 0 1 2 style, v view, s status, w reload weights\r\n");
+        if (c == 'h' || c == '?') bsp_printf("commands: 0 1 2 style, v view, s status, c camera readback, w reload weights\r\n");
     }
 }
 
@@ -371,6 +387,9 @@ void main()
     /* 权重部署：位流里不含网络权重，由 CPU 从配置 Flash 读出写入 */
     osd_message("LOADING NETWORK WEIGHTS FROM SPI FLASH");
     spiFlash_init(FLASH_SPI, 0);
+    /* Active configuration leaves Flash in deep power-down (spi_low_power_mode=on). */
+    spiFlash_wake(FLASH_SPI, 0);
+    bsp_printf("SPI flash manufacturer=%x (wake 0xab)\r\n", spiFlash_manufacturer_id(FLASH_SPI, 0));
     uint32_t wus;
     int wr = weights_load(1, &wus);
     if (wr < 0) {
@@ -392,6 +411,7 @@ void main()
     }
     bsp_printf("SC431HAI ready, %d commands; 3e00..3e02=%x %x %x 320e/f=%x %x\r\n", SC_SEQ_LEN,
                sensor_diag[0], sensor_diag[1], sensor_diag[2], sensor_diag[3], sensor_diag[4]);
+    print_camera_registers();
 
     /* 风格部署：三种风格各跑一次 IN 校准作业 */
     for (uint32_t s = 0; s < 3; s++) {
@@ -417,7 +437,7 @@ void main()
     step_frame();
     csr_set(mstatus, MSTATUS_MIE);
     osd_draw();
-    bsp_printf("streaming; commands: 0 1 2 style, v view, s status, w reload weights\r\n");
+    bsp_printf("streaming; commands: 0 1 2 style, v view, s status, c camera readback, w reload weights\r\n");
 
     uint32_t t_last = now(), f_last = frames, p_last = last_pub_t, s_last = SC_SENSOR_FRAMES, uptime_ms = 0, ticks = 0;
     while (1) {
