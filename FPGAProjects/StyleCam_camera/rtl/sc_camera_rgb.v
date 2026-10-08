@@ -1,4 +1,4 @@
-// SC431HAI BGGR RAW10, four adjacent samples per clock.
+// SC431HAI horizontal mirror (3221=06): GBRG RAW10, four adjacent samples per clock.
 // Crop the central 1280x960 region and average each 2x2 Bayer cell to RGB.
 // No camera backpressure. Output contains two RGB888 pixels per valid beat.
 module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
@@ -18,8 +18,8 @@ module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
  reg [31:0] line[0:OW/2-1];reg [31:0] prev,bottom;
  reg v1,s1,e1;
  reg [9:0] gamma[0:1023];initial $readmemh(GAMMA_FILE,gamma);
- wire [8:0] green0={1'b0,prev[15:8]}+{1'b0,bottom[7:0]}+1;
- wire [8:0] green1={1'b0,prev[31:24]}+{1'b0,bottom[23:16]}+1;
+ wire [8:0] green0={1'b0,prev[7:0]}+{1'b0,bottom[15:8]}+1;
+ wire [8:0] green1={1'b0,prev[23:16]}+{1'b0,bottom[31:24]}+1;
  wire [7:0] g0=green0[8:1],g1=green1[8:1];
  always @(posedge clk)begin
   if(rst)begin vs_d<=0;armed<=0;started<=0;x<=0;y<=0;samples<=0;frames<=0;format_errors<=0;v1<=0;s1<=0;e1<=0;rgb_valid<=0;sof<=0;eof<=0;rgb<=0;end
@@ -43,12 +43,12 @@ module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
    end
    rgb_valid<=v1;sof<=s1;eof<=e1;
    if(v1)begin
-    rgb[7:0]<=gamma[{bottom[15:8],bottom[15:14]}]>>2;
+    rgb[7:0]<=gamma[{bottom[7:0],bottom[7:6]}]>>2;
     rgb[15:8]<=gamma[{g0,g0[7:6]}]>>2;
-    rgb[23:16]<=gamma[{prev[7:0],prev[7:6]}]>>2;
-    rgb[31:24]<=gamma[{bottom[31:24],bottom[31:30]}]>>2;
+    rgb[23:16]<=gamma[{prev[15:8],prev[15:14]}]>>2;
+    rgb[31:24]<=gamma[{bottom[23:16],bottom[23:22]}]>>2;
     rgb[39:32]<=gamma[{g1,g1[7:6]}]>>2;
-    rgb[47:40]<=gamma[{prev[23:16],prev[23:22]}]>>2;
+    rgb[47:40]<=gamma[{prev[31:24],prev[31:30]}]>>2;
    end
   end
  end

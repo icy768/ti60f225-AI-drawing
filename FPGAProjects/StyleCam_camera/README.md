@@ -1,5 +1,15 @@
 # StyleCam 摄像头整机 — RISC-V 版（分支 feat/basic-requirements）
 
+## 当前入口与镜像修正（2026-10-08）
+
+本机统一工程入口为 `C:\Users\lingye\Desktop\FPGA\FPGAProjects\StyleCam_camera\ti60f225_oob.xml`。Git 根目录为 `C:\Users\lingye\Desktop\FPGA`，开发分支为 `feat/basic-requirements`。
+
+当前版本 `53430a04` 仅修正水平镜像：传感器 `3221=06`，预处理配套使用 GBRG 相位。曝光保持原值 `00/46/00`（1120 半行），模拟增益保持 `83/20`（6.16 倍），R/G/B 均使用原 Gamma。初始化表为 193 条命令。
+
+详细验收和目录整合说明见 `../docs/目录统一与水平镜像_20261008.md`。本机 UART 为 COM19、115200 8N1。下载脚本 `.\program_ram.ps1 -UartPort COM19` 使用当前项目目录及位流校验记录，执行 JTAG 临时加载。
+
+固件构建支持 `STYLECAM_PYTHON` 和 `STYLECAM_RISCV_BIN`：后者指向 RISC-V 编译器 bin 目录。在当前项目目录执行 `cmd /c embedded_sw\soc\software\standalone\stylecam\build_fw.bat`。Efinity 通过 `STYLECAM_EFINITY` 指定；构建临时目录通过 `STYLECAM_BUILD_DIR` 指定。
+
 在已验收的 V21b / SCU09 全 RTL 整机上补齐赛题一基础要求：加入 Sapphire RISC-V，C 驱动负责摄像头初始化、权重加载、加速器调度与中断；HDMI 增加原画/风格画对比和 OSD 帧率叠加。
 网络、预处理、DDR 与 HDMI 时序沿用 V21b；整网逐位仿真（9 帧、6912 像素、936 个 IN 系数）在新结构下仍全部一致。
 

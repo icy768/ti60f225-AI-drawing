@@ -70,3 +70,8 @@ FPGAProjects/sc431hai_hdmi/outflow/*
 !/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/stylecam/
 /FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/stylecam/build/
 /FPGAProjects/StyleCam_camera/embedded_sw/soc/bsp/efinix/EfxSapphireSoc/app/
+
+# Mirror release acceptance metadata and local Efinity session lock
+**/.lock
+!/FPGAProjects/StyleCam_camera/validation/camera_mirror_only.json
+!/FPGAProjects/StyleCam_camera/validation/camera_mirror_programming.json

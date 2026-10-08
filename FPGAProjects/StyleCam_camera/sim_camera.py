@@ -11,7 +11,10 @@ for f in range(2):
  pixels=[]
  for y in range(4,16,2):
   for x in range(4,20,2):
-   r=encode(raw(f,x+1,y+1));b=encode(raw(f,x,y));g=encode((raw(f,x+1,y)+raw(f,x,y+1)+1)//2)
+   srcx=22-x
+   r=encode(raw(f,srcx+1,y+1));b=encode(raw(f,srcx,y))
+   gv=(raw(f,srcx+1,y)+raw(f,srcx,y+1)+1)//2
+   g=encode(gv)
    pixels.append(r|(g<<8)|(b<<16))
  expected.extend(pixels[i]|(pixels[i+1]<<24) for i in range(0,48,2))
 (S/'rgb_expected.hex').write_text('\n'.join(f'{v:012x}' for v in expected)+'\n',encoding='ascii')

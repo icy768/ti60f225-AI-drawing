@@ -1,0 +1,56 @@
+{
+  "time": "2026-10-08T13:06:08.011223+08:00",
+  "fpga_id": "0x53430a04",
+  "mirror_register": "3221=06",
+  "bayer_phase": "GBRG",
+  "exposure_half_lines": 1120,
+  "analog_gain_registers": "83/20",
+  "analog_gain": 6.16,
+  "green_display_gain": 1.0,
+  "sensor_commands": 193,
+  "bit_sha256": "3553c9d15a5b54fe920597ed334c9162e637006fad3229892b1ae2a470a9c6b2",
+  "hex_sha256": "ea8566dd4ecd789fa81a145a8d8ae7f3afd32a7afcb6a7a7dade0a4776cc8ea3",
+  "setup_min_ns": 0.301,
+  "hold_min_ns": 0.026,
+  "resources": {
+    "xlr": [
+      56502,
+      60800
+    ],
+    "ram": [
+      237,
+      256
+    ],
+    "dsp": [
+      117,
+      160
+    ]
+  },
+  "rgb_sim_passed": true,
+  "firmware_bytes": 9114,
+  "flash_modified": false,
+  "rom_sha256": {
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin": "2ed13686a8cc70f772d9bd08e8ef9246e87edb9c0a4f857ca5616985dfd57a12",
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin": "b0b801e020d6339df77c19030ef3738531f2e6a1bddd344f6ab412deeb2d1648",
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": "6caa1cc7a971806429cae1abdee192019a598350173383fa9977b0924c8b64b6",
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin": "2608de5623885f9d96e2e9977d1d0c0dcd8779a42238ca6e2f4cd4ffa9a829e2"
+  },
+  "board_test": {
+    "time": "2026-10-08T13:27:29.7700341+08:00",
+    "id": "53430a04",
+    "commands": 193,
+    "exposure_readback": "00/46/00",
+    "styles_ready": 7,
+    "fps_range": [
+      14.99,
+      15.0
+    ],
+    "camera_fps": 30.0,
+    "capture_errors": 0,
+    "video_errors": 0,
+    "hdmi_underflow": 0,
+    "hdmi_errors": 0,
+    "irq_errors": 0,
+    "Flash_modified": false
+  }
+}

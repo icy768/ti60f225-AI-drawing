@@ -4,7 +4,7 @@ module tb;
  reg [47:0] expected[0:47];integer count=0,f,y,x,k;
  sc_camera_rgb #(.IW(24),.IH(20),.OW(8),.OH(6)) dut(clk,rst,vs,valid,raw,rgb,v,sof,eof,frames,errors);
  function [9:0] sample(input integer frame,input integer xx,input integer yy);
-  sample=((frame*31+xx*7+yy*11)%240+16)*4;
+  sample=((frame*31+(23-xx)*7+yy*11)%240+16)*4;
  endfunction
  always @(posedge clk)if(v)begin
   if(rgb!==expected[count])$fatal(1,"RGB pair %0d actual %h expected %h",count,rgb,expected[count]);
@@ -27,7 +27,7 @@ module tb;
   repeat(30)@(negedge clk);
   if(count!=48||frames!=2||errors!=0)$fatal(1,"preprocessor counts %0d frames %0d errors %0d",count,frames,errors);
   rst=1;repeat(3)@(negedge clk);if(v||frames||errors)$fatal(1,"camera reset");
-  $display("PASS camera RGB: 96 pixels, BGGR crop, black level, Gamma, gaps, frame markers, reset");$finish;
+  $display("PASS camera RGB: 96 pixels, horizontal mirror/GBRG crop, black level, Gamma, gaps, frame markers, reset");$finish;
  end
  initial begin #1000000;$fatal(1,"preprocessor timeout");end
 endmodule

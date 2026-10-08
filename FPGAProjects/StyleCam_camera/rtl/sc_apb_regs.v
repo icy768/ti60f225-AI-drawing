@@ -1,7 +1,7 @@
 // RISC-V (Sapphire) control and status registers on APB3 slave 0, base 0xF8100000.
 // 0x0000-0x0FFF registers (see fw/src/stylecam_regs.h), 0x2000-0x3FFF OSD text cells (one char per word).
 // One clock domain (core_clk); PREADY is always 1.
-module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A01,parameter integer I2C_TICK=1000)(
+module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A04,parameter integer I2C_TICK=1000)(
  input clk,rst,
  input [15:0] paddr,input psel,penable,pwrite,input [31:0] pwdata,output [31:0] prdata,output pready,output pslverr,
  output irq,
