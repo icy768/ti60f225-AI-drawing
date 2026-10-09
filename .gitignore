@@ -82,3 +82,6 @@ FPGAProjects/sc431hai_hdmi/outflow/*
 /FPGAProjects/StyleCam_camera/program_rgb_ram.ps1
 !/FPGAProjects/StyleCam_camera/validation/camera_native_rgb_mirror.json
 !/FPGAProjects/StyleCam_camera/validation/camera_native_rgb_mirror_programming.json
+
+# Reproducible full builds and the local validated firmware update cache
+/FPGAProjects/StyleCam_camera/_build/
