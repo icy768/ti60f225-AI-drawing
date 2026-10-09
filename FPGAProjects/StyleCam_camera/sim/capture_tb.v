@@ -1,4 +1,5 @@
 module tb;
+ parameter MIRROR=0;
  reg cc=0,ac=0;always #10 cc=~cc;always #5 ac=~ac;
  reg rst=1;reg [47:0] rgb=0;reg cv=0,sof=0,eof=0,take=0,release_f=0,hold_pub=0,hold_swap=0;
  wire ready,locked;wire [1:0] rb,lb;wire [31:0] completed,skipped,errors,overflow;
@@ -7,7 +8,7 @@ module tb;
  wire av,wv,br;wire [127:0] wd;
  reg ar=0,wr=0,bv=0;reg [31:0] address;reg [1:0] bus=0;integer delay_b=0,cycle=0,net_words=0;
  reg [127:0] memory[0:35];integer camera_words=0;reg bad_response=0;reg [1:0] response=0;
- sc_capture #(.PIXELS(48),.FIFO_AW(6)) cap(cc,rst,rgb,cv,sof,eof,ac,rst,1'b1,take,release_f,hold_pub,hold_swap,ready,rb,locked,lb,completed,skipped,errors,overflow,ca,cav,car,cd,cwv,cwr,cbv,response,cbr);
+ sc_capture #(.PIXELS(48),.FIFO_AW(6),.WIDTH(12),.H_MIRROR(MIRROR)) cap(cc,rst,rgb,cv,sof,eof,ac,rst,1'b1,take,release_f,hold_pub,hold_swap,ready,rb,locked,lb,completed,skipped,errors,overflow,ca,cav,car,cd,cwv,cwr,cbv,response,cbr);
  sc_write_arbiter arb(ac,rst,ca,cav,car,cd,cwv,cwr,cbv,cbr,na,nav,nar,nd,nwv,nwr,nbv,nbr,awaddr,av,ar,wd,wv,wr,bv,br);
  function [1:0] bank_of(input [31:0] a);begin bank_of=(a>=32'h800000)?2'd2:{1'b0,a[21]};end endfunction
  function camera_addr(input [31:0] a);begin camera_addr=(a<32'h400000)||(a>=32'h800000);end endfunction
@@ -53,7 +54,7 @@ module tb;
  task check_bank(input integer bank,input integer base);
   integer i,k;begin
    for(i=0;i<12;i=i+1)for(k=0;k<4;k=k+1)
-    if(memory[bank*12+i][k*32+:32]!==32'(base+i*4+k))$fatal(1,"Capture bank %0d word %0d lane %0d",bank,i,k);
+    if(memory[bank*12+i][k*32+:32]!==32'(base+(MIRROR?((i*4+k)/12*12+11-(i*4+k)%12):i*4+k)))$fatal(1,"Capture bank %0d word %0d lane %0d",bank,i,k);
   end
  endtask
  initial begin

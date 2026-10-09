@@ -3,7 +3,9 @@
 // A full camera frame is skipped if no bank is free. Missing FIFO packets cannot publish a partial frame.
 // Only the newest complete frame stays READY. Hold: when a network output is published its input bank
 // becomes PENDING; when HDMI confirms the new frame, PENDING becomes DISPLAYED and the old one is freed.
-module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9)(
+// H_MIRROR reverses each RGB row in DDR: reverse four pixel lanes and
+// visit 128-bit words from right to left. No extra image RAM is required.
+module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9,WIDTH=640,H_MIRROR=0)(
  input cc,crst,input [47:0] rgb,input cv,sof,eof,
  input ac,arst,calibrated,input take_frame,release_frame,input hold_publish,hold_swap,
  output frame_ready,output [1:0] ready_bank,output reg locked,output reg [1:0] locked_bank,
@@ -25,7 +27,12 @@ module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9)(
  sc_async_fifo #(.W(50),.AW(FIFO_AW)) fifo(cc,crst,{eof,sof,rgb},cv,fw,ac,arst,fd,fv,fr,);
  reg [2:0] ready_mask;reg [1:0] ws,bank,pend_bank,disp_bank;reg pend_valid,disp_valid;
  reg capturing,phase,bad,last_word;
- reg [31:0] groups,word_index,addr;reg [63:0] half;reg [127:0] data;
+ localparam ROW_WORDS=WIDTH/4;
+ localparam ROW_W=(ROW_WORDS>1)?$clog2(ROW_WORDS):1;
+ localparam INDEX_W=$clog2(PIXELS/4+(H_MIRROR?ROW_WORDS:1));
+ reg [31:0] groups,addr;reg [INDEX_W-1:0] word_index;
+ reg [ROW_W-1:0] row_word;
+ reg [63:0] half;reg [127:0] data;
  assign frame_ready=(|ready_mask)&&!locked;
  assign ready_bank=ready_mask[0]?2'd0:ready_mask[1]?2'd1:2'd2;
  wire taking=take_frame&&frame_ready;
@@ -36,7 +43,7 @@ module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9)(
  assign fr=ws==0&&calibrated&&!arst;
  assign awaddr=addr;assign awvalid=ws==1;assign wdata=data;assign wvalid=ws==2;assign bready=ws==3;
  always @(posedge ac)begin
-  if(arst)begin ready_mask<=0;ws<=0;capturing<=0;phase<=0;bad<=0;groups<=0;word_index<=0;locked<=0;locked_bank<=0;completed<=0;skipped<=0;errors<=0;bank<=0;last_word<=0;addr<=0;data<=0;half<=0;
+  if(arst)begin ready_mask<=0;ws<=0;capturing<=0;phase<=0;bad<=0;groups<=0;word_index<=0;row_word<=0;locked<=0;locked_bank<=0;completed<=0;skipped<=0;errors<=0;bank<=0;last_word<=0;addr<=0;data<=0;half<=0;
    pend_valid<=0;pend_bank<=0;disp_valid<=0;disp_bank<=0;end
   else begin
    if(release_frame)begin locked<=0;if(hold_publish)begin pend_valid<=1;pend_bank<=locked_bank;end end
@@ -46,7 +53,7 @@ module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9)(
     0:if(fv&&fr)begin
      if(fd[48])begin
       if(capturing)errors<=errors+1'b1;
-      phase<=1;groups<=1;word_index<=0;bad<=0;
+      phase<=1;groups<=1;word_index<=H_MIRROR?ROW_WORDS-1:0;row_word<=0;bad<=0;
       half<={8'd0,fd[47:24],8'd0,fd[23:0]};
       if(free0||free1||free2)begin capturing<=1;bank<=free0?2'd0:free1?2'd1:2'd2;end
       else begin capturing<=0;skipped<=skipped+1'b1;end
@@ -55,7 +62,16 @@ module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9)(
       if(!phase)begin half<={8'd0,fd[47:24],8'd0,fd[23:0]};phase<=1;
        if(fd[49])begin capturing<=0;errors<=errors+1'b1;end
       end else begin
-       phase<=0;data<={8'd0,fd[47:24],8'd0,fd[23:0],half};addr<=in_base(bank)+(word_index<<4);word_index<=word_index+1'b1;ws<=1;
+       phase<=0;
+       data<=H_MIRROR?{half[31:0],half[63:32],8'd0,fd[23:0],8'd0,fd[47:24]}:
+                      {8'd0,fd[47:24],8'd0,fd[23:0],half};
+       addr<=in_base(bank)+(word_index<<4);ws<=1;
+       if(H_MIRROR)begin
+        // End of row: advance to the rightmost word of the next row.
+        if(row_word==ROW_WORDS-1)begin
+         row_word<=0;word_index<=word_index+2*ROW_WORDS-1;
+        end else begin row_word<=row_word+1'b1;word_index<=word_index-1'b1;end
+       end else word_index<=word_index+1'b1;
        last_word<=fd[49];
        if(groups>=PIXELS/2||word_index>=PIXELS/4)begin ws<=0;capturing<=0;errors<=errors+1'b1;end
        else if(fd[49]&&groups!=PIXELS/2-1)bad<=1;

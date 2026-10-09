@@ -81,13 +81,13 @@ module ti60f225_oob_top #(
     output io_cam_scl_OE,
 
     output	wire		o_cam_rst_p,
-    
+
     input	wire		i_cam_ck_LP_P_IN,
     input	wire		i_cam_ck_LP_N_IN,
     output	wire		o_cam_ck_HS_TERM,
     output	wire		o_cam_ck_HS_ENA,
     input	wire		i_cam_ck_CLKOUT,
-    
+
     input	wire	[7:0]			cam_d0_HS_IN,
     input	  wire		      cam_d0_LP_P_IN,
     input	  wire		      cam_d0_LP_N_IN,
@@ -96,7 +96,7 @@ module ti60f225_oob_top #(
     output	wire		      cam_d0_RST,
     output	wire		      cam_d0_FIFO_RD,
     input	  wire		      cam_d0_FIFO_EMPTY,
-    
+
     input 	wire	[7:0]			cam_d1_HS_IN,
     input	  wire		        cam_d1_LP_P_IN,
     input	  wire		        cam_d1_LP_N_IN,
@@ -105,7 +105,7 @@ module ti60f225_oob_top #(
     output	wire		        cam_d1_RST,
     output	wire		        cam_d1_FIFO_RD,
     input	  wire		        cam_d1_FIFO_EMPTY,
-    
+
     input 	wire	[7:0]			cam_d2_HS_IN,
     input	  wire		        cam_d2_LP_P_IN,
     input	  wire		        cam_d2_LP_N_IN,
@@ -114,7 +114,7 @@ module ti60f225_oob_top #(
     output	wire		        cam_d2_RST,
     output	wire		        cam_d2_FIFO_RD,
     input	  wire		        cam_d2_FIFO_EMPTY,  
-   
+
     input 	wire	[7:0]			cam_d3_HS_IN,
     input	  wire		        cam_d3_LP_P_IN,
     input	  wire		        cam_d3_LP_N_IN,
@@ -124,7 +124,7 @@ module ti60f225_oob_top #(
     output	wire		        cam_d3_FIFO_RD,
     input	  wire		        cam_d3_FIFO_EMPTY,
 
-	
+
 	input 					tx_cal_clk_90edge,
   	input 					rx_cal_clk,
   	input 					tx_cal_clk,
@@ -142,16 +142,16 @@ module ti60f225_oob_top #(
 	output [ROW_WIDTH-1:0]             ddr_addr,
 	output [BANK_WIDTH-1:0]            ddr_ba,
 	output                             ddr_cas_n,
- 
+
 	output [CS_WIDTH*RANK_RATIO-1:0]   ddr_cs_n,
 	output                             ddr_ras_n,
 	output                             ddr_we_n,
-	
+
 	input  [DQS_WIDTH-1:0]             ddr_dqs_in_hi,
 	input  [DQS_WIDTH-1:0]             ddr_dqs_in_lo,
 	input  [DQ_WIDTH-1:0]              ddr_dq_in_hi,
 	input  [DQ_WIDTH-1:0]              ddr_dq_in_lo,
-	
+
 	output [DQS_WIDTH-1:0]             ddr_dqs_oe,
 	output [DQS_WIDTH-1:0]             ddr_dqs_oe_n,
 	output [DQ_WIDTH-1:0]              ddr_dq_oe,  
@@ -346,6 +346,7 @@ wire [31:0] captured,skipped,capture_errors,capture_overflow;
 wire [39:0] camera_raw;wire camera_vs,camera_hs,camera_de;
 wire [47:0] camera_rgb;wire camera_valid,camera_sof,camera_eof;
 wire cam_enable,cpu_run,cpu_step;wire [1:0] cpu_style,view_mode;
+wire [15:0] rgb_r_gain,rgb_g_gain,rgb_b_gain;wire rgb_request,rgb_ack;
 wire [31:0] camera_frames,camera_format_errors;
 reg [31:0] cf1,cf2,ce1,ce2;
 always @(posedge core_clk)begin cf1<=camera_frames;cf2<=cf1;ce1<=camera_format_errors;ce2<=ce1;end
@@ -360,8 +361,9 @@ assign io_cam_sda_OUT=0;assign io_cam_scl_OUT=0;assign o_cam_rst_p=~cam_enable;
 reg [2:0] camera_reset=7;
 always @(posedge i_mipi_rx_pclk or posedge global_reset)if(global_reset)camera_reset<=7;else camera_reset<={camera_reset[1:0],1'b0};
 sc_camera_rgb preprocess(.clk(i_mipi_rx_pclk),.rst(camera_reset[2]),.vs(camera_vs),.valid(camera_de&&camera_hs),.raw(camera_raw),
- .rgb(camera_rgb),.rgb_valid(camera_valid),.sof(camera_sof),.eof(camera_eof),.frames(camera_frames),.format_errors(camera_format_errors));
-sc_capture capture(.cc(i_mipi_rx_pclk),.crst(camera_reset[2]),.rgb(camera_rgb),.cv(camera_valid),.sof(camera_sof),.eof(camera_eof),
+ .rgb(camera_rgb),.rgb_valid(camera_valid),.sof(camera_sof),.eof(camera_eof),.frames(camera_frames),.format_errors(camera_format_errors),
+ .rgb_r_gain(rgb_r_gain),.rgb_g_gain(rgb_g_gain),.rgb_b_gain(rgb_b_gain),.rgb_request(rgb_request),.rgb_ack(rgb_ack));
+sc_capture #(.WIDTH(640),.H_MIRROR(1)) capture(.cc(i_mipi_rx_pclk),.crst(camera_reset[2]),.rgb(camera_rgb),.cv(camera_valid),.sof(camera_sof),.eof(camera_eof),
  .ac(core_clk),.arst(rs_a[2]),.calibrated(cal_done),.take_frame(take_frame),.release_frame(release_frame),.hold_publish(publish),.hold_swap(hold_swap),
  .frame_ready(frame_ready),.ready_bank(ready_bank),.locked(cap_locked),.locked_bank(cap_locked_bank),
  .completed(captured),.skipped(skipped),.errors(capture_errors),.overflow(capture_overflow),
@@ -379,12 +381,12 @@ csi_rx_controller inst_efx_csi2_rx
               .clk_byte_HS		  (i_cam_ck_CLKOUT),
               .reset_pixel_n		(~camera_reset[2]),
               .clk_pixel			  (i_mipi_rx_pclk),
-              
+
               .Rx_LP_CLK_P		  (i_cam_ck_LP_P_IN),
               .Rx_LP_CLK_N		  (i_cam_ck_LP_N_IN),
               .Rx_HS_enable_C		(o_cam_ck_HS_ENA),
               .LVDS_termen_C		(o_cam_ck_HS_TERM),
-              
+
               .Rx_LP_D_P			({cam_d3_LP_P_IN, cam_d2_LP_P_IN, cam_d1_LP_P_IN, cam_d0_LP_P_IN}),//(r_mipi_rx_data_LP_P_IN_2P),
               .Rx_LP_D_N			({cam_d3_LP_N_IN, cam_d2_LP_N_IN, cam_d1_LP_N_IN, cam_d0_LP_N_IN}),//(r_mipi_rx_data_LP_N_IN_2P),
               .Rx_HS_D_0			(cam_d0_HS_IN),//(r_mipi_rx_data_HS_IN_2P[0*8+:8]),
@@ -403,7 +405,7 @@ csi_rx_controller inst_efx_csi2_rx
               .DLY_inc_D			(),
               .u_dly_enable_D		(),
               .u_dly_inc_D		       (),
-              
+
               .axi_clk			(1'b0),
               .axi_reset_n		       (1'b0),
               .axi_awaddr			(6'b0),
@@ -412,7 +414,7 @@ csi_rx_controller inst_efx_csi2_rx
               .axi_wdata			(32'b0),
               .axi_wvalid			(1'b0),
               .axi_wready			(),
-              
+
               .axi_bvalid			(),
               .axi_bready			(1'b0),
               .axi_araddr			(6'b0),
@@ -421,7 +423,7 @@ csi_rx_controller inst_efx_csi2_rx
               .axi_rdata			(),
               .axi_rvalid			(),
               .axi_rready			(1'b1),
-              
+
               .hsync_vc0			(camera_hs),
               .hsync_vc1			(),
               .hsync_vc2			(),
@@ -484,6 +486,7 @@ wire osd_we;wire [10:0] osd_addr;wire [7:0] osd_data;
 sc_apb_regs regs(.clk(core_clk),.rst(rs_a[2]),
  .paddr(apb_paddr),.psel(apb_psel),.penable(apb_penable),.pwrite(apb_pwrite),.pwdata(apb_pwdata),.prdata(apb_prdata),.pready(apb_pready),.pslverr(apb_pslverr),
  .irq(cpu_irq),.run(cpu_run),.step(cpu_step),.style(cpu_style),.view(view_mode),.cam_enable(cam_enable),
+ .rgb_r_gain(rgb_r_gain),.rgb_g_gain(rgb_g_gain),.rgb_b_gain(rgb_b_gain),.rgb_request(rgb_request),.rgb_ack(rgb_ack),
  .ev_publish(publish),.ev_key3(key3_press),.ev_key2(key2_press),.ev_error(engine_done&&!engine_ok),
  .st_captured(captured),.st_processed(processed),.st_skipped(skipped),.st_cap_errors(capture_errors+capture_overflow),
  .st_sensor_frames(cf2),.st_video_errors(video_errors),.st_run_cycles(run_cycles),.st_auto_cycles(auto_cycles),.st_auto_frames(auto_frames),
@@ -512,7 +515,7 @@ reg [25:0] heartbeat=0;always @(posedge CLK_25M)heartbeat<=heartbeat+1'b1;
 assign led={cam_enable,cpu_run,styles_ready[2],styles_ready[0],requested_style,cal_done,heartbeat[24]};
 wire [9:0] td0,td1,td2,tck;
 dvi_encoder video(.pixelclk(hdmi_tx_slow_clk),.rst_p(rs_p[2]),.i_bdata(blue),.i_gdata(green),.i_rdata(red),
- .i_de(de),.i_hs(hs),.i_vs(vs),.video_format(2'd0),.video_VIC(8'd16),
+ .i_de(de),.i_hs(hs),.i_vs(vs),.video_format(2'd0),.video_VIC(7'd0),
  .audio_L(24'd0),.audio_R(24'd0),.audio_valid(1'b0),.audio_N(20'd6144),.audio_CTS(20'd148500),
  .audio_sample_frequency(3'd0),.audio_word_length(4'b1011),.tmds_data0(td0),.tmds_data1(td1),.tmds_data2(td2),.tmds_clk(tck));
 assign tmds_tx_clk_TX_DATA=~tck;assign tmds_tx_data0_TX_DATA=~td0;assign tmds_tx_data1_TX_DATA=~td1;assign tmds_tx_data2_TX_DATA=~td2;

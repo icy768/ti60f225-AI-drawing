@@ -4,19 +4,8 @@ ROOT=Path(__file__).resolve().parent
 S=ROOT/'validation/camera_sim';S.mkdir(exist_ok=True)
 BIN=Path(__import__('os').environ.get('ICARUS_BIN',ROOT.parent/'tools/iverilog/mingw64/bin'))
 gamma=[int(x,16)>>2 for x in (ROOT/'model/camera_gamma.mem').read_text().split()]
-expected=[]
-def raw(f,x,y):return (f*31+x*7+y*11)%240
-def encode(v):return gamma[(v<<2)|(v>>6)]
-for f in range(2):
- pixels=[]
- for y in range(4,16,2):
-  for x in range(4,20,2):
-   srcx=22-x
-   r=encode(raw(f,srcx+1,y+1));b=encode(raw(f,srcx,y))
-   gv=(raw(f,srcx+1,y)+raw(f,srcx,y+1)+1)//2
-   g=encode(gv)
-   pixels.append(r|(g<<8)|(b<<16))
- expected.extend(pixels[i]|(pixels[i+1]<<24) for i in range(0,48,2))
+from sim_camera_mhc import expected as mhc_expected
+expected=list(mhc_expected(24,20,8,6,7,gamma))
 (S/'rgb_expected.hex').write_text('\n'.join(f'{v:012x}' for v in expected)+'\n',encoding='ascii')
 tests={}
 for name,files in {
@@ -31,4 +20,4 @@ for name,files in {
  (S/(name+'.log')).write_text(r.stdout+r.stderr,encoding='utf-8');print(r.stdout,flush=True)
  assert r.returncode==0 and 'PASS' in r.stdout,r.stdout+r.stderr
  tests[name]=dict(passed=True,log=str(S/(name+'.log')))
-(S/'result.json').write_text(json.dumps(dict(passed=True,tests=tests),indent=2),encoding='utf-8')
+(S/'result.json').write_text(json.dumps(dict(passed=True,tests=tests),indent=2),encoding='utf-8',newline='\n')

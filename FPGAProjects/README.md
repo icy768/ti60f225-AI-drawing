@@ -1,47 +1,32 @@
 # FPGA 工程统一入口
 
-统一工程目录为仓库内的 `FPGAProjects`；后续在这里开发、编译和存放烧录文件。Git 根目录为上一级 FPGA，main 保存当前稳定版，develop 用于后续开发。
+唯一开发目录为本仓库 `FPGAProjects`；Git 根目录是上一级 FPGA。当前 `feat/basic-requirements` 分支已验收 **RISC-V 08 / V21b**，ID `53430a08`，已固化并验证 RESET_N 后的自主启动。
 
-| 目录 | 用途与状态 | 工程入口 |
+| 目录 | 用途 | 工程入口 |
 |---|---|---|
-| [StyleCam_camera](StyleCam_camera/README.md) | **当前整机工程：V21b / SCU09**；摄像头、板内 IN、DDR 双缓冲、HDMI、KEY3 | `StyleCam_camera/ti60f225_oob.xml` |
-| [StyleCam](StyleCam/README.md) | V21b 训练、量化与网络源码；整机使用同版导出参数 | `StyleCam/syn/vision_map.xml` 是交付视觉子系统入口 |
-| [sc431hai_hdmi](sc431hai_hdmi/README.md) | 独立 SC431HAI 摄像头基线，曝光 1120 半行 | `sc431hai_hdmi/ti60f225_oob.xml` |
-| [烧录文件](烧录文件/README.md) | 当前 V21b 与旧 V6 恢复包分别保存 | `.bit` 临时下载，`.hex` 固化（当前已完成） |
-| [_archive](_archive/README.md) | 本地恢复资料：历史源码压缩包、Git 提交备份和厂家例程 | 当前版本从 StyleCam_camera 开始 |
-| tools | 共用 Icarus Verilog | `tools/iverilog/mingw64/bin` |
+| [StyleCam_camera](StyleCam_camera/README.md) | 当前完整 RISC-V / 摄像头 / 三风格网络 / DDR / HDMI 整机 | `StyleCam_camera/ti60f225_oob.xml` |
+| [StyleCam](StyleCam/README.md) | V21b 训练、量化与成套导出 | `StyleCam/syn/vision_map.xml` |
+| [sc431hai_hdmi](sc431hai_hdmi/README.md) | 未修改的独立摄像头参考 | `sc431hai_hdmi/ti60f225_oob.xml` |
+| [烧录文件](烧录文件/README.md) | 当前 08 包与历史恢复包 | BIT 临时下载，HEX 固化 |
+| tools | 本机共用 Icarus Verilog | `tools/iverilog/mingw64/bin` |
 
-## 项目交接
+## 当前版本与操作
 
-接手操作、当前烧录版本、重新构建步骤、验收证据及后续待办见 [项目交接文档（2026-10-06）](docs/项目交接文档_20261006.md)。
+[08 发布包](烧录文件/20261009_RISCV08_BGGR_RGBMirror/README.md) 包含 BIT/HEX、75 个匹配源码哈希、资源/时序报告和固化验收。Flash 地址 0，1,073,814 字节独立回读一致；模型位于 `0x200000`，48,616 字节保持一致，启动 CRC `373deed7`。用户已确认画面正常。
 
-## 当前下载与固化文件
+摄像头恢复原生 BGGR、原初始化与颜色配置；水平翻转移至 RGB 写 DDR。曝光/增益与原例程相同。640×480 输出和用户确认的 CSI FIFO=1024 保留；完整 FIFO=4096 会使集成工程 RAM 超限。
 
-工程产物：`StyleCam_camera/outflow/ti60f225_oob.bit`。
-发布副本：[StyleCam_SCU09_V21b_SC431HAI_640x480.bit](烧录文件/20261006_SCU09_V21b_摄像头版/StyleCam_SCU09_V21b_SC431HAI_640x480.bit)。
-固化使用：[StyleCam_SCU09_V21b_SC431HAI_640x480.hex](烧录文件/20261006_SCU09_V21b_摄像头版/StyleCam_SCU09_V21b_SC431HAI_640x480.hex)。
-SHA256：`83ffe2006540cb03bd2321ad7e4f64063226b892cce610a5014463f934f27d14`。
+在 `StyleCam_camera` 执行 `.\program_ram.ps1 -UartPort COM19` 临时下载，`python -B program_flash_native.py` 固化，`.\verify_flash_boot.ps1 -UartPort COM19` 监听复位启动。工具路径可通过参数指定。固化前先执行 `python -B program_flash_native.py --check-only`。
 
-临时 JTAG 验收及固化后启动均已读到 SCU09，板上标识 `534355098002e0011b00030d`；摄像头与 IN 自动运行，无需电脑上传照片或系数。
-V21b / SCU09 已固化至 Flash 地址 0，1,058,000 字节独立回读逐字节一致；配置复位后 SCU09 自动启动和摄像头计数检查通过。RESET_N 或断电后会自动加载 V21b 并启动摄像头，默认梵高。KEY0 复位当前逻辑，KEY3 切换风格。
+KEY3 切换风格；KEY2 / 串口 `v` 轮换布局；串口 `c` 回读摄像头，`s` 查状态。复位默认对比布局。RISC-V 从 Flash 加载权重并部署三种风格，约 15 FPS；摄像头约 29.9 FPS。自主启动验收错误计数为 0。
 
-## 已完成检查
+当前资源 XLR 60399/60800、RAM10 246/256、DSP 121/160，setup +0.395 ns、hold +0.026 ns。摄像头全尺寸 3 帧、921600 个 RGB 像素逐值一致；RGB 翻转 DDR 地址和像素顺序、采集/调度/显示/APB 回归通过。
 
-- 三风格真实 13 层网络：9 帧、6,912 像素、936 IN 系数完全一致，含无复位切换、动态 IN 更新和背压。
-- IN 数学：3,273 组，含 VGA 实景、随机、全黑、全白，与交付金标准完全一致。
-- 摄像头适配、输入保护、帧调度、输出双缓冲及显示压力复验通过；压力场景 81,920 个像素一致、欠流 0。
-- 完整编译通过：XLR 57,258/60,800，RAM10 252/256，DSP 117/160；setup +0.172 ns，hold +0.012 ns。
-- 最近板测 30.39 秒，风格输出 15.004 fps，传感器 30.009 fps；捕获/处理/AXI/欠流错误 0，复位以来没有 HDMI 欠流。
-- 单次稳定板内网络约 58.69 ms。第一次使用某风格需完整 IN 校准，画面切换会有首次校准等待。
+## 记录
 
-最近板测请求风格索引：[0]；用户已确认三种风格正常且 KEY3 切换返回梵高，反馈保存在 StyleCam_camera/results/visual_acceptance.json。
-实际证据：[整合验收报告](StyleCam_camera/results/V21整合验收报告.md)、results/offline_check.json、validation/ram_programming.json、results/camera_video_latest.json。
+- [摄像头修复与原因判断](docs/原生BGGR与RGB翻转验证_20261009.md)
+- [参考对齐与 FIFO 资源冲突](docs/摄像头参考对齐与资源冲突_20261009.md)
+- [工程整理与验收索引](docs/工程整理与验收.md)
+- [10 月 6 日历史交接文档](docs/项目交接文档_20261006.md)：当时为全 RTL SCU09，操作和资源数据以当前整机 README 为准。
 
-## 开发与下载
-
-在 StyleCam_camera 内使用 `D:\Anaconda\python.exe -B build.py interface`，再依次 map、pnr、pgm；ASCII 临时编译镜像用于规避工具的中文路径问题，最终产物保存回当前工程 outflow。
-`D:\Anaconda\python.exe -B check_camera_report.py` 做版本、仿真和时序门禁；`program.py ram` 临时下载。
-网络/IN 数学仿真使用已安装 Torch 的 `D:\Anaconda\envs\pytorch_env\python.exe`。原交付 .venv 记录了其他电脑的 Python 路径，本机使用已有 pytorch_env。
-网络参数从相邻 StyleCam 的 V21b 整套导出接入。板级链路沿用已验收 RTL，板内 IN 常数与层移位同步更新；这条整机架构为全 RTL 自主执行，不依赖 CPU/ELF。
-
-目录归档与提交范围见 [工程整理与验收](docs/工程整理与验收.md)。
+桌面另一个 `ti60f225-AI-drawing/FPGAProjects` 保留作用户删除前的参考；当前工程在本路径开发，原摄像头例程未改动。

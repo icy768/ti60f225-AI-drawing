@@ -1,3 +1,6 @@
 * -text
 *.bit binary
 *.hex binary
+
+# Exact vendor reports for the accepted camera release
+/FPGAProjects/烧录文件/20261009_RISCV08_BGGR_RGBMirror/*.rpt binary

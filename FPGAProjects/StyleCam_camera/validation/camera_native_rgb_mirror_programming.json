@@ -1,0 +1,11 @@
+{
+  "time": "2026-10-09T19:16:03.6810179+08:00",
+  "mode": "temporary JTAG RAM configuration",
+  "Flash_modified": false,
+  "bit_sha256": "1ab5134a3a18c56df61b6e6f4094fbfe51834cd8798e56f53368a191d0dc9b1a",
+  "fpga_id": "0x53430a08",
+  "uart_port": "COM19",
+  "jtag_log": "validation/camera_native_rgb_mirror_jtag_20261009_191533.log",
+  "uart_log": "validation/camera_native_rgb_mirror_boot_20261009_191533.log",
+  "boot_verified": true
+}

@@ -1,0 +1,2 @@
+PASS output double buffer: 512 packed pixels, explicit publication, vertical-blank swap, delayed read retirement, front-bank protection, AXI error gate, reset
+C:\Users\lingye\AppData\Local\Temp\stylecam_native_rgb_mirror_20261009_project\sim\display_tb.v:60: $finish called at 19800 (1s)

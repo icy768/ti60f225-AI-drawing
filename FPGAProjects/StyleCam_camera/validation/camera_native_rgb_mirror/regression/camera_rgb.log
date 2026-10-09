@@ -1,0 +1,2 @@
+PASS camera RGB gains + 5x5 MHC: 384 RGB pixels, native BGGR, frame-atomic CDC gain commits, unity/independent/reference zero/full 16-bit gains, crop halo, Gamma, clipping, gaps, frame markers, malformed input and reset
+C:\Users\lingye\AppData\Local\Temp\stylecam_native_rgb_mirror_20261009_project\sim\camera_rgb_tb.v:100: $finish called at 40560 (1s)

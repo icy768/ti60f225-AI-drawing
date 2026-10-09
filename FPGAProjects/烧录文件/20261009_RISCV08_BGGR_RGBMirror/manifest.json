@@ -1,0 +1,72 @@
+{
+  "release": "RISC-V 08: native BGGR and RGB horizontal mirror",
+  "publication_time": "2026-10-09T19:39:49.010382+08:00",
+  "git_branch": "feat/basic-requirements",
+  "fpga_id": "0x53430a08",
+  "matching_project": "../../StyleCam_camera/ti60f225_oob.xml",
+  "flash_address": 0,
+  "flash_payload_bytes": 1073814,
+  "flash_payload_sha256": "b08da4ce6f479c602cbec1b20ae2906b8bf80adee3bcbfd14f9d9e97d8ecba8e",
+  "model_flash_address": 2097152,
+  "model_bytes": 48616,
+  "model_sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b",
+  "model_crc32": "373deed7",
+  "flash_readback_exact": true,
+  "flash_boot_verified": true,
+  "physical_image_confirmed": true,
+  "user_feedback": "这回正常了",
+  "setup_min_ns": 0.395,
+  "hold_min_ns": 0.026,
+  "resources": {
+    "XLR": {
+      "used": 60399,
+      "total": 60800
+    },
+    "RAM10": {
+      "used": 246,
+      "total": 256
+    },
+    "DSP": {
+      "used": 121,
+      "total": 160
+    }
+  },
+  "files": {
+    "checked_build.json": {
+      "bytes": 11677,
+      "sha256": "fc3f2f251c018c492089562af7e7a636c6441ec5b0c1886a9c3756e1d88d87e2"
+    },
+    "evidence/flash_boot.log": {
+      "bytes": 1558,
+      "sha256": "4faea6548ea9fce19a96205b15493e07af13c4ac1d2b11ae376113a5c1ac2a32"
+    },
+    "evidence/flash_program.log": {
+      "bytes": 894,
+      "sha256": "84f5179f34d566448747f0e952d8364bcca8376ee7a6f723be669ff456ed8922"
+    },
+    "flash_acceptance.json": {
+      "bytes": 1655,
+      "sha256": "d25c371e667b5e1cbda709ce487a2a9c20ccc8b80ed29b887048c374aab3beb7"
+    },
+    "map.rpt": {
+      "bytes": 479057,
+      "sha256": "c1cdb5576b6d77a369c235ef201da788e66c3c46333d2d1611852a74f9131d06"
+    },
+    "place.rpt": {
+      "bytes": 5571,
+      "sha256": "18fbff60926d6a0eacfb4503b51f4c233068004687b3744624fec2d17a6df418"
+    },
+    "StyleCam_RISCV08_BGGR_RGBMirror.bit": {
+      "bytes": 3221382,
+      "sha256": "1ab5134a3a18c56df61b6e6f4094fbfe51834cd8798e56f53368a191d0dc9b1a"
+    },
+    "StyleCam_RISCV08_BGGR_RGBMirror.hex": {
+      "bytes": 3221442,
+      "sha256": "601d9c8e22758d9fdffafc460ee3d866008d4d679301066d7560d7a70c2729b8"
+    },
+    "timing.rpt": {
+      "bytes": 1753467,
+      "sha256": "62a5c838fc8140898fb7b55a1613f0196df2579534b0c7a0b9aea1ffd4a23ea4"
+    }
+  }
+}

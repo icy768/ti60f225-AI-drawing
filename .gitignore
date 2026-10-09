@@ -75,3 +75,10 @@ FPGAProjects/sc431hai_hdmi/outflow/*
 **/.lock
 !/FPGAProjects/StyleCam_camera/validation/camera_mirror_only.json
 !/FPGAProjects/StyleCam_camera/validation/camera_mirror_programming.json
+
+# Local camera candidate builds; only the accepted release is published.
+/FPGAProjects/StyleCam_camera/outflow_*/
+/FPGAProjects/StyleCam_camera/program_original_ram.ps1
+/FPGAProjects/StyleCam_camera/program_rgb_ram.ps1
+!/FPGAProjects/StyleCam_camera/validation/camera_native_rgb_mirror.json
+!/FPGAProjects/StyleCam_camera/validation/camera_native_rgb_mirror_programming.json

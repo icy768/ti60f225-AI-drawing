@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "input": [
+    1920,
+    1080
+  ],
+  "output": [
+    640,
+    480
+  ],
+  "frames": 3,
+  "pixels": 921600,
+  "oracle": "all four native BGGR phases: reference 5x5 -> clip -> Gamma -> 2x2 RGB average; frame-atomic reference 16-bit gains, zero -> 255"
+}

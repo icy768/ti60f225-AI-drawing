@@ -25,6 +25,10 @@
 #define SC_HDMI_FRAMES     SC_REG(0x44)
 #define SC_HDMI_UNDERFLOW  SC_REG(0x48)   /* pixels in the last HDMI frame */
 #define SC_HDMI_ERRORS     SC_REG(0x4C)   /* AXI read/write + replay errors */
+#define SC_RGB_R           SC_REG(0x50)   /* shadow gain, 16-bit Q8.8 0..65535; zero -> 255 */
+#define SC_RGB_G           SC_REG(0x54)
+#define SC_RGB_B           SC_REG(0x58)
+#define SC_RGB_COMMIT      SC_REG(0x5C)   /* write bit0 to commit; read bit0=pending */
 #define SC_CFG_ADDR        SC_REG(0x60)   /* [4:0] layer [27:16] coefficient address */
 #define SC_CFG_LO          SC_REG(0x64)
 #define SC_CFG_HI          SC_REG(0x68)   /* [5:0] data[37:32]; write commits */
@@ -53,3 +57,6 @@
 #define OSD_COLS 80
 #define OSD_ROWS 23
 #define OSD_HI   0x80          /* highlight colour */
+
+/* Match the reference camera top-level zero-gain fallback. */
+static inline unsigned sc_rgb_effective(unsigned gain) { return gain ? gain : 255u; }

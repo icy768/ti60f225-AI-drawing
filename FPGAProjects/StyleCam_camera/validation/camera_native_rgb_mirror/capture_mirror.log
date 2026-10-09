@@ -1,0 +1,2 @@
+PASS capture/AXI: 3 banks, newest-only READY, locked/published/displayed original protection, whole-frame skip, partial-frame and AXI error rejection, concurrent output writer, reset
+C:\Users\lingye\AppData\Local\Temp\stylecam_native_rgb_mirror_20261009_project\sim\capture_tb.v:79: $finish called at 105290 (1s)

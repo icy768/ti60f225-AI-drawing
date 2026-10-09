@@ -1,0 +1,2 @@
+PASS apb regs + RGB shadow/commit/ACK/clamp: ID/CTRL/STATUS/counters, step pulse, IRQ mask + W1C + event priority, OSD and coefficient writes, I2C transaction (result 1 data 5a)
+C:\Users\lingye\AppData\Local\Temp\stylecam_native_rgb_mirror_20261009_project\sim\apb_regs_tb.v:66: $finish called at 41310 (1s)

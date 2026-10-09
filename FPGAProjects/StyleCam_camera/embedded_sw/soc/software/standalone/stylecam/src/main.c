@@ -103,6 +103,12 @@ static void osd_draw(void)
     row_begin();
     row_put(1, "KEY3 / UART 0 1 2 : STYLE      KEY2 / UART v : VIEW", 0);
     row_flush(21);
+    row_begin();
+    p=cat(line,"RGB R "); p=fmt_x10(p,(sc_rgb_effective(SC_RGB_R)*1000u+128)/256);
+    p=cat(p,"% G "); p=fmt_x10(p,(sc_rgb_effective(SC_RGB_G)*1000u+128)/256);
+    p=cat(p,"% B "); p=fmt_x10(p,(sc_rgb_effective(SC_RGB_B)*1000u+128)/256);
+    cat(p,"%  UART g R G B : SET   G : 100%");
+    row_put(1,line,0); row_flush(22);
 }
 
 static void osd_message(const char *msg)
@@ -331,10 +337,98 @@ static void print_status(uint32_t t_ms)
                switch_us_last, switch_us_max);
 }
 
+/* RGB percentages are converted to Q8.8; all three channels commit at one
+ * sensor frame boundary. This path does not change sensor exposure/gain. */
+static void print_rgb_gains(void)
+{
+    uint32_t r=SC_RGB_R, g=SC_RGB_G, b=SC_RGB_B;
+    bsp_printf("RGB ID=%x R=",SC_ID); print_x10((sc_rgb_effective(r)*1000u+128)/256);
+    bsp_printf("%c G=",'%'); print_x10((sc_rgb_effective(g)*1000u+128)/256);
+    bsp_printf("%c B=",'%'); print_x10((sc_rgb_effective(b)*1000u+128)/256);
+    bsp_printf("%c Q8.8=%d %d %d pending=%d\r\n",'%',r,g,b,SC_RGB_COMMIT&1);
+}
+
+static int rgb_wait(void)
+{
+    uint32_t t0=now();
+    while(SC_RGB_COMMIT&1) if(us_since(t0)>250000) return 0;
+    return 1;
+}
+
+static void rgb_set(uint32_t r,uint32_t g,uint32_t b)
+{
+    if(!rgb_wait()) { bsp_printf("RGB request still pending\r\n"); return; }
+    SC_RGB_R=r; SC_RGB_G=g; SC_RGB_B=b; SC_RGB_COMMIT=1;
+    if(!rgb_wait()) bsp_printf("RGB awaiting camera frame\r\n");
+    osd_dirty=1;
+    print_rgb_gains();
+}
+
+static void rgb_help(void)
+{
+    bsp_printf("RGB: g R G B + Enter (0..25599 percent; q R G B raw Q8.8 0..65535; zero uses 255/256), g? + Enter query, G reset to 100 percent\r\n");
+}
+
+static uint32_t rgb_raw;
+
+static void rgb_command(char *p)
+{
+    uint32_t percent[3];
+    uint32_t limit=rgb_raw?65535u:25599u;
+    while(*p==' '||*p=='\t') p++;
+    if(!*p||*p=='?') {
+        if(*p=='?') p++;
+        while(*p==' '||*p=='\t') p++;
+        if(!*p) { print_rgb_gains(); return; }
+        rgb_help(); return;
+    }
+    for(int i=0;i<3;i++) {
+        while(*p==' '||*p=='\t') p++;
+        if(*p<'0'||*p>'9') { rgb_help(); return; }
+        uint32_t v=0;
+        while(*p>='0'&&*p<='9') {
+            v=v*10+(*p++-'0');
+            if(v>limit) { rgb_help(); return; }
+        }
+        if(*p&&*p!=' '&&*p!='\t') { rgb_help(); return; }
+        percent[i]=v;
+    }
+    while(*p==' '||*p=='\t') p++;
+    if(*p) { rgb_help(); return; }
+    if(rgb_raw) rgb_set(percent[0],percent[1],percent[2]);
+    else rgb_set((percent[0]*256+50)/100,(percent[1]*256+50)/100,(percent[2]*256+50)/100);
+}
+
+static char rgb_line[24];
+static uint32_t rgb_active, rgb_len, rgb_bad, rgb_last;
+static int rgb_input(char c)
+{
+    if(!rgb_active) {
+        if(c!='g'&&c!='q') return 0;
+        rgb_raw=(c=='q');
+        rgb_active=1; rgb_len=0; rgb_bad=0; rgb_last=now(); return 1;
+    }
+    rgb_last=now();
+    if(c=='\r'||c=='\n') {
+        rgb_line[rgb_len]=0;
+        if(rgb_bad) rgb_help(); else rgb_command(rgb_line);
+        rgb_active=0;
+    } else if(c=='\b'||c==127) {
+        if(rgb_len) rgb_len--;
+    } else if(rgb_len<sizeof(rgb_line)-1) rgb_line[rgb_len++]=c;
+    else rgb_bad=1;
+    return 1;
+}
+
 static void console(void)
 {
+    if(rgb_active&&us_since(rgb_last)>2000000) {
+        rgb_active=0; bsp_printf("RGB input timed out\r\n");
+    }
     while (uart_readOccupancy(BSP_UART_TERMINAL)) {
         char c = uart_read(BSP_UART_TERMINAL);
+        if(rgb_input(c)) continue;
+        if(c=='G') { rgb_set(256,256,256); continue; }
         csr_clear(mstatus, MSTATUS_MIE);
         if (c >= '0' && c <= '2') {
             uint32_t s = c - '0';
@@ -358,7 +452,7 @@ static void console(void)
             bsp_printf("weights reload: %d records, %d us\r\n", r, us);
             resume_stream();
         }
-        if (c == 'h' || c == '?') bsp_printf("commands: 0 1 2 style, v view, s status, c camera readback, w reload weights\r\n");
+        if (c == 'h' || c == '?') bsp_printf("commands: 0 1 2 style, v view, s status, c camera readback, w reload weights, g R G B percent, q R G B raw (Enter), g? query, G reset\r\n");
     }
 }
 
@@ -412,6 +506,7 @@ void main()
     bsp_printf("SC431HAI ready, %d commands; 3e00..3e02=%x %x %x 320e/f=%x %x\r\n", SC_SEQ_LEN,
                sensor_diag[0], sensor_diag[1], sensor_diag[2], sensor_diag[3], sensor_diag[4]);
     print_camera_registers();
+    print_rgb_gains();
 
     /* 风格部署：三种风格各跑一次 IN 校准作业 */
     for (uint32_t s = 0; s < 3; s++) {
@@ -437,7 +532,7 @@ void main()
     step_frame();
     csr_set(mstatus, MSTATUS_MIE);
     osd_draw();
-    bsp_printf("streaming; commands: 0 1 2 style, v view, s status, c camera readback, w reload weights\r\n");
+    bsp_printf("streaming; commands: 0 1 2 style, v view, s status, c camera readback, w reload weights, g R G B percent, q R G B raw (Enter), g? query, G reset\r\n");
 
     uint32_t t_last = now(), f_last = frames, p_last = last_pub_t, s_last = SC_SENSOR_FRAMES, uptime_ms = 0, ticks = 0;
     while (1) {

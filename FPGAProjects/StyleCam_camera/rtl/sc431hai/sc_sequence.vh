@@ -1,7 +1,7 @@
-// 2026-10-08: horizontal mirror only, 3221=06; matching GBRG conversion.
-// Original exposure 1120 half-lines (0x0460), analog gain 3e08/09=83/20 (6.16x).
-localparam CONFIG_DONE_INDEX=8'd172, STREAM_INDEX=8'd180,
-           DIAG_FIRST_INDEX=8'd184, LAST_INDEX=8'd192;
+// Vendor v3.5 table plus documented SC431HAI 6.16x analog-gain A/B trial.
+// Exposure 1120 half-lines (0x0460). Gain unchanged.
+localparam CONFIG_DONE_INDEX=8'd172, STREAM_INDEX=8'd178,
+           DIAG_FIRST_INDEX=8'd182, LAST_INDEX=8'd190;
 function [25:0] sequence_word; input [7:0] idx; begin case(idx)
 8'd0: sequence_word={2'd1,16'h3107,8'hcd};
 8'd1: sequence_word={2'd1,16'h3108,8'h6b};
@@ -180,21 +180,19 @@ function [25:0] sequence_word; input [7:0] idx; begin case(idx)
 8'd174: sequence_word={2'd0,16'h3e09,8'h20};
 8'd175: sequence_word={2'd1,16'h3e08,8'h83};
 8'd176: sequence_word={2'd1,16'h3e09,8'h20};
-8'd177: sequence_word={2'd0,16'h3221,8'h06};
-8'd178: sequence_word={2'd1,16'h3221,8'h06};
-8'd179: sequence_word={2'd0,16'h0100,8'h01};
-8'd180: sequence_word={2'd1,16'h0100,8'h01};
-8'd181: sequence_word={2'd2,16'h1388,8'h00};
-8'd182: sequence_word={2'd0,16'h4501,8'ha4};
-8'd183: sequence_word={2'd1,16'h4501,8'ha4};
-8'd184: sequence_word={2'd3,16'h3e00,8'h00};
-8'd185: sequence_word={2'd3,16'h3e01,8'h00};
-8'd186: sequence_word={2'd3,16'h3e02,8'h00};
-8'd187: sequence_word={2'd3,16'h320e,8'h00};
-8'd188: sequence_word={2'd3,16'h320f,8'h00};
-8'd189: sequence_word={2'd3,16'h3e08,8'h00};
-8'd190: sequence_word={2'd3,16'h3e09,8'h00};
-8'd191: sequence_word={2'd3,16'h3e06,8'h00};
-8'd192: sequence_word={2'd3,16'h3e07,8'h00};
+8'd177: sequence_word={2'd0,16'h0100,8'h01};
+8'd178: sequence_word={2'd1,16'h0100,8'h01};
+8'd179: sequence_word={2'd2,16'h1388,8'h00};
+8'd180: sequence_word={2'd0,16'h4501,8'ha4};
+8'd181: sequence_word={2'd1,16'h4501,8'ha4};
+8'd182: sequence_word={2'd3,16'h3e00,8'h00};
+8'd183: sequence_word={2'd3,16'h3e01,8'h00};
+8'd184: sequence_word={2'd3,16'h3e02,8'h00};
+8'd185: sequence_word={2'd3,16'h320e,8'h00};
+8'd186: sequence_word={2'd3,16'h320f,8'h00};
+8'd187: sequence_word={2'd3,16'h3e08,8'h00};
+8'd188: sequence_word={2'd3,16'h3e09,8'h00};
+8'd189: sequence_word={2'd3,16'h3e06,8'h00};
+8'd190: sequence_word={2'd3,16'h3e07,8'h00};
 default: sequence_word={2'd3,24'd0};
 endcase end endfunction

@@ -1,0 +1,189 @@
+{
+  "time": "2026-10-09T19:11:23.621881+08:00",
+  "fpga_id": "0x53430a08",
+  "reference_project": "../sc431hai_hdmi",
+  "input": "SC431HAI native BGGR RAW10 1920x1080",
+  "processing_order": "RAW10 high 8 bits -> subtract black 16 -> manual Q8.8 gains -> native BGGR reference 5x5 MHC -> original pixel Gamma -> 2x2 average -> horizontal RGB mirror in DDR capture",
+  "output": "640x480 RGB888; central 1280x960 crop; horizontal mirror retained after RGB",
+  "sensor_commands": 191,
+  "sensor_sequence_text_identical_to_reference": true,
+  "exposure_registers": [
+    "00",
+    "46",
+    "00"
+  ],
+  "analog_gain_registers": [
+    "83",
+    "20"
+  ],
+  "digital_gain_registers": [
+    "00",
+    "80"
+  ],
+  "mirror_register": "00",
+  "default_rgb_q8_8": [
+    256,
+    256,
+    256
+  ],
+  "gamma_unchanged": true,
+  "model_unchanged": true,
+  "hdmi_vic": 0,
+  "csi_fifo_depth": 1024,
+  "bit_path": "../烧录文件/20261009_RISCV08_BGGR_RGBMirror/StyleCam_RISCV08_BGGR_RGBMirror.bit",
+  "hex_path": "../烧录文件/20261009_RISCV08_BGGR_RGBMirror/StyleCam_RISCV08_BGGR_RGBMirror.hex",
+  "bit_sha256": "1ab5134a3a18c56df61b6e6f4094fbfe51834cd8798e56f53368a191d0dc9b1a",
+  "hex_sha256": "601d9c8e22758d9fdffafc460ee3d866008d4d679301066d7560d7a70c2729b8",
+  "setup_min_ns": 0.395,
+  "hold_min_ns": 0.026,
+  "resources": {
+    "XLR": {
+      "used": 60399,
+      "total": 60800
+    },
+    "RAM10": {
+      "used": 246,
+      "total": 256
+    },
+    "DSP": {
+      "used": 121,
+      "total": 160
+    }
+  },
+  "rgb_sim_passed": true,
+  "full_hd_sim": {
+    "passed": true,
+    "input": [
+      1920,
+      1080
+    ],
+    "output": [
+      640,
+      480
+    ],
+    "frames": 3,
+    "pixels": 921600,
+    "oracle": "all four native BGGR phases: reference 5x5 -> clip -> Gamma -> 2x2 RGB average; frame-atomic reference 16-bit gains, zero -> 255"
+  },
+  "mirrored_ddr_sim_passed": true,
+  "interface_regression": {
+    "passed": true,
+    "tests": {
+      "camera_rgb": {
+        "passed": true,
+        "log": "validation/camera_native_rgb_mirror/regression/camera_rgb.log"
+      },
+      "capture": {
+        "passed": true,
+        "log": "validation/camera_native_rgb_mirror/regression/capture.log"
+      },
+      "schedule": {
+        "passed": true,
+        "log": "validation/camera_native_rgb_mirror/regression/schedule.log"
+      },
+      "display": {
+        "passed": true,
+        "log": "validation/camera_native_rgb_mirror/regression/display.log"
+      },
+      "apb_regs": {
+        "passed": true,
+        "log": "validation/camera_native_rgb_mirror/regression/apb_regs.log"
+      }
+    }
+  },
+  "capture_ownership_errors_regression_passed": true,
+  "firmware_bytes": 11690,
+  "hardware_verified": true,
+  "physical_image_confirmed": true,
+  "flash_modified": true,
+  "previous_flash_release": "0x53430a04",
+  "backup": "validation/before_native_rgb_mirror_20261009_191123 (local recovery only)",
+  "build_directory": "Temporary ASCII build directory; published source hashes and place/timing/map reports identify the accepted build",
+  "source_sha256": {
+    "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin": "70825af80751c27f74533d1472ad904b059a39747c53661a931b829b54bb93bb",
+    "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin": "f1917efc49747f5f70778acc3283bc70eb429035e4f4fc9daa0c7d9d4dc6a0eb",
+    "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": "da86055baf58e371d9317b3339b9421419d96cc7acdbeb0450932c6d1ed0edf3",
+    "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin": "d3cb3a7073f62eb6469016f417a6379b0ee5bac154e08c378201059238a3fedc",
+    "ip/csi_rx_controller/csi_rx_controller.sv": "e4e5c94757a30089639a8d1af9e5a78bf6de2bffabd6603d5d702b55ee3eb0d6",
+    "ip/csi_rx_controller/csi_rx_controller_define.vh": "149c14940be1b2bb5f21f7475358e57481bf8bbb4d35929de1f01e9b8b304fc1",
+    "ip/csi_rx_controller/csi_rx_controller_tmpl.sv": "2106f9fa7c034c46a77cbb42e8cda43c63e7a168d72c577057e2a441c2a1837e",
+    "ip/csi_rx_controller/csi_rx_controller_tmpl.v": "3f04b23a6e20705198b0b3949e68e0cf0e2472f5cd87b4fe3d7a95b6682e1482",
+    "ip/csi_rx_controller/settings.json": "7a8eeff2d303f316ef781f1be6f1cd2ee948487ae5f9f21dd658985d957d70a7",
+    "ip/soc/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin": "70825af80751c27f74533d1472ad904b059a39747c53661a931b829b54bb93bb",
+    "ip/soc/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin": "f1917efc49747f5f70778acc3283bc70eb429035e4f4fc9daa0c7d9d4dc6a0eb",
+    "ip/soc/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": "da86055baf58e371d9317b3339b9421419d96cc7acdbeb0450932c6d1ed0edf3",
+    "ip/soc/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin": "d3cb3a7073f62eb6469016f417a6379b0ee5bac154e08c378201059238a3fedc",
+    "ip/soc/settings.json": "a905d72f82d84e9220096ba3a39db1eca9de261b426890c0e01a104224f5f0d5",
+    "ip/soc/soc.v": "77f181e7f1c124bcc1845631fbd5b7ba5bbefe0da122422c90d21aafc6a1ad30",
+    "ip/soc/soc_define.vh": "f3dfe53f56beea2fc26d1d9963ca869d2feb305597d83d954249cc2458201aa8",
+    "ip/soc/soc_tmpl.v": "04b9ea913f2ed5d363ab097993d3bdef55e0cb96e6984599c047b4d83e5b8bae",
+    "model/camera_gamma.mem": "b596fd5d031670e641085280016783b1892bd9a51978951df06069e8f8d474f8",
+    "rtl/common.v": "bbbbbf33b5434db29a435992dd36eafdf0a9244e29b9ef42060e67b409ccee30",
+    "rtl/conv_layer.v": "57bad6453a48587eca7183931521973b2cc027483577e3d555ea9e01eab7fc21",
+    "rtl/ddr3_controller/axi4_bus_ctl/axi4_bus_ctl.v": "e908d8045fe2332a1740f3aca0226b5fe0bf4d03e25b040fe0f32015d573ad5b",
+    "rtl/ddr3_controller/common/efx_fifo_v2.3/efx_fifo_wrapper.v": "040558d9dafd6d7f4c6610b8cd8040cdedc3f95b58a6f31f32dbd7429182eb98",
+    "rtl/ddr3_controller/ddr3_parameter.vh": "960e8bc3e64febc26e18230aadb76e7e9781c9017062f2c852b77218511a017d",
+    "rtl/ddr3_controller/ddr3_top.v": "7d8d9cd8a2c69e44ebe9a143f91e6591136aa57f3be22b2cff76904f67d0236a",
+    "rtl/ddr3_controller/lb2_axi_clk.v": "9cef7d5361e79d8c7f1deeab3af981444941ea50447c6c7c8b782e381f41dc2d",
+    "rtl/ddr3_controller/local_bus_ctl/local_bus_ctl.v": "822d5d0f54c7ba0ea8d66f19f1e97cdea3a159932c64295dfe5ca86f9f814608",
+    "rtl/ddr3_controller/memory_bus_ctl/memory_bus_ctl.v": "a12b886a37278bd44bc207c2debd11156eab1d579e4e3aa7702b229508778882",
+    "rtl/ddr3_controller/phy_ctl/ddr_calibration_ini.v": "7a6976bceca5e4598ed9c53c17b522e7c86e07c97f0dbda16f8286d321035522",
+    "rtl/ddr3_controller/phy_ctl/ddr_mpr_rdlvl.v": "08446b90c5897750ae6214918981de8262513745da7f7d25850ba6a124b9763e",
+    "rtl/ddr3_controller/phy_ctl/ddr_phy_if.v": "ce8dfd7600e8be615611d353cc6b62e7ccf6411d22ac47c45f9b650ad908584b",
+    "rtl/ddr3_controller/phy_ctl/ddr_phy_rdlvl_dqs.v": "bb5e2c9d76c2816164a9bfcbf51a3c2760d897c1340ae493d29867fee601e31f",
+    "rtl/ddr3_controller/phy_ctl/ddr_phy_wrcal.v": "50acbb56f307a0fc9847981216389d41438649993908fdf96c09d823ee7e5ca9",
+    "rtl/ddr3_controller/phy_ctl/ddr_phy_wrlvl.v": "aec2c9677c03e1110c542ccc643c1ea0458f1f7fbb93dcaad105a7623d4a8591",
+    "rtl/ddr3_controller/phy_ctl/phy_ctl.v": "2b106e88fb017cbcda86a6ace62f81049d9725a79d4a2ffe9b44672bb4dbc08b",
+    "rtl/dual_clock_fifo.v": "2d6f56dedb23fb47e10d412e97e987f338a30fc39c86b1ada4d356fb2f3893dd",
+    "rtl/dvi_tx/audio_clock_regeneration_packet.sv": "a00a00548fd646d3cbc4e706410cdc8360f3a48700d3ca5b5c4dce5761c19cc3",
+    "rtl/dvi_tx/audio_infoframe_packet.sv": "d09b51e8b389647499f31b3e06123aa0ea4fbd096e4fe3d102824d5d95a23831",
+    "rtl/dvi_tx/audio_packet.sv": "94b5d63d5aecff2979795606aa494bf5bc5201d6e3a4c85f6736d4c85d7c9ca9",
+    "rtl/dvi_tx/auxiliary_video_information_info_frame.sv": "994994405fa384f531e1b2de55f52cd344b3b37b8539a3f7cd30adafcce3e161",
+    "rtl/dvi_tx/dvi_encoder.v_encrypted.v": "2a35ca4e11dd93b3c329eef7c9e1d94498864c80041672c01e86ec1450e60381",
+    "rtl/dvi_tx/ecc_calc_v1.v": "7bace5b6945f65a0cc9b3593a81eb92130c4f2a1043d1d427ed8c3fc0429c8bd",
+    "rtl/dvi_tx/efx_fifo.v": "0f9be5de03c280743837b1b27011b95d9203bc0daa414cec45d676a76dde0581",
+    "rtl/dvi_tx/efx_fifo_define.vh": "6f231c473c47144f223714938cfe6f3f73131a8adf3e3b7d73371b130e06ae63",
+    "rtl/dvi_tx/encode.v_encrypted.v": "d1a0a8139a41f13736ba97c65a9f481267c0642acd51f2c66120e0e7f543bd3f",
+    "rtl/dvi_tx/packet_assembler.sv": "76287f0e960fa1abdd650ca01d8f66d22dd9afae7248a5f5c86b4862c44a3514",
+    "rtl/dvi_tx/Sc_Fifo_Slr8.v": "6dc746e307436d3b6f0881e24b654a349fceeda4ca76025fdc4c310c1d47c9e6",
+    "rtl/dvi_tx/tx_aux.v_encrypted.v": "579c75fab971980053dfc9b4fa07de2431bda6dd0e37515f427a5b2f869d72b5",
+    "rtl/mac.v": "c654f3081fb89e24eb41f2dd3f6c2767b1be8dd8682859ac30274e0706ad1861",
+    "rtl/requant.v": "1d55ae86dca265d72384af8eed102187af1049d31479530a6d235645aaf9e061",
+    "rtl/reset.v": "126540013b52b8cab339cdaf57b1a6947d3088e97eeb9cb84fb68448f8a2e978",
+    "rtl/sc431hai/i2c_reg16.v": "ab40eeffd3b07201e4aaef7351c6e39bc7422d7f3b9977c2ae26e049c8ce0570",
+    "rtl/sc431hai/sc_sequence.vh": "308b123fa9a83a0f892f84738c2fdf7218f054228f4fb8d80e0f9d085f77b952",
+    "rtl/sc_apb_regs.v": "42c97149f69baab438e6d73f7fa7a850c31e819c5f87ba8240722592cb86b80c",
+    "rtl/sc_async_fifo.v": "cc7f11fccca7fe1fce990b6585b02391c13c2d49cc256a234e8ccc23041a8e40",
+    "rtl/sc_button.v": "45495fe5660b9408010da03027b9c9a93d77e8be3b29ef19bef2ffc06b7e2125",
+    "rtl/sc_camera_rgb.v": "bf582d25779a24462228556c17bdb83983743eb108532f8b79000396fa358a23",
+    "rtl/sc_capture.v": "54ef72d1355e8df63bbd56101e526c7f0e66195182e665ab0f95991cce329fef",
+    "rtl/sc_display.v": "527288d27b12fa757af17231176f49c3e116cf297ea1b00ed8ce71dc36b2484c",
+    "rtl/sc_engine.v": "423a8d454166e7ec0a5d934566f46de86650e721e0d72ba398b4d2256c08cbde",
+    "rtl/sc_in_alu.v": "d2e11d938d5e8dc3702c25e622a0c6488d4e6bcb7a4dbf30214679751c7ff9d8",
+    "rtl/sc_in_math.v": "a91f31536685005eda9e9982fd02dea262433b285b4eac09005ac8969c69ae3b",
+    "rtl/sc_in_refresh.v": "e786fa1eff5be873ad1120f3e3a5ef52e0e1c56602cf9afaeb566e7e5622007a",
+    "rtl/sc_read_arbiter.v": "ca546fe6b0b894acf16016ed315ea26cc46785299a007cc674306ef1d02c37f4",
+    "rtl/sc_replay.v": "e34c0f1811563a33acf3f8bdbb2f5e7295c553f01e62030dbb536fa5b0aadb0c",
+    "rtl/sc_video_schedule.v": "6d3ea5bd527112b554a24534bb97c6bb029ab1f3ef1b49e37311ea9413563d3d",
+    "rtl/sc_write_arbiter.v": "072564197195812ab3853eb5d6f3f70199968c1f5d4114e6231f89f10777e228",
+    "rtl/simple_dual_port_ram.v": "01b74e74d39c4e4ae380bc7be73329987b17fffaea58bc7c92a9b24e4a110c5d",
+    "rtl/stylenet_top.v": "308b9868c2a6ee71aa0e40ab59c11debef11b6546b729c18ef72bf6850722ae8",
+    "rtl/swg3.v": "744e3bf138aed08d6dfa2f52e3b74f5a18cd4f317f50453624c84ba7ed7f6bdb",
+    "rtl/swg3b.v": "7da6afa86be298e89de225cfa80e3a67265780b4dd27bb42fedfb4a5d42bb507",
+    "rtl/ti60f225_oob_top.v": "0457a8dd393e923187ad0a7f2f763c39acd820ef2c35f287b2ac3ec59586be15",
+    "rtl/true_dual_port_ram.v": "44bfb696e997b4d31bfd3c414623623c9b60964bfe711c611cf80a39222e8e8f",
+    "rtl/user_dual_port_ram.v": "f522e90f71c388ba4e2e91fd2506039982bdb60b8bb4710d6d99f8895e9367df",
+    "ti60f225_oob.peri.xml": "bee856a9ac8e8359d512d5bf2d85b363722f63f1ecf9325b78657c46506f3408",
+    "ti60f225_oob.sdc": "9d92a856aae45f0242bab7dded606d30bbe85f6e9075c5c7ede43b9abb92fff0"
+  },
+  "uart_registers_verified": true,
+  "final_view": 0,
+  "user_feedback": "这回正常了",
+  "user_confirmation_time": "2026-10-09T19:19:23.861869+08:00",
+  "successful_confirmation_after_repeat_jtag": true,
+  "flash_boot_verified": true,
+  "flash_payload_bytes": 1073814,
+  "flash_acceptance_record": "../烧录文件/20261009_RISCV08_BGGR_RGBMirror/flash_acceptance.json",
+  "flash_boot_time": "2026-10-09T19:30:14.2853620+08:00",
+  "final_view_note": "Flash reboot defaults to split view; KEY2 or UART v cycles layouts"
+}
