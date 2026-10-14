@@ -110,6 +110,9 @@
         <efxpt:comp_gpio name="uart_tx" gpio_def="GPIOR_28" mode="output" bus_name="" io_standard="3.3 V LVCMOS">
             <efxpt:output_config name="uart_tx" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" delay="0" is_serial="false" drive_strength="4" fastclk_name="" />
         </efxpt:comp_gpio>
+        <efxpt:comp_gpio name="stream_tx" gpio_def="GPIOL_01" mode="output" bus_name="" io_standard="3.3 V LVCMOS">
+            <efxpt:output_config name="stream_tx" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" delay="0" is_serial="false" drive_strength="4" fastclk_name="" />
+        </efxpt:comp_gpio>
         <efxpt:comp_gpio name="CLK_25M" gpio_def="GPIOL_P_08" mode="input" bus_name="" io_standard="1.8 V LVCMOS">
             <efxpt:input_config name="CLK_25M" name_ddio_lo="" conn_type="gclk" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none" is_bus_hold="false" delay="0" is_serial="false" is_dyn_delay="false" fastclk_name="" pullup_ena_name="CLK_25M_PULL_UP_ENA" dyn_delay_en_name="CLK_25M_DLY_ENA" dyn_delay_reset_name="CLK_25M_DLY_RST" dyn_delay_ctrl_name="CLK_25M_DLY_CTRL" clkmux_buf_name="" />
         </efxpt:comp_gpio>

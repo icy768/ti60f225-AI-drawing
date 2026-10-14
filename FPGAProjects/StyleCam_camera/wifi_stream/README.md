@@ -70,17 +70,76 @@
 - `sc_stream_tap`：`SRC_W=1920, SRC_H=1080, SX=20, SY=20, PACE_WORDS=1024`
 - `sc_stream_link`：`OUT_W=96, OUT_H=54, DIV=33, FMT=0`（`DIV=100MHz/3.03Mbaud`）
 
-### 3.2 Efinity 里要做的两件事
+### 3.2 Efinity 工程改动（**已完成**）
 
-1. 在 **interface designer** 的 GPIO 列表里新增 `stream_tx`（Output，3.3V），
-   再在 `.peri.xml` 里指定一个**空闲** 3.3V 引脚。
-2. 生成/重新综合位流。软件（RISC-V 固件）改动见第 5 节。
+三处都已经改好并跑通 `interface` / `map` 流程，不需要你在 GUI 里再点：
 
-### 3.3 资源占用（预估）
+1. **引脚已分配**。`ti60f225_oob.peri.xml` 里新增了
 
-新增逻辑很小，对 Ti60F225 **RAM10** 影响约 1 块：FIFO 是 `16bit × 4096 = 8 KB`，由
-`sc_async_fifo` 用双口 RAM 拼出，按 BRAM 原语折算约 1～2 块 RAM10（× 9bit 组），
-其余是几百个 LUT/FF。当前设计已用 237/256 块 RAM10，余量足够。
+   ```
+   stream_tx  ->  GPIOL_01  (物理引脚 R3, BL 区, 3.3V LVCMOS, output)
+   ```
+
+   选 R3 是因为它和现有 `uart_rx`（GPIOL_02，物理 **R4**）**在同一区且 BGA 位置紧邻**，
+   排针上就在隔壁，接 ESP32 最省事。工具实际生成的 `outflow/ti60f225_oob.pinout.csv`：
+
+   ```
+   R3,GPIOL_01,stream_tx,Output,BL,3.3 V,3.3 V LVCMOS,,User IO
+   R4,GPIOL_02,uart_rx ,Input ,BL,3.3 V,3.3 V LVCMOS,weak pullup,User IO
+   ```
+
+   想换别的空闲 3.3V 脚，改 `peri.xml` 那一行的 `gpio_def` 即可（`outflow/*.pinout.csv`
+   里信号名为空的行就是空闲脚）。
+
+2. **源文件已登记**。`ti60f225_oob.xml` 的 `design_file` 清单是**手工列的**，新增 RTL
+   不会自动进去——漏登记的表现是综合前期直接报
+   `instantiating unknown module 'sc_stream_tap'`。已补上 `sc_stream_tap.v`、
+   `sc_stream_link.v`、`uart_byte.v` 三项。**以后再加 RTL 文件，记得同步这份清单。**
+
+3. 重新综合/布线即可（软件侧改动见第 5 节）。
+
+### 3.3 资源占用
+
+实测（`build.py map` 的 `outflow/ti60f225_oob.res.csv`）：
+
+| 模块 | FF | LUT | RAM10 |
+|---|---|---|---|
+| `preview_tap` (`sc_stream_tap`) | 31 | 38 | 0 |
+| `preview_fifo` (`sc_async_fifo W=16,AW=12`) | 103 | 82 | **8** |
+| `preview_link` (`sc_stream_link`) + `uart_byte` | 149 | 273 | 0 |
+
+FIFO 是 `16bit × 4096`，实测占 **8 块 RAM10**（不是我最初估的 1 块）。
+Ti60F225 共 **256** 块 RAM10，本设计综合后 **254/256** —— 装得下，但**余量只剩 2 块**。
+
+> 再省 RAM10 只能连预览尺寸一起缩（例如 64×36 配 `AW=11`，省 4 块）。
+> **单把深度降到 `AW=11` 不行**：`sc_stream_tap` 写 FIFO 的瞬时速率远高于
+> `sc_stream_link` 的发送速率（3.03 Mbaud ≈ 0.15 字/µs），一场内净增约 2.7K 字，
+> 起始占用上限 `PACE_WORDS=1024` ⇒ 峰值约 3.7K 字，2048 深度会频繁写满、
+> `tap_drops` 飙升。
+
+### 3.4 构建验证（本机已跑通，非预估）
+
+| 流程 | 命令 | 结果 |
+|---|---|---|
+| interface | `build.py interface` | **PASS** |
+| map（综合） | `build.py map` | **PASS**（RAM10 254/256） |
+| pnr（布局布线） | `build.py pnr` | **PASS** |
+
+时序（`outflow/ti60f225_oob.timing.rpt`，所有约束均为正余量）：
+
+| 时钟域 | 约束 | setup slack | hold slack |
+|---|---|---|---|
+| 全局最差：`sdram_clk`→`sdram_clk`（DDR3，与本次改动无关） | 2.500 ns | **+0.341 ns** | +0.042 ns |
+| `hdmi_tx_slow_clk`（`preview_tap` 所在域，148.5 MHz） | 6.734 ns | +1.906 ns | +0.026 ns |
+| `core_clk`（`preview_fifo` / `preview_link`，100 MHz） | 10.000 ns | +0.499 ns | +0.026 ns |
+
+新增逻辑**不在关键路径上**，两个自有域都有充裕余量。
+
+需要 Efinity 环境（路径按本机实际安装调整）：
+
+```bash
+STYLECAM_EFINITY=D:/yilinsiFPGA/efinity/2026.1 python build.py interface   # 或 map / pnr
+```
 
 ---
 

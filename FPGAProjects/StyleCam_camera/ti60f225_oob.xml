@@ -51,6 +51,9 @@
         <efx:design_file name="rtl/sc_display.v" version="default" library="default"/>
         <efx:design_file name="rtl/sc_engine.v" version="default" library="default"/>
         <efx:design_file name="rtl/sc_apb_regs.v" version="default" library="default"/>
+        <efx:design_file name="rtl/sc_stream_tap.v" version="default" library="default"/>
+        <efx:design_file name="rtl/sc_stream_link.v" version="default" library="default"/>
+        <efx:design_file name="rtl/uart_byte.v" version="default" library="default"/>
         <efx:design_file name="rtl/stylenet_top.v" version="default" library="default"/>
         <efx:design_file name="rtl/swg3.v" version="default" library="default"/>
         <efx:design_file name="rtl/swg3b.v" version="default" library="default"/>
