@@ -5,6 +5,7 @@
 /.vscode/
 *.pdf
 *.log
+*.vcd
 **/__pycache__/
 **/.venv/
 **/data/
