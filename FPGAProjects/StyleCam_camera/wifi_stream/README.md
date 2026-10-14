@@ -26,7 +26,7 @@
                                                               ▼
                                                           stream_tx ──► 空闲 3.3V GPIO
                                                                                     │
-  离线语音模块 ──UART(9600)──► ESP32-S3 UART2 ─┐                                     │
+  安信可 VC-02 ──UART 115200──► ESP32-S3 UART2 ─┐                                    │
                                               ├─► ESP32-S3 UART1 RX ◄────────────────┘
   手机浏览器/APP ◄──WiFi(SoftAP)── ESP32-S3 ──┘
    FPGA 串口控制台 uart_rx ◄──── ESP32-S3 UART1 TX（把语音识别结果当控制台命令转发）
@@ -44,8 +44,10 @@
 | FPGA | Ti60F225 | `stream_tx` | 需在 Efinity interface designer 里分配到**空闲 3.3V GPIO** |
 | FPGA ↔ ESP32 | ESP32-S3-N16R8 | `GPIO18` (UART1 RX) | 接 FPGA `stream_tx`，3.03 Mbaud |
 | FPGA ↔ ESP32 | ESP32-S3-N16R8 | `GPIO17` (UART1 TX) | 接 FPGA `uart_rx`（现有控制台 RX） |
-| 语音 ↔ ESP32 | ESP32-S3-N16R8 | `GPIO16` (UART2 RX) | 接语音模块 TX，默认 9600 |
-| 语音 ↔ ESP32 | ESP32-S3-N16R8 | `GPIO15` (UART2 TX) | 可选，接语音模块 RX |
+| 语音 ↔ ESP32 | ESP32-S3-N16R8 | `GPIO16` (UART2 RX) | 接 VC-02 的 `B7`(UART1_TX)，115200 |
+| 语音 ↔ ESP32 | ESP32-S3-N16R8 | `GPIO15` (UART2 TX) | 可选，接 VC-02 的 `B6`(UART1_RX) |
+| 语音供电 | VC-02 | `3V3` / `GND` | 必须稳定 3.3V 且共地，否则识别时会重启 |
+| 语音播报 | VC-02 | `SPK+` / `SPK-` | 8Ω 2W 扬声器（官方建议，别用更大功率） |
 | 共地 | — | GND | 三块板必须共地 |
 
 > `uart_rx` / `uart_tx` 在现有约束里已占用 `GPIOL_02` / `GPIOR_28`，因此 `stream_tx` 必须
@@ -91,6 +93,8 @@ ESP32 开一个 SoftAP，手机连上后浏览器打开 `http://192.168.4.1/`：
 - 页面自带预览（96×54 放大显示，`image-rendering: pixelated` 保持锐利）
 - 风格按钮 **Style 0 / 1 / 2**、**Toggle layout**、**Print status**，直接下发控制台命令
 - 实时显示 fps、帧序号、CRC 错误、同步丢失、剩余堆/PSRAM
+- 底部 **Voice module** 面板：实时列出语音模块发来的原始字节，用来填 `VOICE_RULES`
+  （详见 [`docs/voice_vc02.md`](docs/voice_vc02.md)）
 
 这条路的帧数据走 `/frame.raw`（原始 RGB565，页面用 canvas 展开），
 适合答辩现场"不用装任何东西"。
@@ -114,21 +118,51 @@ ESP32 开一个 SoftAP，手机连上后浏览器打开 `http://192.168.4.1/`：
 
 ---
 
-## 5. 语音控制
+## 5. 语音控制（模块：安信可 VC-02）
 
-两条路，**建议先用 A**。
+`uart_rx` 这条线本来就是 RISC-V 的串口控制台，所以语音只要能把识别结果变成
+`0 / 1 / 2 / v / s` 这几个字符，**FPGA 侧一行都不用改**。两条路，**建议先用 A**。
 
 ### A. 经 ESP32 映射（推荐，FPGA 侧零改动）
 
-语音模块把识别结果以单字符输出（在模块的上位机里配成 `1` / `2` / `3` / `V` / `S`）：
-
 ```
-语音 "第一张" → 模块发 '1' → ESP32 UART2 收到 → 映射成 '0' → 经 UART1 TX 转发到 FPGA uart_rx
-                                              → 现有 console() 执行"切到风格 0"
+说"梵高风格"
+   → VC-02 吐 5 字节  A1 00 01 01 FF
+   → ESP32 UART2 收到，按 VOICE_RULES 匹配
+   → 映射成 '0' → 经 UART1 TX 转发到 FPGA uart_rx
+   → 现有 console() 执行"切到风格 0"
 ```
 
-映射表写在 `esp32s3_stream/config.h`，去抖 300 ms（`VOICE_DEBOUNCE_MS`）。
-**FPGA / RISC-V 固件不需要任何改动**，因为 `uart_rx` 就是现有串口控制台的那条线。
+**这里有一个必须知道的坑**：VC-02 的串口输出**不是固定协议**——每个命令词发什么字节，
+是你在安信可语音开放平台上**一条条手填的**（默认模板 5 字节：
+`0xA1 指令开头 | 设备位置 | 设备类型 | 开关状态 | 0xFF 结束`）。所以网上抄来的字节序列
+多半对不上，正确做法是**先抓包、再填表**：
+
+- **看串口日志**：说一句话，ESP32 会打印
+  `[voice] unmatched: A1 00 01 01 FF   <- put this in VOICE_RULES (config.h)`
+  —— 这一行就是**可以直接粘贴的格式**
+- **或看网页面板**：内置网页最下方 **Voice module** 面板，勾上后实时列出收到的字节
+  （新的在最上面）；也可以直接看 `http://192.168.4.1/voice`
+
+把抓到的字节贴进 `config.h` 的 `VOICE_RULES`（支持 `??` 通配），重新烧录 ESP32 即可：
+
+| 命令词 | 串口数据 | 映射到控制台 | 动作 |
+|---|---|---|---|
+| 梵高风格 | `A1 00 01 01 FF` | `0` | 风格 0 VAN GOGH |
+| 浮世绘 | `A1 00 02 01 FF` | `1` | 风格 1 UKIYO-E |
+| 水墨画 | `A1 00 03 01 FF` | `2` | 风格 2 INK WASH |
+| 切换画面 | `A1 00 04 01 FF` | `v` | 循环切换布局 |
+| 当前状态 | `A1 00 05 01 FF` | `s` | 打印状态 |
+
+匹配规则是**帧长必须完全一致**：`A1 00 01 01 FF` 只认 5 字节，收到 4 字节或 6 字节都不命中。
+这是**故意的**——半截帧或混进杂字节的帧如果算命中，就会在莫名其妙的时候把风格切走。
+表写错也不用手动上板试：`tools/check_host.sh` 会把 `VOICE_RULES` 逐条编译进去验证。
+
+> `config.h` 里的 `VOICE_MODE` 还有个取值 `2`，是给"直接打印 ASCII 字符"的模块用的
+> （比如模块输出 `1` / `2` / `3`）。切换它就能换一种解析方式。
+
+**VC-02 的完整配置步骤**（平台里每一项怎么填、线怎么接、有哪些坑）见
+**[`docs/voice_vc02.md`](docs/voice_vc02.md)**。
 
 ### B. 语音模块直连 FPGA（可选，编译期开关，默认关闭）
 
@@ -254,13 +288,20 @@ cd FPGAProjects/StyleCam_camera/wifi_stream
 bash tools/check_host.sh
 ```
 
-做三件事：
+做五件事：
 
 1. 用 g++ 对 sketch 做类型检查（**含** MJPEG 分支）
 2. 临时藏起 `esp_camera.h` 再做一次（**不含** esp32-camera 库的降级分支）
-3. 跑 `tools/test_frame_parser.py`：用 Python 复现 RTL 成帧规则，喂给与
+3. 用 `-DVOICE_MODE=2` 再编一次（语音字符模式分支，平时不编到）
+4. **编译并运行** `tools/host_stub/voice_test.cpp`：把真实的
+   `esp32s3_stream.ino` 编进宿主机可执行文件，直接调用里面的匹配函数，
+   验证十六进制规则语法、`??` 通配、**帧长不等即不命中**、以及各条
+   `VOICE_RULES` 都够得到
+5. 跑 `tools/test_frame_parser.py`：用 Python 复现 RTL 成帧规则，喂给与
    `readFpgaTask()` 逐一对应的状态机，验证 CRC 自检值、正常帧逐字节还原、
    坏帧被拒、伪造超大长度不越界
+
+预期结尾：`5 passed, 0 failed`。
 
 ---
 
@@ -272,10 +313,11 @@ bash tools/check_host.sh
   效果、手机看交互**。
 - `sc_stream_link` 在抽点被中断时会 `DRAIN` 掉当前帧并重新开始，接收端会丢这一帧（已计入
   `/status` 的 `crc_errors` / `sync_losses`）。
-- 语音模块具体型号尚未确认（用户提供的截图分辨率不足，无法辨认丝印）。
-  只要模块能配置成输出**单字符**（A 方案）或**英文单词**（B 方案）即可直接用；
-  若模块输出的是中文拼音/固定二进制码，需要把映射表改成对应字节——映射表集中在
-  `config.h`（A 方案）与 `main.c` 的 `vocab_dispatch()`（B 方案），改起来是一处改动。
+- 语音模块型号为**安信可 VC-02**（VC-02-Kit），配置步骤见
+  [`docs/voice_vc02.md`](docs/voice_vc02.md)。它的串口输出**由用户在平台上自定义**，
+  所以 `config.h` 里那张 `VOICE_RULES` 表**必须按实物抓包结果填**，
+  仓库里的默认值是按平台 5 字节模板给的示例，不保证和你手上这块一致。
+  好在抓包不需要额外工具：串口日志或内置网页的 Voice 面板就能看到原始字节。
 
 ---
 
@@ -285,13 +327,16 @@ bash tools/check_host.sh
 wifi_stream/
 ├── README.md                     ← 本文件
 ├── docs/
-│   └── phone_apps.md             ← 开源手机端 App 调研
+│   ├── phone_apps.md             ← 开源手机端 App 调研
+│   └── voice_vc02.md             ← VC-02 配置、接线、抓包、填表全流程
 ├── esp32s3_stream/
 │   ├── esp32s3_stream.ino        ← 主固件
-│   ├── config.h                  ← WiFi / 波特率 / 预览尺寸 / 语音去抖与映射
+│   ├── config.h                  ← WiFi / 波特率 / 预览尺寸 / 语音规则表
 │   └── web_page.h                ← 内置预览网页（PROGMEM）
 └── tools/
-    ├── check_host.sh             ← 一键跑下面两项检查
+    ├── check_host.sh             ← 一键跑下面所有检查（不需要 ESP32 工具链）
     ├── test_frame_parser.py      ← 帧解析器自测（对照 RTL 成帧规则）
-    └── host_stub/                ← 宿主机 g++ 类型检查用的 Arduino 桩头文件
+    └── host_stub/                ← 宿主机 g++ 检查用的 Arduino 桩头文件
+        ├── voice_test.cpp        ← 语音规则匹配自测（编译真实固件代码后运行）
+        └── shim.cpp              ← 桩所需的少量符号定义（仅宿主机用）
 ```

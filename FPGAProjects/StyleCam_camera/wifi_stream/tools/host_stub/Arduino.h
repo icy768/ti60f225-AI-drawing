@@ -33,6 +33,10 @@ extern HostSerial Serial, Serial1, Serial2;
 void delay(uint32_t);
 uint32_t millis();
 
+/* ---- critical section (the sketch guards its tiny voice-capture buffer with these) ---- */
+inline void noInterrupts() {}
+inline void interrupts() {}
+
 /* ---- FreeRTOS shim ---- */
 typedef void (*TaskFn)(void *);
 void xTaskCreatePinnedToCore(TaskFn, const char *, uint32_t, void *, uint32_t, void **, int);

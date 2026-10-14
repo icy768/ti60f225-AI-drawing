@@ -26,6 +26,17 @@ if ( cd "$here/host_stub" && "$gxx" -std=gnu++17 -fsyntax-only -Wall -Wextra \
      -Wno-unused-parameter -I. main.cpp ); then ok "fallback build"; else bad "fallback build"; fi
 ( cd "$here/host_stub" && mv .off_esp_camera.h esp_camera.h && mv .off_img.h img_converters.h )
 
+note "sketch type-check (VOICE_MODE 2, text-printing voice modules)"
+if ( cd "$here/host_stub" && "$gxx" -std=gnu++17 -fsyntax-only -Wall -Wextra \
+     -Wno-unused-parameter -DVOICE_MODE=2 -I. main.cpp ); then ok "voice char mode"; else bad "voice char mode"; fi
+
+note "voice frame matching self-test (compiles and runs the real sketch functions)"
+vc=0
+if ( cd "$here/host_stub" && "$gxx" -std=gnu++17 -Wall -Wextra -Wno-unused-parameter -I. \
+       voice_test.cpp shim.cpp -o .voice_test.exe ) && "$here/host_stub/.voice_test.exe"; then vc=1; fi
+rm -f "$here/host_stub/.voice_test.exe"
+if [ "$vc" -eq 1 ]; then ok "voice matching"; else bad "voice matching"; fi
+
 note "frame parser self-test"
 if "$py" "$here/test_frame_parser.py"; then ok "parser"; else bad "parser"; fi
 

@@ -12,12 +12,16 @@
  *   GET /stream      MJPEG on port 81 (only when the esp32-camera library is installed)
  *   GET /status      JSON counters: frames, fps, CRC errors, drops, style, voice events
  *   GET /cmd?c=0     forward one console command to the RISC-V (0/1/2 style, v view, s status)
+ *   GET /voice       what the voice module actually sent, so the rule table can be filled in
  *
  * Voice control
- *   The offline voice module talks to UART2.  Configure it to emit the single characters
- *   1 / 2 / 3 / V on recognition; they are mapped to the RISC-V console commands
- *   0 / 1 / 2 / v and forwarded on UART1 TX, which is wired to the FPGA `uart_rx` pin -
- *   exactly the line the serial console already uses, so no FPGA-side protocol is added.
+ *   The Ai-Thinker VC-02 talks to UART2 (115200 8N1).  It reports one hex frame per
+ *   recognised command word and - this matters - those bytes are typed in by hand on
+ *   the voice platform, so nothing can be assumed about them.  Each frame is matched
+ *   against VOICE_RULES in config.h and mapped onto the RISC-V console commands
+ *   0 / 1 / 2 / v / s, which are then forwarded on UART1 TX.  That is the very line
+ *   the serial console already uses, so no FPGA-side protocol is added.  Unmatched
+ *   frames are logged and kept for GET /voice, which is how the table gets filled in.
  *
  * Board settings (Arduino IDE, ESP32 core 3.x)
  *   Board            : ESP32S3 Dev Module
@@ -70,6 +74,8 @@ static volatile uint16_t lastSeq = 0;
 static uint32_t fpsWindow = 0, fpsValue = 0;
 static volatile char lastVoice = 0;
 static volatile uint32_t voiceCount = 0, cmdCount = 0;
+/* Voice diagnostics: every burst seen, and how many matched no rule. */
+static volatile uint32_t voiceRaw = 0, voiceUnknown = 0;
 static uint32_t frameW = PREVIEW_W, frameH = PREVIEW_H;
 
 static WebServer server(80);          /* control + snapshots + built-in page        */
@@ -268,15 +274,17 @@ static void streamTask(void *) {
 #endif
 
 static void handleStatus() {
-  char buf[384];
+  char buf[448];
   snprintf(buf, sizeof(buf),
            "{\"frames\":%lu,\"fps\":%lu,\"seq\":%u,\"w\":%lu,\"h\":%lu,"
            "\"crc_errors\":%lu,\"sync_losses\":%lu,\"commands\":%lu,\"voice\":%lu,\"last_voice\":%d,"
+           "\"voice_raw\":%lu,\"voice_unknown\":%lu,"
            "\"heap\":%lu,\"psram\":%lu}",
            (unsigned long)frameCount, (unsigned long)fpsValue, (unsigned)frameSeq,
            (unsigned long)frameW, (unsigned long)frameH,
            (unsigned long)crcErrors, (unsigned long)syncLosses, (unsigned long)cmdCount,
            (unsigned long)voiceCount, (int)lastVoice,
+           (unsigned long)voiceRaw, (unsigned long)voiceUnknown,
            (unsigned long)ESP.getFreeHeap(), (unsigned long)ESP.getFreePsram());
   server.send(200, "application/json", buf);
 }
@@ -290,28 +298,186 @@ static void handleCmd() {
 }
 
 /* ------------------------------------------------------------------ UART2 voice bridge */
+/*
+ * The VC-02 reports one short hex frame per command word, and those bytes are typed in
+ * by hand on the voice platform - so this deliberately is not a fixed parser.  A frame
+ * is delimited by an inter-byte gap, matched against VOICE_RULES, and every frame is
+ * remembered so it can be read back from GET /voice and pasted into config.h.
+ */
+#if VOICE_MODE == VOICE_MODE_FRAME
+
+static uint8_t  vHist[VOICE_CAPTURE_DEPTH][VOICE_BURST_MAX];
+static volatile uint8_t vHistLen[VOICE_CAPTURE_DEPTH];
+static volatile uint32_t vHistHead = 0;
+static char vLastPat[4 * VOICE_BURST_MAX] = "";
+
+static int hexNib(char c) {
+  if (c >= '0' && c <= '9') return c - '0';
+  if (c >= 'a' && c <= 'f') return c - 'a' + 10;
+  if (c >= 'A' && c <= 'F') return c - 'A' + 10;
+  return -1;
+}
+
+/* Render bytes the way they are written in VOICE_RULES: "A1 00 01 01 FF". */
+static void fmtBurst(char *dst, int cap, const uint8_t *b, int n) {
+  int p = 0;
+  for (int i = 0; i < n && p < cap - 3; i++)
+    p += snprintf(dst + p, (size_t)(cap - p), i ? " %02X" : "%02X", b[i]);
+  dst[p] = 0;
+}
+
+/* "A1 00 ?? FF" -> {0xA1, 0x00, 0x100, 0xFF}.  Token count, or 0 for a malformed rule. */
+static int patParse(const char *pat, uint16_t *out) {
+  int n = 0;
+  while (*pat && n < VOICE_BURST_MAX) {
+    while (*pat == ' ' || *pat == '\t') pat++;
+    if (!*pat) break;
+    if (pat[0] == '?' && pat[1] == '?') { out[n++] = 0x100; pat += 2; continue; }
+    int hi = hexNib(pat[0]), lo = hexNib(pat[1]);
+    if (hi < 0 || lo < 0) return 0;
+    out[n++] = (uint16_t)((hi << 4) | lo);
+    pat += 2;
+  }
+  return n;
+}
+
+/* Match against an arbitrary rule table so the host self-test can feed its own.
+ * A rule only fires on an exact token-count match: a truncated or padded burst must
+ * not be mistaken for a hit, which is also why leading junk never matches. */
+static char ruleMatchIn(const voiceRule_t *rules, unsigned count, const uint8_t *b, int n) {
+  for (unsigned r = 0; r < count; r++) {
+    uint16_t pat[VOICE_BURST_MAX];
+    int pn = patParse(rules[r].pat, pat);
+    if (pn <= 0 || pn != n) continue;
+    bool hit = true;
+    for (int i = 0; i < pn; i++)
+      if (pat[i] != 0x100 && pat[i] != b[i]) { hit = false; break; }
+    if (hit) return rules[r].cmd;
+  }
+  return 0;
+}
+
+static char ruleMatch(const uint8_t *b, int n) {
+  return ruleMatchIn(VOICE_RULES, (unsigned)VOICE_RULE_COUNT, b, n);
+}
+
+/* A frame is whatever arrives back to back; the first silent gap ends it. */
+static bool burstDone(int n, uint32_t now, uint32_t lastByte) {
+  return n > 0 && (now - lastByte >= VOICE_GAP_MS || n >= VOICE_BURST_MAX);
+}
+
+/* Runs from the voice task only. */
+static void voiceHandleBurst(const uint8_t *b, int n, uint32_t now) {
+  static uint32_t lastMs = 0;
+  char pat[4 * VOICE_BURST_MAX];
+
+  voiceRaw++;
+  fmtBurst(pat, sizeof(pat), b, n);
+
+  uint32_t slot = vHistHead % VOICE_CAPTURE_DEPTH;
+  memcpy(vHist[slot], b, (size_t)n);
+  vHistLen[slot] = (uint8_t)n;
+  vHistHead++;
+
+  char cmd = ruleMatch(b, n);
+  if (!cmd) {
+    voiceUnknown++;
+    Serial.printf("[voice] unmatched: %s   <- put this in VOICE_RULES (config.h)\n", pat);
+    return;
+  }
+  if (now - lastMs < VOICE_DEBOUNCE_MS) return;      /* ignore a repeat of the same word */
+  lastMs = now;
+
+  strncpy(vLastPat, pat, sizeof(vLastPat) - 1);
+  vLastPat[sizeof(vLastPat) - 1] = 0;
+  lastVoice = cmd; voiceCount++;
+  Serial.printf("[voice] %s -> console '%c'\n", pat, cmd);
+  forwardCommand(cmd);
+}
+
+static void readVoiceTask(void *) {
+  uint8_t burst[VOICE_BURST_MAX];
+  int n = 0;
+  uint32_t lastByte = 0;
+  for (;;) {
+    uint32_t now = millis();
+    if (burstDone(n, now, lastByte)) {
+      voiceHandleBurst(burst, n, now);
+      n = 0;
+    }
+    int got = uart_read_bytes(UART_NUM_2, burst + n, (uint32_t)(VOICE_BURST_MAX - n), pdMS_TO_TICKS(5));
+    if (got > 0) { n += got; lastByte = millis(); }
+  }
+}
+
+/* GET /voice - the bench tool: shows what the module really sends, newest first. */
+static void handleVoice() {
+  static char buf[1536];
+  int p = snprintf(buf, sizeof(buf),
+                   "{\"mode\":%d,\"rules\":%u,\"bursts\":%lu,\"unknown\":%lu,\"last\":\"%s\",\"captured\":[",
+                   VOICE_MODE, (unsigned)VOICE_RULE_COUNT,
+                   (unsigned long)voiceRaw, (unsigned long)voiceUnknown, vLastPat);
+  noInterrupts();
+  uint32_t head = vHistHead;
+  interrupts();
+  for (uint32_t i = 0; i < VOICE_CAPTURE_DEPTH && p < (int)sizeof(buf) - 96; i++) {
+    uint32_t idx = head > i ? head - 1 - i : 0;
+    char pat[4 * VOICE_BURST_MAX];
+    noInterrupts();
+    int len = vHistLen[idx];
+    uint8_t copy[VOICE_BURST_MAX];
+    memcpy(copy, vHist[idx], (size_t)len);
+    interrupts();
+    fmtBurst(pat, sizeof(pat), copy, len);
+    p += snprintf(buf + p, sizeof(buf) - p, "%s\"%s\"", i ? "," : "", pat);
+  }
+  snprintf(buf + p, sizeof(buf) - p, "]}");
+  server.sendHeader("Cache-Control", "no-store");
+  server.send(200, "application/json", buf);
+}
+
+#else  /* VOICE_MODE == VOICE_MODE_CHAR */
+
+static char voiceMapChar(char c) {
+  if (c == VOICE_STYLE_1) return '0';                             /* style 0 (VAN GOGH) */
+  if (c == VOICE_STYLE_2) return '1';                             /* style 1 (UKIYO-E)  */
+  if (c == VOICE_STYLE_3) return '2';                             /* style 2 (INK WASH) */
+  if (c == VOICE_LAYOUT || c == 'v' || c == 'V') return 'v';      /* cycle layout       */
+  if (c == VOICE_STATUS || c == 's' || c == 'S') return 's';      /* print status       */
+  return 0;
+}
+
 static void readVoiceTask(void *) {
   uint8_t b;
   uint32_t lastMs = 0;
   for (;;) {
-    int n = uart_read_bytes(UART_NUM_2, &b, 1, pdMS_TO_TICKS(50));
-    if (n <= 0) continue;
-    char c = (char)b;
-    char mapped = 0;
-    if (c == VOICE_STYLE_1) mapped = '0';                         /* style 0 (VAN GOGH)   */
-    else if (c == VOICE_STYLE_2) mapped = '1';                    /* style 1 (UKIYO-E)    */
-    else if (c == VOICE_STYLE_3) mapped = '2';                    /* style 2 (INK WASH)   */
-    else if (c == VOICE_LAYOUT || c == 'v' || c == 'V') mapped = 'v';   /* cycle layout   */
-    else if (c == VOICE_STATUS || c == 's' || c == 'S') mapped = 's';   /* print status   */
-    if (!mapped) { Serial.printf("[voice] ignored 0x%02X\n", b); continue; }
+    if (uart_read_bytes(UART_NUM_2, &b, 1, pdMS_TO_TICKS(50)) <= 0) continue;
+    voiceRaw++;
+    char mapped = voiceMapChar((char)b);
+    if (!mapped) {
+      voiceUnknown++;
+      Serial.printf("[voice] ignored 0x%02X\n", b);
+      continue;
+    }
     uint32_t now = millis();
-    if (now - lastMs < VOICE_DEBOUNCE_MS) continue;               /* debounce repeats     */
+    if (now - lastMs < VOICE_DEBOUNCE_MS) continue;               /* debounce repeats   */
     lastMs = now;
-    lastVoice = c; voiceCount++;
-    Serial.printf("[voice] '%c' -> console '%c'\n", c, mapped);
+    lastVoice = mapped; voiceCount++;
+    Serial.printf("[voice] '%c' -> console '%c'\n", (char)b, mapped);
     forwardCommand(mapped);
   }
 }
+
+static void handleVoice() {
+  static char buf[192];
+  snprintf(buf, sizeof(buf), "{\"mode\":%d,\"bursts\":%lu,\"unknown\":%lu,\"last\":\"%c\"}",
+           VOICE_MODE, (unsigned long)voiceRaw, (unsigned long)voiceUnknown,
+           lastVoice ? (char)lastVoice : '?');
+  server.sendHeader("Cache-Control", "no-store");
+  server.send(200, "application/json", buf);
+}
+
+#endif
 
 /* ------------------------------------------------------------------ stats ticker */
 static void statsTask(void *) {
@@ -347,6 +513,12 @@ void setup() {
   Serial1.setRxBufferSize(32768);
   Serial1.begin(FPGA_BAUD, SERIAL_8N1, PIN_FPGA_RX, PIN_FPGA_TX);
   Serial2.begin(VOICE_BAUD, SERIAL_8N1, PIN_VOICE_RX, PIN_VOICE_TX);
+#if VOICE_MODE == VOICE_MODE_FRAME
+  Serial.printf("Voice: VC-02 frame mode, %u rules at %d baud - open /voice while you speak\n",
+                (unsigned)VOICE_RULE_COUNT, VOICE_BAUD);
+#else
+  Serial.printf("Voice: single-character mode at %d baud\n", VOICE_BAUD);
+#endif
 
   WiFi.mode(WIFI_AP);
   WiFi.softAP(AP_SSID, AP_PASSWORD, AP_CHANNEL, false, 4);
@@ -358,6 +530,7 @@ void setup() {
   server.on("/frame.bmp", handleFrameBmp);
   server.on("/status", handleStatus);
   server.on("/cmd", handleCmd);
+  server.on("/voice", handleVoice);
   server.onNotFound([]() { server.send(404, "text/plain", "not found"); });
   server.begin();
 

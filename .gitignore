@@ -86,3 +86,7 @@ FPGAProjects/sc431hai_hdmi/outflow/*
 
 # Reproducible full builds and the local validated firmware update cache
 /FPGAProjects/StyleCam_camera/_build/
+
+# Host-side check artifacts (check_host.sh builds and deletes these itself)
+/FPGAProjects/StyleCam_camera/wifi_stream/tools/host_stub/*.exe
+/FPGAProjects/StyleCam_camera/wifi_stream/tools/host_stub/*.o

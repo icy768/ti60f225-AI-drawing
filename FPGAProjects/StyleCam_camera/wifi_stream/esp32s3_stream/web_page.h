@@ -33,6 +33,8 @@ static const char INDEX_HTML[] PROGMEM = R"HTML(<!DOCTYPE html>
   button:active{transform:scale(.97);}
   button.on{border-color:var(--accent);background:#132844;color:#cfe4ff;}
   .wide{grid-template-columns:1fr 1fr;}
+  .chk{display:flex;align-items:center;gap:7px;color:var(--dim);font-size:12.5px;margin-bottom:2px;}
+  .chk input{accent-color:var(--accent);width:15px;height:15px;}
   pre{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;
       font-size:12px;color:var(--dim);overflow:auto;margin:8px 0 0;}
 </style>
@@ -61,6 +63,10 @@ static const char INDEX_HTML[] PROGMEM = R"HTML(<!DOCTYPE html>
 
   <div class="rowlabel">Link</div>
   <pre id="st">waiting for the FPGA stream...</pre>
+
+  <div class="rowlabel">Voice module</div>
+  <label class="chk"><input type="checkbox" id="vcap" checked> spy on the bytes the module sends</label>
+  <pre id="v">speak a command word...</pre>
 
 <script>
 const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
@@ -113,6 +119,24 @@ async function status(){
   }catch(e){document.getElementById('st').textContent='status unavailable';}
 }
 setInterval(status,1000);status();
+
+/* Voice capture: the VC-02's byte patterns are typed in by hand on the voice platform,
+ * so this panel is how you find out what your module actually sends.  Whatever shows up
+ * here is exactly what goes into VOICE_RULES in config.h. */
+let vOn=true;
+document.getElementById('vcap').addEventListener('change',e=>{vOn=e.target.checked;});
+
+async function voice(){
+  if(!vOn)return;
+  try{
+    const j=await (await fetch('/voice',{cache:'no-store'})).json();
+    let t='heard '+j.bursts+' frame(s), '+j.unknown+' unmatched\n';
+    if(j.last)t+='last match -> '+j.last+'\n';
+    (j.captured||[]).forEach(s=>{if(s)t+=s+'\n';});
+    document.getElementById('v').textContent=t.trim();
+  }catch(e){}
+}
+setInterval(voice,1000);voice();
 
 document.querySelectorAll('button[data-c]').forEach(b=>{
   b.addEventListener('click',async()=>{
