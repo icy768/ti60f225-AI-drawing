@@ -1,7 +1,7 @@
 {
   "date": "2026-10-15",
   "baseline": "ebcf01bb2ce30812fc91035d93a2b211fbf8b7df",
-  "reviewed_pr_head": "ad2b345af96a335d1f1434aae0b1f42704f88eb6",
+  "reviewed_pr_head": "d016effa12d35a4718e88a7eb1fb52505dfd2b5e",
   "device": "Ti60F225",
   "timing_model": "I3",
   "efinity": "2026.1.132.4.5",
@@ -434,7 +434,7 @@
     "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin": "5663a00c43c90945dd0137ca4cf92f6a0f429140e12583f8c487012e5ecfbb2f"
   },
   "bridge_source_sha256": {
-    "wifi_stream/esp32s3_stream/config.h": "b0f5ce17b03d3525841ce3f997a6f4d3f18ee55d9306b1d23eb1776510b519f8",
+    "wifi_stream/esp32s3_stream/config.h": "c8780dad610ca300c35aa23f7f9241e62039e90fc6b8d5d86007fc51453c2f84",
     "wifi_stream/esp32s3_stream/esp32s3_stream.ino": "02e6fbbe2d1a762ae5f3530bf5160d5eac88823b5af0ecd015d7169b71809d09",
     "wifi_stream/esp32s3_stream/web_page.h": "39233ab800e40ca468e408572dadefccc2bcd5fd1cbb4a2453acc1b0094258e0",
     "embedded_sw/soc/software/standalone/stylecam/src/main.c": "f426ec2f3661eca69aaa004ceee44c5d73ddb544907e622643143d3d52180a1d",
