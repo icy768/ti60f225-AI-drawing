@@ -369,6 +369,7 @@ static bool burstDone(int n, uint32_t now, uint32_t lastByte) {
 /* Runs from the voice task only. */
 static void voiceHandleBurst(const uint8_t *b, int n, uint32_t now) {
   static uint32_t lastMs = 0;
+  static char lastCmd = 0;
   char pat[4 * VOICE_BURST_MAX];
 
   voiceRaw++;
@@ -385,8 +386,11 @@ static void voiceHandleBurst(const uint8_t *b, int n, uint32_t now) {
     Serial.printf("[voice] unmatched: %s   <- put this in VOICE_RULES (config.h)\n", pat);
     return;
   }
-  if (now - lastMs < VOICE_DEBOUNCE_MS) return;      /* ignore a repeat of the same word */
+  /* Debounce a repeat of the SAME command only - a different word said right after
+   * the previous one must still get through. */
+  if (cmd == lastCmd && now - lastMs < VOICE_DEBOUNCE_MS) return;
   lastMs = now;
+  lastCmd = cmd;
 
   strncpy(vLastPat, pat, sizeof(vLastPat) - 1);
   vLastPat[sizeof(vLastPat) - 1] = 0;

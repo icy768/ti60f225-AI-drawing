@@ -15,8 +15,10 @@
 #define AP_MAX_CONN   4
 
 /* ---------------------------------------------------------------- UART */
-/* UART1 talks to the FPGA `stream_tx` line (3.03 Mbaud, matches DIV=33 @100 MHz). */
-#define FPGA_BAUD     3000000
+/* UART1 talks to the FPGA `stream_tx` line: DIV=33 @100 MHz = 3.0303 Mbaud.  Ask for
+ * the exact rate - requesting 3000000 lands ~1% off, which eats most of the UART
+ * sampling margin at this speed. */
+#define FPGA_BAUD     3030303
 /* UART2 talks to the voice module.  VC-02's user data port defaults to 115200 8N1
  * (set in the Ai-Thinker voice platform - see the voice section below). */
 #define VOICE_BAUD    115200
