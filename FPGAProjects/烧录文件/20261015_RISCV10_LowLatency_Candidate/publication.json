@@ -1,0 +1,14 @@
+{
+  "updated_at": "2026-10-15T19:37:59.093728+08:00",
+  "fpga_id": "53430a0a",
+  "ram_board_verified": true,
+  "scope": "40 seconds, split view, three UART style changes",
+  "flash_programmed": false,
+  "flash_boot_verified": false,
+  "flash_skipped_at_user_request": true,
+  "flash_reason": "Board disconnected; user explicitly requested skipping programming.",
+  "bit_sha256": "218c9cb68fa88914c3d2aa428dd1c07f862391ff459e0b1ead948e10d073ce91",
+  "build_manifest": "manifest.json",
+  "board_evidence": "board_validation_20261015.json",
+  "resource_review": "../../docs/资源复核与30fps来源_20261015.md"
+}

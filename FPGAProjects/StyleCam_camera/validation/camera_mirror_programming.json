@@ -1,0 +1,11 @@
+{
+  "time": "2026-10-08T14:01:01.8736417+08:00",
+  "mode": "temporary JTAG RAM configuration",
+  "Flash_modified": false,
+  "bit_sha256": "e3a4f17c8532d7634bbcc8fee03fa1c615c9fbd638a41564d1100cecb63f0c54",
+  "fpga_id": "0x53430a04",
+  "uart_port": "COM19",
+  "jtag_log": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\camera_mirror_jtag_20261008_140021.log",
+  "uart_log": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\camera_mirror_boot_20261008_140021.log",
+  "boot_verified": true
+}

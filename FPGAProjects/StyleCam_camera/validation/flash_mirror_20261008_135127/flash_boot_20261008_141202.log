@@ -1,0 +1,4 @@
+camera readback ID=53430a04: 00003e00=00000000 00003e01=00000046 00003e02=00000000 0000320e=00000005 0000320f=000000dc 00003e08=00000083 00003e09=00000020 00003e06=00000000 00003e07=00000080 00003221=00000006 00004501=000000a4 00000100=00000001
+[0 ms] fps=14.99 cam=29.9 nn_ms=59.5 pass_ms=59.2 nn_max_ms=59.5 style=0 view=0 ready=7 proc=2193 cap=2367 skip=2235 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[146031 ms] fps=15.00 cam=30.0 nn_ms=59.4 pass_ms=59.2 nn_max_ms=59.5 style=0 view=0 ready=7 proc=2193 cap=2368 skip=2235 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+

@@ -14,6 +14,7 @@ module conv_layer #(
     parameter W        = 160,
     parameter H        = 120,
     parameter PE       = 1,
+    parameter CFG_PE   = PE,
     parameter ACC_W    = 26,
     parameter R        = 0,
     parameter S        = 16,
@@ -82,7 +83,7 @@ module conv_layer #(
                     .o_valid(m_valid), .o_ready(m_ready)
                 );
             end else begin : g_dense
-                mac_dense #(.G(GI), .NI(NGI * 9), .COUT(COUT), .PE(PE), .ACC_W(ACC_W),
+                mac_dense #(.G(GI), .NI(NGI * 9), .COUT(COUT), .PE(PE), .CFG_PE(CFG_PE), .ACC_W(ACC_W),
                             .SIDE_IN(0), .WFILE(WFILE)) u_mac (
                     .clk(clk), .rst(rst),
                     .w_we(cfg_we && cfg_sel), .w_lane(cfg_lane), .w_addr(cfg_addr), .w_data(cfg_data[31:0]),
@@ -93,7 +94,7 @@ module conv_layer #(
                 );
             end
         end else begin : g_k1
-            mac_dense #(.G(GI), .NI(NGI), .COUT(COUT), .PE(PE), .ACC_W(ACC_W),
+            mac_dense #(.G(GI), .NI(NGI), .COUT(COUT), .PE(PE), .CFG_PE(CFG_PE), .ACC_W(ACC_W),
                         .SIDE_IN(SKIP_ADD), .WFILE(WFILE)) u_mac (
                 .clk(clk), .rst(rst),
                 .w_we(cfg_we && cfg_sel), .w_lane(cfg_lane), .w_addr(cfg_addr), .w_data(cfg_data[31:0]),

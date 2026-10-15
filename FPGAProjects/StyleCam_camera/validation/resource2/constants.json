@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "live_words_exact": 816,
+  "epsilon_words_exact": 272,
+  "serial_rom_banks": 13,
+  "source_sha256": {
+    "model/in_constants.mem": "670301c299ff66c5b7c4ed4b9ec17ffbc29f6057159cd0102b915d39382842ca",
+    "model/in_constants.mem.p0": "285bc77f6b5081dc57042746261593b76ae9613ab22e654f0d00644e36e91eb1",
+    "model/in_constants.mem.p1": "c822bd2a866de0f5b04948a7cb5857eb4ea08205913eb58ef9c50b855e50afb9",
+    "model/in_constants.mem.p2": "289821c14875444840314c9251332e2589bc81c9cc48c6fe0a8aa6924c8b7480",
+    "model/in_constants.mem.p3": "bdb9dbfd97e6f4ab6a7579031b3e6ec2c21cf2b320431e21d65ac757de2ad2b6",
+    "model/in_constants.mem.p4": "e165400300c04a81077715d13761bc2e88cb4216c8d264498f1f79533a82a428",
+    "model/in_constants.mem.p5": "8a6444d1f4274214a41b08049ef532f59c686879799b2b4642b4a109607631cc",
+    "model/in_constants.mem.p6": "0fe0fcab9ff2212165798d87270e5ca6269aae773f75ad70a482406ee90c9ae7",
+    "model/in_constants.mem.p7": "6f9a072d711467499d730054356255c4f321ebda20771b8454c33050cafe8273",
+    "model/in_constants.mem.p8": "36f8b4e6c60c04b1d9b740488b7ccde823a4262037295f08e85d5216c539a0f3",
+    "model/in_constants.mem.p9": "079aec214e3aa3e1c48ffd249c55943384c7d96db3c1d1044668247dd8e6e254",
+    "model/in_constants.mem.e0": "cf2b76be82b55c0dc0e76fb48e264f7f97570f40c1fb66e0f527a2c79409230b",
+    "model/in_constants.mem.e1": "a2d88c7f71443226e64ddce185c82463cbb2573560105b2d144185d63e5c0e8f",
+    "model/in_constants.mem.e2": "2b6a14bd22827f11bc215c13f53275f4b7b5e51d152c116be16d7ff90d850b14",
+    "compact_in_constants.py": "6c2910727d2eeb8140aef0df94872268f7bb9ab637302d4ff3574b50f8adbb7b",
+    "rtl/sc_in_math.v": "4b892f375f282e4f21141a8b2096a65f380cf5d18bcfb099609e915e8ae994c1",
+    "rtl/sc_in_refresh.v": "a416ac57a905dccd807577058a8d1c67d8b5025ae4ef115c59a63effa67f0169"
+  }
+}

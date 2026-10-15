@@ -9,18 +9,69 @@ module sc_in_refresh #(parameter WIDTH=640,HEIGHT=480,CONSTFILE="model/in_consta
  output reg [31:0] cycles,output reg [31:0] writes);
  reg [37:0] trace[0:863];
  reg [303:0] word;reg [9:0] address;reg [8:0] epsilon_address;
- // Gamma numerators have exactly 40 zero low bits; epsilon is identical
- // between styles. Reconstruct the original 304-bit word without rounding.
+ reg [3:0] state,saved_layer;reg [1:0] saved_style;reg [7:0] cout;
+ wire constants_ready;
+ // Thirteen 512x20 ROM banks replace the wide parameter/epsilon tables.
+ // Eleven sequential reads per channel are negligible beside the arithmetic;
+ // the original 304-bit word is reconstructed without rounding.
  generate if(COMPACT)begin:g_compact
-  reg [127:0] parameters[0:863];reg [135:0] epsilon[0:287];
-  initial begin $readmemh(PARAMFILE,parameters);$readmemh(EPSFILE,epsilon);end
-  always @(posedge clk)word<={parameters[address][127:56],40'd0,parameters[address][55:0],epsilon[epsilon_address]};
+  reg loading,ready,finishing,pipe_valid;
+  reg [3:0] read_count,index_q,pbank_q;
+  reg [1:0] ebank_q;
+  reg [12:0] pbase;
+  reg [10:0] ebase;
+  reg [119:0] packed_p;
+  reg [99:0] packed_e;
+  wire [8:0] channel_index=(saved_layer==0?9'd0:9'd16+(saved_layer-1'b1)*9'd24)+stats_index;
+  wire [9:0] parameter_index=saved_style*10'd272+channel_index;
+  wire [12:0] pa=pbase+read_count;
+  wire [10:0] ea=ebase+(read_count-4'd6);
+  wire load=busy&&(state==1);
+  wire [19:0] pq[0:9],eq[0:2];
+  genvar bank;
+  for(bank=0;bank<10;bank=bank+1)begin:g_p
+   localparam [7:0] DIGIT=8'd48+bank;
+   (* syn_ramstyle="block_ram" *) reg [19:0] mem[0:511];
+   reg [19:0] q;
+   initial $readmemh({CONSTFILE,".p",DIGIT},mem);
+   always @(posedge clk)if(loading&&read_count<6&&pa[12:9]==bank)q<=mem[pa[8:0]];
+   assign pq[bank]=q;
+  end
+  for(bank=0;bank<3;bank=bank+1)begin:g_e
+   localparam [7:0] DIGIT=8'd48+bank;
+   (* syn_ramstyle="block_ram" *) reg [19:0] mem[0:511];
+   reg [19:0] q;
+   initial $readmemh({CONSTFILE,".e",DIGIT},mem);
+   always @(posedge clk)if(loading&&read_count>=6&&read_count<11&&ea[10:9]==bank)q<=mem[ea[8:0]];
+   assign eq[bank]=q;
+  end
+  wire [71:0] gamma_value={{7{packed_p[116]}},packed_p[116:56],4'd0};
+  wire [135:0] epsilon_value={8'd0,packed_e[87:0],40'd0};
+  assign constants_ready=ready;
+  always @(posedge clk)begin
+   if(rst||!load)begin loading<=0;ready<=0;finishing<=0;pipe_valid<=0;read_count<=0;end
+   else if(!loading&&!ready&&!finishing)begin
+    pbase<=parameter_index*13'd6;ebase<=channel_index*11'd5;
+    loading<=1;read_count<=0;pipe_valid<=0;
+   end else if(loading)begin
+    pipe_valid<=read_count<11;index_q<=read_count;pbank_q<=pa[12:9];ebank_q<=ea[10:9];
+    if(read_count<11)read_count<=read_count+1'b1;
+    if(pipe_valid)begin
+     if(index_q<6)packed_p[index_q*20+:20]<=pq[pbank_q];
+     else packed_e[(index_q-4'd6)*20+:20]<=eq[ebank_q];
+     if(index_q==10)begin loading<=0;finishing<=1;pipe_valid<=0;end
+    end
+   end else if(finishing)begin
+    word<={gamma_value,40'd0,packed_p[55:0],epsilon_value};
+    finishing<=0;ready<=1;
+   end
+  end
  end else begin:g_full
   reg [303:0] constants[0:863];initial $readmemh(CONSTFILE,constants);
   always @(posedge clk)word<=constants[address];
+  assign constants_ready=1'b1;
  end endgenerate
  always @(posedge clk)trace_data<=TRACE?trace[trace_index]:38'd0;
- reg [3:0] state,saved_layer;reg [1:0] saved_style;reg [7:0] cout;
  reg math_start;wire math_busy,math_done,math_error;wire [37:0] coefficient;
  wire [18:0] samples=(saved_layer==0||saved_layer>=10)?(WIDTH/2)*(HEIGHT/2):(WIDTH/4)*(HEIGHT/4);
  function [4:0] shift(input [3:0] l);
@@ -39,7 +90,7 @@ module sc_in_refresh #(parameter WIDTH=640,HEIGHT=480,CONSTFILE="model/in_consta
   end else if(busy)begin
    cycles<=cycles+1'b1;
    case(state)
-    1:state<=2;
+    1:if(constants_ready)state<=2;
     2:state<=3;
     3:begin math_start<=1;state<=4;end
     4:if(math_done)begin

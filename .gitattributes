@@ -1,3 +1,10 @@
 * -text
 *.bit binary
 *.hex binary
+
+# Exact vendor reports for the accepted camera release
+/FPGAProjects/烧录文件/20261009_RISCV08_BGGR_RGBMirror/*.rpt binary
+
+# Preserve exact RISCV10 vendor and linker evidence, including original whitespace.
+/FPGAProjects/烧录文件/20261015_RISCV10_LowLatency_Candidate/*.rpt binary
+/FPGAProjects/烧录文件/20261015_RISCV10_LowLatency_Candidate/*.map binary

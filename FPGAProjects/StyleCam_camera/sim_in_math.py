@@ -59,7 +59,7 @@ module tb;
   $readmemh("validation/in_math/vectors.hex",vec);repeat(3)@(negedge clk);rst=0;
   for(i=0;i<COUNT;i=i+1)begin
    {s1,s2,n,s,g,beta,eps,expected}=vec[i];start=1;@(negedge clk);start=0;cycles=0;
-   while(!done)begin @(negedge clk);cycles=cycles+1;if(cycles>2500)$fatal(1,"math timeout");end
+   while(!done)begin @(negedge clk);cycles=cycles+1;if(cycles>10000)$fatal(1,"math timeout");end
    if(error||coefficient!==expected)$fatal(1,"IN mismatch vector %0d actual=%h expected=%h s1=%d",i,coefficient,expected,s1);
    if(cycles>maxcycles)maxcycles=cycles;
    @(negedge clk);

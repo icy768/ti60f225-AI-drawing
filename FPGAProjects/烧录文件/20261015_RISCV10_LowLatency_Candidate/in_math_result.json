@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "RTL": true,
+  "network": "v21b_ukiyoe_qat900_640x480",
+  "official_golden_statistics": true,
+  "VGA_statistics_included": true,
+  "vectors": 3273,
+  "model_coefficients_exact": true,
+  "cases": [
+    {
+      "image": "room",
+      "style": 0,
+      "channels": 272
+    },
+    {
+      "image": "room",
+      "style": 1,
+      "channels": 272
+    },
+    {
+      "image": "room",
+      "style": 2,
+      "channels": 272
+    },
+    {
+      "image": "random32",
+      "style": 0,
+      "channels": 272
+    },
+    {
+      "image": "random32",
+      "style": 1,
+      "channels": 272
+    },
+    {
+      "image": "random32",
+      "style": 2,
+      "channels": 272
+    },
+    {
+      "image": "black32",
+      "style": 0,
+      "channels": 272
+    },
+    {
+      "image": "black32",
+      "style": 1,
+      "channels": 272
+    },
+    {
+      "image": "black32",
+      "style": 2,
+      "channels": 272
+    },
+    {
+      "image": "white32",
+      "style": 0,
+      "channels": 272
+    },
+    {
+      "image": "white32",
+      "style": 1,
+      "channels": 272
+    },
+    {
+      "image": "white32",
+      "style": 2,
+      "channels": 272
+    }
+  ],
+  "corner_cases": 9,
+  "zero_N_rejected": true,
+  "reset_during_arithmetic": true
+}

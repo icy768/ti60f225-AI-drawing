@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "variant": "optimized",
+  "pixels_exact": 307200,
+  "cycles": 4452091,
+  "first_output_cycles": 188222,
+  "simulated_pass_ms_100mhz": 44.52091,
+  "max_passes_per_second_100mhz": 22.461355798881918,
+  "includes_ddr_hdmi_or_dynamic_in": false,
+  "weights_sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b",
+  "expected_image_sha256": "71aeea62ce053a847f244729c15807c9c4a57d248d54c17177ddbc5826c0326e",
+  "source_sha256": {
+    "common": "bbbbbf33b5434db29a435992dd36eafdf0a9244e29b9ef42060e67b409ccee30",
+    "conv_layer": "8d55600fc720ff0c310508803f95c942f8938dbd978d58594895f82e5ba4110b",
+    "mac": "0b5f2e5df5692c2b19f87a5d07f14d1864cf9e1bbbe78d1eb583302685eb1dfd",
+    "requant": "1d55ae86dca265d72384af8eed102187af1049d31479530a6d235645aaf9e061",
+    "swg3": "744e3bf138aed08d6dfa2f52e3b74f5a18cd4f317f50453624c84ba7ed7f6bdb",
+    "swg3b": "7da6afa86be298e89de225cfa80e3a67265780b4dd27bb42fedfb4a5d42bb507"
+  }
+}

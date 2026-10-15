@@ -1,0 +1,4 @@
+
+StyleCam RISC-V control  ID=53430a04  (SC431HAI -> V21b 13-layer CNN -> HDMI)
+weight blob error -1 at flash 0x00200000 (program it with flash_blob.py)
+

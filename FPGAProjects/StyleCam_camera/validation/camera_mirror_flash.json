@@ -1,0 +1,52 @@
+{
+  "time": "2026-10-08T13:51:27.957552+08:00",
+  "mode": "persistent Flash via vendor JTAG bridge",
+  "fpga_id": "0x53430a04",
+  "bit_sha256": "e3a4f17c8532d7634bbcc8fee03fa1c615c9fbd638a41564d1100cecb63f0c54",
+  "hex_sha256": "d9e1763a6a8c27d6cbb943cbe33c18ee4d523642b34b1f65ed0e74e5d7537f76",
+  "flash_payload_bytes": 1050510,
+  "address": 0,
+  "backup_bytes": 1114112,
+  "weight_address": 2097152,
+  "weight_bytes": 48616,
+  "log_directory": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\flash_mirror_20261008_135127",
+  "flash_modified": true,
+  "flash_boot_verified": true,
+  "boot_reload_pending": false,
+  "ftdi_url": "ftdi://0x0403:0x6011:0:ff/1",
+  "backup_file": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\flash_mirror_20261008_135127\\config_before.hex",
+  "backup_sha256": "d49d4fab57b16d1c0f31d8aacbf34339dc703cf6d9e8470dab875e2d55f851cc",
+  "backup_verified": true,
+  "weight_before_verified": true,
+  "stage": "Flash boot verified",
+  "retry_times": [
+    "2026-10-08T13:54:37.872317+08:00",
+    "2026-10-08T14:02:20.877516+08:00",
+    "2026-10-08T14:05:11.472068+08:00",
+    "2026-10-08T14:08:42.347736+08:00"
+  ],
+  "host_readback_verified": true,
+  "programmer_retry_observed": true,
+  "independent_readback_bytes_exact": true,
+  "independent_payload_sha256": "b98b6b5ce92eb7d54cef1561c5661a3db49740074cf114b1642a9d3f4bfd911e",
+  "weight_after_verified": true,
+  "weight_payload_sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b",
+  "prior_images": [
+    {
+      "hex_sha256": "1fc2779efee6eb8f19a834bd3c7aa9cb11f56fbe4e515f01195869cf9e47a95d",
+      "bit_sha256": "69c22fbad0df515a83872baf137baee744a1995208ec7b129b3f565fa1c43c5b",
+      "flash_payload_bytes": 1050307,
+      "host_readback_verified": true,
+      "independent_readback_bytes_exact": true,
+      "flash_boot_verified": false,
+      "flash_boot_log": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\flash_mirror_20261008_135127\\flash_boot_20261008_135652.log",
+      "stage": "Flash verified; waiting for configuration reset"
+    }
+  ],
+  "independent_readback_clock_hz": 500000,
+  "flash_boot_log": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\flash_mirror_20261008_135127\\flash_boot_20261008_141202.log",
+  "configuration_reset_confirmed_by_user": true,
+  "boot_prefix_captured": false,
+  "weight_crc_verified_by_successful_startup": true,
+  "flash_boot_time": "2026-10-08T14:12:03.2777600+08:00"
+}

@@ -5,7 +5,7 @@ The camera image and IN calibration start autonomously after configuration.
 from pathlib import Path
 import argparse,os,subprocess,json,hashlib,re,datetime
 ROOT=Path(__file__).resolve().parent
-HOME=Path('D:/ELS/efinity/2026.1')
+HOME=Path(os.environ.get('STYLECAM_EFINITY','D:/ELS/efinity/2026.1'))
 PROFILE='Generic Board Profile Using FT4232H'
 HEX=ROOT/'outflow/ti60f225_oob.hex'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()

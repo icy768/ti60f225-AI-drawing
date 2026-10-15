@@ -1,0 +1,6 @@
+Using board profile: 'Generic Board Profile Using FT4232H' for pinout connection
+Connecting to JTAG_TAP: efx_ti
+Connecting to JTAG_TAP: efx_ti
+Flash device: Winbond W25Q64 8 MiB (JEDEC ID: 0xEF6017) @ JTAG freq 0.5 MHz
+Reading 1025 KiB from flash @ 0x00000000 ...
+Finished read in 19 seconds

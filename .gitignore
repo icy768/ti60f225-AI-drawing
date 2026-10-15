@@ -58,3 +58,67 @@ FPGAProjects/sc431hai_hdmi/outflow/*
 
 # Original export provenance is duplicated upstream and stays local here
 /FPGAProjects/StyleCam_camera/model/export.json
+
+# Sapphire SoC IP: keep the generated core, ignore vendor devkit examples
+/FPGAProjects/StyleCam_camera/ip/soc/*_devkit/
+/FPGAProjects/StyleCam_camera/ip/soc/Testbench/
+/FPGAProjects/StyleCam_camera/ip/soc/source/
+/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/*/
+!/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/common/
+!/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/driver/
+!/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/include/
+!/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/stylecam/
+/FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/stylecam/build/
+/FPGAProjects/StyleCam_camera/embedded_sw/soc/bsp/efinix/EfxSapphireSoc/app/
+
+# Mirror release acceptance metadata and local Efinity session lock
+**/.lock
+!/FPGAProjects/StyleCam_camera/validation/camera_mirror_only.json
+!/FPGAProjects/StyleCam_camera/validation/camera_mirror_programming.json
+
+# Local camera candidate builds; only the accepted release is published.
+/FPGAProjects/StyleCam_camera/outflow_*/
+/FPGAProjects/StyleCam_camera/program_original_ram.ps1
+/FPGAProjects/StyleCam_camera/program_rgb_ram.ps1
+!/FPGAProjects/StyleCam_camera/validation/camera_native_rgb_mirror.json
+!/FPGAProjects/StyleCam_camera/validation/camera_native_rgb_mirror_programming.json
+
+# Reproducible full builds and the local validated firmware update cache
+/FPGAProjects/StyleCam_camera/_build/
+
+# Resource/throughput optimization evidence (large simulation intermediates stay local).
+!/FPGAProjects/StyleCam_camera/validation/optimization/
+/FPGAProjects/StyleCam_camera/validation/optimization/*
+!/FPGAProjects/StyleCam_camera/validation/optimization/result.json
+!/FPGAProjects/StyleCam_camera/validation/vga_performance/
+/FPGAProjects/StyleCam_camera/validation/vga_performance/*
+!/FPGAProjects/StyleCam_camera/validation/vga_performance/baseline/
+!/FPGAProjects/StyleCam_camera/validation/vga_performance/optimized/
+/FPGAProjects/StyleCam_camera/validation/vga_performance/*/*
+!/FPGAProjects/StyleCam_camera/validation/vga_performance/*/result.json
+!/FPGAProjects/StyleCam_camera/validation/optimized_programming.json
+
+# Second resource pass: retain compact acceptance records.
+!/FPGAProjects/StyleCam_camera/validation/resource2/
+/FPGAProjects/StyleCam_camera/validation/resource2/*
+!/FPGAProjects/StyleCam_camera/validation/resource2/constants.json
+!/FPGAProjects/StyleCam_camera/validation/serial_constants_rtl/
+/FPGAProjects/StyleCam_camera/validation/serial_constants_rtl/*
+!/FPGAProjects/StyleCam_camera/validation/serial_constants_rtl/result.json
+
+# RISCV10 latency evidence; keep compact results, not generated simulators/vectors.
+!/FPGAProjects/StyleCam_camera/validation/engine_cdc/
+/FPGAProjects/StyleCam_camera/validation/engine_cdc/*
+!/FPGAProjects/StyleCam_camera/validation/engine_cdc/result.json
+!/FPGAProjects/StyleCam_camera/validation/latency_vga/
+/FPGAProjects/StyleCam_camera/validation/latency_vga/*
+!/FPGAProjects/StyleCam_camera/validation/latency_vga/result.json
+!/FPGAProjects/StyleCam_camera/validation/latency_io/
+/FPGAProjects/StyleCam_camera/validation/latency_io/*
+!/FPGAProjects/StyleCam_camera/validation/latency_io/result.json
+!/FPGAProjects/StyleCam_camera/validation/latency_schedule/
+/FPGAProjects/StyleCam_camera/validation/latency_schedule/*
+!/FPGAProjects/StyleCam_camera/validation/latency_schedule/result.json
+
+# Compact retained resource baseline after removing obsolete RISCV09 packages.
+!/FPGAProjects/StyleCam_camera/validation/resource2/manifest.json

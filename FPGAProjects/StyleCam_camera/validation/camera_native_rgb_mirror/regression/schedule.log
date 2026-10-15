@@ -1,0 +1,2 @@
+PASS schedule: frame lock, CPU style request at frame boundary, initial IN per style, rotating refresh, final-write gate, HDMI bank acknowledgement, run/step admission, reset
+C:\Users\lingye\AppData\Local\Temp\stylecam_native_rgb_mirror_20261009_project\sim\schedule_tb.v:38: $finish called at 6720 (1s)

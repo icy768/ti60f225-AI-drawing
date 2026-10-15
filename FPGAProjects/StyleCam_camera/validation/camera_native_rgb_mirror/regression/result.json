@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "tests": {
+    "camera_rgb": {
+      "passed": true,
+      "log": "validation/camera_native_rgb_mirror/regression/camera_rgb.log"
+    },
+    "capture": {
+      "passed": true,
+      "log": "validation/camera_native_rgb_mirror/regression/capture.log"
+    },
+    "schedule": {
+      "passed": true,
+      "log": "validation/camera_native_rgb_mirror/regression/schedule.log"
+    },
+    "display": {
+      "passed": true,
+      "log": "validation/camera_native_rgb_mirror/regression/display.log"
+    },
+    "apb_regs": {
+      "passed": true,
+      "log": "validation/camera_native_rgb_mirror/regression/apb_regs.log"
+    }
+  }
+}

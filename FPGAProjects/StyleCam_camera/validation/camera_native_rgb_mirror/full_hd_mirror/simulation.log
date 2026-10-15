@@ -1,0 +1,3 @@
+PASS camera RGB gains + 5x5 MHC: 921600 RGB pixels, native BGGR, frame-atomic CDC gain commits, unity/independent/reference zero/full 16-bit gains, crop halo, Gamma, clipping, gaps, frame markers, malformed input and reset
+PASS native BGGR -> RGB -> mirrored DDR: 921600 pixels; descending words and reversed lanes, intact rows and channels
+C:\Users\lingye\AppData\Local\Temp\stylecam_native_rgb_mirror_20261009_project\sim\camera_rgb_mirror_tb.v:136: $finish called at 38197600 (1s)

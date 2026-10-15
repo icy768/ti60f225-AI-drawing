@@ -1,0 +1,13 @@
+
+COMMAND g?
+RGB ID=53430a08 R=100.0% G=100.0% B=100.0% Q8.8=256 256 256 pending=0
+
+COMMAND c
+camera readback ID=53430a08: 00003e00=00000000 00003e01=00000046 00003e02=00000000 0000320e=00000005 0000320f=000000dc 00003e08=00000083 00003e09=00000020 00003e06=00000000 00003e07=00000080 00003221=00000000 00004501=000000a4 00000100=00000001
+[86000 ms] fps=14.99 cam=29.9 nn_ms=59.4 pass_ms=59.2 nn_max_ms=59.5 style=0 view=0 ready=7 proc=1293 cap=1467 skip=1336 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[0 ms] fps=14.99 cam=29.9 nn_ms=59.4 pass_ms=59.2 nn_max_ms=59.5 style=0 view=0 ready=7 proc=1293 cap=1467 skip=1336 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[88000 ms] fps=15.00 cam=30.0 nn_ms=59.4 pass_ms=59.2 nn_max_ms=59.5 style=0 view=0 ready=7 proc=1323 cap=1497 skip=1366 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[90000 ms] fps=14.99 cam=30.0 nn_ms=59.4 pass_ms=59.2 nn_max_ms=59.5 style=0 view=0 ready=7 proc=1353 cap=1527 skip=1396 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[92000 ms] fps=15.00 cam=29.9 nn_ms=59.3 pass_ms=59.2 nn_max_ms=59.5 style=0 view=1 ready=7 proc=1383 cap=1557 skip=1426 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[0 ms] fps=15.00 cam=29.9 nn_ms=59.3 pass_ms=59.2 nn_max_ms=59.5 style=0 view=2 ready=7 proc=1391 cap=1565 skip=1434 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0
+[94000 ms] fps=14.99 cam=29.9 nn_ms=59.4 pass_ms=59.3 nn_max_ms=59.5 style=0 view=2 ready=7 proc=1413 cap=1587 skip=1456 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k2=0 sw_us=0 sw_max_us=0

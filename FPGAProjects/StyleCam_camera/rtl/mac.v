@@ -13,6 +13,7 @@ module mac_dense #(
     parameter NI      = 36,
     parameter COUT    = 24,
     parameter PE      = 4,
+    parameter CFG_PE  = PE, // Preserve the deployed blob when widening the MAC array.
     parameter ACC_W   = 26,
     parameter SIDE_IN = 0,
     parameter WFILE   = ""
@@ -49,9 +50,12 @@ module mac_dense #(
     assign s0_fire  = x0_v && !stall;
     wire [WAW-1:0]  waddr = i0 * NF + f0;
     wire [PE*G*8-1:0] wrow;
+    localparam CFG_RATIO = PE / CFG_PE;
+    wire [11:0] packed_waddr = w_addr / CFG_RATIO;
+    wire [4:0] packed_wlane = w_lane + (w_addr % CFG_RATIO) * (CFG_PE * G / 4);
 
     wram #(.W(PE * G * 8), .D(WD), .AW(WAW), .INIT(WFILE)) u_w (
-        .clk(clk), .we(w_we), .wlane(w_lane), .waddr(w_addr[WAW-1:0]), .wdata(w_data),
+        .clk(clk), .we(w_we), .wlane(packed_wlane), .waddr(packed_waddr[WAW-1:0]), .wdata(w_data),
         .re(s0_fire), .raddr(waddr), .rdata(wrow)
     );
 

@@ -51,4 +51,4 @@
 `define TX_CLK_SEL	3
 `define TX_CLK_90EDGE_SEL	0
 `define CK_RATIO	4
-`define ASYN_AXI_CLK	1
+`define ASYN_AXI_CLK	0

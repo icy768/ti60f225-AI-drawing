@@ -46,6 +46,16 @@ module ti60f225_oob_top #(
    //Clocks 
 	input	wire	i_arstn,
  input wire style_key_n,
+ input wire mode_key_n,
+ // configuration SPI flash (user mode, Sapphire SPI0): weight blob at 0x200000
+ output wire system_spi_0_io_sclk_write,
+ output wire system_spi_0_io_ss,
+ input wire system_spi_0_io_data_0_IN,
+ output wire system_spi_0_io_data_0_OUT,
+ output wire system_spi_0_io_data_0_OE,
+ input wire system_spi_0_io_data_1_IN,
+ output wire system_spi_0_io_data_1_OUT,
+ output wire system_spi_0_io_data_1_OE,
     output wire uart_tx,
  input wire uart_rx,
     input	wire	i_mipi_rx_pclk,
@@ -71,13 +81,13 @@ module ti60f225_oob_top #(
     output io_cam_scl_OE,
 
     output	wire		o_cam_rst_p,
-    
+
     input	wire		i_cam_ck_LP_P_IN,
     input	wire		i_cam_ck_LP_N_IN,
     output	wire		o_cam_ck_HS_TERM,
     output	wire		o_cam_ck_HS_ENA,
     input	wire		i_cam_ck_CLKOUT,
-    
+
     input	wire	[7:0]			cam_d0_HS_IN,
     input	  wire		      cam_d0_LP_P_IN,
     input	  wire		      cam_d0_LP_N_IN,
@@ -86,7 +96,7 @@ module ti60f225_oob_top #(
     output	wire		      cam_d0_RST,
     output	wire		      cam_d0_FIFO_RD,
     input	  wire		      cam_d0_FIFO_EMPTY,
-    
+
     input 	wire	[7:0]			cam_d1_HS_IN,
     input	  wire		        cam_d1_LP_P_IN,
     input	  wire		        cam_d1_LP_N_IN,
@@ -95,7 +105,7 @@ module ti60f225_oob_top #(
     output	wire		        cam_d1_RST,
     output	wire		        cam_d1_FIFO_RD,
     input	  wire		        cam_d1_FIFO_EMPTY,
-    
+
     input 	wire	[7:0]			cam_d2_HS_IN,
     input	  wire		        cam_d2_LP_P_IN,
     input	  wire		        cam_d2_LP_N_IN,
@@ -104,7 +114,7 @@ module ti60f225_oob_top #(
     output	wire		        cam_d2_RST,
     output	wire		        cam_d2_FIFO_RD,
     input	  wire		        cam_d2_FIFO_EMPTY,  
-   
+
     input 	wire	[7:0]			cam_d3_HS_IN,
     input	  wire		        cam_d3_LP_P_IN,
     input	  wire		        cam_d3_LP_N_IN,
@@ -114,7 +124,7 @@ module ti60f225_oob_top #(
     output	wire		        cam_d3_FIFO_RD,
     input	  wire		        cam_d3_FIFO_EMPTY,
 
-	
+
 	input 					tx_cal_clk_90edge,
   	input 					rx_cal_clk,
   	input 					tx_cal_clk,
@@ -132,16 +142,16 @@ module ti60f225_oob_top #(
 	output [ROW_WIDTH-1:0]             ddr_addr,
 	output [BANK_WIDTH-1:0]            ddr_ba,
 	output                             ddr_cas_n,
- 
+
 	output [CS_WIDTH*RANK_RATIO-1:0]   ddr_cs_n,
 	output                             ddr_ras_n,
 	output                             ddr_we_n,
-	
+
 	input  [DQS_WIDTH-1:0]             ddr_dqs_in_hi,
 	input  [DQS_WIDTH-1:0]             ddr_dqs_in_lo,
 	input  [DQ_WIDTH-1:0]              ddr_dq_in_hi,
 	input  [DQ_WIDTH-1:0]              ddr_dq_in_lo,
-	
+
 	output [DQS_WIDTH-1:0]             ddr_dqs_oe,
 	output [DQS_WIDTH-1:0]             ddr_dqs_oe_n,
 	output [DQ_WIDTH-1:0]              ddr_dq_oe,  
@@ -309,60 +319,58 @@ assign mipi_dp_data0_LP_P_OE=0;
 assign mipi_dp_data0_LP_N_OE=0;
 assign LCD_RST_P=0;
 assign LCD_POWER=0;
-assign pll_inst1_RSTN=i_arstn;
-assign USER_PLL_RSTN=i_arstn;
-assign DDR3_PLL_RSTN=i_arstn;
-assign pll_inst4_RSTN=i_arstn;
-wire w_arstn=i_arstn&i_pll_locked&pll_locked&user_pll_locked;
+// K0 (i_arstn on C4) is a user button. Keep an independent power-on
+// reset so pressing K0 cannot reset the PLLs, DDR, CSI or RISC-V.
 reg [15:0] power_count=0;
 always @(posedge CLK_25M)if(!(&power_count))power_count<=power_count+1'b1;
-wire global_reset=!(&power_count)||!w_arstn;
-reg [2:0] rs_u=7,rs_a=7,rs_p=7;
+wire power_reset_n=&power_count;
+assign pll_inst1_RSTN=power_reset_n;
+assign USER_PLL_RSTN=power_reset_n;
+assign DDR3_PLL_RSTN=power_reset_n;
+assign pll_inst4_RSTN=power_reset_n;
+wire w_arstn=power_reset_n&i_pll_locked&pll_locked&user_pll_locked;
+wire global_reset=!w_arstn;
+reg [2:0] rs_u=7,rs_a=7,rs_p=7,rs_n=7;
+always @(posedge i_mipi_tx_pclk or posedge global_reset)if(global_reset)rs_n<=7;else rs_n<={rs_n[1:0],1'b0};
 always @(posedge CLK_25M or posedge global_reset)if(global_reset)rs_u<=7;else rs_u<={rs_u[1:0],1'b0};
 always @(posedge core_clk or posedge global_reset)if(global_reset)rs_a<=7;else rs_a<={rs_a[1:0],1'b0};
 always @(posedge hdmi_tx_slow_clk or posedge global_reset)if(global_reset)rs_p<=7;else rs_p<={rs_p[1:0],1'b0};
 
-// Autonomous camera input ownership, network execution, and HDMI publication.
-wire frame_ready,ready_bank,take_frame,release_frame,input_bank,cap_locked,cap_locked_bank;
+// Camera input ownership, network execution and HDMI publication; the RISC-V (Sapphire) configures
+// the sensor over I2C, admits frames, selects style/layout and draws the OSD through APB registers.
+wire frame_ready,take_frame,release_frame,cap_locked,hold_swap;wire [1:0] ready_bank,input_bank,cap_locked_bank;
 wire engine_start,engine_idle,engine_done,engine_ok,engine_mode;
 wire [1:0] engine_style,requested_style;wire [2:0] styles_ready;
-wire output_bank,publish,publish_bank,output_complete,shown_valid,shown_bank;
+wire publish,output_complete,shown_valid;wire [1:0] output_bank,publish_bank,shown_bank;
+wire [31:0] schedule_clock,scan_sequence,scan_timestamp,publish_wait;wire [1:0] scan_style;
 wire [31:0] processed,video_errors,schedule_status;
-wire [255:0] video_status;
 wire [31:0] cap_awaddr,out_awaddr;wire [127:0] cap_wdata,out_wdata;
 wire cap_awvalid,cap_awready,cap_wvalid,cap_wready,cap_bvalid,cap_bready;
 wire out_awvalid,out_awready,out_wvalid,out_wready,out_bvalid,out_bready;
 wire [31:0] captured,skipped,capture_errors,capture_overflow;
 wire [39:0] camera_raw;wire camera_vs,camera_hs,camera_de;
 wire [47:0] camera_rgb;wire camera_valid,camera_sof,camera_eof;
-wire cam_enable,id_ok,config_ok,stream_set,setup_finished,diag_valid;
-wire [2:0] setup_error;wire [7:0] setup_index;wire [287:0] diagnostics;
-reg [287:0] diag_sync1,diag_sync2;
-always @(posedge core_clk)begin diag_sync1<=diagnostics;diag_sync2<=diag_sync1;end
+wire cam_enable,cpu_run,cpu_step;wire [1:0] cpu_style,view_mode;
+wire [15:0] rgb_r_gain,rgb_g_gain,rgb_b_gain;wire rgb_request,rgb_ack;
 wire [31:0] camera_frames,camera_format_errors;
-reg [31:0] cf1,cf2,ce1,ce2;reg [15:0] setup1,setup2;
-always @(posedge core_clk)begin
- cf1<=camera_frames;cf2<=cf1;ce1<=camera_format_errors;ce2<=ce1;
- setup1<={setup_index,3'd0,setup_error,setup_finished,config_ok};setup2<=setup1;
-end
-sc_video_schedule schedule(.clk(core_clk),.rst(rs_a[2]),.key_n(style_key_n),
- .frame_ready(frame_ready),.ready_bank(ready_bank),.take_frame(take_frame),.release_frame(release_frame),.input_bank(input_bank),
+reg [31:0] cf1,cf2,ce1,ce2;
+always @(posedge core_clk)begin cf1<=camera_frames;cf2<=cf1;ce1<=camera_format_errors;ce2<=ce1;end
+sc_video_schedule schedule(.clk(core_clk),.rst(rs_a[2]),.run(cpu_run),.step(cpu_step),.style_req(cpu_style),
+ .frame_ready(frame_ready),.ready_bank(ready_bank),.take_frame(take_frame),.release_frame(release_frame),.input_bank(input_bank),.hold_swap(hold_swap),
  .engine_idle(engine_idle),.engine_done(engine_done),.engine_ok(engine_ok),.styles_ready(styles_ready),
  .engine_start(engine_start),.engine_style(engine_style),.engine_mode(engine_mode),
  .output_complete(output_complete),.shown_valid(shown_valid),.shown_bank(shown_bank),
  .output_bank(output_bank),.publish(publish),.publish_bank(publish_bank),
- .requested_style(requested_style),.processed(processed),.errors(video_errors),.state_status(schedule_status));
-sc431hai_setup setup(.clk(CLK_25M),.reset(rs_u[2]),.scl_in(io_cam_scl_IN),.sda_in(io_cam_sda_IN),
- .scl_low(io_cam_scl_OE),.sda_low(io_cam_sda_OE),.cam_enable(cam_enable),.id_ok(id_ok),.config_ok(config_ok),
- .stream_set(stream_set),.finished(setup_finished),.error_code(setup_error),.command_index(setup_index),
- .diagnostic_words(diagnostics),.diagnostic_valid(diag_valid));
+ .requested_style(requested_style),.processed(processed),.errors(video_errors),.state_status(schedule_status),
+ .clock_cycles(schedule_clock),.scan_sequence(scan_sequence),.scan_timestamp(scan_timestamp),.publish_wait_cycles(publish_wait),.scan_style(scan_style));
 assign io_cam_sda_OUT=0;assign io_cam_scl_OUT=0;assign o_cam_rst_p=~cam_enable;
 reg [2:0] camera_reset=7;
 always @(posedge i_mipi_rx_pclk or posedge global_reset)if(global_reset)camera_reset<=7;else camera_reset<={camera_reset[1:0],1'b0};
 sc_camera_rgb preprocess(.clk(i_mipi_rx_pclk),.rst(camera_reset[2]),.vs(camera_vs),.valid(camera_de&&camera_hs),.raw(camera_raw),
- .rgb(camera_rgb),.rgb_valid(camera_valid),.sof(camera_sof),.eof(camera_eof),.frames(camera_frames),.format_errors(camera_format_errors));
-sc_capture capture(.cc(i_mipi_rx_pclk),.crst(camera_reset[2]),.rgb(camera_rgb),.cv(camera_valid),.sof(camera_sof),.eof(camera_eof),
- .ac(core_clk),.arst(rs_a[2]),.calibrated(cal_done),.take_frame(take_frame),.release_frame(release_frame),
+ .rgb(camera_rgb),.rgb_valid(camera_valid),.sof(camera_sof),.eof(camera_eof),.frames(camera_frames),.format_errors(camera_format_errors),
+ .rgb_r_gain(rgb_r_gain),.rgb_g_gain(rgb_g_gain),.rgb_b_gain(rgb_b_gain),.rgb_request(rgb_request),.rgb_ack(rgb_ack));
+sc_capture #(.WIDTH(640),.H_MIRROR(1)) capture(.cc(i_mipi_rx_pclk),.crst(camera_reset[2]),.rgb(camera_rgb),.cv(camera_valid),.sof(camera_sof),.eof(camera_eof),
+ .ac(core_clk),.arst(rs_a[2]),.calibrated(cal_done),.take_frame(take_frame),.release_frame(release_frame),.hold_publish(publish),.hold_swap(hold_swap),
  .frame_ready(frame_ready),.ready_bank(ready_bank),.locked(cap_locked),.locked_bank(cap_locked_bank),
  .completed(captured),.skipped(skipped),.errors(capture_errors),.overflow(capture_overflow),
  .awaddr(cap_awaddr),.awvalid(cap_awvalid),.awready(cap_awready),.wdata(cap_wdata),.wvalid(cap_wvalid),.wready(cap_wready),
@@ -371,21 +379,20 @@ sc_write_arbiter writes(.clk(core_clk),.rst(rs_a[2]),
  .a_addr(cap_awaddr),.a_av(cap_awvalid),.a_ar(cap_awready),.a_data(cap_wdata),.a_wv(cap_wvalid),.a_wr(cap_wready),.a_bv(cap_bvalid),.a_br(cap_bready),
  .b_addr(out_awaddr),.b_av(out_awvalid),.b_ar(out_awready),.b_data(out_wdata),.b_wv(out_wvalid),.b_wr(out_wready),.b_bv(out_bvalid),.b_br(out_bready),
  .awaddr(s_axi_awaddr),.awvalid(s_axi_awvalid),.awready(s_axi_awready),.wdata(s_axi_wdata),.wvalid(s_axi_wvalid),.wready(s_axi_wready),.bvalid(s_axi_bvalid),.bready(s_axi_bready));
-assign video_status={cf2,video_errors,setup2,8'd0,3'd0,requested_style,styles_ready,capture_overflow,capture_errors,skipped,processed,captured};
 csi_rx_controller inst_efx_csi2_rx
 		(
-              .reset_n			(i_arstn),
+              .reset_n			(power_reset_n),
               .clk				(core_clk),
-              .reset_byte_HS_n	(i_arstn),
+              .reset_byte_HS_n	(power_reset_n),
               .clk_byte_HS		  (i_cam_ck_CLKOUT),
               .reset_pixel_n		(~camera_reset[2]),
               .clk_pixel			  (i_mipi_rx_pclk),
-              
+
               .Rx_LP_CLK_P		  (i_cam_ck_LP_P_IN),
               .Rx_LP_CLK_N		  (i_cam_ck_LP_N_IN),
               .Rx_HS_enable_C		(o_cam_ck_HS_ENA),
               .LVDS_termen_C		(o_cam_ck_HS_TERM),
-              
+
               .Rx_LP_D_P			({cam_d3_LP_P_IN, cam_d2_LP_P_IN, cam_d1_LP_P_IN, cam_d0_LP_P_IN}),//(r_mipi_rx_data_LP_P_IN_2P),
               .Rx_LP_D_N			({cam_d3_LP_N_IN, cam_d2_LP_N_IN, cam_d1_LP_N_IN, cam_d0_LP_N_IN}),//(r_mipi_rx_data_LP_N_IN_2P),
               .Rx_HS_D_0			(cam_d0_HS_IN),//(r_mipi_rx_data_HS_IN_2P[0*8+:8]),
@@ -404,7 +411,7 @@ csi_rx_controller inst_efx_csi2_rx
               .DLY_inc_D			(),
               .u_dly_enable_D		(),
               .u_dly_inc_D		       (),
-              
+
               .axi_clk			(1'b0),
               .axi_reset_n		       (1'b0),
               .axi_awaddr			(6'b0),
@@ -413,7 +420,7 @@ csi_rx_controller inst_efx_csi2_rx
               .axi_wdata			(32'b0),
               .axi_wvalid			(1'b0),
               .axi_wready			(),
-              
+
               .axi_bvalid			(),
               .axi_bready			(1'b0),
               .axi_araddr			(6'b0),
@@ -422,7 +429,7 @@ csi_rx_controller inst_efx_csi2_rx
               .axi_rdata			(),
               .axi_rvalid			(),
               .axi_rready			(1'b1),
-              
+
               .hsync_vc0			(camera_hs),
               .hsync_vc1			(),
               .hsync_vc2			(),
@@ -445,7 +452,7 @@ wire [23:0] sink_data;wire sink_valid,sink_ready,new_frame,original_frame;
 wire [23:0] replay_data;wire replay_valid,replay_ready,replay_start,replay_busy;
 wire [31:0] replay_errors;
 wire [31:0] da,ra;wire dav,dardy,drv,drr,rav,rardy,rrv,rrr;
-sc_replay replay(.uc(core_clk),.urst(rs_a[2]),.ac(core_clk),.arst(rs_a[2]),.start(replay_start),.bank(input_bank),
+sc_replay replay(.uc(i_mipi_tx_pclk),.urst(rs_n[2]),.ac(core_clk),.arst(rs_a[2]),.start(replay_start),.bank(input_bank),
  .pixel(replay_data),.valid(replay_valid),.ready(replay_ready),.busy(replay_busy),.errors(replay_errors),
  .araddr(ra),.arvalid(rav),.arready(rardy),.rdata(s_axi_rdata),.rvalid(rrv),.rlast(s_axi_rlast),.rresp(s_axi_rresp),.rready(rrr));
 sc_read_arbiter #(.DISPLAY_PRIORITY(1)) reads(.clk(core_clk),.rst(rs_a[2]),
@@ -453,20 +460,55 @@ sc_read_arbiter #(.DISPLAY_PRIORITY(1)) reads(.clk(core_clk),.rst(rs_a[2]),
  .b_addr(ra),.b_valid(rav),.b_ready(rardy),.b_rvalid(rrv),.b_rready(rrr),
  .araddr(s_axi_araddr),.arvalid(s_axi_arvalid),.arready(s_axi_arready),
  .rvalid(s_axi_rvalid),.rlast(s_axi_rlast),.rready(s_axi_rready));
-wire [1:0] display_mode;wire [1:0] current_style;wire [255:0] display_status;
-StyleCam_uart #(.IN_TRACE(0),.DIV(108),.KEY_CYCLES(1000000),.CLOCK_HZ(100000000)) control(.clk_25m(core_clk),.uart_rx(uart_rx),.uart_tx(uart_tx),.system_reset(rs_a[2]),.style_key_n(1'b1),.current_style(current_style),
+wire [255:0] display_status;
+wire cfg_we,cfg_sel,cfg_reject;wire [4:0] cfg_lane,cfg_layer;wire [11:0] cfg_addr;wire [37:0] cfg_data;
+wire [31:0] run_cycles,first_output_cycles,input_stalls,output_stalls,auto_cycles,auto_frames,auto_writes,auto_errors,engine_errors;
+wire [1:0] upload_bank;
+sc_engine_cdc engine(.clk(core_clk),.system_reset(rs_a[2]),.nc(i_mipi_tx_pclk),.nrst(rs_n[2]),.video_bank(output_bank),.upload_bank(upload_bank),
  .sink_ready(sink_ready),.sink_data(sink_data),.sink_valid(sink_valid),.new_frame(new_frame),
- .original_frame(original_frame),.display_mode(display_mode),.display_status(display_status),
- .replay_data(replay_data),.replay_valid(replay_valid),.replay_ready(replay_ready),
- .replay_start(replay_start),.replay_busy(replay_busy),.replay_errors(replay_errors),
- .video_enabled(1'b1),.video_start(engine_start),.video_style(engine_style),.video_mode(engine_mode),
+ .replay_data(replay_data),.replay_valid(replay_valid),.replay_ready(replay_ready),.replay_start(replay_start),.replay_busy(replay_busy),
+ .video_start(engine_start),.video_style(engine_style),.video_mode(engine_mode),
  .video_idle(engine_idle),.video_done(engine_done),.video_ok(engine_ok),.video_styles_ready(styles_ready),
- .video_status(video_status),.sensor_diagnostics(diag_sync2));
+ .cpu_cfg_we(cfg_we),.cpu_cfg_sel(cfg_sel),.cpu_cfg_lane(cfg_lane),.cpu_cfg_layer(cfg_layer),.cpu_cfg_addr(cfg_addr),.cpu_cfg_data(cfg_data),.cpu_cfg_rejects(cfg_reject),
+ .run_cycles(run_cycles),.first_output_cycles(first_output_cycles),.input_stalls(input_stalls),.output_stalls(output_stalls),
+ .auto_cycles(auto_cycles),.auto_frames(auto_frames),.auto_writes(auto_writes),.auto_errors(auto_errors),.errors(engine_errors));
+assign original_frame=1'b0;
+// Physical KEY3: style; K0 (GPIOL_07/C4): layout. Legacy key2 IRQ name retained.
+wire key3_press,key3_up,key2_press,key2_up;
+sc_button #(.CYCLES(1000000)) key3(core_clk,rs_a[2],style_key_n,key3_press,key3_up);
+sc_button #(.CYCLES(1000000)) key2(core_clk,rs_a[2],i_arstn,key2_press,key2_up);
+// Sapphire RISC-V SoC (RV32I, 16 KB on-chip RAM, UART0 console, SPI0 flash, APB3 slave 0, user interrupt A)
+wire [15:0] apb_paddr;wire apb_penable,apb_psel,apb_pwrite,apb_pready,apb_pslverr,cpu_irq,cpu_reset;wire [31:0] apb_pwdata,apb_prdata;
+soc cpu(.io_systemClk(core_clk),.jtagCtrl_enable(1'b0),.jtagCtrl_tdi(1'b0),.jtagCtrl_capture(1'b0),.jtagCtrl_shift(1'b0),
+ .jtagCtrl_update(1'b0),.jtagCtrl_reset(1'b0),.jtagCtrl_tdo(),.jtagCtrl_tck(1'b0),.userInterruptA(cpu_irq),
+ .io_apbSlave_0_PADDR(apb_paddr),.io_apbSlave_0_PENABLE(apb_penable),.io_apbSlave_0_PRDATA(apb_prdata),.io_apbSlave_0_PREADY(apb_pready),
+ .io_apbSlave_0_PSEL(apb_psel),.io_apbSlave_0_PSLVERROR(apb_pslverr),.io_apbSlave_0_PWDATA(apb_pwdata),.io_apbSlave_0_PWRITE(apb_pwrite),
+ .io_asyncReset(global_reset),.io_systemReset(cpu_reset),.system_uart_0_io_txd(uart_tx),.system_uart_0_io_rxd(uart_rx),
+ .system_spi_0_io_sclk_write(system_spi_0_io_sclk_write),.system_spi_0_io_ss(system_spi_0_io_ss),
+ .system_spi_0_io_data_0_read(system_spi_0_io_data_0_IN),.system_spi_0_io_data_0_write(system_spi_0_io_data_0_OUT),.system_spi_0_io_data_0_writeEnable(system_spi_0_io_data_0_OE),
+ .system_spi_0_io_data_1_read(system_spi_0_io_data_1_IN),.system_spi_0_io_data_1_write(system_spi_0_io_data_1_OUT),.system_spi_0_io_data_1_writeEnable(system_spi_0_io_data_1_OE),
+ .system_spi_0_io_data_2_read(1'b0),.system_spi_0_io_data_2_write(),.system_spi_0_io_data_2_writeEnable(),
+ .system_spi_0_io_data_3_read(1'b0),.system_spi_0_io_data_3_write(),.system_spi_0_io_data_3_writeEnable());
+wire osd_we;wire [10:0] osd_addr;wire [7:0] osd_data;
+sc_apb_regs regs(.clk(core_clk),.rst(rs_a[2]),
+ .paddr(apb_paddr),.psel(apb_psel),.penable(apb_penable),.pwrite(apb_pwrite),.pwdata(apb_pwdata),.prdata(apb_prdata),.pready(apb_pready),.pslverr(apb_pslverr),
+ .irq(cpu_irq),.run(cpu_run),.step(cpu_step),.style(cpu_style),.view(view_mode),.cam_enable(cam_enable),
+ .rgb_r_gain(rgb_r_gain),.rgb_g_gain(rgb_g_gain),.rgb_b_gain(rgb_b_gain),.rgb_request(rgb_request),.rgb_ack(rgb_ack),
+ .ev_publish(publish),.ev_key3(key3_press),.ev_key2(key2_press),.ev_error(engine_done&&!engine_ok),
+ .st_captured(captured),.st_processed(processed),.st_skipped(skipped),.st_cap_errors(capture_errors+capture_overflow),
+ .st_sensor_frames(cf2),.st_video_errors(video_errors),.st_run_cycles(run_cycles),.st_auto_cycles(auto_cycles),.st_auto_frames(auto_frames),
+ .st_hdmi_frames(display_status[223:192]),.st_hdmi_underflow(display_status[191:160]),.st_hdmi_errors(display_status[159:128]+replay_errors),
+ .st_first_output(first_output_cycles),.st_input_stalls(input_stalls),.st_output_stalls(output_stalls),
+ .st_clock_cycles(schedule_clock),.st_scan_sequence(scan_sequence),.st_scan_timestamp(scan_timestamp),.st_publish_wait(publish_wait),.st_scan_style(scan_style),
+ .st_flags({display_status[5],cfg_reject,styles_ready,cal_done,engine_idle,frame_ready}),.st_sched(schedule_status[10:0]),.st_keys({!key2_up,!key3_up}),
+ .scl_in(io_cam_scl_IN),.sda_in(io_cam_sda_IN),.scl_low(io_cam_scl_OE),.sda_low(io_cam_sda_OE),
+ .osd_we(osd_we),.osd_addr(osd_addr),.osd_data(osd_data),
+ .cfg_we(cfg_we),.cfg_sel(cfg_sel),.cfg_lane(cfg_lane),.cfg_layer(cfg_layer),.cfg_addr(cfg_addr),.cfg_data(cfg_data));
 wire hs,vs,de;wire [7:0] red,green,blue;
-sc_display display(.uc(core_clk),.urst(rs_a[2]),.ac(core_clk),.arst(rs_a[2]),
+sc_display display(.uc(i_mipi_tx_pclk),.urst(rs_n[2]),.ac(core_clk),.arst(rs_a[2]),
  .pc(hdmi_tx_slow_clk),.prst(rs_p[2]),.calibrated(cal_done),
  .pixel(sink_data),.pv(sink_valid),.pready(sink_ready),.new_frame(new_frame),.original_frame(original_frame),
- .mode(2'd2),.status(display_status),.write_bank(output_bank),
+ .mode(view_mode),.status(display_status),.write_bank(upload_bank),.publish_orig(input_bank),.osd_we(osd_we),.osd_addr(osd_addr),.osd_data(osd_data),
  .publish(publish),.publish_bank(publish_bank),.output_complete(output_complete),.shown_valid(shown_valid),.shown_bank(shown_bank),
  .awaddr(out_awaddr),.awvalid(out_awvalid),.awready(out_awready),
  .wdata(out_wdata),.wvalid(out_wvalid),.wready(out_wready),.bvalid(out_bvalid),.bresp(s_axi_bresp),.bready(out_bready),
@@ -479,10 +521,10 @@ assign s_axi_wstrb=16'hffff;assign s_axi_wlast=1;
 assign s_axi_arid=0;assign s_axi_arlen=15;assign s_axi_arsize=4;assign s_axi_arburst=1;
 assign s_axi_arlock=0;assign s_axi_arcache=0;assign s_axi_arprot=0;
 reg [25:0] heartbeat=0;always @(posedge CLK_25M)heartbeat<=heartbeat+1'b1;
-assign led={setup_finished,|setup_error,config_ok,stream_set,requested_style,cal_done,heartbeat[24]};
+assign led={cam_enable,cpu_run,styles_ready[2],styles_ready[0],requested_style,cal_done,heartbeat[24]};
 wire [9:0] td0,td1,td2,tck;
 dvi_encoder video(.pixelclk(hdmi_tx_slow_clk),.rst_p(rs_p[2]),.i_bdata(blue),.i_gdata(green),.i_rdata(red),
- .i_de(de),.i_hs(hs),.i_vs(vs),.video_format(2'd0),.video_VIC(8'd16),
+ .i_de(de),.i_hs(hs),.i_vs(vs),.video_format(2'd0),.video_VIC(7'd0),
  .audio_L(24'd0),.audio_R(24'd0),.audio_valid(1'b0),.audio_N(20'd6144),.audio_CTS(20'd148500),
  .audio_sample_frequency(3'd0),.audio_word_length(4'b1011),.tmds_data0(td0),.tmds_data1(td1),.tmds_data2(td2),.tmds_clk(tck));
 assign tmds_tx_clk_TX_DATA=~tck;assign tmds_tx_data0_TX_DATA=~td0;assign tmds_tx_data1_TX_DATA=~td1;assign tmds_tx_data2_TX_DATA=~td2;
