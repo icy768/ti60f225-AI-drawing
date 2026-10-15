@@ -1,0 +1,12 @@
+OK frame 1 seq=01 16x8 len=256 crc=b783
+OK frame 2 seq=02 16x8 len=256 crc=78a8
+OK frame 3 seq=03 16x8 len=256 crc=cdae
+OK frame 4 seq=04 16x8 len=256 crc=f6df
+OK frame 5 seq=05 16x8 len=256 crc=43d9
+OK frame 6 seq=06 16x8 len=256 crc=8cf2
+OK frame 7 seq=07 16x8 len=256 crc=39f4
+OK frame 8 seq=08 16x8 len=256 crc=fa10
+OK frame 9 seq=09 16x8 len=256 crc=4f16
+tap captured=10 dropped=1 | link frames=10 bytes=2708 aborts=1
+PASS tap decimation, framing, CRC and pixel values
+sim/stream_link_tb.v:189: $finish called at 1923939000 (1ps)

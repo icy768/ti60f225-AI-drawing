@@ -8,3 +8,6 @@
 # Preserve exact RISCV10 vendor and linker evidence, including original whitespace.
 /FPGAProjects/烧录文件/20261015_RISCV10_LowLatency_Candidate/*.rpt binary
 /FPGAProjects/烧录文件/20261015_RISCV10_LowLatency_Candidate/*.map binary
+
+# Preserve the creative-integration vendor resource and timing evidence.
+/FPGAProjects/StyleCam_camera/wifi_stream/review/*.rpt binary

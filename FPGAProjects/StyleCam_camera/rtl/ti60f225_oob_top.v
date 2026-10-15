@@ -58,6 +58,9 @@ module ti60f225_oob_top #(
  output wire system_spi_0_io_data_1_OE,
     output wire uart_tx,
  input wire uart_rx,
+ // phone preview stream (creative interaction): assign to a FREE 3.3 V GPIO in the
+ // Efinity interface designer; do NOT reuse the uart_rx / uart_tx pins above.
+ output wire stream_tx,
     input	wire	i_mipi_rx_pclk,
     input wire  vid_clk_dvi2,
     input wire hdmi_tx_slow_clk,
@@ -530,6 +533,25 @@ dvi_encoder video(.pixelclk(hdmi_tx_slow_clk),.rst_p(rs_p[2]),.i_bdata(blue),.i_
 assign tmds_tx_clk_TX_DATA=~tck;assign tmds_tx_data0_TX_DATA=~td0;assign tmds_tx_data1_TX_DATA=~td1;assign tmds_tx_data2_TX_DATA=~td2;
 assign tmds_tx_clk_TX_OE=1;assign tmds_tx_data0_TX_OE=1;assign tmds_tx_data1_TX_OE=1;assign tmds_tx_data2_TX_OE=1;
 assign tmds_tx_clk_TX_RST=0;assign tmds_tx_data0_TX_RST=0;assign tmds_tx_data1_TX_RST=0;assign tmds_tx_data2_TX_RST=0;
+
+// ---------------------------------------------------------------- phone preview stream
+// The creative-interaction link: the HDMI raster that sc_display already produces is decimated
+// to a 96x54 RGB565 preview and serialised at 3 Mbaud for the ESP32-S3, which serves it to a
+// phone over WiFi.  This block only observes hs/vs/de/rgb, so the verified camera -> network ->
+// display chain is untouched; a full FIFO drops a preview frame instead of stalling the raster.
+wire [15:0] pv_word;wire pv_wv,pv_ready,pv_abort,pv_rd_v,pv_rready,pv_flush;
+wire [12:0] pv_level;wire [15:0] pv_rd;
+wire [31:0] pv_tap_frames,pv_tap_drops,pv_link_frames,pv_link_bytes,pv_link_aborts;
+sc_stream_tap #(.SRC_W(1920),.SRC_H(1080),.SX(20),.SY(20),.PACE_WORDS(1024)) preview_tap(
+ .pc(hdmi_tx_slow_clk),.prst(rs_p[2]),.de(de),.vs(vs),.red(red),.green(green),.blue(blue),
+ .wready(pv_ready),.flush_capture(pv_flush),.wlevel(pv_level),.wd(pv_word),.wv(pv_wv),
+ .abort_toggle(pv_abort),.tap_frames(pv_tap_frames),.tap_drops(pv_tap_drops));
+sc_async_fifo #(.W(16),.AW(12)) preview_fifo(
+ .wc(hdmi_tx_slow_clk),.wrst(rs_p[2]),.wd(pv_word),.wv(pv_wv),.wready(pv_ready),.wlevel(pv_level),
+ .rc(core_clk),.rrst(rs_a[2]),.rd(pv_rd),.rv(pv_rd_v),.rready(pv_rready));
+sc_stream_link #(.OUT_W(96),.OUT_H(54),.DIV(33),.FMT(0)) preview_link(
+ .clk(core_clk),.rst(rs_a[2]),.rready(pv_rready),.rd(pv_rd),.rd_v(pv_rd_v),.abort_pc(pv_abort),
+ .uart_tx(stream_tx),.flush_capture(pv_flush),.frames_sent(pv_link_frames),.bytes_sent(pv_link_bytes),.aborts(pv_link_aborts));
 
 ddr3_top                 u_ddr3_top
 (

@@ -7,6 +7,8 @@
  * - 加速器调度：每帧由 CPU 下发单步启动，帧发布中断里统计帧率并下发下一帧
  * - 风格部署：开机依次触发三种风格的 IN 校准作业（13 遍），之后切换风格无需等待
  * - 交互：KEY3 短按切风格、长按切布局；串口 0 1 2 / v 同样可操作；OSD 叠加状态
+ * - 语音（创意交互，编译期开关默认关闭）：语音模块经 ESP32-S3 映射成单字符即可，无需改本文件；
+ *   若语音模块直连 uart_rx，用 -DSTYLECAM_VOICE_TOKENS=1 打开 't' 关键词模式（见下方 console）
  */
 #include <stdint.h>
 #include "bsp.h"
@@ -487,6 +489,96 @@ static int rgb_input(char c)
     return 1;
 }
 
+
+/* ---------------- 语音关键词模式（可选，编译期开关，默认关闭） ----------------
+ * 推荐做法（见 FPGAProjects/StyleCam_camera/wifi_stream/README.md 第 5 节）：
+ * 语音模块 -> ESP32-S3 -> 映射成单字符 0/1/2/v -> 转发到 FPGA uart_rx，
+ * 走下面的单字符命令即可，**不需要**打开本开关；默认构建与已验收固件完全一致。
+ *
+ * 只有把离线语音模块**直连** FPGA uart_rx 时才需要打开：
+ *   make / build_fw.py 加 -DSTYLECAM_VOICE_TOKENS=1
+ * 打开后串口 't' 进入关键词模式，接受 next / style0..2 / layout / report / reload 等单词；
+ * 该模式下单字符命令被忽略（避免单词里的数字/字母误触发），'raw' 切回单字符模式。
+ * 开销约 +1.1 KB ROM、+1.1 KB RAM（16 KB 片上 RAM 上从 86% 升到 93%）。 */
+#ifndef STYLECAM_VOICE_TOKENS
+#define STYLECAM_VOICE_TOKENS 0
+#endif
+
+#if STYLECAM_VOICE_TOKENS
+static int token_mode;
+static char vtok[20];
+static int vtok_n;
+
+static int sc_streq(const char *a, const char *b)
+{
+    while (*a && *a == *b) { a++; b++; }
+    return *a == *b;
+}
+
+static void act_set_style(uint32_t s)
+{
+    csr_clear(mstatus, MSTATUS_MIE);
+    if (s != cur_style()) {
+        ctrl_write((ctrl & ~CTRL_STYLE(3)) | CTRL_STYLE(s));
+        mark_switch(s);
+    }
+    osd_dirty = 1;
+    csr_set(mstatus, MSTATUS_MIE);
+}
+
+static void act_cycle_view(void)
+{
+    csr_clear(mstatus, MSTATUS_MIE);
+    uint32_t v = cur_view() == 2 ? 0 : cur_view() + 1;
+    ctrl_write((ctrl & ~CTRL_VIEW(3)) | CTRL_VIEW(v));
+    osd_dirty = 1;
+    csr_set(mstatus, MSTATUS_MIE);
+}
+
+static void act_reload(void)                             /* 运行中重新从 Flash 装载权重 */
+{
+    uint32_t us = 0;
+    int ok = pause_stream();
+    int r = ok ? weights_load(2, &us) : -4;
+    bsp_printf("weights reload: %d records, %d us\r\n", r, us);
+    resume_stream();
+}
+
+static void vocab_dispatch(const char *w)
+{
+    if (sc_streq(w, "next"))            { act_set_style(cur_style() == 2 ? 0 : cur_style() + 1);
+                                          bsp_printf("voice: next -> style %d\r\n", cur_style()); }
+    else if (sc_streq(w, "style0") || sc_streq(w, "gogh"))  { act_set_style(0); bsp_printf("voice: style 0\r\n"); }
+    else if (sc_streq(w, "style1") || sc_streq(w, "ukiyo")) { act_set_style(1); bsp_printf("voice: style 1\r\n"); }
+    else if (sc_streq(w, "style2") || sc_streq(w, "ink"))   { act_set_style(2); bsp_printf("voice: style 2\r\n"); }
+    else if (sc_streq(w, "layout"))     { act_cycle_view(); bsp_printf("voice: view %d\r\n", cur_view()); }
+    else if (sc_streq(w, "report"))     { print_status(0); }
+    else if (sc_streq(w, "reload"))     { act_reload(); }
+    else if (sc_streq(w, "raw"))        { token_mode = 0; bsp_printf("single-char mode\r\n"); }
+    else                                 bsp_printf("voice: unknown word '%s'\r\n", w);
+}
+
+/* 返回 1 表示该字符已在关键词模式下被消费 */
+static int token_input(char c)
+{
+    if (!token_mode) return 0;
+    if (c == ' ' || c == '\t' || c == '\r' || c == '\n' || c == ',' || c == '.') {
+        if (vtok_n) {
+            vtok[vtok_n] = 0;
+            vocab_dispatch(vtok);
+            vtok_n = 0;
+        }
+    } else if (c >= 'A' && c <= 'Z') {
+        if (vtok_n < (int)sizeof(vtok) - 1) vtok[vtok_n++] = (char)(c + 32); else vtok_n = 0;
+    } else if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')) {
+        if (vtok_n < (int)sizeof(vtok) - 1) vtok[vtok_n++] = c; else vtok_n = 0;
+    } else {
+        vtok_n = 0;                                      /* 非词字符：丢弃当前词 */
+    }
+    return 1;
+}
+#endif
+
 static void console(void)
 {
     if(rgb_active&&us_since(rgb_last)>2000000) {
@@ -494,6 +586,9 @@ static void console(void)
     }
     while (uart_readOccupancy(BSP_UART_TERMINAL)) {
         char c = uart_read(BSP_UART_TERMINAL);
+#if STYLECAM_VOICE_TOKENS
+        if(token_input(c)) continue;
+#endif
         if(rgb_input(c)) continue;
         if(c=='G') { rgb_set(256,256,256); continue; }
         csr_clear(mstatus, MSTATUS_MIE);
@@ -512,6 +607,10 @@ static void console(void)
         csr_set(mstatus, MSTATUS_MIE);
         if (c == 's') print_status(0);
         if (c == 'c') print_camera_registers();
+#if STYLECAM_VOICE_TOKENS
+        if (c == 't') { token_mode = 1; vtok_n = 0;
+                        bsp_printf("token mode on (voice keywords: next style0 style1 style2 layout report reload raw)\r\n"); }
+#endif
         if (c == 'w') {                                  /* 运行中重新从 Flash 装载权重 */
             uint32_t us = 0;
             int ok = pause_stream();
@@ -519,7 +618,11 @@ static void console(void)
             bsp_printf("weights reload: %d records, %d us\r\n", r, us);
             resume_stream();
         }
-        if (c == 'h' || c == '?') bsp_printf("commands: 0 1 2 style, v view, s status, c camera readback, w reload weights, g R G B percent, q R G B raw (Enter), g? query, G reset\r\n");
+        if (c == 'h' || c == '?') bsp_printf("commands: 0 1 2 style, v view, s status, c camera readback, w reload weights, g R G B percent, q R G B raw (Enter), g? query, G reset"
+#if STYLECAM_VOICE_TOKENS
+                   ", t voice keywords"
+#endif
+                   "\r\n");
     }
 }
 
@@ -600,7 +703,11 @@ void main()
     step_frame();
     csr_set(mstatus, MSTATUS_MIE);
     osd_draw();
-    bsp_printf("streaming; commands: 0 1 2 style, v view, s status, c camera readback, w reload weights, g R G B percent, q R G B raw (Enter), g? query, G reset\r\n");
+    bsp_printf("streaming; commands: 0 1 2 style, v view, s status, c camera readback, w reload weights, g R G B percent, q R G B raw (Enter), g? query, G reset"
+#if STYLECAM_VOICE_TOKENS
+                   ", t voice keywords"
+#endif
+                   "\r\n");
 
     uint32_t t_last = now(), f_last = frames, p_last = last_pub_t, s_last = SC_SENSOR_FRAMES, uptime_ms = 0, ticks = 0;
     while (1) {

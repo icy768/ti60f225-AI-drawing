@@ -1,0 +1,8 @@
+OK frame 1 seq=00 40x30 len=2400 crc=00f8
+OK frame 2 seq=01 40x30 len=2400 crc=5341
+OK frame 3 seq=02 40x30 len=2400 crc=a78a
+OK frame 4 seq=03 40x30 len=2400 crc=f433
+OK frame 5 seq=04 40x30 len=2400 crc=5e3d
+tap captured=6 dropped=0 | link frames=5 bytes=13276 aborts=0
+PASS tap decimation, framing, CRC and pixel values
+sim/stream_link_tb.v:189: $finish called at 3600315000 (1ps)
