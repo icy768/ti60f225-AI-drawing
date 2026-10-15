@@ -41,8 +41,12 @@
  *
  *  1. UART1 is the user data port, and both its pins and its baud rate are chosen in
  *     the platform.  The vendor walk-through uses 115200 8N1 with B6 = UART1_RX and
- *     B7 = UART1_TX, so that is what VOICE_BAUD assumes.  Do not enable a second
- *     UART1 in the platform or UART1 stops working.
+ *     B7 = UART1_TX (the VC-02-Kit header silkscreens these RX1 / TX1), which is also
+ *     the UART1 factory default per the datasheet - so that is what VOICE_BAUD assumes.
+ *     Do not enable a second UART1 in the platform or UART1 stops working.  The other
+ *     exposed UART, UART0 on IOB8 at 57600, is the log port - not recognition results.
+ *     Power the kit from 5 V (VCC 4.5-5.3 V, >= 500 mA); its IO is 3.3 V, so the UART
+ *     lines connect to the ESP32 directly.
  *
  *  2. The bytes sent for a command word are NOT fixed by the firmware - you type them
  *     yourself, per command, in the platform's "控制详情 -> 串口数据" field.  There is
