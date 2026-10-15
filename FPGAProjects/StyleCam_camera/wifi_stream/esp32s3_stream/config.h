@@ -104,3 +104,31 @@ static const voiceRule_t VOICE_RULES[] = {
 #define VOICE_STYLE_3 '3'   /* -> console '2' */
 #define VOICE_LAYOUT  'V'   /* -> console 'v' */
 #define VOICE_STATUS  'S'   /* -> console 's' */
+
+/* ---------------------------------------------------------------- gesture */
+/*
+ * Gesture switching runs on the ESP32, not the FPGA: the Ti60F225 is already at 100%
+ * logic utilisation (the accepted CNN + DDR + HDMI + preview stream leave no XLRs),
+ * so there is nowhere to put hand-detection RTL.  Instead this firmware reuses the
+ * 96x54 preview it already receives and detects a waving hand by the centroid of
+ * frame-to-frame motion - no FPGA change, and it works on the stylised picture.
+ *
+ * A wave = the motion centroid travels steadily one way; a held hand = motion stays
+ * in one spot.  Both map onto the same console commands the voice path uses
+ * ('0' '1' '2' style, 'v' view), so gesture and voice share one FPGA-side path.
+ */
+#ifndef GESTURE_ENABLE
+  #define GESTURE_ENABLE 1
+#endif
+/* luma (6-bit green) change between consecutive frames that counts as motion */
+#define GESTURE_MOTION     18
+/* motion pixel count below this means "no hand" (96x54 frame) */
+#define GESTURE_COUNT_MIN  40
+/* centroid must move this far (pixels) in one direction to count as a wave */
+#define GESTURE_SWIPE_DX   12
+/* centroid drift below this while held counts as "still" */
+#define GESTURE_HOLD_DX    3
+/* hand must stay still this long (ms) to cycle the view */
+#define GESTURE_HOLD_MS    1500
+/* after a gesture, ignore new ones for this long (ms) */
+#define GESTURE_COOLDOWN_MS 900

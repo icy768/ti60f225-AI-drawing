@@ -37,6 +37,13 @@ if ( cd "$here/host_stub" && "$gxx" -std=gnu++17 -Wall -Wextra -Wno-unused-param
 rm -f "$here/host_stub/.voice_test.exe"
 if [ "$vc" -eq 1 ]; then ok "voice matching"; else bad "voice matching"; fi
 
+note "gesture self-test (compiles and runs the real sketch functions)"
+gc=0
+if ( cd "$here/host_stub" && "$gxx" -std=gnu++17 -Wall -Wextra -Wno-unused-parameter -I. \
+       gesture_test.cpp shim.cpp -o .gesture_test.exe ) && "$here/host_stub/.gesture_test.exe"; then gc=1; fi
+rm -f "$here/host_stub/.gesture_test.exe"
+if [ "$gc" -eq 1 ]; then ok "gesture"; else bad "gesture"; fi
+
 note "frame parser self-test"
 if "$py" "$here/test_frame_parser.py"; then ok "parser"; else bad "parser"; fi
 

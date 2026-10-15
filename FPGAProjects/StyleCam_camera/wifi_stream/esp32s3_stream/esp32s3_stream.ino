@@ -93,10 +93,16 @@ static uint16_t crcStep(uint16_t c, uint8_t b) {
   return c;
 }
 
+/* Last style the ESP32 requested, tracked so gesture "next style" can cycle without
+ * the FPGA having to echo its state back.  Assumes the RISC-V boots at style 0. */
+static volatile int currentStyle = 0;
+static volatile uint32_t gestureCount = 0;
+
 static void forwardCommand(char c) {
   Serial2.write((uint8_t)c);
   Serial2.flush();
   cmdCount++;
+  if (c >= '0' && c <= '2') currentStyle = c - '0';
   Serial.printf("[cmd] -> FPGA console: '%c'\n", c);
 }
 
@@ -301,17 +307,19 @@ static void streamTask(void *) {
 #endif
 
 static void handleStatus() {
-  char buf[448];
+  char buf[512];
   snprintf(buf, sizeof(buf),
            "{\"frames\":%lu,\"fps\":%lu,\"seq\":%u,\"w\":%lu,\"h\":%lu,"
            "\"crc_errors\":%lu,\"sync_losses\":%lu,\"commands\":%lu,\"voice\":%lu,\"last_voice\":%d,"
            "\"voice_raw\":%lu,\"voice_unknown\":%lu,"
+           "\"gesture\":%lu,\"style\":%d,"
            "\"heap\":%lu,\"psram\":%lu}",
            (unsigned long)frameCount, (unsigned long)fpsValue, (unsigned)frameSeq,
            (unsigned long)frameW, (unsigned long)frameH,
            (unsigned long)crcErrors, (unsigned long)syncLosses, (unsigned long)cmdCount,
            (unsigned long)voiceCount, (int)lastVoice,
            (unsigned long)voiceRaw, (unsigned long)voiceUnknown,
+           (unsigned long)gestureCount, (int)currentStyle,
            (unsigned long)ESP.getFreeHeap(), (unsigned long)ESP.getFreePsram());
   server.send(200, "application/json", buf);
 }
@@ -510,6 +518,110 @@ static void handleVoice() {
 
 #endif
 
+/* ------------------------------------------------------------------ gesture */
+/*
+ * Hand-gesture switching, running on the ESP32 over the 96x54 preview stream it
+ * already receives.  The Ti60F225 is at 100% logic utilisation, so there is no room
+ * for hand-detection RTL (see wifi_stream/README.md); the same job done here costs
+ * nothing on the FPGA and works on the stylised picture because it keys on motion,
+ * not skin colour.
+ *
+ * gestureCentroid: frame-diff the 6-bit green channel against the previous frame and
+ * return the centroid of the moving pixels.  A waving hand is the largest moving
+ * blob, so its centroid tracks the hand.  gestureStep is the state machine; both are
+ * plain C so the host self-test can drive them without an ESP32.
+ */
+#if GESTURE_ENABLE
+
+typedef struct {
+  uint8_t state;              /* 0 idle, 1 tracking, 2 fired (wait for release) */
+  int     start_cx;
+  uint32_t hold_t0;
+  uint32_t last_fire;
+  uint8_t on_ticks, off_ticks;
+} gestureFsm_t;
+
+static void gestureReset(gestureFsm_t *g) {
+  g->state = 0; g->on_ticks = 0; g->off_ticks = 0; g->start_cx = 0; g->hold_t0 = 0; g->last_fire = 0;
+}
+
+/* classify one frame against the previous one; w*h bytes each, RGB565 little-endian */
+static uint32_t gestureCentroid(const uint8_t *frame, uint8_t *prev, int w, int h,
+                                int thr, int *cx, int *cy) {
+  uint32_t sx = 0, sy = 0, cnt = 0;
+  for (int y = 0; y < h; y++) {
+    const uint8_t *row = frame + (size_t)y * w * 2;
+    uint8_t *prow = prev + (size_t)y * w;
+    for (int x = 0; x < w; x++) {
+      uint16_t v = (uint16_t)row[2 * x] | ((uint16_t)row[2 * x + 1] << 8);
+      uint8_t g = (v >> 5) & 0x3F;
+      uint8_t d = g > prow[x] ? g - prow[x] : prow[x] - g;
+      prow[x] = g;
+      if (d >= (uint8_t)thr) { sx += (uint32_t)x; sy += (uint32_t)y; cnt++; }
+    }
+  }
+  if (cnt) { *cx = (int)(sx / cnt); *cy = (int)(sy / cnt); }
+  else { *cx = 0; *cy = 0; }
+  return cnt;
+}
+
+/* Returns '+' for a right wave, '-' for a left wave, 'v' for a held hand, else 0. */
+static char gestureStep(gestureFsm_t *g, int present, int cx, uint32_t nowMs) {
+  switch (g->state) {
+  case 0:
+    if (present) { if (++g->on_ticks >= 3) { g->state = 1; g->start_cx = cx; g->hold_t0 = nowMs; g->on_ticks = 0; } }
+    else g->on_ticks = 0;
+    return 0;
+  case 1:
+    if (!present) { if (++g->off_ticks >= 5) { g->state = 0; g->off_ticks = 0; g->on_ticks = 0; } return 0; }
+    g->off_ticks = 0;
+    if (g->last_fire && nowMs - g->last_fire < GESTURE_COOLDOWN_MS) return 0;  /* 0 = never fired */
+    {
+      int dx = cx - g->start_cx;
+      if (dx > GESTURE_SWIPE_DX)          { g->state = 2; g->last_fire = nowMs; return '+'; }
+      if (dx < -GESTURE_SWIPE_DX)         { g->state = 2; g->last_fire = nowMs; return '-'; }
+      if ((dx < GESTURE_HOLD_DX && dx > -GESTURE_HOLD_DX) && (nowMs - g->hold_t0 >= GESTURE_HOLD_MS))
+                                          { g->state = 2; g->last_fire = nowMs; return 'v'; }
+    }
+    return 0;
+  default: /* 2: wait for the hand to leave before re-arming */
+    if (!present) { g->state = 0; g->on_ticks = 0; g->off_ticks = 0; }
+    return 0;
+  }
+}
+
+static uint8_t *gPrev = nullptr;
+static gestureFsm_t gFsm;
+
+static void gestureTask(void *) {
+  gPrev = (uint8_t *)ps_malloc(PREVIEW_W * PREVIEW_H);
+  if (!gPrev) {
+    Serial.println("gesture: no PSRAM for luma buffer - disabled");
+    for (;;) vTaskDelay(pdMS_TO_TICKS(1000));   /* nothing to do without the buffer */
+  }
+  gestureReset(&gFsm);
+  uint32_t lastSeq = 0xFFFFFFFFu;
+  for (;;) {
+    if (!front || frameSeq == lastSeq) { vTaskDelay(pdMS_TO_TICKS(15)); continue; }
+    lastSeq = frameSeq;
+    int cx, cy;
+    uint32_t cnt = gestureCentroid(front, gPrev, PREVIEW_W, PREVIEW_H, GESTURE_MOTION, &cx, &cy);
+    char r = gestureStep(&gFsm, cnt >= GESTURE_COUNT_MIN, cx, millis());
+    if (r == '+' || r == '-') {
+      int next = (currentStyle + 1) % 3;
+      forwardCommand((char)('0' + next));
+      gestureCount++;
+      Serial.printf("[gesture] wave (n=%lu @%d,%d) -> style %d\n", (unsigned long)cnt, cx, cy, next);
+    } else if (r == 'v') {
+      forwardCommand('v');
+      gestureCount++;
+      Serial.printf("[gesture] hold (n=%lu @%d,%d) -> cycle view\n", (unsigned long)cnt, cx, cy);
+    }
+  }
+}
+
+#endif  /* GESTURE_ENABLE */
+
 /* ------------------------------------------------------------------ stats ticker */
 static void statsTask(void *) {
   for (;;) {
@@ -580,6 +692,9 @@ void setup() {
   xTaskCreatePinnedToCore(readFpgaTask, "fpga_rx", 4096, nullptr, 6, nullptr, 1);
   xTaskCreatePinnedToCore(readVoiceTask, "voice", 3072, nullptr, 3, nullptr, 1);
   xTaskCreatePinnedToCore(statsTask, "stats", 3072, nullptr, 1, nullptr, 0);
+#if GESTURE_ENABLE
+  xTaskCreatePinnedToCore(gestureTask, "gesture", 3072, nullptr, 2, nullptr, 0);
+#endif
 #if STYLECAM_MJPEG
   xTaskCreatePinnedToCore(streamTask, "mjpeg", 4096, nullptr, 2, nullptr, 0);
 #endif

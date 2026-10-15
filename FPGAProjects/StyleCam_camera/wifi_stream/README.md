@@ -1,6 +1,8 @@
 # 创意交互：语音切风格 + WiFi 推流到手机
 
-赛题一（AI 赋能实时绘画 / 风格化视频渲染）的**创意交互展示**部分。手势识别按需求暂不做。
+赛题一（AI 赋能实时绘画 / 风格化视频渲染）的**创意交互展示**部分。两种交互都做了：
+**语音切风格**（VC-02 离线语音模块）和**手势切风格**（在 ESP32 上对预览流做运动质心检测，
+挥手切风格、举手悬停切布局）。两者都走同一个串口控制台，FPGA / RISC-V 固件零改动。
 
 **当前状态：候选源码已实现，代码审查与离线验证完成；尚未上板、尚未合并。**
 按当前安排，先完成 ESP32 原生构建与 FPGA / VC-02 / 手机实机联调，再决定合并和分支清理。
@@ -249,7 +251,44 @@ make STYLECAM_EXTRA_CFLAGS=-DSTYLECAM_VOICE_TOKENS=1
 
 ---
 
-## 6. 帧协议（`sc_stream_link.v` 与 ESP32 解析器必须一致）
+## 6. 手势控制（在 ESP32 上，FPGA 零改动）
+
+一开始打算在 FPGA 上用摄像头做手势：在 `sc_camera_rgb` 输出上做一个片上统计模块
+（肤色 + 强度边缘 → 每帧质心），经 APB 交给 RISC-V。RTL 写完了、单元测试也过了
+（`rtl/sc_gesture.v` + `sim/gesture_tb.v`），但 **Ti60F225 逻辑资源已 100% 用满**
+（60800 逻辑块，综合后 62607，`sc_gesture` 那 ~1700 个原语正好把它顶爆；RAM10 之前就是
+254/256）。所以纯 RTL 手势装不下，最终改成**在 ESP32 上做**——它本来就收着 96×54 预览帧，
+多写一段帧间运动检测，成本为零、FPGA 一行不动。
+
+原理：挥手 = "运动质心持续朝一个方向移动"。
+
+```
+96×54 预览帧（每帧都有）─► 与上一帧的绿色通道做差
+                              │ 差值 > GESTURE_MOTION 的像素 = 运动
+                              ▼
+                          运动像素质心 (cx, cy)
+                              │ 状态机（gestureStep，纯 C，可单测）
+                              ▼
+            挥手（质心横向位移 > 阈值）  → 转发 '0'/'1'/'2'（循环切风格）
+            举手悬停 1.5s（质心不动）   → 转发 'v'（切布局）
+```
+
+- 关键在**运动**而不是肤色：预览流是**风格化之后**的画面（梵高/水墨画会改颜色），
+  肤色检测在这里没意义，但"手在动、背景基本不动"这个信号不受风格影响。
+- 风格切走的一瞬间整帧会变 → 用"运动团块要够小 + 触发后 900ms 冷却"挡住整帧误报。
+- 当前风格由 ESP32 自己跟踪（所有命令都经 `forwardCommand` 转发，顺带记录最近一次
+  `0/1/2`），所以手势能"切到下一个"而不用问 FPGA 回传状态。前提是 RISC-V 从风格 0 启动。
+- 挥手方向反了就把 `gestureStep` 里 `+/-` 分支对调；`GESTURE_*` 阈值都在 `config.h`。
+
+阈值（`config.h`）：`GESTURE_MOTION`(18) 运动门限、`GESTURE_COUNT_MIN`(40) 有人门限、
+`GESTURE_SWIPE_DX`(12) 挥手位移、`GESTURE_HOLD_MS`(1500) 悬停时长、`GESTURE_COOLDOWN_MS`(900) 冷却。
+
+宿主机单测：`tools/check_host.sh` 的 `gesture` 一项，把 `gestureCentroid` 和 `gestureStep`
+编译进去逐条断言（挥手/悬停/冷却/小抖动不误判）。
+
+---
+
+## 7. 帧协议（`sc_stream_link.v` 与 ESP32 解析器必须一致）
 
 | 偏移 | 字节 | 字段 |
 |---|---|---|
@@ -271,7 +310,7 @@ make STYLECAM_EXTRA_CFLAGS=-DSTYLECAM_VOICE_TOKENS=1
 
 ---
 
-## 7. 构建与烧录
+## 8. 构建与烧录
 
 ### 7.1 ESP32-S3 固件
 
@@ -309,7 +348,7 @@ STYLECAM_RISCV_BIN=<工具链bin目录> STYLECAM_EXTRA_CFLAGS=-DSTYLECAM_VOICE_T
 
 ---
 
-## 8. 验证
+## 9. 验证
 
 ### 8.1 RTL 仿真（自校验）
 
@@ -358,7 +397,7 @@ python tools/check_host.py  # Windows / Linux；也可用 bash tools/check_host.
 
 ---
 
-## 9. 已知限制
+## 10. 已知限制
 
 - 本次验证包括真实 FPGA 综合/布局布线、RTL 和主机 C++ 回归；没有安装 ESP32 交叉工具链，
   未声称 Arduino 真机编译或 VC-02 / ESP32 / 手机实机联调通过。上板后仍需核对 UART、图像和语音。
@@ -377,7 +416,7 @@ python tools/check_host.py  # Windows / Linux；也可用 bash tools/check_host.
 
 ---
 
-## 10. 目录
+## 11. 目录
 
 ```
 wifi_stream/
