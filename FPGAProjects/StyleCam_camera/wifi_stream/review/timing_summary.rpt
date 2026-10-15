@@ -1,0 +1,104 @@
+
+Efinix Static Timing Analysis Report
+Version: 2026.1.132.4.5
+Date: Thu Oct 15 20:15:44 2026
+
+Copyright (C) 2013 - 2026 Efinix, Inc. All rights reserved.
+
+Top-level Entity Name: ti60f225_oob
+
+SDC Filename: ti60f225_oob.sdc
+
+Timing Model: I3
+	process : typical
+	temperature : -40C to 100C
+	voltage : 0.95 +/-30mV
+	speedgrade : 3
+	technology : t16ff
+	status : final
+
+---------- Table of Contents (begin) ----------
+   1. Clock Frequency Summary
+   2. Clock Relationship Summary
+   3. Path Details for Max Critical Paths
+   4. Path Details for Min Critical Paths
+---------- Table of Contents (end) ------------
+
+---------- 1. Clock Frequency Summary (begin) ----------
+
+User target constrained clocks
+   Clock Name     Period (ns)  Frequency (MHz)    Waveform          Targets
+tx_cal_clk_90edge     2.500        400.000     {0.000 1.250}  {tx_cal_clk_90edge}
+sdram_clk             2.500        400.000     {0.000 1.250}  {sdram_clk}        
+rx_cal_clk            2.500        400.000     {0.000 1.250}  {rx_cal_clk}       
+tx_cal_clk            2.500        400.000     {0.000 1.250}  {tx_cal_clk}       
+net_clk               6.667        149.993     {0.000 3.333}  {i_mipi_tx_pclk}   
+core_clk             10.000        100.000     {0.000 5.000}  {core_clk}         
+i_mipi_rx_pclk       20.000         50.000     {0.000 10.000} {i_mipi_rx_pclk}   
+hdmi_tx_slow_clk      6.734        148.500     {0.000 3.367}  {hdmi_tx_slow_clk} 
+CLK_25M              40.000         25.000     {0.000 20.000} {CLK_25M}          
+i_cam_ck_CLKOUT      14.286         69.999     {0.000 7.143}  {i_cam_ck_CLKOUT}  
+
+Maximum possible analyzed clocks frequency
+   Clock Name     Period (ns)  Frequency (MHz)     Edge
+tx_cal_clk_90edge     2.187       457.247         (R-R)
+sdram_clk             2.084       479.846         (R-R)
+rx_cal_clk            1.904       525.210         (R-R)
+tx_cal_clk            2.212       452.080         (R-R)
+net_clk               6.356       157.332         (R-R)
+core_clk              7.137       140.115         (R-R)
+i_mipi_rx_pclk       11.997        83.354         (R-R)
+hdmi_tx_slow_clk      4.713       212.179         (R-R)
+CLK_25M               2.419       413.394         (R-R)
+i_cam_ck_CLKOUT       8.180       122.249         (R-R)
+
+Geomean max period: 3.971
+
+---------- Clock Frequency Summary (end) ---------------
+
+---------- 2. Clock Relationship Summary (begin) ----------
+
+Setup (Max) Clock Relationship
+  Launch Clock      Capture Clock   Constraint (ns)     Slack (ns)          Edge
+tx_cal_clk_90edge tx_cal_clk_90edge       2.500            0.313           (R-R)
+tx_cal_clk_90edge tx_cal_clk              2.500            1.371           (R-R)
+tx_cal_clk_90edge core_clk                2.500            1.873           (R-R)
+sdram_clk         tx_cal_clk_90edge       2.500            0.525           (R-R)
+sdram_clk         sdram_clk               2.500            0.416           (R-R)
+rx_cal_clk        rx_cal_clk              2.500            0.596           (R-R)
+tx_cal_clk        tx_cal_clk              2.500            0.288           (R-R)
+net_clk           net_clk                 6.667            0.311           (R-R)
+net_clk           core_clk                6.000            3.784           (R-R)
+core_clk          tx_cal_clk_90edge       2.500            0.867           (R-R)
+core_clk          net_clk                 6.000            2.554           (R-R)
+core_clk          core_clk               10.000            2.863           (R-R)
+i_mipi_rx_pclk    i_mipi_rx_pclk         20.000            8.003           (R-R)
+hdmi_tx_slow_clk  hdmi_tx_slow_clk        6.734            2.021           (R-R)
+CLK_25M           net_clk                 6.000            2.835           (R-R)
+CLK_25M           CLK_25M                40.000           37.581           (R-R)
+i_cam_ck_CLKOUT   i_cam_ck_CLKOUT        14.286            6.106           (R-R)
+
+Hold (Min) Clock Relationship
+  Launch Clock      Capture Clock   Constraint (ns)     Slack (ns)          Edge
+tx_cal_clk_90edge tx_cal_clk_90edge      0.000            0.045            (R-R)
+tx_cal_clk_90edge tx_cal_clk             0.000            0.440            (R-R)
+tx_cal_clk_90edge core_clk               0.000            0.140            (R-R)
+sdram_clk         tx_cal_clk_90edge      0.000            0.742            (R-R)
+sdram_clk         sdram_clk              0.000            0.050            (R-R)
+rx_cal_clk        rx_cal_clk             0.000            0.028            (R-R)
+tx_cal_clk        tx_cal_clk             0.000            0.078            (R-R)
+net_clk           net_clk                0.000            0.026            (R-R)
+net_clk           core_clk               0.000            0.080            (R-R)
+core_clk          tx_cal_clk_90edge      0.000            0.151            (R-R)
+core_clk          net_clk                0.000            0.100            (R-R)
+core_clk          core_clk               0.000            0.026            (R-R)
+i_mipi_rx_pclk    i_mipi_rx_pclk         0.000            0.059            (R-R)
+hdmi_tx_slow_clk  hdmi_tx_slow_clk       0.000            0.034            (R-R)
+CLK_25M           net_clk                0.000            1.254            (R-R)
+CLK_25M           CLK_25M                0.000            0.109            (R-R)
+i_cam_ck_CLKOUT   i_cam_ck_CLKOUT        0.000            0.058            (R-R)
+
+NOTE: Values are in nanoseconds.
+
+---------- Clock Relationship Summary (end) ---------------
+

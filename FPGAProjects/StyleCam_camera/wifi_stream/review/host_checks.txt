@@ -1,0 +1,42 @@
+
+MJPEG syntax
+
+Fallback syntax
+
+Voice char mode syntax
+
+voice_test
+
+voice frame matching
+  ok    fmtBurst renders a pastable hex string
+  ok    fmtBurst zero-pads single digits
+  ok    pattern: five explicit bytes
+  ok    pattern: ?? is exactly one wildcard byte
+  ok    pattern: lowercase and stray spaces accepted
+  ok    pattern: non-hex rejected
+  ok    pattern: half a wildcard rejected
+  ok    pattern: empty rejected
+  ok    match: exact hit
+  ok    match: wildcards accept any byte
+  ok    match: one wrong byte is a miss
+  ok    match: a truncated frame is a miss, not a partial hit
+  ok    match: leading junk is a miss, not a shifted hit
+  ok    match: one-byte modules work
+  ok    shipped VOICE_RULES are all well formed and reachable
+  ok    burst: nothing buffered is not a frame
+  ok    burst: a short gap keeps the frame open
+  ok    burst: the silent gap closes the frame
+  ok    burst: a full buffer closes the frame
+
+voice frame matching PASS
+
+bridge_test
+PASS real bridge: UART rates, partial reads, CRC, malformed geometry/format/length, sequence wrap, snapshots
+
+Independent wire protocol reference
+OK  CRC-16/CCITT-FALSE check = 0x29B1
+OK  frames published = 5  crcErr = 1  syncLoss = 1
+OK  parser consumes exactly LEN payload + 2 CRC bytes; corrupt frame rejected
+OK  forged oversized length rejected without buffer overrun
+
+6/6 host checks PASS

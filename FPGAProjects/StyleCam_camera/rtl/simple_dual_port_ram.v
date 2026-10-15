@@ -34,8 +34,11 @@ module simple_dual_port_ram
 	reg [DATA_WIDTH-1:0] r_rdata_2P;
 
 	initial
-	begin
-	// By default the Efinix memory will initialize to 0
+	begin : init_ram
+	integer k;
+	// By default the Efinix memory will initialize to 0 - mirror that in simulation
+		if (RAM_INIT_FILE == "")
+			for (k = 0; k < MEMORY_DEPTH; k = k + 1) ram[k] = {DATA_WIDTH{1'b0}};
 		if (RAM_INIT_FILE != "")
 		begin
 			if (RAM_INIT_RADIX == "BIN")

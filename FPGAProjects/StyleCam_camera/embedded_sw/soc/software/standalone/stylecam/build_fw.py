@@ -22,6 +22,8 @@ flags=['-Os','-march=rv32i_zicsr_zifencei','-mabi=ilp32','-DUSE_GP','-fcommon',
        '-ffunction-sections','-fdata-sections','-Wall',
        '-I'+str(HERE.parent/'include'),'-I'+str(HERE.parent/'driver'),
        '-I'+str(BSP/'include'),'-I'+str(BSP/'app')]
+flags+=os.environ.get('STYLECAM_EXTRA_CFLAGS','').split()
+# e.g. STYLECAM_EXTRA_CFLAGS=-DSTYLECAM_VOICE_TOKENS=1 enables the optional voice keyword mode
 objects=[]
 for source in [*sorted((HERE/'src').glob('*.c')),COMMON/'start.S',COMMON/'trap.S',COMMON/'syscalls.c']:
     obj=OUT/'obj_files'/(source.stem+'.o');objects.append(obj)

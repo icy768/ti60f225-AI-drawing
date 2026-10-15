@@ -1,0 +1,4 @@
+WARNING: cannot find correct IV value
+Creating C:\Users\lingye\Desktop\FPGA\FPGAProjects\StyleCam_camera\_build\creative_review\outflow
+Running: efx_run_pt_unified.py ti60f225_oob Titanium Ti60F225 --output_dir outflow --timing_model I3 --project_xml ti60f225_oob.xml
+   interface :	PASS

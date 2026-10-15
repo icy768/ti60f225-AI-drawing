@@ -122,3 +122,8 @@ FPGAProjects/sc431hai_hdmi/outflow/*
 
 # Compact retained resource baseline after removing obsolete RISCV09 packages.
 !/FPGAProjects/StyleCam_camera/validation/resource2/manifest.json
+
+# Creative interaction host check artifacts
+*.vcd
+/FPGAProjects/StyleCam_camera/wifi_stream/tools/host_stub/*.exe
+/FPGAProjects/StyleCam_camera/wifi_stream/tools/host_stub/*.o
