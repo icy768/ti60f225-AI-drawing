@@ -3,23 +3,23 @@
   "tests": {
     "camera_rgb": {
       "passed": true,
-      "log": "validation/camera_native_rgb_mirror/regression/camera_rgb.log"
+      "log": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\camera_rgb.log"
     },
     "capture": {
       "passed": true,
-      "log": "validation/camera_native_rgb_mirror/regression/capture.log"
+      "log": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\capture.log"
     },
     "schedule": {
       "passed": true,
-      "log": "validation/camera_native_rgb_mirror/regression/schedule.log"
+      "log": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\schedule.log"
     },
     "display": {
       "passed": true,
-      "log": "validation/camera_native_rgb_mirror/regression/display.log"
+      "log": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\display.log"
     },
     "apb_regs": {
       "passed": true,
-      "log": "validation/camera_native_rgb_mirror/regression/apb_regs.log"
+      "log": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\camera_sim\\apb_regs.log"
     }
   }
 }

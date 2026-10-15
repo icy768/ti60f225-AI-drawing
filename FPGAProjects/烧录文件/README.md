@@ -1,11 +1,13 @@
 # 烧录文件
 
-当前版本：[RISC-V 08 / V21b / 原生 BGGR 与 RGB 水平翻转](20261009_RISCV08_BGGR_RGBMirror/README.md)，ID `53430a08`。已固化 Flash 地址 0，1,073,814 字节独立回读一致，复位自主启动验收通过，用户已确认画面正常。
+当前版本：[RISCV10 / 低延迟与连续帧优化](20261015_RISCV10_LowLatency_Candidate/README.md)，ID `53430a0a`。已 RAM 下载；40 秒实机采样 29.99～30fps、零新增跳帧，三次 UART 风格切换最大 52.534ms。最终时序与八组离线回归通过，资源 XLR58284、RAM245、DSP145。
 
-历史恢复包：
+**用户要求跳过本次 Flash 固化，RISCV10 尚未验收掉电启动。** 当前已固化的历史恢复基线：[RISCV08 / 原生 BGGR 与 RGB 水平翻转](20261009_RISCV08_BGGR_RGBMirror/README.md)，ID `53430a08`。
 
-- [RISC-V 04 / 传感器水平镜像](20261008_RISCV_HMirror/README.md)
-- [V21b / SCU09 全 RTL](20261006_SCU09_V21b_摄像头版/README.md)
-- [V6 / SCU08 摄像头修复](20261006_SCU08_V6_摄像头修复版/README.md)
+六个 RISCV09 调试包已清理，恢复归档仅保留在本地 `_archive/20261015_RISCV09_debug_packages.zip`，不上传仓库。保留 Resource2 的精简资源与时序比较数据。详见 [资源复核与 30fps 来源](../docs/资源复核与30fps来源_20261015.md) 和 [清理记录](../docs/调试包清理_20261015.json)。
 
-各包对应各自源码版本，BIT 用于临时 JTAG，HEX 用于固化。当前工具以 08 为默认，模型 Flash 地址 `0x200000` 保持不变；详细操作、SHA256 和证据见当前发布包。
+更早恢复资料：
+
+- [RISCV04 水平镜像](20261008_RISCV_HMirror/README.md)
+- [SCU09 V21b 全 RTL](20261006_SCU09_V21b_摄像头版/README.md)
+- [SCU08 摄像头修复](20261006_SCU08_V6_摄像头修复版/README.md)

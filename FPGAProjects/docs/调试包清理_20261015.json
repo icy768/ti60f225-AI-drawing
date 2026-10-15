@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-10-15T19:35:06.876657+08:00",
+  "local_archive": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\_archive\\20261015_RISCV09_debug_packages.zip",
+  "archive_sha256": "d3056f57f404c194c24d942897372b8c57d2ba43dc4ca0eee0c3d1b989648e3c",
+  "directories": [
+    "20261014_RISCV09_K0_Layout_Candidate",
+    "20261014_RISCV09_KEY3_CleanOSD_Candidate",
+    "20261014_RISCV09_KEY3_TapHold_Candidate",
+    "20261014_RISCV09_Optimized_Candidate",
+    "20261014_RISCV09_Resource_KEY1_Candidate",
+    "20261015_RISCV09_Resource2_Candidate"
+  ],
+  "files": 77,
+  "bytes_before": 49659930,
+  "archive_bytes": 14825189,
+  "verified": true,
+  "preserved_releases": [
+    "20261009_RISCV08_BGGR_RGBMirror",
+    "20261015_RISCV10_LowLatency_Candidate"
+  ]
+}

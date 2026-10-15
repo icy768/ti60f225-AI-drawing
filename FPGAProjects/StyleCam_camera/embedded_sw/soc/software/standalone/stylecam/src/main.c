@@ -6,7 +6,7 @@
  * - SC431HAI 初始化：通过 APB 下发 I2C 寄存器命令，时序与表格同原 RTL 状态机（rtl/sc431hai/sc_sequence.vh）
  * - 加速器调度：每帧由 CPU 下发单步启动，帧发布中断里统计帧率并下发下一帧
  * - 风格部署：开机依次触发三种风格的 IN 校准作业（13 遍），之后切换风格无需等待
- * - 交互：KEY3 / 串口 0 1 2 切风格，KEY2 / 串口 v 切画面布局，串口 w 重新装载权重；OSD 叠加 FPS、风格、耗时
+ * - 交互：KEY3 短按切风格、长按切布局；串口 0 1 2 / v 同样可操作；OSD 叠加状态
  */
 #include <stdint.h>
 #include "bsp.h"
@@ -33,8 +33,10 @@ static volatile uint32_t streaming;      /* 1: 发布中断里自动下发下一
 static volatile uint32_t frames;         /* 已发布帧数 */
 static volatile uint32_t last_pub_t;     /* 最近一次发布的时刻（100 MHz 计数） */
 static volatile uint32_t job_cycles, job_max, pass_cycles;  /* 刚完成那帧：作业总周期、运行中最大值、最后一遍网络 */
-static volatile uint32_t key3_count, key2_count, error_count;
+static volatile uint32_t key3_count, key0_count, error_count;
 static volatile uint32_t switch_pending, switch_style, switch_t0, switch_us_last, switch_us_max;
+static volatile uint32_t first_cycles, input_stall_cycles, output_stall_cycles;
+static volatile uint32_t scan_pending, scan_t0, scan_after, scan_us_last, scan_us_max;
 static volatile uint32_t osd_dirty;
 
 static inline uint32_t now(void) { return (uint32_t)clint_getTime(BSP_CLINT); }       /* 100 MHz */
@@ -45,6 +47,31 @@ static void ctrl_write(uint32_t v) { ctrl = v; SC_CTRL = v; }
 static void step_frame(void) { SC_CTRL = ctrl | CTRL_STEP; }
 static uint32_t cur_style(void) { return (ctrl >> 4) & 3; }
 static uint32_t cur_view(void) { return (ctrl >> 8) & 3; }
+
+static void mark_switch(uint32_t style)
+{
+    switch_style = style; switch_t0 = now(); switch_pending = 1;
+    scan_t0 = SC_CLOCK_CYCLES; scan_after = SC_PROCESSED; scan_pending = 1;
+}
+
+/* Timestamp is captured in hardware at scan retirement, before visible pixels.
+ * Polling latency is excluded; do not label this camera-to-photon latency. */
+static void poll_scan(void)
+{
+    csr_clear(mstatus, MSTATUS_MIE);
+    uint32_t seq = SC_SCAN_SEQUENCE;
+    uint32_t style = SC_SCAN_STYLE, stamp = SC_SCAN_TIMESTAMP;
+    if (scan_pending && seq != scan_after && (seq - scan_after) < 0x80000000u &&
+        style == switch_style && seq == SC_SCAN_SEQUENCE) {
+        uint32_t delta = stamp - scan_t0;
+        if (delta < 0x80000000u) {
+            scan_us_last = delta / 100u;
+            if (scan_us_last > scan_us_max) scan_us_max = scan_us_last;
+            scan_pending = 0;
+        }
+    }
+    csr_set(mstatus, MSTATUS_MIE);
+}
 
 /* ---------------- OSD ---------------- */
 /* 每行先在缓冲里拼好（0 = 透明），再整行一次写出，避免先清后画造成闪烁 */
@@ -77,6 +104,10 @@ static char *fmt_x10(char *p, uint32_t v)   /* 153 -> "15.3" */
 static char *cat(char *p, const char *s) { while (*s) *p++ = *s++; *p = 0; return p; }
 
 static uint32_t fps_x10, fps_x100, cam_fps_x10, nn_ms_x10;
+#define KEY3_HOLD_US 700000u
+static volatile uint32_t key3_press_t;
+static volatile uint8_t key3_wait_release, key3_long_done;
+static uint32_t stream_skip_base;
 
 static void osd_draw(void)
 {
@@ -101,14 +132,9 @@ static void osd_draw(void)
     row_put(1, line, 0);
     row_flush(20);
     row_begin();
-    row_put(1, "KEY3 / UART 0 1 2 : STYLE      KEY2 / UART v : VIEW", 0);
     row_flush(21);
     row_begin();
-    p=cat(line,"RGB R "); p=fmt_x10(p,(sc_rgb_effective(SC_RGB_R)*1000u+128)/256);
-    p=cat(p,"% G "); p=fmt_x10(p,(sc_rgb_effective(SC_RGB_G)*1000u+128)/256);
-    p=cat(p,"% B "); p=fmt_x10(p,(sc_rgb_effective(SC_RGB_B)*1000u+128)/256);
-    cat(p,"%  UART g R G B : SET   G : 100%");
-    row_put(1,line,0); row_flush(22);
+    row_flush(22);
 }
 
 static void osd_message(const char *msg)
@@ -125,6 +151,9 @@ static void on_irq(uint32_t pend)
         /* 作业计数器在下一帧启动时清零，发布时读到的是刚完成那帧的总耗时 */
         job_cycles = SC_JOB_CYCLES;
         pass_cycles = SC_RUN_CYCLES;
+        first_cycles = SC_FIRST_OUTPUT;
+        input_stall_cycles = SC_INPUT_STALLS;
+        output_stall_cycles = SC_OUTPUT_STALLS;
         if (streaming && job_cycles > job_max) job_max = job_cycles;
         if (switch_pending && ST_ENGINE_STYLE(SC_STATUS) == switch_style) {
             uint32_t us = us_since(switch_t0);
@@ -136,13 +165,12 @@ static void on_irq(uint32_t pend)
     }
     if (pend & IRQ_KEY3) {
         key3_count++;
-        uint32_t s = cur_style() == 2 ? 0 : cur_style() + 1;
-        ctrl_write((ctrl & ~CTRL_STYLE(3)) | CTRL_STYLE(s));
-        switch_style = s; switch_t0 = now(); switch_pending = 1;
-        osd_dirty = 1;
+        key3_press_t = now();
+        key3_wait_release = 1;
+        key3_long_done = 0;
     }
     if (pend & IRQ_KEY2) {
-        key2_count++;
+        key0_count++; /* Legacy IRQ_KEY2 now comes from the physical K0 button. */
         uint32_t v = cur_view() == 2 ? 0 : cur_view() + 1;
         ctrl_write((ctrl & ~CTRL_VIEW(3)) | CTRL_VIEW(v));
         osd_dirty = 1;
@@ -150,6 +178,29 @@ static void on_irq(uint32_t pend)
     if (pend & IRQ_ERROR) {
         error_count++;
         if (streaming) step_frame();          /* 出错帧已释放，继续 */
+    }
+}
+
+/* KEY3 is the verified physical button. Defer its short action until release,
+ * allowing a hold to select the layout without also changing style. */
+static void poll_key3(void)
+{
+    if (!key3_wait_release) return;
+    uint32_t down = (SC_STATUS >> 27) & 1u;
+    if (down && !key3_long_done && us_since(key3_press_t) >= KEY3_HOLD_US) {
+        uint32_t v = cur_view() == 2 ? 0 : cur_view() + 1;
+        ctrl_write((ctrl & ~CTRL_VIEW(3)) | CTRL_VIEW(v));
+        key3_long_done = 1;
+        osd_dirty = 1;
+    }
+    if (!down) {
+        if (!key3_long_done) {
+            uint32_t s = cur_style() == 2 ? 0 : cur_style() + 1;
+            ctrl_write((ctrl & ~CTRL_STYLE(3)) | CTRL_STYLE(s));
+            mark_switch(s);
+            osd_dirty = 1;
+        }
+        key3_wait_release = 0;
     }
 }
 
@@ -325,16 +376,32 @@ static void print_x10(uint32_t v) { bsp_printf("%d.%d", v / 10, v % 10); }
 
 static void print_status(uint32_t t_ms)
 {
+    /* UART is blocking at 115200 baud. Service the release/scan events between
+     * short chunks, instead of deferring them until the whole report is sent. */
+    poll_key3(); poll_scan();
     uint32_t st = SC_STATUS;
     bsp_printf("[%d ms] fps=%d.%d%d", t_ms, fps_x100 / 100, fps_x100 / 10 % 10, fps_x100 % 10);
     bsp_printf(" cam="); print_x10(cam_fps_x10);
     bsp_printf(" nn_ms="); print_x10(nn_ms_x10);
-    bsp_printf(" pass_ms="); print_x10(pass_cycles / 10000);
-    bsp_printf(" nn_max_ms="); print_x10(job_max / 10000);
-    bsp_printf(" style=%d view=%d ready=%d proc=%d cap=%d skip=%d caperr=%d vid_err=%d uf=%d hdmi_err=%d irq_err=%d k3=%d k2=%d sw_us=%d sw_max_us=%d\r\n",
-               cur_style(), cur_view(), ST_STYLES_READY(st), SC_PROCESSED, SC_CAPTURED, SC_SKIPPED, SC_CAP_ERRORS,
-               SC_VIDEO_ERRORS, SC_HDMI_UNDERFLOW, SC_HDMI_ERRORS, error_count, key3_count, key2_count,
+    bsp_printf(" pass_ms="); print_x10(pass_cycles / 15000);
+    bsp_printf(" nn_max_ms="); print_x10(job_max / 15000);
+    poll_key3(); poll_scan();
+    bsp_printf(" style=%d view=%d ready=%d proc=%d cap=%d skip=%d run_skip=%d",
+               cur_style(), cur_view(), ST_STYLES_READY(st), SC_PROCESSED, SC_CAPTURED,
+               SC_SKIPPED, SC_SKIPPED-stream_skip_base);
+    poll_key3(); poll_scan();
+    bsp_printf(" caperr=%d vid_err=%d uf=%d hdmi_err=%d irq_err=%d",
+               SC_CAP_ERRORS, SC_VIDEO_ERRORS, SC_HDMI_UNDERFLOW, SC_HDMI_ERRORS, error_count);
+    poll_key3(); poll_scan();
+    bsp_printf(" k3=%d k0=%d sw_us=%d sw_max_us=%d\r\n",key3_count, key0_count,
                switch_us_last, switch_us_max);
+    poll_key3(); poll_scan();
+    bsp_printf("perf first_us=%d input_wait_us=%d output_wait_us=%d",
+               first_cycles/150u, input_stall_cycles/150u, output_stall_cycles/150u);
+    poll_key3(); poll_scan();
+    bsp_printf(" publish_wait_us=%d scan_seq=%d scan_sw_us=%d scan_sw_max_us=%d\r\n",
+               SC_PUBLISH_WAIT/100u, SC_SCAN_SEQUENCE, scan_us_last, scan_us_max);
+    poll_key3(); poll_scan();
 }
 
 /* RGB percentages are converted to Q8.8; all three channels commit at one
@@ -434,7 +501,7 @@ static void console(void)
             uint32_t s = c - '0';
             if (s != cur_style()) {
                 ctrl_write((ctrl & ~CTRL_STYLE(3)) | CTRL_STYLE(s));
-                switch_style = s; switch_t0 = now(); switch_pending = 1;
+                mark_switch(s);
             }
             osd_dirty = 1;
         } else if (c == 'v') {
@@ -527,6 +594,7 @@ void main()
 
     /* 实时运行：每帧由发布中断启动下一帧 */
     ctrl_write((ctrl & ~CTRL_STYLE(3)) | CTRL_STYLE(0));
+    stream_skip_base = SC_SKIPPED; /* Keep total skip visible; report warm-up separately. */
     csr_clear(mstatus, MSTATUS_MIE);
     streaming = 1;
     step_frame();
@@ -537,6 +605,8 @@ void main()
     uint32_t t_last = now(), f_last = frames, p_last = last_pub_t, s_last = SC_SENSOR_FRAMES, uptime_ms = 0, ticks = 0;
     while (1) {
         console();
+        poll_key3();
+        poll_scan();
         if (osd_dirty) { osd_dirty = 0; osd_draw(); }
         uint32_t dt = us_since(t_last);
         if (dt >= 1000000) {
@@ -548,7 +618,7 @@ void main()
             fps_x100 = (f != f_last && pub_10us) ? (f - f_last) * 10000000u / pub_10us : 0;
             fps_x10 = (fps_x100 + 5) / 10;                 /* 四舍五入到 0.1 */
             cam_fps_x10 = (s - s_last) * 10000000u / dt;
-            nn_ms_x10 = job_cycles / 10000;             /* 100 MHz 周期 -> 0.1 ms */
+            nn_ms_x10 = job_cycles / 15000;             /* 150 MHz accelerator cycles -> 0.1 ms */
             f_last = f; p_last = p; s_last = s; t_last = now(); uptime_ms += dt / 1000;
             osd_draw();
             if (++ticks % 2 == 0) print_status(uptime_ms);

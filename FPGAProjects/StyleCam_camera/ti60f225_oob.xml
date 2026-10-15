@@ -49,6 +49,7 @@
         <efx:design_file name="rtl/requant.v" version="default" library="default"/>
         <efx:design_file name="rtl/sc_async_fifo.v" version="default" library="default"/>
         <efx:design_file name="rtl/sc_display.v" version="default" library="default"/>
+        <efx:design_file name="rtl/sc_engine_cdc.v" version="default" library="default"/>
         <efx:design_file name="rtl/sc_engine.v" version="default" library="default"/>
         <efx:design_file name="rtl/sc_apb_regs.v" version="default" library="default"/>
         <efx:design_file name="rtl/stylenet_top.v" version="default" library="default"/>
@@ -87,13 +88,13 @@
     <efx:synthesis tool_name="efx_map">
         <efx:param name="work_dir" value="work_syn" value_type="e_string"/>
         <efx:param name="write_efx_verilog" value="on" value_type="e_bool"/>
-        <efx:param name="mode" value="speed" value_type="e_option"/>
+        <efx:param name="mode" value="area" value_type="e_option"/>
         <efx:param name="max_ram" value="-1" value_type="e_integer"/>
         <efx:param name="max_mult" value="-1" value_type="e_integer"/>
         <efx:param name="infer-clk-enable" value="3" value_type="e_option"/>
         <efx:param name="infer-sync-set-reset" value="1" value_type="e_option"/>
         <efx:param name="fanout-limit" value="0" value_type="e_integer"/>
-        <efx:param name="seq_opt" value="0" value_type="e_option"/>
+        <efx:param name="seq_opt" value="1" value_type="e_option"/>
         <efx:param name="retiming" value="0" value_type="e_option"/>
         <efx:param name="dsp-mac-packing" value="1" value_type="e_option"/>
         <efx:param name="dsp-input-regs-packing" value="1" value_type="e_option"/>
@@ -101,7 +102,7 @@
         <efx:param name="bram_output_regs_packing" value="1" value_type="e_option"/>
         <efx:param name="blast_const_operand_adders" value="1" value_type="e_option"/>
         <efx:param name="operator-sharing" value="0" value_type="e_option"/>
-        <efx:param name="optimize-adder-tree" value="0" value_type="e_option"/>
+        <efx:param name="optimize-adder-tree" value="1" value_type="e_option"/>
         <efx:param name="pack-luts-to-comb4" value="0" value_type="e_option"/>
         <efx:param name="min-sr-fanout" value="0" value_type="e_integer"/>
         <efx:param name="min-ce-fanout" value="0" value_type="e_integer"/>
@@ -134,9 +135,9 @@
         <efx:param name="verbose" value="off" value_type="e_bool"/>
         <efx:param name="optimization_level" value="TIMING_3" value_type="e_option"/>
         <efx:param name="seed" value="0" value_type="e_integer"/>
-        <efx:param name="placer_effort_level" value="2" value_type="e_option"/>
+        <efx:param name="placer_effort_level" value="3" value_type="e_option"/>
         <efx:param name="max_threads" value="-1" value_type="e_integer"/>
-        <efx:param name="beneficial_skew" value="off" value_type="e_option"/>
+        <efx:param name="beneficial_skew" value="on" value_type="e_option"/>
         <efx:param name="print_critical_path" value="10" value_type="e_integer"/>
         <efx:param name="classic_flow" value="off" value_type="e_noarg"/>
         <efx:param name="suppress_info_msgs" value="off" value_type="e_bool"/>

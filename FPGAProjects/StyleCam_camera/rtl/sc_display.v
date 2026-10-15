@@ -1,4 +1,4 @@
-// Two 640x480 RGB output stores in DDR; HDMI 1080p60 with three layouts and an OSD layer.
+// Three 640x480 RGB output stores in DDR; HDMI 1080p60 with three layouts and an OSD layer.
 // mode 0: original (left) | stylized (right), each 1.5x nearest (960x720), y 180..899.
 //   Output lines repeat source rows as 0,0,1,2,2,3..: the first copy is kept in a one-row cache, so
 //   DDR reads each source row once (same burst count per frame as the 2x layouts).
@@ -10,8 +10,8 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  input uc,input urst,input ac,input arst,input pc,input prst,input calibrated,
  input [23:0] pixel,input pv,output pready,input new_frame,input original_frame,
  input [1:0] mode,output [255:0] status,
- input write_bank,publish,publish_bank,input [1:0] publish_orig,
- output output_complete,output shown_valid,shown_bank,
+ input [1:0] write_bank,input publish,input [1:0] publish_bank,input [1:0] publish_orig,
+ output output_complete,output shown_valid,output [1:0] shown_bank,
  input osd_we,input [10:0] osd_addr,input [7:0] osd_data,
  output [31:0] awaddr,output awvalid,input awready,
  output [127:0] wdata,output wvalid,input wready,input bvalid,input [1:0] bresp,output bready,
@@ -22,65 +22,73 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  // layout (1080p active 1920x1080)
  localparam FX0=960-IW,FY0=540-IH;                    // 2x full screen
  localparam SW=IW*3/2,SH=IH*3/2,SX0=960-SW,SY0=540-SH/2; // 1.5x side by side
- function [31:0] in_base(input [1:0] b);begin in_base=(b==0)?32'h0:(b==1)?32'h200000:32'h800000;end endfunction
+ function [31:0] in_base(input [1:0] b);begin in_base=(b==0)?32'h0:(b==1)?32'h200000:(b==2)?32'h800000:32'hc00000;end endfunction
+ function [31:0] out_base(input [1:0] b);begin out_base=(b==0)?32'h400000:(b==1)?32'h600000:32'ha00000;end endfunction
  reg cal1,cal2; always @(posedge uc) begin cal1<=calibrated;cal2<=cal1;end
- reg [1:0] pack_phase; reg [95:0] pack_data; reg [16:0] word_index;
- wire wf_ready,wf_valid,wf_take; wire [147:0] wf_data;
- wire [147:0] packed_word={word_index==WORDS-1,word_index==0,write_bank,word_index,8'd0,pixel,pack_data};
- assign pready=cal2&&!urst&&((pack_phase!=3)||wf_ready);
+ // Store one RGB pixel plus frame tags; pack to DDR beats after the CDC.
+ // 28 x 256 replaces 148 x 64, preserving the 256-pixel FIFO capacity.
+ reg [18:0] pixel_index;
+ wire wf_ready,wf_valid,wf_take;wire [27:0] wf_data;
+ wire [27:0] packed_pixel={pixel_index==IW*IH-1,pixel_index==0,write_bank,pixel};
+ assign pready=cal2&&!urst&&wf_ready;
  wire pack_fire=pv&&pready;
- always @(posedge uc) begin
-  if(urst||new_frame) begin pack_phase<=0;word_index<=0;end
-  else if(pack_fire) begin
-   pack_phase<=pack_phase+1'b1;
-   case(pack_phase)
-    0:pack_data[31:0]<={8'd0,pixel};
-    1:pack_data[63:32]<={8'd0,pixel};
-    2:pack_data[95:64]<={8'd0,pixel};
-    3:word_index<=word_index+1'b1;
-   endcase
-  end
+ always @(posedge uc)begin
+  if(urst||new_frame)pixel_index<=0;
+  else if(pack_fire)pixel_index<=pixel_index+1'b1;
  end
- sc_async_fifo #(.W(148),.AW(6)) upload_fifo(uc,urst,packed_word,pack_fire&&(pack_phase==3),wf_ready,
+ sc_async_fifo #(.W(28),.AW(8)) upload_fifo(uc,urst,packed_pixel,pack_fire,wf_ready,
   ac,arst,wf_data,wf_valid,wf_take,);
  reg [1:0] ws;reg [127:0] wr_data;reg [31:0] wr_addr;
- reg wr_last,wr_bank,frame_write_error;reg [1:0] valid_banks;reg [31:0] write_words,write_errors,read_errors;
+ reg wr_last,frame_write_error;reg [1:0] wr_bank,wr_phase;reg [16:0] wr_index;
+ reg [2:0] valid_banks;reg [31:0] write_words,write_errors,read_errors;
  assign wf_take=(ws==0)&&calibrated&&!arst;
  assign awaddr=wr_addr;assign awvalid=ws==1;
  assign wdata=wr_data;assign wvalid=ws==2;assign bready=ws==3;
- always @(posedge ac) begin
-  if(arst) begin ws<=0;frame_write_error<=0;valid_banks<=0;write_words<=0;write_errors<=0;end
-  else case(ws)
-   0:if(wf_valid&&wf_take) begin
-    wr_data<=wf_data[127:0];wr_addr<=32'h400000+{10'd0,wf_data[145],wf_data[144:128],4'd0};
-    wr_last<=wf_data[147];wr_bank<=wf_data[145];ws<=1;
-    if(wf_data[146]) begin valid_banks[wf_data[145]]<=0;write_words<=0;frame_write_error<=0;end
+ always @(posedge ac)begin
+  if(arst)begin
+   ws<=0;wr_phase<=0;wr_index<=0;wr_bank<=0;wr_data<=0;wr_addr<=0;wr_last<=0;
+   frame_write_error<=0;valid_banks<=0;write_words<=0;write_errors<=0;
+  end else case(ws)
+   0:if(wf_valid&&wf_take)begin
+    if(wf_data[26])begin
+     wr_phase<=1;wr_index<=0;wr_bank<=wf_data[25:24];wr_data[31:0]<={8'd0,wf_data[23:0]};
+     valid_banks[wf_data[25:24]]<=0;write_words<=0;frame_write_error<=0;
+    end else begin
+     wr_data[wr_phase*32+:32]<={8'd0,wf_data[23:0]};wr_phase<=wr_phase+1'b1;
+     if(wr_phase==3)begin wr_addr<=out_base(wr_bank)+(wr_index<<4);wr_index<=wr_index+1'b1;wr_last<=wf_data[27];ws<=1;end
+    end
    end
-   1:if(awready) ws<=2;
-   2:if(wready) ws<=3;
-   3:if(bvalid) begin
+   1:if(awready)ws<=2;
+   2:if(wready)ws<=3;
+   3:if(bvalid)begin
     ws<=0;write_words<=write_words+1'b1;
     if(bresp!=0)begin frame_write_error<=1;write_errors<=write_errors+1'b1;end
     if(wr_last&&bresp==0&&!frame_write_error)valid_banks[wr_bank]<=1;
    end
   endcase
  end
- assign output_complete=(write_words==WORDS)&&(ws==0)&&!wf_valid&&valid_banks[write_bank];
- reg published_valid,published_bank;reg [1:0] published_orig;
+ // wr_bank arrived with the FIFO pixel tag and is local to ac.
+ assign output_complete=(write_words==WORDS)&&(ws==0)&&!wf_valid&&valid_banks[wr_bank];
+ reg published_valid,pub_toggle;reg [1:0] published_bank,published_orig;
  always @(posedge ac)begin
-  if(arst)begin published_valid<=0;published_bank<=0;published_orig<=0;end
-  else if(publish)begin published_valid<=1;published_bank<=publish_bank;published_orig<=publish_orig;end
+  if(arst)begin published_valid<=0;pub_toggle<=0;published_bank<=0;published_orig<=0;end
+  else if(publish)begin published_valid<=1;pub_toggle<=!pub_toggle;published_bank<=publish_bank;published_orig<=publish_orig;end
  end
- (* async_reg="true" *) reg pubv1,pubv2,pubb1,pubb2;
- (* async_reg="true" *) reg [1:0] pubo1,pubo2;
+ // Bundled descriptor remains stable until the scheduler receives shown_bank.
+ (* async_reg="true" *) reg pubt1,pubt2;
+ reg pubt_seen,pubv2;reg [1:0] pubb2,pubo2;
  always @(posedge pc)begin
-  if(prst)begin pubv1<=0;pubv2<=0;pubb1<=0;pubb2<=0;pubo1<=0;pubo2<=0;end
-  else begin pubv1<=published_valid;pubv2<=pubv1;pubb1<=published_bank;pubb2<=pubb1;pubo1<=published_orig;pubo2<=pubo1;end
+  if(prst)begin pubt1<=0;pubt2<=0;pubt_seen<=0;pubv2<=0;pubb2<=0;pubo2<=0;end
+  else begin
+   pubt1<=pub_toggle;pubt2<=pubt1;
+   if(pubt2!=pubt_seen)begin pubt_seen<=pubt2;pubv2<=1;pubb2<=published_bank;pubo2<=published_orig;end
+  end
  end
  // Request a fresh DDR scan during vertical blank; this also recovers alignment after underflow.
- reg [11:0] x,y;reg request_toggle,request_bank,request_enable;reg [1:0] request_orig,request_mode;
+ reg [11:0] x,y;reg request_toggle,request_enable;reg [1:0] request_bank,request_orig,request_mode;
  reg image_enable;reg [1:0] shown_mode,dm;
- (* async_reg="true" *) reg [1:0] mode1,mode2,banks1,banks2;
+ (* async_reg="true" *) reg [1:0] mode1,mode2;
+ (* async_reg="true" *) reg [2:0] banks1,banks2;
  reg [31:0] video_frames,underflow,last_underflow;reg underflow_seen;
  wire inside_full=(x>=FX0)&&(x<FX0+IW*2)&&(y>=FY0)&&(y<FY0+IH*2);
  wire inside_sbs=(x>=SX0)&&(x<960+SW)&&(y>=SY0)&&(y<SY0+SH);
@@ -97,10 +105,11 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  wire last_of_word=(dm==0)?(c6==5):(x[2:0]==7);
  // side-by-side row cache: line phase 0 stores the row, phase 1 replays it, phase 2 shows the next row
  reg [1:0] pph;reg [8:0] wi;
- wire use_cache=(dm==0)&&(pph==1);
+ wire full_repeat=y[0]^FY0[0];
+ wire use_cache=(dm==0)?(pph==1):full_repeat;
  wire [95:0] cache_q;
  wire [8:0] cache_ra=(x==2199)?9'd0:(inside_image&&last_of_word)?wi+1'b1:wi;
- sdpram #(.W(96),.D(IW/2),.AW(9)) row_cache(.clk(pc),.we((dm==0)&&(pph==0)&&image_enable&&inside_image&&last_of_word&&rf_valid),
+ sdpram #(.W(96),.D(IW/2),.AW(9)) row_cache(.clk(pc),.we(((dm==0)?(pph==0):!full_repeat)&&image_enable&&inside_image&&last_of_word&&rf_valid),
   .waddr(wi),.wdata(rf_data),.re(1'b1),.raddr(cache_ra),.rdata(cache_q));
  assign rf_take=image_enable&&inside_image&&last_of_word&&!pf_reset&&!use_cache;
  wire [95:0] src_word=use_cache?cache_q:rf_data;
@@ -122,7 +131,8 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  reg [6:0] cx;reg [4:0] sx,cy;reg [5:0] sy;
  wire [10:0] text_addr={cy,6'd0}+{cy,4'd0}+cx;
  wire [7:0] text_code;
- sc_dcram #(.W(8),.D(2048),.AW(11),.INIT(TEXT)) osd_text(uc,osd_we,osd_addr,osd_data,pc,text_addr,text_code);
+ // APB text writes belong to the control/DDR clock, independently of upload.
+ sc_dcram #(.W(8),.D(2048),.AW(11),.INIT(TEXT)) osd_text(ac,osd_we,osd_addr,osd_data,pc,text_addr,text_code);
  // stage registers: 1 text read, 2 font address/read, 3 compose
  reg [23:0] p1,p2,p3;reg a1,a2,a3,h1,h2,h3,v1,v2,v3;reg [3:0] fr1;reg [2:0] fb1,fb2,fb3;
  reg [7:0] code2,code3;reg [10:0] font_addr;wire [7:0] font_byte;
@@ -164,7 +174,7 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
   end
  end
  (* async_reg="true" *) reg req1,req2,req3;
- reg req_seen,restart,read_enable,read_bank,read_active,ar_pending,last_burst,scan_started;
+ reg req_seen,restart,read_enable,read_active,ar_pending,last_burst,scan_started;reg [1:0] read_bank;
  reg [1:0] read_orig,read_mode,ph;reg half;
  reg [31:0] read_addr,line_base;reg [8:0] row;reg [3:0] col;
  reg [31:0] hash,frame_hash,read_frames;reg [3:0] beat;
@@ -178,12 +188,12 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  sc_async_fifo #(.W(96),.AW(9)) display_fifo(ac,arst||flush,compact_read,rf_write,rf_ready,
   pc,pf_reset,rf_data,rf_valid,rf_take,rf_level);
  // Row order: mode 0 reads each source row once (original row then stylized row; the pixel side caches
- // it for the repeated output line); modes 1/2 read one row per output line, each row twice.
+ // it for the repeated output line); modes 1/2 also read each source row only once.
  wire sbs=read_mode==0;
  wire use_orig=(read_mode==2)||(sbs&&!half);
- wire [31:0] bank_base=use_orig?in_base(read_orig):(32'h400000+(read_bank?32'h200000:0));
+ wire [31:0] bank_base=use_orig?in_base(read_orig):out_base(read_bank);
  wire line_end=(col==COLS-1)&&(!sbs||half);
- wire row_step=sbs||(ph==1);
+ wire row_step=1'b1;
  always @(posedge ac) begin
   req1<=request_toggle;req2<=req1;req3<=req2;
   if(arst) begin
@@ -208,7 +218,7 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
     row<=0;col<=0;ph<=0;half<=0;line_base<=0;hash<=0;
    end else if(!restart&&!flush&&!read_active&&!ar_pending&&read_enable&&rf_level<=496) begin
     read_addr<=bank_base+line_base+{20'd0,col,8'd0};ar_pending<=1;
-    last_burst<=(row==IH-1)&&line_end&&(sbs||ph==1);
+    last_burst<=(row==IH-1)&&line_end;
     if(col==COLS-1) begin
      col<=0;
      if(sbs&&!half)half<=1;
@@ -223,12 +233,12 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  assign shown_valid=published_valid&&scan_started;assign shown_bank=read_bank;
  // Diagnostic snapshots only: the host accepts the stable CRC after two complete scans.
  reg [127:0] d1,d2;reg [63:0] p1s,p2s;reg [1:0] vb1,vb2;reg uf1,uf2;
- always @(posedge uc)begin
+ always @(posedge ac)begin
   d1<={write_errors+read_errors,frame_hash,read_frames,write_words};d2<=d1;
-  p1s<={video_frames,last_underflow};p2s<=p1s;vb1<=valid_banks;vb2<=vb1;
+  p1s<={video_frames,last_underflow};p2s<=p1s;vb1<=valid_banks[1:0];vb2<=vb1;
   uf1<=underflow_seen;uf2<=uf1;
  end
- assign status={30'd0,mode,p2s[63:32],p2s[31:0],d2[127:96],d2[95:64],d2[63:32],d2[31:0],26'd0,uf2,cal2,vb2,mode};
+ assign status={30'd0,mode,p2s[63:32],p2s[31:0],d2[127:96],d2[95:64],d2[63:32],d2[31:0],26'd0,uf2,calibrated,vb2,mode};
 endmodule
 // Dual-clock simple dual-port RAM with optional init file (OSD text).
 module sc_dcram #(parameter W=8,D=2048,AW=11,INIT="")(

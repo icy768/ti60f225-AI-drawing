@@ -1,18 +1,18 @@
-// Three input frame banks at 0, 0x200000 and 0x800000. Publish only after the final AXI B.
+// Four input frame banks at 0, 0x200000, 0x800000 and 0xc00000. Publish only after the final AXI B.
 // READY, LOCKED (network) and HELD (original shown on HDMI) banks are never overwritten.
 // A full camera frame is skipped if no bank is free. Missing FIFO packets cannot publish a partial frame.
 // Only the newest complete frame stays READY. Hold: when a network output is published its input bank
 // becomes PENDING; when HDMI confirms the new frame, PENDING becomes DISPLAYED and the old one is freed.
 // H_MIRROR reverses each RGB row in DDR: reverse four pixel lanes and
 // visit 128-bit words from right to left. No extra image RAM is required.
-module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9,WIDTH=640,H_MIRROR=0)(
+module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9,WIDTH=640,H_MIRROR=0,BANKS=4)(
  input cc,crst,input [47:0] rgb,input cv,sof,eof,
  input ac,arst,calibrated,input take_frame,release_frame,input hold_publish,hold_swap,
  output frame_ready,output [1:0] ready_bank,output reg locked,output reg [1:0] locked_bank,
  output reg [31:0] completed,skipped,errors,output [31:0] overflow,
  output [31:0] awaddr,output awvalid,input awready,
  output [127:0] wdata,output wvalid,input wready,input bvalid,input [1:0] bresp,output bready);
- function [31:0] in_base(input [1:0] b);begin in_base=(b==0)?32'h0:(b==1)?32'h200000:32'h800000;end endfunction
+ function [31:0] in_base(input [1:0] b);begin in_base=(b==0)?32'h0:(b==1)?32'h200000:(b==2)?32'h800000:32'hc00000;end endfunction
  wire fw,fv,fr;wire [49:0] fd;
  reg [31:0] over_count,over_gray;
  always @(posedge cc)begin
@@ -25,7 +25,7 @@ module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9,WIDTH=640,H_MIRROR=0)(
  always @*begin over_sync[31]=og2[31];for(j=30;j>=0;j=j-1)over_sync[j]=over_sync[j+1]^og2[j];end
  assign overflow=over_sync;
  sc_async_fifo #(.W(50),.AW(FIFO_AW)) fifo(cc,crst,{eof,sof,rgb},cv,fw,ac,arst,fd,fv,fr,);
- reg [2:0] ready_mask;reg [1:0] ws,bank,pend_bank,disp_bank;reg pend_valid,disp_valid;
+ reg [3:0] ready_mask;reg [1:0] ws,bank,pend_bank,disp_bank;reg pend_valid,disp_valid;
  reg capturing,phase,bad,last_word;
  localparam ROW_WORDS=WIDTH/4;
  localparam ROW_W=(ROW_WORDS>1)?$clog2(ROW_WORDS):1;
@@ -34,12 +34,12 @@ module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9,WIDTH=640,H_MIRROR=0)(
  reg [ROW_W-1:0] row_word;
  reg [63:0] half;reg [127:0] data;
  assign frame_ready=(|ready_mask)&&!locked;
- assign ready_bank=ready_mask[0]?2'd0:ready_mask[1]?2'd1:2'd2;
+ assign ready_bank=ready_mask[0]?2'd0:ready_mask[1]?2'd1:ready_mask[2]?2'd2:2'd3;
  wire taking=take_frame&&frame_ready;
  // A bank is owned while READY, LOCKED by the network, PENDING/DISPLAYED on HDMI, or being taken now.
- wire [2:0] owned=ready_mask|({3{locked}}&(3'b001<<locked_bank))|({3{pend_valid}}&(3'b001<<pend_bank))|
-  ({3{disp_valid}}&(3'b001<<disp_bank))|({3{taking}}&(3'b001<<ready_bank));
- wire free0=!owned[0],free1=!owned[1],free2=!owned[2];
+ wire [3:0] owned=ready_mask|({4{locked}}&(4'b0001<<locked_bank))|({4{pend_valid}}&(4'b0001<<pend_bank))|
+  ({4{disp_valid}}&(4'b0001<<disp_bank))|({4{taking}}&(4'b0001<<ready_bank));
+ wire free0=!owned[0],free1=!owned[1],free2=!owned[2],free3=(BANKS==4)&&!owned[3];
  assign fr=ws==0&&calibrated&&!arst;
  assign awaddr=addr;assign awvalid=ws==1;assign wdata=data;assign wvalid=ws==2;assign bready=ws==3;
  always @(posedge ac)begin
@@ -55,7 +55,7 @@ module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9,WIDTH=640,H_MIRROR=0)(
       if(capturing)errors<=errors+1'b1;
       phase<=1;groups<=1;word_index<=H_MIRROR?ROW_WORDS-1:0;row_word<=0;bad<=0;
       half<={8'd0,fd[47:24],8'd0,fd[23:0]};
-      if(free0||free1||free2)begin capturing<=1;bank<=free0?2'd0:free1?2'd1:2'd2;end
+      if(free0||free1||free2||free3)begin capturing<=1;bank<=free0?2'd0:free1?2'd1:free2?2'd2:2'd3;end
       else begin capturing<=0;skipped<=skipped+1'b1;end
      end else if(capturing)begin
       groups<=groups+1'b1;
@@ -86,7 +86,11 @@ module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9,WIDTH=640,H_MIRROR=0)(
      if(last_word)begin
       capturing<=0;
       // newest frame only: an older READY frame (never locked) is dropped
-      if(!bad&&bresp==0)begin ready_mask<=3'b001<<bank;completed<=completed+1'b1;end
+      if(!bad&&bresp==0)begin
+       ready_mask<=4'b0001<<bank;completed<=completed+1'b1;
+       // Count replacement of an unconsumed READY frame as a real drop.
+       if((|ready_mask)&&!taking)skipped<=skipped+1'b1;
+      end
       else if(bresp==0)errors<=errors+1'b1;
      end
     end

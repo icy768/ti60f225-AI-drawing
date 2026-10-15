@@ -32,6 +32,14 @@
 #define SC_CFG_ADDR        SC_REG(0x60)   /* [4:0] layer [27:16] coefficient address */
 #define SC_CFG_LO          SC_REG(0x64)
 #define SC_CFG_HI          SC_REG(0x68)   /* [5:0] data[37:32]; write commits */
+#define SC_FIRST_OUTPUT    SC_REG(0x6C)
+#define SC_INPUT_STALLS    SC_REG(0x70)
+#define SC_OUTPUT_STALLS   SC_REG(0x74)
+#define SC_CLOCK_CYCLES    SC_REG(0x78)   /* free-running 100 MHz hardware time */
+#define SC_SCAN_SEQUENCE   SC_REG(0x7C)   /* descriptor accepted by HDMI DDR scan */
+#define SC_SCAN_TIMESTAMP  SC_REG(0x80)
+#define SC_PUBLISH_WAIT    SC_REG(0x84)
+#define SC_SCAN_STYLE      SC_REG(0x88)
 #define SC_OSD(i)          SC_REG(0x2000 + 4 * (i))
 
 /* CTRL */

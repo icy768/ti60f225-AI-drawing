@@ -6,7 +6,7 @@ usage: python fw_update.py <build_dir> [--efinity D:/yilinsiFPGA/efinity/2026.1]
 Writes <build_dir>/outflow_fw/ti60f225_oob.{bit,hex}; the original outflow is kept.
 Firmware images are taken from fw_rom/ (embedded_sw/.../stylecam/build_fw.bat).
 """
-import argparse, os, shutil, subprocess, xml.etree.ElementTree as E
+import argparse, datetime, hashlib, json, os, shutil, subprocess, xml.etree.ElementTree as E
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -31,6 +31,7 @@ def main():
     for i, r in enumerate(roms):
         cmd += ['-b', f'{MEM.format(i)},{r}']
     r = subprocess.run(cmd, cwd=b, env=env, capture_output=True, text=True, errors='replace')
+    (out / 'bram_update.log').write_text(r.stdout + '\n' + r.stderr, encoding='utf-8')
     print(r.stdout[-1500:], r.stderr[-800:])
     assert r.returncode == 0 and (out / f'{NAME}.lbf').exists(), 'BRAM update failed'
     allowed = ['mode', 'width', 'enable_roms', 'spi_low_power_mode', 'io_weak_pullup', 'oscillator_clock_divider', 'bitstream_compression',
@@ -41,8 +42,16 @@ def main():
            '--family', 'Titanium', '--device', 'Ti60F225', '--source', f'outflow_fw/{NAME}.lbf', '--dest', f'outflow_fw/{NAME}.hex']
     pgm += ['--' + k + '=' + params[k] for k in allowed]
     r = subprocess.run(pgm, cwd=b, env=env, capture_output=True, text=True, errors='replace')
+    (out / 'bitstream_generation.log').write_text(r.stdout + '\n' + r.stderr, encoding='utf-8')
     print(r.stdout[-800:], r.stderr[-400:])
     assert r.returncode == 0 and (out / f'{NAME}.hex').exists(), 'bitstream generation failed'
+    sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+    record = dict(time=datetime.datetime.now().astimezone().isoformat(),
+                  original_lbf_sha256=sha(b / f'work_pnr/{NAME}.lbf'),
+                  rom_sha256={p.name: sha(p) for p in roms},
+                  output_sha256={p.name: sha(p) for p in out.glob(f'{NAME}.*') if p.is_file()},
+                  commands=[cmd, pgm])
+    (out / 'update_record.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
     print('firmware-updated bitstream:', [str(p) for p in out.glob(f'{NAME}.*')])
 
 

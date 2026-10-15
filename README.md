@@ -1,20 +1,19 @@
 # Ti60F225 摄像头与三风格 AI 绘画
 
-最新交接：[项目交接文档（2026-10-09）](FPGAProjects/docs/项目交接文档_20261009.md)，适用RISC-V 08；包含操作、参数、构建和清理记录。
+当前开发版本为 **RISCV10 / V21b**，ID `53430a0a`，分支 `codex/resource-throughput-20261013`。SC431HAI → 原生 BGGR 与 Gamma → 640×480 RGB 水平翻转 → DDR 四输入银行 → 13 层 INT8 CNN 150MHz → DDR 三输出银行 → HDMI 1080p60。
 
-当前分支 `feat/basic-requirements`：**RISC-V 08 / V21b 三风格网络**。SC431HAI → 原生 BGGR、5×5 插值与原 Gamma → 640×480 RGB 水平翻转 → DDR 三缓冲 → 卷积/ReLU/板内 IN → HDMI 1080p60。RISC-V 负责摄像头初始化、权重加载、调度、中断与串口控制。
-
-用户已确认摄像头画面正常。ID `53430a08` 已固化 Flash；1,073,814 字节独立回读完全一致，RESET_N 后自主启动、模型 CRC 和实时运行验收通过。FPS 约 15，CAM 约 29.9，错误计数为 0。
+用户已 RAM 下载；40 秒实机采样为 **29.99～30fps、零新增跳帧，三次 UART 风格切换最大 52.534ms**，错误和下溢计数为 0。此证据覆盖分屏布局和短时运行。**本次用户要求跳过 Flash 固化；RISCV10 尚未验收掉电启动**，RISCV08 保留为已固化恢复基线。
 
 | 入口 | 用途 |
 |---|---|
-| [FPGAProjects/StyleCam_camera](FPGAProjects/StyleCam_camera/README.md) | 当前完整整机，Efinity 入口 `ti60f225_oob.xml` |
-| [当前 08 烧录包](FPGAProjects/烧录文件/20261009_RISCV08_BGGR_RGBMirror/README.md) | 匹配源码的 BIT/HEX、哈希、资源、时序与固化证据 |
-| [摄像头修复与原因判断](FPGAProjects/docs/原生BGGR与RGB翻转验证_20261009.md) | 原生 BGGR、RGB 翻转与画面验收记录 |
-| [StyleCam](FPGAProjects/StyleCam/README.md) | V21b 网络、训练、量化与导出 |
-| [sc431hai_hdmi](FPGAProjects/sc431hai_hdmi/README.md) | 保持未修改的独立摄像头参考例程 |
-| [工程目录与验收索引](FPGAProjects/README.md) | 唯一项目目录、当前操作与历史记录 |
+| [完整整机](FPGAProjects/StyleCam_camera/README.md) | 唯一 Efinity 入口 `ti60f225_oob.xml`，操作与构建 |
+| [RISCV10 下载包](FPGAProjects/烧录文件/20261015_RISCV10_LowLatency_Candidate/README.md) | BIT/HEX、资源、最终时序、八组回归及实机日志 |
+| [资源复核与 30fps 来源](FPGAProjects/docs/资源复核与30fps来源_20261015.md) | 提频、末层并行、真实处理分辨率与资源解释 |
+| [低延迟实现](FPGAProjects/docs/低延迟与帧调度优化_20261015.md) | 跨时钟、缓存保护和验证边界 |
+| [RISCV08 恢复包](FPGAProjects/烧录文件/20261009_RISCV08_BGGR_RGBMirror/README.md) | 历史 Flash 固化验收基线 |
+| [训练与导出](FPGAProjects/StyleCam/README.md) | V21b 训练、量化与模型 |
+| [独立摄像头参考](FPGAProjects/sc431hai_hdmi/README.md) | 保持原例程 |
 
-KEY3 循环切换梵高/浮世绘/水墨；KEY2 轮换对比/风格全屏/原画全屏；串口 `0/1/2` 切风格，`v` 切布局，`s` 查状态，`c` 读实际曝光/增益。默认 COM19，115200 8N1，详细命令见整机 README。
+K0 切布局；KEY3 短按释放切风格、长按约 0.7 秒切布局。UART `0/1/2` 选风格、`v` 切布局、`s` 状态、`c` 摄像头回读，默认 COM19、115200 8N1。当前资源 XLR58284/60800、RAM10 245/256、DSP145/160，setup +0.278ns、hold +0.026ns。
 
-唯一开发目录为 `FPGAProjects/StyleCam_camera`。2026-10-06 的全 RTL SCU09 和更早恢复包属于历史基线；本次上传到 `feat/basic-requirements`。历史资料：[10 月 6 日交接文档](FPGAProjects/docs/项目交接文档_20261006.md)、[三人协作指南](docs/三人协作指南.md)。
+当前 CNN 实际处理仍是 640×480@约30fps，HDMI 1080p60 表示显示时序；尚未实现真实 1280×720@30fps。旧 RISCV09 调试包已清理，记录见 [清理清单](FPGAProjects/docs/调试包清理_20261015.json)。

@@ -85,3 +85,40 @@ FPGAProjects/sc431hai_hdmi/outflow/*
 
 # Reproducible full builds and the local validated firmware update cache
 /FPGAProjects/StyleCam_camera/_build/
+
+# Resource/throughput optimization evidence (large simulation intermediates stay local).
+!/FPGAProjects/StyleCam_camera/validation/optimization/
+/FPGAProjects/StyleCam_camera/validation/optimization/*
+!/FPGAProjects/StyleCam_camera/validation/optimization/result.json
+!/FPGAProjects/StyleCam_camera/validation/vga_performance/
+/FPGAProjects/StyleCam_camera/validation/vga_performance/*
+!/FPGAProjects/StyleCam_camera/validation/vga_performance/baseline/
+!/FPGAProjects/StyleCam_camera/validation/vga_performance/optimized/
+/FPGAProjects/StyleCam_camera/validation/vga_performance/*/*
+!/FPGAProjects/StyleCam_camera/validation/vga_performance/*/result.json
+!/FPGAProjects/StyleCam_camera/validation/optimized_programming.json
+
+# Second resource pass: retain compact acceptance records.
+!/FPGAProjects/StyleCam_camera/validation/resource2/
+/FPGAProjects/StyleCam_camera/validation/resource2/*
+!/FPGAProjects/StyleCam_camera/validation/resource2/constants.json
+!/FPGAProjects/StyleCam_camera/validation/serial_constants_rtl/
+/FPGAProjects/StyleCam_camera/validation/serial_constants_rtl/*
+!/FPGAProjects/StyleCam_camera/validation/serial_constants_rtl/result.json
+
+# RISCV10 latency evidence; keep compact results, not generated simulators/vectors.
+!/FPGAProjects/StyleCam_camera/validation/engine_cdc/
+/FPGAProjects/StyleCam_camera/validation/engine_cdc/*
+!/FPGAProjects/StyleCam_camera/validation/engine_cdc/result.json
+!/FPGAProjects/StyleCam_camera/validation/latency_vga/
+/FPGAProjects/StyleCam_camera/validation/latency_vga/*
+!/FPGAProjects/StyleCam_camera/validation/latency_vga/result.json
+!/FPGAProjects/StyleCam_camera/validation/latency_io/
+/FPGAProjects/StyleCam_camera/validation/latency_io/*
+!/FPGAProjects/StyleCam_camera/validation/latency_io/result.json
+!/FPGAProjects/StyleCam_camera/validation/latency_schedule/
+/FPGAProjects/StyleCam_camera/validation/latency_schedule/*
+!/FPGAProjects/StyleCam_camera/validation/latency_schedule/result.json
+
+# Compact retained resource baseline after removing obsolete RISCV09 packages.
+!/FPGAProjects/StyleCam_camera/validation/resource2/manifest.json

@@ -13,7 +13,8 @@
   "frames": 9,
   "no_reset_style_switching": true,
   "independent_official_golden_reference": true,
-  "host_IN_writes": 0,
+  "cpu_blob_records": 4050,
+  "weights_from_cpu_only": true,
   "input_backpressure": true,
   "output_backpressure": true,
   "network_blob_sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b"

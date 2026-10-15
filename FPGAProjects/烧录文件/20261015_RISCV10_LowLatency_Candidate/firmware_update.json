@@ -1,0 +1,69 @@
+{
+  "time": "2026-10-15T15:06:10.589253+08:00",
+  "original_lbf_sha256": "de30e171a314c0008d34675f390b60ba11703077a79916d718292bf7781b0728",
+  "rom_sha256": {
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin": "186ae648ab6452c92f55581f7ed68c4e99f4bead3e7659d8b7451524a000382d",
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin": "17fcb538e6220b4107f768ce2378d7d9225c0512e85ef2ee6c3a6958554b7bf4",
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": "1156d7e21ecc0b9534aadc446d7e493f8b94d002058bffffc64b4f21e1817fb0",
+    "EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin": "5663a00c43c90945dd0137ca4cf92f6a0f429140e12583f8c487012e5ecfbb2f"
+  },
+  "output_sha256": {
+    "ti60f225_oob.bit": "218c9cb68fa88914c3d2aa428dd1c07f862391ff459e0b1ead948e10d073ce91",
+    "ti60f225_oob.hex": "e92a7bd966a682ef8b31e00afd04a28ff50a2044e9532d76cd9a9cd0f1dcb51d",
+    "ti60f225_oob.lbf": "de30e171a314c0008d34675f390b60ba11703077a79916d718292bf7781b0728",
+    "ti60f225_oob.pgm.out": "075485a5f212e4d4f1f331075a6dfdb7e4079a87474685bee54426ae02cd6b9f"
+  },
+  "commands": [
+    [
+      "D:\\ELS\\efinity\\2026.1\\bin\\efx_bram_edit.exe",
+      "-j",
+      "ti60f225_oob.xml",
+      "-i",
+      "outflow/ti60f225_oob.raminfo.pb",
+      "-p",
+      "outflow/ti60f225_oob.place",
+      "-l",
+      "work_pnr/ti60f225_oob.lbf",
+      "-o",
+      "outflow_fw/ti60f225_oob.lbf",
+      "-f",
+      "Titanium",
+      "-m",
+      "update",
+      "-b",
+      "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol0,C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\fw_rom\\EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin",
+      "-b",
+      "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol1,C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\fw_rom\\EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin",
+      "-b",
+      "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol2,C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\fw_rom\\EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin",
+      "-b",
+      "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol3,C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\fw_rom\\EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin"
+    ],
+    [
+      "D:\\ELS\\efinity\\2026.1\\bin\\efx_pgm.exe",
+      "--interface_designer_settings",
+      "outflow/ti60f225_oob_or.ini",
+      "--periph",
+      "outflow/ti60f225_oob.lpf",
+      "--family",
+      "Titanium",
+      "--device",
+      "Ti60F225",
+      "--source",
+      "outflow_fw/ti60f225_oob.lbf",
+      "--dest",
+      "outflow_fw/ti60f225_oob.hex",
+      "--mode=active",
+      "--width=1",
+      "--enable_roms=on",
+      "--spi_low_power_mode=on",
+      "--io_weak_pullup=on",
+      "--oscillator_clock_divider=DIV8",
+      "--bitstream_compression=on",
+      "--enable_external_master_clock=off",
+      "--active_capture_clk_edge=posedge",
+      "--jtag_usercode=0xFFFFFFFF",
+      "--release_tri_then_reset=on"
+    ]
+  ]
+}

@@ -14,6 +14,8 @@ module tb;
   .ev_publish(ev_pub),.ev_key3(ev_k3),.ev_key2(ev_k2),.ev_error(ev_err),
   .st_captured(32'd11),.st_processed(32'd22),.st_skipped(32'd33),.st_cap_errors(32'd0),.st_sensor_frames(32'd44),.st_video_errors(32'd0),
   .st_run_cycles(32'd55),.st_auto_cycles(32'd66),.st_auto_frames(32'd13),.st_hdmi_frames(32'd77),.st_hdmi_underflow(32'd0),.st_hdmi_errors(32'd0),
+  .st_first_output(32'd101),.st_input_stalls(32'd102),.st_output_stalls(32'd103),.st_clock_cycles(32'd104),
+  .st_scan_sequence(32'd105),.st_scan_timestamp(32'd106),.st_publish_wait(32'd107),.st_scan_style(2'd2),
   .st_flags(8'h3f),.st_sched(11'h5a5),.st_keys(2'b10),.scl_in(scl),.sda_in(sda_m&&sda_s),.scl_low(scl_low),.sda_low(sda_low),
   .osd_we(osd_we),.osd_addr(osd_addr),.osd_data(osd_data),.cfg_we(cfg_we),.cfg_sel(cfg_sel),.cfg_lane(cfg_lane),.cfg_layer(cfg_layer),.cfg_addr(cfg_addr),.cfg_data(cfg_data));
  // I2C slave: ACK every master byte, return 0x5A on the read data byte
@@ -29,7 +31,11 @@ module tb;
  always @(posedge clk)begin if(step)steps<=steps+1;if(osd_we)osd_writes<=osd_writes+1;if(cfg_we)cfg_writes<=cfg_writes+1;end
  initial begin
   repeat(5)@(negedge clk);rst=0;
-  apb_r(16'h0000,v);if(v!==32'h53430A08)$fatal(1,"ID %h",v);
+  apb_r(16'h0000,v);if(v!==32'h53430A0A)$fatal(1,"ID %h",v);
+  apb_r(16'h006c,v);if(v!=101)$fatal(1,"first output");apb_r(16'h0070,v);if(v!=102)$fatal(1,"input stalls");
+  apb_r(16'h0074,v);if(v!=103)$fatal(1,"output stalls");apb_r(16'h0078,v);if(v!=104)$fatal(1,"clock");
+  apb_r(16'h007c,v);if(v!=105)$fatal(1,"scan sequence");apb_r(16'h0080,v);if(v!=106)$fatal(1,"scan timestamp");
+  apb_r(16'h0084,v);if(v!=107)$fatal(1,"publish wait");apb_r(16'h0088,v);if(v!=2)$fatal(1,"scan style");
   apb_w(16'h0004,32'h0000_0233);apb_r(16'h0004,v);
   if(!run||!cam_enable||style!=3||view!=2||v!==32'h0000_0233&~32'h4)$fatal(1,"CTRL %h",v);
   if(steps!=0)$fatal(1,"step without bit2");apb_w(16'h0004,32'h0000_0237);if(steps!=1)$fatal(1,"step pulse");

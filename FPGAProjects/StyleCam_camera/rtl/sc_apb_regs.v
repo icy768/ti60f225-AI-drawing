@@ -1,7 +1,7 @@
 // RISC-V (Sapphire) control and status registers on APB3 slave 0, base 0xF8100000.
 // 0x0000-0x0FFF registers (see fw/src/stylecam_regs.h), 0x2000-0x3FFF OSD text cells (one char per word).
 // One clock domain (core_clk); PREADY is always 1.
-module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A08,parameter integer I2C_TICK=1000)(
+module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A0A,parameter integer I2C_TICK=1000)(
  input clk,rst,
  input [15:0] paddr,input psel,penable,pwrite,input [31:0] pwdata,output [31:0] prdata,output pready,output pslverr,
  output irq,
@@ -10,6 +10,8 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A08,parameter integer I2
  input ev_publish,ev_key3,ev_key2,ev_error,
  input [31:0] st_captured,st_processed,st_skipped,st_cap_errors,st_sensor_frames,st_video_errors,
  input [31:0] st_run_cycles,st_auto_cycles,st_auto_frames,st_hdmi_frames,st_hdmi_underflow,st_hdmi_errors,
+ input [31:0] st_first_output,st_input_stalls,st_output_stalls,st_clock_cycles,st_scan_sequence,st_scan_timestamp,st_publish_wait,
+ input [1:0] st_scan_style,
  input [7:0] st_flags,input [10:0] st_sched,input [1:0] st_keys,
  input scl_in,sda_in,output scl_low,sda_low,
  output reg osd_we,output reg [10:0] osd_addr,output reg [7:0] osd_data,
@@ -81,6 +83,9 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A08,parameter integer I2
    6'h10:q=st_auto_frames;6'h11:q=st_hdmi_frames;6'h12:q=st_hdmi_underflow;6'h13:q=st_hdmi_errors;
    6'h14:q={16'd0,rgb_r_shadow};6'h15:q={16'd0,rgb_g_shadow};6'h16:q={16'd0,rgb_b_shadow};
    6'h17:q={31'd0,rgb_busy};
+   6'h1b:q=st_first_output;6'h1c:q=st_input_stalls;6'h1d:q=st_output_stalls;
+   6'h1e:q=st_clock_cycles;6'h1f:q=st_scan_sequence;6'h20:q=st_scan_timestamp;
+   6'h21:q=st_publish_wait;6'h22:q={30'd0,st_scan_style};
    default:q=32'd0;
   endcase
  end

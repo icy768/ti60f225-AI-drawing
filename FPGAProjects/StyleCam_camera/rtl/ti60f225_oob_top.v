@@ -319,15 +319,19 @@ assign mipi_dp_data0_LP_P_OE=0;
 assign mipi_dp_data0_LP_N_OE=0;
 assign LCD_RST_P=0;
 assign LCD_POWER=0;
-assign pll_inst1_RSTN=i_arstn;
-assign USER_PLL_RSTN=i_arstn;
-assign DDR3_PLL_RSTN=i_arstn;
-assign pll_inst4_RSTN=i_arstn;
-wire w_arstn=i_arstn&i_pll_locked&pll_locked&user_pll_locked;
+// K0 (i_arstn on C4) is a user button. Keep an independent power-on
+// reset so pressing K0 cannot reset the PLLs, DDR, CSI or RISC-V.
 reg [15:0] power_count=0;
 always @(posedge CLK_25M)if(!(&power_count))power_count<=power_count+1'b1;
-wire global_reset=!(&power_count)||!w_arstn;
-reg [2:0] rs_u=7,rs_a=7,rs_p=7;
+wire power_reset_n=&power_count;
+assign pll_inst1_RSTN=power_reset_n;
+assign USER_PLL_RSTN=power_reset_n;
+assign DDR3_PLL_RSTN=power_reset_n;
+assign pll_inst4_RSTN=power_reset_n;
+wire w_arstn=power_reset_n&i_pll_locked&pll_locked&user_pll_locked;
+wire global_reset=!w_arstn;
+reg [2:0] rs_u=7,rs_a=7,rs_p=7,rs_n=7;
+always @(posedge i_mipi_tx_pclk or posedge global_reset)if(global_reset)rs_n<=7;else rs_n<={rs_n[1:0],1'b0};
 always @(posedge CLK_25M or posedge global_reset)if(global_reset)rs_u<=7;else rs_u<={rs_u[1:0],1'b0};
 always @(posedge core_clk or posedge global_reset)if(global_reset)rs_a<=7;else rs_a<={rs_a[1:0],1'b0};
 always @(posedge hdmi_tx_slow_clk or posedge global_reset)if(global_reset)rs_p<=7;else rs_p<={rs_p[1:0],1'b0};
@@ -337,7 +341,8 @@ always @(posedge hdmi_tx_slow_clk or posedge global_reset)if(global_reset)rs_p<=
 wire frame_ready,take_frame,release_frame,cap_locked,hold_swap;wire [1:0] ready_bank,input_bank,cap_locked_bank;
 wire engine_start,engine_idle,engine_done,engine_ok,engine_mode;
 wire [1:0] engine_style,requested_style;wire [2:0] styles_ready;
-wire output_bank,publish,publish_bank,output_complete,shown_valid,shown_bank;
+wire publish,output_complete,shown_valid;wire [1:0] output_bank,publish_bank,shown_bank;
+wire [31:0] schedule_clock,scan_sequence,scan_timestamp,publish_wait;wire [1:0] scan_style;
 wire [31:0] processed,video_errors,schedule_status;
 wire [31:0] cap_awaddr,out_awaddr;wire [127:0] cap_wdata,out_wdata;
 wire cap_awvalid,cap_awready,cap_wvalid,cap_wready,cap_bvalid,cap_bready;
@@ -356,7 +361,8 @@ sc_video_schedule schedule(.clk(core_clk),.rst(rs_a[2]),.run(cpu_run),.step(cpu_
  .engine_start(engine_start),.engine_style(engine_style),.engine_mode(engine_mode),
  .output_complete(output_complete),.shown_valid(shown_valid),.shown_bank(shown_bank),
  .output_bank(output_bank),.publish(publish),.publish_bank(publish_bank),
- .requested_style(requested_style),.processed(processed),.errors(video_errors),.state_status(schedule_status));
+ .requested_style(requested_style),.processed(processed),.errors(video_errors),.state_status(schedule_status),
+ .clock_cycles(schedule_clock),.scan_sequence(scan_sequence),.scan_timestamp(scan_timestamp),.publish_wait_cycles(publish_wait),.scan_style(scan_style));
 assign io_cam_sda_OUT=0;assign io_cam_scl_OUT=0;assign o_cam_rst_p=~cam_enable;
 reg [2:0] camera_reset=7;
 always @(posedge i_mipi_rx_pclk or posedge global_reset)if(global_reset)camera_reset<=7;else camera_reset<={camera_reset[1:0],1'b0};
@@ -375,9 +381,9 @@ sc_write_arbiter writes(.clk(core_clk),.rst(rs_a[2]),
  .awaddr(s_axi_awaddr),.awvalid(s_axi_awvalid),.awready(s_axi_awready),.wdata(s_axi_wdata),.wvalid(s_axi_wvalid),.wready(s_axi_wready),.bvalid(s_axi_bvalid),.bready(s_axi_bready));
 csi_rx_controller inst_efx_csi2_rx
 		(
-              .reset_n			(i_arstn),
+              .reset_n			(power_reset_n),
               .clk				(core_clk),
-              .reset_byte_HS_n	(i_arstn),
+              .reset_byte_HS_n	(power_reset_n),
               .clk_byte_HS		  (i_cam_ck_CLKOUT),
               .reset_pixel_n		(~camera_reset[2]),
               .clk_pixel			  (i_mipi_rx_pclk),
@@ -446,7 +452,7 @@ wire [23:0] sink_data;wire sink_valid,sink_ready,new_frame,original_frame;
 wire [23:0] replay_data;wire replay_valid,replay_ready,replay_start,replay_busy;
 wire [31:0] replay_errors;
 wire [31:0] da,ra;wire dav,dardy,drv,drr,rav,rardy,rrv,rrr;
-sc_replay replay(.uc(core_clk),.urst(rs_a[2]),.ac(core_clk),.arst(rs_a[2]),.start(replay_start),.bank(input_bank),
+sc_replay replay(.uc(i_mipi_tx_pclk),.urst(rs_n[2]),.ac(core_clk),.arst(rs_a[2]),.start(replay_start),.bank(input_bank),
  .pixel(replay_data),.valid(replay_valid),.ready(replay_ready),.busy(replay_busy),.errors(replay_errors),
  .araddr(ra),.arvalid(rav),.arready(rardy),.rdata(s_axi_rdata),.rvalid(rrv),.rlast(s_axi_rlast),.rresp(s_axi_rresp),.rready(rrr));
 sc_read_arbiter #(.DISPLAY_PRIORITY(1)) reads(.clk(core_clk),.rst(rs_a[2]),
@@ -457,7 +463,8 @@ sc_read_arbiter #(.DISPLAY_PRIORITY(1)) reads(.clk(core_clk),.rst(rs_a[2]),
 wire [255:0] display_status;
 wire cfg_we,cfg_sel,cfg_reject;wire [4:0] cfg_lane,cfg_layer;wire [11:0] cfg_addr;wire [37:0] cfg_data;
 wire [31:0] run_cycles,first_output_cycles,input_stalls,output_stalls,auto_cycles,auto_frames,auto_writes,auto_errors,engine_errors;
-sc_engine engine(.clk(core_clk),.system_reset(rs_a[2]),
+wire [1:0] upload_bank;
+sc_engine_cdc engine(.clk(core_clk),.system_reset(rs_a[2]),.nc(i_mipi_tx_pclk),.nrst(rs_n[2]),.video_bank(output_bank),.upload_bank(upload_bank),
  .sink_ready(sink_ready),.sink_data(sink_data),.sink_valid(sink_valid),.new_frame(new_frame),
  .replay_data(replay_data),.replay_valid(replay_valid),.replay_ready(replay_ready),.replay_start(replay_start),.replay_busy(replay_busy),
  .video_start(engine_start),.video_style(engine_style),.video_mode(engine_mode),
@@ -466,10 +473,10 @@ sc_engine engine(.clk(core_clk),.system_reset(rs_a[2]),
  .run_cycles(run_cycles),.first_output_cycles(first_output_cycles),.input_stalls(input_stalls),.output_stalls(output_stalls),
  .auto_cycles(auto_cycles),.auto_frames(auto_frames),.auto_writes(auto_writes),.auto_errors(auto_errors),.errors(engine_errors));
 assign original_frame=1'b0;
-// Keys are events for the RISC-V: KEY3 style, KEY2 HDMI layout
+// Physical KEY3: style; K0 (GPIOL_07/C4): layout. Legacy key2 IRQ name retained.
 wire key3_press,key3_up,key2_press,key2_up;
 sc_button #(.CYCLES(1000000)) key3(core_clk,rs_a[2],style_key_n,key3_press,key3_up);
-sc_button #(.CYCLES(1000000)) key2(core_clk,rs_a[2],mode_key_n,key2_press,key2_up);
+sc_button #(.CYCLES(1000000)) key2(core_clk,rs_a[2],i_arstn,key2_press,key2_up);
 // Sapphire RISC-V SoC (RV32I, 16 KB on-chip RAM, UART0 console, SPI0 flash, APB3 slave 0, user interrupt A)
 wire [15:0] apb_paddr;wire apb_penable,apb_psel,apb_pwrite,apb_pready,apb_pslverr,cpu_irq,cpu_reset;wire [31:0] apb_pwdata,apb_prdata;
 soc cpu(.io_systemClk(core_clk),.jtagCtrl_enable(1'b0),.jtagCtrl_tdi(1'b0),.jtagCtrl_capture(1'b0),.jtagCtrl_shift(1'b0),
@@ -491,15 +498,17 @@ sc_apb_regs regs(.clk(core_clk),.rst(rs_a[2]),
  .st_captured(captured),.st_processed(processed),.st_skipped(skipped),.st_cap_errors(capture_errors+capture_overflow),
  .st_sensor_frames(cf2),.st_video_errors(video_errors),.st_run_cycles(run_cycles),.st_auto_cycles(auto_cycles),.st_auto_frames(auto_frames),
  .st_hdmi_frames(display_status[223:192]),.st_hdmi_underflow(display_status[191:160]),.st_hdmi_errors(display_status[159:128]+replay_errors),
+ .st_first_output(first_output_cycles),.st_input_stalls(input_stalls),.st_output_stalls(output_stalls),
+ .st_clock_cycles(schedule_clock),.st_scan_sequence(scan_sequence),.st_scan_timestamp(scan_timestamp),.st_publish_wait(publish_wait),.st_scan_style(scan_style),
  .st_flags({display_status[5],cfg_reject,styles_ready,cal_done,engine_idle,frame_ready}),.st_sched(schedule_status[10:0]),.st_keys({!key2_up,!key3_up}),
  .scl_in(io_cam_scl_IN),.sda_in(io_cam_sda_IN),.scl_low(io_cam_scl_OE),.sda_low(io_cam_sda_OE),
  .osd_we(osd_we),.osd_addr(osd_addr),.osd_data(osd_data),
  .cfg_we(cfg_we),.cfg_sel(cfg_sel),.cfg_lane(cfg_lane),.cfg_layer(cfg_layer),.cfg_addr(cfg_addr),.cfg_data(cfg_data));
 wire hs,vs,de;wire [7:0] red,green,blue;
-sc_display display(.uc(core_clk),.urst(rs_a[2]),.ac(core_clk),.arst(rs_a[2]),
+sc_display display(.uc(i_mipi_tx_pclk),.urst(rs_n[2]),.ac(core_clk),.arst(rs_a[2]),
  .pc(hdmi_tx_slow_clk),.prst(rs_p[2]),.calibrated(cal_done),
  .pixel(sink_data),.pv(sink_valid),.pready(sink_ready),.new_frame(new_frame),.original_frame(original_frame),
- .mode(view_mode),.status(display_status),.write_bank(output_bank),.publish_orig(input_bank),.osd_we(osd_we),.osd_addr(osd_addr),.osd_data(osd_data),
+ .mode(view_mode),.status(display_status),.write_bank(upload_bank),.publish_orig(input_bank),.osd_we(osd_we),.osd_addr(osd_addr),.osd_data(osd_data),
  .publish(publish),.publish_bank(publish_bank),.output_complete(output_complete),.shown_valid(shown_valid),.shown_bank(shown_bank),
  .awaddr(out_awaddr),.awvalid(out_awvalid),.awready(out_awready),
  .wdata(out_wdata),.wvalid(out_wvalid),.wready(out_wready),.bvalid(out_bvalid),.bresp(s_axi_bresp),.bready(out_bready),

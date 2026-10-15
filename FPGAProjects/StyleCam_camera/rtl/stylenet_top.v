@@ -132,7 +132,7 @@ module stylenet_top (
         .o_data(d11), .o_side(s11), .o_valid(v11), .o_ready(r11),
         .st_v(sv11), .st_a(sa11), .st_ch(sc11));
     // 第 12 层 d2
-    conv_layer #(.K(3), .DW(0), .STRIDE(1), .UP(0), .GI(4), .CIN(16), .COUT(12), .G(4), .W(320), .H(240), .PE(6), .R(1), .S(22), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(0), .NSTY(6),
+    conv_layer #(.K(3), .DW(0), .STRIDE(1), .UP(0), .GI(4), .CIN(16), .COUT(12), .G(4), .W(320), .H(240), .PE(12), .CFG_PE(6), .R(1), .S(22), .S2(8), .KSK(0), .SKIP_ADD(0), .FWD(0), .NSTY(6),
         .WFILE(""), .CFILE("")) u_l12 (
         .clk(clk), .rst(rst), .style(style),
         .cfg_we(cfg_we && cfg_layer == 12), .cfg_sel(cfg_sel), .cfg_lane(cfg_lane),
@@ -156,7 +156,8 @@ module stylenet_top (
             5'd9: begin tv = sv9; ta = sa9; tc = sc9; end
             5'd10: begin tv = sv10; ta = sa10; tc = sc10; end
             5'd11: begin tv = sv11; ta = sa11; tc = sc11; end
-            5'd12: begin tv = sv12; ta = sa12; tc = sc12; end
+            // Layer 12 is the output pass: sc_engine selects 31 (no IN stats).
+            // Excluding its unused PE12 accumulator tap removes a long mux path.
             default: ;
         endcase
     end

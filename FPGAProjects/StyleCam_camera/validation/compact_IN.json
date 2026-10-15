@@ -2,5 +2,7 @@
   "words_exact": 864,
   "old_bits": 262656,
   "new_bits": 149760,
+  "serial_banks": 13,
+  "serial_physical_bits": 133120,
   "lossless": true
 }

@@ -8,7 +8,7 @@ module tb;
  wire av,wv,br;wire [127:0] wd;
  reg ar=0,wr=0,bv=0;reg [31:0] address;reg [1:0] bus=0;integer delay_b=0,cycle=0,net_words=0;
  reg [127:0] memory[0:35];integer camera_words=0;reg bad_response=0;reg [1:0] response=0;
- sc_capture #(.PIXELS(48),.FIFO_AW(6),.WIDTH(12),.H_MIRROR(MIRROR)) cap(cc,rst,rgb,cv,sof,eof,ac,rst,1'b1,take,release_f,hold_pub,hold_swap,ready,rb,locked,lb,completed,skipped,errors,overflow,ca,cav,car,cd,cwv,cwr,cbv,response,cbr);
+ sc_capture #(.PIXELS(48),.BANKS(3),.FIFO_AW(6),.WIDTH(12),.H_MIRROR(MIRROR)) cap(cc,rst,rgb,cv,sof,eof,ac,rst,1'b1,take,release_f,hold_pub,hold_swap,ready,rb,locked,lb,completed,skipped,errors,overflow,ca,cav,car,cd,cwv,cwr,cbv,response,cbr);
  sc_write_arbiter arb(ac,rst,ca,cav,car,cd,cwv,cwr,cbv,cbr,na,nav,nar,nd,nwv,nwr,nbv,nbr,awaddr,av,ar,wd,wv,wr,bv,br);
  function [1:0] bank_of(input [31:0] a);begin bank_of=(a>=32'h800000)?2'd2:{1'b0,a[21]};end endfunction
  function camera_addr(input [31:0] a);begin camera_addr=(a<32'h400000)||(a>=32'h800000);end endfunction
@@ -61,13 +61,13 @@ module tb;
   repeat(8)@(negedge ac);rst=0;
   frame(100,-1);if(completed!=1||rb!=0)$fatal(1,"First commit");check_bank(0,100);lock_frame;if(lb!=0)$fatal(1,"Lock bank 0");
   frame(200,-1);if(completed!=2||rb!=1)$fatal(1,"Second commit");check_bank(1,200);
-  frame(300,-1);if(completed!=3||skipped!=0||rb!=2||cap.ready_mask!=3'b100)$fatal(1,"Newest frame must replace the older READY frame");check_bank(2,300);
+  frame(300,-1);if(completed!=3||skipped!=1||rb!=2||cap.ready_mask!=3'b100)$fatal(1,"Newest frame must replace the older READY frame");check_bank(2,300);
   unlock(1);if(cap.pend_valid!==1||cap.pend_bank!=0)$fatal(1,"Published input not held");
   lock_frame;if(lb!=2)$fatal(1,"Newest frame ownership");
   frame(400,-1);if(completed!=4||rb!=1)$fatal(1,"Free bank beside held/locked banks");check_bank(1,400);check_bank(0,100);
-  frame(500,-1);if(completed!=4||skipped!=1)$fatal(1,"No free bank: frame must be skipped");check_bank(0,100);check_bank(1,400);check_bank(2,300);
+  frame(500,-1);if(completed!=4||skipped!=2)$fatal(1,"No free bank: frame must be skipped");check_bank(0,100);check_bank(1,400);check_bank(2,300);
   swap;if(!cap.disp_valid||cap.disp_bank!=0||cap.pend_valid)$fatal(1,"Swap to displayed");
-  frame(600,-1);if(skipped!=2)$fatal(1,"Displayed bank must stay protected");check_bank(0,100);
+  frame(600,-1);if(skipped!=3)$fatal(1,"Displayed bank must stay protected");check_bank(0,100);
   unlock(0);if(cap.pend_valid)$fatal(1,"Error release must not hold");
   frame(700,10);if(completed!=4||errors!=1)$fatal(1,"Partial frame published");
   frame(800,-1);if(completed!=5||rb!=2||cap.ready_mask!=3'b100)$fatal(1,"Recovery into freed bank");check_bank(2,800);check_bank(0,100);
@@ -76,7 +76,7 @@ module tb;
   frame(1000,-1);if(completed!=6)$fatal(1,"Recovery from AXI error");check_bank(2,800);
   if(overflow||net_words!=20)$fatal(1,"FIFO overflow or arbiter starvation");
   rst=1;repeat(5)@(negedge ac);if(ready||locked||completed||errors||cap.pend_valid||cap.disp_valid)$fatal(1,"Capture reset");
-  $display("PASS capture/AXI: 3 banks, newest-only READY, locked/published/displayed original protection, whole-frame skip, partial-frame and AXI error rejection, concurrent output writer, reset");$finish;
+  $display("PASS capture/AXI: 3 banks, newest-only READY with counted replacement drops, locked/published/displayed original protection, whole-frame skip, partial-frame and AXI error rejection, concurrent output writer, reset");$finish;
  end
  initial begin #2000000;$fatal(1,"Capture timeout");end
 endmodule

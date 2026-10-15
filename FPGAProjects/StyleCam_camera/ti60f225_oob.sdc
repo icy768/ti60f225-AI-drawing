@@ -3,6 +3,7 @@ create_clock -period 2.5 -name tx_cal_clk_90edge [get_ports {tx_cal_clk_90edge}]
 create_clock -period 2.5 -name sdram_clk [get_ports {sdram_clk}]
 create_clock -period 2.5 -name rx_cal_clk [get_ports {rx_cal_clk}]
 create_clock -period 2.5 -name tx_cal_clk [get_ports {tx_cal_clk}]
+create_clock -period 6.666667 -name net_clk [get_ports {i_mipi_tx_pclk}]
 create_clock -period 10 -name core_clk [get_ports {core_clk}]
 create_clock -period 20 -name i_mipi_rx_pclk [get_ports {i_mipi_rx_pclk}]
 create_clock -period 13.468 -name vid_clk_dvi2 [get_ports {vid_clk_dvi2}]
@@ -304,3 +305,13 @@ set_input_delay -clock i_cam_ck_CLKOUT -reference_pin [get_ports {i_cam_ck_CLKOU
 set_input_delay -clock i_cam_ck_CLKOUT -reference_pin [get_ports {i_cam_ck_CLKOUT~CLKOUT~141~322}] -max 0.560 [get_ports {cam_d3_HS_IN[*]}]
 set_input_delay -clock i_cam_ck_CLKOUT -reference_pin [get_ports {i_cam_ck_CLKOUT~CLKOUT~141~322}] -min 0.325 [get_ports {cam_d3_HS_IN[*]}]
 set_false_path -from [get_ports {uart_rx}]
+
+# Accelerator CDC: two-flop Gray/toggle synchronizers and acknowledged payloads.
+# Bound every crossing below the fastest (6.667 ns) source update interval.
+# Do not false-path this domain: these limits also bound Gray-bus skew.
+set_max_delay 6.0 -from [get_clocks {core_clk}] -to [get_clocks {net_clk}]
+set_max_delay 6.0 -from [get_clocks {net_clk}] -to [get_clocks {core_clk}]
+# The only 25 MHz -> accelerator path is power-on reset into rs_n's async
+# set pins. Deassertion is synchronized by rs_n[2:0], not sampled as data.
+# Bound reset distribution explicitly; retain timing of all net_clk data paths.
+set_max_delay 6.0 -from [get_clocks {CLK_25M}] -to [get_clocks {net_clk}]

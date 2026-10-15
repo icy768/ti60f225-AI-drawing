@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "scope": "captured board interval only",
+  "log": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\StyleCam_camera\\validation\\latency\\board_20261015_riscv10.log",
+  "duration_ms": 40000,
+  "samples": 21,
+  "styles": [
+    0,
+    1,
+    2
+  ],
+  "steady_skipped_delta": 0,
+  "fps_min": 29.99,
+  "nn_ms_max": 33.2,
+  "scan_switch_max_us": 52534
+}

@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "hardware_verified": false,
+  "real_capture_and_scheduler_rtl": true,
+  "engine_is_bounded_behavioral_model": true,
+  "sensor_fps": 29.99940001199976,
+  "hdmi_fps": 59.99880002399952,
+  "tests": [
+    {
+      "hdmi_phase": 0,
+      "capture_span_ms": 26.68,
+      "frames": 100,
+      "service_budget_ms": 32.0,
+      "skipped": 0,
+      "max_switch_ms": 72.002,
+      "banks": 7
+    },
+    {
+      "hdmi_phase": 5500,
+      "capture_span_ms": 26.68,
+      "frames": 100,
+      "service_budget_ms": 32.0,
+      "skipped": 0,
+      "max_switch_ms": 77.502,
+      "banks": 15
+    },
+    {
+      "hdmi_phase": 11000,
+      "capture_span_ms": 26.68,
+      "frames": 100,
+      "service_budget_ms": 32.0,
+      "skipped": 0,
+      "max_switch_ms": 66.335,
+      "banks": 7
+    },
+    {
+      "hdmi_phase": 16666,
+      "capture_span_ms": 26.68,
+      "frames": 100,
+      "service_budget_ms": 32.0,
+      "skipped": 0,
+      "max_switch_ms": 72.001,
+      "banks": 7
+    },
+    {
+      "hdmi_phase": 5500,
+      "capture_span_ms": 29.9,
+      "frames": 100,
+      "service_budget_ms": 32.0,
+      "skipped": 0,
+      "max_switch_ms": 74.16,
+      "banks": 15
+    }
+  ],
+  "source_sha256": {
+    "rtl/sc_capture.v": "a1c2946d7c3cb6ac726b3487398f39990c580dc16545be61adb12b5fecfdbe1a",
+    "rtl/sc_video_schedule.v": "6ef09813e0b24a66c1f5312dca7560ae17247ff0e74d5ff2a6a01e46b63186d5",
+    "rtl/sc_async_fifo.v": "cc7f11fccca7fe1fce990b6585b02391c13c2d49cc256a234e8ccc23041a8e40"
+  }
+}
