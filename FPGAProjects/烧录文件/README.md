@@ -1,13 +1,11 @@
-# 烧录文件
+# 下载包与恢复资料
 
-当前版本：[RISCV10 / 低延迟与连续帧优化](20261015_RISCV10_LowLatency_Candidate/README.md)，ID `53430a0a`。已 RAM 下载；40 秒实机采样 29.99～30fps、零新增跳帧，三次 UART 风格切换最大 52.534ms。最终时序与八组离线回归通过，资源 XLR58284、RAM245、DSP145。
+下载文件随分支不同，先按[根 README 的版本表](../../README.md)选择源码与配套包。项目使用 SC431HAI，不能混用不同整机版本的 BIT/HEX、固件、模型和清单。
 
-**用户要求跳过本次 Flash 固化，RISCV10 尚未验收掉电启动。** 当前已固化的历史恢复基线：[RISCV08 / 原生 BGGR 与 RGB 水平翻转](20261009_RISCV08_BGGR_RGBMirror/README.md)，ID `53430a08`。
+| 版本 | 入口 | 验收范围 |
+|---|---|---|
+| RISCV10 / `53430a0a` | [下载包与日志](https://github.com/icy768/ti60f225-AI-drawing/blob/codex/resource-throughput-20261013/FPGAProjects/烧录文件/20261015_RISCV10_LowLatency_Candidate/README.md) | RAM 下载后 40 秒 VGA 约 30fps，观察窗口内无新增跳帧；Flash 掉电启动未验收 |
+| RISCV08 / `53430a08` | [固化恢复包](https://github.com/icy768/ti60f225-AI-drawing/blob/feat/basic-requirements/FPGAProjects/烧录文件/20261009_RISCV08_BGGR_RGBMirror/README.md) | Flash 独立回读与自主启动已验收，保留为恢复基线 |
+| 语音 / 手机预览候选 | fw/creative-interaction 的本次 outflow 构建 | BIT/HEX 已生成，尚未上板；不能用 RISCV10 旧下载包代替新功能测试 |
 
-六个 RISCV09 调试包已清理，恢复归档仅保留在本地 `_archive/20261015_RISCV09_debug_packages.zip`，不上传仓库。保留 Resource2 的精简资源与时序比较数据。详见 [资源复核与 30fps 来源](../docs/资源复核与30fps来源_20261015.md) 和 [清理记录](../docs/调试包清理_20261015.json)。
-
-更早恢复资料：
-
-- [RISCV04 水平镜像](20261008_RISCV_HMirror/README.md)
-- [SCU09 V21b 全 RTL](20261006_SCU09_V21b_摄像头版/README.md)
-- [SCU08 摄像头修复](20261006_SCU08_V6_摄像头修复版/README.md)
+当前先进行实际上板验证，暂不合并或删除分支，本轮没有新增硬件下载或写 Flash。更早的 SCU09、SCU08、RISCV04 等包只代表各自历史版本，继续保留其原始清单与验收范围。

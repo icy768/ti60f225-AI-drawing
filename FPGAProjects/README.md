@@ -1,16 +1,15 @@
-# FPGA 工程入口
+# FPGA 工程与交付入口
 
-当前完整工程：[StyleCam_camera](StyleCam_camera/README.md)，Efinity 工程 `ti60f225_oob.xml`。当前 RISCV10 / `53430a0a`，推理 150MHz、控制 100MHz，640×480 实际处理，HDMI 1080p60。
+本项目使用 **Ti60F225 + SC431HAI** 实现实时三风格 AI 绘画。项目总体介绍见[根 README](../README.md)，最新证据与缺口见[当前进度](docs/赛题指标与完成情况_20261015.md)。
 
-用户 RAM 下载后的 40 秒实测：29.99～30fps、零新增跳帧、三次 UART 风格切换最大 52.534ms。用户要求暂时跳过 Flash 固化；已固化恢复基线仍为 RISCV08。
+| 目录 | 用途 |
+|---|---|
+| [StyleCam_camera](StyleCam_camera/README.md) | 完整摄像头 / DDR / CNN / RISC-V / HDMI 工程，唯一整机入口 `ti60f225_oob.xml` |
+| [StyleCam](StyleCam/README.md) | V21b 网络训练、量化、导出、整数参考及历史交付证据 |
+| [sc431hai_hdmi](sc431hai_hdmi/README.md) | 独立摄像头和 HDMI 参考，不替代完整整机 |
+| [烧录文件](烧录文件/README.md) | 分版本下载与恢复包；实际包含哪些包取决于分支 |
+| [docs](docs/赛题指标与完成情况_20261015.md) | 当前状态、性能边界、资源与历史交接记录 |
 
-- [当前烧录包与验收](烧录文件/20261015_RISCV10_LowLatency_Candidate/README.md)
-- [资源复核与 30fps 来源](docs/资源复核与30fps来源_20261015.md)
-- [低延迟实现](docs/低延迟与帧调度优化_20261015.md)
-- [训练、量化、导出](StyleCam/README.md)
-- [未修改的独立摄像头参考](sc431hai_hdmi/README.md)
-- [历史 RISCV08 恢复包](烧录文件/20261009_RISCV08_BGGR_RGBMirror/README.md)
+RISCV10 在 40 秒实机窗口内达到 VGA 29.99～30fps、无新增跳帧；HDMI 为 1080p60 显示扫描。语音 / 手机预览候选已通过代码和离线验证，尚未上板。真实 720p30 神经网络推理尚未完成。
 
-K0 切布局；KEY3 短按切风格、长按约 0.7 秒切布局。UART 默认 COM19、115200 8N1，`0/1/2/v/s/c`。当前 XLR58284/60800、RAM10 245/256、DSP145/160，setup +0.278ns、hold +0.026ns。
-
-六个 RISCV09 调试包已从发布目录清理，本地校验归档留在 `_archive`；精简比较数据保留，详见 [清理记录](docs/调试包清理_20261015.json)。
+当前 **不合并、不删分支**，先完成实机验证。main/develop 仍为既有 SCU09 功能源码；RISCV08 恢复基线、RISCV10 和交互候选分别位于 feat/basic-requirements、codex/resource-throughput-20261013、fw/creative-interaction。不要把项目进度说明当作默认分支已包含全部功能的声明。
