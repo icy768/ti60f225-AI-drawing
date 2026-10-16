@@ -8,7 +8,7 @@
 |---|---|---|
 | `main` / `develop` | 既有 SCU09 主线，本轮仅整理文档 | 不包含后续 RISCV10 功能源码 |
 | `feat/basic-requirements` | RISCV08 / `53430a08` | 已固化，Flash 独立回读和复位自主启动通过，作为恢复基线 |
-| `codex/resource-throughput-20261013` | RISCV10 / `53430a0a` | RAM 下载后的 40 秒实机采样通过；Flash 掉电启动未验收 |
+| `codex/resource-throughput-20261013` | RISCV10 / `53430a0a` | RAM 采样通过；2026-10-16 Flash 固化、独立回读及配置复位自主启动通过 |
 | `fw/creative-interaction` | RISCV10 + 语音 / Wi-Fi 预览候选 | 代码和离线验证完成，尚未上板、尚未合并 |
 
 当前按用户安排保留分支，等待实际硬件验证后再合并。本目录 README 说明项目整体进度，不代表任意分支的源码或下载脚本都相同。
@@ -23,7 +23,7 @@ RISCV10 推理域为 150MHz，控制与 DDR 用户域为 100MHz，末层采用 P
 
 RISCV10 在分屏布局下的 40 秒记录为：640×480 处理 29.99～30fps，摄像头约 29.9fps，网络耗时约 32.9～33.2ms；`run_skip=0`、总 skip 不增加、错误和欠流为 0。三次 UART 切换到 HDMI 换帧确认最大 52.534ms，不包括显示器发光延迟。
 
-此结论不覆盖长时间运行、各布局和全部实体按键操作，也不代表 RISCV10 已固化。已固化恢复基线仍为 RISCV08。当前语音 / 手机预览候选没有新增实机运行结论。
+此结论不覆盖长时间运行、各布局和全部实体按键操作。RISCV10 已于 2026-10-16 固化，1075167 字节独立回读一致，配置复位后的完整自主启动与约30fps运行通过；未单独做完整断电周期。RISCV08 仍保留为历史恢复基线。当前语音 / 手机预览候选没有新增实机运行结论。
 
 ## 控制与下载入口
 
@@ -34,7 +34,7 @@ K0 循环切换分屏、风格全屏、原画全屏。KEY3 短按释放切风格
 - [创意交互候选接线及固件](https://github.com/icy768/ti60f225-AI-drawing/blob/fw/creative-interaction/FPGAProjects/StyleCam_camera/wifi_stream/README.md)
 - [候选代码审查、资源与时序证据](https://github.com/icy768/ti60f225-AI-drawing/blob/fw/creative-interaction/FPGAProjects/docs/创意交互审查与资源复核_20261015.md)
 
-使用下载脚本前先确认当前分支和目标包。RISCV10 的 `program_ram.ps1 -CheckOnly` 仅核对包；默认包不含新增预览功能。候选上板需使用本次构建生成的候选 BIT，不能把旧包下载成功当作新功能验收。本轮没有新增硬件下载或写 Flash。
+使用下载脚本前先确认当前分支和目标包。RISCV10 的 `program_ram.ps1 -CheckOnly` 仅核对包；默认包不含新增预览功能。候选上板需使用本次构建生成的候选 BIT，不能把旧包下载成功当作新功能验收。2026-10-16 已完成基础 RISCV10 的 Flash 写入与复位启动验收；该结果不适用于语音/手机预览候选。
 
 ## 构建与验证
 

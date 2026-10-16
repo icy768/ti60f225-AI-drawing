@@ -16,16 +16,22 @@
 
 日志：[board_uart_20261015.log](board_uart_20261015.log)；自动审核：[board_validation_20261015.json](board_validation_20261015.json)。`manifest.json` 保留发布时离线状态；后续实机证据单独保存。
 
-## 本次固化与发布状态
+## 2026-10-16 Flash 固化验收
 
-用户确认当前无法连接开发板，要求跳过 Flash 固化。本次没有写 Flash，未验收 RISCV10 掉电自主启动。已保存的 40 秒 RAM 运行证据仍有效，不能据此标记 Flash 验收通过。旧 RISCV09 调试包已清理，资源对照见 [复核记录](../../docs/资源复核与30fps来源_20261015.md)。
+用户重新连接开发板并授权固化。RISCV10 / `53430a0a` 已写入 Flash 地址 0，配置长度 **1075167 字节**；独立 500kHz JTAG 回读与 HEX 配置载荷逐字节一致。模型地址 `0x200000` 的 48616 字节在写入前后均与工程一致，CRC `373deed7`。
+
+编程器首次校验出现不一致，自动重试后报告成功；随后另行独立回读仍完全一致。保留原配置 1114112 字节备份，位于本地验证目录。
+
+用户确认执行复位后，串口捕获了完整自主启动：ID `53430a0a`、Flash 厂商 ID `ef`、4050 条模型记录及 CRC、摄像头 191 条初始化、三风格 `ready=7`，随后恢复约 30fps，`run_skip=0`，摄像头/视频/HDMI/中断错误及下溢均为 0。没有在写入后重新下载 RAM 位流。验收覆盖配置复位启动，未单独进行完整断电周期测试。
+
+[固化验收清单](flash_acceptance_20261016.json) · [编程日志](evidence/flash_program_20261016.log) · [独立回读日志](evidence/flash_readback_20261016.log) · [自主启动日志](evidence/flash_boot_20261016.log)
 
 ## 下载文件
 
 - RAM 下载：[StyleCam_RISCV10_LowLatency.bit](StyleCam_RISCV10_LowLatency.bit)
 - 配置 HEX：[StyleCam_RISCV10_LowLatency.hex](StyleCam_RISCV10_LowLatency.hex)
-- 版本 ID：`53430a0a`。本轮未操作开发板或修改 Flash。
-- 模型保持不变，已有 Flash 0x200000 模型无需重写。本次建议先使用 BIT 做 RAM 下载。
+- 版本 ID：`53430a0a`。2026-10-16 已写入 Flash 并通过配置复位自主启动验收。
+- 模型保持不变，已有 Flash 0x200000 模型无需重写。BIT 用于临时 RAM 下载，HEX 用于已验收的 Flash 固化。
 - BIT SHA256：`218c9cb68fa88914c3d2aa428dd1c07f862391ff459e0b1ead948e10d073ce91`
 
 ## 改动
