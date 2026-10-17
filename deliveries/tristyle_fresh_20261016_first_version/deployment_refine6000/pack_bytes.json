@@ -1,0 +1,21 @@
+{
+ "weight_int8": 413664,
+ "bias_int32": 29316,
+ "multiplier_int32": 29316,
+ "exponent_int8": 7329,
+ "header": 24,
+ "metadata_zlib": 8178,
+ "payload": 479625,
+ "total_bytes": 487827,
+ "limit": 500000,
+ "fits": true,
+ "sha256": "bdc709435ca27b1544d16d988ad89b5947570a1844f7e37c600762618f131899",
+ "n_conv": 91,
+ "per_part": {
+  "shared": 13024,
+  "vangogh": 152859,
+  "ukiyoe": 175347,
+  "ink": 138395
+ },
+ "max_conservative_INT32_accumulator_bound": 2073987
+}

@@ -1,0 +1,798 @@
+{
+ "status": "MEASURED CPU pack-only integer execution, fresh checkpoint reload",
+ "float_vs_fake_disabled_reload_maxabs": 0.0,
+ "same_QAT_checkpoint": true,
+ "size": [
+  320,
+  240
+ ],
+ "scenes": 17,
+ "pack_bytes": 495552,
+ "pack_sha256": "c1df91494b2ee03769e9ad28f33e4714357ca88916670efc30de434d94effd34",
+ "max_observed_accumulator": 254551,
+ "summary": {
+  "vangogh": {
+   "FLOAT_vs_native_PSNR": 29.49869032001379,
+   "FLOAT_vs_native_SSIM": 0.9069717049594628,
+   "native_vs_onednn_mean_LSB": 1.0939682904411765
+  },
+  "ukiyoe": {
+   "FLOAT_vs_native_PSNR": 30.154229357807473,
+   "FLOAT_vs_native_SSIM": 0.9252566867790981,
+   "native_vs_onednn_mean_LSB": 1.1190859885620914
+  },
+  "ink": {
+   "FLOAT_vs_native_PSNR": 27.65451416194713,
+   "FLOAT_vs_native_SSIM": 0.9640495056833464,
+   "native_vs_onednn_mean_LSB": 1.2647114991830066
+  }
+ },
+ "rows": [
+  {
+   "scene": "architecture",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.234038813298373,
+   "FLOAT_vs_native_SSIM": 0.9524310739299722,
+   "native_vs_fake_max_LSB": 72,
+   "native_vs_fake_mean_LSB": 4.358315972222222,
+   "native_vs_onednn_max_LSB": 32,
+   "native_vs_onednn_mean_LSB": 2.1684027777777777,
+   "native_CPU_seconds": 3.73260579998896
+  },
+  {
+   "scene": "architecture",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.13410726596145,
+   "FLOAT_vs_native_SSIM": 0.9569715147153325,
+   "native_vs_fake_max_LSB": 108,
+   "native_vs_fake_mean_LSB": 3.6546310763888887,
+   "native_vs_onednn_max_LSB": 62,
+   "native_vs_onednn_mean_LSB": 1.6656987847222222,
+   "native_CPU_seconds": 1.521359400008805
+  },
+  {
+   "scene": "architecture",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.591130770249723,
+   "FLOAT_vs_native_SSIM": 0.9683500840211381,
+   "native_vs_fake_max_LSB": 36,
+   "native_vs_fake_mean_LSB": 3.0400347222222224,
+   "native_vs_onednn_max_LSB": 43,
+   "native_vs_onednn_mean_LSB": 2.227322048611111,
+   "native_CPU_seconds": 3.6191166000062367
+  },
+  {
+   "scene": "architecture_street",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 28.515532276460295,
+   "FLOAT_vs_native_SSIM": 0.9019779482845629,
+   "native_vs_fake_max_LSB": 91,
+   "native_vs_fake_mean_LSB": 4.639379340277777,
+   "native_vs_onednn_max_LSB": 22,
+   "native_vs_onednn_mean_LSB": 1.708984375,
+   "native_CPU_seconds": 4.010691200004658
+  },
+  {
+   "scene": "architecture_street",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.787471407166212,
+   "FLOAT_vs_native_SSIM": 0.9200441676465646,
+   "native_vs_fake_max_LSB": 111,
+   "native_vs_fake_mean_LSB": 3.4416710069444445,
+   "native_vs_onednn_max_LSB": 52,
+   "native_vs_onednn_mean_LSB": 1.1910894097222222,
+   "native_CPU_seconds": 2.779379500003415
+  },
+  {
+   "scene": "architecture_street",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.329081610637754,
+   "FLOAT_vs_native_SSIM": 0.9622575081620658,
+   "native_vs_fake_max_LSB": 41,
+   "native_vs_fake_mean_LSB": 2.938676215277778,
+   "native_vs_onednn_max_LSB": 28,
+   "native_vs_onednn_mean_LSB": 1.6130078125,
+   "native_CPU_seconds": 4.153147799996077
+  },
+  {
+   "scene": "edges",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 28.472635127161382,
+   "FLOAT_vs_native_SSIM": 0.8586586171361872,
+   "native_vs_fake_max_LSB": 71,
+   "native_vs_fake_mean_LSB": 5.005672743055555,
+   "native_vs_onednn_max_LSB": 31,
+   "native_vs_onednn_mean_LSB": 1.5156510416666666,
+   "native_CPU_seconds": 4.508558899993659
+  },
+  {
+   "scene": "edges",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.14478984864084,
+   "FLOAT_vs_native_SSIM": 0.9250470811213005,
+   "native_vs_fake_max_LSB": 90,
+   "native_vs_fake_mean_LSB": 3.2479210069444444,
+   "native_vs_onednn_max_LSB": 84,
+   "native_vs_onednn_mean_LSB": 1.3878819444444443,
+   "native_CPU_seconds": 2.4122394000005443
+  },
+  {
+   "scene": "edges",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.905495731401025,
+   "FLOAT_vs_native_SSIM": 0.9615693607922126,
+   "native_vs_fake_max_LSB": 46,
+   "native_vs_fake_mean_LSB": 2.359318576388889,
+   "native_vs_onednn_max_LSB": 35,
+   "native_vs_onednn_mean_LSB": 1.4580034722222222,
+   "native_CPU_seconds": 4.616147399996407
+  },
+  {
+   "scene": "edges_buildings",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.25405856291869,
+   "FLOAT_vs_native_SSIM": 0.9549215103699676,
+   "native_vs_fake_max_LSB": 60,
+   "native_vs_fake_mean_LSB": 4.082061631944445,
+   "native_vs_onednn_max_LSB": 22,
+   "native_vs_onednn_mean_LSB": 0.3841059027777778,
+   "native_CPU_seconds": 4.5384892000001855
+  },
+  {
+   "scene": "edges_buildings",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.561561904820312,
+   "FLOAT_vs_native_SSIM": 0.9462043534696386,
+   "native_vs_fake_max_LSB": 94,
+   "native_vs_fake_mean_LSB": 3.7262065972222222,
+   "native_vs_onednn_max_LSB": 41,
+   "native_vs_onednn_mean_LSB": 0.16658854166666667,
+   "native_CPU_seconds": 2.629834600011236
+  },
+  {
+   "scene": "edges_buildings",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.676923643643995,
+   "FLOAT_vs_native_SSIM": 0.9699477468708867,
+   "native_vs_fake_max_LSB": 41,
+   "native_vs_fake_mean_LSB": 3.0648177083333334,
+   "native_vs_onednn_max_LSB": 24,
+   "native_vs_onednn_mean_LSB": 0.32719184027777776,
+   "native_CPU_seconds": 5.513346300009289
+  },
+  {
+   "scene": "edges_signals",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 28.25789989788078,
+   "FLOAT_vs_native_SSIM": 0.915814452462282,
+   "native_vs_fake_max_LSB": 50,
+   "native_vs_fake_mean_LSB": 4.599704861111111,
+   "native_vs_onednn_max_LSB": 27,
+   "native_vs_onednn_mean_LSB": 1.2594053819444444,
+   "native_CPU_seconds": 4.884122899995418
+  },
+  {
+   "scene": "edges_signals",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.68675721033778,
+   "FLOAT_vs_native_SSIM": 0.9519032172469245,
+   "native_vs_fake_max_LSB": 89,
+   "native_vs_fake_mean_LSB": 3.1719618055555556,
+   "native_vs_onednn_max_LSB": 67,
+   "native_vs_onednn_mean_LSB": 0.6698263888888889,
+   "native_CPU_seconds": 2.900395299991942
+  },
+  {
+   "scene": "edges_signals",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.716102793484062,
+   "FLOAT_vs_native_SSIM": 0.9626285165713305,
+   "native_vs_fake_max_LSB": 41,
+   "native_vs_fake_mean_LSB": 2.676419270833333,
+   "native_vs_onednn_max_LSB": 31,
+   "native_vs_onednn_mean_LSB": 0.9388758680555556,
+   "native_CPU_seconds": 4.519046699992032
+  },
+  {
+   "scene": "indoor",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.230133813734884,
+   "FLOAT_vs_native_SSIM": 0.915310284946122,
+   "native_vs_fake_max_LSB": 68,
+   "native_vs_fake_mean_LSB": 3.994839409722222,
+   "native_vs_onednn_max_LSB": 25,
+   "native_vs_onednn_mean_LSB": 1.1939105902777778,
+   "native_CPU_seconds": 5.041209099988919
+  },
+  {
+   "scene": "indoor",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.92959868047484,
+   "FLOAT_vs_native_SSIM": 0.9058509673154279,
+   "native_vs_fake_max_LSB": 95,
+   "native_vs_fake_mean_LSB": 3.867994791666667,
+   "native_vs_onednn_max_LSB": 70,
+   "native_vs_onednn_mean_LSB": 1.4029991319444444,
+   "native_CPU_seconds": 2.686768999992637
+  },
+  {
+   "scene": "indoor",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.68002071088615,
+   "FLOAT_vs_native_SSIM": 0.9646830761478569,
+   "native_vs_fake_max_LSB": 41,
+   "native_vs_fake_mean_LSB": 2.5774305555555554,
+   "native_vs_onednn_max_LSB": 31,
+   "native_vs_onednn_mean_LSB": 1.1704991319444444,
+   "native_CPU_seconds": 5.146069599999464
+  },
+  {
+   "scene": "indoor_bathroom",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.518665112631354,
+   "FLOAT_vs_native_SSIM": 0.9152994556098527,
+   "native_vs_fake_max_LSB": 52,
+   "native_vs_fake_mean_LSB": 4.412447916666666,
+   "native_vs_onednn_max_LSB": 22,
+   "native_vs_onednn_mean_LSB": 0.5863975694444444,
+   "native_CPU_seconds": 4.971547699999064
+  },
+  {
+   "scene": "indoor_bathroom",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 31.09379896826136,
+   "FLOAT_vs_native_SSIM": 0.9555498587002228,
+   "native_vs_fake_max_LSB": 106,
+   "native_vs_fake_mean_LSB": 3.1300303819444446,
+   "native_vs_onednn_max_LSB": 58,
+   "native_vs_onednn_mean_LSB": 0.5434722222222222,
+   "native_CPU_seconds": 2.6701488999970024
+  },
+  {
+   "scene": "indoor_bathroom",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.78827613834459,
+   "FLOAT_vs_native_SSIM": 0.9626318231939212,
+   "native_vs_fake_max_LSB": 38,
+   "native_vs_fake_mean_LSB": 2.809079861111111,
+   "native_vs_onednn_max_LSB": 24,
+   "native_vs_onednn_mean_LSB": 0.7667621527777778,
+   "native_CPU_seconds": 4.7446784999920055
+  },
+  {
+   "scene": "person",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.817065666350157,
+   "FLOAT_vs_native_SSIM": 0.9188694970401167,
+   "native_vs_fake_max_LSB": 125,
+   "native_vs_fake_mean_LSB": 3.951809895833333,
+   "native_vs_onednn_max_LSB": 6,
+   "native_vs_onednn_mean_LSB": 0.015260416666666667,
+   "native_CPU_seconds": 4.773759200004861
+  },
+  {
+   "scene": "person",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 31.350698343994267,
+   "FLOAT_vs_native_SSIM": 0.9608990788644842,
+   "native_vs_fake_max_LSB": 87,
+   "native_vs_fake_mean_LSB": 2.8454210069444446,
+   "native_vs_onednn_max_LSB": 45,
+   "native_vs_onednn_mean_LSB": 0.22358072916666666,
+   "native_CPU_seconds": 2.676959699994768
+  },
+  {
+   "scene": "person",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.598730420320305,
+   "FLOAT_vs_native_SSIM": 0.9732866279249345,
+   "native_vs_fake_max_LSB": 31,
+   "native_vs_fake_mean_LSB": 2.4155772569444443,
+   "native_vs_onednn_max_LSB": 27,
+   "native_vs_onednn_mean_LSB": 0.8678125,
+   "native_CPU_seconds": 4.95196130000113
+  },
+  {
+   "scene": "person_face",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.593897523530025,
+   "FLOAT_vs_native_SSIM": 0.9029265427479428,
+   "native_vs_fake_max_LSB": 51,
+   "native_vs_fake_mean_LSB": 4.153828125,
+   "native_vs_onednn_max_LSB": 18,
+   "native_vs_onednn_mean_LSB": 0.5488324652777777,
+   "native_CPU_seconds": 4.9039495999895735
+  },
+  {
+   "scene": "person_face",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.32650924366377,
+   "FLOAT_vs_native_SSIM": 0.9133700724962628,
+   "native_vs_fake_max_LSB": 99,
+   "native_vs_fake_mean_LSB": 4.452469618055556,
+   "native_vs_onednn_max_LSB": 56,
+   "native_vs_onednn_mean_LSB": 1.0202821180555555,
+   "native_CPU_seconds": 2.7059279999957653
+  },
+  {
+   "scene": "person_face",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.95290833121843,
+   "FLOAT_vs_native_SSIM": 0.9700287703069551,
+   "native_vs_fake_max_LSB": 31,
+   "native_vs_fake_mean_LSB": 2.2724131944444443,
+   "native_vs_onednn_max_LSB": 17,
+   "native_vs_onednn_mean_LSB": 0.045460069444444445,
+   "native_CPU_seconds": 4.807099399986328
+  },
+  {
+   "scene": "person_indoor",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 31.2663262839256,
+   "FLOAT_vs_native_SSIM": 0.9441085792595659,
+   "native_vs_fake_max_LSB": 48,
+   "native_vs_fake_mean_LSB": 3.8250520833333335,
+   "native_vs_onednn_max_LSB": 19,
+   "native_vs_onednn_mean_LSB": 0.8326302083333333,
+   "native_CPU_seconds": 4.960032699993462
+  },
+  {
+   "scene": "person_indoor",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 31.250482099050245,
+   "FLOAT_vs_native_SSIM": 0.9636370685021185,
+   "native_vs_fake_max_LSB": 94,
+   "native_vs_fake_mean_LSB": 3.033841145833333,
+   "native_vs_onednn_max_LSB": 67,
+   "native_vs_onednn_mean_LSB": 0.8483203125,
+   "native_CPU_seconds": 2.6356998999981442
+  },
+  {
+   "scene": "person_indoor",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 28.146110025367786,
+   "FLOAT_vs_native_SSIM": 0.9752192802785706,
+   "native_vs_fake_max_LSB": 38,
+   "native_vs_fake_mean_LSB": 2.3761805555555555,
+   "native_vs_onednn_max_LSB": 33,
+   "native_vs_onednn_mean_LSB": 1.3129947916666667,
+   "native_CPU_seconds": 4.800411499993061
+  },
+  {
+   "scene": "plants",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.97982417896493,
+   "FLOAT_vs_native_SSIM": 0.9756174322516532,
+   "native_vs_fake_max_LSB": 29,
+   "native_vs_fake_mean_LSB": 3.947326388888889,
+   "native_vs_onednn_max_LSB": 25,
+   "native_vs_onednn_mean_LSB": 1.1007899305555555,
+   "native_CPU_seconds": 5.183910399995511
+  },
+  {
+   "scene": "plants",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.168419270806503,
+   "FLOAT_vs_native_SSIM": 0.9470606244765808,
+   "native_vs_fake_max_LSB": 74,
+   "native_vs_fake_mean_LSB": 4.702925347222222,
+   "native_vs_onednn_max_LSB": 81,
+   "native_vs_onednn_mean_LSB": 1.7203993055555555,
+   "native_CPU_seconds": 2.573626299999887
+  },
+  {
+   "scene": "plants",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 26.110066487523447,
+   "FLOAT_vs_native_SSIM": 0.960414519282399,
+   "native_vs_fake_max_LSB": 43,
+   "native_vs_fake_mean_LSB": 4.164496527777778,
+   "native_vs_onednn_max_LSB": 28,
+   "native_vs_onednn_mean_LSB": 2.655881076388889,
+   "native_CPU_seconds": 4.561807300007786
+  },
+  {
+   "scene": "plants_garden",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.653448868121526,
+   "FLOAT_vs_native_SSIM": 0.9427496557347617,
+   "native_vs_fake_max_LSB": 51,
+   "native_vs_fake_mean_LSB": 4.287395833333333,
+   "native_vs_onednn_max_LSB": 21,
+   "native_vs_onednn_mean_LSB": 1.3612152777777777,
+   "native_CPU_seconds": 4.556965700001456
+  },
+  {
+   "scene": "plants_garden",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.82418583100113,
+   "FLOAT_vs_native_SSIM": 0.9382937540445697,
+   "native_vs_fake_max_LSB": 98,
+   "native_vs_fake_mean_LSB": 4.9188454861111115,
+   "native_vs_onednn_max_LSB": 82,
+   "native_vs_onednn_mean_LSB": 1.6675,
+   "native_CPU_seconds": 2.5003571000124793
+  },
+  {
+   "scene": "plants_garden",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.823489401378016,
+   "FLOAT_vs_native_SSIM": 0.9574523127812379,
+   "native_vs_fake_max_LSB": 55,
+   "native_vs_fake_mean_LSB": 3.4235807291666664,
+   "native_vs_onednn_max_LSB": 34,
+   "native_vs_onednn_mean_LSB": 1.9668446180555557,
+   "native_CPU_seconds": 4.8019519000081345
+  },
+  {
+   "scene": "sky",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 28.807824878803117,
+   "FLOAT_vs_native_SSIM": 0.782301276895251,
+   "native_vs_fake_max_LSB": 76,
+   "native_vs_fake_mean_LSB": 5.555026041666666,
+   "native_vs_onednn_max_LSB": 22,
+   "native_vs_onednn_mean_LSB": 0.6082855902777777,
+   "native_CPU_seconds": 5.185406699994928
+  },
+  {
+   "scene": "sky",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.253067517252937,
+   "FLOAT_vs_native_SSIM": 0.803263384712091,
+   "native_vs_fake_max_LSB": 81,
+   "native_vs_fake_mean_LSB": 5.125911458333333,
+   "native_vs_onednn_max_LSB": 60,
+   "native_vs_onednn_mean_LSB": 0.8855381944444445,
+   "native_CPU_seconds": 2.736533999996027
+  },
+  {
+   "scene": "sky",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 28.0366458352766,
+   "FLOAT_vs_native_SSIM": 0.9649795642176876,
+   "native_vs_fake_max_LSB": 36,
+   "native_vs_fake_mean_LSB": 2.128845486111111,
+   "native_vs_onednn_max_LSB": 29,
+   "native_vs_onednn_mean_LSB": 0.5909375,
+   "native_CPU_seconds": 4.946863399993163
+  },
+  {
+   "scene": "sky_storm",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.960646934163748,
+   "FLOAT_vs_native_SSIM": 0.8257687756701216,
+   "native_vs_fake_max_LSB": 79,
+   "native_vs_fake_mean_LSB": 6.0875868055555555,
+   "native_vs_onednn_max_LSB": 25,
+   "native_vs_onednn_mean_LSB": 1.5044965277777778,
+   "native_CPU_seconds": 4.947817699998268
+  },
+  {
+   "scene": "sky_storm",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.05753644852918,
+   "FLOAT_vs_native_SSIM": 0.889880992158254,
+   "native_vs_fake_max_LSB": 88,
+   "native_vs_fake_mean_LSB": 4.045473090277778,
+   "native_vs_onednn_max_LSB": 75,
+   "native_vs_onednn_mean_LSB": 1.6621397569444445,
+   "native_CPU_seconds": 2.6944774000003235
+  },
+  {
+   "scene": "sky_storm",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.688104477394454,
+   "FLOAT_vs_native_SSIM": 0.9628137168003956,
+   "native_vs_fake_max_LSB": 41,
+   "native_vs_fake_mean_LSB": 1.9906684027777777,
+   "native_vs_onednn_max_LSB": 31,
+   "native_vs_onednn_mean_LSB": 1.0590190972222222,
+   "native_CPU_seconds": 4.815211099994485
+  },
+  {
+   "scene": "water_day",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.221546002595275,
+   "FLOAT_vs_native_SSIM": 0.9215102717537439,
+   "native_vs_fake_max_LSB": 71,
+   "native_vs_fake_mean_LSB": 4.263289930555556,
+   "native_vs_onednn_max_LSB": 34,
+   "native_vs_onednn_mean_LSB": 1.5537152777777778,
+   "native_CPU_seconds": 4.851233199995477
+  },
+  {
+   "scene": "water_day",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.263744942798667,
+   "FLOAT_vs_native_SSIM": 0.9169955213821676,
+   "native_vs_fake_max_LSB": 76,
+   "native_vs_fake_mean_LSB": 4.217894965277778,
+   "native_vs_onednn_max_LSB": 83,
+   "native_vs_onednn_mean_LSB": 1.5815711805555555,
+   "native_CPU_seconds": 2.8331875000003492
+  },
+  {
+   "scene": "water_day",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.71087354476037,
+   "FLOAT_vs_native_SSIM": 0.9570049547152922,
+   "native_vs_fake_max_LSB": 39,
+   "native_vs_fake_mean_LSB": 2.8783246527777777,
+   "native_vs_onednn_max_LSB": 31,
+   "native_vs_onednn_mean_LSB": 1.5038758680555555,
+   "native_CPU_seconds": 4.620741899998393
+  },
+  {
+   "scene": "water_night",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.68515633706529,
+   "FLOAT_vs_native_SSIM": 0.835303097307465,
+   "native_vs_fake_max_LSB": 59,
+   "native_vs_fake_mean_LSB": 4.467612847222222,
+   "native_vs_onednn_max_LSB": 19,
+   "native_vs_onednn_mean_LSB": 0.263046875,
+   "native_CPU_seconds": 4.656189399989671
+  },
+  {
+   "scene": "water_night",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.945561107484405,
+   "FLOAT_vs_native_SSIM": 0.8822843358911213,
+   "native_vs_fake_max_LSB": 78,
+   "native_vs_fake_mean_LSB": 3.9429644097222223,
+   "native_vs_onednn_max_LSB": 46,
+   "native_vs_onednn_mean_LSB": 0.21046006944444445,
+   "native_CPU_seconds": 2.5823635999986436
+  },
+  {
+   "scene": "water_night",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 28.096735197397777,
+   "FLOAT_vs_native_SSIM": 0.9628383489480709,
+   "native_vs_fake_max_LSB": 41,
+   "native_vs_fake_mean_LSB": 2.32765625,
+   "native_vs_onednn_max_LSB": 19,
+   "native_vs_onednn_mean_LSB": 0.09519965277777778,
+   "native_CPU_seconds": 4.8436343999928795
+  },
+  {
+   "scene": "water_waves",
+   "style": "vangogh",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 30.009035162629026,
+   "FLOAT_vs_native_SSIM": 0.9549505129112981,
+   "native_vs_fake_max_LSB": 46,
+   "native_vs_fake_mean_LSB": 4.1595269097222225,
+   "native_vs_onednn_max_LSB": 25,
+   "native_vs_onednn_mean_LSB": 1.9923307291666668,
+   "native_CPU_seconds": 4.9800776000047335
+  },
+  {
+   "scene": "water_waves",
+   "style": "ukiyoe",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 29.843608992483162,
+   "FLOAT_vs_native_SSIM": 0.9521076825016065,
+   "native_vs_fake_max_LSB": 96,
+   "native_vs_fake_mean_LSB": 3.9527907986111113,
+   "native_vs_onednn_max_LSB": 74,
+   "native_vs_onednn_mean_LSB": 2.1771137152777778,
+   "native_CPU_seconds": 2.634877199991024
+  },
+  {
+   "scene": "water_waves",
+   "style": "ink",
+   "size": [
+    320,
+    240
+   ],
+   "FLOAT_vs_native_PSNR": 27.276045633816693,
+   "FLOAT_vs_native_SSIM": 0.9527353856019322,
+   "native_vs_fake_max_LSB": 41,
+   "native_vs_fake_mean_LSB": 4.0829470486111115,
+   "native_vs_onednn_max_LSB": 38,
+   "native_vs_onednn_mean_LSB": 2.900407986111111,
+   "native_CPU_seconds": 4.7417840999987675
+  }
+ ],
+ "limitations": "PSNR/SSIM compare quantization retention only. oneDNN tie/requant arithmetic can differ from normative Q31 reference. No FPGA throughput/RTL evidence."
+}

@@ -1,0 +1,6 @@
+*.bin -text -diff -merge -filter
+*.pt -text -diff -merge -filter
+*.ts -text -diff -merge -filter
+*.png -text -diff -merge -filter
+*.jpg -text -diff -merge -filter
+*.mp4 -text -diff -merge -filter

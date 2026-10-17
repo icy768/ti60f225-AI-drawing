@@ -1,0 +1,27 @@
+{
+  "status": "MEASURED torch shape/hooks agree exactly with serialized-graph arithmetic",
+  "scope": "MAC counts only; no FPGA resource, cycle or throughput validation",
+  "rows": [
+    {
+      "style": "vangogh",
+      "torch_hook_MAC_80x64": 58472960,
+      "linear_area_scale": 60,
+      "graph_MAC_640x480": 3508377600,
+      "equal": true
+    },
+    {
+      "style": "ukiyoe",
+      "torch_hook_MAC_80x64": 38278400,
+      "linear_area_scale": 60,
+      "graph_MAC_640x480": 2296704000,
+      "equal": true
+    },
+    {
+      "style": "ink",
+      "torch_hook_MAC_80x64": 56636160,
+      "linear_area_scale": 60,
+      "graph_MAC_640x480": 3398169600,
+      "equal": true
+    }
+  ]
+}

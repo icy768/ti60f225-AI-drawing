@@ -1,0 +1,55 @@
+{
+ "time": "2026-10-17T09:01:14.369056+08:00",
+ "status": "MEASURED Icarus13 arithmetic-unit functional simulation PASS",
+ "pack_sha256": "c1df91494b2ee03769e9ad28f33e4714357ca88916670efc30de434d94effd34",
+ "conv_descriptors_covered": 91,
+ "conv_output_channels_per_descriptor": 2,
+ "mac_requant_cases": 728,
+ "scalar_mac_samples": 47872,
+ "merge_cases": 360,
+ "round_boundary_cases": 156,
+ "oracle": "Independent Python fractions.Fraction round-half-even; uses actual selected package constants, no int_ref arithmetic helper",
+ "files": {
+  "rtl_math\\units.sv": "95e5b9254a5bb4a3902f5339b9d7b3bc408158a094336efa8836b72d9b67b5bd",
+  "rtl_math\\verify.py": "e4f09b2103ce92bd1453d47784cca6322babe227b116c3bdda3dfdab23d0b3d8",
+  "rtl_math\\build\\testbench.sv": "05d2372ceadfde10e0a064038d5f2b4f8950f015ddf625c71866c133aa603869",
+  "rtl_math\\build\\params.mem": "81137a445c9714c5af50a02f8c0e4464e7a2b0d57aa1789eb914f31d5315feb7",
+  "rtl_math\\build\\xs.mem": "52e2b3b5d398d80bc71ca6cf13036fa7cdda62316021fc244937c9e078df8430",
+  "rtl_math\\build\\ws.mem": "25f8d07e999380dceea58fdbd53bc1e8fc217d8b12b01df8baa9d83149b66f20",
+  "rtl_math\\build\\merge.mem": "ec542da0f6e64d4fe0dbcefb24f2bf55c9f0c68b8cc9220303d47b77a905ee0c",
+  "rtl_math\\build\\round.mem": "a85ea1e5563f297ad425b7543364321fb013e85e4a6251b39fe1dc6a0b6d3eba"
+ },
+ "logs": [
+  {
+   "command": [
+    "D:\\fpga\\tristyle_fresh_20261016\\external_runtime\\icarus\\mingw64\\bin\\iverilog.exe",
+    "-g2012",
+    "-B",
+    "D:\\fpga\\tristyle_fresh_20261016\\external_runtime\\icarus\\mingw64\\lib\\ivl",
+    "-s",
+    "testbench",
+    "-o",
+    "units.vvp",
+    "D:\\fpga\\tristyle_fresh_20261016\\rtl_math\\units.sv",
+    "testbench.sv"
+   ],
+   "returncode": 0,
+   "stdout": "",
+   "stderr": "D:\\fpga\\tristyle_fresh_20261016\\rtl_math\\units.sv:11: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+q[63:0]').\nD:\\fpga\\tristyle_fresh_20261016\\rtl_math\\units.sv:42: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+shifted[63:0]').\nD:\\fpga\\tristyle_fresh_20261016\\rtl_math\\units.sv:11: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+q[63:0]').\nD:\\fpga\\tristyle_fresh_20261016\\rtl_math\\units.sv:11: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+q[63:0]').\nD:\\fpga\\tristyle_fresh_20261016\\rtl_math\\units.sv:11: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+q[63:0]').\nD:\\fpga\\tristyle_fresh_20261016\\rtl_math\\units.sv:62: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+shifted[63:0]').\nD:\\fpga\\tristyle_fresh_20261016\\rtl_math\\units.sv:11: sorry: constant selects in always_* processes are not fully supported (the process will be sensitive to all bits in '+q[63:0]').\n"
+  },
+  {
+   "command": [
+    "D:\\fpga\\tristyle_fresh_20261016\\external_runtime\\icarus\\mingw64\\bin\\vvp.exe",
+    "-M",
+    "D:\\fpga\\tristyle_fresh_20261016\\external_runtime\\icarus\\mingw64\\lib\\ivl",
+    "units.vvp"
+   ],
+   "returncode": 0,
+   "stdout": "PASS MAC_REQUANT=728 MERGE=360 ROUND=156 SAMPLES=47872\ntestbench.sv:31: $finish called at 494333000 (1ps)\n",
+   "stderr": ""
+  }
+ ],
+ "scope": "Sampled scalar MAC accumulation, conv requantization, add/cat input rescale and signed RNE boundaries ONLY. Not full network RTL, convolution addressing, descriptor loader, DDR3, camera/display, synthesis, timing, resource use or board fps. Testbench clock is a simulation schedule, not achievable clock evidence.",
+ "art_accepted": false,
+ "FPGA_full_network_verified": false
+}

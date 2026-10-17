@@ -1,0 +1,28 @@
+{
+  "source": "deployment_refine6000\\video_full640\\heldout_integer_reference.mp4",
+  "source_sha256": "87af4f0d451638c6dbfe3635225e85d686df271892a18f164db6c38e18399cf3",
+  "output": "deployment_refine6000\\video_full640\\heldout_integer_reference_h264.mp4",
+  "output_sha256": "ae045656baff0f8367052e2ae03c176d5057234dc50a5ebf4959f0cdedb2721f",
+  "runtime_wheel": "imageio_ffmpeg-0.6.0-py3-none-win_amd64.whl",
+  "wheel_sha256": "02fa47c83703c37df6bfe4896aab339013f62bf02c5ebf2dce6da56af04ffc0a",
+  "command": [
+    "D:\\fpga\\tristyle_fresh_20261016\\external_runtime\\imageio_ffmpeg_0_6_0\\imageio_ffmpeg\\binaries\\ffmpeg-win-x86_64-v7.1.exe",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-i",
+    "D:\\fpga\\tristyle_fresh_20261016\\deployment_refine6000\\video_full640\\heldout_integer_reference.mp4",
+    "-c:v",
+    "libx264",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-movflags",
+    "+faststart",
+    "-an",
+    "D:\\fpga\\tristyle_fresh_20261016\\deployment_refine6000\\video_full640\\heldout_integer_reference_h264.mp4"
+  ],
+  "note": "Playback encoding only; no model inference, art enhancement or FPGA performance measurement."
+}

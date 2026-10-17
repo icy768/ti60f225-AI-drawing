@@ -1,0 +1,16 @@
+{
+  "checkpoint": "runs/continuation_final_refine/step_006000.pt",
+  "out": "deployment_refine6000",
+  "qat_steps": 600,
+  "targets": "vangogh_p1,ukiyoe_p1,ink_p1",
+  "device": "cuda",
+  "weights": "",
+  "qat_objective": "preserve",
+  "qat_batch": 1,
+  "robust_calibration": true,
+  "seed": 1,
+  "torch": "2.7.1+cu118",
+  "quantized_engine": "onednn",
+  "source_checkpoint_sha256": "b1ecf4345f67e1d9cf19e60cef3fcca6f64378ad2444d0b2346fec26b49fcb6c",
+  "export_source_sha256": "61f33f6afa743dc3cd6909ece46cb05ce341e61f3ffc8b747177e9482b9c3f6a"
+}

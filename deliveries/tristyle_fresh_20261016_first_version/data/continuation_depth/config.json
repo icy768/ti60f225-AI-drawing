@@ -1,0 +1,11 @@
+{
+  "split": "all",
+  "device": "cpu",
+  "max_size": 392,
+  "limit": 0,
+  "out": "data/continuation_depth",
+  "weights_sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+  "license": "Apache-2.0 Small only; sources/depth_v2_model_info.json and external/depth_v2/LICENSE",
+  "kind": "relative inverse depth, higher=near; not metric and not a deployed input",
+  "normalization": "RGB ImageNet; aspect preserved, upper bounded long side, dimensions rounded to multiple14; output interpolated to source; quantiles1/99 normalize"
+}

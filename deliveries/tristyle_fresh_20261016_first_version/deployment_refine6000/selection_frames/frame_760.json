@@ -1,0 +1,14 @@
+{
+ "frame": 760,
+ "size": [
+  640,
+  480
+ ],
+ "model_sha256": "0c1a2390de7a6eae51b5d55b70f4f61561178004d0cb358cb3a004e580ec646c",
+ "CPU_seconds": {
+  "vangogh": 0.7016953999991529,
+  "ukiyoe": 0.309901999993599,
+  "ink": 1.1563037000014447
+ },
+ "scope": "actual same-QAT FLOAT weights; selection preview only, no temporal/FPGA claim"
+}

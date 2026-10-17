@@ -1,0 +1,831 @@
+{
+ "status": "PROVED conservative arithmetic bounds from actual package, every convolution checked for INT32 and requant temporary for INT64",
+ "maximum_acc_INT32_bound": 2073987,
+ "maximum_INT64_temporary_bound": 4418077624101208,
+ "rows": [
+  {
+   "node": "conv0",
+   "kind": "conv",
+   "acc_INT32_bound": 382235,
+   "requant_product_bound": 797643145526675,
+   "pre_saturation_bound": 980
+  },
+  {
+   "node": "conv1",
+   "kind": "conv",
+   "acc_INT32_bound": 195795,
+   "requant_product_bound": 414696423471660,
+   "pre_saturation_bound": 2143
+  },
+  {
+   "node": "conv2",
+   "kind": "conv",
+   "acc_INT32_bound": 247611,
+   "requant_product_bound": 528394379310252,
+   "pre_saturation_bound": 2125
+  },
+  {
+   "node": "conv3",
+   "kind": "conv",
+   "acc_INT32_bound": 201313,
+   "requant_product_bound": 425861236840606,
+   "pre_saturation_bound": 3354
+  },
+  {
+   "node": "conv4",
+   "kind": "conv",
+   "acc_INT32_bound": 507362,
+   "requant_product_bound": 1089348274817162,
+   "pre_saturation_bound": 5070
+  },
+  {
+   "node": "conv5",
+   "kind": "conv",
+   "acc_INT32_bound": 184063,
+   "requant_product_bound": 384094917323007,
+   "pre_saturation_bound": 2374
+  },
+  {
+   "node": "conv6",
+   "kind": "conv",
+   "acc_INT32_bound": 932674,
+   "requant_product_bound": 2001744685635184,
+   "pre_saturation_bound": 13571
+  },
+  {
+   "node": "conv7",
+   "kind": "conv",
+   "acc_INT32_bound": 1252091,
+   "requant_product_bound": 2681166343739093,
+   "pre_saturation_bound": 9093
+  },
+  {
+   "node": "conv8",
+   "kind": "conv",
+   "acc_INT32_bound": 1056262,
+   "requant_product_bound": 2266540048660748,
+   "pre_saturation_bound": 5837
+  },
+  {
+   "node": "conv9",
+   "kind": "conv",
+   "acc_INT32_bound": 714133,
+   "requant_product_bound": 1529490968473713,
+   "pre_saturation_bound": 6360
+  },
+  {
+   "node": "conv10",
+   "kind": "conv",
+   "acc_INT32_bound": 1898625,
+   "requant_product_bound": 4070867427485625,
+   "pre_saturation_bound": 5132
+  },
+  {
+   "node": "conv11",
+   "kind": "conv",
+   "acc_INT32_bound": 626144,
+   "requant_product_bound": 1340658010060640,
+   "pre_saturation_bound": 4637
+  },
+  {
+   "node": "conv12",
+   "kind": "conv",
+   "acc_INT32_bound": 183580,
+   "requant_product_bound": 389648509612400,
+   "pre_saturation_bound": 1538
+  },
+  {
+   "node": "conv13",
+   "kind": "conv",
+   "acc_INT32_bound": 188062,
+   "requant_product_bound": 403314543321816,
+   "pre_saturation_bound": 13138
+  },
+  {
+   "node": "conv14",
+   "kind": "conv",
+   "acc_INT32_bound": 1776339,
+   "requant_product_bound": 3808745414916993,
+   "pre_saturation_bound": 5798
+  },
+  {
+   "node": "conv15",
+   "kind": "conv",
+   "acc_INT32_bound": 583516,
+   "requant_product_bound": 1248792411590764,
+   "pre_saturation_bound": 4799
+  },
+  {
+   "node": "conv16",
+   "kind": "conv",
+   "acc_INT32_bound": 410678,
+   "requant_product_bound": 877171339382550,
+   "pre_saturation_bound": 5074
+  },
+  {
+   "node": "conv17",
+   "kind": "conv",
+   "acc_INT32_bound": 1519208,
+   "requant_product_bound": 3252897712518016,
+   "pre_saturation_bound": 5820
+  },
+  {
+   "node": "conv18",
+   "kind": "conv",
+   "acc_INT32_bound": 1070896,
+   "requant_product_bound": 2283147696495120,
+   "pre_saturation_bound": 10542
+  },
+  {
+   "node": "conv19",
+   "kind": "conv",
+   "acc_INT32_bound": 799552,
+   "requant_product_bound": 1715814429538560,
+   "pre_saturation_bound": 10900
+  },
+  {
+   "node": "conv20",
+   "kind": "conv",
+   "acc_INT32_bound": 411790,
+   "requant_product_bound": 879681624325070,
+   "pre_saturation_bound": 4761
+  },
+  {
+   "node": "conv21",
+   "kind": "conv",
+   "acc_INT32_bound": 1088253,
+   "requant_product_bound": 2329922457968976,
+   "pre_saturation_bound": 4595
+  },
+  {
+   "node": "conv22",
+   "kind": "conv",
+   "acc_INT32_bound": 493890,
+   "requant_product_bound": 1058088112976460,
+   "pre_saturation_bound": 5528
+  },
+  {
+   "node": "conv23",
+   "kind": "conv",
+   "acc_INT32_bound": 166640,
+   "requant_product_bound": 357432502481200,
+   "pre_saturation_bound": 1560
+  },
+  {
+   "node": "conv24",
+   "kind": "conv",
+   "acc_INT32_bound": 157842,
+   "requant_product_bound": 333119957812776,
+   "pre_saturation_bound": 5458
+  },
+  {
+   "node": "conv25",
+   "kind": "conv",
+   "acc_INT32_bound": 1153786,
+   "requant_product_bound": 2470581594015742,
+   "pre_saturation_bound": 3632
+  },
+  {
+   "node": "conv26",
+   "kind": "conv",
+   "acc_INT32_bound": 629870,
+   "requant_product_bound": 1326663012279360,
+   "pre_saturation_bound": 12768
+  },
+  {
+   "node": "conv27",
+   "kind": "conv",
+   "acc_INT32_bound": 385483,
+   "requant_product_bound": 823171520926482,
+   "pre_saturation_bound": 2677
+  },
+  {
+   "node": "conv28",
+   "kind": "conv",
+   "acc_INT32_bound": 335788,
+   "requant_product_bound": 707196651947276,
+   "pre_saturation_bound": 5735
+  },
+  {
+   "node": "conv29",
+   "kind": "conv",
+   "acc_INT32_bound": 655784,
+   "requant_product_bound": 1367010706109872,
+   "pre_saturation_bound": 3714
+  },
+  {
+   "node": "conv30",
+   "kind": "conv",
+   "acc_INT32_bound": 336458,
+   "requant_product_bound": 721646187531742,
+   "pre_saturation_bound": 3725
+  },
+  {
+   "node": "conv31",
+   "kind": "conv",
+   "acc_INT32_bound": 466454,
+   "requant_product_bound": 984991750336134,
+   "pre_saturation_bound": 4336
+  },
+  {
+   "node": "conv32",
+   "kind": "conv",
+   "acc_INT32_bound": 290121,
+   "requant_product_bound": 567112499874024,
+   "pre_saturation_bound": 3812
+  },
+  {
+   "node": "conv33",
+   "kind": "conv",
+   "acc_INT32_bound": 1201306,
+   "requant_product_bound": 2113436707036420,
+   "pre_saturation_bound": 4100
+  },
+  {
+   "node": "conv34",
+   "kind": "conv",
+   "acc_INT32_bound": 1177090,
+   "requant_product_bound": 2520340409184340,
+   "pre_saturation_bound": 9404
+  },
+  {
+   "node": "conv35",
+   "kind": "conv",
+   "acc_INT32_bound": 1165817,
+   "requant_product_bound": 2496219194261280,
+   "pre_saturation_bound": 5845
+  },
+  {
+   "node": "conv36",
+   "kind": "conv",
+   "acc_INT32_bound": 213404,
+   "requant_product_bound": 458095189889752,
+   "pre_saturation_bound": 1614
+  },
+  {
+   "node": "conv37",
+   "kind": "conv",
+   "acc_INT32_bound": 236101,
+   "requant_product_bound": 504064393995289,
+   "pre_saturation_bound": 6264
+  },
+  {
+   "node": "conv38",
+   "kind": "conv",
+   "acc_INT32_bound": 2073987,
+   "requant_product_bound": 4267347877996173,
+   "pre_saturation_bound": 9055
+  },
+  {
+   "node": "conv39",
+   "kind": "conv",
+   "acc_INT32_bound": 801936,
+   "requant_product_bound": 1717082350042608,
+   "pre_saturation_bound": 5078
+  },
+  {
+   "node": "conv40",
+   "kind": "conv",
+   "acc_INT32_bound": 214960,
+   "requant_product_bound": 459707081576160,
+   "pre_saturation_bound": 2062
+  },
+  {
+   "node": "conv41",
+   "kind": "conv",
+   "acc_INT32_bound": 205600,
+   "requant_product_bound": 435951096170400,
+   "pre_saturation_bound": 11783
+  },
+  {
+   "node": "conv42",
+   "kind": "conv",
+   "acc_INT32_bound": 2061259,
+   "requant_product_bound": 4418077624101208,
+   "pre_saturation_bound": 6450
+  },
+  {
+   "node": "conv43",
+   "kind": "conv",
+   "acc_INT32_bound": 708547,
+   "requant_product_bound": 1516992500668456,
+   "pre_saturation_bound": 2204
+  },
+  {
+   "node": "conv44",
+   "kind": "conv",
+   "acc_INT32_bound": 503614,
+   "requant_product_bound": 1073502873670542,
+   "pre_saturation_bound": 13243
+  },
+  {
+   "node": "conv45",
+   "kind": "conv",
+   "acc_INT32_bound": 1778235,
+   "requant_product_bound": 3793303303792800,
+   "pre_saturation_bound": 5885
+  },
+  {
+   "node": "conv46",
+   "kind": "conv",
+   "acc_INT32_bound": 664101,
+   "requant_product_bound": 1416353041405602,
+   "pre_saturation_bound": 4080
+  },
+  {
+   "node": "conv47",
+   "kind": "conv",
+   "acc_INT32_bound": 203573,
+   "requant_product_bound": 435920072303217,
+   "pre_saturation_bound": 2091
+  },
+  {
+   "node": "conv48",
+   "kind": "conv",
+   "acc_INT32_bound": 194578,
+   "requant_product_bound": 415617499294556,
+   "pre_saturation_bound": 2603
+  },
+  {
+   "node": "conv49",
+   "kind": "conv",
+   "acc_INT32_bound": 1592044,
+   "requant_product_bound": 3410986641030652,
+   "pre_saturation_bound": 10289
+  },
+  {
+   "node": "conv50",
+   "kind": "conv",
+   "acc_INT32_bound": 1106572,
+   "requant_product_bound": 2362602133560048,
+   "pre_saturation_bound": 6730
+  },
+  {
+   "node": "conv51",
+   "kind": "conv",
+   "acc_INT32_bound": 598861,
+   "requant_product_bound": 1285693466409892,
+   "pre_saturation_bound": 6082
+  },
+  {
+   "node": "conv52",
+   "kind": "conv",
+   "acc_INT32_bound": 158427,
+   "requant_product_bound": 338822221970718,
+   "pre_saturation_bound": 1123
+  },
+  {
+   "node": "conv53",
+   "kind": "conv",
+   "acc_INT32_bound": 169222,
+   "requant_product_bound": 358885492673356,
+   "pre_saturation_bound": 3826
+  },
+  {
+   "node": "conv54",
+   "kind": "conv",
+   "acc_INT32_bound": 990641,
+   "requant_product_bound": 2104017021897191,
+   "pre_saturation_bound": 5927
+  },
+  {
+   "node": "conv55",
+   "kind": "conv",
+   "acc_INT32_bound": 744056,
+   "requant_product_bound": 1582978501599952,
+   "pre_saturation_bound": 17131
+  },
+  {
+   "node": "conv56",
+   "kind": "conv",
+   "acc_INT32_bound": 414661,
+   "requant_product_bound": 887717144114047,
+   "pre_saturation_bound": 2951
+  },
+  {
+   "node": "conv57",
+   "kind": "conv",
+   "acc_INT32_bound": 201521,
+   "requant_product_bound": 429425485004565,
+   "pre_saturation_bound": 2560
+  },
+  {
+   "node": "conv58",
+   "kind": "conv",
+   "acc_INT32_bound": 656074,
+   "requant_product_bound": 1292308533495828,
+   "pre_saturation_bound": 2073
+  },
+  {
+   "node": "conv59",
+   "kind": "conv",
+   "acc_INT32_bound": 292782,
+   "requant_product_bound": 596923844396376,
+   "pre_saturation_bound": 2259
+  },
+  {
+   "node": "conv60",
+   "kind": "conv",
+   "acc_INT32_bound": 376692,
+   "requant_product_bound": 799651018231452,
+   "pre_saturation_bound": 6883
+  },
+  {
+   "node": "conv61",
+   "kind": "conv",
+   "acc_INT32_bound": 211137,
+   "requant_product_bound": 430246320082767,
+   "pre_saturation_bound": 17894
+  },
+  {
+   "node": "conv62",
+   "kind": "conv",
+   "acc_INT32_bound": 792341,
+   "requant_product_bound": 1148760637074897,
+   "pre_saturation_bound": 4162
+  },
+  {
+   "node": "conv63",
+   "kind": "conv",
+   "acc_INT32_bound": 1240532,
+   "requant_product_bound": 2660286110571764,
+   "pre_saturation_bound": 11519
+  },
+  {
+   "node": "conv64",
+   "kind": "conv",
+   "acc_INT32_bound": 1025909,
+   "requant_product_bound": 2198265968070048,
+   "pre_saturation_bound": 5277
+  },
+  {
+   "node": "conv65",
+   "kind": "conv",
+   "acc_INT32_bound": 759625,
+   "requant_product_bound": 1620382530805875,
+   "pre_saturation_bound": 4943
+  },
+  {
+   "node": "conv66",
+   "kind": "conv",
+   "acc_INT32_bound": 1608049,
+   "requant_product_bound": 3094695415703869,
+   "pre_saturation_bound": 5885
+  },
+  {
+   "node": "conv67",
+   "kind": "conv",
+   "acc_INT32_bound": 601830,
+   "requant_product_bound": 1286127851923890,
+   "pre_saturation_bound": 2787
+  },
+  {
+   "node": "conv68",
+   "kind": "conv",
+   "acc_INT32_bound": 219188,
+   "requant_product_bound": 469531287630784,
+   "pre_saturation_bound": 1274
+  },
+  {
+   "node": "conv69",
+   "kind": "conv",
+   "acc_INT32_bound": 201359,
+   "requant_product_bound": 431782358412205,
+   "pre_saturation_bound": 12656
+  },
+  {
+   "node": "conv70",
+   "kind": "conv",
+   "acc_INT32_bound": 1649338,
+   "requant_product_bound": 3483198829089552,
+   "pre_saturation_bound": 7413
+  },
+  {
+   "node": "conv71",
+   "kind": "conv",
+   "acc_INT32_bound": 559846,
+   "requant_product_bound": 1188558810977496,
+   "pre_saturation_bound": 1728
+  },
+  {
+   "node": "conv72",
+   "kind": "conv",
+   "acc_INT32_bound": 451834,
+   "requant_product_bound": 957523310345294,
+   "pre_saturation_bound": 12855
+  },
+  {
+   "node": "conv73",
+   "kind": "conv",
+   "acc_INT32_bound": 1473736,
+   "requant_product_bound": 3108090226069224,
+   "pre_saturation_bound": 4095
+  },
+  {
+   "node": "conv74",
+   "kind": "conv",
+   "acc_INT32_bound": 1090973,
+   "requant_product_bound": 2315953473417324,
+   "pre_saturation_bound": 7957
+  },
+  {
+   "node": "conv75",
+   "kind": "conv",
+   "acc_INT32_bound": 679311,
+   "requant_product_bound": 1451907264249783,
+   "pre_saturation_bound": 5418
+  },
+  {
+   "node": "conv76",
+   "kind": "conv",
+   "acc_INT32_bound": 180449,
+   "requant_product_bound": 385439800051471,
+   "pre_saturation_bound": 2233
+  },
+  {
+   "node": "conv77",
+   "kind": "conv",
+   "acc_INT32_bound": 167319,
+   "requant_product_bound": 358162229361753,
+   "pre_saturation_bound": 4818
+  },
+  {
+   "node": "conv78",
+   "kind": "conv",
+   "acc_INT32_bound": 1162505,
+   "requant_product_bound": 2421588204438340,
+   "pre_saturation_bound": 2873
+  },
+  {
+   "node": "conv79",
+   "kind": "conv",
+   "acc_INT32_bound": 485193,
+   "requant_product_bound": 1041528123273306,
+   "pre_saturation_bound": 2511
+  },
+  {
+   "node": "conv80",
+   "kind": "conv",
+   "acc_INT32_bound": 528911,
+   "requant_product_bound": 1125765676454804,
+   "pre_saturation_bound": 8783
+  },
+  {
+   "node": "conv81",
+   "kind": "conv",
+   "acc_INT32_bound": 1108366,
+   "requant_product_bound": 2379303844116640,
+   "pre_saturation_bound": 2281
+  },
+  {
+   "node": "conv82",
+   "kind": "conv",
+   "acc_INT32_bound": 526880,
+   "requant_product_bound": 1128807099076480,
+   "pre_saturation_bound": 2506
+  },
+  {
+   "node": "conv83",
+   "kind": "conv",
+   "acc_INT32_bound": 362255,
+   "requant_product_bound": 768994098926250,
+   "pre_saturation_bound": 4365
+  },
+  {
+   "node": "conv84",
+   "kind": "conv",
+   "acc_INT32_bound": 151289,
+   "requant_product_bound": 309191627379910,
+   "pre_saturation_bound": 3066
+  },
+  {
+   "node": "conv85",
+   "kind": "conv",
+   "acc_INT32_bound": 153705,
+   "requant_product_bound": 325863790483065,
+   "pre_saturation_bound": 4377
+  },
+  {
+   "node": "conv86",
+   "kind": "conv",
+   "acc_INT32_bound": 734147,
+   "requant_product_bound": 1509260017815186,
+   "pre_saturation_bound": 1628
+  },
+  {
+   "node": "conv87",
+   "kind": "conv",
+   "acc_INT32_bound": 323273,
+   "requant_product_bound": 627299290226632,
+   "pre_saturation_bound": 2283
+  },
+  {
+   "node": "conv88",
+   "kind": "conv",
+   "acc_INT32_bound": 628941,
+   "requant_product_bound": 1156759470399921,
+   "pre_saturation_bound": 4225
+  },
+  {
+   "node": "conv89",
+   "kind": "conv",
+   "acc_INT32_bound": 333483,
+   "requant_product_bound": 703834705952874,
+   "pre_saturation_bound": 6558
+  },
+  {
+   "node": "conv90",
+   "kind": "conv",
+   "acc_INT32_bound": 742628,
+   "requant_product_bound": 1539860141696768,
+   "pre_saturation_bound": 4126
+  },
+  {
+   "node": "n0",
+   "kind": "input",
+   "requant_product_bound": 547608297855,
+   "pre_saturation_bound": 510
+  },
+  {
+   "node": "n12",
+   "kind": "add",
+   "requant_product_bound": 489981011565,
+   "pre_saturation_bound": 14578580
+  },
+  {
+   "node": "n17",
+   "kind": "add",
+   "requant_product_bound": 292160903433,
+   "pre_saturation_bound": 12450787
+  },
+  {
+   "node": "n21",
+   "kind": "add",
+   "requant_product_bound": 270710920056,
+   "pre_saturation_bound": 14277991
+  },
+  {
+   "node": "n23",
+   "kind": "cat",
+   "requant_product_bound": 370893207585,
+   "pre_saturation_bound": 11319018
+  },
+  {
+   "node": "n28",
+   "kind": "add",
+   "requant_product_bound": 369492894720,
+   "pre_saturation_bound": 16890081
+  },
+  {
+   "node": "n33",
+   "kind": "add",
+   "requant_product_bound": 310534893513,
+   "pre_saturation_bound": 16574502
+  },
+  {
+   "node": "n35",
+   "kind": "cat",
+   "requant_product_bound": 427376909910,
+   "pre_saturation_bound": 13042764
+  },
+  {
+   "node": "n40",
+   "kind": "add",
+   "requant_product_bound": 519325438230,
+   "pre_saturation_bound": 15246824
+  },
+  {
+   "node": "n42",
+   "kind": "cat",
+   "requant_product_bound": 437661741780,
+   "pre_saturation_bound": 13356632
+  },
+  {
+   "node": "n47",
+   "kind": "output",
+   "requant_product_bound": 334149644416,
+   "pre_saturation_bound": 567
+  },
+  {
+   "node": "n53",
+   "kind": "add",
+   "requant_product_bound": 372976852875,
+   "pre_saturation_bound": 17081075
+  },
+  {
+   "node": "n58",
+   "kind": "add",
+   "requant_product_bound": 367587117152,
+   "pre_saturation_bound": 15147582
+  },
+  {
+   "node": "n62",
+   "kind": "add",
+   "requant_product_bound": 258373106234,
+   "pre_saturation_bound": 15528353
+  },
+  {
+   "node": "n67",
+   "kind": "add",
+   "requant_product_bound": 248130570439,
+   "pre_saturation_bound": 14052994
+  },
+  {
+   "node": "n69",
+   "kind": "cat",
+   "requant_product_bound": 410338302315,
+   "pre_saturation_bound": 12522787
+  },
+  {
+   "node": "n75",
+   "kind": "add",
+   "requant_product_bound": 379779891285,
+   "pre_saturation_bound": 17844321
+  },
+  {
+   "node": "n77",
+   "kind": "cat",
+   "requant_product_bound": 452761169490,
+   "pre_saturation_bound": 13817430
+  },
+  {
+   "node": "n82",
+   "kind": "add",
+   "requant_product_bound": 310195878885,
+   "pre_saturation_bound": 13026991
+  },
+  {
+   "node": "n84",
+   "kind": "cat",
+   "requant_product_bound": 393401361690,
+   "pre_saturation_bound": 12005912
+  },
+  {
+   "node": "n89",
+   "kind": "output",
+   "requant_product_bound": 349378771144,
+   "pre_saturation_bound": 581
+  },
+  {
+   "node": "n94",
+   "kind": "add",
+   "requant_product_bound": 285074046945,
+   "pre_saturation_bound": 15966442
+  },
+  {
+   "node": "n99",
+   "kind": "add",
+   "requant_product_bound": 292713330750,
+   "pre_saturation_bound": 14476709
+  },
+  {
+   "node": "n103",
+   "kind": "add",
+   "requant_product_bound": 225223908352,
+   "pre_saturation_bound": 12119864
+  },
+  {
+   "node": "n105",
+   "kind": "cat",
+   "requant_product_bound": 399011499645,
+   "pre_saturation_bound": 12177120
+  },
+  {
+   "node": "n111",
+   "kind": "add",
+   "requant_product_bound": 311224927050,
+   "pre_saturation_bound": 16126418
+  },
+  {
+   "node": "n115",
+   "kind": "add",
+   "requant_product_bound": 362218096545,
+   "pre_saturation_bound": 14509637
+  },
+  {
+   "node": "n117",
+   "kind": "cat",
+   "requant_product_bound": 314203439250,
+   "pre_saturation_bound": 15853964
+  },
+  {
+   "node": "n123",
+   "kind": "add",
+   "requant_product_bound": 301021549830,
+   "pre_saturation_bound": 17900688
+  },
+  {
+   "node": "n125",
+   "kind": "cat",
+   "requant_product_bound": 367384422375,
+   "pre_saturation_bound": 16078652
+  },
+  {
+   "node": "n130",
+   "kind": "output",
+   "requant_product_bound": 274220716652,
+   "pre_saturation_bound": 766
+  }
+ ],
+ "limits": "Pure arithmetic range analysis; not a verification of RTL implementation, DSP packing, timing or actual board resources."
+}

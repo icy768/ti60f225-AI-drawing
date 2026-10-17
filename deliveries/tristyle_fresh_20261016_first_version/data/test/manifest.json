@@ -1,0 +1,44 @@
+[
+  {
+    "name": "sky",
+    "source": "skimage.data.rocket",
+    "file": "data\\test\\sky.png",
+    "sha256": "5f73974a1b73af2eaf2d9a60014fc167c0e41d4a13a34ca9bb138126991caf7f",
+    "note": "Scene labels require visual confirmation; water/eagle not guaranteed water scene."
+  },
+  {
+    "name": "plants",
+    "source": "skimage.data.grass",
+    "file": "data\\test\\plants.png",
+    "sha256": "fd9c7159fab57641cc1f06f590cae3cea0540eec8df7345e99927404334b8774",
+    "note": "Scene labels require visual confirmation; water/eagle not guaranteed water scene."
+  },
+  {
+    "name": "architecture",
+    "source": "skimage.data.stereo_motorcycle",
+    "file": "data\\test\\architecture.png",
+    "sha256": "30417968a68448904fd9f50ba01bff2fa11531d9f95282dd30b2f2019fb59f75",
+    "note": "Scene labels require visual confirmation; water/eagle not guaranteed water scene."
+  },
+  {
+    "name": "person",
+    "source": "skimage.data.astronaut",
+    "file": "data\\test\\person.png",
+    "sha256": "48d3711f1f40fbbd45b2e3720cf1c084b3b873e02bf292da08a312ca67cf2939",
+    "note": "Scene labels require visual confirmation; water/eagle not guaranteed water scene."
+  },
+  {
+    "name": "indoor",
+    "source": "skimage.data.coffee",
+    "file": "data\\test\\indoor.png",
+    "sha256": "bc7c679e93a04b35aef5c5d644f0293d6aac8df7ccbba06f1d5bdddc0285050b",
+    "note": "Scene labels require visual confirmation; water/eagle not guaranteed water scene."
+  },
+  {
+    "name": "edges",
+    "source": "skimage.data.camera",
+    "file": "data\\test\\edges.png",
+    "sha256": "fe10d880ba2653ffab56ce84355c6161a98deb9bda56417f60eb1879ac6f6753",
+    "note": "Scene labels require visual confirmation; water/eagle not guaranteed water scene."
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "weight_int8": 413664,
+  "bias_int32": 29316,
+  "multiplier_int32": 29316,
+  "exponent_int8": 7329,
+  "header": 64,
+  "conv_descriptors": 7280,
+  "operator_descriptors": 8384,
+  "alignment_padding": 199,
+  "total_bytes": 495552,
+  "limit": 500000,
+  "fits": true,
+  "sha256": "c1df91494b2ee03769e9ad28f33e4714357ca88916670efc30de434d94effd34",
+  "convs": 91,
+  "nodes": 131,
+  "shared_nodes": 8,
+  "expert_nodes": [
+    40,
+    42,
+    41
+  ],
+  "default_size": [
+    640,
+    480
+  ],
+  "note": "All-three standalone deployment alternative; do not deploy both this and the JSON pack. Fixed-record software contract; RTL loader/engine not implemented."
+}

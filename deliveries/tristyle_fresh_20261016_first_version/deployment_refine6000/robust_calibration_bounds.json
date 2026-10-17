@@ -1,0 +1,478 @@
+{
+ "quant.activation_post_process": [
+  0.0,
+  1.0
+ ],
+ "stem.conv.activation_post_process": [
+  0.0,
+  3.0854756832122803
+ ],
+ "d2dw.conv.activation_post_process": [
+  0.0,
+  2.891995668411255
+ ],
+ "d2pw.conv.activation_post_process": [
+  0.0,
+  3.0102508068084717
+ ],
+ "d4dw.conv.activation_post_process": [
+  0.0,
+  2.2679789066314697
+ ],
+ "d4pw.conv.activation_post_process": [
+  0.0,
+  1.6051859855651855
+ ],
+ "d8dw.conv.activation_post_process": [
+  0.0,
+  1.7394930124282837
+ ],
+ "d8pw.conv.activation_post_process": [
+  0.0,
+  0.7566630244255066
+ ],
+ "experts.0.s8.fuse.conv.activation_post_process": [
+  0.0,
+  0.6675369143486023
+ ],
+ "experts.0.s8.blocks.0.expand.conv.activation_post_process": [
+  0.0,
+  0.7015639543533325
+ ],
+ "experts.0.s8.blocks.0.dw.conv.activation_post_process": [
+  0.0,
+  0.6620302796363831
+ ],
+ "experts.0.s8.blocks.0.project.conv.activation_post_process": [
+  -0.6344950199127197,
+  0.4506775140762329
+ ],
+ "experts.0.s8.blocks.0.add.activation_post_process": [
+  -0.6325002908706665,
+  0.8595933318138123
+ ],
+ "experts.0.s8.blocks.1.expand.conv.activation_post_process": [
+  0.0,
+  1.2243492603302002
+ ],
+ "experts.0.s8.blocks.1.dwh.conv.activation_post_process": [
+  0.0,
+  2.2077670097351074
+ ],
+ "experts.0.s8.blocks.1.dwv.conv.activation_post_process": [
+  0.0,
+  0.4537811875343323
+ ],
+ "experts.0.s8.blocks.1.project.conv.activation_post_process": [
+  -0.3414822518825531,
+  0.25406312942504883
+ ],
+ "experts.0.s8.blocks.1.add.activation_post_process": [
+  -0.7521652579307556,
+  0.8600431680679321
+ ],
+ "experts.0.s8.blocks.2.expand.conv.activation_post_process": [
+  0.0,
+  1.214786410331726
+ ],
+ "experts.0.s8.blocks.2.dw.conv.activation_post_process": [
+  0.0,
+  0.748389720916748
+ ],
+ "experts.0.s8.blocks.2.project.conv.activation_post_process": [
+  -0.6255728602409363,
+  0.45330315828323364
+ ],
+ "experts.0.s8.blocks.2.add.activation_post_process": [
+  -0.9149371385574341,
+  0.8244016170501709
+ ],
+ "experts.0.s4.cat.activation_post_process": [
+  -0.7891921401023865,
+  1.5807980298995972
+ ],
+ "experts.0.s4.fuse.conv.activation_post_process": [
+  0.0,
+  1.131046175956726
+ ],
+ "experts.0.s4.blocks.0.expand.conv.activation_post_process": [
+  0.0,
+  0.8262558579444885
+ ],
+ "experts.0.s4.blocks.0.dw.conv.activation_post_process": [
+  0.0,
+  0.677531361579895
+ ],
+ "experts.0.s4.blocks.0.project.conv.activation_post_process": [
+  -0.5635576844215393,
+  0.46207767724990845
+ ],
+ "experts.0.s4.blocks.0.add.activation_post_process": [
+  -0.5635576844215393,
+  1.1127134561538696
+ ],
+ "experts.0.s4.blocks.1.expand.conv.activation_post_process": [
+  0.0,
+  0.9603710770606995
+ ],
+ "experts.0.s4.blocks.1.dwh.conv.activation_post_process": [
+  0.0,
+  2.1731936931610107
+ ],
+ "experts.0.s4.blocks.1.dwv.conv.activation_post_process": [
+  0.0,
+  0.9749254584312439
+ ],
+ "experts.0.s4.blocks.1.project.conv.activation_post_process": [
+  -0.8316354155540466,
+  0.717016339302063
+ ],
+ "experts.0.s4.blocks.1.add.activation_post_process": [
+  -0.9469193816184998,
+  1.0121526718139648
+ ],
+ "experts.0.s2.cat.activation_post_process": [
+  -0.8692914843559265,
+  2.9878151416778564
+ ],
+ "experts.0.s2.fuse.conv.activation_post_process": [
+  0.0,
+  0.9806175827980042
+ ],
+ "experts.0.s2.blocks.0.expand.conv.activation_post_process": [
+  0.0,
+  1.6528562307357788
+ ],
+ "experts.0.s2.blocks.0.dw.conv.activation_post_process": [
+  0.0,
+  1.2692670822143555
+ ],
+ "experts.0.s2.blocks.0.project.conv.activation_post_process": [
+  -0.9042783379554749,
+  0.8461859226226807
+ ],
+ "experts.0.s2.blocks.0.add.activation_post_process": [
+  -0.8386523127555847,
+  1.2293932437896729
+ ],
+ "experts.0.s1.cat.activation_post_process": [
+  -0.7751135230064392,
+  3.0854756832122803
+ ],
+ "experts.0.s1.fuse.conv.activation_post_process": [
+  0.0,
+  2.046377182006836
+ ],
+ "experts.0.dw1.conv.activation_post_process": [
+  0.0,
+  2.2804148197174072
+ ],
+ "experts.0.mix1.conv.activation_post_process": [
+  0.0,
+  1.9459105730056763
+ ],
+ "experts.0.head.conv.activation_post_process": [
+  -0.2471243292093277,
+  1.2208054065704346
+ ],
+ "experts.1.s8.fuse.conv.activation_post_process": [
+  0.0,
+  0.5715487003326416
+ ],
+ "experts.1.s8.blocks.0.expand.conv.activation_post_process": [
+  0.0,
+  0.6032488346099854
+ ],
+ "experts.1.s8.blocks.0.dwh.conv.activation_post_process": [
+  0.0,
+  1.1180166006088257
+ ],
+ "experts.1.s8.blocks.0.dwv.conv.activation_post_process": [
+  0.0,
+  0.5753139853477478
+ ],
+ "experts.1.s8.blocks.0.project.conv.activation_post_process": [
+  -0.2805757224559784,
+  0.28505098819732666
+ ],
+ "experts.1.s8.blocks.0.add.activation_post_process": [
+  -0.2687935531139374,
+  0.5703599452972412
+ ],
+ "experts.1.s8.blocks.1.expand.conv.activation_post_process": [
+  0.0,
+  0.8411055207252502
+ ],
+ "experts.1.s8.blocks.1.dwh.conv.activation_post_process": [
+  0.0,
+  1.392585039138794
+ ],
+ "experts.1.s8.blocks.1.dwv.conv.activation_post_process": [
+  0.0,
+  0.2997152805328369
+ ],
+ "experts.1.s8.blocks.1.project.conv.activation_post_process": [
+  -0.19933350384235382,
+  0.19794927537441254
+ ],
+ "experts.1.s8.blocks.1.add.activation_post_process": [
+  -0.29494795203208923,
+  0.553171694278717
+ ],
+ "experts.1.s8.blocks.2.expand.conv.activation_post_process": [
+  0.0,
+  2.078693151473999
+ ],
+ "experts.1.s8.blocks.2.dw.conv.activation_post_process": [
+  0.0,
+  0.8140523433685303
+ ],
+ "experts.1.s8.blocks.2.project.conv.activation_post_process": [
+  -0.4901151657104492,
+  0.5700368285179138
+ ],
+ "experts.1.s8.blocks.2.add.activation_post_process": [
+  -0.5568658709526062,
+  0.6503120064735413
+ ],
+ "experts.1.s8.blocks.3.expand.conv.activation_post_process": [
+  0.0,
+  1.1449676752090454
+ ],
+ "experts.1.s8.blocks.3.dwh.conv.activation_post_process": [
+  0.0,
+  1.6358520984649658
+ ],
+ "experts.1.s8.blocks.3.dwv.conv.activation_post_process": [
+  0.0,
+  1.450075387954712
+ ],
+ "experts.1.s8.blocks.3.project.conv.activation_post_process": [
+  -0.5548413395881653,
+  0.5173912048339844
+ ],
+ "experts.1.s8.blocks.3.add.activation_post_process": [
+  -0.6094334125518799,
+  0.8219019770622253
+ ],
+ "experts.1.s4.cat.activation_post_process": [
+  -0.5560357570648193,
+  1.58613121509552
+ ],
+ "experts.1.s4.fuse.conv.activation_post_process": [
+  0.0,
+  1.4114866256713867
+ ],
+ "experts.1.s4.blocks.0.expand.conv.activation_post_process": [
+  0.0,
+  1.2055257558822632
+ ],
+ "experts.1.s4.blocks.0.dwh.conv.activation_post_process": [
+  0.0,
+  2.5732431411743164
+ ],
+ "experts.1.s4.blocks.0.dwv.conv.activation_post_process": [
+  0.0,
+  1.5912185907363892
+ ],
+ "experts.1.s4.blocks.0.project.conv.activation_post_process": [
+  -0.7599109411239624,
+  0.5703812837600708
+ ],
+ "experts.1.s4.blocks.0.add.activation_post_process": [
+  -0.6799467206001282,
+  1.3552895784378052
+ ],
+ "experts.1.s2.cat.activation_post_process": [
+  -0.6530411839485168,
+  2.9878151416778564
+ ],
+ "experts.1.s2.fuse.conv.activation_post_process": [
+  0.0,
+  1.0577938556671143
+ ],
+ "experts.1.s2.blocks.0.expand.conv.activation_post_process": [
+  0.0,
+  1.6730293035507202
+ ],
+ "experts.1.s2.blocks.0.dw.conv.activation_post_process": [
+  0.0,
+  1.426697015762329
+ ],
+ "experts.1.s2.blocks.0.project.conv.activation_post_process": [
+  -1.84804368019104,
+  1.732509732246399
+ ],
+ "experts.1.s2.blocks.0.add.activation_post_process": [
+  -1.8160432577133179,
+  1.9187370538711548
+ ],
+ "experts.1.s1.cat.activation_post_process": [
+  -1.2094568014144897,
+  3.0854756832122803
+ ],
+ "experts.1.s1.fuse.conv.activation_post_process": [
+  0.0,
+  4.367215633392334
+ ],
+ "experts.1.dw1.conv.activation_post_process": [
+  0.0,
+  5.3760223388671875
+ ],
+ "experts.1.mix1.conv.activation_post_process": [
+  0.0,
+  1.7570267915725708
+ ],
+ "experts.1.head.conv.activation_post_process": [
+  -0.04001961275935173,
+  1.2773258686065674
+ ],
+ "experts.2.s8.fuse.conv.activation_post_process": [
+  0.0,
+  0.5024347305297852
+ ],
+ "experts.2.s8.blocks.0.expand.conv.activation_post_process": [
+  0.0,
+  0.5680633783340454
+ ],
+ "experts.2.s8.blocks.0.dw.conv.activation_post_process": [
+  0.0,
+  0.6906145215034485
+ ],
+ "experts.2.s8.blocks.0.project.conv.activation_post_process": [
+  -0.39566051959991455,
+  0.42122480273246765
+ ],
+ "experts.2.s8.blocks.0.add.activation_post_process": [
+  -0.39566051959991455,
+  0.5694832801818848
+ ],
+ "experts.2.s8.blocks.1.expand.conv.activation_post_process": [
+  0.0,
+  1.3589279651641846
+ ],
+ "experts.2.s8.blocks.1.dwh.conv.activation_post_process": [
+  0.0,
+  3.5164170265197754
+ ],
+ "experts.2.s8.blocks.1.dwv.conv.activation_post_process": [
+  0.0,
+  0.7363967299461365
+ ],
+ "experts.2.s8.blocks.1.project.conv.activation_post_process": [
+  -0.3510790765285492,
+  0.3144162893295288
+ ],
+ "experts.2.s8.blocks.1.add.activation_post_process": [
+  -0.4843124747276306,
+  0.5778002738952637
+ ],
+ "experts.2.s8.blocks.2.expand.conv.activation_post_process": [
+  0.0,
+  2.3356733322143555
+ ],
+ "experts.2.s8.blocks.2.dw.conv.activation_post_process": [
+  0.0,
+  0.7698243856430054
+ ],
+ "experts.2.s8.blocks.2.project.conv.activation_post_process": [
+  -0.7597144246101379,
+  0.7513582706451416
+ ],
+ "experts.2.s8.blocks.2.add.activation_post_process": [
+  -0.9001539349555969,
+  0.9440574049949646
+ ],
+ "experts.2.s4.cat.activation_post_process": [
+  -0.6247783899307251,
+  1.5781989097595215
+ ],
+ "experts.2.s4.fuse.conv.activation_post_process": [
+  0.0,
+  1.3474959135055542
+ ],
+ "experts.2.s4.blocks.0.expand.conv.activation_post_process": [
+  0.0,
+  1.3292182683944702
+ ],
+ "experts.2.s4.blocks.0.dwh.conv.activation_post_process": [
+  0.0,
+  1.7897899150848389
+ ],
+ "experts.2.s4.blocks.0.dwv.conv.activation_post_process": [
+  0.0,
+  0.7689354419708252
+ ],
+ "experts.2.s4.blocks.0.project.conv.activation_post_process": [
+  -0.9390339851379395,
+  0.7986400723457336
+ ],
+ "experts.2.s4.blocks.0.add.activation_post_process": [
+  -0.7978402972221375,
+  1.5731136798858643
+ ],
+ "experts.2.s4.blocks.1.expand.conv.activation_post_process": [
+  0.0,
+  3.7057924270629883
+ ],
+ "experts.2.s4.blocks.1.dw.conv.activation_post_process": [
+  0.0,
+  2.188021421432495
+ ],
+ "experts.2.s4.blocks.1.project.conv.activation_post_process": [
+  -5.018132209777832,
+  1.910775899887085
+ ],
+ "experts.2.s4.blocks.1.add.activation_post_process": [
+  -4.969027519226074,
+  2.630669116973877
+ ],
+ "experts.2.s2.cat.activation_post_process": [
+  -2.2398364543914795,
+  3.00656795501709
+ ],
+ "experts.2.s2.fuse.conv.activation_post_process": [
+  0.0,
+  4.248239040374756
+ ],
+ "experts.2.s2.blocks.0.expand.conv.activation_post_process": [
+  0.0,
+  3.562413215637207
+ ],
+ "experts.2.s2.blocks.0.dwh.conv.activation_post_process": [
+  0.0,
+  4.91300106048584
+ ],
+ "experts.2.s2.blocks.0.dwv.conv.activation_post_process": [
+  0.0,
+  2.099972724914551
+ ],
+ "experts.2.s2.blocks.0.project.conv.activation_post_process": [
+  -4.032073497772217,
+  2.2721354961395264
+ ],
+ "experts.2.s2.blocks.0.add.activation_post_process": [
+  -3.3000237941741943,
+  4.428230285644531
+ ],
+ "experts.2.s1.cat.activation_post_process": [
+  -1.5136096477508545,
+  3.0854756832122803
+ ],
+ "experts.2.s1.fuse.conv.activation_post_process": [
+  0.0,
+  4.775176525115967
+ ],
+ "experts.2.dw1.conv.activation_post_process": [
+  0.0,
+  5.52489709854126
+ ],
+ "experts.2.mix1.conv.activation_post_process": [
+  0.0,
+  4.5187907218933105
+ ],
+ "experts.2.head.conv.activation_post_process": [
+  -0.3845973312854767,
+  2.0022058486938477
+ ]
+}

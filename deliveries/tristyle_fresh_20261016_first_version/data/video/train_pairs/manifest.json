@@ -1,0 +1,520 @@
+{
+  "source": "data\\video\\sintel_trailer-480p.mp4",
+  "fps": 24.0,
+  "frames": 1253,
+  "pairs": [
+    {
+      "frame": 63,
+      "file": "data\\video\\train_pairs\\00063.npz"
+    },
+    {
+      "frame": 66,
+      "file": "data\\video\\train_pairs\\00066.npz"
+    },
+    {
+      "frame": 69,
+      "file": "data\\video\\train_pairs\\00069.npz"
+    },
+    {
+      "frame": 72,
+      "file": "data\\video\\train_pairs\\00072.npz"
+    },
+    {
+      "frame": 75,
+      "file": "data\\video\\train_pairs\\00075.npz"
+    },
+    {
+      "frame": 78,
+      "file": "data\\video\\train_pairs\\00078.npz"
+    },
+    {
+      "frame": 81,
+      "file": "data\\video\\train_pairs\\00081.npz"
+    },
+    {
+      "frame": 84,
+      "file": "data\\video\\train_pairs\\00084.npz"
+    },
+    {
+      "frame": 87,
+      "file": "data\\video\\train_pairs\\00087.npz"
+    },
+    {
+      "frame": 90,
+      "file": "data\\video\\train_pairs\\00090.npz"
+    },
+    {
+      "frame": 93,
+      "file": "data\\video\\train_pairs\\00093.npz"
+    },
+    {
+      "frame": 96,
+      "file": "data\\video\\train_pairs\\00096.npz"
+    },
+    {
+      "frame": 99,
+      "file": "data\\video\\train_pairs\\00099.npz"
+    },
+    {
+      "frame": 102,
+      "file": "data\\video\\train_pairs\\00102.npz"
+    },
+    {
+      "frame": 105,
+      "file": "data\\video\\train_pairs\\00105.npz"
+    },
+    {
+      "frame": 108,
+      "file": "data\\video\\train_pairs\\00108.npz"
+    },
+    {
+      "frame": 111,
+      "file": "data\\video\\train_pairs\\00111.npz"
+    },
+    {
+      "frame": 114,
+      "file": "data\\video\\train_pairs\\00114.npz"
+    },
+    {
+      "frame": 117,
+      "file": "data\\video\\train_pairs\\00117.npz"
+    },
+    {
+      "frame": 120,
+      "file": "data\\video\\train_pairs\\00120.npz"
+    },
+    {
+      "frame": 123,
+      "file": "data\\video\\train_pairs\\00123.npz"
+    },
+    {
+      "frame": 126,
+      "file": "data\\video\\train_pairs\\00126.npz"
+    },
+    {
+      "frame": 129,
+      "file": "data\\video\\train_pairs\\00129.npz"
+    },
+    {
+      "frame": 132,
+      "file": "data\\video\\train_pairs\\00132.npz"
+    },
+    {
+      "frame": 135,
+      "file": "data\\video\\train_pairs\\00135.npz"
+    },
+    {
+      "frame": 138,
+      "file": "data\\video\\train_pairs\\00138.npz"
+    },
+    {
+      "frame": 141,
+      "file": "data\\video\\train_pairs\\00141.npz"
+    },
+    {
+      "frame": 144,
+      "file": "data\\video\\train_pairs\\00144.npz"
+    },
+    {
+      "frame": 147,
+      "file": "data\\video\\train_pairs\\00147.npz"
+    },
+    {
+      "frame": 150,
+      "file": "data\\video\\train_pairs\\00150.npz"
+    },
+    {
+      "frame": 153,
+      "file": "data\\video\\train_pairs\\00153.npz"
+    },
+    {
+      "frame": 156,
+      "file": "data\\video\\train_pairs\\00156.npz"
+    },
+    {
+      "frame": 159,
+      "file": "data\\video\\train_pairs\\00159.npz"
+    },
+    {
+      "frame": 162,
+      "file": "data\\video\\train_pairs\\00162.npz"
+    },
+    {
+      "frame": 165,
+      "file": "data\\video\\train_pairs\\00165.npz"
+    },
+    {
+      "frame": 168,
+      "file": "data\\video\\train_pairs\\00168.npz"
+    },
+    {
+      "frame": 171,
+      "file": "data\\video\\train_pairs\\00171.npz"
+    },
+    {
+      "frame": 174,
+      "file": "data\\video\\train_pairs\\00174.npz"
+    },
+    {
+      "frame": 177,
+      "file": "data\\video\\train_pairs\\00177.npz"
+    },
+    {
+      "frame": 180,
+      "file": "data\\video\\train_pairs\\00180.npz"
+    },
+    {
+      "frame": 183,
+      "file": "data\\video\\train_pairs\\00183.npz"
+    },
+    {
+      "frame": 186,
+      "file": "data\\video\\train_pairs\\00186.npz"
+    },
+    {
+      "frame": 189,
+      "file": "data\\video\\train_pairs\\00189.npz"
+    },
+    {
+      "frame": 192,
+      "file": "data\\video\\train_pairs\\00192.npz"
+    },
+    {
+      "frame": 195,
+      "file": "data\\video\\train_pairs\\00195.npz"
+    },
+    {
+      "frame": 198,
+      "file": "data\\video\\train_pairs\\00198.npz"
+    },
+    {
+      "frame": 201,
+      "file": "data\\video\\train_pairs\\00201.npz"
+    },
+    {
+      "frame": 204,
+      "file": "data\\video\\train_pairs\\00204.npz"
+    },
+    {
+      "frame": 207,
+      "file": "data\\video\\train_pairs\\00207.npz"
+    },
+    {
+      "frame": 210,
+      "file": "data\\video\\train_pairs\\00210.npz"
+    },
+    {
+      "frame": 213,
+      "file": "data\\video\\train_pairs\\00213.npz"
+    },
+    {
+      "frame": 216,
+      "file": "data\\video\\train_pairs\\00216.npz"
+    },
+    {
+      "frame": 300,
+      "file": "data\\video\\train_pairs\\00300.npz"
+    },
+    {
+      "frame": 303,
+      "file": "data\\video\\train_pairs\\00303.npz"
+    },
+    {
+      "frame": 306,
+      "file": "data\\video\\train_pairs\\00306.npz"
+    },
+    {
+      "frame": 309,
+      "file": "data\\video\\train_pairs\\00309.npz"
+    },
+    {
+      "frame": 312,
+      "file": "data\\video\\train_pairs\\00312.npz"
+    },
+    {
+      "frame": 315,
+      "file": "data\\video\\train_pairs\\00315.npz"
+    },
+    {
+      "frame": 318,
+      "file": "data\\video\\train_pairs\\00318.npz"
+    },
+    {
+      "frame": 321,
+      "file": "data\\video\\train_pairs\\00321.npz"
+    },
+    {
+      "frame": 324,
+      "file": "data\\video\\train_pairs\\00324.npz"
+    },
+    {
+      "frame": 327,
+      "file": "data\\video\\train_pairs\\00327.npz"
+    },
+    {
+      "frame": 330,
+      "file": "data\\video\\train_pairs\\00330.npz"
+    },
+    {
+      "frame": 333,
+      "file": "data\\video\\train_pairs\\00333.npz"
+    },
+    {
+      "frame": 336,
+      "file": "data\\video\\train_pairs\\00336.npz"
+    },
+    {
+      "frame": 339,
+      "file": "data\\video\\train_pairs\\00339.npz"
+    },
+    {
+      "frame": 342,
+      "file": "data\\video\\train_pairs\\00342.npz"
+    },
+    {
+      "frame": 345,
+      "file": "data\\video\\train_pairs\\00345.npz"
+    },
+    {
+      "frame": 348,
+      "file": "data\\video\\train_pairs\\00348.npz"
+    },
+    {
+      "frame": 351,
+      "file": "data\\video\\train_pairs\\00351.npz"
+    },
+    {
+      "frame": 354,
+      "file": "data\\video\\train_pairs\\00354.npz"
+    },
+    {
+      "frame": 357,
+      "file": "data\\video\\train_pairs\\00357.npz"
+    },
+    {
+      "frame": 360,
+      "file": "data\\video\\train_pairs\\00360.npz"
+    },
+    {
+      "frame": 363,
+      "file": "data\\video\\train_pairs\\00363.npz"
+    },
+    {
+      "frame": 399,
+      "file": "data\\video\\train_pairs\\00399.npz"
+    },
+    {
+      "frame": 402,
+      "file": "data\\video\\train_pairs\\00402.npz"
+    },
+    {
+      "frame": 408,
+      "file": "data\\video\\train_pairs\\00408.npz"
+    },
+    {
+      "frame": 414,
+      "file": "data\\video\\train_pairs\\00414.npz"
+    },
+    {
+      "frame": 417,
+      "file": "data\\video\\train_pairs\\00417.npz"
+    },
+    {
+      "frame": 450,
+      "file": "data\\video\\train_pairs\\00450.npz"
+    },
+    {
+      "frame": 453,
+      "file": "data\\video\\train_pairs\\00453.npz"
+    },
+    {
+      "frame": 456,
+      "file": "data\\video\\train_pairs\\00456.npz"
+    },
+    {
+      "frame": 459,
+      "file": "data\\video\\train_pairs\\00459.npz"
+    },
+    {
+      "frame": 462,
+      "file": "data\\video\\train_pairs\\00462.npz"
+    },
+    {
+      "frame": 465,
+      "file": "data\\video\\train_pairs\\00465.npz"
+    },
+    {
+      "frame": 468,
+      "file": "data\\video\\train_pairs\\00468.npz"
+    },
+    {
+      "frame": 471,
+      "file": "data\\video\\train_pairs\\00471.npz"
+    },
+    {
+      "frame": 474,
+      "file": "data\\video\\train_pairs\\00474.npz"
+    },
+    {
+      "frame": 477,
+      "file": "data\\video\\train_pairs\\00477.npz"
+    },
+    {
+      "frame": 480,
+      "file": "data\\video\\train_pairs\\00480.npz"
+    },
+    {
+      "frame": 483,
+      "file": "data\\video\\train_pairs\\00483.npz"
+    },
+    {
+      "frame": 486,
+      "file": "data\\video\\train_pairs\\00486.npz"
+    },
+    {
+      "frame": 489,
+      "file": "data\\video\\train_pairs\\00489.npz"
+    },
+    {
+      "frame": 492,
+      "file": "data\\video\\train_pairs\\00492.npz"
+    },
+    {
+      "frame": 495,
+      "file": "data\\video\\train_pairs\\00495.npz"
+    },
+    {
+      "frame": 498,
+      "file": "data\\video\\train_pairs\\00498.npz"
+    },
+    {
+      "frame": 501,
+      "file": "data\\video\\train_pairs\\00501.npz"
+    },
+    {
+      "frame": 504,
+      "file": "data\\video\\train_pairs\\00504.npz"
+    },
+    {
+      "frame": 507,
+      "file": "data\\video\\train_pairs\\00507.npz"
+    },
+    {
+      "frame": 510,
+      "file": "data\\video\\train_pairs\\00510.npz"
+    },
+    {
+      "frame": 537,
+      "file": "data\\video\\train_pairs\\00537.npz"
+    },
+    {
+      "frame": 540,
+      "file": "data\\video\\train_pairs\\00540.npz"
+    },
+    {
+      "frame": 543,
+      "file": "data\\video\\train_pairs\\00543.npz"
+    },
+    {
+      "frame": 546,
+      "file": "data\\video\\train_pairs\\00546.npz"
+    },
+    {
+      "frame": 549,
+      "file": "data\\video\\train_pairs\\00549.npz"
+    },
+    {
+      "frame": 552,
+      "file": "data\\video\\train_pairs\\00552.npz"
+    },
+    {
+      "frame": 555,
+      "file": "data\\video\\train_pairs\\00555.npz"
+    },
+    {
+      "frame": 558,
+      "file": "data\\video\\train_pairs\\00558.npz"
+    },
+    {
+      "frame": 561,
+      "file": "data\\video\\train_pairs\\00561.npz"
+    },
+    {
+      "frame": 564,
+      "file": "data\\video\\train_pairs\\00564.npz"
+    },
+    {
+      "frame": 567,
+      "file": "data\\video\\train_pairs\\00567.npz"
+    },
+    {
+      "frame": 570,
+      "file": "data\\video\\train_pairs\\00570.npz"
+    },
+    {
+      "frame": 576,
+      "file": "data\\video\\train_pairs\\00576.npz"
+    },
+    {
+      "frame": 579,
+      "file": "data\\video\\train_pairs\\00579.npz"
+    },
+    {
+      "frame": 582,
+      "file": "data\\video\\train_pairs\\00582.npz"
+    },
+    {
+      "frame": 585,
+      "file": "data\\video\\train_pairs\\00585.npz"
+    },
+    {
+      "frame": 588,
+      "file": "data\\video\\train_pairs\\00588.npz"
+    },
+    {
+      "frame": 591,
+      "file": "data\\video\\train_pairs\\00591.npz"
+    },
+    {
+      "frame": 594,
+      "file": "data\\video\\train_pairs\\00594.npz"
+    },
+    {
+      "frame": 597,
+      "file": "data\\video\\train_pairs\\00597.npz"
+    },
+    {
+      "frame": 600,
+      "file": "data\\video\\train_pairs\\00600.npz"
+    },
+    {
+      "frame": 603,
+      "file": "data\\video\\train_pairs\\00603.npz"
+    },
+    {
+      "frame": 606,
+      "file": "data\\video\\train_pairs\\00606.npz"
+    },
+    {
+      "frame": 609,
+      "file": "data\\video\\train_pairs\\00609.npz"
+    },
+    {
+      "frame": 612,
+      "file": "data\\video\\train_pairs\\00612.npz"
+    },
+    {
+      "frame": 615,
+      "file": "data\\video\\train_pairs\\00615.npz"
+    },
+    {
+      "frame": 618,
+      "file": "data\\video\\train_pairs\\00618.npz"
+    },
+    {
+      "frame": 624,
+      "file": "data\\video\\train_pairs\\00624.npz"
+    }
+  ],
+  "evaluation_start_frame": 1013
+}

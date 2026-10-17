@@ -1,0 +1,17 @@
+{
+  "python": "3.10.10 (tags/v3.10.10:aad5f6a, Feb  7 2023, 17:20:36) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "executable": "C:\\Users\\\u8521\u54f2\u6db5\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+  "args": {
+    "checkpoint": "runs/continuation_final_refine/step_006000.pt",
+    "out": "deployment_refine6000",
+    "qat_steps": 600,
+    "qat_device": "cuda",
+    "robust_calibration": true,
+    "native_video_frames": 150,
+    "skip_export": false,
+    "fullres_video": true
+  },
+  "start": "2026-10-17T07:52:03.862409+08:00",
+  "data_manifest_sha256": "60988c6730888014e752fbef691c839ca5e45e7c6592b1f7902acd9feb0f6ca0"
+}

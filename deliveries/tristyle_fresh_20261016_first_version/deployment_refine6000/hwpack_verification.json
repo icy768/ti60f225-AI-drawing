@@ -1,0 +1,116 @@
+{
+  "status": "MEASURED: fixed-record pack and JSON pack integer outputs bit-exact on these18 cases",
+  "rows": [
+    {
+      "case": "random",
+      "style": 0,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "random",
+      "style": 1,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "random",
+      "style": 2,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "black",
+      "style": 0,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "black",
+      "style": 1,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "black",
+      "style": 2,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "white",
+      "style": 0,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "white",
+      "style": 1,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "white",
+      "style": 2,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "impulse",
+      "style": 0,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "impulse",
+      "style": 1,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "impulse",
+      "style": 2,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "water_day",
+      "style": 0,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "water_day",
+      "style": 1,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "water_day",
+      "style": 2,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "person_face",
+      "style": 0,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "person_face",
+      "style": 1,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    },
+    {
+      "case": "person_face",
+      "style": 2,
+      "max_LSB": 0,
+      "mean_LSB": 0.0
+    }
+  ],
+  "fixed_pack_total_bytes": 495552,
+  "max_observed_accumulator": 259788,
+  "scope": "CPU executable pack-only interpretation. Not RTL simulation, synthesis, board or FPGA throughput."
+}

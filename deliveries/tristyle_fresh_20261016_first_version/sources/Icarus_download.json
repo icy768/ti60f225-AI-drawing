@@ -1,0 +1,8 @@
+{
+  "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-iverilog-1~13.0-2-any.pkg.tar.zst",
+  "file": "external_runtime\\icarus\\mingw-w64-x86_64-iverilog-1~13.0-2-any.pkg.tar.zst",
+  "bytes": 1995969,
+  "sha256": "e22c86dad1a0658d5f769362bfbec6533028c0d0bb63059b4fda0cc1084d1406",
+  "time": "2026-10-17T08:53:38.531548+08:00",
+  "source": "Official MSYS2 binary package; Icarus upstream installation docs identify MSYS2 as a Windows option. No signature verification claimed."
+}

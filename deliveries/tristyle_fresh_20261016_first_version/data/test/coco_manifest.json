@@ -1,0 +1,178 @@
+{
+  "licenses": [
+    {
+      "url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "id": 1,
+      "name": "Attribution-NonCommercial-ShareAlike License"
+    },
+    {
+      "url": "http://creativecommons.org/licenses/by-nc/2.0/",
+      "id": 2,
+      "name": "Attribution-NonCommercial License"
+    },
+    {
+      "url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+      "id": 3,
+      "name": "Attribution-NonCommercial-NoDerivs License"
+    },
+    {
+      "url": "http://creativecommons.org/licenses/by/2.0/",
+      "id": 4,
+      "name": "Attribution License"
+    },
+    {
+      "url": "http://creativecommons.org/licenses/by-sa/2.0/",
+      "id": 5,
+      "name": "Attribution-ShareAlike License"
+    },
+    {
+      "url": "http://creativecommons.org/licenses/by-nd/2.0/",
+      "id": 6,
+      "name": "Attribution-NoDerivs License"
+    },
+    {
+      "url": "http://flickr.com/commons/usage/",
+      "id": 7,
+      "name": "No known copyright restrictions"
+    },
+    {
+      "url": "http://www.usa.gov/copyright.shtml",
+      "id": 8,
+      "name": "United States Government Work"
+    }
+  ],
+  "images": [
+    {
+      "license": 5,
+      "file_name": "000000451090.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000451090.jpg",
+      "height": 435,
+      "width": 640,
+      "date_captured": "2013-11-18 06:37:57",
+      "flickr_url": "http://farm4.staticflickr.com/3686/9404551615_6af13a75ee_z.jpg",
+      "id": 451090,
+      "test_file": "data\\test\\water_day.png",
+      "sha256": "769fd330ac8902d64778be5c2448e7d45a85c943e8f2f1dc43a2b70ab861a883"
+    },
+    {
+      "license": 4,
+      "file_name": "000000491725.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000491725.jpg",
+      "height": 375,
+      "width": 500,
+      "date_captured": "2013-11-18 00:43:38",
+      "flickr_url": "http://farm1.staticflickr.com/40/91528610_414d61320b_z.jpg",
+      "id": 491725,
+      "test_file": "data\\test\\water_night.png",
+      "sha256": "821bb798237d2621ace479f7b522eaf0f3a203f912c77730e75373516001e431"
+    },
+    {
+      "license": 4,
+      "file_name": "000000230362.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000230362.jpg",
+      "height": 478,
+      "width": 640,
+      "date_captured": "2013-11-18 03:22:33",
+      "flickr_url": "http://farm8.staticflickr.com/7441/10326362663_c59dffe12b_z.jpg",
+      "id": 230362,
+      "test_file": "data\\test\\sky_storm.png",
+      "sha256": "eca1701099d541a91dadfc993b1d806d9058b3321a904f3e069483be0c0c3883"
+    },
+    {
+      "license": 4,
+      "file_name": "000000221502.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000221502.jpg",
+      "height": 320,
+      "width": 640,
+      "date_captured": "2013-11-16 13:10:33",
+      "flickr_url": "http://farm6.staticflickr.com/5038/5860686869_2762c97773_z.jpg",
+      "id": 221502,
+      "test_file": "data\\test\\plants_garden.png",
+      "sha256": "270a562a7b3a3b6c8921c582acaeb2bcd54c8a3f0f5cefe3668e0fa7c8866f65"
+    },
+    {
+      "license": 5,
+      "file_name": "000000221754.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000221754.jpg",
+      "height": 427,
+      "width": 640,
+      "date_captured": "2013-11-16 12:52:36",
+      "flickr_url": "http://farm7.staticflickr.com/6080/6035948985_c20af797b8_z.jpg",
+      "id": 221754,
+      "test_file": "data\\test\\architecture_street.png",
+      "sha256": "77ae44eead451423c7ad98edf64fcf16fbe640930bb31df6cd2e9c629acd03aa"
+    },
+    {
+      "license": 5,
+      "file_name": "000000289222.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000289222.jpg",
+      "height": 480,
+      "width": 640,
+      "date_captured": "2013-11-16 14:31:55",
+      "flickr_url": "http://farm3.staticflickr.com/2222/2279903008_8bc312fe60_z.jpg",
+      "id": 289222,
+      "test_file": "data\\test\\edges_signals.png",
+      "sha256": "da9e6ff40c311eec4467718bdbbeab183960e0cd9fe7eacd898222ac47ed585e"
+    },
+    {
+      "license": 4,
+      "file_name": "000000546717.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000546717.jpg",
+      "height": 640,
+      "width": 471,
+      "date_captured": "2013-11-24 00:36:48",
+      "flickr_url": "http://farm3.staticflickr.com/2769/4117004152_d8508e562d_z.jpg",
+      "id": 546717,
+      "test_file": "data\\test\\person_indoor.png",
+      "sha256": "08f260ef63bd25bf4e0a33b32cd2087dd5a92cd9c36a2649ebb71b5fd55e803f"
+    },
+    {
+      "license": 4,
+      "file_name": "000000473237.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000473237.jpg",
+      "height": 426,
+      "width": 640,
+      "date_captured": "2013-11-21 01:56:27",
+      "flickr_url": "http://farm9.staticflickr.com/8076/8343979767_679dfefda2_z.jpg",
+      "id": 473237,
+      "test_file": "data\\test\\person_face.png",
+      "sha256": "5f269bc4d33161bf57a8366f1eeca10f301823fd445ab7eceb47e70ab272e97c"
+    },
+    {
+      "license": 4,
+      "file_name": "000000462614.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000462614.jpg",
+      "height": 484,
+      "width": 640,
+      "date_captured": "2013-11-15 05:20:58",
+      "flickr_url": "http://farm5.staticflickr.com/4090/5042758991_26ec3d7fc1_z.jpg",
+      "id": 462614,
+      "test_file": "data\\test\\indoor_bathroom.png",
+      "sha256": "33c268ab8f2c004f5142e74ed225cf6f205a8dcd80948770e4623cf952e9d155"
+    },
+    {
+      "license": 4,
+      "file_name": "000000182441.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000182441.jpg",
+      "height": 399,
+      "width": 640,
+      "date_captured": "2013-11-17 01:41:36",
+      "flickr_url": "http://farm3.staticflickr.com/2817/9439811527_de41cb0b8c_z.jpg",
+      "id": 182441,
+      "test_file": "data\\test\\water_waves.png",
+      "sha256": "ee31a8d11ecc27bd17d71cf2b3c4a0e180086d38725ff3c28fcee0e14a5bdfb9"
+    },
+    {
+      "license": 5,
+      "file_name": "000000539883.jpg",
+      "coco_url": "http://images.cocodataset.org/val2017/000000539883.jpg",
+      "height": 427,
+      "width": 640,
+      "date_captured": "2013-11-21 23:11:13",
+      "flickr_url": "http://farm1.staticflickr.com/185/484993836_8915a65714_z.jpg",
+      "id": 539883,
+      "test_file": "data\\test\\edges_buildings.png",
+      "sha256": "9e827ddfee3d10b08d44446609f30195a9291bf1e0edb93284175092f1596b1f"
+    }
+  ]
+}
