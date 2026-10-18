@@ -1,12 +1,13 @@
 // RISC-V (Sapphire) control and status registers on APB3 slave 0, base 0xF8100000.
 // 0x0000-0x0FFF registers (see fw/src/stylecam_regs.h), 0x2000-0x3FFF OSD text cells (one char per word).
 // One clock domain (core_clk); PREADY is always 1.
-module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A0A,parameter integer I2C_TICK=1000)(
+module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A0B,parameter integer I2C_TICK=1000)(
  input clk,rst,
  input [15:0] paddr,input psel,penable,pwrite,input [31:0] pwdata,output [31:0] prdata,output pready,output pslverr,
  output irq,
  output reg run,output reg step,output reg [1:0] style,output reg [1:0] view,output reg cam_enable,
  output reg [15:0] rgb_r_gain,rgb_g_gain,rgb_b_gain,output reg rgb_request,input rgb_ack,
+ input [55:0] ae_data,input ae_request,output reg ae_ack,
  input ev_publish,ev_key3,ev_key2,ev_error,
  input [31:0] st_captured,st_processed,st_skipped,st_cap_errors,st_sensor_frames,st_video_errors,
  input [31:0] st_run_cycles,st_auto_cycles,st_auto_frames,st_hdmi_frames,st_hdmi_underflow,st_hdmi_errors,
@@ -29,6 +30,21 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A0A,parameter integer I2
   else rgb_ack_sync<={rgb_ack_sync[0],rgb_ack};
  end
  assign irq=|(pend&en);
+ // Acknowledged bundled snapshot: source holds data until core-domain ACK.
+ // Three request stages allow the two data stages to settle before capture.
+ (* async_reg="true" *) reg [2:0] ae_req_sync;
+ reg [55:0] ae_data1,ae_data2,ae_snapshot;
+ reg [15:0] ae_sequence;
+ always @(posedge clk)begin
+  if(rst)begin
+   ae_req_sync<=0;ae_data1<=0;ae_data2<=0;ae_snapshot<=0;ae_sequence<=0;ae_ack<=0;
+  end else begin
+   ae_req_sync<={ae_req_sync[1:0],ae_request};ae_data1<=ae_data;ae_data2<=ae_data1;
+   if(ae_req_sync[2]!=ae_ack)begin
+    ae_snapshot<=ae_data2;ae_sequence<=ae_sequence+1'b1;ae_ack<=ae_req_sync[2];
+   end
+  end
+ end
  // camera I2C engine (16-bit register address, 8-bit data, 7-bit device 0x30)
  reg i2c_start,i2c_read,i2c_done;reg [15:0] i2c_addr;reg [7:0] i2c_wdata;
  wire i2c_busy,i2c_fin;wire [2:0] i2c_result;wire [7:0] i2c_rdata;
@@ -69,25 +85,72 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A0A,parameter integer I2
    endcase
   end
  end
- reg [31:0] q;
- always @*begin
-  case(ra)
-   6'h00:q=VERSION;
-   6'h01:q={22'd0,view,2'd0,style,1'b0,1'b0,cam_enable,run};
-   6'h02:q={3'd0,st_keys,st_sched,8'd0,st_flags};
-   6'h03:q={28'd0,pend};
-   6'h04:q={28'd0,en};
-   6'h06:q={15'd0,i2c_done,i2c_rdata,4'd0,i2c_result,i2c_busy||i2c_start};
-   6'h08:q=st_captured;   6'h09:q=st_processed;  6'h0a:q=st_skipped;    6'h0b:q=st_cap_errors;
-   6'h0c:q=st_sensor_frames;6'h0d:q=st_video_errors;6'h0e:q=st_run_cycles;6'h0f:q=st_auto_cycles;
-   6'h10:q=st_auto_frames;6'h11:q=st_hdmi_frames;6'h12:q=st_hdmi_underflow;6'h13:q=st_hdmi_errors;
-   6'h14:q={16'd0,rgb_r_shadow};6'h15:q={16'd0,rgb_g_shadow};6'h16:q={16'd0,rgb_b_shadow};
-   6'h17:q={31'd0,rgb_busy};
-   6'h1b:q=st_first_output;6'h1c:q=st_input_stalls;6'h1d:q=st_output_stalls;
-   6'h1e:q=st_clock_cycles;6'h1f:q=st_scan_sequence;6'h20:q=st_scan_timestamp;
-   6'h21:q=st_publish_wait;6'h22:q={30'd0,st_scan_style};
-   default:q=32'd0;
-  endcase
- end
- assign prdata=reg_sel?q:32'd0;
+ // Shared one-hot address decode; all APB aliases and zero holes retained.
+ wire s_00=(reg_sel&&ra==6'h00);
+ wire s_01=(reg_sel&&ra==6'h01);
+ wire s_02=(reg_sel&&ra==6'h02);
+ wire s_03=(reg_sel&&ra==6'h03);
+ wire s_04=(reg_sel&&ra==6'h04);
+ wire s_06=(reg_sel&&ra==6'h06);
+ wire s_08=(reg_sel&&ra==6'h08);
+ wire s_09=(reg_sel&&ra==6'h09);
+ wire s_0a=(reg_sel&&ra==6'h0a);
+ wire s_0b=(reg_sel&&ra==6'h0b);
+ wire s_0c=(reg_sel&&ra==6'h0c);
+ wire s_0d=(reg_sel&&ra==6'h0d);
+ wire s_0e=(reg_sel&&ra==6'h0e);
+ wire s_0f=(reg_sel&&ra==6'h0f);
+ wire s_10=(reg_sel&&ra==6'h10);
+ wire s_11=(reg_sel&&ra==6'h11);
+ wire s_12=(reg_sel&&ra==6'h12);
+ wire s_13=(reg_sel&&ra==6'h13);
+ wire s_14=(reg_sel&&ra==6'h14);
+ wire s_15=(reg_sel&&ra==6'h15);
+ wire s_16=(reg_sel&&ra==6'h16);
+ wire s_17=(reg_sel&&ra==6'h17);
+ wire s_1b=(reg_sel&&ra==6'h1b);
+ wire s_1c=(reg_sel&&ra==6'h1c);
+ wire s_1d=(reg_sel&&ra==6'h1d);
+ wire s_1e=(reg_sel&&ra==6'h1e);
+ wire s_1f=(reg_sel&&ra==6'h1f);
+ wire s_20=(reg_sel&&ra==6'h20);
+ wire s_21=(reg_sel&&ra==6'h21);
+ wire s_22=(reg_sel&&ra==6'h22);
+ wire s_23=(reg_sel&&ra==6'h23);
+ wire s_24=(reg_sel&&ra==6'h24);
+ wire s_25=(reg_sel&&ra==6'h25);
+ wire [31:0] q=({32{s_00}}&(VERSION))|
+  ({32{s_01}}&({22'd0,view,2'd0,style,1'b0,1'b0,cam_enable,run}))|
+  ({32{s_02}}&({3'd0,st_keys,st_sched,8'd0,st_flags}))|
+  ({32{s_03}}&({28'd0,pend}))|
+  ({32{s_04}}&({28'd0,en}))|
+  ({32{s_06}}&({15'd0,i2c_done,i2c_rdata,4'd0,i2c_result,i2c_busy||i2c_start}))|
+  ({32{s_08}}&(st_captured))|
+  ({32{s_09}}&(st_processed))|
+  ({32{s_0a}}&(st_skipped))|
+  ({32{s_0b}}&(st_cap_errors))|
+  ({32{s_0c}}&(st_sensor_frames))|
+  ({32{s_0d}}&(st_video_errors))|
+  ({32{s_0e}}&(st_run_cycles))|
+  ({32{s_0f}}&(st_auto_cycles))|
+  ({32{s_10}}&(st_auto_frames))|
+  ({32{s_11}}&(st_hdmi_frames))|
+  ({32{s_12}}&(st_hdmi_underflow))|
+  ({32{s_13}}&(st_hdmi_errors))|
+  ({32{s_14}}&({16'd0,rgb_r_shadow}))|
+  ({32{s_15}}&({16'd0,rgb_g_shadow}))|
+  ({32{s_16}}&({16'd0,rgb_b_shadow}))|
+  ({32{s_17}}&({31'd0,rgb_busy}))|
+  ({32{s_1b}}&(st_first_output))|
+  ({32{s_1c}}&(st_input_stalls))|
+  ({32{s_1d}}&(st_output_stalls))|
+  ({32{s_1e}}&(st_clock_cycles))|
+  ({32{s_1f}}&(st_scan_sequence))|
+  ({32{s_20}}&(st_scan_timestamp))|
+  ({32{s_21}}&(st_publish_wait))|
+  ({32{s_22}}&({30'd0,st_scan_style}))|
+  ({32{s_23}}&({16'd0,ae_sequence}))|
+  ({32{s_24}}&({8'd0,ae_snapshot[55:32]}))|
+  ({32{s_25}}&(ae_snapshot[31:0]));
+ assign prdata=q;
 endmodule

@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "tests": {
+    "8": {
+      "passed": true,
+      "vectors": 266160,
+      "log": "PASS ALU W=8 vectors=266160 max_cycles=256 reference_max=256 total_cycles=4402856 reference_total=4274486 reset\nC:\\Users\\lingye\\Desktop\\FPGA\u521b\u65b0\u8d5b\\FPGAProjects\\StyleCam_camera\\validation\\in_resource_20261017\\simulation\\alu8_tb.v:32: $finish called at 52013430000 (1ps)\n",
+      "source_sha256": {
+        "validation/in_resource_20261017/alu_new.v": "51556675a7f299acc1ae76496220f8de94c30cafe0b49dd7e3cd0ad950806916",
+        "sim/reference/sc_in_alu_resource3.v": "d0dfc2628ed87d45d0f81d8b5aa5e412b36df11d82d0cbb864633b41330f3cb2",
+        "validation/in_resource_20261017/simulation/alu8_tb.v": "bff8e5ffe4d531a53f808bcbedcd0d1876c3d6b3d93e53ac9d13890fd7b4f152",
+        "validation/in_resource_20261017/simulation/alu8.hex": "0e0eb19370c9ee60f49acc3c42648dc1b9498d24064665c317387f2ae240c57c"
+      }
+    },
+    "16": {
+      "passed": true,
+      "vectors": 67248,
+      "log": "PASS ALU W=16 vectors=67248 max_cycles=256 reference_max=256 total_cycles=2234755 reference_total=2234260 reset\nC:\\Users\\lingye\\Desktop\\FPGA\u521b\u65b0\u8d5b\\FPGAProjects\\StyleCam_camera\\validation\\in_resource_20261017\\simulation\\alu16_tb.v:32: $finish called at 24365060000 (1ps)\n",
+      "source_sha256": {
+        "validation/in_resource_20261017/alu_new.v": "51556675a7f299acc1ae76496220f8de94c30cafe0b49dd7e3cd0ad950806916",
+        "sim/reference/sc_in_alu_resource3.v": "d0dfc2628ed87d45d0f81d8b5aa5e412b36df11d82d0cbb864633b41330f3cb2",
+        "validation/in_resource_20261017/simulation/alu16_tb.v": "997f9c546d15baf497dac4dcb7ab7e4bdb6e332c71d8701a39d66745964df07b",
+        "validation/in_resource_20261017/simulation/alu16.hex": "53e7d9633b010189b25182dbb69363e340ff20594084bbe09713fcc90587ba1e"
+      }
+    },
+    "160": {
+      "passed": true,
+      "vectors": 4112,
+      "log": "PASS ALU W=160 vectors=4112 max_cycles=1954 reference_max=1943 total_cycles=2685148 reference_total=2680253 reset\nC:\\Users\\lingye\\Desktop\\FPGA\u521b\u65b0\u8d5b\\FPGAProjects\\StyleCam_camera\\validation\\in_resource_20261017\\simulation\\alu160_tb.v:32: $finish called at 26974910000 (1ps)\n",
+      "source_sha256": {
+        "validation/in_resource_20261017/alu_new.v": "51556675a7f299acc1ae76496220f8de94c30cafe0b49dd7e3cd0ad950806916",
+        "sim/reference/sc_in_alu_resource3.v": "d0dfc2628ed87d45d0f81d8b5aa5e412b36df11d82d0cbb864633b41330f3cb2",
+        "validation/in_resource_20261017/simulation/alu160_tb.v": "25a95e1b4dbc3ab65a71b4187c57761219539c55648ab11259374db4549540fd",
+        "validation/in_resource_20261017/simulation/alu160.hex": "344c74c2721f7c5c8a953e9bf5625804d3b6dbcc00a93cd8da0d6b9ee5f00d1f"
+      }
+    }
+  }
+}

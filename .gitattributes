@@ -11,3 +11,6 @@
 
 # Preserve the creative-integration vendor resource and timing evidence.
 /FPGAProjects/StyleCam_camera/wifi_stream/review/*.rpt binary
+
+# Keep immutable AE/IN vendor reports without whitespace normalization.
+/FPGAProjects/烧录文件/*RISCV11*/*.rpt binary

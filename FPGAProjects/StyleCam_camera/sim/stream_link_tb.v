@@ -10,20 +10,22 @@
 // used on the board are 1920x1080 / SX=SY=20 / DIV=33.
 `timescale 1ns / 1ps
 
-module stream_link_tb #(parameter FULL_SIZE=0, RECOVERY=0);
+module stream_link_tb #(parameter FULL_SIZE=0, RECOVERY=0, FMT=0,
+ parameter real PIX_SCALE=1.0);
  localparam SRC_W = FULL_SIZE ? 1920 : (RECOVERY ? 32 : 160);
  localparam SRC_H = FULL_SIZE ? 1080 : (RECOVERY ? 16 : 120);
  localparam SX = FULL_SIZE ? 20 : (RECOVERY ? 2 : 4), SY = SX;
  localparam OUT_W = SRC_W / SX;      // 40
  localparam OUT_H = SRC_H / SY;      // 30
  localparam NPIX  = OUT_W * OUT_H;   // 1200
- localparam LEN   = NPIX * 2;        // 2400
+ localparam BPP = FMT == 0 ? 2 : 1;
+ localparam LEN = NPIX * BPP;
  localparam LINE = FULL_SIZE ? 2200 : (RECOVERY ? 40 : 200);
  localparam FRAME_LINES = FULL_SIZE ? 1125 : (RECOVERY ? 20 : 150);
  localparam DIV = FULL_SIZE ? 33 : 4;
- localparam AW = RECOVERY ? 6 : 12;
- localparam PACE = FULL_SIZE ? 1024 : (RECOVERY ? 0 : 600);
- localparam real PIX_HALF = FULL_SIZE ? 3.367 : (RECOVERY ? 100.0 : 5.0);
+ localparam AW = RECOVERY ? 6 : (FMT == 1 ? 10 : 12);
+ localparam PACE = (FMT == 1 || RECOVERY) ? 0 : (FULL_SIZE ? 1024 : 600);
+ localparam real PIX_HALF = (FULL_SIZE ? 3.367 : (RECOVERY ? 100.0 : 5.0))*PIX_SCALE;
  localparam real CORE_HALF = FULL_SIZE ? 5.0 : (RECOVERY ? 1.0 : 3.0);
 
  reg pc = 1'b0, prst = 1'b1;
@@ -50,21 +52,22 @@ module stream_link_tb #(parameter FULL_SIZE=0, RECOVERY=0);
  wire [12:0] wlevel;
  wire [AW:0] fifo_level;
  assign wlevel = fifo_level;
- wire [15:0] rd; wire rd_v, rready;
+ wire [BPP*8-1:0] rd; wire rd_v, rready;
  wire stream_tx, flush_capture;
  wire [31:0] link_frames, link_bytes, link_aborts;
 
- sc_stream_tap #(.SRC_W(SRC_W), .SRC_H(SRC_H), .SX(SX), .SY(SY), .PACE_WORDS(PACE)) tap(
+ sc_stream_tap #(.SRC_W(SRC_W), .SRC_H(SRC_H), .SX(SX), .SY(SY), .PACE_WORDS(PACE), .FMT(FMT)) tap(
   .pc(pc), .prst(prst), .de(de), .vs(vs), .red(red), .green(green), .blue(blue),
   .wready(wready), .flush_capture(flush_capture), .wlevel(wlevel), .wd(wd), .wv(wv),
   .abort_toggle(abort_toggle), .tap_frames(tap_frames), .tap_drops(tap_drops));
 
- sc_async_fifo #(.W(16), .AW(AW)) fifo(
-  .wc(pc), .wrst(prst), .wd(wd), .wv(wv), .wready(wready), .wlevel(fifo_level),
+ sc_async_fifo #(.W(BPP*8), .AW(AW)) fifo(
+  .wc(pc), .wrst(prst), .wd(wd[BPP*8-1:0]), .wv(wv), .wready(wready), .wlevel(fifo_level),
   .rc(clk), .rrst(rst), .rd(rd), .rv(rd_v), .rready(rready));
 
- sc_stream_link #(.OUT_W(OUT_W), .OUT_H(OUT_H), .DIV(DIV), .FMT(0), .DRAIN_CYCLES(RECOVERY ? 1000 : 3000000)) link(
-  .clk(clk), .rst(rst), .rready(rready), .rd(rd), .rd_v(rd_v), .abort_pc(abort_toggle),
+ wire [15:0] link_word=rd;
+ sc_stream_link #(.OUT_W(OUT_W), .OUT_H(OUT_H), .DIV(DIV), .FMT(FMT), .DRAIN_CYCLES(RECOVERY ? 1000 : 3000000)) link(
+  .clk(clk), .rst(rst), .rready(rready), .rd(link_word), .rd_v(rd_v), .abort_pc(abort_toggle),
   .uart_tx(stream_tx), .flush_capture(flush_capture), .frames_sent(link_frames), .bytes_sent(link_bytes), .aborts(link_aborts));
 
  /* ---------------- serial receiver ---------------- */
@@ -125,7 +128,7 @@ module stream_link_tb #(parameter FULL_SIZE=0, RECOVERY=0);
       if (frm[0] != 8'h01) begin $display("FAIL type %02x", frm[0]); bad = bad + 1; end
       if (frm[2] != OUT_W) begin $display("FAIL width %0d", frm[2]); bad = bad + 1; end
       if (frm[3] != OUT_H) begin $display("FAIL height %0d", frm[3]); bad = bad + 1; end
-      if (frm[4] != 8'h00) begin $display("FAIL format %02x", frm[4]); bad = bad + 1; end
+      if (frm[4] != FMT) begin $display("FAIL format %02x", frm[4]); bad = bad + 1; end
       if (len != LEN) begin $display("FAIL length %0d", len); bad = bad + 1; end
       /* ---- CRC ---- */
       crc_lo_hi = {rx_data, frm[7 + len]};
@@ -138,13 +141,13 @@ module stream_link_tb #(parameter FULL_SIZE=0, RECOVERY=0);
       /* ---- every pixel ---- */
       pix_bad = 0;
       for (i = 0; i < NPIX; i = i + 1) begin
-       got = {frm[7 + 2 * i + 1], frm[7 + 2 * i]};
+       got = FMT == 0 ? {frm[7 + 2 * i + 1], frm[7 + 2 * i]} : {8'd0,frm[7+i]};
        j = i / OUT_W;                          // row
        k = i % OUT_W;                          // column
        r8 = (SX * k) & 8'hFF;
        g8 = (SY * j) & 8'hFF;
        b8 = ((SX * k) + (SY * j)) & 8'hFF;
-       exp = {r8[7:3], g8[7:2], b8[7:3]};
+       exp = FMT == 0 ? {r8[7:3],g8[7:2],b8[7:3]} : {8'd0,r8[7:5],g8[7:5],b8[7:6]};
        if (got !== exp) begin
         if (pix_bad < 4)
          $display("FAIL pixel %0d (%0d,%0d) got %04x want %04x", i, k, j, got, exp);
@@ -167,6 +170,8 @@ module stream_link_tb #(parameter FULL_SIZE=0, RECOVERY=0);
  end
 
  /* ---------------- run ---------------- */
+ integer peak_level=0;
+ always @(posedge pc) if(!prst && fifo_level>peak_level) peak_level=fifo_level;
  initial begin
   // Waveforms are only useful when debugging; enable with +define+DUMP or
   //   iverilog -DDUMP ...  (a full run would otherwise write a ~75 MB VCD)
@@ -181,6 +186,7 @@ module stream_link_tb #(parameter FULL_SIZE=0, RECOVERY=0);
   #( (FULL_SIZE ? 8 : 12) * LINE * FRAME_LINES * 2 * PIX_HALF);
   $display("tap captured=%0d dropped=%0d | link frames=%0d bytes=%0d aborts=%0d",
            tap_frames, tap_drops, link_frames, link_bytes, link_aborts);
+  $display("FIFO peak=%0d capacity=%0d format=%0d",peak_level,1<<AW,FMT);
   if (tap_drops !== (RECOVERY ? 1 : 0)) begin $display("FAIL tap dropped %0d frames", tap_drops); bad = bad + 1; end
   if (link_aborts !== (RECOVERY ? 1 : 0)) begin $display("FAIL link aborted %0d frames", link_aborts); bad = bad + 1; end
   if (good < 3) begin $display("FAIL only %0d good frames", good); bad = bad + 1; end

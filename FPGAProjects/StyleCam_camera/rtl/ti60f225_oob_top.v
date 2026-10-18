@@ -17,6 +17,7 @@
 // `include "define.v"
 
 module ti60f225_oob_top #(
+    parameter PHONE_PREVIEW = 0, // AE-first build; 1 enables optional RGB332 preview
 
 	parameter                       RANK_RATIO         = 1,       // # of unique CS outputs per rank
 	parameter                       ASYN_AXI_CLK       = `ASYN_AXI_CLK, 
@@ -352,6 +353,7 @@ wire cap_awvalid,cap_awready,cap_wvalid,cap_wready,cap_bvalid,cap_bready;
 wire out_awvalid,out_awready,out_wvalid,out_wready,out_bvalid,out_bready;
 wire [31:0] captured,skipped,capture_errors,capture_overflow;
 wire [39:0] camera_raw;wire camera_vs,camera_hs,camera_de;
+wire [55:0] ae_data;wire ae_request,ae_ack;
 wire [47:0] camera_rgb;wire camera_valid,camera_sof,camera_eof;
 wire cam_enable,cpu_run,cpu_step;wire [1:0] cpu_style,view_mode;
 wire [15:0] rgb_r_gain,rgb_g_gain,rgb_b_gain;wire rgb_request,rgb_ack;
@@ -371,7 +373,7 @@ reg [2:0] camera_reset=7;
 always @(posedge i_mipi_rx_pclk or posedge global_reset)if(global_reset)camera_reset<=7;else camera_reset<={camera_reset[1:0],1'b0};
 sc_camera_rgb preprocess(.clk(i_mipi_rx_pclk),.rst(camera_reset[2]),.vs(camera_vs),.valid(camera_de&&camera_hs),.raw(camera_raw),
  .rgb(camera_rgb),.rgb_valid(camera_valid),.sof(camera_sof),.eof(camera_eof),.frames(camera_frames),.format_errors(camera_format_errors),
- .rgb_r_gain(rgb_r_gain),.rgb_g_gain(rgb_g_gain),.rgb_b_gain(rgb_b_gain),.rgb_request(rgb_request),.rgb_ack(rgb_ack));
+ .rgb_r_gain(rgb_r_gain),.rgb_g_gain(rgb_g_gain),.rgb_b_gain(rgb_b_gain),.rgb_request(rgb_request),.rgb_ack(rgb_ack),.ae_data(ae_data),.ae_request(ae_request),.ae_ack(ae_ack));
 sc_capture #(.WIDTH(640),.H_MIRROR(1)) capture(.cc(i_mipi_rx_pclk),.crst(camera_reset[2]),.rgb(camera_rgb),.cv(camera_valid),.sof(camera_sof),.eof(camera_eof),
  .ac(core_clk),.arst(rs_a[2]),.calibrated(cal_done),.take_frame(take_frame),.release_frame(release_frame),.hold_publish(publish),.hold_swap(hold_swap),
  .frame_ready(frame_ready),.ready_bank(ready_bank),.locked(cap_locked),.locked_bank(cap_locked_bank),
@@ -496,7 +498,7 @@ wire osd_we;wire [10:0] osd_addr;wire [7:0] osd_data;
 sc_apb_regs regs(.clk(core_clk),.rst(rs_a[2]),
  .paddr(apb_paddr),.psel(apb_psel),.penable(apb_penable),.pwrite(apb_pwrite),.pwdata(apb_pwdata),.prdata(apb_prdata),.pready(apb_pready),.pslverr(apb_pslverr),
  .irq(cpu_irq),.run(cpu_run),.step(cpu_step),.style(cpu_style),.view(view_mode),.cam_enable(cam_enable),
- .rgb_r_gain(rgb_r_gain),.rgb_g_gain(rgb_g_gain),.rgb_b_gain(rgb_b_gain),.rgb_request(rgb_request),.rgb_ack(rgb_ack),
+ .rgb_r_gain(rgb_r_gain),.rgb_g_gain(rgb_g_gain),.rgb_b_gain(rgb_b_gain),.rgb_request(rgb_request),.rgb_ack(rgb_ack),.ae_data(ae_data),.ae_request(ae_request),.ae_ack(ae_ack),
  .ev_publish(publish),.ev_key3(key3_press),.ev_key2(key2_press),.ev_error(engine_done&&!engine_ok),
  .st_captured(captured),.st_processed(processed),.st_skipped(skipped),.st_cap_errors(capture_errors+capture_overflow),
  .st_sensor_frames(cf2),.st_video_errors(video_errors),.st_run_cycles(run_cycles),.st_auto_cycles(auto_cycles),.st_auto_frames(auto_frames),
@@ -536,22 +538,26 @@ assign tmds_tx_clk_TX_RST=0;assign tmds_tx_data0_TX_RST=0;assign tmds_tx_data1_T
 
 // ---------------------------------------------------------------- phone preview stream
 // The creative-interaction link: the HDMI raster that sc_display already produces is decimated
-// to a 96x54 RGB565 preview and serialised at 3 Mbaud for the ESP32-S3, which serves it to a
+// to a 96x54 RGB332 preview and serialised at 3 Mbaud for the ESP32-S3, which serves it to a
 // phone over WiFi.  This block only observes hs/vs/de/rgb, so the verified camera -> network ->
 // display chain is untouched; a full FIFO drops a preview frame instead of stalling the raster.
+generate if(PHONE_PREVIEW) begin:phone_preview
 wire [15:0] pv_word;wire pv_wv,pv_ready,pv_abort,pv_rd_v,pv_rready,pv_flush;
-wire [12:0] pv_level;wire [15:0] pv_rd;
+wire [10:0] pv_level;wire [7:0] pv_rd;
 wire [31:0] pv_tap_frames,pv_tap_drops,pv_link_frames,pv_link_bytes,pv_link_aborts;
-sc_stream_tap #(.SRC_W(1920),.SRC_H(1080),.SX(20),.SY(20),.PACE_WORDS(1024)) preview_tap(
+sc_stream_tap #(.SRC_W(1920),.SRC_H(1080),.SX(20),.SY(20),.PACE_WORDS(0),.FMT(1)) preview_tap(
  .pc(hdmi_tx_slow_clk),.prst(rs_p[2]),.de(de),.vs(vs),.red(red),.green(green),.blue(blue),
- .wready(pv_ready),.flush_capture(pv_flush),.wlevel(pv_level),.wd(pv_word),.wv(pv_wv),
+ .wready(pv_ready),.flush_capture(pv_flush),.wlevel({2'b0,pv_level}),.wd(pv_word),.wv(pv_wv),
  .abort_toggle(pv_abort),.tap_frames(pv_tap_frames),.tap_drops(pv_tap_drops));
-sc_async_fifo #(.W(16),.AW(12)) preview_fifo(
- .wc(hdmi_tx_slow_clk),.wrst(rs_p[2]),.wd(pv_word),.wv(pv_wv),.wready(pv_ready),.wlevel(pv_level),
+sc_async_fifo #(.W(8),.AW(10)) preview_fifo(
+ .wc(hdmi_tx_slow_clk),.wrst(rs_p[2]),.wd(pv_word[7:0]),.wv(pv_wv),.wready(pv_ready),.wlevel(pv_level),
  .rc(core_clk),.rrst(rs_a[2]),.rd(pv_rd),.rv(pv_rd_v),.rready(pv_rready));
-sc_stream_link #(.OUT_W(96),.OUT_H(54),.DIV(33),.FMT(0)) preview_link(
- .clk(core_clk),.rst(rs_a[2]),.rready(pv_rready),.rd(pv_rd),.rd_v(pv_rd_v),.abort_pc(pv_abort),
+sc_stream_link #(.OUT_W(96),.OUT_H(54),.DIV(33),.FMT(1)) preview_link(
+ .clk(core_clk),.rst(rs_a[2]),.rready(pv_rready),.rd({8'b0,pv_rd}),.rd_v(pv_rd_v),.abort_pc(pv_abort),
  .uart_tx(stream_tx),.flush_capture(pv_flush),.frames_sent(pv_link_frames),.bytes_sent(pv_link_bytes),.aborts(pv_link_aborts));
+end else begin:no_phone_preview
+ assign stream_tx=1'b1;
+end endgenerate
 
 ddr3_top                 u_ddr3_top
 (

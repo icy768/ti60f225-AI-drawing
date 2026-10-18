@@ -23,7 +23,11 @@ module i2c_reg16 #(
     reg [3:0] bit_index;
     reg [2:0] byte_index; // 20, addr HI, addr LO, data or 21, read byte
     reg [7:0] tx_byte, rx_byte;
-    reg [31:0] divider, wait_ticks;
+    // Both counters stop/reset at their parameterised bounds.
+    localparam DIV_W=TICK_CYCLES>1?$clog2(TICK_CYCLES):1;
+    localparam WAIT_W=TIMEOUT_TICKS>1?$clog2(TIMEOUT_TICKS):1;
+    reg [DIV_W-1:0] divider;
+    reg [WAIT_W-1:0] wait_ticks;
     (* async_reg = "true" *) reg [1:0] scl_sync, sda_sync;
     wire scl = scl_sync[1];
     wire sda = sda_sync[1];

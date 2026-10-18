@@ -9,7 +9,8 @@ module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
  input clk,rst,input vs,input valid,input [39:0] raw,
  output reg [47:0] rgb,output reg rgb_valid,sof,eof,
  output reg [31:0] frames,format_errors,
- input [15:0] rgb_r_gain,rgb_g_gain,rgb_b_gain,input rgb_request,output reg rgb_ack);
+ input [15:0] rgb_r_gain,rgb_g_gain,rgb_b_gain,input rgb_request,output reg rgb_ack,
+ output reg [55:0] ae_data,output reg ae_request,input ae_ack);
  localparam LEFT=(IW-OW*2)/2,TOP=(IH-OH*2)/2,WORDS=IW/4,AW=$clog2(OW/2);
  reg vs_d,armed,started;reg [11:0] x,y;reg [31:0] samples;
  wire edge_vs=vs!=vs_d;
@@ -86,12 +87,20 @@ module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
  reg y1,y2,y3,y4,y5;
  reg s1,s2,s3,s4,s5,s6,e1,e2,e3,e4,e5,e6;
  reg [AW-1:0] a1,a2,a3,a4,a5;
- // Implement the unchanged reference curve in logic: twelve parallel reads
- // otherwise duplicate twelve block RAMs in this nearly full SoC design.
+ // Exact 8-bit Gamma, split into a base at each multiple of four and
+ // a small per-input delta. Constant initialisation preserves GAMMA_FILE;
+ // modulo-256 subtraction/addition also supports non-monotonic custom curves.
+ // The split reduces LUTs without duplicating twelve block RAMs.
  (* syn_romstyle="logic" *) reg [9:0] gamma[0:1023];
- initial $readmemh(GAMMA_FILE,gamma);
+ (* syn_romstyle="logic" *) reg [7:0] gamma_base[0:63],gamma_delta[0:255];
+ integer gi;
+ initial begin
+  $readmemh(GAMMA_FILE,gamma);
+  for(gi=0;gi<64;gi=gi+1)gamma_base[gi]=gamma[gi*16+((gi*4)>>6)]>>2;
+  for(gi=0;gi<256;gi=gi+1)gamma_delta[gi]=(gamma[gi*4+(gi>>6)]>>2)-gamma_base[gi>>2];
+ end
 
- function [7:0] clip(input signed [14:0] numerator);
+ function [7:0] clip(input signed [13:0] numerator);
   begin
    if(numerator<0)clip=0;
    else if(numerator>=4080)clip=255;
@@ -105,12 +114,16 @@ module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
   reg [7:0] center,center2;
   reg [8:0] far_h,far_v,near_h,near_v;
   reg [9:0] diag;
-  wire signed [14:0] cs=$signed({7'd0,center});
-  wire signed [14:0] hs=$signed({6'd0,far_h}),vs=$signed({6'd0,far_v});
-  wire signed [14:0] ns=$signed({6'd0,near_h}),nv=$signed({6'd0,near_v});
-  wire signed [14:0] ds=$signed({5'd0,diag});
+  wire signed [13:0] cs=$signed({6'd0,center});
+  wire signed [13:0] hs=$signed({5'd0,far_h}),vs=$signed({5'd0,far_v});
+  wire signed [13:0] ns=$signed({5'd0,near_h}),nv=$signed({5'd0,near_v});
+  wire signed [13:0] ds=$signed({4'd0,diag});
+  // All four numerator forms lie within -3060..7140: 14 signed bits.
+  // Share the far-neighbour sum and the green-site centre/diagonal term.
+  wire signed [13:0] far_sum=hs+vs;
+  wire signed [13:0] green_base=(cs<<<3)+(cs<<<1)-(ds<<<1);
   wire chroma= (pixel%2==0)?!y1:y1;
-  reg signed [14:0] value_a,value_b;
+  reg signed [13:0] value_a,value_b;
   reg [7:0] linear_r,linear_g,linear_b;
   reg [7:0] display_r,display_g,display_b;
   wire [7:0] ca=clip(value_a),cb=clip(value_b);
@@ -127,12 +140,10 @@ module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
     center2<=center;
     // Chroma sites: A=G, B=opposite chroma. Green sites: A=horizontal
     // chroma, B=vertical chroma. Coefficients exactly match raw_to_rgb.v.
-    value_a<=(cs<<<3)+(chroma?15'sd0:(cs<<<1))-(hs<<<1)+
-             (chroma?-(vs<<<1):vs)+(chroma?(ns<<<2):(ns<<<3))+
-             (chroma?(nv<<<2):-(ds<<<1));
-    value_b<=(cs<<<3)+(chroma?(cs<<<2):(cs<<<1))+
-             (chroma?(-hs-(hs<<<1)):hs)-(vs<<<1)-(chroma?vs:15'sd0)+
-             (chroma?(ds<<<2):((nv<<<3)-(ds<<<1)));
+    value_a<=chroma?((cs<<<3)+(ns<<<2)+(nv<<<2)-(far_sum<<<1)):
+                     (green_base+(ns<<<3)-(hs<<<1)+vs);
+    value_b<=chroma?((cs<<<3)+(cs<<<2)+(ds<<<2)-far_sum-(far_sum<<<1)):
+                     (green_base+(nv<<<3)+hs-(vs<<<1));
    end
    if(v2)begin
     if(pixel%2==0)begin
@@ -144,13 +155,52 @@ module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
     end
    end
    if(v3)begin
-    display_r<=gamma[{linear_r,linear_r[7:6]}]>>2;
-    display_g<=gamma[{linear_g,linear_g[7:6]}]>>2;
-    display_b<=gamma[{linear_b,linear_b[7:6]}]>>2;
+    display_r<=gamma_base[linear_r[7:2]]+gamma_delta[linear_r];
+    display_g<=gamma_base[linear_g[7:2]]+gamma_delta[linear_g];
+    display_b<=gamma_base[linear_b[7:2]]+gamma_delta[linear_b];
    end
   end
   assign enc_r[pixel]=display_r;assign enc_g[pixel]=display_g;assign enc_b[pixel]=display_b;
  end endgenerate
+
+ // Sparse linear-light metering over the central 75% of the displayed crop.
+ // Observe one reconstructed pixel per 16 columns / 8 rows, before Gamma.
+ // This side tap never stalls or modifies the image pipeline; no frame RAM.
+ reg [2:0] ae_take;
+ // Fixed ROI sampling and a complete RAW frame guarantee this sample count.
+ // Clipping saturates above the AE threshold; the exposure decision is exact.
+ localparam AE_NX=((LEFT+OW*7/4+15)/16)-((LEFT+OW/4+15)/16);
+ localparam AE_NY=((TOP+OH*7/4+7)/8)-((TOP+OH/4+7)/8);
+ localparam [15:0] AE_SAMPLES=AE_NX*AE_NY;
+ localparam AE_SUM_W=AE_SAMPLES>0?$clog2(AE_SAMPLES*255+1):1;
+ localparam AE_CLIP_LIMIT=(AE_SAMPLES>>5)+1;
+ localparam AE_CLIP_W=$clog2(AE_CLIP_LIMIT+1);
+ reg [AE_SUM_W-1:0] ae_sum;
+ reg [AE_CLIP_W-1:0] ae_clipped;
+ wire [23:0] ae_sum_full=ae_sum;
+ wire [15:0] ae_clip_full=ae_clipped;
+ (* async_reg="true" *) reg [1:0] ae_ack_sync;
+ wire [9:0] ae_luma={2'd0,mhc[0].linear_r}+{1'd0,mhc[0].linear_g,1'b0}+{2'd0,mhc[0].linear_b};
+ wire ae_clip=mhc[0].linear_r>=245||mhc[0].linear_g>=245||mhc[0].linear_b>=245;
+ always @(posedge clk)begin
+  if(rst)begin
+   ae_take<=0;ae_sum<=0;ae_clipped<=0;
+   ae_data<=0;ae_request<=0;ae_ack_sync<=0;
+  end else begin
+   ae_ack_sync<={ae_ack_sync[0],ae_ack};
+   ae_take<={ae_take[1:0],window_valid&&qx>=LEFT+OW/4+4&&qx<LEFT+OW*7/4+4&&
+             qy>=TOP+OH/4+2&&qy<TOP+OH*7/4+2&&qx[3:0]==4&&qy[2:0]==2};
+   if(first)begin
+    if(AE_SAMPLES!=0&&started&&samples==IW*IH&&ae_request==ae_ack_sync[1])begin
+     ae_data<={ae_sum_full,AE_SAMPLES,ae_clip_full};ae_request<=!ae_request;
+    end
+    ae_sum<=0;ae_clipped<=0;
+   end else if(ae_take[2]&&v3)begin
+    ae_sum<=ae_sum+ae_luma[9:2];
+    if(ae_clip&&ae_clipped<AE_CLIP_LIMIT)ae_clipped<=ae_clipped+1'b1;
+   end
+  end
+ end
 
  // Horizontal sums of two Gamma-encoded pixels need nine bits. Buffer the
  // even RGB row, then combine with the odd row for a rounded 2x2 box average.

@@ -1,0 +1,26 @@
+{
+  "archive_sha256": "7c9edf170fc5d4352f3a51ccd4d3147f298394684a8f2aa9395a313b360259ae",
+  "bytes_before": 917205201,
+  "archive_bytes": 291890861,
+  "archive_verified": true,
+  "deleted": true,
+  "deleted_at": "2026-10-18T13:51:39.9088963+08:00",
+  "directories": 40,
+  "files": 6797,
+  "net_bytes_reclaimed": 625314340,
+  "archive": "FPGAProjects/_archive/构建缓存清理_20261018/generated_builds.zip",
+  "inventory": "FPGAProjects/_archive/构建缓存清理_20261018/cleanup_plan.json",
+  "scope": "Old R1/R2/R3 build mirrors and IN baseline/candidate_a; simulation source/vector gates retained",
+  "standalone_camera_prototypes_removed": true,
+  "working_tree_backup": "FPGAProjects/_archive/固化前工作区_20261018_133628/worktree_changes.zip",
+  "flash_backup_sha256": "2c3c392e08160c1c27c01ec98bfadba45763b2fd062c3243edb0608f611b4fed",
+  "standalone_candidate_packages": [
+    "20261016_SC431HAI_AE_AWB_Candidate",
+    "20261016_SC431HAI_AE_Only_Candidate"
+  ],
+  "standalone_candidate_files": 29,
+  "standalone_candidate_bytes": 14736242,
+  "standalone_candidates_archive": "FPGAProjects/_archive/构建缓存清理_20261018/standalone_camera_candidates.zip",
+  "standalone_candidates_archive_sha256": "36ac65c500ebbda31dc42956f3e0e6131718e00dec9b0487e6b44ee431201679",
+  "standalone_archive_bytes": 3294818
+}

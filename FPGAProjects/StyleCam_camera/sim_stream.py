@@ -7,7 +7,14 @@ OUT.mkdir(exist_ok=True)
 BIN = Path(os.environ.get('IVERILOG_BIN', ROOT.parent/'tools/iverilog/mingw64/bin'))
 sources = ['sim/stream_link_tb.v', 'rtl/sc_stream_tap.v', 'rtl/sc_stream_link.v', 'rtl/sc_async_fifo.v', 'rtl/uart_byte.v']
 results = {}
-for name, opts in [('small', []), ('recovery', ['-Pstream_link_tb.RECOVERY=1']), ('1080p60', ['-Pstream_link_tb.FULL_SIZE=1'])]:
+for name, opts in [
+    ('small', []), ('recovery', ['-Pstream_link_tb.RECOVERY=1']),
+    ('1080p60', ['-Pstream_link_tb.FULL_SIZE=1']),
+    ('rgb332_small', ['-Pstream_link_tb.FMT=1']),
+    ('rgb332_recovery', ['-Pstream_link_tb.FMT=1', '-Pstream_link_tb.RECOVERY=1']),
+    ('rgb332_1080p60', ['-Pstream_link_tb.FMT=1', '-Pstream_link_tb.FULL_SIZE=1']),
+    ('rgb332_fast_raster', ['-Pstream_link_tb.FMT=1', '-Pstream_link_tb.FULL_SIZE=1', '-Pstream_link_tb.PIX_SCALE=0.99']),
+]:
     exe = OUT/(name+'.vvp')
     subprocess.run([str(BIN/'iverilog.exe'), '-g2012', '-s', 'stream_link_tb', *opts, '-o', str(exe), *sources], cwd=ROOT, check=True)
     print('Running', name, flush=True)

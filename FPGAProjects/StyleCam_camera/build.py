@@ -1,6 +1,6 @@
 """Run Efinity in an ASCII temp mirror; copy evidence back to this workspace."""
 from pathlib import Path
-import os,sys,shutil,subprocess,datetime,xml.etree.ElementTree as E
+import os,sys,shutil,subprocess,datetime,shlex,xml.etree.ElementTree as E
 ROOT=Path(__file__).resolve().parent
 BUILD=Path(os.environ.get('STYLECAM_BUILD_DIR',Path(os.environ['TEMP'])/'stylecam_v21_camera_build'))
 BUILD.mkdir(exist_ok=True)
@@ -15,7 +15,11 @@ env=os.environ.copy(); env.update(EFINITY_HOME=home.as_posix(),PYTHONHOME=str(ho
 env['EFINITY_USER_DIR_INI']=os.environ['LOCALAPPDATA']+'/efinity/user_dir.ini'
 for key,folder in [('EFXPT_HOME','pt'),('EFXPGM_HOME','pgm'),('EFXDBG_HOME','debugger'),('EFXIPM_HOME','ipm')]: env[key]=(home/folder).as_posix()
 env['PATH']=str(home/'python311/bin')+';'+str(home/'bin')+';'+env['PATH']
-if flow!='pgm': cmd=[str(home/'bin/efx_run.bat'),name+'.xml','--flow',flow]
+if flow!='pgm':
+    cmd=[str(home/'bin/efx_run.bat'),name+'.xml','--flow',flow]
+    if flow=='pnr' and os.environ.get('STYLECAM_PNR_OPTS'):
+        # efx_run forwards key=value options through --opt, without leading '--'.
+        cmd+=['--pnr_opts',*[opt.removeprefix('--') for opt in shlex.split(os.environ['STYLECAM_PNR_OPTS'])]]
 else:
     allowed=['mode','width','enable_roms','spi_low_power_mode','io_weak_pullup','oscillator_clock_divider','bitstream_compression','enable_external_master_clock','active_capture_clk_edge','jtag_usercode','release_tri_then_reset']
     params={x.get('name'):x.get('value') for x in E.parse(ROOT/(name+'.xml')).findall('.//{http://www.efinixinc.com/enf_proj}bitstream_generation/{http://www.efinixinc.com/enf_proj}param')}

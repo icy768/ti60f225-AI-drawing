@@ -1,45 +1,53 @@
 # StyleCam_camera：SC431HAI 实时 AI 绘画整机
 
-这是摄像头、DDR、FPGA 网络推理、RISC-V 控制和 HDMI 显示的完整整机目录。唯一 Efinity 工程入口为 **`ti60f225_oob.xml`**。项目架构、分支和完整进度以[根 README](../../README.md)与[当前进度](../docs/赛题指标与完成情况_20261015.md)为准。
+## 当前默认版本：RISCV11 AE / IN4（2026-10-18）
 
-## 先选择正确版本
+唯一 Efinity 总工程入口为 **`ti60f225_oob.xml`**。本目录已集成上板确认的自动曝光和第四轮 IN 等价资源优化，默认下载包为 [20261018_RISCV11_Main_AE_IN4_Release](../烧录文件/20261018_RISCV11_Main_AE_IN4_Release/README.md)，ID `53430a0b`。
 
-| 分支 | 源码状态 | 验收情况 |
-|---|---|---|
-| `main` / `develop` | 既有 SCU09 主线，本轮仅整理文档 | 不包含后续 RISCV10 功能源码 |
-| `feat/basic-requirements` | RISCV08 / `53430a08` | 已固化，Flash 独立回读和复位自主启动通过，作为恢复基线 |
-| `codex/resource-throughput-20261013` | RISCV10 / `53430a0a` | RAM 下载后的 40 秒实机采样通过；Flash 掉电启动未验收 |
-| `fw/creative-interaction` | RISCV10 + 语音 / Wi-Fi 预览候选 | 代码和离线验证完成，尚未上板、尚未合并 |
+用户确认自动曝光和三风格画面正常；同一 BIT 重新下载后三风格分屏采样 29.99～30.01fps，无新增运行期 skip、采集 / 显示 / AE I²C 错误。Flash 写入及 500kHz 独立逐字节回读通过，用户按 RESET_N 后已捕获完整自主启动、模型 CRC 与三风格 ready=7。物理断电重启、全部布局和长期压力测试待补验。
 
-当前按用户安排保留分支，等待实际硬件验证后再合并。本目录 README 说明项目整体进度，不代表任意分支的源码或下载脚本都相同。
+当前资源 **55615/60800 XLR、243/256 RAM10、145/160 DSP**，余量 **5185 XLR、13 RAM10、15 DSP**；最终 setup **+0.253ns**、hold **+0.026ns**，17 项 setup 和 17 项 hold 关系均为正。固件 13746 B，链接 RAM 16080/16384 B（含 2048 B 栈）。
 
-## 当前 RISC-V 主链路
+## 主链路与本轮改动
 
-SC431HAI 1920×1080 RAW10 → 原生 BGGR 5×5 MHC 与 Gamma / 手动 RGB 增益 → 中心裁剪及 2×2 平均 → 640×480 RGB 水平翻转 → DDR 多银行 → V21b 13 层 INT8 CNN / 板内 IN → HDMI 1080p60。
+SC431HAI 1920×1080 RAW10 → BGGR 5×5 MHC、Gamma / RGB 增益 → 裁剪与 2×2 平均 → 640×480 RGB 水平翻转 → DDR → V21b 13 层 INT8 CNN / 板内 IN → HDMI 1080p60。
 
-RISCV10 推理域为 150MHz，控制与 DDR 用户域为 100MHz，末层采用 PE12，四输入 / 三输出 DDR 银行。CPU 负责初始化、Flash 模型 CRC 校验与装载、帧任务/中断、UART 和 OSD；模型 blob 保持 48,616 字节，不需要电脑逐帧上传图像或 IN 参数。
+RISC-V 和 DDR 用户域 100MHz，推理域 150MHz，末层 PE12，四输入 / 三输出银行。模型 48616 字节，Flash 地址 `0x200000`，CRC `373deed7`。本轮保留三风格、模型、卷积和 IN 数值规则，优化外围译码、计数器、OSD 字库、IN 算术与 epsilon 存储。完整 VGA 307200 像素与参考一致，单帧离线仿真 30.45495ms，不含真实 DDR / HDMI。
 
-## 已有实机结果
+自动曝光在 Gamma 前测光，由 RISC-V 每 200ms 按需更新 SC431HAI 曝光和模拟增益，目标亮度 64、死区 56～72，不改变摄像头帧周期。**AWB 和手机预览默认关闭**。创意源码保留；队友新网络和最新手势内容未接入本版。
 
-RISCV10 在分屏布局下的 40 秒记录为：640×480 处理 29.99～30fps，摄像头约 29.9fps，网络耗时约 32.9～33.2ms；`run_skip=0`、总 skip 不增加、错误和欠流为 0。三次 UART 切换到 HDMI 换帧确认最大 52.534ms，不包括显示器发光延迟。
+## 下载与恢复
 
-此结论不覆盖长时间运行、各布局和全部实体按键操作，也不代表 RISCV10 已固化。已固化恢复基线仍为 RISCV08。当前语音 / 手机预览候选没有新增实机运行结论。
+```powershell
+# 检查正式包，不接触硬件
+./program_ram.ps1 -CheckOnly
+python program_flash_release.py --check-only
 
-## 控制与下载入口
+# 按实际串口号下载 RAM
+./program_ram.ps1 -UartPort COM19
+# 固化配置 Flash，保留模型；完成后先开监听再按 RESET_N
+python program_flash_release.py
+./verify_flash_boot.ps1 -UartPort COM19 -ConfigurationResetConfirmed
+```
 
-K0 循环切换分屏、风格全屏、原画全屏。KEY3 短按释放切风格，长按约 0.7 秒切布局。RISC-V 版本 UART 为 115200 8N1：`0/1/2` 选风格、`v` 切布局、`s` 状态、`c` 摄像头回读，串口号按实际枚举选择。
+`program_main_ae_ram.ps1` 同样默认正式包，可用 `-ReleaseDir` 指定旧 RISCV11 包；新旧文件名由清单识别。`program_main_ae_flash.py` 是当前 Flash 实现，先备份、再写入和独立回读。`verify_flash_boot.ps1` / `verify_release_flash_boot.ps1` 委托当前严格启动验证，必须捕获新一轮完整启动。
 
-- [RISCV10 下载包与实机日志](https://github.com/icy768/ti60f225-AI-drawing/blob/codex/resource-throughput-20261013/FPGAProjects/烧录文件/20261015_RISCV10_LowLatency_Candidate/README.md)
-- [RISCV08 固化恢复包](https://github.com/icy768/ti60f225-AI-drawing/blob/feat/basic-requirements/FPGAProjects/烧录文件/20261009_RISCV08_BGGR_RGBMirror/README.md)
-- [创意交互候选接线及固件](https://github.com/icy768/ti60f225-AI-drawing/blob/fw/creative-interaction/FPGAProjects/StyleCam_camera/wifi_stream/README.md)
-- [候选代码审查、资源与时序证据](https://github.com/icy768/ti60f225-AI-drawing/blob/fw/creative-interaction/FPGAProjects/docs/创意交互审查与资源复核_20261015.md)
+RISCV10 恢复入口为 `program_riscv10_ram.ps1`、`program_riscv10_flash.py`、`verify_riscv10_flash_boot.ps1`，配合其历史分支和包使用。RISCV08 的 `program_native_ram.ps1`、`verify_native_flash_boot.ps1` 及恢复包保留。不同包不能混用源码、ROM、模型及位流。
 
-使用下载脚本前先确认当前分支和目标包。RISCV10 的 `program_ram.ps1 -CheckOnly` 仅核对包；默认包不含新增预览功能。候选上板需使用本次构建生成的候选 BIT，不能把旧包下载成功当作新功能验收。本轮没有新增硬件下载或写 Flash。
+## 操作与构建
 
-## 构建与验证
+UART 115200 8N1：`0/1/2` 选风格，`v` 切布局，`s` 状态，`c` 回读摄像头。K0 循环切布局，KEY3 短按释放切风格、长按约 0.7 秒切布局。RESET_N 用于重新装载配置 Flash。
 
-在所选 RISC-V 工程分支下，`build.py interface / map / pnr / pgm` 分别执行接口、综合、布局布线和位流生成；`STYLECAM_EFINITY` 指定工具目录，`STYLECAM_BUILD_DIR` 指定 ASCII 构建镜像目录。RISC-V 固件位于 `embedded_sw/soc/software/standalone/stylecam/`；重建 ROM 后应与对应源码和模型成套核对。
+Efinity 2026.1 构建入口为 `python build.py interface / map / pnr / pgm`；`STYLECAM_EFINITY` 指定工具，`STYLECAM_BUILD_DIR` 指定 ASCII 构建镜像。固件源码在 `embedded_sw/soc/software/standalone/stylecam/`，片内 ROM 同步保存在 `fw_rom/` 与 `ip/soc/`。改动硬件或固件后须重新生成配套位流，不能沿用当前已验收哈希。
 
-RISCV10 的 XLR/RAM10/DSP 为 58284/245/145；交互候选为 58940/253/145，最终最小 setup/hold 为 +0.288/+0.026ns。候选的 `sim_stream.py` 覆盖小光栅、FIFO 溢出恢复和实际 1080p60 光栅；`wifi_stream/tools/check_host.py` 是主机检查，不等于 ESP32 原生构建。
+当前 AE、像素、外围和 IN 回归分别由 `sim_main_ae.py`、`sim_main_ae_firmware.py`、`sim_camera_mhc.py`、`sim_resource_round2.py`、`sim_resource_round3.py`、`sim_in_resource.py`、`sim_in_integrated.py` 等脚本执行。正式包保存离线结果，`validation/release_riscv11_20261018/` 保存本次板测 / Flash / 清理摘要。大体积旧构建镜像已归档，重建旧镜像后可复核历史记录。
 
-历史交接文档和旧下载包各自保留原有版本范围。当前板级接线、寄存器操作和恢复流程应结合所选分支的说明，不能把 SCU09、RISCV08、RISCV10 和交互候选混为同一发布。
+## 记录与分支
+
+- [固化与总工程集成记录](../docs/RISCV11固化与总工程集成_20261018.md)：当前实机和 Flash 状态。
+- [第四轮 IN](../docs/第四轮动态IN等价优化_20261017.md)、[第三轮外围](../docs/第三轮外围资源优化_20261016.md)、[第二轮外围](../docs/第二轮外围资源优化_20261016.md)、[AE 与第一轮](../docs/自动曝光优先与资源优化_20261016.md)：各自构建时的资源和回归范围；“待上板”是历史状态。
+- `feat/basic-requirements`、`codex/resource-throughput-20261013`：RISCV08 / RISCV10 恢复和性能基线。
+- `fw/creative-interaction`：语音 / 预览 / 手势扩展保留，最新未验收内容保持独立。
+- 队友新网络交付和 `codex/tristyle-v4-paired-v5-20261018` 保留，后续逐步试验。
+
+项目总体架构和完整进度见[根 README](../../README.md)。`sc431hai_hdmi` 保持独立摄像头参考，已移除其中未采用的本地 AE / AWB 原型，并保存完整工作区备份。

@@ -40,6 +40,9 @@
 #define SC_SCAN_TIMESTAMP  SC_REG(0x80)
 #define SC_PUBLISH_WAIT    SC_REG(0x84)
 #define SC_SCAN_STYLE      SC_REG(0x88)
+#define SC_AE_SEQUENCE     SC_REG(0x8C)
+#define SC_AE_SUM          SC_REG(0x90)
+#define SC_AE_COUNTS       SC_REG(0x94) /* [31:16] samples [15:0] clipped, saturated at (samples>>5)+1 */
 #define SC_OSD(i)          SC_REG(0x2000 + 4 * (i))
 
 /* CTRL */

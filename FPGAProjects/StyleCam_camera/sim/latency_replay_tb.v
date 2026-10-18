@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module tb;
+module tb #(parameter PIXELS=1024);
  reg uc=0,ac=0;always #3.333 uc=~uc;always #5 ac=~ac;
  reg rst=1,start=0;reg [1:0] bank=0;
  wire [23:0] pixel;wire valid,ready,busy;wire [31:0] errors,addr;
@@ -10,7 +10,7 @@ module tb;
  assign ar=phase==0&&cycle%7!=0;
  function [31:0] base(input [1:0] b);begin case(b)0:base=0;1:base='h200000;2:base='h800000;3:base='hc00000;endcase end endfunction
  function [23:0] px(input integer i);begin px=(32'h35a739*bank)^(32'h010307*i);end endfunction
- sc_replay #(.PIXELS(1024)) dut(uc,rst,ac,rst,start,bank,pixel,valid,ready,busy,errors,
+ sc_replay #(.PIXELS(PIXELS)) dut(uc,rst,ac,rst,start,bank,pixel,valid,ready,busy,errors,
   addr,av,ar,data,rv,last,resp,rr);
  always @(posedge ac)if(!rst)begin
   cycle<=cycle+1;
@@ -22,7 +22,7 @@ module tb;
    if(delay_r!=0)delay_r<=delay_r-1;
    else begin
     rv<=1;last<=beat==15;
-    data<={8'd0,px((saved[19:4]+beat)*4+3),8'd0,px((saved[19:4]+beat)*4+2),8'd0,px((saved[19:4]+beat)*4+1),8'd0,px((saved[19:4]+beat)*4)};
+    data<={8'd0,px((saved[20:4]+beat)*4+3),8'd0,px((saved[20:4]+beat)*4+2),8'd0,px((saved[20:4]+beat)*4+1),8'd0,px((saved[20:4]+beat)*4)};
     phase<=2;
    end
   end
@@ -46,11 +46,11 @@ module tb;
    @(negedge ac);bank=f;word=0;count=0;repeat(3)@(negedge ac);
    @(negedge uc);start=1;@(negedge uc);start=0;
    wait(busy);wait(!busy);repeat(12)@(negedge ac);
-   if(count!=1024||word!=256||errors)$fatal(1,"Replay totals");
+   if(count!=PIXELS||word!=PIXELS/4||errors)$fatal(1,"Replay totals");
   end
-  if(checked!=4096)$fatal(1,"Replay pixel count");
+  if(checked!=4*PIXELS)$fatal(1,"Replay pixel count");
   rst=1;repeat(10)@(negedge ac);if(busy||valid||errors)$fatal(1,"Replay reset");
-  $display("PASS replay four banks: 4096 exact pixels, 150/100 MHz, source stalls, sink backpressure, burst reservation, reset");$finish;
+  $display("PASS replay four banks: %0d exact pixels, 150/100 MHz, source stalls, sink backpressure, credit wrap, burst reservation, reset",checked);$finish;
  end
- initial begin #2000000;$fatal(1,"Replay timeout");end
+ initial begin #(PIXELS*2000);$fatal(1,"Replay timeout");end
 endmodule

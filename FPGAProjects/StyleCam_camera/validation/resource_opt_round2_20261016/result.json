@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "scope": "offline regressions and final routed STA; hardware validation pending",
+  "network_unchanged": true,
+  "phone_preview_default": false,
+  "protected_files": 232,
+  "changed_rtl": [
+    "rtl/sc_apb_regs.v",
+    "rtl/sc_capture.v",
+    "rtl/sc_replay.v",
+    "rtl/sc431hai/i2c_reg16.v"
+  ],
+  "previous_resources": {
+    "xlr": 57441,
+    "ram10": 245,
+    "dsp": 145
+  },
+  "resources": {
+    "xlr": 57160,
+    "xlr_total": 60800,
+    "ram10": 245,
+    "ram10_total": 256,
+    "dsp": 145,
+    "dsp_total": 160
+  },
+  "delta_from_previous": {
+    "xlr": -281,
+    "ram10": 0,
+    "dsp": 0
+  },
+  "setup_min_ns": 0.31,
+  "hold_min_ns": 0.026,
+  "setup_relationships": 17,
+  "hold_relationships": 17,
+  "mapped_resources": {
+    "previous": {
+      "EFX_LUT4": 32725,
+      "EFX_ADD": 7464,
+      "EFX_FF": 24845,
+      "EFX_RAM10": 245,
+      "EFX_DSP48": 145
+    },
+    "candidate": {
+      "EFX_LUT4": 32595,
+      "EFX_ADD": 7355,
+      "EFX_FF": 24606,
+      "EFX_RAM10": 245,
+      "EFX_DSP48": 145
+    }
+  },
+  "camera_pixels_compared": 921600,
+  "replay_cycle_equivalent_pixels": 1228800,
+  "apb_random_transactions": 30000,
+  "font_compact_used": false,
+  "camera_clip_inputs": 16384,
+  "raw_black_inputs": 1024,
+  "hardware_verified": false,
+  "tested_source_sha256": {
+    "rtl/sc_apb_regs.v": "682745f50aa950970fdf24d200e03190a7573d2ab5782cb7403f64a8e4acec5b",
+    "rtl/sc_capture.v": "6b285096363cecdb53cbe58ec42657ccebe56d1e76710086e60c730cf209c191",
+    "rtl/sc_replay.v": "f79a6bc31c7f843a3a43a06c8a4f676a5f687a9dd65db2388d54d84c686d2f58",
+    "rtl/sc431hai/i2c_reg16.v": "6efbd7ae6e4ea1b182111e29825794d99624ea0fea458902cd988e215f2a1368",
+    "sim/camera_math_tb.v": "c0f410eada972a19db863fa4ef1d1b188f1f3a5b9a1cb436731f67d6bdd12a14",
+    "rtl/sc_camera_rgb.v": "3f4d2ac167d9def41ed651de5e9af22a0d06ffb2f6d36e993f648c700a62423c",
+    "sim/camera_gamma_tb.v": "f95427f75f13ab1af62dbc71fd6ae76b1c1bcbc623416b28f93a51a7b7f5fb4d",
+    "sim/resource_apb_tb.v": "87e1ff5127adeb8fa16669de64798c47f6f5f15d059e9ee781f97e935c4ccff7",
+    "sim/reference/sc_apb_regs_resource1.v": "d9e9d0c0b25784bc3788678f19a4a0ac7a4a6ad9902e6b2c88fa1eb6243acfa5",
+    "sim/resource_replay_tb.v": "7e7bdd6de2274e114e1bc4465a58ac21860dc80a0592816e8ee9b4d5d58c2b0d",
+    "sim/reference/sc_replay_resource1.v": "ec567813585af2b39d025fad0cb628e9759a6c0b85c6678f30bea90be1a068d7",
+    "rtl/sc_async_fifo.v": "cc7f11fccca7fe1fce990b6585b02391c13c2d49cc256a234e8ccc23041a8e40",
+    "sim/capture_tb.v": "7d3b73140f70c3f05befefb3070bd79fe3e0d4ff179db145226ae09161a3b605",
+    "rtl/sc_write_arbiter.v": "072564197195812ab3853eb5d6f3f70199968c1f5d4114e6231f89f10777e228",
+    "sim/display_tb.v": "9b1e47fffcc09d95f6588e13ff4764fcb28fef8408f5aafe24badd2803dca1f5",
+    "rtl/sc_display.v": "5e56de4dab311f7289992c2b336ecd5a834e1b6581898a43a78e9273b5264576",
+    "rtl/common.v": "bbbbbf33b5434db29a435992dd36eafdf0a9244e29b9ef42060e67b409ccee30",
+    "sim/resource_i2c_tb.v": "ff0d5fa6a917356ec8ebc1af9a659f097f75b52264a7cbff866a9c6b9cc608ff",
+    "sim/reference/i2c_reg16_resource1.v": "174dffb2099660c3e4306f801cfe6b1dbb1ca4d4b1a55e479ad6a89aa3a583c5",
+    "sim/main_ae_tb.v": "680675a2762c5fa8b8b30f36ebe9f3075e87aaf451570b372faa9c1f3dd9cdba",
+    "sim/apb_regs_tb.v": "eeac3a18902b976df865f53e11e2ce73ab75b5574025db39b061f0abed99bd75",
+    "sim/camera_rgb_tb.v": "ae468d89a4fcaf64c9e9a604d58b8ab24575e89d101d456f42acc169eb4f632c",
+    "sim/camera_rgb_mirror_tb.v": "0460fd89bdcd56e58578e08419d783e6e171831fd33255dca54bdc06d4980d22",
+    "sim_camera_mhc.py": "3ee6f9b4156180c7c77336b9de3256577e7157b8f199dc8081814fb1e3b5866b",
+    "sim_resource_round2.py": "1934e871d36107afaa2a88dcd51126d00761f4092177cecc8931acb3aba3e9a8",
+    "sim_main_ae.py": "b2f405370a5b1ed63f3f54497b2296e00037ebe25200614dd7193dc9aa7585ef",
+    "ti60f225_oob.sdc": "81c682862db6d0bc051e0719fda8eb21aaa6aa3ac8cf2823dc4d4b66948ff2b4"
+  }
+}

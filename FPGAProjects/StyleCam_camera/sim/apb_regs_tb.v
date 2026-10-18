@@ -4,13 +4,14 @@ module tb;
  wire run,step,cam_enable,scl_low,sda_low,osd_we,cfg_we;wire [1:0] style,view;
  wire [10:0] osd_addr;wire [7:0] osd_data;wire cfg_sel;wire [4:0] cfg_lane,cfg_layer;wire [11:0] cfg_addr;wire [37:0] cfg_data;
  reg ev_pub=0,ev_k3=0,ev_k2=0,ev_err=0;
+ reg [55:0] ae_data=0;reg ae_request=0;wire ae_ack;
  wire [15:0] gain_r,gain_g,gain_b;wire gain_req;reg gain_ack=0;
  // I2C slave model: device 0x30 ACKs everything, read data 0x5A
  wire scl=!scl_low,sda_m=!sda_low;
  reg sda_s=1,rdphase=0;integer cnt=0,nbyte=0;
  sc_apb_regs #(.I2C_TICK(4)) dut(.clk(clk),.rst(rst),.paddr(paddr),.psel(psel),.penable(penable),.pwrite(pwrite),.pwdata(pwdata),
   .prdata(prdata),.pready(pready),.pslverr(pslverr),.irq(irq),.run(run),.step(step),.style(style),.view(view),.cam_enable(cam_enable),
-  .rgb_r_gain(gain_r),.rgb_g_gain(gain_g),.rgb_b_gain(gain_b),.rgb_request(gain_req),.rgb_ack(gain_ack),
+  .rgb_r_gain(gain_r),.rgb_g_gain(gain_g),.rgb_b_gain(gain_b),.rgb_request(gain_req),.rgb_ack(gain_ack),.ae_data(ae_data),.ae_request(ae_request),.ae_ack(ae_ack),
   .ev_publish(ev_pub),.ev_key3(ev_k3),.ev_key2(ev_k2),.ev_error(ev_err),
   .st_captured(32'd11),.st_processed(32'd22),.st_skipped(32'd33),.st_cap_errors(32'd0),.st_sensor_frames(32'd44),.st_video_errors(32'd0),
   .st_run_cycles(32'd55),.st_auto_cycles(32'd66),.st_auto_frames(32'd13),.st_hdmi_frames(32'd77),.st_hdmi_underflow(32'd0),.st_hdmi_errors(32'd0),
@@ -31,11 +32,18 @@ module tb;
  always @(posedge clk)begin if(step)steps<=steps+1;if(osd_we)osd_writes<=osd_writes+1;if(cfg_we)cfg_writes<=cfg_writes+1;end
  initial begin
   repeat(5)@(negedge clk);rst=0;
-  apb_r(16'h0000,v);if(v!==32'h53430A0A)$fatal(1,"ID %h",v);
+  apb_r(16'h0000,v);if(v!==32'h53430A0B)$fatal(1,"ID %h",v);
   apb_r(16'h006c,v);if(v!=101)$fatal(1,"first output");apb_r(16'h0070,v);if(v!=102)$fatal(1,"input stalls");
   apb_r(16'h0074,v);if(v!=103)$fatal(1,"output stalls");apb_r(16'h0078,v);if(v!=104)$fatal(1,"clock");
   apb_r(16'h007c,v);if(v!=105)$fatal(1,"scan sequence");apb_r(16'h0080,v);if(v!=106)$fatal(1,"scan timestamp");
   apb_r(16'h0084,v);if(v!=107)$fatal(1,"publish wait");apb_r(16'h0088,v);if(v!=2)$fatal(1,"scan style");
+  ae_data={24'd345600,16'd5400,16'd17};ae_request=1;
+  repeat(8)@(negedge clk);
+  if(!ae_ack)$fatal(1,"AE ACK");
+  apb_r(16'h008c,v);if(v!=1)$fatal(1,"AE sequence");
+  apb_r(16'h0090,v);if(v!=345600)$fatal(1,"AE sum");
+  apb_r(16'h0094,v);if(v!={16'd5400,16'd17})$fatal(1,"AE counts");
+  repeat(8)@(negedge clk);apb_r(16'h008c,v);if(v!=1)$fatal(1,"AE duplicate");
   apb_w(16'h0004,32'h0000_0233);apb_r(16'h0004,v);
   if(!run||!cam_enable||style!=3||view!=2||v!==32'h0000_0233&~32'h4)$fatal(1,"CTRL %h",v);
   if(steps!=0)$fatal(1,"step without bit2");apb_w(16'h0004,32'h0000_0237);if(steps!=1)$fatal(1,"step pulse");

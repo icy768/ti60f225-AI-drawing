@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "tests": {
+    "meter": {
+      "passed": true,
+      "source_sha256": {
+        "sim/main_ae_tb.v": "680675a2762c5fa8b8b30f36ebe9f3075e87aaf451570b372faa9c1f3dd9cdba",
+        "rtl/sc_camera_rgb.v": "3f4d2ac167d9def41ed651de5e9af22a0d06ffb2f6d36e993f648c700a62423c"
+      }
+    },
+    "meter_full": {
+      "passed": true,
+      "source_sha256": {
+        "sim/main_ae_tb.v": "680675a2762c5fa8b8b30f36ebe9f3075e87aaf451570b372faa9c1f3dd9cdba",
+        "rtl/sc_camera_rgb.v": "3f4d2ac167d9def41ed651de5e9af22a0d06ffb2f6d36e993f648c700a62423c"
+      }
+    },
+    "apb": {
+      "passed": true,
+      "source_sha256": {
+        "sim/apb_regs_tb.v": "eeac3a18902b976df865f53e11e2ce73ab75b5574025db39b061f0abed99bd75",
+        "rtl/sc_apb_regs.v": "0ba24ec5a4783f943d0d7cf556ab31259eacc31c5303ac12ae5c4995f24203ae",
+        "rtl/sc431hai/i2c_reg16.v": "6efbd7ae6e4ea1b182111e29825794d99624ea0fea458902cd988e215f2a1368"
+      }
+    }
+  }
+}

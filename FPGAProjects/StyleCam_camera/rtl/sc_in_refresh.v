@@ -11,23 +11,22 @@ module sc_in_refresh #(parameter WIDTH=640,HEIGHT=480,CONSTFILE="model/in_consta
  reg [303:0] word;reg [9:0] address;reg [8:0] epsilon_address;
  reg [3:0] state,saved_layer;reg [1:0] saved_style;reg [7:0] cout;
  wire constants_ready;
- // Thirteen 512x20 ROM banks replace the wide parameter/epsilon tables.
- // Eleven sequential reads per channel are negligible beside the arithmetic;
- // the original 304-bit word is reconstructed without rounding.
+ // Ten parameter banks plus two exact mantissa/shift epsilon banks.
+ // Nine reads and a short serial expansion recover the original 304-bit word.
  generate if(COMPACT)begin:g_compact
-  reg loading,ready,finishing,pipe_valid;
+  reg loading,ready,finishing,unpacking,pipe_valid;
   reg [3:0] read_count,index_q,pbank_q;
-  reg [1:0] ebank_q;
+  reg ebank_q;
   reg [12:0] pbase;
-  reg [10:0] ebase;
+  reg [9:0] ebase;
   reg [119:0] packed_p;
-  reg [99:0] packed_e;
+  reg [87:0] packed_e;reg [6:0] epsilon_shift;
   wire [8:0] channel_index=(saved_layer==0?9'd0:9'd16+(saved_layer-1'b1)*9'd24)+stats_index;
   wire [9:0] parameter_index=saved_style*10'd272+channel_index;
   wire [12:0] pa=pbase+read_count;
-  wire [10:0] ea=ebase+(read_count-4'd6);
+  wire [9:0] ea=ebase+(read_count-4'd6);
   wire load=busy&&(state==1);
-  wire [19:0] pq[0:9],eq[0:2];
+  wire [19:0] pq[0:9],eq[0:1];
   genvar bank;
   for(bank=0;bank<10;bank=bank+1)begin:g_p
    localparam [7:0] DIGIT=8'd48+bank;
@@ -37,33 +36,38 @@ module sc_in_refresh #(parameter WIDTH=640,HEIGHT=480,CONSTFILE="model/in_consta
    always @(posedge clk)if(loading&&read_count<6&&pa[12:9]==bank)q<=mem[pa[8:0]];
    assign pq[bank]=q;
   end
-  for(bank=0;bank<3;bank=bank+1)begin:g_e
+  for(bank=0;bank<2;bank=bank+1)begin:g_e
    localparam [7:0] DIGIT=8'd48+bank;
    (* syn_ramstyle="block_ram" *) reg [19:0] mem[0:511];
    reg [19:0] q;
-   initial $readmemh({CONSTFILE,".e",DIGIT},mem);
-   always @(posedge clk)if(loading&&read_count>=6&&read_count<11&&ea[10:9]==bank)q<=mem[ea[8:0]];
+   initial $readmemh({CONSTFILE,".ec",DIGIT},mem);
+   always @(posedge clk)if(loading&&read_count>=6&&read_count<9&&ea[9]==bank)q<=mem[ea[8:0]];
    assign eq[bank]=q;
   end
   wire [71:0] gamma_value={{7{packed_p[116]}},packed_p[116:56],4'd0};
   wire [135:0] epsilon_value={8'd0,packed_e[87:0],40'd0};
   assign constants_ready=ready;
   always @(posedge clk)begin
-   if(rst||!load)begin loading<=0;ready<=0;finishing<=0;pipe_valid<=0;read_count<=0;end
+   if(rst||!load)begin loading<=0;ready<=0;finishing<=0;unpacking<=0;pipe_valid<=0;read_count<=0;end
    else if(!loading&&!ready&&!finishing)begin
-    pbase<=parameter_index*13'd6;ebase<=channel_index*11'd5;
+    pbase<=parameter_index*13'd6;ebase<=channel_index*10'd3;
     loading<=1;read_count<=0;pipe_valid<=0;
    end else if(loading)begin
-    pipe_valid<=read_count<11;index_q<=read_count;pbank_q<=pa[12:9];ebank_q<=ea[10:9];
-    if(read_count<11)read_count<=read_count+1'b1;
+    pipe_valid<=read_count<9;index_q<=read_count;pbank_q<=pa[12:9];ebank_q<=ea[9];
+    if(read_count<9)read_count<=read_count+1'b1;
     if(pipe_valid)begin
      if(index_q<6)packed_p[index_q*20+:20]<=pq[pbank_q];
      else packed_e[(index_q-4'd6)*20+:20]<=eq[ebank_q];
-     if(index_q==10)begin loading<=0;finishing<=1;pipe_valid<=0;end
+     if(index_q==8)begin loading<=0;finishing<=1;pipe_valid<=0;end
     end
    end else if(finishing)begin
-    word<={gamma_value,40'd0,packed_p[55:0],epsilon_value};
-    finishing<=0;ready<=1;
+    if(!unpacking)begin
+     epsilon_shift<=packed_e[6:0];packed_e<=packed_e[59:7];unpacking<=1;
+    end else if(epsilon_shift!=0)begin packed_e<=packed_e<<1;epsilon_shift<=epsilon_shift-1'b1;end
+    else begin
+     word<={gamma_value,40'd0,packed_p[55:0],epsilon_value};
+     finishing<=0;unpacking<=0;ready<=1;
+    end
    end
   end
  end else begin:g_full

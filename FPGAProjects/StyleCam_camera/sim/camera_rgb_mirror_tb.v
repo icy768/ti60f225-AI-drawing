@@ -21,7 +21,9 @@ module tb;
  reg [127:0] expected_word;
  sc_capture #(.PIXELS(OW*OH),.WIDTH(OW),.H_MIRROR(1)) capture
   (.cc(clk),.crst(rst),.rgb(rgb),.cv(v),.sof(sof),.eof(eof),.ac(ac),.arst(rst),
-   .calibrated(1'b1),.take_frame(1'b0),.release_frame(1'b0),.hold_publish(1'b0),.hold_swap(1'b0),
+   // Consume/release each completed frame; leaving READY unconsumed deliberately
+   // counts replacements as skips in the current four-bank capture scheduler.
+   .calibrated(1'b1),.take_frame(ready),.release_frame(locked),.hold_publish(1'b0),.hold_swap(1'b0),
    .frame_ready(ready),.ready_bank(rb),.locked(locked),.locked_bank(lb),
    .completed(done),.skipped(skipped),.errors(caperrors),.overflow(overflow),
    .awaddr(awaddr),.awvalid(awvalid),.awready(1'b1),.wdata(wdata),.wvalid(wvalid),

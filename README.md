@@ -1,64 +1,63 @@
 # StyleCam：基于 Ti60F225 的实时 AI 绘画系统
 
-StyleCam 将 **SC431HAI 摄像头**拍摄的实时画面转换为梵高、浮世绘、水墨三种艺术风格，并通过 HDMI 同时展示原画与风格画。图像采集、颜色处理、INT8 神经网络推理和视频输出在 Ti60F225 FPGA 上完成；片内 Sapphire RISC-V 负责摄像头初始化、模型装载、任务调度、按键交互与 OSD 状态管理。正常演示无需电脑参与逐帧图像处理。
+StyleCam 将 **SC431HAI 摄像头**拍摄的实时画面转换为梵高、浮世绘、水墨三种艺术风格，并通过 HDMI 展示原画与风格画。图像采集、颜色处理、INT8 神经网络推理和视频输出在 Ti60F225 FPGA 上完成；片内 Sapphire RISC-V 负责摄像头初始化、自动曝光、模型装载、任务调度、按键交互与 OSD 管理。正常演示无需电脑参与逐帧处理。
 
-本项目面向 2026 年全国大学生嵌入式芯片与系统设计竞赛 FPGA 赛道易灵思赛题一，重点是打通摄像头到显示器的完整实时链路，并在有限 FPGA 资源内兼顾画面、帧率和交互。
+项目面向 2026 年全国大学生嵌入式芯片与系统设计竞赛 FPGA 赛道易灵思赛题一，重点是打通摄像头到显示器的完整实时链路，在有限 FPGA 资源内兼顾画面、帧率和交互。
 
-> **进度口径 · 2026-10-15**
+> **当前正式版 · 2026-10-18：RISCV11 AE / IN4，ID `53430a0b`。**
 >
-> RISCV10 / V21b 已完成 RAM 下载后的 40 秒实机采样：640×480 风格处理 29.99～30fps，观察窗口内无新增跳帧，三次 UART 切风格到 HDMI 换帧确认最大 52.534ms。语音切风格与 Wi-Fi 手机预览已实现候选并通过代码审查、仿真及 FPGA 编译，**尚未上板验收、尚未合并**。按当前安排，先完成实机验证，再合并分支；所有现有分支保留。
+> 用户已确认自动曝光和三风格画面正常。同一 BIT 重新下载后三风格短时采样为 **29.99～30.01fps**，窗口内无新增运行期跳帧，采集、显示及 AE I²C 错误为 0。已写入 Flash、独立逐字节回读，并在用户按 **RESET_N** 后捕获完整自主启动。物理断电重启、全部布局与长时间压力测试尚未验收。
+>
+> 下载包：[20261018_RISCV11_Main_AE_IN4_Release](FPGAProjects/烧录文件/20261018_RISCV11_Main_AE_IN4_Release/README.md)。当前原 V21b 网络启用自动曝光，手机预览与自动白平衡默认关闭；队友的新网络和手势扩展保留在各自交付/分支，尚未切入本版。固化和清理证据见[集成记录](FPGAProjects/docs/RISCV11固化与总工程集成_20261018.md)。
 
-## 项目能做什么
+## 项目功能与架构
 
-- **实时摄像头输入**：接入 SC431HAI 的 MIPI CSI-2 / RAW10 数据，完成原生 BGGR 去马赛克、颜色处理、裁剪缩小与 RGB 水平翻转。
-- **三风格 FPGA 推理**：运行 V21b 的 13 层轻量 INT8 CNN，使用共享卷积权重和各风格 IN 参数，实现无需重新配置 FPGA 的风格切换。
+- **实时摄像头输入**：接入 SC431HAI 的 MIPI CSI-2 / RAW10 数据，完成原生 BGGR 去马赛克、Gamma、颜色增益、裁剪缩小及 RGB 水平翻转。
+- **三风格 FPGA 推理**：运行 V21b 的 13 层轻量 INT8 CNN，使用共享卷积权重和各风格 IN 参数，无需重新配置 FPGA 即可切换风格。
 - **HDMI 对比展示**：支持左原画右风格、风格全屏、原画全屏三种布局；OSD 显示 FPS、风格、网络耗时和摄像头状态。
-- **RISC-V 整机控制**：通过 APB 控制数据通路，开机从 SPI Flash 装载并校验模型，完成三风格初始化、连续帧调度、中断和 UART 控制。
-- **资源与低延迟优化**：将推理域提高到 150MHz，末层采用 PE12，结合输入/输出多银行 DDR 缓冲、跨时钟 FIFO 和帧所有权保护，减少等待与运行期跳帧。
-- **创意交互候选**：VC-02 识别语音命令，ESP32-S3 桥接控制指令并提供手机预览网页；附带可选 MJPEG 输出。此项待实机验证。
-
-## 系统架构
+- **自动曝光**：在 Gamma 前统计亮度，RISC-V 每 200ms 按需调节 SC431HAI 曝光和模拟增益；复用 APB / I²C，保持摄像头帧周期。目标亮度 64、死区 56～72；AWB 关闭。
+- **独立运行**：开机从 SPI Flash 读取并校验模型，初始化三个风格并连续调度；电脑只用于下载或调试。
+- **创意交互候选**：保留 VC-02 语音、ESP32-S3 控制桥和 96×54 RGB332 手机预览源码。该扩展仍需原生工具链构建、接线和实机并发验证。
 
 ```mermaid
 flowchart LR
     CAM[SC431HAI · RAW10] --> ISP[BGGR / Gamma / 裁剪缩小 / 水平翻转]
-    ISP --> IN[DDR · 4 个输入银行]
+    ISP --> IN[DDR · 四个输入银行]
     IN --> NN[V21b · 13 层 INT8 CNN · 150MHz]
-    NN --> OUT[DDR · 3 个输出银行]
+    NN --> OUT[DDR · 三个输出银行]
     IN --> HDMI[HDMI 1080p60 · 原画/风格画/OSD]
     OUT --> HDMI
     FLASH[SPI Flash · 模型 blob] --> CPU[Sapphire RISC-V · 100MHz]
-    CPU -. 初始化 / 配置 / 调度 .-> ISP
-    CPU -. 权重 / IN / 任务控制 .-> NN
+    ISP -. Gamma 前测光 .-> CPU
+    CPU -. 初始化 / 曝光 / 增益 .-> CAM
+    CPU -. IN / 任务调度 .-> NN
     CPU -. 状态与交互 .-> HDMI
-    HDMI -. 候选：96×54 抽点 .-> ESP[ESP32-S3]
-    ESP -. Wi-Fi 预览 .-> PHONE[手机浏览器 / MJPEG 客户端]
-    VOICE[VC-02 语音] -. 候选 .-> ESP
-    ESP -. 115200 UART 控制 .-> CPU
+    HDMI -. 可选预览，当前关闭 .-> ESP[ESP32-S3 / 手机浏览器]
+    VOICE[VC-02 语音候选] -. 控制 .-> ESP
+    ESP -. UART 命令 .-> CPU
 ```
 
-图中实线为已打通的主链路，虚线包含控制关系及待上板的交互扩展。中间特征通过片上行缓存和层间流水传递，DDR 用于输入帧、结果帧及显示缓冲；不是把全部中间特征逐层写回外存。
+中间特征通过片上行缓存和层间流水传递，DDR 用于输入帧、结果帧及显示缓冲。控制与 DDR 用户域为 100MHz，推理域为 150MHz，末层采用 PE12；输入、输出银行和帧所有权保护用于减少计算等待与运行期跳帧。
 
-## 分辨率、帧率与时延
+## 分辨率、性能与验证范围
 
-摄像头采集、网络处理和 HDMI 扫描是三项不同指标：
-
-| 环节 | 当前配置 / 结果 | 说明 |
+| 环节 | 配置 / 结果 | 证据范围 |
 |---|---|---|
 | 摄像头输入 | 1920×1080 RAW10，约 30fps | SC431HAI 实时采集 |
-| 网络实际处理 | **640×480，29.99～30fps** | RISCV10 的 40 秒实机采样结果 |
-| HDMI 输出 | **1920×1080，60Hz 扫描** | 显示缩放和重复扫描，不代表 1080p 神经网络推理 |
-| 风格切换 | 48.536 / 48.675 / 52.534ms | 三次 UART 请求到 HDMI 换帧确认，不含显示器发光延迟 |
-| 网络耗时 | 实机采样约 32.9～33.2ms | 不能用纯计算仿真时间代替实际 DDR 争用结果 |
-| 手机预览候选 | 96×54 RGB565 | 从显示光栅抽点；不是高清推流，实际无线帧率待测 |
+| 网络实际处理 | **640×480，29.99～30.01fps** | 本版三风格、分屏；19 个串口读数覆盖 34 秒板内时间 |
+| HDMI 输出 | **1920×1080，60Hz 扫描** | 显示缩放和重复扫描，不等于 1080p 网络推理 |
+| 网络耗时 | 本版采样最高 33.2ms | 包含实际 DDR / 显示争用 |
+| 完整 VGA 离线仿真 | 单帧 30.45495ms，307200 像素与参考相同 | 包含 IN 更新和流反压，不包含真实 DDR / HDMI |
+| 风格切换历史测量 | RISCV10 三次为 48.536 / 48.675 / 52.534ms | UART 请求到 HDMI 换帧确认；本版未重测此项 |
+| 手机预览候选 | 96×54 RGB332 | 本版关闭；实际无线帧率待测 |
 
-上述实机证据覆盖分屏布局和短时运行。启动期累计 `skip` 非零，采样窗口内 `run_skip=0`；应表述为“该窗口内无新增跳帧”，不能扩展为所有场景永久不丢帧。三风格长时间运行、其他布局、实体按键延迟及摄像头到屏幕的完整时延仍需补验。
+启动期累计 `skip` 非零，采样窗口内 `run_skip=0`，因此结论是“窗口内无新增运行期跳帧”。三风格长时间运行、其余布局、实体按键延迟和摄像头到显示器的完整时延仍需补验。Flash 配置复位自主启动已通过，物理断电重启尚未验收。
 
-详细日志、位流哈希与验证边界见 [RISCV10 发布说明](https://github.com/icy768/ti60f225-AI-drawing/blob/codex/resource-throughput-20261013/FPGAProjects/烧录文件/20261015_RISCV10_LowLatency_Candidate/README.md)。
+## 网络与数值一致性
 
-## 模型与风格
+本版继续使用 **V21b / QAT900**：固定 C24/Fc16 结构、13 层 CNN、11,028 个参数，模型 blob 为 48,616 字节，单帧 VGA 卷积计算量约 339,148,800 MAC。卷积、激活、定点 IN 和 IN 更新由 FPGA 完成。
 
-当前使用 **V21b / QAT900** 候选模型：固定 C24/Fc16 结构、13 层 CNN、11,028 个参数，部署 blob 为 48,616 字节，单帧 VGA 卷积计算量约 339,148,800 MAC。卷积、激活、定点 IN 及 IN 更新由 FPGA 完成。
+第四轮优化修改 `sc_in_alu.v` 和 `sc_in_refresh.v`，复用算术寄存器并无损编码 epsilon 常量；13 层卷积、PE12、模型权重、INT8 精度和 IN 数值规则保持不变。337520 组 ALU、3273 组真实 IN、816 组常量、三风格小图与完整 VGA 逐像素回归通过。
 
 | 编号 | 风格 | UART 命令 |
 |---|---|---|
@@ -66,108 +65,78 @@ flowchart LR
 | 1 | 浮世绘 / Ukiyo-e | `1` |
 | 2 | 水墨 / Ink Wash | `2` |
 
-模型参数量小不等于整机 FPGA 占用小：图像行缓存、激活数据、归一化、RISC-V、DDR、摄像头和 HDMI 接口同样消耗资源。训练、量化、导出与历史评估见 [StyleCam 模型目录](FPGAProjects/StyleCam/README.md)。现有 PSNR/SSIM 是离线、指定参考图下的结果，不能直接作为屏幕观感、标准网络对比或官方评分。
+模型参数量小不代表整机 FPGA 占用小，行缓存、归一化、RISC-V、DDR、摄像头和 HDMI 接口同样消耗资源。训练、量化、导出与历史评估见 [StyleCam 模型目录](FPGAProjects/StyleCam/README.md)。离线 PSNR / SSIM 仅代表指定参考下的结果。
 
-## 当前进度
+## 当前资源
 
-| 工作项 | 状态 | 验证范围 / 剩余事项 |
-|---|---|---|
-| SC431HAI → RGB → DDR → CNN → HDMI | 已实现并有实机记录 | 使用当前 RISC-V 整机链路 |
-| 三风格切换、三种显示布局、OSD | 已实现 | UART 切换有定量记录；长时和各操作组合仍需补验 |
-| VGA 约 30fps | 短时实机通过 | 40 秒、分屏布局；尚非全场景长期稳定性结论 |
-| 模型数值一致性 | 离线回归通过 | 包含完整 VGA 逐像素、IN 算术及跨时钟验证 |
-| RISCV10 Flash 固化 / 掉电启动 | **未验收** | 当前已固化恢复基线仍为 RISCV08 |
-| 语音切风格 + 手机预览 | **候选已实现，待上板** | 主机 6 项检查、3 组 RTL 回归、interface/map/pnr/pgm 通过；PR #3 未合并 |
-| ESP32 原生工具链构建与三板联调 | **待完成** | 主机桩编译不能代替 ESP32 真机构建和联调 |
-| 真实 1280×720@30fps 推理 | **未完成** | 不能用 HDMI 1080p60 抵算 |
-| 完整 AE/AWB、标准网络同协议画质/延迟对比 | **待完善** | 当前有手动 RGB 增益；现有内部评估需与正式对比区分 |
-| 手势识别、完整展示视频与提交材料 | 手势暂不做；材料待补齐 | 创意示例无需全部实现 |
+| 资源 / 时序 | RISCV10 历史基线 | RISCV11 AE / IN4 正式版 | 正式版余量 |
+|---|---:|---:|---:|
+| XLR | 58284 / 60800 | **55615 / 60800** | **5185** |
+| RAM10 | 245 / 256 | **243 / 256** | **13** |
+| DSP | 145 / 160 | **145 / 160** | **15** |
+| 最小 setup slack | +0.278ns | **+0.253ns** | 全部 17 项关系为正 |
+| 最小 hold slack | +0.026ns | **+0.026ns** | 全部 17 项关系为正 |
 
-逐项赛题口径和证据入口见 [当前进度与赛题要求](FPGAProjects/docs/赛题指标与完成情况_20261015.md)。
+比第三轮再少 1500 XLR 和 1 RAM10，比早期手机预览开启的交互包少 3325 XLR 和 10 RAM10。固件 13746 字节，链接 RAM 16080/16384 字节（含 2048 字节栈），剩余 304 字节链接空间。资源与时序均来自配套最终布线报告。
 
-## 资源占用
+## 当前进度与保留分支
 
-两列对应不同源码和构建，不能混用：
+| 工作项 / 分支 | 当前状态 |
+|---|---|
+| 摄像头 → DDR → CNN → HDMI、自动曝光、三风格 | 本版实机通过，已固化并通过 RESET_N 自主启动 |
+| `main` 的整机入口 | 本次集成 RISCV11 AE / IN4；独立的新网络交付目录保留，不启用 |
+| `codex/release-riscv11-ae-in4-20261018` | 本次正式版源码、下载包与证据 |
+| `feat/basic-requirements` | RISCV08 / ID `53430a08` 恢复基线，保留 |
+| `codex/resource-throughput-20261013` | RISCV10 / ID `53430a0a` 的固化与短时 30fps 基线，保留 |
+| `fw/creative-interaction` / PR #3 | 保留语音、预览及队友手势扩展；最新手势内容未拉取、未并入本版 |
+| 新网络交付及 `codex/tristyle-v4-paired-v5-20261018` | 已确认存在，按用户安排逐步试验，保留 |
+| 原生 ESP32 构建、创意三板联调 | 待完成 |
+| 真实 1280×720@30fps 推理 | 未完成；HDMI 1080p60 不能抵算 |
+| 长期稳定性、标准网络对比、展示与提交材料 | 待完善 |
 
-| 资源 / 时序 | RISCV10 主链路基线 | RISCV10 + 创意交互候选 |
-|---|---:|---:|
-| XLR | 58,284 / 60,800 | 58,940 / 60,800 |
-| RAM10 | 245 / 256 | 253 / 256 |
-| DSP | 145 / 160 | 145 / 160 |
-| 最小 setup slack | +0.278ns | +0.288ns |
-| 最小 hold slack | +0.026ns | +0.026ns |
-| 实机范围 | 已有上述 40 秒记录 | 尚未上板 |
+版本以包名、位流哈希和清单共同确定；多个优化包沿用 ID `53430a0b`，不能仅凭 ID 判断同一构建。历史 [PR #4](https://github.com/icy768/ti60f225-AI-drawing/pull/4) 保留 RISCV10 基线讨论；未验证的创意分支继续独立。
 
-交互候选相对基线增加 656 XLR、8 块 RAM10，未增加 DSP；剩余 1,860 XLR、3 块 RAM10 和 15 个 DSP，当前功能能放下，后续扩展需重新核算。FPGA 编译通过与时序满足不能代替实际接线、串口吞吐、无线预览和语音效果验收。
+## 操作与下载
 
-基线分析见 [RISCV10 资源与吞吐记录](https://github.com/icy768/ti60f225-AI-drawing/blob/codex/resource-throughput-20261013/FPGAProjects/docs/资源复核与30fps来源_20261015.md)；候选的修复、资源原报告和最终时序见 [创意交互审查记录](https://github.com/icy768/ti60f225-AI-drawing/blob/fw/creative-interaction/FPGAProjects/docs/创意交互审查与资源复核_20261015.md)。
-
-## 版本与分支
-
-**项目最新进度不等于默认分支已经包含全部功能。** 目前保留以下分支，先上板验证，再处理合并与清理：
-
-| 分支 | 代码范围 | 使用建议 |
-|---|---|---|
-| `main` / `develop` | 既有 SCU09 / V21b 主线 | 本轮仅更新项目文档；尚未合入后续 RISC-V / RISCV10 功能 |
-| `feat/basic-requirements` | RISCV08，ID `53430a08` | 已固化并验收自主启动的恢复基线 |
-| `codex/resource-throughput-20261013` | RISCV10，ID `53430a0a` | 复现已保存的 VGA 约 30fps 主链路实机结果 |
-| `fw/creative-interaction` | RISCV10 + 语音 / Wi-Fi 预览候选 | 本次修复已推送；待上板，不作为已验收发布 |
-
-[PR #3](https://github.com/icy768/ti60f225-AI-drawing/pull/3) 为创意交互候选；[PR #4](https://github.com/icy768/ti60f225-AI-drawing/pull/4) 为 RISCV10 基线的待集成记录。二者均暂不合并。位流需与源码、ROM、模型和清单配套，不能仅凭相同 ID 判断是同一构建。
-
-## 硬件与操作
-
-主链路使用 Ti60F225 FPGA 开发板、SC431HAI 摄像头、DDR3、HDMI 显示器和串口调试连接。交互扩展增加 ESP32-S3-N16R8 与 VC-02-Kit。
+主链路硬件为 Ti60F225 开发板、SC431HAI 摄像头、DDR3、HDMI 显示器及串口连接。控制台为 **115200 8N1**，本机证据使用 COM19。
 
 | 操作 | 功能 |
 |---|---|
 | K0 | 循环切换分屏、风格全屏、原画全屏 |
-| KEY3 短按后释放 | 切换三种风格 |
-| KEY3 长按约 0.7 秒 | 切换显示布局 |
+| KEY3 短按释放 / 长按约 0.7 秒 | 切风格 / 切布局 |
 | UART `0` / `1` / `2` | 选择风格 |
-| UART `v` / `s` / `c` | 切布局 / 状态查询 / 摄像头寄存器回读 |
+| UART `v` / `s` / `c` | 切布局 / 状态查询 / 摄像头回读 |
+| RESET_N | 重新从配置 Flash 装载整机；与 K0 不同 |
 
-RISC-V 版本控制台为 **115200 8N1**，串口号以本机实际枚举为准，保存的实机日志使用 COM19。
-
-交互候选中，FPGA `stream_tx` 接 ESP32 GPIO18，视频波特率 3030303；VC-02 的 TX1 接 GPIO16；GPIO17 以 115200 向 FPGA `uart_rx` 发命令。VC-02-Kit 的 **VCC 是 5V 输入，UART IO 为 3.3V，3V3OUT 是输出**，详见 [官方规格书](https://docs.ai-thinker.com/_media/vc-02-kit_specification_v1.0.0_516.pdf)。候选引脚与完整接线说明见 [Wi-Fi / 语音文档](https://github.com/icy768/ti60f225-AI-drawing/blob/fw/creative-interaction/FPGAProjects/StyleCam_camera/wifi_stream/README.md)，上板前须按实际板卡核对排针位置和供电。
-
-## 获取工程与构建
-
-建议按目标选择分支。下面以已保存实机证据的 RISCV10 为例：
+唯一整机 Efinity 入口为 **`FPGAProjects/StyleCam_camera/ti60f225_oob.xml`**。`StyleCam/syn/vision_map.xml` 是算法子系统，`sc431hai_hdmi` 是独立摄像头参考。
 
 ```powershell
 git clone https://github.com/icy768/ti60f225-AI-drawing.git
-cd ti60f225-AI-drawing
-git switch codex/resource-throughput-20261013
-cd FPGAProjects/StyleCam_camera
+cd ti60f225-AI-drawing/FPGAProjects/StyleCam_camera
+
+# 离线核对正式包，不操作硬件
+./program_ram.ps1 -CheckOnly
+python program_flash_release.py --check-only
+
+# 需要重新下载时，分别选择 RAM 或 Flash
+./program_ram.ps1 -UartPort COM19
+python program_flash_release.py
+# Flash 写入后先开启监听，再按 RESET_N
+./verify_flash_boot.ps1 -UartPort COM19 -ConfigurationResetConfirmed
 ```
 
-唯一整机 Efinity 入口是 **`FPGAProjects/StyleCam_camera/ti60f225_oob.xml`**。`StyleCam/syn/vision_map.xml` 是算法子系统入口，`sc431hai_hdmi` 是独立摄像头参考，均不能替代当前整机入口。
+Flash 工具先双重备份配置区，保护 0x200000 模型区，写入后独立读取完整配置及模型。具体哈希、验收日志和恢复资料见[正式包](FPGAProjects/烧录文件/20261018_RISCV11_Main_AE_IN4_Release/README.md)。RISCV10 工具保留为 `program_riscv10_ram.ps1`、`program_riscv10_flash.py`、`verify_riscv10_flash_boot.ps1`，配合原分支与包使用；RISCV08 原恢复工具保留。
 
-主要工具为 Efinity 2026.1、Python 3、RISC-V GCC；RTL 回归使用 Icarus Verilog，ESP32 主机检查使用 g++，实际 ESP32 固件还需对应 Arduino ESP32 工具链。工具二进制和大型构建缓存不随仓库发布。
+## 构建、回归与目录
 
-```powershell
-# 仅核对 RISCV10 下载包，不操作硬件
-.\program_ram.ps1 -CheckOnly
+主要工具为 Efinity 2026.1、Python 3、RISC-V GCC 和 Icarus Verilog。`STYLECAM_EFINITY` 指定 Efinity，`STYLECAM_BUILD_DIR` 指定 ASCII 构建镜像。构建入口为 `python build.py interface / map / pnr / pgm`，固件位于 `embedded_sw/soc/software/standalone/stylecam/`。源码或 ROM 变更后须重新构建与验收；当前正式包对应的构建命令、源码哈希与最终报告均已保存。
 
-# FPGA 离线构建；STYLECAM_EFINITY 可指定 Efinity 安装目录
-python build.py interface
-python build.py map
-python build.py pnr
-python build.py pgm
-```
-
-构建脚本使用 ASCII 路径镜像，以避免工具处理中文路径的问题；可通过 `STYLECAM_BUILD_DIR` 指定构建目录。固件重建、RAM 下载和 Flash 恢复步骤请按所选版本说明执行。本轮仅整理与离线验证，没有新增硬件下载或 Flash 写入。
-
-## 目录导航
-
-| 路径 | 内容 |
+| 目录 | 内容 |
 |---|---|
-| [FPGAProjects/StyleCam_camera](FPGAProjects/StyleCam_camera/README.md) | 整机 RTL、RISC-V 固件、模型 blob、工程约束、构建与验证工具 |
-| [FPGAProjects/StyleCam](FPGAProjects/StyleCam/README.md) | 网络训练、量化、导出、整数参考和历史评估证据 |
-| [FPGAProjects/sc431hai_hdmi](FPGAProjects/sc431hai_hdmi/README.md) | 独立摄像头与 HDMI 参考工程 |
-| [FPGAProjects/烧录文件](FPGAProjects/烧录文件/README.md) | 各版本 BIT/HEX、清单及验收说明；具体文件随分支不同 |
-| [FPGAProjects/docs](FPGAProjects/docs/赛题指标与完成情况_20261015.md) | 当前进度、性能口径、资源与历史交接记录 |
-| [docs/三人协作指南.md](docs/三人协作指南.md) | 分支职责、代码协作和合并前的验证约定 |
+| [StyleCam_camera](FPGAProjects/StyleCam_camera/README.md) | 整机 RTL、固件、模型、约束及验证脚本 |
+| [StyleCam](FPGAProjects/StyleCam/README.md) | 网络训练、导出和历史评估 |
+| [烧录文件](FPGAProjects/烧录文件/README.md) | 当前正式版及历史候选 / 恢复包 |
+| [集成记录](FPGAProjects/docs/RISCV11固化与总工程集成_20261018.md) | 板测、Flash、资源、清理与验证边界 |
+| [协作指南](docs/三人协作指南.md) | 分支协作约定 |
 
-下一步先验证创意交互候选的实际接线、ESP32 原生构建、预览持续传输、语音切换和主链路并发稳定性。验收记录完成后，再合并并清理已经失去独立用途的分支。
+已清理旧资源试验的重复构建镜像和独立摄像头 AE / AWB 原型，完整归档保存在本机 `FPGAProjects/_archive/`。回归源码、当前测试向量、正式包、历史资源对照和恢复资料保留；大型工具与构建缓存不随仓库发布。

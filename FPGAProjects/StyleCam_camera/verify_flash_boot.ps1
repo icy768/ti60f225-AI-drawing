@@ -1,4 +1,3 @@
-param([string]$UartPort='COM19',[int]$Seconds=55,[switch]$ConfigurationResetConfirmed)
+param([string]$UartPort='COM19',[int]$Seconds=600,[switch]$CheckOnly,[switch]$ConfigurationResetConfirmed)
 $ErrorActionPreference='Stop'
-# Current accepted release: ID 53430a08.
-& (Join-Path $PSScriptRoot 'verify_native_flash_boot.ps1') -UartPort $UartPort -Seconds $Seconds -ConfigurationResetConfirmed:$ConfigurationResetConfirmed
+& (Join-Path $PSScriptRoot 'verify_main_ae_flash_boot.ps1') -UartPort $UartPort -Seconds $Seconds -CheckOnly:$CheckOnly -ConfigurationResetConfirmed:$ConfigurationResetConfirmed

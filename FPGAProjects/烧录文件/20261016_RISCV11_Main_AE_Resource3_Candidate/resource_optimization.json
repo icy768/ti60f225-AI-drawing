@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "scope": "offline peripheral equivalence and final routed STA; board validation pending",
+  "network_unchanged": true,
+  "firmware_unchanged": true,
+  "phone_preview_default": false,
+  "protected_files": 147,
+  "changed_rtl": [
+    "rtl/sc_apb_regs.v",
+    "rtl/sc_display.v",
+    "rtl/sc_osd_font.vh"
+  ],
+  "previous_resources": {
+    "xlr": 57160,
+    "ram10": 245,
+    "dsp": 145
+  },
+  "resources": {
+    "xlr": 57115,
+    "xlr_total": 60800,
+    "ram10": 244,
+    "ram10_total": 256,
+    "dsp": 145,
+    "dsp_total": 160
+  },
+  "delta_from_previous": {
+    "xlr": -45,
+    "ram10": -1,
+    "dsp": 0
+  },
+  "setup_min_ns": 0.327,
+  "hold_min_ns": 0.013,
+  "setup_relationships": 17,
+  "hold_relationships": 17,
+  "mapped_resources": {
+    "previous": {
+      "EFX_LUT4": 32595,
+      "EFX_ADD": 7355,
+      "EFX_FF": 24606,
+      "EFX_RAM10": 245,
+      "EFX_DPRAM10": 0,
+      "EFX_DSP48": 145
+    },
+    "candidate": {
+      "EFX_LUT4": 32543,
+      "EFX_ADD": 7347,
+      "EFX_FF": 24643,
+      "EFX_RAM10": 243,
+      "EFX_DPRAM10": 1,
+      "EFX_DSP48": 145
+    }
+  },
+  "font_glyphs_compared": 96,
+  "font_rows_per_glyph": 16,
+  "font_random_transitions": 5000,
+  "font_storage_words": 955,
+  "font_storage_bits_per_word": 10,
+  "font_native_primitive_simulated": true,
+  "display_layouts_compared": 3,
+  "display_source_size": [
+    640,
+    480
+  ],
+  "apb_random_transactions": 30000,
+  "hardware_verified": false,
+  "tested_source_sha256": {
+    "rtl/sc_apb_regs.v": "0ba24ec5a4783f943d0d7cf556ab31259eacc31c5303ac12ae5c4995f24203ae",
+    "rtl/sc_display.v": "324c4b502d3c6cc106c9caa6f70e712272a726aeb43f5fc4e5e13e1a40d3cf11",
+    "rtl/sc_osd_font.vh": "f7297c31bc930298ce9f33237df9d20b506969bb33d838197b9887f5ab17c8a4",
+    "sim/camera_math_tb.v": "c0f410eada972a19db863fa4ef1d1b188f1f3a5b9a1cb436731f67d6bdd12a14",
+    "rtl/sc_camera_rgb.v": "3f4d2ac167d9def41ed651de5e9af22a0d06ffb2f6d36e993f648c700a62423c",
+    "sim/camera_gamma_tb.v": "f95427f75f13ab1af62dbc71fd6ae76b1c1bcbc623416b28f93a51a7b7f5fb4d",
+    "sim/resource_apb_tb.v": "87e1ff5127adeb8fa16669de64798c47f6f5f15d059e9ee781f97e935c4ccff7",
+    "sim/reference/sc_apb_regs_resource1.v": "d9e9d0c0b25784bc3788678f19a4a0ac7a4a6ad9902e6b2c88fa1eb6243acfa5",
+    "rtl/sc431hai/i2c_reg16.v": "6efbd7ae6e4ea1b182111e29825794d99624ea0fea458902cd988e215f2a1368",
+    "sim/resource_replay_tb.v": "7e7bdd6de2274e114e1bc4465a58ac21860dc80a0592816e8ee9b4d5d58c2b0d",
+    "sim/reference/sc_replay_resource1.v": "ec567813585af2b39d025fad0cb628e9759a6c0b85c6678f30bea90be1a068d7",
+    "rtl/sc_replay.v": "f79a6bc31c7f843a3a43a06c8a4f676a5f687a9dd65db2388d54d84c686d2f58",
+    "rtl/sc_async_fifo.v": "cc7f11fccca7fe1fce990b6585b02391c13c2d49cc256a234e8ccc23041a8e40",
+    "sim/capture_tb.v": "7d3b73140f70c3f05befefb3070bd79fe3e0d4ff179db145226ae09161a3b605",
+    "rtl/sc_capture.v": "6b285096363cecdb53cbe58ec42657ccebe56d1e76710086e60c730cf209c191",
+    "rtl/sc_write_arbiter.v": "072564197195812ab3853eb5d6f3f70199968c1f5d4114e6231f89f10777e228",
+    "sim/display_tb.v": "9b1e47fffcc09d95f6588e13ff4764fcb28fef8408f5aafe24badd2803dca1f5",
+    "rtl/common.v": "bbbbbf33b5434db29a435992dd36eafdf0a9244e29b9ef42060e67b409ccee30",
+    "sim/resource_i2c_tb.v": "ff0d5fa6a917356ec8ebc1af9a659f097f75b52264a7cbff866a9c6b9cc608ff",
+    "sim/reference/i2c_reg16_resource1.v": "174dffb2099660c3e4306f801cfe6b1dbb1ca4d4b1a55e479ad6a89aa3a583c5",
+    "sim/resource_font_tb.v": "06aa86adfd444f6c3fb421d480a27fd7ced0c56be0ab6cb430ea7bb8882fe27c",
+    "model/font8x16.mem": "55b054ab7c41aba5b21abd8c897eb23485cc55665299413f95c77bdbc016c074",
+    "sim/resource_display_tb.v": "5caa7565a5cddfac07990d66cba36075b8aedaafab0121e6a6c42c3084b972b0",
+    "sim/reference/sc_display_resource2.v": "ca9e50d347934709d1f1f18e0e2db52690afbc937987aa424d003600865eaede",
+    "sim/main_ae_tb.v": "680675a2762c5fa8b8b30f36ebe9f3075e87aaf451570b372faa9c1f3dd9cdba",
+    "sim/apb_regs_tb.v": "eeac3a18902b976df865f53e11e2ce73ab75b5574025db39b061f0abed99bd75",
+    "generate_osd_font.py": "0719ce1f025247d40c58f70dda587b0ce095ec76f100acd897e66905221d2c6d",
+    "sim_resource_round3.py": "facc2f1d4472619ec104cf20abaad7a8394c0af87f024f74459af83ca62291fb"
+  }
+}

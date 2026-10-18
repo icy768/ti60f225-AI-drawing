@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "source": "embedded_sw/soc/software/standalone/stylecam/src/main.c",
+  "source_sha256": "f1d7d587fb9261357cbe3ef9a5bed4cee902f527989233f7c537b21e6b32f5f5",
+  "log": "PASS actual AE firmware: gain table, init, deadband, limits, pacing, clipping, group registers, retries/release/recovery, timer wrap\n"
+}

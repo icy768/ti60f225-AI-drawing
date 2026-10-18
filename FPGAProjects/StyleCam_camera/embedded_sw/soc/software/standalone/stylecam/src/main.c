@@ -293,6 +293,76 @@ static void print_camera_registers(void)
     bsp_printf("\r\n");
 }
 
+/* AE-only: software reuses the existing APB I2C engine. RGB gains stay unity.
+ * No VTS changes: exposure is capped to the existing sensor frame period. */
+static uint32_t ae_last,ae_seen,ae_mean,ae_errors;
+static unsigned ae_exp=1120,ae_gain=81,ae_max=2988,ae_dirty;
+static unsigned ae_gain_reg(unsigned index)
+{
+    if(index<17) return 0x0020+index;
+    if(index<49) return 0x8020+index-17;
+    if(index<81) return 0x8120+index-49;
+    if(index<113) return 0x8320+index-81;
+    return 0x8720;
+}
+static void ae_init(void)
+{
+    unsigned vts=((unsigned)sensor_diag[3]<<8)|sensor_diag[4];
+    ae_exp=((unsigned)(sensor_diag[0]&15)<<12)|((unsigned)sensor_diag[1]<<4)|(sensor_diag[2]>>4);
+    if(vts>=16) ae_max=2*vts-12;
+    unsigned gain=((unsigned)sensor_diag[5]<<8)|sensor_diag[6];
+    for(ae_gain=0;ae_gain<113&&ae_gain_reg(ae_gain)!=gain;ae_gain++);
+    ae_last=now();ae_seen=SC_AE_SEQUENCE;
+}
+static void ae_poll(void)
+{
+    uint32_t seq=SC_AE_SEQUENCE,sum=SC_AE_SUM,counts=SC_AE_COUNTS;
+    if(seq!=SC_AE_SEQUENCE||seq==ae_seen) return;
+    ae_seen=seq;
+    if(!streaming||us_since(ae_last)<200000) return;
+    unsigned count=counts>>16,clip=counts&65535;
+    if(!count) return;
+    ae_mean=sum/count;
+    unsigned exposure=ae_exp,gain=ae_gain;
+    if(exposure>ae_max) exposure=ae_max;
+    else if(sum>count*72||clip>(count>>5)) {
+        if(gain) gain=gain>8?gain-8:0;
+        else {
+            unsigned step=(clip>(count>>5)||sum>count*128)?exposure>>1:exposure>>3;
+            if(step<4) step=4;
+            exposure=exposure>step+4?exposure-step:4;
+        }
+    } else if(sum<count*56) {
+        if(exposure<ae_max) {
+            unsigned step=sum<count*28?exposure>>1:exposure>>3;
+            if(step<4) step=4;
+            exposure+=step;
+            if(exposure>ae_max) exposure=ae_max;
+        } else gain=gain<109?gain+4:113;
+    }
+    ae_last=now();
+    if(exposure==ae_exp&&gain==ae_gain&&!ae_dirty) return;
+    unsigned analog=ae_gain_reg(gain);
+    const uint16_t regs[]={0x3812,0x3e00,0x3e01,0x3e02,0x3e08,0x3e09,0x3812};
+    const uint8_t values[]={0,exposure>>12,exposure>>4,exposure<<4,analog>>8,analog,0x30};
+    unsigned ok=1;
+    for(unsigned i=0;i<7;i++) {
+        unsigned retry;
+        for(retry=0;retry<3;retry++) {
+            poll_key3();poll_scan();
+            if(i2c_xfer(regs[i],values[i],0,0)==1) break;
+        }
+        if(retry==3) {ok=0;break;}
+    }
+    if(ok) {ae_exp=exposure;ae_gain=gain;ae_dirty=0;}
+    else {
+        ae_errors++;ae_dirty=1;
+        /* Always attempt to release a partially written sensor group. */
+        for(unsigned i=0;i<3;i++) if(i2c_xfer(0x3812,0x30,0,0)==1) break;
+    }
+    ae_last=now();
+}
+
 /* ---------------- 权重部署：SPI Flash -> 加速器 ---------------- */
 /* 权重包格式（algo/export_blob.py）：'STN1'、条数 n、风格数、保留，随后 n 条 {地址字, 数据低 32 位, 数据高 6 位}
  * 地址字 [31] sel（1 卷积权重按 32 位分道，0 IN/重量化系数）[25:21] 分道 [20:16] 层 [11:0] 地址 */
@@ -403,6 +473,7 @@ static void print_status(uint32_t t_ms)
     poll_key3(); poll_scan();
     bsp_printf(" publish_wait_us=%d scan_seq=%d scan_sw_us=%d scan_sw_max_us=%d\r\n",
                SC_PUBLISH_WAIT/100u, SC_SCAN_SEQUENCE, scan_us_last, scan_us_max);
+    bsp_printf("AE mean=%d exp_halfline=%d gain_idx=%d i2c_errors=%d AWB=OFF\r\n",ae_mean,ae_exp,ae_gain,ae_errors);
     poll_key3(); poll_scan();
 }
 
@@ -709,9 +780,11 @@ void main()
 #endif
                    "\r\n");
 
+    ae_init();
     uint32_t t_last = now(), f_last = frames, p_last = last_pub_t, s_last = SC_SENSOR_FRAMES, uptime_ms = 0, ticks = 0;
     while (1) {
         console();
+        ae_poll();
         poll_key3();
         poll_scan();
         if (osd_dirty) { osd_dirty = 0; osd_draw(); }

@@ -19,6 +19,9 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  input [127:0] rdata,input rvalid,input rlast,input [1:0] rresp,output rready,
  output reg hs,vs,de,output reg [7:0] red,green,blue);
  localparam WORDS=IW*IH/4,COLS=IW/64;
+ // A scan stops after IH rows, including its final one-past-row offset.
+ localparam LINE_W=$clog2(IW*IH*4+1);
+ localparam READ_ADDR_W=$clog2(32'hc00000+IW*IH*4+4096);
  // layout (1080p active 1920x1080)
  localparam FX0=960-IW,FY0=540-IH;                    // 2x full screen
  localparam SW=IW*3/2,SH=IH*3/2,SX0=960-SW,SY0=540-SH/2; // 1.5x side by side
@@ -38,7 +41,8 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  end
  sc_async_fifo #(.W(28),.AW(8)) upload_fifo(uc,urst,packed_pixel,pack_fire,wf_ready,
   ac,arst,wf_data,wf_valid,wf_take,);
- reg [1:0] ws;reg [127:0] wr_data;reg [31:0] wr_addr;
+ // The largest output base plus any 17-bit word index fits in 24 bits.
+ reg [1:0] ws;reg [127:0] wr_data;reg [23:0] wr_addr;
  reg wr_last,frame_write_error;reg [1:0] wr_bank,wr_phase;reg [16:0] wr_index;
  reg [2:0] valid_banks;reg [31:0] write_words,write_errors,read_errors;
  assign wf_take=(ws==0)&&calibrated&&!arst;
@@ -137,8 +141,12 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  reg [23:0] p1,p2,p3;reg a1,a2,a3,h1,h2,h3,v1,v2,v3;reg [3:0] fr1;reg [2:0] fb1,fb2,fb3;
  reg [7:0] code2,code3;reg [10:0] font_addr;wire [7:0] font_byte;
  wire [6:0] glyph=(text_code[6:0]>=32)?text_code[6:0]-7'd32:7'd0;
- sdpram #(.W(8),.D(1536),.AW(11),.INIT(FONT)) osd_font(.clk(pc),.we(1'b0),.waddr(11'd0),.wdata(8'd0),
-  .re(1'b1),.raddr(font_addr),.rdata(font_byte));
+ generate if(FONT=="model/font8x16.mem")begin:g_native_font
+  sc_osd_font osd_font(pc,glyph,fr1,font_byte);
+ end else begin:g_custom_font
+  sdpram #(.W(8),.D(1536),.AW(11),.INIT(FONT)) osd_font(.clk(pc),.we(1'b0),.waddr(11'd0),.wdata(8'd0),
+   .re(1'b1),.raddr(font_addr),.rdata(font_byte));
+ end endgenerate
  wire font_bit=font_byte[3'd7-fb3];
  wire [23:0] dim={1'b0,p3[23:17],1'b0,p3[15:9],1'b0,p3[7:1]};
  wire [23:0] ink=code3[7]?24'hffd040:24'hffffff;
@@ -176,7 +184,7 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  (* async_reg="true" *) reg req1,req2,req3;
  reg req_seen,restart,read_enable,read_active,ar_pending,last_burst,scan_started;reg [1:0] read_bank;
  reg [1:0] read_orig,read_mode,ph;reg half;
- reg [31:0] read_addr,line_base;reg [8:0] row;reg [3:0] col;
+ reg [READ_ADDR_W-1:0] read_addr;reg [LINE_W-1:0] line_base;reg [8:0] row;reg [3:0] col;
  reg [31:0] hash,frame_hash,read_frames;reg [3:0] beat;
  function [31:0] rol(input [31:0] d,input integer n);begin rol=(d<<n)|(d>>(32-n));end endfunction
  wire [31:0] hash_next=rol(hash,5)+(rdata[31:0]^rol(rdata[63:32],7)^rol(rdata[95:64],13)^rol(rdata[127:96],19));
@@ -249,3 +257,4 @@ module sc_dcram #(parameter W=8,D=2048,AW=11,INIT="")(
  always @(posedge wc) if(we) mem[wa]<=wd;
  always @(posedge rc) rd<=mem[ra];
 endmodule
+`include "rtl/sc_osd_font.vh"

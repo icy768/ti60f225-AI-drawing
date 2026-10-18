@@ -30,7 +30,9 @@ module sc_capture #(parameter PIXELS=640*480,FIFO_AW=9,WIDTH=640,H_MIRROR=0,BANK
  localparam ROW_WORDS=WIDTH/4;
  localparam ROW_W=(ROW_WORDS>1)?$clog2(ROW_WORDS):1;
  localparam INDEX_W=$clog2(PIXELS/4+(H_MIRROR?ROW_WORDS:1));
- reg [31:0] groups,addr;reg [INDEX_W-1:0] word_index;
+ // A missing EOF is rejected within two extra pairs; retain that guard range.
+ localparam GROUP_W=$clog2(PIXELS/2+3);
+ reg [GROUP_W-1:0] groups;reg [31:0] addr;reg [INDEX_W-1:0] word_index;
  reg [ROW_W-1:0] row_word;
  reg [63:0] half;reg [127:0] data;
  assign frame_ready=(|ready_mask)&&!locked;

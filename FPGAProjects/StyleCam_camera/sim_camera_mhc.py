@@ -75,7 +75,7 @@ def run(full=False,mirror=False):
     ascii_dir.mkdir(exist_ok=True)
     ascii_values=ascii_dir/values.name
     shutil.copy2(values,ascii_values)
-    result=subprocess.run([str(BIN/'vvp.exe'),str(exe),f'+EXPECTED={ascii_values.as_posix()}'],cwd=PROJECT,capture_output=True,text=True)
+    result=subprocess.run([str(BIN/'vvp.exe'),str(exe),f'+EXPECTED={ascii_values.as_posix()}'],cwd=PROJECT,capture_output=True,text=True,errors='replace')
     (out/'simulation.log').write_text(result.stdout+result.stderr,encoding='utf-8')
     print(result.stdout+result.stderr,flush=True)
     assert result.returncode==0 and 'PASS' in result.stdout

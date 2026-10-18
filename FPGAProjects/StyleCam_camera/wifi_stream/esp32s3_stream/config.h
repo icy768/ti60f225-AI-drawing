@@ -26,7 +26,8 @@
 #define VOICE_BAUD    115200
 
 /* ---------------------------------------------------------------- preview */
-/* Must match sc_stream_tap.v / sc_stream_link.v on the FPGA side. */
+/* Geometry must match FPGA. UART accepts RGB332 (fmt=1) and legacy RGB565
+ * (fmt=0); published buffers and HTTP/JPEG remain RGB565 in both cases. */
 #define PREVIEW_W     96
 #define PREVIEW_H     54
 #define PREVIEW_BYTES (PREVIEW_W * PREVIEW_H * 2)

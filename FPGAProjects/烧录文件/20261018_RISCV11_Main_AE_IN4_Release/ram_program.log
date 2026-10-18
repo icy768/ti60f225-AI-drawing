@@ -1,0 +1,7 @@
+Using board profile: 'Generic Board Profile Using FT4232H' for pinout connection
+Connecting to JTAG_TAP: efx_ti
+jtag programming started!
+JTAG Programming on ftdi://0x0403:0x6011:0:ff/1
+Programming 'C:\Users\lingye\Desktop\FPGA������\FPGAProjects\��¼�ļ�\20261017_RISCV11_Main_AE_IN_Resource4_Candidate\StyleCam_RISCV11_Main_AE_Only.bit' via JTAG at freq 1.0 MHz
+Device ID read from JTAG: 0x10660A79
+... finished with JTAG programming

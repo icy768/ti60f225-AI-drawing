@@ -49,5 +49,23 @@ int main() {
   for (auto b : snapshot) assert(b == 0x11);
   assert(copyFrame(snapshot.data(), &seq) && seq == 0);
   for (auto b : snapshot) assert(b == 0x55);
-  printf("PASS real bridge: UART rates, partial reads, CRC, malformed geometry/format/length, sequence wrap, snapshots\n");
+  // All 256 RGB332 codes, including RGB primaries, must expand correctly.
+  auto reduced = packet(1, 0, PREVIEW_W, PREVIEW_H, 1, PREVIEW_W * PREVIEW_H);
+  for (size_t i = 0; i < PREVIEW_W * PREVIEW_H; ++i) reduced[9+i] = uint8_t(i);
+  uint16_t crc = 0xffff;
+  for (size_t i = 0; i < reduced.size()-2; ++i) crc=crcStep(crc,reduced[i]);
+  reduced[reduced.size()-2]=uint8_t(crc); reduced.back()=uint8_t(crc>>8);
+  feed(reduced);
+  assert(frameCount==4 && copyFrame(snapshot.data(),&seq) && seq==1);
+  for (size_t i=0; i<PREVIEW_W*PREVIEW_H; ++i) {
+    unsigned v=uint8_t(i), r=v>>5, g=(v>>2)&7, b=v&3;
+    // Independent normalised scaling with rounding equals bit replication.
+    uint16_t want=((r*31+3)/7)<<11 | ((g*63)/7)<<5 | ((b*31+1)/3);
+    assert((snapshot[2*i] | snapshot[2*i+1]<<8)==want);
+  }
+  reduced.back()^=1; feed(reduced); assert(frameCount==4);
+  feed(packet(2,0x66)); assert(frameCount==5);
+  feed(packet(3,0,PREVIEW_W,PREVIEW_H,2,PREVIEW_W*PREVIEW_H));
+  assert(frameCount==5);
+  printf("PASS real bridge: UART, CRC, malformed headers, wrap, snapshots, RGB565/RGB332 interleaving, 256 colour codes\n");
 }

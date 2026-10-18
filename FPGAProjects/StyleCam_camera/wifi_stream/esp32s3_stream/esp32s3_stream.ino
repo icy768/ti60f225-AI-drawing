@@ -1,7 +1,7 @@
 /*
  * StyleCam phone preview bridge - ESP32-S3-N16R8
  * ----------------------------------------------
- * Receives the 96x54 RGB565 preview that the Ti60F225 StyleCam design serialises on
+ * Receives the 96x54 RGB332 (or legacy RGB565) preview serialised by Ti60F225 on
  * `stream_tx` (3 Mbaud 8N1), keeps the newest complete frame in PSRAM and serves it over
  * WiFi so a phone can watch the stylised video.
  *
@@ -136,7 +136,7 @@ static void consumeFpgaByte(uint8_t b) {
             /* geometry is fixed at compile time: a different length means we are not
              * aligned on a real frame, so resync instead of trusting the header. */
             if (hdr[0] != TYPE_VIDEO || hdr[2] != PREVIEW_W || hdr[3] != PREVIEW_H ||
-                hdr[4] != 0 || bytes != PREVIEW_BYTES) {
+                hdr[4] > 1 || bytes != PREVIEW_W * PREVIEW_H * (hdr[4] == 0 ? 2 : 1)) {
               crcErrors++; st = S_SYNC0; break;
             }
             len = bytes;
@@ -146,7 +146,16 @@ static void consumeFpgaByte(uint8_t b) {
           break;
 
         case S_PAYLOAD:
-          if (got < PREVIEW_BYTES) back[got] = b;
+          if (hdr[4] == 1) {
+            // Expand RGB332 to the existing RGB565 snapshot/HTTP/JPEG layout.
+            uint8_t r = b >> 5, g = (b >> 2) & 7, blue = b & 3;
+            uint16_t rgb = ((r << 2 | r >> 1) << 11) |
+                           ((g << 3 | g) << 5) | (blue << 3 | blue << 1 | blue >> 1);
+            back[2 * got] = uint8_t(rgb);
+            back[2 * got + 1] = uint8_t(rgb >> 8);
+          } else {
+            back[got] = b;
+          }
           got++;
           crc = crcStep(crc, b);
           if (got >= len) { st = S_CRC; haveLo = false; }

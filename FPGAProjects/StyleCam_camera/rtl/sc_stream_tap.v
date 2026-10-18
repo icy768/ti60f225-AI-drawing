@@ -21,7 +21,8 @@ module sc_stream_tap #(
  parameter SRC_H      = 1080,   // active display lines per frame
  parameter SX         = 20,     // horizontal decimation, OUT_W = SRC_W/SX
  parameter SY         = 20,     // vertical   decimation, OUT_H = SRC_H/SY
- parameter PACE_WORDS = 1024    // maximum FIFO occupancy (16-bit words) when a frame may start
+ parameter PACE_WORDS = 1024,   // maximum FIFO occupancy when a frame may start
+ parameter FMT        = 0      // 0: RGB565, 1: RGB332 in wd[7:0]
 )(
  input             pc,
  input             prst,
@@ -85,7 +86,8 @@ module sc_stream_tap #(
      xs <= (xs == SX - 1) ? {XW{1'b0}} : xs + 1'b1;
      if (sample) begin
       if (cap && wready) begin
-       wd <= {red[7:3], green[7:2], blue[7:3]};
+       wd <= (FMT == 1) ? {8'd0,red[7:5],green[7:5],blue[7:6]} :
+                         {red[7:3],green[7:2],blue[7:3]};
        wv <= 1'b1;
        if (last_pix) begin spix <= 0; tap_frames <= tap_frames + 1'b1; end
        else                spix <= spix + 1'b1;

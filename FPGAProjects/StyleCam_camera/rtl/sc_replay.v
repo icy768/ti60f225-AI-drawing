@@ -7,8 +7,8 @@ module sc_replay #(parameter PIXELS=640*480)(
  output [31:0] errors,
  output reg [31:0] araddr,output reg arvalid,input arready,
  input [127:0] rdata,input rvalid,input rlast,input [1:0] rresp,output rready);
- localparam WORDS=PIXELS/4;
- reg toggle;reg [31:0] pixels_taken,words_taken,words_gray;
+ localparam WORDS=PIXELS/4, PW=$clog2(PIXELS), WW=$clog2(WORDS+1), CW=7;
+ reg toggle;reg [PW-1:0] pixels_taken;reg [CW-1:0] words_taken,words_gray;
  reg [1:0] phase;
  wire [95:0] data;wire fv,fr,fw;
  wire [95:0] shifted=data>>(phase*24);
@@ -26,13 +26,17 @@ module sc_replay #(parameter PIXELS=640*480)(
   end
  end
  (* async_reg="true" *) reg t1,t2,t3;
- (* async_reg="true" *) reg [31:0] g1,g2;
- reg seen,active,inflight;reg [1:0] frame_bank;reg [31:0] issued,frame_issued,error_count;
- reg [3:0] beat;reg [31:0] taken_sync;integer j;
+ (* async_reg="true" *) reg [CW-1:0] g1,g2;
+ reg seen,active,inflight;reg [1:0] frame_bank;reg [CW-1:0] issued;reg [WW-1:0] frame_issued;reg [31:0] error_count;
+ reg [3:0] beat;reg [CW-1:0] taken_sync;integer j;
  always @*begin
-  taken_sync[31]=g2[31];
-  for(j=30;j>=0;j=j-1)taken_sync[j]=taken_sync[j+1]^g2[j];
+  taken_sync[CW-1]=g2[CW-1];
+  for(j=CW-2;j>=0;j=j-1)taken_sync[j]=taken_sync[j+1]^g2[j];
  end
+ // Credit distance is at most one 64-word FIFO; 7-bit modulo counters
+ // retain ordering across wrap while cutting the Gray CDC and subtraction.
+ wire [CW-1:0] reserved=issued-taken_sync;
+ wire [31:0] frame_word_offset=frame_issued;
  assign rready=inflight&&fw;
  wire [95:0] compact_data={rdata[119:96],rdata[87:64],rdata[55:32],rdata[23:0]};
  sc_async_fifo #(.W(96),.AW(6)) fifo(ac,arst,compact_data,rvalid&&rready,fw,uc,urst,data,fv,fr,);
@@ -43,8 +47,8 @@ module sc_replay #(parameter PIXELS=640*480)(
   end else begin
    t1<=toggle;t2<=t1;t3<=t2;g1<=words_gray;g2<=g1;
    if(t3!=seen)begin seen<=t3;active<=1;frame_issued<=0;frame_bank<=bank;end
-   if(active&&!arvalid&&!inflight&&(issued-taken_sync<=48))begin
-    araddr<=(frame_bank==0?32'h0:frame_bank==1?32'h200000:frame_bank==2?32'h800000:32'hc00000)+(frame_issued<<4);arvalid<=1;
+   if(active&&!arvalid&&!inflight&&(reserved<=7'd48))begin
+    araddr<=(frame_bank==0?32'h0:frame_bank==1?32'h200000:frame_bank==2?32'h800000:32'hc00000)+(frame_word_offset<<4);arvalid<=1;
    end
    if(arvalid&&arready)begin
     arvalid<=0;inflight<=1;beat<=0;issued<=issued+16;frame_issued<=frame_issued+16;

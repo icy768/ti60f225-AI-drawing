@@ -127,3 +127,14 @@ FPGAProjects/sc431hai_hdmi/outflow/*
 *.vcd
 /FPGAProjects/StyleCam_camera/wifi_stream/tools/host_stub/*.exe
 /FPGAProjects/StyleCam_camera/wifi_stream/tools/host_stub/*.o
+
+# Local conversation exports are handover material, not project sources.
+/FPGAProjects/docs/对话导出_*/
+
+# AE/IN release summaries; generated builds and vectors remain ignored.
+!/FPGAProjects/StyleCam_camera/validation/release_riscv11_20261018/
+/FPGAProjects/StyleCam_camera/validation/release_riscv11_20261018/*
+!/FPGAProjects/StyleCam_camera/validation/release_riscv11_20261018/*.json
+
+# Exact accepted board evidence in the release package.
+!/FPGAProjects/烧录文件/20261018_RISCV11_Main_AE_IN4_Release/*.log

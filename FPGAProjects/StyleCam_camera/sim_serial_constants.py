@@ -1,6 +1,6 @@
 """Exercise the actual VGA ROM reader and coefficient writes across every bank."""
 from pathlib import Path
-import hashlib,json,math,subprocess
+import hashlib,json,math,os,subprocess
 ROOT=Path(__file__).resolve().parent
 OUT=ROOT/'validation/serial_constants_rtl';OUT.mkdir(parents=True,exist_ok=True)
 words=[int(x,16) for x in (ROOT/'model/in_constants.mem').read_text().split()]
@@ -52,12 +52,12 @@ module tb;
    @(negedge clk);
   end
   if(n!=816||reads!=816)$fatal(1,"count");
-  $display("PASS VGA serial ROM: 816 exact words and coefficients across all 13 banks");$finish;
+  $display("PASS VGA serial ROM: 816 exact words and coefficients across all packed banks");$finish;
  end
 endmodule
 '''
 (OUT/'tb.v').write_text(tb,encoding='ascii')
-BIN=ROOT.parent/'tools/iverilog/mingw64/bin'
+BIN=Path(os.environ.get('ICARUS_BIN',ROOT.parent/'tools/iverilog/mingw64/bin'))
 files=['sc_in_refresh.v','sc_in_math.v','sc_in_alu.v']
 exe=OUT/'test.vvp'
 subprocess.run([str(BIN/'iverilog.exe'),'-g2012','-s','tb','-o',str(exe),str(OUT/'tb.v'),

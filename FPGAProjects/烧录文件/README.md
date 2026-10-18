@@ -1,11 +1,14 @@
 # 下载包与恢复资料
 
-下载文件随分支不同，先按[根 README 的版本表](../../README.md)选择源码与配套包。项目使用 SC431HAI，不能混用不同整机版本的 BIT/HEX、固件、模型和清单。
+**当前默认正式版为 [RISCV11 AE / IN4，2026-10-18](20261018_RISCV11_Main_AE_IN4_Release/README.md)。** 总工程入口为 `FPGAProjects/StyleCam_camera/ti60f225_oob.xml`，摄像头为 SC431HAI。
 
-| 版本 | 入口 | 验收范围 |
-|---|---|---|
-| RISCV10 / `53430a0a` | [下载包与日志](https://github.com/icy768/ti60f225-AI-drawing/blob/codex/resource-throughput-20261013/FPGAProjects/烧录文件/20261015_RISCV10_LowLatency_Candidate/README.md) | RAM 下载后 40 秒 VGA 约 30fps，观察窗口内无新增跳帧；Flash 掉电启动未验收 |
-| RISCV08 / `53430a08` | [固化恢复包](https://github.com/icy768/ti60f225-AI-drawing/blob/feat/basic-requirements/FPGAProjects/烧录文件/20261009_RISCV08_BGGR_RGBMirror/README.md) | Flash 独立回读与自主启动已验收，保留为恢复基线 |
-| 语音 / 手机预览候选 | fw/creative-interaction 的本次 outflow 构建 | BIT/HEX 已生成，尚未上板；不能用 RISCV10 旧下载包代替新功能测试 |
+| 版本 | 用途与验收 |
+|---|---|
+| [RISCV11 AE / IN4 正式版](20261018_RISCV11_Main_AE_IN4_Release/README.md)，ID `53430a0b` | 自动曝光和三风格用户确认；短时约 30fps、Flash 独立回读及 RESET_N 自主启动通过 |
+| RISCV11 R1 / R2 / R3 / R4 候选 | 保留各轮资源对照、回归摘要与原始构建证据；默认下载已改为正式版 |
+| [RISCV10 基线](https://github.com/icy768/ti60f225-AI-drawing/blob/codex/resource-throughput-20261013/FPGAProjects/烧录文件/20261015_RISCV10_LowLatency_Candidate/README.md)，ID `53430a0a` | 历史 40 秒 VGA 约 30fps；Flash 独立回读与配置复位启动通过，保留恢复分支 |
+| [RISCV08 恢复包](https://github.com/icy768/ti60f225-AI-drawing/blob/feat/basic-requirements/FPGAProjects/烧录文件/20261009_RISCV08_BGGR_RGBMirror/README.md)，ID `53430a08` | 保留早期自主启动恢复基线 |
 
-当前先进行实际上板验证，暂不合并或删除分支，本轮没有新增硬件下载或写 Flash。更早的 SCU09、SCU08、RISCV04 等包只代表各自历史版本，继续保留其原始清单与验收范围。
+当前 `program_ram.ps1`、`program_flash_release.py` 默认正式版；RISCV10 入口增加 `riscv10` 后缀以免误下旧包。正式版 BIT / HEX、固件、模型、源码哈希和验证记录须成套使用；多个 RISCV11 包的 ID 相同，应以目录及 SHA256 区分。
+
+本次 Flash 验收使用实体 RESET_N，物理断电重启和长期压力测试待补验。手机预览及 AWB 默认关闭，新网络和手势未接入。完整记录见[固化与集成说明](../docs/RISCV11固化与总工程集成_20261018.md)。
