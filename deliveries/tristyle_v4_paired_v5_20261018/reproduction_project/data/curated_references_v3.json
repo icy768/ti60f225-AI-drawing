@@ -1,0 +1,643 @@
+{
+  "time": "2026-10-17T12:05:43.806219+08:00",
+  "version": "realart_roi_v3_calligraphy_fix",
+  "references": [
+    {
+      "style": "vangogh",
+      "id": "436532",
+      "path": "data\\art_originals\\vangogh\\436532.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/ep/original/DT1502_cropped2.jpg",
+      "size": [
+        2829,
+        3520
+      ],
+      "V3_thumbnail_size": [
+        502,
+        625
+      ],
+      "bytes": 3200170,
+      "sha256": "3357aaac7a219e403f7610b8e8779e71c3609bbf6e4ef6ce7240e2256e58cdd7",
+      "isPublicDomain": true,
+      "title": "Self-Portrait with a Straw Hat (obverse: The Potato Peeler)",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true,
+      "purpose": "Actual image/title: Self-Portrait with a Straw Hat; skin-paint texture reference",
+      "semantic_ROIs": {
+        "painted_face": [
+          0.25,
+          0.29,
+          0.7,
+          0.6
+        ]
+      }
+    },
+    {
+      "style": "vangogh",
+      "id": "436534",
+      "path": "data\\art_originals\\vangogh\\436534.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/ep/original/DP346475.jpg",
+      "size": [
+        3167,
+        4000
+      ],
+      "V3_thumbnail_size": [
+        494,
+        624
+      ],
+      "bytes": 5219625,
+      "sha256": "4680a3bd8eed94d21200f9d7d6410865873fac387dba5b6cd65bee75a1fe59a4",
+      "isPublicDomain": true,
+      "title": "Roses",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "vangogh",
+      "id": "436535",
+      "path": "data\\art_originals\\vangogh\\436535.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/ep/original/DP-42549-001.jpg",
+      "size": [
+        4000,
+        3184
+      ],
+      "V3_thumbnail_size": [
+        599,
+        477
+      ],
+      "bytes": 8291194,
+      "sha256": "b46d02a42fd3bb13b022cefc5beaa997b1d7a28cd7b53e4413d940aa0dc4014d",
+      "isPublicDomain": true,
+      "title": "Wheat Field with Cypresses",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true,
+      "purpose": "Actual image/title: Wheat Field with Cypresses; flow/short and long brush organization"
+    },
+    {
+      "style": "vangogh",
+      "id": "starry_night",
+      "path": "data\\art_originals\\vangogh\\starry_night.jpg",
+      "url": "V3 recorded official Johnson historical painting original",
+      "size": [
+        1024,
+        640
+      ],
+      "V3_thumbnail_size": [
+        1024,
+        640
+      ],
+      "bytes": 315236,
+      "sha256": "0592ab0f7b51b3ce72608a95e53880bd93971e5b48f93a0ce8dfd3cbccf3d098",
+      "isPublicDomain": "historical public-domain painting, provenance retained in V3",
+      "title": "The Starry Night",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "ukiyoe",
+      "id": "36490",
+      "path": "data\\art_originals\\ukiyoe\\36490.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP141062.jpg",
+      "size": [
+        3865,
+        2665
+      ],
+      "V3_thumbnail_size": [
+        599,
+        413
+      ],
+      "bytes": 3158200,
+      "sha256": "93bfb76167159d101f3cba62c3dda63e0668faca3e91f5f62afcb74e735afbb3",
+      "isPublicDomain": true,
+      "title": "South Wind, Clear Sky (Gaifū kaisei), also known as Red Fuji, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0,
+          0,
+          0.12,
+          0.55
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "ukiyoe",
+      "id": "36492",
+      "path": "data\\art_originals\\ukiyoe\\36492.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP140976.jpg",
+      "size": [
+        1969,
+        1336
+      ],
+      "V3_thumbnail_size": [
+        600,
+        407
+      ],
+      "bytes": 2037156,
+      "sha256": "5eecfe6970d0cc223a67e4f9dffc25fcd08053e2a0e310cf8fe5538a793d16d5",
+      "isPublicDomain": true,
+      "title": "Storm below Mount Fuji (Sanka no haku u), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0,
+          0,
+          0.12,
+          0.55
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "ukiyoe",
+      "id": "36500",
+      "path": "data\\art_originals\\ukiyoe\\36500.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP140982.jpg",
+      "size": [
+        3924,
+        2664
+      ],
+      "V3_thumbnail_size": [
+        600,
+        407
+      ],
+      "bytes": 2886375,
+      "sha256": "e8579d13c8fb7414ce349f211b484fe4603efb8dfb0e4b5215f853cee08751d8",
+      "isPublicDomain": true,
+      "title": "Fujimigahara in Owari Province (Bishū Fujimigahara), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0,
+          0,
+          0.12,
+          0.55
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "ukiyoe",
+      "id": "55736",
+      "path": "data\\art_originals\\ukiyoe\\55736.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP141053.jpg",
+      "size": [
+        3905,
+        2674
+      ],
+      "V3_thumbnail_size": [
+        599,
+        410
+      ],
+      "bytes": 3079357,
+      "sha256": "21b8bde354f9f8a09e7b000bc9447a4a1a3bca30a585bf7b345f0680a7d25ee5",
+      "isPublicDomain": true,
+      "title": "South Wind, Clear Sky (Gaifū kaisei), also known as Red Fuji, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0,
+          0,
+          0.12,
+          0.55
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": false,
+      "reason": "Duplicate painting/motif editions in the V3 bank; avoid overweighting clear-Fuji and barrel compositions"
+    },
+    {
+      "style": "ukiyoe",
+      "id": "56132",
+      "path": "data\\art_originals\\ukiyoe\\56132.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP141010.jpg",
+      "size": [
+        3813,
+        2722
+      ],
+      "V3_thumbnail_size": [
+        600,
+        428
+      ],
+      "bytes": 3060155,
+      "sha256": "eafa5b5bc0bb101c7a58f92f7df0723a93178b4dd900bb4e43e41a5323029558",
+      "isPublicDomain": true,
+      "title": "Ushibori in Hitachi Province (Jōshū Ushibori), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0,
+          0,
+          0.12,
+          0.55
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "ukiyoe",
+      "id": "56214",
+      "path": "data\\art_originals\\ukiyoe\\56214.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP141049.jpg",
+      "size": [
+        3888,
+        2654
+      ],
+      "V3_thumbnail_size": [
+        599,
+        409
+      ],
+      "bytes": 1005718,
+      "sha256": "b913462100aed696eb56fcc7a440b296f09368ee11b046ef1fe4993daf94f549",
+      "isPublicDomain": true,
+      "title": "Fujimigahara in Owari Province (Bishū Fujimigahara), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0,
+          0,
+          0.12,
+          0.55
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": false,
+      "reason": "Duplicate painting/motif editions in the V3 bank; avoid overweighting clear-Fuji and barrel compositions"
+    },
+    {
+      "style": "ukiyoe",
+      "id": "56216",
+      "path": "data\\art_originals\\ukiyoe\\56216.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP141051.jpg",
+      "size": [
+        3868,
+        2647
+      ],
+      "V3_thumbnail_size": [
+        599,
+        410
+      ],
+      "bytes": 2984613,
+      "sha256": "d258ddf1657a70da3ae6127e974c2e3ac9c95518b29ac5e3e115eddad4f8bdcf",
+      "isPublicDomain": true,
+      "title": "Noboto Bay (Noboto no ura), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0,
+          0,
+          0.12,
+          0.55
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "ukiyoe",
+      "id": "56787",
+      "path": "data\\art_originals\\ukiyoe\\56787.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP141033.jpg",
+      "size": [
+        1950,
+        1341
+      ],
+      "V3_thumbnail_size": [
+        599,
+        412
+      ],
+      "bytes": 2128300,
+      "sha256": "926928061d5300f0efe80717519e05f1109bd6c7f830c34aa0192a9421a48a9d",
+      "isPublicDomain": true,
+      "title": "Fujimigahara in Owari Province (Bishū Fujimigahara), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0,
+          0,
+          0.12,
+          0.55
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": false,
+      "reason": "Duplicate painting/motif editions in the V3 bank; avoid overweighting clear-Fuji and barrel compositions"
+    },
+    {
+      "style": "ink",
+      "id": "39556",
+      "path": "data\\art_originals\\ink\\39556.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP235702_CRD.jpg",
+      "size": [
+        1961,
+        1092
+      ],
+      "V3_thumbnail_size": [
+        600,
+        334
+      ],
+      "bytes": 773164,
+      "sha256": "0a1c4721de3be1c933c640dc5c1d17c803bf84fa4f70f5337872b6652965c0e7",
+      "isPublicDomain": true,
+      "title": "Joint Landscape",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "ink",
+      "id": "45683",
+      "path": "data\\art_originals\\ink\\45683.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP236590_CRD.jpg",
+      "size": [
+        1961,
+        486
+      ],
+      "V3_thumbnail_size": [
+        597,
+        148
+      ],
+      "bytes": 268668,
+      "sha256": "b1894bf9538d94f05a1b67131b435f6eb88656b644739d4528081b9cf6e61569",
+      "isPublicDomain": true,
+      "title": "Autumn Colors among Streams and Mountains",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "ink",
+      "id": "49179",
+      "path": "data\\art_originals\\ink\\49179.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP162807.jpg",
+      "size": [
+        4000,
+        2769
+      ],
+      "V3_thumbnail_size": [
+        599,
+        415
+      ],
+      "bytes": 2413045,
+      "sha256": "3d8ce497747536dbd74b7c9b55a920cf1679ba32ac365dded5825bfbd31fa3df",
+      "isPublicDomain": true,
+      "title": "Landscapes",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0,
+          0,
+          0.26,
+          0.51
+        ],
+        [
+          0.925,
+          0.78,
+          1,
+          1
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "ink",
+      "id": "49180",
+      "path": "data\\art_originals\\ink\\49180.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP162815.jpg",
+      "size": [
+        4000,
+        2377
+      ],
+      "V3_thumbnail_size": [
+        599,
+        356
+      ],
+      "bytes": 2169702,
+      "sha256": "d2ec1cb3e084e7e17cffbe27b7cf59cc9fe1f77f2d661e24c9365b71959bb0c9",
+      "isPublicDomain": true,
+      "title": "Landscapes of the Four Seasons",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0,
+          0,
+          0.125,
+          0.65
+        ],
+        [
+          0.9,
+          0,
+          1,
+          1
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "style": "ink",
+      "id": "51856",
+      "path": "data\\art_originals\\ink\\51856.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP-37449-002.jpg",
+      "size": [
+        4000,
+        2998
+      ],
+      "V3_thumbnail_size": [
+        599,
+        449
+      ],
+      "bytes": 4574057,
+      "sha256": "4ce2928bbb28f07f1bce12ab7015608bf698ec4453d85da3f6476c213524b9fa",
+      "isPublicDomain": true,
+      "title": "Landscape with Four Pines",
+      "painting_ROI_normalized": [
+        0.05,
+        0.13,
+        0.947,
+        0.88
+      ],
+      "exclusion_regions_normalized": [
+        [
+          0.48,
+          0.13,
+          0.575,
+          0.25
+        ],
+        [
+          0.045,
+          0.31,
+          0.105,
+          0.52
+        ],
+        [
+          0.045,
+          0.76,
+          0.175,
+          0.89
+        ],
+        [
+          0.895,
+          0.65,
+          0.955,
+          0.86
+        ]
+      ],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true,
+      "curation_fix": "Explicit central inscription and red collector seals; previous v2 missed these. No modification to source or old banks."
+    },
+    {
+      "style": "ink",
+      "id": "51858",
+      "path": "data\\art_originals\\ink\\51858.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP156825.jpg",
+      "size": [
+        1950,
+        1275
+      ],
+      "V3_thumbnail_size": [
+        600,
+        392
+      ],
+      "bytes": 226862,
+      "sha256": "29a94a1646bba06e2ae68288d503032b183ae577b91d97618e4bb942333c7617",
+      "isPublicDomain": true,
+      "title": "Landscape with Autumn Foliage",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true
+    },
+    {
+      "id": "436536",
+      "style": "vangogh",
+      "path": "data\\art_originals\\vangogh\\436536.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/ep/original/DP-17161-001.jpg",
+      "size": [
+        4000,
+        3233
+      ],
+      "title": "Women Picking Olives",
+      "isPublicDomain": true,
+      "sha256": "984b1c44b6e0fd7f78241d895d6db48221ffad7033509ee8736fac0a1428e448",
+      "painting_ROI_normalized": [
+        0.015,
+        0.02,
+        0.985,
+        0.98
+      ],
+      "exclusion_regions_normalized": [],
+      "allowed_semantics": "local texture only, no reference coordinate/shape transfer",
+      "use_for_training": true,
+      "purpose": "Actual image/title: Women Picking Olives; additional painting texture, not a portrait/skin ROI"
+    }
+  ],
+  "curation_status": "v3 fixes additional visible inscriptions/seals identified in actual full original images. Strict zero intersection required in new sampler/crops; old banks retained, not retroactively relabelled.",
+  "metadata_correction": "Earlier V3 narrative assigned wrong titles to436532/436535/436536. Verified actual images and saved Met titles:436532 Self-Portrait with a Straw Hat,436535 Wheat Field with Cypresses,436536 Women Picking Olives. V3 data unchanged.",
+  "exclusions": {
+    "49170": "The Sixteen Luohans pale figurative handscroll; V3 faint/blank samples are not a landscape/wet-wash reference"
+  },
+  "V3_unchanged": true,
+  "supersedes_manifest_sha256": "08bb2dc8e9c6b11559fc0ffb95659155d4d71b4ab7c11ef7d2b178701f50c2b1"
+}

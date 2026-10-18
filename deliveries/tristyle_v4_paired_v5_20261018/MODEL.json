@@ -1,0 +1,20 @@
+{
+  "version": "V4 project / paired V5 frozen candidate, 2026-10-18",
+  "model_family": "TriStyleV3 graph; switchable vangogh/ukiyoe/ink experts",
+  "parameter_count": 420993,
+  "parameter_storage_INT8_weights_INT32_bias_bytes": 442980,
+  "complete_integer_deployment_package_bytes": 495552,
+  "source_checkpoint_sha256": "df247a698a41783587cf37917c0b22477b54d3e0978942bd8a74fe916be7ca4f",
+  "fp32_sha256": "3de664d8c6962debf18d4fac390c2537a8845142d3f52fb419407942c6749f2d",
+  "integer_pack_sha256": "e789645674e7da5ccaa2c71414e31165e8c83102b08c6b2d6411b94cf51a1889",
+  "experts": {
+    "vangogh": "v7",
+    "ukiyoe": "r2",
+    "ink": "r2"
+  },
+  "QAT_steps": 600,
+  "reduced_mode": "internal 320x240; bilinear 2x display; reduced resolution, non4:3 inputs stretched",
+  "native_mode": "source dimensions with replicate padding to multiple8 and crop back",
+  "runtime": "CPU functional integer reference; oneDNN INT8; FP32; fake INT8",
+  "FPGA_real_time_performance_verified": false
+}

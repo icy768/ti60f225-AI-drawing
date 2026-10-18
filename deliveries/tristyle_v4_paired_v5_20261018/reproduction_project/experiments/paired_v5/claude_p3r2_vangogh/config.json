@@ -1,0 +1,626 @@
+{
+  "run": "claude_p3r2_vangogh",
+  "style": "vangogh",
+  "steps": 6000,
+  "batch": 8,
+  "init": "experiments/paired_v5/claude_p3r2_ukiyoe/step_006000.pt",
+  "target_root": "experiments/paired_v5/targets_claude_v6_full",
+  "legacy_diagnostic": false,
+  "train_count": 0,
+  "resume": false,
+  "eval_every": 2000,
+  "mixed_half": true,
+  "joint": false,
+  "continue_training_state": false,
+  "conditional_adv_w": 0.1,
+  "diag_target_root": "",
+  "adv_border": 16,
+  "coarse_weight": 3.0,
+  "weights": {
+    "pixel": [
+      2.0,
+      1.5,
+      1.5
+    ],
+    "coarse": 3.0,
+    "guide_perceptual": 0.1,
+    "orientation": [
+      100.0,
+      0.0,
+      30.0
+    ],
+    "brush_direction": [
+      4.0,
+      0.0,
+      2.0
+    ],
+    "equivariance": [
+      12.0,
+      5.0,
+      8.0
+    ],
+    "Sobel": [
+      0.0,
+      0.5,
+      0.0
+    ],
+    "temporal": 0.1
+  },
+  "phase": "P3",
+  "owner": "claude",
+  "trainer": "claude_train_paired.py (copy of train_paired.py 2F9AB36A + owner/diag-root/timebox-gate/adv<=.5)",
+  "init_sha256": "8259aaeb533dc1c6eea78c6bf7d1d1d32f2fd52ef050f8a487100d85844b50f2",
+  "source_adaptation": "baseline/source/continuation_impl/train_art.py",
+  "photo_content": 0,
+  "semantic": 0,
+  "head_edge": 0,
+  "critic": false,
+  "adversarial": 0,
+  "patch": 0,
+  "moment": 0,
+  "freeze_skip": false,
+  "suppress_skip": false,
+  "parameter_count": 420993,
+  "parameter_storage_INT8weights_INT32bias": 442980,
+  "promoted": false,
+  "sources": {
+    "D:\\fpga\\tristyle_v4_20261017\\experiments\\paired_v5\\conditional_patchgan.py": "e74d43ca3504d1ce731aff9c3412673be319dccf0ed982c75f6fc51aa39b0436",
+    "D:\\fpga\\tristyle_v4_20261017\\experiments\\paired_v5\\claude_train_paired.py": "34a6c3dce9dd52e87bf99932f8d6e426549d95fb14324084e82ced5ae06eabe5",
+    "D:\\fpga\\tristyle_v4_20261017\\experiments\\paired_v5\\fit_capacity.py": "4b8574871354143136b6f705a9d697b478232c8863b6773fd8a3fd42c51d498a",
+    "D:\\fpga\\tristyle_v4_20261017\\diagnostics\\v3_access.py": "c3414a83a32e1be7e69e81ae4541941ecb65dc048d505b4faa4289a6a153ff6e",
+    "D:\\fpga\\tristyle_v4_20261017\\baseline\\source\\continuation_impl\\train_art.py": "7deda5d3f1ee7c3b131aab5f7e0993ca816448de8ee6ea911c02ab060fc0aee7",
+    "D:\\fpga\\tristyle_v4_20261017\\baseline\\source\\claude_impl\\train.py": "df9872053bca35cfbf7a1ad4a159837e0faf2edef171ea429d07e2d606a43721",
+    "D:\\fpga\\tristyle_v4_20261017\\baseline\\source\\claude_impl\\model.py": "c98b9dbb515ee08dce8fce63944b0539d313ca5f31492a112dc40c8fd6ef170c",
+    "D:\\ClaudeTest\\guidance\\OWNER.json": "ad5754c0c0778d369ac5706df1b43ca7a46f60dfb56cc6e8c4b7d0ea2ab343d2",
+    "D:\\ClaudeTest\\guidance\\PLAN.md": "3a818a13d9e599fb4229ee0ee6cec97cd9c91a059be1f15a9ebff0a264234f2c",
+    "D:\\ClaudeTest\\guidance\\LATEST.md": "74438ad6fc5385f64de9adfc2417a60e9df9984d006d092741ecd4d4791b45c4"
+  },
+  "training_video": [
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00063.npz",
+      "sha256": "d6a170cd8cde760f5675bcf9b3201c12d6562de5273fd3c2210612c0b1359c15"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00066.npz",
+      "sha256": "aa707e084969ef3e7284c78ac28119d9ed210edb66b4f17ce4d96295e5736afe"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00069.npz",
+      "sha256": "81769f593a842b25e283ce035b3b8437c1151c606651da0f7ecb160613611c15"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00072.npz",
+      "sha256": "b81375018aed9542c64c87e0705b8276c4e4708bb50df7b23c98ebf73bbb47d9"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00075.npz",
+      "sha256": "212e211aca74a9b894b6cfb50aa018c9c8aa8437f699ef697b23bf36eb580e3e"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00078.npz",
+      "sha256": "7a24d63252e64585c950dafd69500401ac80e6096bdb3dce5a2ebb854d93d922"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00081.npz",
+      "sha256": "9d906cdb138248b19e556a556ad809e4f37823c8870d49a302a27a0ddb8a56ad"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00084.npz",
+      "sha256": "6af2fdabc6988dcd3201a3cd98d6f1b1e4b874b7d4b6c48ddec9123ae53f5d1d"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00087.npz",
+      "sha256": "d5dd2b7d232f6f510352bfe08e2ba6e3d96a372d1e0e1aaf0045e3dfb3a1eb9b"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00090.npz",
+      "sha256": "48652f170451535a5a58dd7e0f4f7d9f83a99f488ae50d2bb24d56fca3f669e5"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00093.npz",
+      "sha256": "02bf0efac2c34977619d8212be61c42c6425146841879c97376f8aa49f34d0a5"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00096.npz",
+      "sha256": "3b9565e15e0b6ab2e19bb1423810b235bbbd0c5fe25da808fa7e9a92908aa559"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00099.npz",
+      "sha256": "54b9fd1fb032dd58c082655540ea2e8045a37ea91e0affd29be53f20418cfe5c"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00102.npz",
+      "sha256": "bac375f906f3a9b711229d5669db7e9ed449216231fa0f8c9a74f4c15fa87182"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00105.npz",
+      "sha256": "eccf474cd9d0b8dfc2860ab883bf8a3f427bddf5ba6b2939b301c74de6ff8706"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00108.npz",
+      "sha256": "679412abce0a93bc2dfa84031321fe8b02b26743e8db3e1fc4e18a9c32929b0d"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00111.npz",
+      "sha256": "a3bd31a2166ff6099697b8b32c817ce89b11042edd5596b30e921f090de8fd3d"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00114.npz",
+      "sha256": "7d92d1371f4aee96f6f2ec8cddba8d3d342f35ccc48bc553d12781e289bbe74e"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00117.npz",
+      "sha256": "0b2356aaed07c2b7535ecb145bf333fe0ab7b6f8a91f78a5980e306223f31268"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00120.npz",
+      "sha256": "b1b314ff83f9730c9ac5542370ff2ab0e8e5650ef807d9f1f2994f424a76f192"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00123.npz",
+      "sha256": "d1883541905a3dbcb980fc99506e1b08bf50a2dcc7d775c421aded78fa705f51"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00126.npz",
+      "sha256": "c7736adbbd0ade3507e30853c8e9b7a92c0c61e47b4ef812703a0a86a8a837c3"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00129.npz",
+      "sha256": "aed0fbd144f1fc628a7e4e67efd838025aadc40ff787d852db580b8202b7b7a5"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00132.npz",
+      "sha256": "c595ea7dbde429631bf2cf0ee3d56837ea4ad780b7564205eae808bebabadda3"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00135.npz",
+      "sha256": "62b8da465adb1048c316836580a6617101bb549f05897f0bce3409b7465be0ad"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00138.npz",
+      "sha256": "1f1108aee947eb724c360658f3b8d3011b8ce7ae122f591567e2a25d5e55ff6e"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00141.npz",
+      "sha256": "aef7af85937884f4e4200fe190cf41a7d371cc89fe895a3a27e0d6b6a650ed81"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00144.npz",
+      "sha256": "8bbe5755b35901e1413d9d3b74469684770aa8dd754268824ec66e59814bd170"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00147.npz",
+      "sha256": "b6bb86d775961af08979763692e9680ca0f2132f6d50853460ada4775de7f295"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00150.npz",
+      "sha256": "0f39638b546bfada860ecc820895532e6e00872d5bc7d3d9b0bb84098b3f145c"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00153.npz",
+      "sha256": "71a338eb26436651a69f29bce750fad63c42134c1ee47a7d53d979751ec029eb"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00156.npz",
+      "sha256": "a61b354edb859455c6851bafd8f90f3fee189dca71a0fbd38c045e5e433035d9"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00159.npz",
+      "sha256": "c74042c8e5121e5134037ccd414fd3f4dfa93382ab8fa620ff789d3fd8946169"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00162.npz",
+      "sha256": "bc9aeb44568d0ea2299b251b4133f85af4434b8cd7197d1d9e219d2cd5117360"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00165.npz",
+      "sha256": "d449bed3b80040302573abb7a5e9b0b7430134036c5321721ca6a03a8fed4a66"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00168.npz",
+      "sha256": "0852de56de977b6f63b32545c1de59a0433378282c2db39c2ad3aa70f89847c9"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00171.npz",
+      "sha256": "c580b0f062161a30482565e75c7c3ccf19a05edbe3350b7bbd4e970ab018718f"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00174.npz",
+      "sha256": "f745e9798e69feef65cfc82afc9d49ba88b645e3a684e1ff8c0d64ae978918b4"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00177.npz",
+      "sha256": "0094470295230aa602cc6ca9506856bbf10598f1a24bd55f67fbe88bbe3870b4"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00180.npz",
+      "sha256": "2fc4706c0d237b1b9f324888b4f69dc50273b0f642306057c449120095aa07a1"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00183.npz",
+      "sha256": "df29fa0b3d2a21b00ec2725a54a47f6f3761ce4505ae8e14caea22da9c1fc5aa"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00186.npz",
+      "sha256": "0a0c42a6783ba8f4e73851b9462da3fdf29da68c0d23469dd2566ec536ce1336"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00189.npz",
+      "sha256": "1fc9af753840899aa7fe99adaeac06edbb11cf30cd8fd32f0c893b7b7effafd2"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00192.npz",
+      "sha256": "edbfbba383d3e9dd47fc59aa7549cbe2c29dba94b9f38fac4a6fe59ab0218d1a"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00195.npz",
+      "sha256": "e7bd870438f60e8af57147a8276d6261fdac47728e527d1b7ed7b69f78979085"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00198.npz",
+      "sha256": "73b59b7314710be375a3ad67c8021043ddc876b0a78ae1d8f0959a3c2f4f482e"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00201.npz",
+      "sha256": "3723650ba976112d283b6059f1d8374c320a3d92823bf6c9cf496ab3eb539017"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00204.npz",
+      "sha256": "e404a2bfdd5b201b2ed478a5c2029cb80f4f00bf8a8f16c5ae9b3b7aca7cb9b8"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00207.npz",
+      "sha256": "43d676e708c498e8f9b3b87c4e63c090293afeda537d815138226ec20be1b76c"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00210.npz",
+      "sha256": "60d773a3e415b312b4e82756f2e5fb8cd21f2e181a814140034cd287cd3b9aa6"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00213.npz",
+      "sha256": "9e0a32ee1e9e4bf38da59e116a0f80b9877805bf6e84ac618209b1594a4b0e7a"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00216.npz",
+      "sha256": "68d7b240f06e0b698dcb87affc40c9c3df460494e0d18b1de928dde6a38c5124"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00300.npz",
+      "sha256": "200219e61ee80642fa08da79ae5e338f4b4feccb5927ed75247caa3f779baddf"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00303.npz",
+      "sha256": "936f529a9ceaaf5f7006f4be36ea849bdcd5b0366b02b1349a344c5d32e08fcf"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00306.npz",
+      "sha256": "adb9ec2e54764323a60c5081104f33f098db5efdaac335280998b6ebc888a650"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00309.npz",
+      "sha256": "e584a1de86c629d5df184d8f6ae2077bbd9f8ef947e8c98ed81ee012dc58220d"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00312.npz",
+      "sha256": "08cc6e79b871c1438ac1ae360b543cd7d002713f6c41df4bf42977f5b35a980c"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00315.npz",
+      "sha256": "73fff87dd355410ff03999a1c53347c5adce93ab045062692e013b8109b37de5"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00318.npz",
+      "sha256": "25fe7f88c13d7b37096a2c01e8fc37514e1915a8e248f936cd48c8cf3801a9dd"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00321.npz",
+      "sha256": "89d3220e1a1404527a185f342fb012d90e461d703ea068f9fb9997ca177f7bea"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00324.npz",
+      "sha256": "ae672c66607efbbf5c3db6a2ed553a839c160f7ff81b0fe8488d4a03c42b3d17"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00327.npz",
+      "sha256": "cec959961862ffe14887f121fcfaae18cfbd22b8d3c63bb9b174726fa3cd2993"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00330.npz",
+      "sha256": "aa787599cadc1aadf4bce8a12635731037ac896cfaebfe282f208b1ac549deb3"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00333.npz",
+      "sha256": "d996262bcc71410ef5767b24c6f05ed27adf3f7b7b95d0be0f80f369e30dc435"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00336.npz",
+      "sha256": "3a5e18349c9b0bc6e6455bd5f47106306eca24b16ffe393347cd1cda7358697c"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00339.npz",
+      "sha256": "60c99c3dbb3888b665cdbd9840513c47b9e4c1091c4923990c0d616ac8fcb9dc"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00342.npz",
+      "sha256": "3a9f3a3ccf4e6b02a330ce9f38156b020530759f2d82adbdc5decdae423942d4"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00345.npz",
+      "sha256": "230566ec8ec1f698f16a52142b6d87280f8d7e1e094161efa516ab5100fee4c6"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00348.npz",
+      "sha256": "99fa0fe30b914ad331bea521fb4ffaa1dbd42a19fe70bd85b80e8164b86f5cb1"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00351.npz",
+      "sha256": "f9b85b6b9b9e26aaafe26391798ade66844caa229ed76ff9277cb2648f6e0bca"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00354.npz",
+      "sha256": "26577d4f692d33bae0bd2387cc522f3941dd6df83cb84e2033f7646bf93fb8b1"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00357.npz",
+      "sha256": "b0593102e10e9a6ccfe3251a75f5e8b30026400a9122cc7cb4bf362761a327ef"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00360.npz",
+      "sha256": "54532ade8621209b9ff5bf36c659c940b97d47540bc320ad4324cfc43a03f3f3"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00363.npz",
+      "sha256": "c1aca6043babb74c8ab7705c410a6cc563985b357208ae4cb74c6508ea7dc6da"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00399.npz",
+      "sha256": "3b8aa25256de56280c12021d8bc643255ef438edfc830883d6c74e4edaa29823"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00402.npz",
+      "sha256": "358a256eae5b3f208cf29a4ecdec362b9979f641d69fa5fa1352510b6761c12c"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00408.npz",
+      "sha256": "5a117a3518d5fccea0d4fa5396922808f0dbf879af3ddb5867494f409843ad5a"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00414.npz",
+      "sha256": "b03a41409aa7767c2062b39d4c16c2a80a42dffa56117704d0919dcbe7a51660"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00417.npz",
+      "sha256": "3dfcd3789ebff5ff39e88c1e06b697932e3fb92bc8734ca1496ee44b8106e174"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00450.npz",
+      "sha256": "aecbe4f9214ea3a4f5e640d6fbdf35c9bd72ccdc22f8bdc68c8eacd8d88cddb6"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00453.npz",
+      "sha256": "39e3d97ef92fe991972ec3334f3f11a2e86672c2e5f8d82e6fb0eb8467046439"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00456.npz",
+      "sha256": "a9e4295cbe1d352420a4fcd8e36b53479673296320faae08d5604e48a5e8eefc"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00459.npz",
+      "sha256": "bcdf0086ad53836f97561741e6c37fd0725feadb4a8eaa93d046f485e6f6d26a"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00462.npz",
+      "sha256": "4a69fc1fe656e781188dbd21cce9f905f5ca5da7f0f29b39b405a473c90a7b1d"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00465.npz",
+      "sha256": "70add85ec9741ddfb1e4d914649c80197f3bc2d3882eb4001d90a5a57c239d5d"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00468.npz",
+      "sha256": "145b3f3b7a96e33c9f76cf50246d128635833df9798eea737444766010303789"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00471.npz",
+      "sha256": "26e80fbeda4f90d75cc346d87179c1b8dcc4b0a84391b3780b3c8df7faf041ff"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00474.npz",
+      "sha256": "dc56f362caf42bd47dbb753eb51eb876468aff7a63ac79745eedd9448bf87271"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00477.npz",
+      "sha256": "a2781f9e92866911253f401cf51259c3f1a2b19d54fe556f0a0f78597332f429"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00480.npz",
+      "sha256": "97b73661940e84d148cdba82fe6ba3e59f16d884b23bc5b4107478655a6c78ce"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00483.npz",
+      "sha256": "101e6ce8340b96150e55202fc659eabec80af053422e1393a81ceed1cecb0f06"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00486.npz",
+      "sha256": "77709fe9111d4df2ae3fcf19955e4dcc96c25aaf9fdb020d77b28d82780f15bb"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00489.npz",
+      "sha256": "f56d293013910af784adccf5fc5bb2fe7d45d5d835c4d8b63bb6ec1f5fa59442"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00492.npz",
+      "sha256": "7cfefa0aef4628abf84d2ac8658407a496530245ca345ca7c011227ddd48a265"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00495.npz",
+      "sha256": "7c3b3a7e2a4d2f8e429a8670c6841f41c4f1d8b77fad35174e54e4fa5eb43a7e"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00498.npz",
+      "sha256": "e4bda7919b9d9257d74159de9511da11bf03ad09640b68e814d51efa0ae87732"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00501.npz",
+      "sha256": "9373bc620b253121829f1e5a34cade96ef5ca7ea48ae3cc36663eca1169f81a8"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00504.npz",
+      "sha256": "b0b9a3312f5a248e6d4b990b89388e880b4bb21aa7ceff5f1479fafa8244e1e2"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00507.npz",
+      "sha256": "316c1b8c5c888c1d13320db8e13e0b941a78c859dfd882ae3b1b986714340df3"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00510.npz",
+      "sha256": "a990c1a88a90dd5836fd3a64d9d74671005048566cef0b9d3561571d5254be28"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00537.npz",
+      "sha256": "90dd070325c85855e2ea069343e5963c126ca1af9545068ad6f93d8114f0e5de"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00540.npz",
+      "sha256": "8b8c1c7ac5e393bc8cdd8f08461b98c6370045dfdbac60ae3fc2d98451923981"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00543.npz",
+      "sha256": "dbd0b13e45abaa4fd090a57cfa06e8a265f9206fbe6012fe463b09437a0115fd"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00546.npz",
+      "sha256": "5ebbbee823efbc6f96ee3edeca47f964e62d9dfb04d39305b146fd31ea58158b"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00549.npz",
+      "sha256": "e4a6c13b377a70f0f4e4b7449936113cf076c47e9de979676eda0e4987d399a8"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00552.npz",
+      "sha256": "ddee01937fba718c2db2957f9a4cc88a5dc4cf220df3315bac080eb8e55cc77c"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00555.npz",
+      "sha256": "f1fa39a6d5ab85c688e6536ed7ed35f8513c76678ea59182aeff02253e5da9be"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00558.npz",
+      "sha256": "ff1f7a32641dd2086f69f4402a89865f17170956dea3c6ef68b19ea5a919ce53"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00561.npz",
+      "sha256": "200f9570833b235aadd0e329a8f96bc58ec9e4c25e254b7a275a0ecf1e5e370a"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00564.npz",
+      "sha256": "55bf6693f642fa1482a6d59bd0cb92b295f3db04080269f6b34c7bddf4cd8917"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00567.npz",
+      "sha256": "3bb27ed7a6fc2831b07f158b7326d0d55b061c398af5c5f25e0ef3e3cadbc365"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00570.npz",
+      "sha256": "efa8b66caa3f2ed42847870ca111e513d1083646d8eca7ad468ed68f4ed439ac"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00576.npz",
+      "sha256": "c99a76fc00b5b37562d785b13a24f64390610c29b54aa477ea9022f498aa08d8"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00579.npz",
+      "sha256": "492ef5fe1ad30749e9cda49154645288e3088612afc04c584f1cbb9107891e84"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00582.npz",
+      "sha256": "db5a7740d4ad88234593987fb17404e3c62692eff8c8bc66ca438a59c7eac2b2"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00585.npz",
+      "sha256": "0883a6708c1bcc69845d5b455c6712902bf505470c0e5cdef25d4b4ed0918d86"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00588.npz",
+      "sha256": "73893bd3a50cf15b3beb679cd0770f380cecc246e722beacb274dd59e5cb6287"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00591.npz",
+      "sha256": "615899306c123564086493da7c175400581b0eb1201cf35def8c27852ad9c7f0"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00594.npz",
+      "sha256": "12711bc7d6bd0bb3dbbae94b0fada55f19e6ad8b364505060626287d934b4887"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00597.npz",
+      "sha256": "3ee3f316d976efdc5fb0d285ba5d4a01861160f3283abde071f371dc982a557a"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00600.npz",
+      "sha256": "712bff775715add4c5cd45e58295c3c789eb4d3edba4dab288e7bc816b7db81e"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00603.npz",
+      "sha256": "cba1adf562316082939f5c44d1bbc4730fca149553fd34d867db6c9d19c8fded"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00606.npz",
+      "sha256": "f8f0105e2bc09d0bfe45e9f8e1ea768d8b7439b2d012b1cdd16f158219e4f313"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00609.npz",
+      "sha256": "79dc1ac302ee02dee34e6179e461798107280e2ba1d304139186c819514263b1"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00612.npz",
+      "sha256": "aa4a71b5f0f90792b73b12544aa7c7d1cb87ca57da1c3a72d6e8433027226304"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00615.npz",
+      "sha256": "5496498d5bcbb40c9456aab4f0d060be62028ae77c7ce71c9ede2a476759b489"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00618.npz",
+      "sha256": "6f30c5f6e9b2d6a86028cdb7b581e6cce47a6450257f3ede2dd55737e0cab46d"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\video\\train_pairs\\00624.npz",
+      "sha256": "903c4c22b21d5e0b2935a41f5d39a85af4e48fd02802125948d9ae7d187d6729"
+    }
+  ],
+  "conditional_critic": {
+    "enabled": true,
+    "max_G_weight": 0.1,
+    "channels": [
+      6,
+      64,
+      128,
+      256,
+      256,
+      1
+    ],
+    "kernels": 4,
+    "strides": [
+      2,
+      2,
+      2,
+      1,
+      1
+    ],
+    "spectral_norm": true,
+    "D_lr": 0.0002,
+    "D_betas": [
+      0.5,
+      0.999
+    ],
+    "loss": "hinge",
+    "warmup": 300,
+    "ramp": 500,
+    "real": "input,target ONLY",
+    "fake": "input,student ONLY",
+    "training_only_not_deployment": true
+  },
+  "P2_manifest_sha256": "1de682ce0bcc5fc49a9481b64a9c92a05242bb61426da4c7b86bee59b0502955",
+  "G1_approval_sha256": "61eba6d20f5e878ace8d70fcd0789b3aaed184488e1eff7455c3e7a50044729d"
+}

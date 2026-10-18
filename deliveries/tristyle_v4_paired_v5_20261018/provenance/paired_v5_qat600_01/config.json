@@ -1,0 +1,165 @@
+{
+  "phase": "P5",
+  "time": "2026-10-18T03:00:03.208782+08:00",
+  "checkpoint": "D:\\fpga\\tristyle_v4_20261017\\experiments\\paired_v5\\claude_p4_vangogh_v7\\step_006000.pt",
+  "checkpoint_sha256": "df247a698a41783587cf37917c0b22477b54d3e0978942bd8a74fe916be7ca4f",
+  "freeze_record": "D:\\fpga\\tristyle_v4_20261017\\reports\\paired_v5\\P5\\FREEZE.json",
+  "freeze_record_sha256": "995cd0c93e261e2e90f9c8defed3cd53e10c17acb028ad1582dcb3d08ff52d0d",
+  "steps": 600,
+  "batch": 1,
+  "lr": 3e-05,
+  "seed": 31,
+  "calibration": [
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000000285.jpg",
+      "sha256": "f3a2974ce3686332609124c70e3e6a2e3aca43fccf1cd1bd7c5c03820977f57d"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000000785.jpg",
+      "sha256": "83981537a7baeafbeb9c8cb67b3484dc26433f574b3685d021fa537e277e4726"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000000872.jpg",
+      "sha256": "c2aa138ee3a59b057a7ba6fc5a6a18e62af531aa7dab78a7bfd33c1cd7e55eb6"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000000885.jpg",
+      "sha256": "1c67b783f78b18ddb5dd20aaba4d4aacaf98e5277051688a96da096afa9cdf1f"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000001000.jpg",
+      "sha256": "24bb77a31928404e45a0454b06f6a0bd54a8db103590c9d7917288a1e0269f05"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000001268.jpg",
+      "sha256": "8e85a2e71ee512fe748a3a3be9bb40b8591e8c501c0f3896efcb5be5999ec236"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000001296.jpg",
+      "sha256": "34a98da7c11bc8811e6eec445145bb16f3d5f4338945ba116edcc1fe554d181b"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000001993.jpg",
+      "sha256": "039f3bfb862023bde7f835a36c32d8f59a3e66488863c2a47b7b746e78c44186"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000002153.jpg",
+      "sha256": "8795ff243cf20405bd442631d5d1cb7e60665dd459c8d57f5764333808dd49fd"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000002473.jpg",
+      "sha256": "2f1bfa7634a64f7999ba5488ec904ad1f85bbc63d0fe4b9fe35f52abbf8c5f4f"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000002592.jpg",
+      "sha256": "ffa3d472d44184b1f48878f7b097189723e57a24f36c44c29e4bc561110fbf41"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000003501.jpg",
+      "sha256": "9615e4dc9099e860748ce3f839ed077fa6a1fa39a10b909c00600bf4e2b3f392"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000005001.jpg",
+      "sha256": "99600c56dc25c72dc1cc1d1f2b09aa33b97142560b54d034fa83a38fcf3c5b0f"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000006012.jpg",
+      "sha256": "7cd0d627b15c09f373aa613d013fb2d8ae6bd20bcce0d98aa31b963e6bcca495"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000006723.jpg",
+      "sha256": "1d3ba71e9002721a2bc18791f3c86578d6de38fb61640803657276d53e73663f"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000006818.jpg",
+      "sha256": "99479f61ef2931ea70e161db0859e8706c6e48f13e8cb0798959f52433b01b98"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000007281.jpg",
+      "sha256": "57f3508e600d3370320487dde8665f208f11612a11caac0801c7f5fc19188ac3"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000007511.jpg",
+      "sha256": "105e70c573b87d7e3f034e1dc08cedcced39be4e52197139f52616c920dda3d7"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000007574.jpg",
+      "sha256": "4f26c847c2f49574978e96733efaec720dd1d1ba95a8220d0de012b7317eed47"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000007991.jpg",
+      "sha256": "63c6fae2e3defd4bc1c6f346806aef03eb11ccbd7c6bda3e479d1fbafd486db1"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000008021.jpg",
+      "sha256": "235537407867a7b894e78b3aecb55b33b14b64cbb23ca376a00d34c62a1a63a6"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000008690.jpg",
+      "sha256": "feca143d5e249b9fcaca7090c2400125ee19c7ad883c11fffe55e8bb451e7429"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000008762.jpg",
+      "sha256": "8b8aa2412ac3502dbb4b8a7d7987359d4049cf70e7177748e907e3ddfa3211ce"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000008844.jpg",
+      "sha256": "bd8133fe5862ea2b0b308db3c1d96b23012f2f667d43cb524d35ac1b710670a4"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000009483.jpg",
+      "sha256": "c7e6e15f4db067c3e09ab8605759be9d850e2d5c45ea4dfb9cda8f5d85308ea4"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000010092.jpg",
+      "sha256": "70eae5520682d2ad23ff01df57fc4f29cb3f5d4c1d63753d3b7f120f6a0d939b"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000011149.jpg",
+      "sha256": "5973b8f1d5a30de98b1dcb715f1c94928a676fff8e45283515d0474e51ac0abc"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000011511.jpg",
+      "sha256": "4e24ed1528891621658ff01d23e8a74735cd18720d41f7fd2264044497ad2a0e"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000012062.jpg",
+      "sha256": "319d58f0fa008d076b766671a5b607f94614f6005f773adced54a57567aa28fb"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000012120.jpg",
+      "sha256": "5078da2ea4554eb91703e5fa0339c4d0c875ded1783a8f4ee32ece2b558178c4"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000012280.jpg",
+      "sha256": "158ef0b15ff392039468263fa18735f81b39de9e8a7753e1e1aba7037262da56"
+    },
+    {
+      "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\raw\\val2017\\000000012667.jpg",
+      "sha256": "0bf182b59b89f534d6f89a2b57c976c47b7f9a95e5e47a7f236b285b9211af14"
+    }
+  ],
+  "splits_sha256": "9908b6755f366bc98b3762f7541e624b887e8a7454a312ff69461e09bc142be1",
+  "robust_calibration_percentiles": [
+    0.001,
+    0.999
+  ],
+  "freeze_activation": true,
+  "sources": {
+    "D:\\fpga\\tristyle_v4_20261017\\experiments\\paired_v5\\p5_preserve_qat.py": "c915b48a7590562300d89122b69d29397ea4b8c9bd1347169a6c72f218a8000f",
+    "D:\\fpga\\tristyle_v4_20261017\\baseline\\source\\claude_impl\\quantize.py": "61f33f6afa743dc3cd6909ece46cb05ce341e61f3ffc8b747177e9482b9c3f6a",
+    "D:\\fpga\\tristyle_v4_20261017\\baseline\\source\\claude_impl\\model.py": "c98b9dbb515ee08dce8fce63944b0539d313ca5f31492a112dc40c8fd6ef170c",
+    "D:\\fpga\\tristyle_v4_20261017\\baseline\\source\\claude_impl\\graph.py": "a39b3b83930a0589aab9028cbda5df89c9030448c482bebce154411b05e027b9",
+    "D:\\fpga\\tristyle_v4_20261017\\baseline\\source\\claude_impl\\int_contract.py": "f7da8195a0f9380bc0fed1efce0f808a875c09c6ed7e0a958fa5c3b749319d05",
+    "D:\\fpga\\tristyle_v4_20261017\\baseline\\source\\claude_impl\\train.py": "df9872053bca35cfbf7a1ad4a159837e0faf2edef171ea429d07e2d606a43721",
+    "D:\\fpga\\tristyle_v4_20261017\\experiments\\paired_v5\\consistent_qat.py": "0bf4dc440c57d3c16761ad60fa17a6d4d9fea03c837a0f6453816ea2dd5d2ee3",
+    "D:\\fpga\\tristyle_v4_20261017\\diagnostics\\v3_access.py": "c3414a83a32e1be7e69e81ae4541941ecb65dc048d505b4faa4289a6a153ff6e"
+  },
+  "weight_fake_quant": "ordinary FakeQuantize aligned to conversion observer; see P4/weight_qparam_fix_01",
+  "INT32_bias_simulation": "STE rounding in accumulator units; activation ranges frozen, no graph/parameter addition",
+  "objective": "preserve selected FP32 network; all loss terms reference its outputs",
+  "legacy_loader": "Loads old paired targets but they are unused in objective=preserve",
+  "artistic_passed": false,
+  "integer_retention_validated": false,
+  "warning": "600 steps and export completion alone are not an acceptance gate"
+}

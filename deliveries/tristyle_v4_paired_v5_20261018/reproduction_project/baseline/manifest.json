@@ -1,0 +1,21 @@
+{
+  "created": "2026-10-17T09:58:16.215208+08:00",
+  "V3_root": "D:\\fpga\\tristyle_fresh_20261016",
+  "baseline_hashes": {
+    "tristyle_v3_fp32.pt": "0c1a2390de7a6eae51b5d55b70f4f61561178004d0cb358cb3a004e580ec646c",
+    "tristyle_v3_int8.ts": "471318c3b88d917fddc60c7562c8ff1e3ccd50129da203bd911b52ba783c0d96",
+    "tristyle_v3_hw.bin": "c1df91494b2ee03769e9ad28f33e4714357ca88916670efc30de434d94effd34",
+    "tristyle_v3_all.bin": "bdc709435ca27b1544d16d988ad89b5947570a1844f7e37c600762618f131899",
+    "fake_int8_state.pt": "1486d8b7b3ad411dec21b91311ad8288f0a5ff48c251af053891a268005af4eb"
+  },
+  "V3_git_commit": "901534187b38d6e310032dfc686d2767bbd8bc0e",
+  "test_members": 17,
+  "heldout_video_frames": [
+    640,
+    789
+  ],
+  "V3_mutation_allowed": false,
+  "deadline": null,
+  "parameter_storage_limit_bytes_exclusive": 500000,
+  "byte_policy": "Count actual deployed learned tensor dtypes (e.g.INT8 weights/INT32 bias), also report FP32 bytes. Full package independently includes quant constants and graph."
+}

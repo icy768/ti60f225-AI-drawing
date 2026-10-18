@@ -1,0 +1,478 @@
+{
+  "quant.activation_post_process": [
+    0.0,
+    1.0
+  ],
+  "stem.conv.activation_post_process": [
+    0.0,
+    3.0484421253204346
+  ],
+  "d2dw.conv.activation_post_process": [
+    0.0,
+    2.832066774368286
+  ],
+  "d2pw.conv.activation_post_process": [
+    0.0,
+    2.9377291202545166
+  ],
+  "d4dw.conv.activation_post_process": [
+    0.0,
+    2.2257964611053467
+  ],
+  "d4pw.conv.activation_post_process": [
+    0.0,
+    1.5729883909225464
+  ],
+  "d8dw.conv.activation_post_process": [
+    0.0,
+    1.6956369876861572
+  ],
+  "d8pw.conv.activation_post_process": [
+    0.0,
+    0.7372440099716187
+  ],
+  "experts.0.s8.fuse.conv.activation_post_process": [
+    0.0,
+    0.5296754837036133
+  ],
+  "experts.0.s8.blocks.0.expand.conv.activation_post_process": [
+    0.0,
+    0.5199061036109924
+  ],
+  "experts.0.s8.blocks.0.dw.conv.activation_post_process": [
+    0.0,
+    0.462645947933197
+  ],
+  "experts.0.s8.blocks.0.project.conv.activation_post_process": [
+    -0.41233283281326294,
+    0.31648123264312744
+  ],
+  "experts.0.s8.blocks.0.add.activation_post_process": [
+    -0.41109129786491394,
+    0.5762606859207153
+  ],
+  "experts.0.s8.blocks.1.expand.conv.activation_post_process": [
+    0.0,
+    0.7659589052200317
+  ],
+  "experts.0.s8.blocks.1.dwh.conv.activation_post_process": [
+    0.0,
+    1.3616325855255127
+  ],
+  "experts.0.s8.blocks.1.dwv.conv.activation_post_process": [
+    0.0,
+    0.3338489830493927
+  ],
+  "experts.0.s8.blocks.1.project.conv.activation_post_process": [
+    -0.16614803671836853,
+    0.16465544700622559
+  ],
+  "experts.0.s8.blocks.1.add.activation_post_process": [
+    -0.4687689542770386,
+    0.5740282535552979
+  ],
+  "experts.0.s8.blocks.2.expand.conv.activation_post_process": [
+    0.0,
+    0.7825222611427307
+  ],
+  "experts.0.s8.blocks.2.dw.conv.activation_post_process": [
+    0.0,
+    0.36202099919319153
+  ],
+  "experts.0.s8.blocks.2.project.conv.activation_post_process": [
+    -0.2742879092693329,
+    0.2324773073196411
+  ],
+  "experts.0.s8.blocks.2.add.activation_post_process": [
+    -0.5362223982810974,
+    0.5637368559837341
+  ],
+  "experts.0.s4.cat.activation_post_process": [
+    -0.4784166216850281,
+    1.549849510192871
+  ],
+  "experts.0.s4.fuse.conv.activation_post_process": [
+    0.0,
+    1.1149232387542725
+  ],
+  "experts.0.s4.blocks.0.expand.conv.activation_post_process": [
+    0.0,
+    0.7682894468307495
+  ],
+  "experts.0.s4.blocks.0.dw.conv.activation_post_process": [
+    0.0,
+    0.7979719042778015
+  ],
+  "experts.0.s4.blocks.0.project.conv.activation_post_process": [
+    -0.6467998027801514,
+    0.5066132545471191
+  ],
+  "experts.0.s4.blocks.0.add.activation_post_process": [
+    -0.6236307621002197,
+    1.0865504741668701
+  ],
+  "experts.0.s4.blocks.1.expand.conv.activation_post_process": [
+    0.0,
+    1.0856801271438599
+  ],
+  "experts.0.s4.blocks.1.dwh.conv.activation_post_process": [
+    0.0,
+    1.792762041091919
+  ],
+  "experts.0.s4.blocks.1.dwv.conv.activation_post_process": [
+    0.0,
+    0.7209393978118896
+  ],
+  "experts.0.s4.blocks.1.project.conv.activation_post_process": [
+    -0.5834400653839111,
+    0.6314103007316589
+  ],
+  "experts.0.s4.blocks.1.add.activation_post_process": [
+    -0.813538670539856,
+    0.9505389928817749
+  ],
+  "experts.0.s2.cat.activation_post_process": [
+    -0.7891984581947327,
+    2.9152255058288574
+  ],
+  "experts.0.s2.fuse.conv.activation_post_process": [
+    0.0,
+    0.9218889474868774
+  ],
+  "experts.0.s2.blocks.0.expand.conv.activation_post_process": [
+    0.0,
+    1.2379329204559326
+  ],
+  "experts.0.s2.blocks.0.dw.conv.activation_post_process": [
+    0.0,
+    1.1211098432540894
+  ],
+  "experts.0.s2.blocks.0.project.conv.activation_post_process": [
+    -0.8075814843177795,
+    0.7189424633979797
+  ],
+  "experts.0.s2.blocks.0.add.activation_post_process": [
+    -0.7472124695777893,
+    1.2156323194503784
+  ],
+  "experts.0.s1.cat.activation_post_process": [
+    -0.6916924715042114,
+    3.0484421253204346
+  ],
+  "experts.0.s1.fuse.conv.activation_post_process": [
+    0.0,
+    1.6418185234069824
+  ],
+  "experts.0.dw1.conv.activation_post_process": [
+    0.0,
+    1.7342236042022705
+  ],
+  "experts.0.mix1.conv.activation_post_process": [
+    0.0,
+    1.1352736949920654
+  ],
+  "experts.0.head.conv.activation_post_process": [
+    -0.26903337240219116,
+    1.237226128578186
+  ],
+  "experts.1.s8.fuse.conv.activation_post_process": [
+    0.0,
+    0.5239685773849487
+  ],
+  "experts.1.s8.blocks.0.expand.conv.activation_post_process": [
+    0.0,
+    0.5538219213485718
+  ],
+  "experts.1.s8.blocks.0.dwh.conv.activation_post_process": [
+    0.0,
+    0.9726290702819824
+  ],
+  "experts.1.s8.blocks.0.dwv.conv.activation_post_process": [
+    0.0,
+    0.9107462167739868
+  ],
+  "experts.1.s8.blocks.0.project.conv.activation_post_process": [
+    -0.26033586263656616,
+    0.35960304737091064
+  ],
+  "experts.1.s8.blocks.0.add.activation_post_process": [
+    -0.26033586263656616,
+    0.5226435661315918
+  ],
+  "experts.1.s8.blocks.1.expand.conv.activation_post_process": [
+    0.0,
+    0.9930791258811951
+  ],
+  "experts.1.s8.blocks.1.dwh.conv.activation_post_process": [
+    0.0,
+    1.45657479763031
+  ],
+  "experts.1.s8.blocks.1.dwv.conv.activation_post_process": [
+    0.0,
+    0.3161916434764862
+  ],
+  "experts.1.s8.blocks.1.project.conv.activation_post_process": [
+    -0.16793398559093475,
+    0.22281309962272644
+  ],
+  "experts.1.s8.blocks.1.add.activation_post_process": [
+    -0.292294442653656,
+    0.4989785850048065
+  ],
+  "experts.1.s8.blocks.2.expand.conv.activation_post_process": [
+    0.0,
+    1.0342440605163574
+  ],
+  "experts.1.s8.blocks.2.dw.conv.activation_post_process": [
+    0.0,
+    2.0931286811828613
+  ],
+  "experts.1.s8.blocks.2.project.conv.activation_post_process": [
+    -0.7551349997520447,
+    0.8514068126678467
+  ],
+  "experts.1.s8.blocks.2.add.activation_post_process": [
+    -0.852538526058197,
+    0.9028075337409973
+  ],
+  "experts.1.s8.blocks.3.expand.conv.activation_post_process": [
+    0.0,
+    2.28609299659729
+  ],
+  "experts.1.s8.blocks.3.dwh.conv.activation_post_process": [
+    0.0,
+    1.7841227054595947
+  ],
+  "experts.1.s8.blocks.3.dwv.conv.activation_post_process": [
+    0.0,
+    0.9342113137245178
+  ],
+  "experts.1.s8.blocks.3.project.conv.activation_post_process": [
+    -0.5046544075012207,
+    0.45732372999191284
+  ],
+  "experts.1.s8.blocks.3.add.activation_post_process": [
+    -0.8167610168457031,
+    0.94444739818573
+  ],
+  "experts.1.s4.cat.activation_post_process": [
+    -0.7889611124992371,
+    1.5490831136703491
+  ],
+  "experts.1.s4.fuse.conv.activation_post_process": [
+    0.0,
+    1.3615190982818604
+  ],
+  "experts.1.s4.blocks.0.expand.conv.activation_post_process": [
+    0.0,
+    1.1020901203155518
+  ],
+  "experts.1.s4.blocks.0.dwh.conv.activation_post_process": [
+    0.0,
+    2.079683303833008
+  ],
+  "experts.1.s4.blocks.0.dwv.conv.activation_post_process": [
+    0.0,
+    0.7517641186714172
+  ],
+  "experts.1.s4.blocks.0.project.conv.activation_post_process": [
+    -0.44954487681388855,
+    0.4361121952533722
+  ],
+  "experts.1.s4.blocks.0.add.activation_post_process": [
+    -0.4421020448207855,
+    1.4458589553833008
+  ],
+  "experts.1.s2.cat.activation_post_process": [
+    -0.42068034410476685,
+    2.9152255058288574
+  ],
+  "experts.1.s2.fuse.conv.activation_post_process": [
+    0.0,
+    0.8679495453834534
+  ],
+  "experts.1.s2.blocks.0.expand.conv.activation_post_process": [
+    0.0,
+    1.105204463005066
+  ],
+  "experts.1.s2.blocks.0.dw.conv.activation_post_process": [
+    0.0,
+    1.382137656211853
+  ],
+  "experts.1.s2.blocks.0.project.conv.activation_post_process": [
+    -1.2139397859573364,
+    0.784288227558136
+  ],
+  "experts.1.s2.blocks.0.add.activation_post_process": [
+    -1.1423267126083374,
+    1.1160480976104736
+  ],
+  "experts.1.s1.cat.activation_post_process": [
+    -1.028832197189331,
+    3.0484421253204346
+  ],
+  "experts.1.s1.fuse.conv.activation_post_process": [
+    0.0,
+    2.1698343753814697
+  ],
+  "experts.1.dw1.conv.activation_post_process": [
+    0.0,
+    4.431866645812988
+  ],
+  "experts.1.mix1.conv.activation_post_process": [
+    0.0,
+    1.0626803636550903
+  ],
+  "experts.1.head.conv.activation_post_process": [
+    0.10482103377580643,
+    0.9950283765792847
+  ],
+  "experts.2.s8.fuse.conv.activation_post_process": [
+    0.0,
+    0.362322598695755
+  ],
+  "experts.2.s8.blocks.0.expand.conv.activation_post_process": [
+    0.0,
+    0.4176361560821533
+  ],
+  "experts.2.s8.blocks.0.dw.conv.activation_post_process": [
+    0.0,
+    0.357009619474411
+  ],
+  "experts.2.s8.blocks.0.project.conv.activation_post_process": [
+    -0.27415746450424194,
+    0.22870700061321259
+  ],
+  "experts.2.s8.blocks.0.add.activation_post_process": [
+    -0.27415746450424194,
+    0.38279688358306885
+  ],
+  "experts.2.s8.blocks.1.expand.conv.activation_post_process": [
+    0.0,
+    0.7239019274711609
+  ],
+  "experts.2.s8.blocks.1.dwh.conv.activation_post_process": [
+    0.0,
+    1.872918725013733
+  ],
+  "experts.2.s8.blocks.1.dwv.conv.activation_post_process": [
+    0.0,
+    0.9339107871055603
+  ],
+  "experts.2.s8.blocks.1.project.conv.activation_post_process": [
+    -0.36991819739341736,
+    0.3894798159599304
+  ],
+  "experts.2.s8.blocks.1.add.activation_post_process": [
+    -0.43587979674339294,
+    0.4300788640975952
+  ],
+  "experts.2.s8.blocks.2.expand.conv.activation_post_process": [
+    0.0,
+    0.903866171836853
+  ],
+  "experts.2.s8.blocks.2.dw.conv.activation_post_process": [
+    0.0,
+    0.6093761920928955
+  ],
+  "experts.2.s8.blocks.2.project.conv.activation_post_process": [
+    -0.3689054846763611,
+    0.42421433329582214
+  ],
+  "experts.2.s8.blocks.2.add.activation_post_process": [
+    -0.5879738926887512,
+    0.5626163482666016
+  ],
+  "experts.2.s4.cat.activation_post_process": [
+    -0.536445140838623,
+    1.5436805486679077
+  ],
+  "experts.2.s4.fuse.conv.activation_post_process": [
+    0.0,
+    1.355787992477417
+  ],
+  "experts.2.s4.blocks.0.expand.conv.activation_post_process": [
+    0.0,
+    1.2188005447387695
+  ],
+  "experts.2.s4.blocks.0.dwh.conv.activation_post_process": [
+    0.0,
+    1.6253193616867065
+  ],
+  "experts.2.s4.blocks.0.dwv.conv.activation_post_process": [
+    0.0,
+    0.74347984790802
+  ],
+  "experts.2.s4.blocks.0.project.conv.activation_post_process": [
+    -0.4134524166584015,
+    0.291429728269577
+  ],
+  "experts.2.s4.blocks.0.add.activation_post_process": [
+    -0.3932448625564575,
+    1.2491843700408936
+  ],
+  "experts.2.s4.blocks.1.expand.conv.activation_post_process": [
+    0.0,
+    1.8924585580825806
+  ],
+  "experts.2.s4.blocks.1.dw.conv.activation_post_process": [
+    0.0,
+    1.9044013023376465
+  ],
+  "experts.2.s4.blocks.1.project.conv.activation_post_process": [
+    -1.283074140548706,
+    1.57713782787323
+  ],
+  "experts.2.s4.blocks.1.add.activation_post_process": [
+    -1.4148097038269043,
+    1.762035608291626
+  ],
+  "experts.2.s2.cat.activation_post_process": [
+    -1.395114779472351,
+    2.9152255058288574
+  ],
+  "experts.2.s2.fuse.conv.activation_post_process": [
+    0.0,
+    1.6078888177871704
+  ],
+  "experts.2.s2.blocks.0.expand.conv.activation_post_process": [
+    0.0,
+    1.9865429401397705
+  ],
+  "experts.2.s2.blocks.0.dwh.conv.activation_post_process": [
+    0.0,
+    4.527294635772705
+  ],
+  "experts.2.s2.blocks.0.dwv.conv.activation_post_process": [
+    0.0,
+    1.4874669313430786
+  ],
+  "experts.2.s2.blocks.0.project.conv.activation_post_process": [
+    -1.2363141775131226,
+    0.8827399611473083
+  ],
+  "experts.2.s2.blocks.0.add.activation_post_process": [
+    -1.1714482307434082,
+    1.806535005569458
+  ],
+  "experts.2.s1.cat.activation_post_process": [
+    -1.0527915954589844,
+    3.0484421253204346
+  ],
+  "experts.2.s1.fuse.conv.activation_post_process": [
+    0.0,
+    2.1648783683776855
+  ],
+  "experts.2.dw1.conv.activation_post_process": [
+    0.0,
+    1.663106918334961
+  ],
+  "experts.2.mix1.conv.activation_post_process": [
+    0.0,
+    1.2907501459121704
+  ],
+  "experts.2.head.conv.activation_post_process": [
+    0.09088972955942154,
+    0.9775876402854919
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "source_training_run": "D:\\fpga\\tristyle_v4_20261017\\deployment\\paired_v5_qat600_01",
+  "qat_steps": 600,
+  "recovery": "CPU observer scale-cache reconciliation after GPU QAT; no retraining or FP parameter changes",
+  "source_fake_sha256": "527b1bd2fc8964b78fdb9cb5d5dcb95efea602c641ced689544f3cedfbba7c9f",
+  "source_fp32_sha256": "3de664d8c6962debf18d4fac390c2537a8845142d3f52fb419407942c6749f2d",
+  "original_config_sha256": "2726d0a963629ca9a45a5823b9fc8e08fc004f508ea8c545d9a82d3cdee2546f"
+}

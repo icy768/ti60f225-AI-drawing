@@ -1,0 +1,70 @@
+{
+  "architecture.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\architecture.png",
+    "sha256": "30417968a68448904fd9f50ba01bff2fa11531d9f95282dd30b2f2019fb59f75"
+  },
+  "architecture_street.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\architecture_street.png",
+    "sha256": "77ae44eead451423c7ad98edf64fcf16fbe640930bb31df6cd2e9c629acd03aa"
+  },
+  "edges.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\edges.png",
+    "sha256": "fe10d880ba2653ffab56ce84355c6161a98deb9bda56417f60eb1879ac6f6753"
+  },
+  "edges_buildings.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\edges_buildings.png",
+    "sha256": "9e827ddfee3d10b08d44446609f30195a9291bf1e0edb93284175092f1596b1f"
+  },
+  "edges_signals.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\edges_signals.png",
+    "sha256": "da9e6ff40c311eec4467718bdbbeab183960e0cd9fe7eacd898222ac47ed585e"
+  },
+  "indoor.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\indoor.png",
+    "sha256": "bc7c679e93a04b35aef5c5d644f0293d6aac8df7ccbba06f1d5bdddc0285050b"
+  },
+  "indoor_bathroom.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\indoor_bathroom.png",
+    "sha256": "33c268ab8f2c004f5142e74ed225cf6f205a8dcd80948770e4623cf952e9d155"
+  },
+  "person.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\person.png",
+    "sha256": "48d3711f1f40fbbd45b2e3720cf1c084b3b873e02bf292da08a312ca67cf2939"
+  },
+  "person_face.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\person_face.png",
+    "sha256": "5f269bc4d33161bf57a8366f1eeca10f301823fd445ab7eceb47e70ab272e97c"
+  },
+  "person_indoor.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\person_indoor.png",
+    "sha256": "08f260ef63bd25bf4e0a33b32cd2087dd5a92cd9c36a2649ebb71b5fd55e803f"
+  },
+  "plants.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\plants.png",
+    "sha256": "fd9c7159fab57641cc1f06f590cae3cea0540eec8df7345e99927404334b8774"
+  },
+  "plants_garden.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\plants_garden.png",
+    "sha256": "270a562a7b3a3b6c8921c582acaeb2bcd54c8a3f0f5cefe3668e0fa7c8866f65"
+  },
+  "sky.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\sky.png",
+    "sha256": "5f73974a1b73af2eaf2d9a60014fc167c0e41d4a13a34ca9bb138126991caf7f"
+  },
+  "sky_storm.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\sky_storm.png",
+    "sha256": "eca1701099d541a91dadfc993b1d806d9058b3321a904f3e069483be0c0c3883"
+  },
+  "water_day.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\water_day.png",
+    "sha256": "769fd330ac8902d64778be5c2448e7d45a85c943e8f2f1dc43a2b70ab861a883"
+  },
+  "water_night.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\water_night.png",
+    "sha256": "821bb798237d2621ace479f7b522eaf0f3a203f912c77730e75373516001e431"
+  },
+  "water_waves.png": {
+    "path": "D:\\fpga\\tristyle_fresh_20261016\\data\\test\\water_waves.png",
+    "sha256": "ee31a8d11ecc27bd17d71cf2b3c4a0e180086d38725ff3c28fcee0e14a5bdfb9"
+  }
+}
