@@ -4,9 +4,15 @@ StyleCam 将 **SC431HAI 摄像头**拍摄的实时画面转换为梵高、浮世
 
 本项目面向 2026 年全国大学生嵌入式芯片与系统设计竞赛 FPGA 赛道易灵思赛题一，重点是打通摄像头到显示器的完整实时链路，并在有限 FPGA 资源内兼顾画面、帧率和交互。
 
-> **进度口径 · 2026-10-15**
+> **当前主用与 V5 板测结论 · 2026-10-19**
 >
-> RISCV10 / V21b 已完成 RAM 下载后的 40 秒实机采样：640×480 风格处理 29.99～30fps，观察窗口内无新增跳帧，三次 UART 切风格到 HDMI 换帧确认最大 52.534ms。语音切风格与 Wi-Fi 手机预览已实现候选并通过代码审查、仿真及 FPGA 编译，**尚未上板验收、尚未合并**。按当前安排，先完成实机验证，再合并分支；所有现有分支保留。
+> 继续以 **RISCV11 AE/IN4 + V21b，ID `53430a0b`** 为主用版本。三风格短时实机采样 **29.99～30.01fps**，Flash 写入、独立逐字节回读及按 RESET_N 后自主启动已验证。配套工程和下载包在 [R11 分支](https://github.com/icy768/ti60f225-AI-drawing/tree/codex/release-riscv11-ae-in4-20261018)；[PR #6](https://github.com/icy768/ti60f225-AI-drawing/pull/6) 尚未合入 main，不能把板上主用版本与默认分支源码等同。物理断电、全部布局和长期压力测试仍待补验。
+>
+> V5 本地 R14 试验内部 **320×240**，梵高 / 浮世绘 / 水墨实测仅 **0.85 / 0.95 / 0.85fps**，推理约 **1.06～1.15 秒**。用户确认当前梵高画面正常、能随场景更新，但实时演示不通过。当前需先轻量化网络，暂不替换 R11 主工程。
+>
+> 详见 [V5 上板结果、资源问题与网络轻量化建议](FPGAProjects/docs/V5上板结论与网络轻量化建议_20261019.md)及[原始板测证据](FPGAProjects/docs/evidence/v5_board_20261019/README.md)。本次仅发布文档和精简证据，**不提交 V5 实验工程、RTL、权重、固件或 BIT，不合并功能分支**。[V5 交付 PR #5](https://github.com/icy768/ti60f225-AI-drawing/pull/5) 保持独立。
+>
+> 下文标注 RISCV10 / 2026-10-15 的性能、进度和资源表保留为历史记录；当前主用及 V5 的判断以上述说明和新报告为准。
 
 ## 项目能做什么
 
@@ -39,7 +45,7 @@ flowchart LR
 
 图中实线为已打通的主链路，虚线包含控制关系及待上板的交互扩展。中间特征通过片上行缓存和层间流水传递，DDR 用于输入帧、结果帧及显示缓冲；不是把全部中间特征逐层写回外存。
 
-## 分辨率、帧率与时延
+## 历史性能记录（RISCV10，2026-10-15）
 
 摄像头采集、网络处理和 HDMI 扫描是三项不同指标：
 
@@ -68,7 +74,7 @@ flowchart LR
 
 模型参数量小不等于整机 FPGA 占用小：图像行缓存、激活数据、归一化、RISC-V、DDR、摄像头和 HDMI 接口同样消耗资源。训练、量化、导出与历史评估见 [StyleCam 模型目录](FPGAProjects/StyleCam/README.md)。现有 PSNR/SSIM 是离线、指定参考图下的结果，不能直接作为屏幕观感、标准网络对比或官方评分。
 
-## 当前进度
+## 历史进度表（2026-10-15）
 
 | 工作项 | 状态 | 验证范围 / 剩余事项 |
 |---|---|---|
@@ -85,7 +91,7 @@ flowchart LR
 
 逐项赛题口径和证据入口见 [当前进度与赛题要求](FPGAProjects/docs/赛题指标与完成情况_20261015.md)。
 
-## 资源占用
+## 历史资源占用（RISCV10，2026-10-15）
 
 两列对应不同源码和构建，不能混用：
 
@@ -108,6 +114,8 @@ flowchart LR
 
 | 分支 | 代码范围 | 使用建议 |
 |---|---|---|
+| `codex/release-riscv11-ae-in4-20261018` | RISCV11 AE/IN4 + V21b，ID `53430a0b` | 当前主用；已验收范围见上文，PR #6 尚未合并 |
+| `codex/tristyle-v4-paired-v5-20261018` | V5 模型独立交付，PR #5 | 本地板测约 1fps；先轻量化，暂不替换主工程 |
 | `main` / `develop` | 既有 SCU09 / V21b 主线 | 本轮仅更新项目文档；尚未合入后续 RISC-V / RISCV10 功能 |
 | `feat/basic-requirements` | RISCV08，ID `53430a08` | 已固化并验收自主启动的恢复基线 |
 | `codex/resource-throughput-20261013` | RISCV10，ID `53430a0a` | 复现已保存的 VGA 约 30fps 主链路实机结果 |
@@ -133,12 +141,12 @@ RISC-V 版本控制台为 **115200 8N1**，串口号以本机实际枚举为准�
 
 ## 获取工程与构建
 
-建议按目标选择分支。下面以已保存实机证据的 RISCV10 为例：
+建议按目标选择分支。下面以当前主用 RISCV11 为例；该分支尚未合入 main：
 
 ```powershell
 git clone https://github.com/icy768/ti60f225-AI-drawing.git
 cd ti60f225-AI-drawing
-git switch codex/resource-throughput-20261013
+git switch codex/release-riscv11-ae-in4-20261018
 cd FPGAProjects/StyleCam_camera
 ```
 
@@ -147,7 +155,7 @@ cd FPGAProjects/StyleCam_camera
 主要工具为 Efinity 2026.1、Python 3、RISC-V GCC；RTL 回归使用 Icarus Verilog，ESP32 主机检查使用 g++，实际 ESP32 固件还需对应 Arduino ESP32 工具链。工具二进制和大型构建缓存不随仓库发布。
 
 ```powershell
-# 仅核对 RISCV10 下载包，不操作硬件
+# 仅核对所选 RISCV11 分支的配套下载包，不操作硬件
 .\program_ram.ps1 -CheckOnly
 
 # FPGA 离线构建；STYLECAM_EFINITY 可指定 Efinity 安装目录
@@ -157,7 +165,7 @@ python build.py pnr
 python build.py pgm
 ```
 
-构建脚本使用 ASCII 路径镜像，以避免工具处理中文路径的问题；可通过 `STYLECAM_BUILD_DIR` 指定构建目录。固件重建、RAM 下载和 Flash 恢复步骤请按所选版本说明执行。本轮仅整理与离线验证，没有新增硬件下载或 Flash 写入。
+构建脚本使用 ASCII 路径镜像，以避免工具处理中文路径的问题；可通过 `STYLECAM_BUILD_DIR` 指定构建目录。固件重建、RAM 下载和 Flash 恢复步骤请按所选版本说明执行。本次 GitHub 更新仅发布文档与精简证据。R11 已有 Flash 验证和本地 V5 RAM 试验的状态分别见上方说明，本次发布没有重新操作硬件。
 
 ## 目录导航
 
@@ -170,4 +178,4 @@ python build.py pgm
 | [FPGAProjects/docs](FPGAProjects/docs/赛题指标与完成情况_20261015.md) | 当前进度、性能口径、资源与历史交接记录 |
 | [docs/三人协作指南.md](docs/三人协作指南.md) | 分支职责、代码协作和合并前的验证约定 |
 
-下一步先验证创意交互候选的实际接线、ESP32 原生构建、预览持续传输、语音切换和主链路并发稳定性。验收记录完成后，再合并并清理已经失去独立用途的分支。
+下一步保持 R11/V21b 主用，按新报告先完成 V5 网络轻量化与同输入画质/帧率对比；创意交互候选继续按各自分支完成实机验证。功能替换、合并与分支清理另行处理。
