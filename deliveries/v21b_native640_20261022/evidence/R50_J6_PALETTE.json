@@ -1,0 +1,110 @@
+{
+  "colors_rgb8": [
+    [
+      249,
+      229,
+      201
+    ],
+    [
+      243,
+      223,
+      195
+    ],
+    [
+      231,
+      213,
+      185
+    ],
+    [
+      198,
+      176,
+      153
+    ],
+    [
+      131,
+      156,
+      155
+    ],
+    [
+      147,
+      113,
+      102
+    ],
+    [
+      95,
+      94,
+      96
+    ],
+    [
+      61,
+      99,
+      126
+    ],
+    [
+      50,
+      75,
+      100
+    ],
+    [
+      65,
+      65,
+      67
+    ]
+  ],
+  "sources": [
+    {
+      "style": "ukiyo_e",
+      "object_id": 39799,
+      "weight": 0.7,
+      "crop": [
+        0.04,
+        0.06,
+        0.96,
+        0.96
+      ],
+      "additional_center_crop_fraction": 1.0,
+      "source": "D:\\fpga\\v21b_return_20261021\\data\\styles_art\\ukiyo_e_hokusai_great_wave.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP141042.jpg",
+      "sha256": "b410eeec0473c4e63eef12434a5a7c4613401c6e18670718d7727f36a441495c",
+      "title": "Hokusai, Under the Wave off Kanagawa",
+      "transform": "color 1.20"
+    },
+    {
+      "style": "ukiyo_e",
+      "object_id": 36492,
+      "weight": 0.2,
+      "crop": [
+        0.04,
+        0.08,
+        0.96,
+        0.96
+      ],
+      "additional_center_crop_fraction": 1.0,
+      "source": "D:\\fpga\\v21b_return_20261021\\dataset_v2\\style_references\\ukiyo_e\\candidate\\met_36492_Katsushika_Hokusai_Storm_below_Mount_Fuji_Sanka_no_haku_u_from_the_series_Thirty-six_Views_of_Mount.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP140976.jpg",
+      "sha256": "5eecfe6970d0cc223a67e4f9dffc25fcd08053e2a0e310cf8fe5538a793d16d5",
+      "title": "Storm below Mount Fuji (Sanka no haku u), from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+      "transform": "color 1.20"
+    },
+    {
+      "style": "ukiyo_e",
+      "object_id": 45287,
+      "weight": 0.1,
+      "crop": [
+        0.04,
+        0.08,
+        0.96,
+        0.96
+      ],
+      "additional_center_crop_fraction": 1.0,
+      "source": "D:\\fpga\\v21b_return_20261021\\dataset_v2\\style_references\\ukiyo_e\\candidate\\met_45287_Utagawa_Kuniyoshi_Concise_Illustrated_Biography_of_Monk_Nichiren_Calming_the_Stormy_Sea_at_Ts.jpg",
+      "url": "https://images.metmuseum.org/CRDImages/as/original/DP124477.jpg",
+      "sha256": "0b4e5367f2508fc2f02e1f8920c6bbe4ee4dc9aec34844749efc311bccc75cec",
+      "title": "Concise Illustrated Biography of Monk Nichiren: Calming the Stormy Sea at Tsunoda in Exile to Sado Island",
+      "transform": "color 1.20"
+    }
+  ],
+  "method": "PIL median-cut10 from original v21 UK reference crops, equal256 squares; no heldout/input use",
+  "temperature": 0.01,
+  "preparation_note": "Initial selection included expanded metadata without crop; stopped KeyError before file write/training. Corrected to original three cropped references."
+}

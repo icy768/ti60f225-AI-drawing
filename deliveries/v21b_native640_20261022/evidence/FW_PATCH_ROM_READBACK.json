@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "lane": 0,
+      "bytes": 4096,
+      "vendor_read_matches_expected": true,
+      "sha256": "37356a7f75d117630dfc42a9aad53f903ba434fa95df81f7122261b53b62cb3b"
+    },
+    {
+      "lane": 1,
+      "bytes": 4096,
+      "vendor_read_matches_expected": true,
+      "sha256": "2d1e45887e6595ac16e41f397e8a4cd2c0895adb8ee8e147c0cacf1f7e334dda"
+    },
+    {
+      "lane": 2,
+      "bytes": 4096,
+      "vendor_read_matches_expected": true,
+      "sha256": "a4c602005729cd886619fe00d420ea49891cc18f149ffdaa450f710e8f8365fe"
+    },
+    {
+      "lane": 3,
+      "bytes": 4096,
+      "vendor_read_matches_expected": true,
+      "sha256": "d6bb4c4d6956ff17f0520f170fd78505ee0cbf8d93b434f9ff375d631e6f1b59"
+    }
+  ],
+  "reconstructed_matches_patched_binary": true,
+  "bit_order": "vendor vector low bit first within each byte; reversed each 8-bit group to reconstruct bytes",
+  "scope": "Vendor logical LBF BRAM read, not physical FPGA readback/board test"
+}

@@ -1,0 +1,268 @@
+{
+  "passed": true,
+  "time": "2026-10-22T16:54:37.898198+08:00",
+  "rows": [
+    {
+      "label": "patched",
+      "reference": null,
+      "files": {
+        "bit": {
+          "bytes": 3163617,
+          "sha256": "d05ca9a28994af523131805a1e427a622ce8dcedba1b386bb023052dbdd74475",
+          "payload_sha256": "b11ae670b5bcfd9cfe3de9ca07e42145361bf8a2478998afade9e0dbbe59dd7d",
+          "changed_decoded_bytes_vs_B": 834038,
+          "full_file_equal_to_B": false
+        },
+        "hex": {
+          "bytes": 3163677,
+          "sha256": "e357099aa9e3930b558ca453f71d367a279dae8d4909f6febfb181816af6ddd6",
+          "payload_sha256": "dfc326eb1ac232e60842c4a2b9f237bbc675cb9b81479787133dfa3aa6a68ed9",
+          "changed_decoded_bytes_vs_B": 834038,
+          "full_file_equal_to_B": false
+        }
+      }
+    },
+    {
+      "label": "idempotent",
+      "reference": "D:\\fpga\\v21b_return_20261021\\DP3\\FW_PATCH\\layout\\patched",
+      "files": {
+        "bit": {
+          "bytes": 3163617,
+          "sha256": "c30fde5f796ae159de6eefe55f0f1c2d981bf5d5100cb75567a82cf91341754d",
+          "payload_sha256": "b11ae670b5bcfd9cfe3de9ca07e42145361bf8a2478998afade9e0dbbe59dd7d",
+          "changed_decoded_bytes_vs_B": 834038,
+          "full_file_equal_to_B": false,
+          "configuration_payload_exact_to_reference": true
+        },
+        "hex": {
+          "bytes": 3163677,
+          "sha256": "98fbfa57188277316081d13044127abcccd6950f441bead413c8f8d3192668a7",
+          "payload_sha256": "dfc326eb1ac232e60842c4a2b9f237bbc675cb9b81479787133dfa3aa6a68ed9",
+          "changed_decoded_bytes_vs_B": 834038,
+          "full_file_equal_to_B": false,
+          "configuration_payload_exact_to_reference": true
+        }
+      }
+    },
+    {
+      "label": "restored",
+      "reference": "D:\\fpga\\v21b_return_20261021\\DP3\\D1B60\\outflow",
+      "files": {
+        "bit": {
+          "bytes": 3163617,
+          "sha256": "0515e0bcea5ffd84e7d11dba28c2500d5e63bdf849404922814b9419c47c1b82",
+          "payload_sha256": "623429e57f4bcebcf5e0e3ca719fb101df6d462f479118b7c5b162fb2a0d28e2",
+          "changed_decoded_bytes_vs_B": 0,
+          "full_file_equal_to_B": false,
+          "configuration_payload_exact_to_reference": true
+        },
+        "hex": {
+          "bytes": 3163677,
+          "sha256": "21b452e4ccde71171abdf3b5999964cc937ded477939c7184c1112468da5a999",
+          "payload_sha256": "90eff1366f730f189f1ffca1486433360dcf1927313a8f7aca1641eb41e4a14c",
+          "changed_decoded_bytes_vs_B": 0,
+          "full_file_equal_to_B": false,
+          "configuration_payload_exact_to_reference": true
+        }
+      }
+    }
+  ],
+  "steps": [
+    {
+      "args": [
+        "D:/bin/efx_bram_edit.exe",
+        "-j",
+        "ti60f225_oob.xml",
+        "-i",
+        "outflow/ti60f225_oob.raminfo.pb",
+        "-p",
+        "outflow/ti60f225_oob.place",
+        "-l",
+        "work_pnr/ti60f225_oob.lbf",
+        "-o",
+        "patched/ti60f225_oob.lbf",
+        "-f",
+        "Titanium",
+        "-m",
+        "update",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol0,D:/fpga/v21b_return_20261021/DP3/FW_PATCH/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol1,D:/fpga/v21b_return_20261021/DP3/FW_PATCH/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol2,D:/fpga/v21b_return_20261021/DP3/FW_PATCH/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol3,D:/fpga/v21b_return_20261021/DP3/FW_PATCH/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin"
+      ],
+      "rc": 0,
+      "log": "DP3\\FW_PATCH\\layout\\patched\\bram_update.log"
+    },
+    {
+      "args": [
+        "D:/bin/efx_pgm.exe",
+        "--interface_designer_settings",
+        "outflow/ti60f225_oob_or.ini",
+        "--periph",
+        "outflow/ti60f225_oob.lpf",
+        "--family",
+        "Titanium",
+        "--device",
+        "Ti60F225",
+        "--source",
+        "patched/ti60f225_oob.lbf",
+        "--dest",
+        "patched/ti60f225_oob.hex",
+        "--mode=active",
+        "--width=1",
+        "--enable_roms=on",
+        "--spi_low_power_mode=on",
+        "--io_weak_pullup=on",
+        "--oscillator_clock_divider=DIV8",
+        "--enable_crc_check=on",
+        "--bitstream_compression=on",
+        "--active_capture_clk_edge=posedge",
+        "--release_tri_then_reset=on",
+        "--enable_external_master_clock=off",
+        "--jtag_usercode=0xFFFFFFFF"
+      ],
+      "rc": 0,
+      "log": "DP3\\FW_PATCH\\layout\\patched\\generate.log"
+    },
+    {
+      "args": [
+        "D:/bin/efx_bram_edit.exe",
+        "-j",
+        "ti60f225_oob.xml",
+        "-i",
+        "outflow/ti60f225_oob.raminfo.pb",
+        "-p",
+        "outflow/ti60f225_oob.place",
+        "-l",
+        "patched/ti60f225_oob.lbf",
+        "-o",
+        "idempotent/ti60f225_oob.lbf",
+        "-f",
+        "Titanium",
+        "-m",
+        "update",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol0,D:/fpga/v21b_return_20261021/DP3/FW_PATCH/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol1,D:/fpga/v21b_return_20261021/DP3/FW_PATCH/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol2,D:/fpga/v21b_return_20261021/DP3/FW_PATCH/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol3,D:/fpga/v21b_return_20261021/DP3/FW_PATCH/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin"
+      ],
+      "rc": 0,
+      "log": "DP3\\FW_PATCH\\layout\\idempotent\\bram_update.log"
+    },
+    {
+      "args": [
+        "D:/bin/efx_pgm.exe",
+        "--interface_designer_settings",
+        "outflow/ti60f225_oob_or.ini",
+        "--periph",
+        "outflow/ti60f225_oob.lpf",
+        "--family",
+        "Titanium",
+        "--device",
+        "Ti60F225",
+        "--source",
+        "idempotent/ti60f225_oob.lbf",
+        "--dest",
+        "idempotent/ti60f225_oob.hex",
+        "--mode=active",
+        "--width=1",
+        "--enable_roms=on",
+        "--spi_low_power_mode=on",
+        "--io_weak_pullup=on",
+        "--oscillator_clock_divider=DIV8",
+        "--enable_crc_check=on",
+        "--bitstream_compression=on",
+        "--active_capture_clk_edge=posedge",
+        "--release_tri_then_reset=on",
+        "--enable_external_master_clock=off",
+        "--jtag_usercode=0xFFFFFFFF"
+      ],
+      "rc": 0,
+      "log": "DP3\\FW_PATCH\\layout\\idempotent\\generate.log"
+    },
+    {
+      "args": [
+        "D:/bin/efx_bram_edit.exe",
+        "-j",
+        "ti60f225_oob.xml",
+        "-i",
+        "outflow/ti60f225_oob.raminfo.pb",
+        "-p",
+        "outflow/ti60f225_oob.place",
+        "-l",
+        "patched/ti60f225_oob.lbf",
+        "-o",
+        "restored/ti60f225_oob.lbf",
+        "-f",
+        "Titanium",
+        "-m",
+        "update",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol0,D:/fpga/v21b_return_20261021/DP3/D1B60/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol1,D:/fpga/v21b_return_20261021/DP3/D1B60/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol2,D:/fpga/v21b_return_20261021/DP3/D1B60/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin",
+        "-b",
+        "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol3,D:/fpga/v21b_return_20261021/DP3/D1B60/fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin"
+      ],
+      "rc": 0,
+      "log": "DP3\\FW_PATCH\\layout\\restored\\bram_update.log"
+    },
+    {
+      "args": [
+        "D:/bin/efx_pgm.exe",
+        "--interface_designer_settings",
+        "outflow/ti60f225_oob_or.ini",
+        "--periph",
+        "outflow/ti60f225_oob.lpf",
+        "--family",
+        "Titanium",
+        "--device",
+        "Ti60F225",
+        "--source",
+        "restored/ti60f225_oob.lbf",
+        "--dest",
+        "restored/ti60f225_oob.hex",
+        "--mode=active",
+        "--width=1",
+        "--enable_roms=on",
+        "--spi_low_power_mode=on",
+        "--io_weak_pullup=on",
+        "--oscillator_clock_divider=DIV8",
+        "--enable_crc_check=on",
+        "--bitstream_compression=on",
+        "--active_capture_clk_edge=posedge",
+        "--release_tri_then_reset=on",
+        "--enable_external_master_clock=off",
+        "--jtag_usercode=0xFFFFFFFF"
+      ],
+      "rc": 0,
+      "log": "DP3\\FW_PATCH\\layout\\restored\\generate.log"
+    }
+  ],
+  "input_layout_files_exact": {
+    "ti60f225_oob.xml": true,
+    "work_pnr/ti60f225_oob.lbf": true,
+    "outflow/ti60f225_oob.place": true,
+    "outflow/ti60f225_oob.raminfo.pb": true,
+    "outflow/ti60f225_oob.lpf": true,
+    "outflow/ti60f225_oob_or.ini": true
+  },
+  "only_requested_edit": "CPU system_ramA four byte-lane BRAM initialization; no RTL, VG ROM, routing, netlist or constraints edit",
+  "payload_localization": "Vendor updater targeting named CPU BRAMs plus exact original-payload restoration; compressed/encrypted payload byte ranges are not independently decoded into physical regions.",
+  "full_file_A_identity_pass": false,
+  "header_note": "First 256 decoded text-header bytes may differ; no header rewriting or SHA normalization",
+  "resource_timing": "Referenced from unchanged local B routed layout:56824XLR/243RAM10/145DSP,+.240/+.026ns; not new PnR measurement",
+  "board_tested": false,
+  "full_boot_verified": false,
+  "adopted": false
+}

@@ -1,0 +1,9 @@
+WARNING: The environment variable EFINITY_USER_DIR_INI has been set to a path with non-ASCII character(s).
+The Efinity sofware may not function correctly with this configuration.
+Please redefine the EFINITY_USER_DIR_INI environment variable to a path with only ASCII characters.
+The following paths contain non-ASCII characters, which may cause incorrect flow results.
+	Efinity User Directory INI: C:\Users\≤Ã’‹∫≠\AppData\Local/efinity/user_dir.ini. Please move the file to a directory path with only ASCII characters.
+	Efinity User Directory: C:\Users\≤Ã’‹∫≠\.efinity. Please edit EFINITY_USER_DIR in C:\Users\≤Ã’‹∫≠\AppData\Local/efinity/user_dir.ini to point to a path with only ASCII characters.
+Creating D:\fpga\v21b_return_20261021\HD720\synth_1280\outflow
+Running: efx_run_map.py stylenet_hd_probe --family Titanium --device Ti60F225 --project_xml D:\fpga\v21b_return_20261021\HD720\synth_1280\stylenet_hd_probe.xml --output_dir outflow --work_dir work_syn --opt root=stylenet_top --opt veri_options=verilog_mode=verilog_2k,vhdl_mode=vhdl_2008 work-dir=work_syn write_efx_verilog=on
+   map :	PASS 

@@ -1,0 +1,96 @@
+{
+  "status": "BASELINE_REPRODUCTION_FAIL_NEW_BITSTREAM_DELIVERY_BLOCKED",
+  "runner_pid": null,
+  "pid": null,
+  "start": "2026-10-22T13:29:09.997862+08:00",
+  "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+  "steps": [
+    {
+      "flow": "interface",
+      "start": "2026-10-22T13:29:09.998862+08:00",
+      "args": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:/bin/efx_run.bat",
+        "ti60f225_oob.xml",
+        "--flow",
+        "interface"
+      ],
+      "rc": 0,
+      "end": "2026-10-22T13:29:34.960866+08:00"
+    },
+    {
+      "flow": "map",
+      "start": "2026-10-22T13:29:34.961916+08:00",
+      "args": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:/bin/efx_run.bat",
+        "ti60f225_oob.xml",
+        "--flow",
+        "map"
+      ],
+      "rc": 0,
+      "end": "2026-10-22T13:33:57.490128+08:00"
+    },
+    {
+      "flow": "pnr",
+      "start": "2026-10-22T13:33:57.491127+08:00",
+      "args": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:/bin/efx_run.bat",
+        "ti60f225_oob.xml",
+        "--flow",
+        "pnr",
+        "--pnr_opts",
+        "--router_max_iterations=120"
+      ],
+      "rc": 2,
+      "end": "2026-10-22T13:33:58.098680+08:00",
+      "failure_class": "LAUNCHER_ARGPARSE_NO_PNR_EXECUTED"
+    },
+    {
+      "flow": "pnr",
+      "start": "2026-10-22T13:35:02.928743+08:00",
+      "args": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:/bin/efx_run.bat",
+        "ti60f225_oob.xml",
+        "--flow",
+        "pnr",
+        "--pnr_opts",
+        "router_max_iterations=120"
+      ],
+      "rc": 1,
+      "end": "2026-10-22T13:35:04.164155+08:00",
+      "failure_class": "LAUNCHER_OPTION_REJECTED_BEFORE_PNR"
+    },
+    {
+      "flow": "pnr",
+      "start": "2026-10-22T13:36:20.128191+08:00",
+      "args": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:/bin/efx_run.bat",
+        "ti60f225_oob.xml",
+        "--flow",
+        "pnr",
+        "--pnr_opts",
+        "max_router_iterations=120"
+      ],
+      "rc": 0,
+      "end": "2026-10-22T13:42:13.482008+08:00"
+    }
+  ],
+  "board_programmed": false,
+  "updated_at": "2026-10-22T13:42:13.482008+08:00",
+  "end": "2026-10-22T13:42:13.482008+08:00",
+  "report": "BUILD_REPRODUCTION.json"
+}

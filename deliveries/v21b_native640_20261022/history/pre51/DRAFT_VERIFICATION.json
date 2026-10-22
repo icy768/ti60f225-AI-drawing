@@ -1,0 +1,19 @@
+{
+  "draft_files_sha_pass": true,
+  "expected_sha": {
+    "student.pt": "d0d19437fa91a8424a38baddc2f03d2bbf79bb6a93da94342fb8bef97fd907eb",
+    "qparams.npz": "32dfc6c4d0d639c9f46275fa307c5d1d5fcf71771c0d99a06f08fb2182067848",
+    "qparams.json": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+    "net_blob.bin": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b"
+  },
+  "stn1_header_pass": true,
+  "cfg_writes": 4050,
+  "cfg_words_all_exact": true,
+  "transport_crc32": "373deed7",
+  "matches_historical_board_crc_373deed7": true,
+  "limits": [
+    "Matching CRC32 supports historical consistency; not a new flash readback nor collision-resistant SHA binding of board memory.",
+    "No new board programming or hardware test.",
+    "Final MANIFEST deferred to LATEST47 21:00\u201323:00 finalization; deadline23:30."
+  ]
+}

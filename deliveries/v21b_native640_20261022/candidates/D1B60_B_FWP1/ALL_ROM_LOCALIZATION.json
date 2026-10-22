@@ -1,0 +1,155 @@
+{
+  "passed": true,
+  "scope": "All18 logical initialized memories returned by vendor LBF read; not physical FPGA readback or independently decoding compressed BIT byte ranges",
+  "requested_names": [
+    "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol0",
+    "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol1",
+    "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol2",
+    "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol3",
+    "display/g_native_font.osd_font/mem",
+    "display/osd_text/mem",
+    "engine/fast/in_update/g_compact.g_e[0].mem",
+    "engine/fast/in_update/g_compact.g_e[1].mem",
+    "engine/fast/in_update/g_compact.g_p[0].mem",
+    "engine/fast/in_update/g_compact.g_p[1].mem",
+    "engine/fast/in_update/g_compact.g_p[2].mem",
+    "engine/fast/in_update/g_compact.g_p[3].mem",
+    "engine/fast/in_update/g_compact.g_p[4].mem",
+    "engine/fast/in_update/g_compact.g_p[5].mem",
+    "engine/fast/in_update/g_compact.g_p[6].mem",
+    "engine/fast/in_update/g_compact.g_p[7].mem",
+    "engine/fast/in_update/g_compact.g_p[8].mem",
+    "engine/fast/in_update/g_compact.g_p[9].mem"
+  ],
+  "returned": 18,
+  "rows": [
+    {
+      "memory": "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol0",
+      "bits": 32768,
+      "changed_bits": 0,
+      "cpu_firmware": true,
+      "sha256": "991d0d4afe9d39f21c921fca3756f979649102a7f1c1982fd9a8d01d1057cbbc"
+    },
+    {
+      "memory": "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol1",
+      "bits": 32768,
+      "changed_bits": 2,
+      "cpu_firmware": true,
+      "sha256": "5133f05549b39ddf98673cfed41e49171a26eed39553c6804308ea7826b41b9f"
+    },
+    {
+      "memory": "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol2",
+      "bits": 32768,
+      "changed_bits": 14,
+      "cpu_firmware": true,
+      "sha256": "c72a43917d97fcf172ab685c9d835bb0d415a2f24c4cfff136e71e493b50d0fc"
+    },
+    {
+      "memory": "cpu/u_EfxSapphireSoc/system_ramA_logic/ram_symbol3",
+      "bits": 32768,
+      "changed_bits": 16,
+      "cpu_firmware": true,
+      "sha256": "bd4432bbff54c9fbc983c58f3ae1c47549d644105afcc1e3ce749e56e50bc752"
+    },
+    {
+      "memory": "display/g_native_font.osd_font/mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "795f2a6ada2a8ab02caf832b5db1b18dda326a55374ea646cf19a1e75d1c12c3"
+    },
+    {
+      "memory": "display/osd_text/mem",
+      "bits": 16384,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "868e6cb4fef076392822b31ba23e0b5df5c60bc939fb79693affc4fdaa3dfd59"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_e[0].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "a1923904de190bfdf4ec44935a0f213011f6898bfcd820916ea286858ab8ca7d"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_e[1].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "26cd505a24113d4329af438127bae2aa9ba8f2a41bc6eee945497f7e6cb069b7"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_p[0].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "d661931ed21a74b76ae93f99b46a973052607c99ffdf1131e73a1503bcb3b299"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_p[1].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "98cca3b386f47837f82d2d954fead822e7fbf7dd02a1ee2ec9a4bf77871af265"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_p[2].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "d475842b8515623893d2b8cd9fb19143c43c2dacc4700cde50af6bab848bdefa"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_p[3].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "c6974b279044bcd61ae38366478cc6e74b781dfe9f874eee0893a9652c563baf"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_p[4].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "1c5839afa1e9576f074596901c77ecbd6027d9777dedac9d9d8456615e314d60"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_p[5].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "03e3d0eb866d3cf0c71c11f90557945cd1cdc9d543c5478e7e131cb9e4fdf2a1"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_p[6].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "4294636b380d436c059985bee52caff6320d8358ad87bcf8b0cd7185e301a513"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_p[7].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "6c8b4753828d44b6ba5c58534c8bb9b3e1a914e0cf04d01b1c8271d58bd73fc0"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_p[8].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "b5d1967112f3d9c4e041f290c691a43012c636374f797374eeb7298135af6e56"
+    },
+    {
+      "memory": "engine/fast/in_update/g_compact.g_p[9].mem",
+      "bits": 10240,
+      "changed_bits": 0,
+      "cpu_firmware": false,
+      "sha256": "118d16fd97ee57c195399749a3ee57e46b4fbfb2c73e4876fc8d9fc7ab4f84f9"
+    }
+  ],
+  "only_cpu_memories_changed": true,
+  "initial_enumeration_failure": "First string-derived list included physical alias display/g_native_font.osd_font/i376/mem; tool rejected alias before read, log preserved. Corrected to18 logical memories."
+}

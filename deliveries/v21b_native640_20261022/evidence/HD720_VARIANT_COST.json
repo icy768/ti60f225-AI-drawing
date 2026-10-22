@@ -1,0 +1,993 @@
+{
+  "time": "2026-10-22T12:51:39.561015+08:00",
+  "variants": [
+    {
+      "C": 24,
+      "Fc": 16,
+      "GI": 4,
+      "MAC_per_output_pixel": 1104.0,
+      "GMAC_s_720p30": 30.523392,
+      "MAC_lanes_aggregate_ideal_lower_bound": 208,
+      "line_bits": 1116160,
+      "line_RAM10_bitcapacity_lower_bound": 109,
+      "layers": [
+        {
+          "layer": 0,
+          "cin": 3,
+          "cout": 16,
+          "wh": [
+            1280,
+            720
+          ],
+          "gi": 3,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 99532800,
+          "ideal_mac_lanes_lower_bound": 20,
+          "dense_pe_lower_bound": 7,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 92160
+        },
+        {
+          "layer": 1,
+          "cin": 16,
+          "cout": 24,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 199065600,
+          "ideal_mac_lanes_lower_bound": 40,
+          "dense_pe_lower_bound": 10,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 245760
+        },
+        {
+          "layer": 2,
+          "cin": 24,
+          "cout": 24,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 12441600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 122880
+        },
+        {
+          "layer": 3,
+          "cin": 24,
+          "cout": 24,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 33177600,
+          "ideal_mac_lanes_lower_bound": 7,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 4,
+          "cin": 24,
+          "cout": 24,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 12441600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 122880
+        },
+        {
+          "layer": 5,
+          "cin": 24,
+          "cout": 24,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 33177600,
+          "ideal_mac_lanes_lower_bound": 7,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 6,
+          "cin": 24,
+          "cout": 24,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 12441600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 122880
+        },
+        {
+          "layer": 7,
+          "cin": 24,
+          "cout": 24,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 33177600,
+          "ideal_mac_lanes_lower_bound": 7,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 8,
+          "cin": 24,
+          "cout": 24,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 12441600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 122880
+        },
+        {
+          "layer": 9,
+          "cin": 24,
+          "cout": 24,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 33177600,
+          "ideal_mac_lanes_lower_bound": 7,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 10,
+          "cin": 24,
+          "cout": 24,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 49766400,
+          "ideal_mac_lanes_lower_bound": 10,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": false,
+          "line_bits": 122880
+        },
+        {
+          "layer": 11,
+          "cin": 24,
+          "cout": 16,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 4,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 88473600,
+          "ideal_mac_lanes_lower_bound": 18,
+          "dense_pe_lower_bound": 5,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 12,
+          "cin": 16,
+          "cout": 12,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 398131200,
+          "ideal_mac_lanes_lower_bound": 80,
+          "dense_pe_lower_bound": 20,
+          "pe_exceeds_cout": true,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 163840
+        }
+      ],
+      "scope": "analytical necessary bounds; no new trained model, no resource fit or art claim"
+    },
+    {
+      "C": 16,
+      "Fc": 12,
+      "GI": 4,
+      "MAC_per_output_pixel": 697.0,
+      "GMAC_s_720p30": 19.270656,
+      "MAC_lanes_aggregate_ideal_lower_bound": 131,
+      "line_bits": 808960,
+      "line_RAM10_bitcapacity_lower_bound": 79,
+      "layers": [
+        {
+          "layer": 0,
+          "cin": 3,
+          "cout": 12,
+          "wh": [
+            1280,
+            720
+          ],
+          "gi": 3,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 74649600,
+          "ideal_mac_lanes_lower_bound": 15,
+          "dense_pe_lower_bound": 5,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 92160
+        },
+        {
+          "layer": 1,
+          "cin": 12,
+          "cout": 16,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 99532800,
+          "ideal_mac_lanes_lower_bound": 20,
+          "dense_pe_lower_bound": 5,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 184320
+        },
+        {
+          "layer": 2,
+          "cin": 16,
+          "cout": 16,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 8294400,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 81920
+        },
+        {
+          "layer": 3,
+          "cin": 16,
+          "cout": 16,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 14745600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 1,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 4,
+          "cin": 16,
+          "cout": 16,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 8294400,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 81920
+        },
+        {
+          "layer": 5,
+          "cin": 16,
+          "cout": 16,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 14745600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 1,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 6,
+          "cin": 16,
+          "cout": 16,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 8294400,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 81920
+        },
+        {
+          "layer": 7,
+          "cin": 16,
+          "cout": 16,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 14745600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 1,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 8,
+          "cin": 16,
+          "cout": 16,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 8294400,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 81920
+        },
+        {
+          "layer": 9,
+          "cin": 16,
+          "cout": 16,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 14745600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 1,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 10,
+          "cin": 16,
+          "cout": 16,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 33177600,
+          "ideal_mac_lanes_lower_bound": 7,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": false,
+          "line_bits": 81920
+        },
+        {
+          "layer": 11,
+          "cin": 16,
+          "cout": 12,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 4,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 44236800,
+          "ideal_mac_lanes_lower_bound": 9,
+          "dense_pe_lower_bound": 3,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 12,
+          "cin": 12,
+          "cout": 12,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 4,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 298598400,
+          "ideal_mac_lanes_lower_bound": 60,
+          "dense_pe_lower_bound": 15,
+          "pe_exceeds_cout": true,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 122880
+        }
+      ],
+      "scope": "analytical necessary bounds; no new trained model, no resource fit or art claim"
+    },
+    {
+      "C": 14,
+      "Fc": 8,
+      "GI": 2,
+      "MAC_per_output_pixel": 473.0,
+      "GMAC_s_720p30": 13.077504,
+      "MAC_lanes_aggregate_ideal_lower_bound": 94,
+      "line_bits": 655360,
+      "line_RAM10_bitcapacity_lower_bound": 64,
+      "layers": [
+        {
+          "layer": 0,
+          "cin": 3,
+          "cout": 8,
+          "wh": [
+            1280,
+            720
+          ],
+          "gi": 3,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 49766400,
+          "ideal_mac_lanes_lower_bound": 10,
+          "dense_pe_lower_bound": 4,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 92160
+        },
+        {
+          "layer": 1,
+          "cin": 8,
+          "cout": 14,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 58060800,
+          "ideal_mac_lanes_lower_bound": 12,
+          "dense_pe_lower_bound": 6,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 122880
+        },
+        {
+          "layer": 2,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 7257600,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 71680
+        },
+        {
+          "layer": 3,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 11289600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 4,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 7257600,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 71680
+        },
+        {
+          "layer": 5,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 11289600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 6,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 7257600,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 71680
+        },
+        {
+          "layer": 7,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 11289600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 8,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 7257600,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 71680
+        },
+        {
+          "layer": 9,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 11289600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 10,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 29030400,
+          "ideal_mac_lanes_lower_bound": 6,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": false,
+          "line_bits": 71680
+        },
+        {
+          "layer": 11,
+          "cin": 14,
+          "cout": 8,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 2,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 25804800,
+          "ideal_mac_lanes_lower_bound": 6,
+          "dense_pe_lower_bound": 3,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 12,
+          "cin": 8,
+          "cout": 12,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 199065600,
+          "ideal_mac_lanes_lower_bound": 40,
+          "dense_pe_lower_bound": 20,
+          "pe_exceeds_cout": true,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 81920
+        }
+      ],
+      "scope": "analytical necessary bounds; no new trained model, no resource fit or art claim"
+    },
+    {
+      "C": 14,
+      "Fc": 10,
+      "GI": 2,
+      "MAC_per_output_pixel": 563.25,
+      "GMAC_s_720p30": 15.572736,
+      "MAC_lanes_aggregate_ideal_lower_bound": 111,
+      "line_bits": 706560,
+      "line_RAM10_bitcapacity_lower_bound": 69,
+      "layers": [
+        {
+          "layer": 0,
+          "cin": 3,
+          "cout": 10,
+          "wh": [
+            1280,
+            720
+          ],
+          "gi": 3,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 62208000,
+          "ideal_mac_lanes_lower_bound": 13,
+          "dense_pe_lower_bound": 5,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 92160
+        },
+        {
+          "layer": 1,
+          "cin": 10,
+          "cout": 14,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 72576000,
+          "ideal_mac_lanes_lower_bound": 15,
+          "dense_pe_lower_bound": 8,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 153600
+        },
+        {
+          "layer": 2,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 7257600,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 71680
+        },
+        {
+          "layer": 3,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 11289600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 4,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 7257600,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 71680
+        },
+        {
+          "layer": 5,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 11289600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 6,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 7257600,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 71680
+        },
+        {
+          "layer": 7,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 11289600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 8,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 7257600,
+          "ideal_mac_lanes_lower_bound": 2,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": true,
+          "line_bits": 71680
+        },
+        {
+          "layer": 9,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 11289600,
+          "ideal_mac_lanes_lower_bound": 3,
+          "dense_pe_lower_bound": 2,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 10,
+          "cin": 14,
+          "cout": 14,
+          "wh": [
+            320,
+            180
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": true,
+          "mac_frame": 29030400,
+          "ideal_mac_lanes_lower_bound": 6,
+          "dense_pe_lower_bound": null,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": false,
+          "line_bits": 71680
+        },
+        {
+          "layer": 11,
+          "cin": 14,
+          "cout": 10,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 2,
+          "k": 1,
+          "dw": false,
+          "mac_frame": 32256000,
+          "ideal_mac_lanes_lower_bound": 7,
+          "dense_pe_lower_bound": 4,
+          "pe_exceeds_cout": false,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 0
+        },
+        {
+          "layer": 12,
+          "cin": 10,
+          "cout": 12,
+          "wh": [
+            640,
+            360
+          ],
+          "gi": 2,
+          "k": 3,
+          "dw": false,
+          "mac_frame": 248832000,
+          "ideal_mac_lanes_lower_bound": 50,
+          "dense_pe_lower_bound": 25,
+          "pe_exceeds_cout": true,
+          "dw_original_serial_gi_capacity_sufficient": null,
+          "line_bits": 102400
+        }
+      ],
+      "scope": "analytical necessary bounds; no new trained model, no resource fit or art claim"
+    }
+  ]
+}

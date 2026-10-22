@@ -1,0 +1,21 @@
+{
+  "int8_weight_count_and_bytes": 9384,
+  "float32_affine_count": 1632,
+  "float32_affine_bytes": 6528,
+  "int32_bias_count": 12,
+  "int32_bias_bytes": 48,
+  "learning_parameter_count": 11028,
+  "encoded_parameter_bytes_int8_fp32affine_int32bias": 15960,
+  "under500000": true,
+  "complete_transport_blob_bytes": 48616,
+  "complete_blob_sha256": "84aeb3bae88b4c883a5ff8c8111b289f129359cb82d89df49219a743f14587bd",
+  "limits": "Parameter storage count is declared encoding; transport blob contains headers/config/multiple slots, not 11028 bytes; board CRC binding not newly verified.",
+  "byte_count_15960_status": "Declared encoding calculation, not independently measured FPGA storage; actual complete transport file below is measured.",
+  "transport_crc32_calculated": "20d4d7eb",
+  "transport_complete_under500000": true,
+  "board_crc_373deed7_binding_verified": "Historical rollback only; selected new blob not board tested",
+  "matches_historical_board_crc_373deed7": false,
+  "delivery_network": "D1B60_B_FWP1",
+  "rollback_blob_sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b",
+  "rollback_transport_crc32": "373deed7"
+}

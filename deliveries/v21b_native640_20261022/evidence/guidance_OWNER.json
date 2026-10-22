@@ -1,0 +1,9 @@
+{
+  "owner": "codex",
+  "since": "2026-10-18T21:30:00+08:00",
+  "reason": "v7 \u8fed\u4ee3\uff08\u622a\u6b62 2026-10-19 18:00\uff09\uff1aCodex \u5b9e\u65bd\uff0cClaude \u76d1\u7763\uff1bCodex \u989d\u5ea6\u8017\u5c3d\u65f6 Claude \u4e0d\u63a5\u624b\uff0c\u53ea\u786e\u8ba4\u662f\u989d\u5ea6\u6682\u505c\u5e76\u5728\u6062\u590d\u524d\u66f4\u65b0\u8bca\u65ad/\u65b9\u6848",
+  "handoff_doc": null,
+  "claude_running_jobs": [],
+  "note": "\u6267\u884c\u4efb\u4f55\u542f\u52a8/\u505c\u6b62\u8fdb\u7a0b\u6216\u8bad\u7ec3\u524d\u5148\u8bfb\u672c\u6587\u4ef6\u3002v5\u3001v6 \u7684 release \u53ea\u8bfb\u3002\u73b0\u884c\u65b9\u6848 PLAN.md v5\u3002",
+  "deadline": "2026-10-19T18:00:00+08:00"
+}

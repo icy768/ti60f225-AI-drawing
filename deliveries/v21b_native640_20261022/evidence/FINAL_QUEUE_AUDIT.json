@@ -1,0 +1,51 @@
+{
+  "read_at": "2026-10-22T18:35:50.538900+08:00",
+  "queues": {
+    "QUEUE_R44.json": {
+      "status": "COMPLETE_AWAIT_VISUAL_REVIEW",
+      "pid": null,
+      "queue_pid": null
+    },
+    "QUEUE_R45.json": {
+      "status": "COMPLETE_AWAIT_VISUAL_REVIEW",
+      "pid": null,
+      "queue_pid": null
+    },
+    "QUEUE_R45_CAL.json": {
+      "status": "INTERRUPTED_NO_LIVE_PROCESS",
+      "pid": null,
+      "queue_pid": null
+    },
+    "QUEUE_R46_RECOVERY.json": {
+      "status": "COMPLETE_AWAIT_VISUAL_REVIEW",
+      "pid": null,
+      "queue_pid": null
+    },
+    "QUEUE_R47_J3.json": {
+      "status": "TRAIN_FAILED",
+      "pid": null,
+      "queue_pid": null
+    },
+    "QUEUE_R47_UK_REPAIR.json": {
+      "status": "COMPLETE_AWAIT_VISUAL_REVIEW",
+      "pid": null,
+      "queue_pid": null
+    },
+    "QUEUE_R48_J4.json": {
+      "status": "COMPLETE_AWAIT_VISUAL_REVIEW",
+      "pid": null,
+      "queue_pid": null
+    },
+    "QUEUE_R49_J5.json": {
+      "status": "COMPLETE_AWAIT_VISUAL_REVIEW",
+      "pid": null,
+      "queue_pid": null
+    },
+    "QUEUE_R50_J6.json": {
+      "status": "COMPLETE_AWAIT_VISUAL_REVIEW",
+      "pid": null,
+      "queue_pid": null
+    }
+  },
+  "no_jobs_started_or_stopped": true
+}

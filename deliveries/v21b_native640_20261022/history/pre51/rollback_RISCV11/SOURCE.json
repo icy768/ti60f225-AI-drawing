@@ -1,0 +1,27 @@
+{
+  "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+  "path": "FPGAProjects/\u70e7\u5f55\u6587\u4ef6/20261018_RISCV11_Main_AE_IN4_Release/",
+  "files": {
+    "StyleCam_RISCV11_Main_AE_IN4.bit": {
+      "bytes": 3161427,
+      "sha256": "0b7c2d11f0ee3ae176721b208d0d4934191479b80d708f803787c0234835e3f4"
+    },
+    "StyleCam_RISCV11_Main_AE_IN4.hex": {
+      "bytes": 3161487,
+      "sha256": "cabfc39c999af9f6450d46c5ae3c31cd318b7c9701874d29a187f7d1d73ea826"
+    },
+    "stylecam.bin": {
+      "bytes": 13746,
+      "sha256": "2319ab969c16850d6fbc750c771cbcfc3d03cd1b76299942e6fb6334c0ecaaca"
+    },
+    "resource_report.md": {
+      "bytes": 6704,
+      "sha256": "496770aef69bf61b6c725d48df0cd1ffd0766a2b1814ddbdd5b1ca860601c984"
+    },
+    "net_blob.bin": {
+      "bytes": 48616,
+      "sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b"
+    }
+  },
+  "status": "original rollback, no new board validation"
+}

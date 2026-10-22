@@ -1,0 +1,31 @@
+{
+  "pass": true,
+  "input_path": "D:\\fpga\\v21_recovered_20261012\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\audits\\delivery_pc_20261004\\quantization\\images\\000000559842_input.png",
+  "rows": [
+    {
+      "id": "J4_INK",
+      "style": "van_gogh",
+      "native640": true,
+      "mae_255": 0.0,
+      "max_lsb": 0,
+      "mismatch": 0
+    },
+    {
+      "id": "J4_INK",
+      "style": "ukiyo_e",
+      "native640": true,
+      "mae_255": 0.0,
+      "max_lsb": 0,
+      "mismatch": 0
+    },
+    {
+      "id": "J4_INK",
+      "style": "ink_landscape",
+      "native640": true,
+      "mae_255": 0.0,
+      "max_lsb": 0,
+      "mismatch": 0
+    }
+  ],
+  "limits": "one native640 heldout input x3 styles per completed candidate; CPU only, not CPU-RTL"
+}

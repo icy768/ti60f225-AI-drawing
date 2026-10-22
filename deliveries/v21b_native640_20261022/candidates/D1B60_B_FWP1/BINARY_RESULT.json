@@ -1,0 +1,110 @@
+{
+  "passed": true,
+  "firmware_bytes": 13746,
+  "original_sha256": "2319ab969c16850d6fbc750c771cbcfc3d03cd1b76299942e6fb6334c0ecaaca",
+  "patched_sha256": "6f932ae7dc75ebead8fff869289b41b5dc55c0ff147130188f3f133d2a094408",
+  "changed_byte_count": 10,
+  "changed_offsets": [
+    1765,
+    1766,
+    1767,
+    1778,
+    1779,
+    6933,
+    6934,
+    6935,
+    6938,
+    6939
+  ],
+  "instruction_changes": [
+    {
+      "offset": 1764,
+      "old": "373df737",
+      "new": "20d4d737",
+      "role": "startup CRC log"
+    },
+    {
+      "offset": 1776,
+      "old": "ed770713",
+      "new": "7eb70713",
+      "role": "startup CRC log"
+    },
+    {
+      "offset": 6932,
+      "old": "c8c217b7",
+      "new": "df2b37b7",
+      "role": "weights_pass CRC accumulator comparison"
+    },
+    {
+      "offset": 6936,
+      "old": "12878793",
+      "new": "81478793",
+      "role": "weights_pass CRC accumulator comparison"
+    }
+  ],
+  "only_constant_immediate_bits_changed": true,
+  "branches_and_addresses_unchanged": true,
+  "compiler_used": false,
+  "constant_uses": 2,
+  "note": "CRC appears twice: startup identification and complemented loader comparison. Four immediate instructions change; actual changed-byte count supersedes the expected <=8 estimate. No branches are recalculated.",
+  "original_rom_matches_historical_binary": true,
+  "loader_six_cases": [
+    {
+      "firmware": "original",
+      "firmware_sha256": "2319ab969c16850d6fbc750c771cbcfc3d03cd1b76299942e6fb6334c0ecaaca",
+      "blob": "DP1\\baseline\\model\\net_blob.bin",
+      "rc": 4050,
+      "records": 4050,
+      "records_exact": true,
+      "record_bytes_sha256": "8e54741674916f49c94a6f997855b9bc622b3aada77dcf3d01e222f763c84a91"
+    },
+    {
+      "firmware": "original",
+      "firmware_sha256": "2319ab969c16850d6fbc750c771cbcfc3d03cd1b76299942e6fb6334c0ecaaca",
+      "blob": "R44\\D1B60\\HG0\\optional_blob\\net_blob.bin",
+      "rc": -2,
+      "records": 0,
+      "records_exact": true,
+      "record_bytes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "firmware": "patched",
+      "firmware_sha256": "6f932ae7dc75ebead8fff869289b41b5dc55c0ff147130188f3f133d2a094408",
+      "blob": "R44\\D1B60\\HG0\\optional_blob\\net_blob.bin",
+      "rc": 4050,
+      "records": 4050,
+      "records_exact": true,
+      "record_bytes_sha256": "de40c9d10b555e2667c5d41d3218c93eb407d0170e9b17525771529718dcff9e"
+    },
+    {
+      "firmware": "patched",
+      "firmware_sha256": "6f932ae7dc75ebead8fff869289b41b5dc55c0ff147130188f3f133d2a094408",
+      "blob": "DP1\\baseline\\model\\net_blob.bin",
+      "rc": -2,
+      "records": 0,
+      "records_exact": true,
+      "record_bytes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "firmware": "patched",
+      "firmware_sha256": "6f932ae7dc75ebead8fff869289b41b5dc55c0ff147130188f3f133d2a094408",
+      "blob": "DP3\\BLOB_LOADER_TEST\\corrupt.bin",
+      "rc": -2,
+      "records": 0,
+      "records_exact": true,
+      "record_bytes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "firmware": "patched",
+      "firmware_sha256": "6f932ae7dc75ebead8fff869289b41b5dc55c0ff147130188f3f133d2a094408",
+      "blob": "DP3\\BLOB_LOADER_TEST\\bad_header.bin",
+      "rc": -1,
+      "records": 0,
+      "records_exact": true,
+      "record_bytes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "loader_scope": "Historical raw RV32 binary weights_load/weights_pass/CRC/parser executed; SPI/time stubbed; no full Sapphire/DDR/camera boot or board test",
+  "board_tested": false,
+  "adopted": false
+}

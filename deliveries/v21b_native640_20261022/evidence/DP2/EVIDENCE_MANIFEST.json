@@ -1,0 +1,155 @@
+{
+  "time": "2026-10-22T14:06:21.630364+08:00",
+  "all_original_sources_unchanged": true,
+  "small_geometry": [
+    32,
+    24
+  ],
+  "new_bitstream_permitted": false,
+  "files": {
+    "DP2\\SOURCE.json": {
+      "bytes": 8400,
+      "sha256": "2a669e714f615d71ff9157239fd22ca8afe0cc83b1b211e8ba0fbbde305cef34"
+    },
+    "DP2\\RESULT.json": {
+      "bytes": 4037,
+      "sha256": "2ad33d25e93e44432e237421ce08862acfcabfb4d34def5fcd5b3e01a8396950"
+    },
+    "DP2\\project\\sim_video_engine.py": {
+      "bytes": 9844,
+      "sha256": "2792bf612a63cbfde2484d2f79d2858bba6e4d10a699e6a9145e9b1179c32a20"
+    },
+    "DP2\\project\\reference.py": {
+      "bytes": 2763,
+      "sha256": "b426492fab27cd6e7618308f231259c5dc25a3516067d13b538fc62fb1bcf147"
+    },
+    "DP2\\project\\export_in_constants.py": {
+      "bytes": 1648,
+      "sha256": "a3ce7bae37527e217478f7de447351ab5bbd96aca5610f053a9a349f04974a67"
+    },
+    "DP2\\project\\compact_in_constants.py": {
+      "bytes": 3123,
+      "sha256": "a2afeb3def67a269a78220aa5c75c63b5749305dba704ee801873699a2d6e310"
+    },
+    "algo\\golden.py": {
+      "bytes": 8603,
+      "sha256": "ef510dbe899055690391474c35e824321b6e1f16b7deaf718e2f84b0e40b141c"
+    },
+    "DP2\\project\\model\\net_blob.bin": {
+      "bytes": 48616,
+      "sha256": "84aeb3bae88b4c883a5ff8c8111b289f129359cb82d89df49219a743f14587bd"
+    },
+    "DP2\\project\\model\\qparams.npz": {
+      "bytes": 102930,
+      "sha256": "7e55797cef4da35a2c4ba429bf2744af4cc67ac4d324eea4f661c49696778d4b"
+    },
+    "DP2\\project\\model\\qparams.json": {
+      "bytes": 4371,
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0"
+    },
+    "DP2\\project\\validation\\video_engine\\blob.hex": {
+      "bytes": 121500,
+      "sha256": "93e4b3d6be4b4849be60af9234b554d1cca6f59740a9729e18340641dc34cde3"
+    },
+    "DP2\\project\\validation\\video_engine\\coefficients.hex": {
+      "bytes": 11232,
+      "sha256": "bf88829b612cd98a103d5c5ff68a5ec7a3bc06dcfece210665c4405fc1cd472a"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem": {
+      "bytes": 67392,
+      "sha256": "76426b7fd679edc09a8f635d58561227937bb5b8eb895c99c25bfffd33cab377"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.e0": {
+      "bytes": 3584,
+      "sha256": "c400d4bf524a9fae76f3ef18fe7d8c625ec92f8171d19e7b2cad94878d85c81c"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.e1": {
+      "bytes": 3584,
+      "sha256": "641524c0e247f06f7c031ff7c4718f21a28d41ea913e26a8224b278e709a8e11"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.e2": {
+      "bytes": 3584,
+      "sha256": "c213ad7772dced938afd48388d8872ebdb2bfc1072a878271b788ca328d97063"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.ec0": {
+      "bytes": 3584,
+      "sha256": "83264e3c8fd6c813a60cda542902ef615eee04c6d2c159aef7da04069ce7838f"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.ec1": {
+      "bytes": 3584,
+      "sha256": "e73e45065b4edf3f7f8c29fc525b3bc95e377cd8d3ac2a14519c40e6bb536bc9"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.epsilon": {
+      "bytes": 10368,
+      "sha256": "048136d1039e889a02b5fff9a566e21138bc1dcffcc95a427600b74ed8cdc290"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.p0": {
+      "bytes": 3584,
+      "sha256": "17084c463356ddb591ba3b2c429785334e28f7d98b9d2cc8ee1937fcf92063c7"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.p1": {
+      "bytes": 3584,
+      "sha256": "82922d57a2c8570ea6eb142591a099c2797c561eab2194b5ef636567f9d2683f"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.p2": {
+      "bytes": 3584,
+      "sha256": "a1a1f489ec258445f53e27aeb1e2e8ccb7b7358a4322e9f48c9b986b8e76c5bc"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.p3": {
+      "bytes": 3584,
+      "sha256": "2b79f79f4acbfb3d59855946b747921b11daff832725fe0fe1675be5343e6493"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.p4": {
+      "bytes": 3584,
+      "sha256": "5492e3f4aaef689b416eb4640e6abffff047a1341570eac62cfc1af0fc2a278f"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.p5": {
+      "bytes": 3584,
+      "sha256": "9352180515bcf7fb4642a44a25621c4c67ce331d434f36a4bc44abaebf56f9c6"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.p6": {
+      "bytes": 3584,
+      "sha256": "569011afb100e922e4374e61bdbd8ab4b54a509f7de8df506886d1ab7d80a8f5"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.p7": {
+      "bytes": 3584,
+      "sha256": "e5b5b4a44e1ec073eae9aa269cef7c19ce407e845a5d650d89437860b89ed61f"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.p8": {
+      "bytes": 3584,
+      "sha256": "644c23cca020fed0878e686cd385c966912f4742ed62f75d1d63e7b88fda7b12"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.p9": {
+      "bytes": 3584,
+      "sha256": "3c0226043a95a2bd22b92de98cbe0dc6688912b846a689a7a96bd2848867dc1c"
+    },
+    "DP2\\project\\validation\\video_engine\\constants.mem.parameters": {
+      "bytes": 29376,
+      "sha256": "7f2853f08b4a64b217be167c22256005ed446a81607fc6d962b546658e430730"
+    },
+    "DP2\\project\\validation\\video_engine\\expected.hex": {
+      "bytes": 55296,
+      "sha256": "96919725f7343a8348b3525e0e098320d8a014b5cce60ee4081bb6adf90cfb7a"
+    },
+    "DP2\\project\\validation\\video_engine\\images.hex": {
+      "bytes": 12288,
+      "sha256": "b65163a7f82c0d18b9e85c67d5adb8b61eadbe6a3332d8bf88718c74b80bb6b4"
+    },
+    "DP2\\project\\validation\\video_engine\\net.v": {
+      "bytes": 11112,
+      "sha256": "7b60f4699964b6a65b546193b8aee3352e0788d460b0bb59f6ebf62f270230db"
+    },
+    "DP2\\project\\validation\\video_engine\\result.json": {
+      "bytes": 565,
+      "sha256": "4a1665299b42ba962768fa2468b98f4ff475723595d9386b021f5cf63e14f247"
+    },
+    "DP2\\project\\validation\\video_engine\\simulation.log": {
+      "bytes": 948,
+      "sha256": "f2b4901133a471e32c13d19832595f949ad8a7f050b291f911731d4159317d2c"
+    },
+    "DP2\\project\\validation\\video_engine\\tb.v": {
+      "bytes": 4825,
+      "sha256": "1365a584fab0792e5701ac434281b1d095dd12fa1a91125ebaae1dc80d98ba70"
+    }
+  }
+}

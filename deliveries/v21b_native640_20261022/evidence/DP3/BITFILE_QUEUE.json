@@ -1,0 +1,18 @@
+{
+  "status": "COMPLETE",
+  "runner_pid": null,
+  "pid": null,
+  "board_programmed": false,
+  "updated_at": "2026-10-22T14:55:43.822127+08:00",
+  "args": [
+    "cmd.exe",
+    "/d",
+    "/c",
+    "D:/bin/efx_run.bat",
+    "ti60f225_oob.xml",
+    "--flow",
+    "pgm"
+  ],
+  "rc": 0,
+  "collection_rc": 0
+}

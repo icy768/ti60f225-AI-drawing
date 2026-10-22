@@ -1,0 +1,9 @@
+WARNING: The environment variable EFINITY_USER_DIR_INI has been set to a path with non-ASCII character(s).
+The Efinity sofware may not function correctly with this configuration.
+Please redefine the EFINITY_USER_DIR_INI environment variable to a path with only ASCII characters.
+The following paths contain non-ASCII characters, which may cause incorrect flow results.
+	Efinity User Directory INI: C:\Users\≤Ã’‹∫≠\AppData\Local/efinity/user_dir.ini. Please move the file to a directory path with only ASCII characters.
+	Efinity User Directory: C:\Users\≤Ã’‹∫≠\.efinity. Please edit EFINITY_USER_DIR in C:\Users\≤Ã’‹∫≠\AppData\Local/efinity/user_dir.ini to point to a path with only ASCII characters.
+WARNING: cannot find correct IV value
+Running: efx_run_pnr.py ti60f225_oob --prj D:\fpga\v21b_return_20261021\DP3\D1B60\ti60f225_oob.xml --family Titanium --device Ti60F225 --timing_model I3 --dir D:\fpga\v21b_return_20261021\DP3\D1B60\ip\csi_rx_controller --dir D:\fpga\v21b_return_20261021\DP3\D1B60\ip\soc --output_dir outflow --work_dir work_pnr --opt max_router_iterations=120 --opt sdc_file=ti60f225_oob.sdc
+   pnr :	PASS 

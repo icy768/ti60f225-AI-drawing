@@ -1,0 +1,11 @@
+{
+  "verified_current": false,
+  "primary": null,
+  "weekly": null,
+  "rpc_error": {
+    "code": -32600,
+    "message": "codex account authentication required to read rate limits"
+  },
+  "read_at": "2026-10-22T12:11:27.629532+08:00",
+  "note": "Read-only RPC requires account auth; current rollout event primary/weekly=null, cannot report percentages or exhaustion. Healthy background left running."
+}

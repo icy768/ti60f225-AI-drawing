@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "date": "2026-10-18",
+  "scope": "User-observed AE and three-style picture acceptance; exact BIT JTAG reload plus short serial sample, split view only",
+  "bit_sha256": "0b7c2d11f0ee3ae176721b208d0d4934191479b80d708f803787c0234835e3f4",
+  "fpga_id": "53430a0b",
+  "styles": [
+    0,
+    1,
+    2
+  ],
+  "view": 0,
+  "samples": 19,
+  "duration_ms": 34000,
+  "fps_min": 29.99,
+  "fps_max": 30.01,
+  "nn_ms_max": 33.2,
+  "steady_skipped_delta": 0,
+  "ae_i2c_errors_max": 0,
+  "errors_max": {
+    "caperr": 0,
+    "vid_err": 0,
+    "uf": 0,
+    "hdmi_err": 0,
+    "irq_err": 0
+  },
+  "user_reported_auto_exposure_ok": true,
+  "user_reported_three_styles_ok": true,
+  "physical_power_cycle_verified": false,
+  "logs": {
+    "three_styles_ram.log": "db6d2bb9dcbc73d6534534bb79e36d5c5dc090c8e919241d0f24adfc77bbde1f",
+    "ram_program.log": "50c59a8b99f5659ebe5b3fd04326f605dd1d3e32620d8f5e73c4e12703d7cb3a",
+    "ram_boot.log": "5a0c708f77be0cafdc7058fe2abceef767d8843fa494cf2d79b6956e921c1e41"
+  },
+  "host_sample_seconds": 36
+}

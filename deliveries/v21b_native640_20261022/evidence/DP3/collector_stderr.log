@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "D:\fpga\v21b_return_20261021\collect_dp3.py", line 30, in <module>
+    for p in bits:assert p.exists() and p.stat().st_size>0
+AssertionError

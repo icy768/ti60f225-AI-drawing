@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-22T16:06:23.474445+08:00",
+  "original_B_bit": "616e40bb26d466b51987e03d7b5609fa8c18881184e3fd4f3cc8584f4f76ccff",
+  "original_B_with_D1": "BLOCKED_FIRMWARE_CRC_MINUS2_ZERO_WRITES",
+  "constant_source_repair_compiled": true,
+  "rv32_loader_six_cases_pass": true,
+  "DP2_same_4050_records": true,
+  "local_B_ROM_update": "FILES_READY_PENDING_SUPERVISION",
+  "repair_bit_sha256": "3f30299674d8a6b47311ef2749d69a4e10c09aba9665f1fc7e9e0d545df0edd7",
+  "full_boot_verified": false,
+  "board_tested": false,
+  "adopted": false
+}

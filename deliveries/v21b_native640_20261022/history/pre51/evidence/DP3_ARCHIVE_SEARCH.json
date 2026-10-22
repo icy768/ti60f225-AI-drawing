@@ -1,0 +1,56 @@
+{
+  "time": "2026-10-22T14:53:40.878177+08:00",
+  "read_only": true,
+  "rows": [
+    {
+      "path": "D:/fpga\\硬件组交付\\DS8_HW_HANDOFF_20260930_v1.zip",
+      "entries": 591,
+      "layout_entries": []
+    },
+    {
+      "path": "D:/fpga\\tristyle_v4_20261017\\release\\paired_v6_20261018_experimental.zip",
+      "entries": 922,
+      "layout_entries": []
+    },
+    {
+      "path": "D:/fpga\\tristyle_v4_20261017\\release\\paired_v6_20261018.zip",
+      "entries": 922,
+      "layout_entries": []
+    },
+    {
+      "path": "D:/fpga\\tristyle_fresh_20261016\\release\\tristyle_first_version.zip",
+      "entries": 1625,
+      "layout_entries": []
+    },
+    {
+      "path": "D:/fpga\\tristyle_v4_20261017\\release\\paired_v5_integer_video_addendum_20261018.zip",
+      "entries": 13,
+      "layout_entries": []
+    },
+    {
+      "path": "D:/fpga\\tristyle_v4_20261017\\release\\paired_v5_20261018.zip",
+      "entries": 494,
+      "layout_entries": []
+    },
+    {
+      "path": "D:/fpga\\v21_recovered_20261012\\StyleCam_v21b_handoff_20261005.zip",
+      "entries": 1984,
+      "layout_entries": []
+    },
+    {
+      "path": "D:/fpga\\v21_recovered_20261012\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\audits\\delivery_pc_v21_20261005\\vga_and_bank_vectors.zip",
+      "entries": 184,
+      "layout_entries": []
+    },
+    {
+      "path": "D:/fpga\\v21_recovered_20261012\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\audits\\delivery_pc_20261004\\rtl\\vga_and_bank_vectors.zip",
+      "entries": 184,
+      "layout_entries": []
+    },
+    {
+      "path": "D:/fpga\\FPGAProjects\\StyleCam\\audits\\pc_validation_20261004\\evidence\\art_styles_c24_hwqat\\vga_vectors.zip",
+      "entries": 147,
+      "layout_entries": []
+    }
+  ]
+}

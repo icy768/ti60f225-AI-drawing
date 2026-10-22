@@ -1,0 +1,59 @@
+{
+  "status": "COMPLETE_REQUIRES_COMPARISON",
+  "runner_pid": null,
+  "pid": null,
+  "start": "2026-10-22T14:44:32.270793+08:00",
+  "steps": [
+    {
+      "flow": "interface",
+      "start": "2026-10-22T14:44:32.271793+08:00",
+      "args": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:/bin/efx_run.bat",
+        "ti60f225_oob.xml",
+        "--flow",
+        "interface"
+      ],
+      "rc": 0,
+      "end": "2026-10-22T14:44:56.269381+08:00"
+    },
+    {
+      "flow": "map",
+      "start": "2026-10-22T14:44:56.269381+08:00",
+      "args": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:/bin/efx_run.bat",
+        "ti60f225_oob.xml",
+        "--flow",
+        "map"
+      ],
+      "rc": 0,
+      "end": "2026-10-22T14:49:38.396355+08:00"
+    },
+    {
+      "flow": "pnr",
+      "start": "2026-10-22T14:49:38.397354+08:00",
+      "args": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "D:/bin/efx_run.bat",
+        "ti60f225_oob.xml",
+        "--flow",
+        "pnr",
+        "--pnr_opts",
+        "max_router_iterations=120"
+      ],
+      "rc": 0,
+      "end": "2026-10-22T14:55:38.541768+08:00"
+    }
+  ],
+  "board_programmed": false,
+  "adopted": false,
+  "updated_at": "2026-10-22T14:55:38.543376+08:00",
+  "end": "2026-10-22T14:55:38.543376+08:00"
+}

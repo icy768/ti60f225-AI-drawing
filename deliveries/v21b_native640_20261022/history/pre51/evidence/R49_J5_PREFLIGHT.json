@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "time": "2026-10-22T15:42:31.583400+08:00",
+  "rows": [
+    {
+      "input": "constant",
+      "loss": 0.0,
+      "finite_gradient": true
+    },
+    {
+      "input": "random",
+      "loss": 0.8570495247840881,
+      "finite_gradient": true
+    },
+    {
+      "input": "edge",
+      "loss": 1.973584602410483e-07,
+      "finite_gradient": true
+    },
+    {
+      "input": "legal_train_crop256_cuda",
+      "loss": 0.4196018874645233,
+      "finite_gradient": true,
+      "optimizer_step": false
+    }
+  ],
+  "parent_sha256": "56c3435680ce63d8bf12f1e56b986f7b85ed4e468b0dec06424d0572fac21ab7",
+  "heldout_optimized": false,
+  "optimizer_step": false
+}

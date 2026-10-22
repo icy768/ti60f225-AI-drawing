@@ -1,0 +1,18 @@
+{
+  "time": "2026-10-22T12:05:14.703377+08:00",
+  "p0_original_montage": "D:\\fpga\\v21b_return_20261021\\P0\\BASELINE_01\\integer_styles.jpg",
+  "p0_sha": "489f9280559adf7b0719142c6939dbb5ef8ed30d9e1a0ba293ad428549848ebb",
+  "matching_source": "D:\\fpga\\v21_recovered_20261012\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\audits\\delivery_pc_20261004\\quantization\\integer_styles.jpg",
+  "matching_source_sha": "489f9280559adf7b0719142c6939dbb5ef8ed30d9e1a0ba293ad428549848ebb",
+  "source_validation_run": "runs/art_styles_c24_graphic_v6_cal100",
+  "deployed_source_montage": "D:\\fpga\\v21_recovered_20261012\\FPGAProjects_StyleCam_v21_20261005\\StyleCam\\audits\\v21b_deploy_blob\\integer_styles.jpg",
+  "deployed_source_montage_sha": "3c71425187b79c8f8bf948e3f73b2abaf7503cb67d4f1a42922782a886bff4ae",
+  "deployed_validation_run": "runs/art_styles_c24_v21b_ukiyoe_qat900_soft15",
+  "corrected_inputs": "F0/RESULT.json",
+  "p0_byte_exact_export_still_valid": true,
+  "invalidated": [
+    "P0 montage attribution as deployed-v21b",
+    "comparative claims based on that attribution including bright UK correction"
+  ],
+  "no_automatic_art_verdict": true
+}

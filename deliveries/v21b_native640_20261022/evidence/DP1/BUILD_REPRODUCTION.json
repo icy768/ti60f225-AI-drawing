@@ -1,0 +1,34 @@
+{
+  "time": "2026-10-22T13:45:15.641587+08:00",
+  "status": "BASELINE_REPRODUCTION_FAIL_NEW_BITSTREAM_DELIVERY_BLOCKED",
+  "formal_commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+  "local_tool_version": "2026.1.132",
+  "historical_tool_version": "2026.1.132.4.5",
+  "flow_completed": true,
+  "resources_measured": {
+    "XLR": 56824,
+    "RAM10": 243,
+    "DSP": 145
+  },
+  "resources_expected": {
+    "XLR": 55615,
+    "RAM10": 243,
+    "DSP": 145
+  },
+  "XLR_delta": 1209,
+  "XLR_delta_percent": 2.1738739548682995,
+  "setup_min_ns": 0.24,
+  "hold_min_ns": 0.026,
+  "setup_expected_ns": 0.253,
+  "hold_expected_ns": 0.026,
+  "setup_relationships": 17,
+  "hold_relationships": 17,
+  "all_timing_positive": true,
+  "exact_reproduction": false,
+  "candidate_bitstream_permitted": false,
+  "board_tested": false,
+  "report_sha256": {
+    "DP1\\baseline\\outflow\\ti60f225_oob.place.rpt": "615ed031f2203bd08b40604e8142f7d6eab12a3712b57483d4763ef3ba2392d6",
+    "DP1\\baseline\\outflow\\ti60f225_oob.timing.rpt": "aec7a8e5abae6356b12307f0a56e4f273ca814e393e7a6ead8320f438a368b36"
+  }
+}

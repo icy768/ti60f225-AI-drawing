@@ -1,0 +1,110 @@
+{
+  "time": "2026-10-18T23:06:32.010085+08:00",
+  "repository": "icy768/ti60f225-AI-drawing",
+  "branch": "origin/codex/release-riscv11-ae-in4-20261018",
+  "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+  "scope": "Existing RISCV11/V21b 13-layer PE12 hardware, NOT V5 synthesis. Hardware resource/RTL metadata only; no old network weights/training read.",
+  "device": "Ti60F225",
+  "used": {
+    "XLR": 55615,
+    "RAM10": 243,
+    "DSP": 145
+  },
+  "total": {
+    "XLR": 60800,
+    "RAM10": 256,
+    "DSP": 160
+  },
+  "free_if_adding": {
+    "XLR": 5185,
+    "RAM10": 13,
+    "DSP": 15
+  },
+  "old_engine_hierarchy": {
+    "XLR_estimate": 33642.5,
+    "RAM10": 150,
+    "DSP": 141
+  },
+  "non_engine_subtraction_estimate": {
+    "XLR": 21972.5,
+    "RAM10": 93,
+    "DSP": 4
+  },
+  "replacement_gross_budget_estimate": {
+    "XLR": 38827.5,
+    "RAM10": 163,
+    "DSP": 156
+  },
+  "replacement_budget_limitations": "Simple hierarchy subtraction only; mapping, ports, routing and clock interactions change after replacement; no synthesis margin reserved and not a new synthesis result.",
+  "setup_min_ns": 0.253,
+  "hold_min_ns": 0.026,
+  "network_clock_MHz": 149.993,
+  "supported_conv_rtl_observation": "K==3 branch uses swg3/swg3b; else goes to g_k1. Current source cannot support arbitrary K=17 by setting parameter alone.",
+  "V5_failed_synthesis_log_found": false,
+  "source_files": [
+    {
+      "file": "README.md",
+      "repository_path": "FPGAProjects/\u70e7\u5f55\u6587\u4ef6/20261018_RISCV11_Main_AE_IN4_Release/README.md",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "sha256": "6a8a690fa089eaee7ec079b056ca250c86a1d59b0e07dd29801c217d13f9d21f",
+      "bytes": 1986,
+      "url": "https://github.com/icy768/ti60f225-AI-drawing/blob/47254c25a6e767d7602da96a4529fb84616c9524/FPGAProjects/%E7%83%A7%E5%BD%95%E6%96%87%E4%BB%B6/20261018_RISCV11_Main_AE_IN4_Release/README.md"
+    },
+    {
+      "file": "resource_report.md",
+      "repository_path": "FPGAProjects/\u70e7\u5f55\u6587\u4ef6/20261018_RISCV11_Main_AE_IN4_Release/resource_report.md",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "sha256": "496770aef69bf61b6c725d48df0cd1ffd0766a2b1814ddbdd5b1ca860601c984",
+      "bytes": 6704,
+      "url": "https://github.com/icy768/ti60f225-AI-drawing/blob/47254c25a6e767d7602da96a4529fb84616c9524/FPGAProjects/%E7%83%A7%E5%BD%95%E6%96%87%E4%BB%B6/20261018_RISCV11_Main_AE_IN4_Release/resource_report.md"
+    },
+    {
+      "file": "resource_optimization.json",
+      "repository_path": "FPGAProjects/\u70e7\u5f55\u6587\u4ef6/20261018_RISCV11_Main_AE_IN4_Release/resource_optimization.json",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "sha256": "2c5501ede559d5e9d5b528f7fa8d1f3f82de67ee97ad0f7364f40ac1da0f1d0b",
+      "bytes": 8608,
+      "url": "https://github.com/icy768/ti60f225-AI-drawing/blob/47254c25a6e767d7602da96a4529fb84616c9524/FPGAProjects/%E7%83%A7%E5%BD%95%E6%96%87%E4%BB%B6/20261018_RISCV11_Main_AE_IN4_Release/resource_optimization.json"
+    },
+    {
+      "file": "place.rpt",
+      "repository_path": "FPGAProjects/\u70e7\u5f55\u6587\u4ef6/20261018_RISCV11_Main_AE_IN4_Release/place.rpt",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "sha256": "0a1d33128df7c47a30682c3cc801f31406f3f98aeb0b9a66a19874360c511552",
+      "bytes": 5571,
+      "url": "https://github.com/icy768/ti60f225-AI-drawing/blob/47254c25a6e767d7602da96a4529fb84616c9524/FPGAProjects/%E7%83%A7%E5%BD%95%E6%96%87%E4%BB%B6/20261018_RISCV11_Main_AE_IN4_Release/place.rpt"
+    },
+    {
+      "file": "hier_util.rpt",
+      "repository_path": "FPGAProjects/\u70e7\u5f55\u6587\u4ef6/20261018_RISCV11_Main_AE_IN4_Release/hier_util.rpt",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "sha256": "ed77f061682c2139ca9d5ac4b4b385a25fba5cc8b2ca263da8ca02d9b28db078",
+      "bytes": 92826,
+      "url": "https://github.com/icy768/ti60f225-AI-drawing/blob/47254c25a6e767d7602da96a4529fb84616c9524/FPGAProjects/%E7%83%A7%E5%BD%95%E6%96%87%E4%BB%B6/20261018_RISCV11_Main_AE_IN4_Release/hier_util.rpt"
+    },
+    {
+      "file": "timing.rpt",
+      "repository_path": "FPGAProjects/\u70e7\u5f55\u6587\u4ef6/20261018_RISCV11_Main_AE_IN4_Release/timing.rpt",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "sha256": "dba499e768bbf0f1d8a76f76abaa42bbd272cb62d7f02ac6e8cbb50e8bd72d17",
+      "bytes": 1621361,
+      "url": "https://github.com/icy768/ti60f225-AI-drawing/blob/47254c25a6e767d7602da96a4529fb84616c9524/FPGAProjects/%E7%83%A7%E5%BD%95%E6%96%87%E4%BB%B6/20261018_RISCV11_Main_AE_IN4_Release/timing.rpt"
+    },
+    {
+      "file": "board_acceptance_20261018.json",
+      "repository_path": "FPGAProjects/\u70e7\u5f55\u6587\u4ef6/20261018_RISCV11_Main_AE_IN4_Release/board_acceptance_20261018.json",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "sha256": "c0fa45f7e2fc07ea72924b9f8aff1994836589c8a85865fb8a6d1920396bde95",
+      "bytes": 1082,
+      "url": "https://github.com/icy768/ti60f225-AI-drawing/blob/47254c25a6e767d7602da96a4529fb84616c9524/FPGAProjects/%E7%83%A7%E5%BD%95%E6%96%87%E4%BB%B6/20261018_RISCV11_Main_AE_IN4_Release/board_acceptance_20261018.json"
+    },
+    {
+      "file": "conv_layer.v",
+      "repository_path": "FPGAProjects/StyleCam_camera/rtl/conv_layer.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "sha256": "8d55600fc720ff0c310508803f95c942f8938dbd978d58594895f82e5ba4110b",
+      "bytes": 8056,
+      "url": "https://github.com/icy768/ti60f225-AI-drawing/blob/47254c25a6e767d7602da96a4529fb84616c9524/FPGAProjects/StyleCam_camera/rtl/conv_layer.v"
+    }
+  ]
+}

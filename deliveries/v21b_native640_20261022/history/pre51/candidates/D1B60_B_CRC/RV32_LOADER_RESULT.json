@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "firmware": "same_tool_baseline",
+      "elf_sha256": "fce2d8b0cb1b022281f57f29a0d299e321a0e4eac96732c5d816a22e16554279",
+      "blob": "DP1\\baseline\\model\\net_blob.bin",
+      "return_code": 4050,
+      "record_count": 4050,
+      "records_exact": true,
+      "executed": "RV32 ELF weights_load+CRC+parser",
+      "hardware_stubs": "SPI byte read/write/select, CLINT now; cfg MMIO captured",
+      "board_tested": false
+    },
+    {
+      "firmware": "same_tool_baseline",
+      "elf_sha256": "fce2d8b0cb1b022281f57f29a0d299e321a0e4eac96732c5d816a22e16554279",
+      "blob": "R44\\D1B60\\HG0\\optional_blob\\net_blob.bin",
+      "return_code": -2,
+      "record_count": 0,
+      "records_exact": true,
+      "executed": "RV32 ELF weights_load+CRC+parser",
+      "hardware_stubs": "SPI byte read/write/select, CLINT now; cfg MMIO captured",
+      "board_tested": false
+    },
+    {
+      "firmware": "D1_crc_only",
+      "elf_sha256": "d957df5dcbc171e134d45dad05e0249b44bbb4445f172ae7496198e2e3701e0f",
+      "blob": "R44\\D1B60\\HG0\\optional_blob\\net_blob.bin",
+      "return_code": 4050,
+      "record_count": 4050,
+      "records_exact": true,
+      "executed": "RV32 ELF weights_load+CRC+parser",
+      "hardware_stubs": "SPI byte read/write/select, CLINT now; cfg MMIO captured",
+      "board_tested": false
+    },
+    {
+      "firmware": "D1_crc_only",
+      "elf_sha256": "d957df5dcbc171e134d45dad05e0249b44bbb4445f172ae7496198e2e3701e0f",
+      "blob": "DP1\\baseline\\model\\net_blob.bin",
+      "return_code": -2,
+      "record_count": 0,
+      "records_exact": true,
+      "executed": "RV32 ELF weights_load+CRC+parser",
+      "hardware_stubs": "SPI byte read/write/select, CLINT now; cfg MMIO captured",
+      "board_tested": false
+    },
+    {
+      "firmware": "D1_crc_only",
+      "elf_sha256": "d957df5dcbc171e134d45dad05e0249b44bbb4445f172ae7496198e2e3701e0f",
+      "blob": "DP3\\BLOB_LOADER_TEST\\corrupt.bin",
+      "return_code": -2,
+      "record_count": 0,
+      "records_exact": true,
+      "executed": "RV32 ELF weights_load+CRC+parser",
+      "hardware_stubs": "SPI byte read/write/select, CLINT now; cfg MMIO captured",
+      "board_tested": false
+    },
+    {
+      "firmware": "D1_crc_only",
+      "elf_sha256": "d957df5dcbc171e134d45dad05e0249b44bbb4445f172ae7496198e2e3701e0f",
+      "blob": "DP3\\BLOB_LOADER_TEST\\bad_header.bin",
+      "return_code": -1,
+      "record_count": 0,
+      "records_exact": true,
+      "executed": "RV32 ELF weights_load+CRC+parser",
+      "hardware_stubs": "SPI byte read/write/select, CLINT now; cfg MMIO captured",
+      "board_tested": false
+    }
+  ],
+  "limitations": "Subroutine emulation with SPI/time stubs; not full Sapphire/DDR/camera boot or board test"
+}

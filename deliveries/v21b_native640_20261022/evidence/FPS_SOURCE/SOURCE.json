@@ -1,0 +1,96 @@
+{
+  "time": "2026-10-22T12:36:15.581204+08:00",
+  "files": [
+    {
+      "source": "FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/stylecam/src/main.c",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\main.c",
+      "sha256": "f1d7d587fb9261357cbe3ef9a5bed4cee902f527989233f7c537b21e6b32f5f5",
+      "bytes": 32710
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/embedded_sw/soc/software/standalone/stylecam/src/stylecam_regs.h",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\stylecam_regs.h",
+      "sha256": "38663bc797b7f317f8c578786c95fd6bd6cc5a0a6746bec58a8300537f2cafa8",
+      "bytes": 3523
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/ti60f225_oob_top.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\ti60f225_oob_top.v",
+      "sha256": "70be4cf7f833b116dc654513fd90b82b04045f9f28c63b49556505859816f633",
+      "bytes": 35483
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/sc_apb_regs.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\sc_apb_regs.v",
+      "sha256": "0ba24ec5a4783f943d0d7cf556ab31259eacc31c5303ac12ae5c4995f24203ae",
+      "bytes": 7635
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/sc_video_schedule.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\sc_video_schedule.v",
+      "sha256": "6ef09813e0b24a66c1f5312dca7560ae17247ff0e74d5ff2a6a01e46b63186d5",
+      "bytes": 3209
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/sc_display.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\sc_display.v",
+      "sha256": "324c4b502d3c6cc106c9caa6f70e712272a726aeb43f5fc4e5e13e1a40d3cf11",
+      "bytes": 14702
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/sc_engine.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\sc_engine.v",
+      "sha256": "423a8d454166e7ec0a5d934566f46de86650e721e0d72ba398b4d2256c08cbde",
+      "bytes": 7182
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/sc_in_refresh.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\sc_in_refresh.v",
+      "sha256": "fa9403f4b7622f88fc010dbdb047a97aa5dbc9bc534cb3ae160ac08ced397254",
+      "bytes": 5664
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/sim_osd.py",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\sim_osd.py",
+      "sha256": "bf04b15cbd196ce015bebebb01f717ef65322eaaf40e9bd56ecd4fba16d04868",
+      "bytes": 3472
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/model/stylenet_top.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\stylenet_top.v",
+      "sha256": "2f8abfa49e09cd4d85962261d32485f40ae8dcee801ba2bdcf54545f080e8be3",
+      "bytes": 11162
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/conv_layer.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\conv_layer.v",
+      "sha256": "8d55600fc720ff0c310508803f95c942f8938dbd978d58594895f82e5ba4110b",
+      "bytes": 8056
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/swg3.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\swg3.v",
+      "sha256": "744e3bf138aed08d6dfa2f52e3b74f5a18cd4f317f50453624c84ba7ed7f6bdb",
+      "bytes": 7744
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/swg3b.v",
+      "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+      "snapshot": "D:\\fpga\\v21b_return_20261021\\DELIVERY_20261022\\evidence\\FPS_SOURCE\\swg3b.v",
+      "sha256": "7da6afa86be298e89de225cfa80e3a67265780b4dd27bb42fedfb4a5d42bb507",
+      "bytes": 9147
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "int8_weight_count_and_bytes": 9384,
+  "float32_affine_count": 1632,
+  "float32_affine_bytes": 6528,
+  "int32_bias_count": 12,
+  "int32_bias_bytes": 48,
+  "learning_parameter_count": 11028,
+  "encoded_parameter_bytes_int8_fp32affine_int32bias": 15960,
+  "under500000": true,
+  "complete_transport_blob_bytes": 48616,
+  "complete_blob_sha256": "9a1b2382e2c9953f775f5c9c7e5b06fd93e5cad9bcdffa8086dbbe41541a5d5b",
+  "limits": "Parameter storage count is declared encoding; transport blob contains headers/config/multiple slots, not 11028 bytes; board CRC binding not newly verified.",
+  "byte_count_15960_status": "Declared encoding calculation, not independently measured FPGA storage; actual complete transport file below is measured.",
+  "transport_crc32_calculated": "373deed7",
+  "transport_complete_under500000": true,
+  "board_crc_373deed7_binding_verified": "CRC32 historical match only; not new SHA flash readback",
+  "matches_historical_board_crc_373deed7": true
+}

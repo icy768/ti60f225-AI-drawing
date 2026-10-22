@@ -1,0 +1,17 @@
+WARNING: The environment variable EFINITY_USER_DIR_INI has been set to a path with non-ASCII character(s).
+The Efinity sofware may not function correctly with this configuration.
+Please redefine the EFINITY_USER_DIR_INI environment variable to a path with only ASCII characters.
+usage: efx_run.py [-h] [--prj] [-f FLOW] [--family FAMILY] [-d DEVICE]
+                  [--timing_model TIMING_MODEL] [-t TCL_SCRIPT]
+                  [-v EXTRA_FILES [EXTRA_FILES ...] | --flist FLIST]
+                  [--tb TB_EXTRA_FILES] [--tb_top TB_TOP] [--dir SOURCE_DIR]
+                  [--map_opts MAP_OPTS [MAP_OPTS ...]]
+                  [--pt_opts PT_OPTS [PT_OPTS ...]]
+                  [--pnr_opts VPR_OPTS [VPR_OPTS ...]]
+                  [--pgm_opts PGM_OPTS [PGM_OPTS ...]] [-m]
+                  [--sim_opts SIM_OPTS [SIM_OPTS ...]] [--aldec] [--ncsim]
+                  [--output_dir OUTPUT_DIR] [--work_dir WORK_DIR]
+                  [--timeout TIMEOUT] [--un_flow [UN_FLOW]]
+                  [--physical_syn_input PHYSICAL_SYN_INPUT] [--res_compare]
+                  design
+efx_run.py: error: argument --pnr_opts: expected at least one argument

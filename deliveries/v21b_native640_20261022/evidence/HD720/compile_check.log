@@ -1,0 +1,14 @@
+error: Failed to open 'D:\fpga\tristyle_fresh_20261016\external_runtime\icarus\mingw64\lib\ivl\system.vpi' because:
+     : �����ɹ���ɡ�
+
+
+HD720/synth_1280/mac.v:223: warning: Port 7 (raddr) of module wram expects 6 bit(s), given 32.
+HD720/synth_1280/mac.v:223:        : Pruning 26 high bits of the expression.
+HD720/synth_1280/mac.v:223: warning: Port 7 (raddr) of module wram expects 6 bit(s), given 32.
+HD720/synth_1280/mac.v:223:        : Pruning 26 high bits of the expression.
+HD720/synth_1280/mac.v:223: warning: Port 7 (raddr) of module wram expects 6 bit(s), given 32.
+HD720/synth_1280/mac.v:223:        : Pruning 26 high bits of the expression.
+HD720/synth_1280/mac.v:223: warning: Port 7 (raddr) of module wram expects 6 bit(s), given 32.
+HD720/synth_1280/mac.v:223:        : Pruning 26 high bits of the expression.
+HD720/synth_1280/mac.v:223: warning: Port 7 (raddr) of module wram expects 6 bit(s), given 32.
+HD720/synth_1280/mac.v:223:        : Pruning 26 high bits of the expression.

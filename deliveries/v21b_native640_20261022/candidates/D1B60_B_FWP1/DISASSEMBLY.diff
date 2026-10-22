@@ -1,0 +1,26 @@
+--- historical
++++ CRC_constant_patch
+@@ -442,10 +442,10 @@
+ f90006d8:	fbdff06f          	j	0xf9000694
+ f90006dc:	02412783          	lw	a5,36(sp)
+ f90006e0:	00050613          	mv	a2,a0
+-f90006e4:	373df737          	lui	a4,0x373df
++f90006e4:	20d4d737          	lui	a4,0x20d4d
+ f90006e8:	0000c6b7          	lui	a3,0xc
+ f90006ec:	f9003537          	lui	a0,0xf9003
+-f90006f0:	ed770713          	addi	a4,a4,-297 # 0x373deed7
++f90006f0:	7eb70713          	addi	a4,a4,2027 # 0x20d4d7eb
+ f90006f4:	de868693          	addi	a3,a3,-536 # 0xbde8
+ f90006f8:	002005b7          	lui	a1,0x200
+ f90006fc:	ef850513          	addi	a0,a0,-264 # 0xf9002ef8
+@@ -1734,8 +1734,8 @@
+ f9001b08:	fc0412e3          	bnez	s0,0xf9001acc
+ f9001b0c:	b35ff0ef          	jal	0xf9001640
+ f9001b10:	00c12703          	lw	a4,12(sp)
+-f9001b14:	c8c217b7          	lui	a5,0xc8c21
+-f9001b18:	12878793          	addi	a5,a5,296 # 0xc8c21128
++f9001b14:	df2b37b7          	lui	a5,0xdf2b3
++f9001b18:	81478793          	addi	a5,a5,-2028 # 0xdf2b2814
+ f9001b1c:	ffe00513          	li	a0,-2
+ f9001b20:	02f71e63          	bne	a4,a5,0xf9001b5c
+ f9001b24:	00001537          	lui	a0,0x1

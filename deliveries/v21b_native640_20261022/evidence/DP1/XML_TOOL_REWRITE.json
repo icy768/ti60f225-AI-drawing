@@ -1,0 +1,13 @@
+{
+  "original_sha256": "3d612d6273f9f7ff55514aaf3df716aded13aff9959a8dcbceb02aed4baf4188",
+  "tool_rewritten_sha256": "8246933a49c58b109df17265574350cafede9776842b4832fb916d7d01bb155b",
+  "canonical_semantics_identical": false,
+  "note": "All433other archived files unchanged. XML whitespace/root sw_version only; no design or compilation option changed.",
+  "only_semantic_attribute_diff": {
+    "root.sw_version": [
+      "2026.1.132.4.5",
+      "2026.1.132"
+    ]
+  },
+  "design_constraints_and_compile_options_unchanged": true
+}

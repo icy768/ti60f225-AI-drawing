@@ -1,0 +1,150 @@
+{
+  "candidate": "D1B60_B_CRC",
+  "category": "研究附件",
+  "status": "BACKUP_GCC15_ENTIRE_FIRMWARE_RECOMPILED_PENDING_SUPERVISION",
+  "adopted": false,
+  "board_tested": false,
+  "full_boot_verified": false,
+  "files": {
+    "blob_info.h": {
+      "bytes": 237,
+      "sha256": "fe813ab4854ec4cf4697fb449fa2ee7a53a60d3be0c8fe06ce868e866bb5b2fe"
+    },
+    "BLOB_LOAD.md": {
+      "bytes": 4497,
+      "sha256": "b2081bad28514f9d65b661e665ad4fa7d98dec9314965bc9c1b3fc594c9a24ee"
+    },
+    "CRC_REMEDY_RESULT.json": {
+      "bytes": 7204,
+      "sha256": "b1695e4a13ec3dd8e80b99ae968c20085dcfab5d132fb61494d8d4cb28abd288"
+    },
+    "D1B60_B_CRC_UNTESTED.bit": {
+      "bytes": 3162861,
+      "sha256": "3f30299674d8a6b47311ef2749d69a4e10c09aba9665f1fc7e9e0d545df0edd7"
+    },
+    "D1B60_B_CRC_UNTESTED.hex": {
+      "bytes": 3162921,
+      "sha256": "8fc0a9be01017de02d5063efdd738dd28fd674ef68d7ad060c425f76467570be"
+    },
+    "DP2_RESULT.json": {
+      "bytes": 4037,
+      "sha256": "2ad33d25e93e44432e237421ce08862acfcabfb4d34def5fcd5b3e01a8396950"
+    },
+    "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin": {
+      "bytes": 40960,
+      "sha256": "ac7bc5a23af8bbc184634186c44fb0b54a300cf58b1602b16041e4185a8d4b64"
+    },
+    "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin": {
+      "bytes": 40960,
+      "sha256": "d0e04c7cf264f7a2a355a3dcada1f6eca2e04ced42c3f3fd0206861c1328a4ea"
+    },
+    "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": {
+      "bytes": 40960,
+      "sha256": "db9981f02304afd63b9558fdaaca2dea7d0c2e58d11e80220c3abba40af203ba"
+    },
+    "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin": {
+      "bytes": 40960,
+      "sha256": "42b261df877f52d90a88bb32c432bf5f9413bf583727d85bf226e101e870914d"
+    },
+    "LOAD_COMPATIBILITY_STATUS.json": {
+      "bytes": 555,
+      "sha256": "09e8d1751c760dba6bcd558f808160343b660d15ee60ed0866475814c0005932"
+    },
+    "model/in_constants.mem": {
+      "bytes": 67392,
+      "sha256": "25d05707a806fff094ab23db2c9b323f611f2797018ad05d0edcd275abba87f9"
+    },
+    "model/in_constants.mem.e0": {
+      "bytes": 3584,
+      "sha256": "cf2b76be82b55c0dc0e76fb48e264f7f97570f40c1fb66e0f527a2c79409230b"
+    },
+    "model/in_constants.mem.e1": {
+      "bytes": 3584,
+      "sha256": "a2d88c7f71443226e64ddce185c82463cbb2573560105b2d144185d63e5c0e8f"
+    },
+    "model/in_constants.mem.e2": {
+      "bytes": 3584,
+      "sha256": "2b6a14bd22827f11bc215c13f53275f4b7b5e51d152c116be16d7ff90d850b14"
+    },
+    "model/in_constants.mem.ec0": {
+      "bytes": 3584,
+      "sha256": "490316b98790212f0fce6861aebb4e7e6aa7b2c55202b08678d561414b34ab0d"
+    },
+    "model/in_constants.mem.ec1": {
+      "bytes": 3584,
+      "sha256": "b38a9d204b696b425e62ffe607f59514443cb1f570123e81c4235614bb896713"
+    },
+    "model/in_constants.mem.epsilon": {
+      "bytes": 10368,
+      "sha256": "8c92b45f2ceb4218064c9e193bd5bab11d7b239ae5a263855af90d5d4ebb8010"
+    },
+    "model/in_constants.mem.p0": {
+      "bytes": 3584,
+      "sha256": "610d8f4e33030e93b3b766814c29024950ec9dd63d17df0d731a4fd1776dfa2c"
+    },
+    "model/in_constants.mem.p1": {
+      "bytes": 3584,
+      "sha256": "bff52617f58383f630f7d8522ea1c6bd756749b9a29621f3c55f6fd0c0e10784"
+    },
+    "model/in_constants.mem.p2": {
+      "bytes": 3584,
+      "sha256": "07f7297eaefde020d4d5148b82d786ec6d26949ae5cacb8c8e7d62009a816500"
+    },
+    "model/in_constants.mem.p3": {
+      "bytes": 3584,
+      "sha256": "b1e25ddf2710758a422c16235a92275af6f9a2b96c2cbbad0208cf4e321f2607"
+    },
+    "model/in_constants.mem.p4": {
+      "bytes": 3584,
+      "sha256": "e165400300c04a81077715d13761bc2e88cb4216c8d264498f1f79533a82a428"
+    },
+    "model/in_constants.mem.p5": {
+      "bytes": 3584,
+      "sha256": "8a6444d1f4274214a41b08049ef532f59c686879799b2b4642b4a109607631cc"
+    },
+    "model/in_constants.mem.p6": {
+      "bytes": 3584,
+      "sha256": "0fe0fcab9ff2212165798d87270e5ca6269aae773f75ad70a482406ee90c9ae7"
+    },
+    "model/in_constants.mem.p7": {
+      "bytes": 3584,
+      "sha256": "6f9a072d711467499d730054356255c4f321ebda20771b8454c33050cafe8273"
+    },
+    "model/in_constants.mem.p8": {
+      "bytes": 3584,
+      "sha256": "36f8b4e6c60c04b1d9b740488b7ccde823a4262037295f08e85d5216c539a0f3"
+    },
+    "model/in_constants.mem.p9": {
+      "bytes": 3584,
+      "sha256": "079aec214e3aa3e1c48ffd249c55943384c7d96db3c1d1044668247dd8e6e254"
+    },
+    "model/in_constants.mem.parameters": {
+      "bytes": 29376,
+      "sha256": "e88c17c8b26e33bce66016772e980eb1c3a9d80108c4bb4f3d17c58d41775a34"
+    },
+    "net_blob.bin": {
+      "bytes": 48616,
+      "sha256": "84aeb3bae88b4c883a5ff8c8111b289f129359cb82d89df49219a743f14587bd"
+    },
+    "PAYLOAD_ROUNDTRIP.json": {
+      "bytes": 1548,
+      "sha256": "440be56ac7174faaac74e019c1f30237f871f17f5727997780b0f393de61bb54"
+    },
+    "README.md": {
+      "bytes": 713,
+      "sha256": "a731e7107f10b3e53a25ed9d13107ad6b7f14d0415c0c832c04cffc70f93ea88"
+    },
+    "RESULT.json": {
+      "bytes": 3921,
+      "sha256": "bfe8ad273ba062cf8c57c7644b2c41fd495a2c815b2e132a04033943e3896fa5"
+    },
+    "RV32_LOADER_RESULT.json": {
+      "bytes": 2850,
+      "sha256": "5eb36a0ab4121303287bc3f99b234f5d080139aa585188408891a9dec8fed848"
+    },
+    "stylecam.bin": {
+      "bytes": 13458,
+      "sha256": "d64c432e61d3a0dbf259b3296e5f967eaec1d3f2e3a1350bf56a57761156b485"
+    }
+  }
+}

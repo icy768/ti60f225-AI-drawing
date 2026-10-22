@@ -1,0 +1,74 @@
+{
+  "0": {
+    "A": {
+      "id": "D1B60",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D1B60\\0_van_gogh_candidate.png",
+      "sha256": "af1abf07d389dbddbd9b02e597b34420a8936677df2e43b7375c295d4dfec178"
+    },
+    "B": {
+      "id": "D0",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D0\\0_van_gogh_candidate.png",
+      "sha256": "89ccab79e623591793d91b66e8c04467171f1d9ebe091f7ccfd3e62ab6bf8ce2"
+    }
+  },
+  "1": {
+    "A": {
+      "id": "D1B60",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D1B60\\1_van_gogh_candidate.png",
+      "sha256": "9dae2024dfc705a52388b5f54ae89d79504e900a980846e283b52e26f5cbe40f"
+    },
+    "B": {
+      "id": "D0",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D0\\1_van_gogh_candidate.png",
+      "sha256": "e9f85b9472a81fbe8cc8bff006b3515d5bf3c913085723583e613222a5c8da66"
+    }
+  },
+  "2": {
+    "A": {
+      "id": "D1B60",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D1B60\\2_van_gogh_candidate.png",
+      "sha256": "59b1eef5617474b1663b6fa0def815ff47ab5fdaa2560f88c308a50b7b88bf92"
+    },
+    "B": {
+      "id": "D0",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D0\\2_van_gogh_candidate.png",
+      "sha256": "6400be30160329467f70059a63ac6149d3372626016a5dcfaeb440c95c2ee5fd"
+    }
+  },
+  "3": {
+    "A": {
+      "id": "D0",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D0\\3_van_gogh_candidate.png",
+      "sha256": "4fd6ce0a8a84bebe55f17185639a1fe67998adbda1390677d3045c39300f633f"
+    },
+    "B": {
+      "id": "D1B60",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D1B60\\3_van_gogh_candidate.png",
+      "sha256": "2507f6005476cfb9e7e46dd962e1399dc7147231858c006e7fa7497635330d59"
+    }
+  },
+  "4": {
+    "A": {
+      "id": "D0",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D0\\4_van_gogh_candidate.png",
+      "sha256": "bfdde560e57b891a0bce107de5a771a9d61c5abf576390ef7c6df9a7b7c165c7"
+    },
+    "B": {
+      "id": "D1B60",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D1B60\\4_van_gogh_candidate.png",
+      "sha256": "5b57b25923330f55075de63dfe09fd044e29bc24022b3e966c5a411173592056"
+    }
+  },
+  "5": {
+    "A": {
+      "id": "D0",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D0\\5_van_gogh_candidate.png",
+      "sha256": "c247f92ded39a793b6c0ef5807027690e02e00cccb976621e9f21522195c50f2"
+    },
+    "B": {
+      "id": "D1B60",
+      "source": "D:\\fpga\\v21b_return_20261021\\R44\\D1B60\\5_van_gogh_candidate.png",
+      "sha256": "1ca13a938c6848df2d3cdb6216c44b234972d2e1896c28aec567b6ba6c795209"
+    }
+  }
+}

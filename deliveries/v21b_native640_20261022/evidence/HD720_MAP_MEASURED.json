@@ -1,0 +1,34 @@
+{
+  "time": "2026-10-22T13:34:16.253015+08:00",
+  "scope": "isolated core map only; not whole PnR/FPS",
+  "rows": [
+    {
+      "width": 640,
+      "height": 480,
+      "FF": 10910,
+      "SRL": 2740,
+      "ADD": 4172,
+      "LUT": 14106,
+      "COMB4": 0,
+      "RAM": 138,
+      "DSP": 141,
+      "source": "HD720\\synth_640\\outflow\\stylenet_hd_probe.res.csv",
+      "sha256": "301e776d17b47b70e784e937cb133e5f45fd845631fb33f95a6c325abf4ec079"
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "FF": 10531,
+      "SRL": 2740,
+      "ADD": 4213,
+      "LUT": 13940,
+      "COMB4": 0,
+      "RAM": 219,
+      "DSP": 141,
+      "source": "HD720\\synth_1280\\outflow\\stylenet_hd_probe.res.csv",
+      "sha256": "888837ce825fa51aad57ffbdde1d13366710823b52ce5b3c525190c683b1f6ea"
+    }
+  ],
+  "original_topology_decision": "NO_GO_720P30_UNCHANGED",
+  "narrow_variants": "UNVERIFIED_REQUIRES_GI_RTL_CHANGES"
+}

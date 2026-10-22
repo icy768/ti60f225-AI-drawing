@@ -1,0 +1,12 @@
+PASS RISC-V blob load: 4050 records
+PASS V21 style 0 initial IN: 272 coefficients and 768 pixels exact
+PASS V21 style 1 initial IN: 272 coefficients and 768 pixels exact
+PASS V21 style 2 initial IN: 272 coefficients and 768 pixels exact
+PASS V21 style 0 changed frame: 768 pixels and 16 refreshed coefficients exact
+PASS V21 style 1 changed frame: 768 pixels and 16 refreshed coefficients exact
+PASS V21 style 2 changed frame: 768 pixels and 16 refreshed coefficients exact
+PASS V21 style 0 refreshed layer0 used: 768 pixels and 24 layer1 coefficients exact
+PASS V21 style 1 refreshed layer0 used: 768 pixels and 24 layer1 coefficients exact
+PASS V21 style 2 refreshed layer0 used: 768 pixels and 24 layer1 coefficients exact
+PASS V21 all styles: 6912 pixels, 936 IN coefficients, no-reset style switching, backpressure and reset
+D:\fpga\v21b_return_20261021\DP2\project\validation\video_engine\tb.v:72: $finish called at 59868930 (1s)

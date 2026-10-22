@@ -1,0 +1,1582 @@
+{
+  "rows": [
+    {
+      "input": 0,
+      "style": "van_gogh",
+      "candidate_vs_baseline_mae": 10.222574869791666,
+      "non_target_exact": null,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 0,
+      "style": "ukiyo_e",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 0,
+      "style": "ink_landscape",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 1,
+      "style": "van_gogh",
+      "candidate_vs_baseline_mae": 11.068665364583333,
+      "non_target_exact": null,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 1,
+      "style": "ukiyo_e",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 1,
+      "style": "ink_landscape",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 2,
+      "style": "van_gogh",
+      "candidate_vs_baseline_mae": 11.125132378472221,
+      "non_target_exact": null,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 2,
+      "style": "ukiyo_e",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 2,
+      "style": "ink_landscape",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 3,
+      "style": "van_gogh",
+      "candidate_vs_baseline_mae": 11.067628038194444,
+      "non_target_exact": null,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 3,
+      "style": "ukiyo_e",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 3,
+      "style": "ink_landscape",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 4,
+      "style": "van_gogh",
+      "candidate_vs_baseline_mae": 10.218180338541666,
+      "non_target_exact": null,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 4,
+      "style": "ukiyo_e",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 4,
+      "style": "ink_landscape",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 5,
+      "style": "van_gogh",
+      "candidate_vs_baseline_mae": 11.812458767361111,
+      "non_target_exact": null,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 5,
+      "style": "ukiyo_e",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    },
+    {
+      "input": 5,
+      "style": "ink_landscape",
+      "candidate_vs_baseline_mae": 0.0,
+      "non_target_exact": true,
+      "coefficient_boundaries": [
+        {
+          "layer": 0,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 1,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 2,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 3,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 4,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 5,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 6,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 7,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 8,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 9,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 10,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 11,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        },
+        {
+          "layer": 12,
+          "M_boundary": 0,
+          "B_boundary": 0,
+          "A_boundary": 0
+        }
+      ]
+    }
+  ],
+  "changed_sd_fields": [
+    "layers.0.norm.gamma",
+    "layers.0.norm.beta",
+    "layers.1.norm.gamma",
+    "layers.1.norm.beta",
+    "layers.2.norm.gamma",
+    "layers.2.norm.beta",
+    "layers.3.norm.gamma",
+    "layers.3.norm.beta",
+    "layers.4.norm.gamma",
+    "layers.4.norm.beta",
+    "layers.5.norm.gamma",
+    "layers.5.norm.beta",
+    "layers.6.norm.gamma",
+    "layers.6.norm.beta",
+    "layers.7.norm.gamma",
+    "layers.7.norm.beta",
+    "layers.8.norm.gamma",
+    "layers.8.norm.beta",
+    "layers.9.norm.gamma",
+    "layers.9.norm.beta",
+    "layers.10.norm.gamma",
+    "layers.10.norm.beta",
+    "layers.11.norm.gamma",
+    "layers.11.norm.beta"
+  ],
+  "art_gate": "AWAIT_SUPERVISION",
+  "adopted": false,
+  "board_validated": false,
+  "research_only": true
+}

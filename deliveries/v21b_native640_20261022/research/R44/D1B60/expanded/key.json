@@ -1,0 +1,82 @@
+{
+  "000000559707_input": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "000000559842_input": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "000000559956_input": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "000000560011_input": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "000000560178_input": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "000000560256_input": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "000000560266_input": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "000000560279_input": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "000000560312_input": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "000000560371_input": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "000000560474_input": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "000000560880_input": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "000000560911_input": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "000000561009_input": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "000000561223_input": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "000000561256_input": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "camera000": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "camera010": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "camera020": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "camera029": {
+    "A": "candidate",
+    "B": "baseline"
+  }
+}

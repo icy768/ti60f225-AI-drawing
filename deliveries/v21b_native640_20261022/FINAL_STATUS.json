@@ -1,0 +1,22 @@
+{
+  "final": true,
+  "authority": "LATEST51 17:15 decision; 18:05 deadline update",
+  "delivery_network": "D1B60_B_FWP1",
+  "selected_sha256": {
+    "D1B60_B_FWP1_UNTESTED.bit": "d05ca9a28994af523131805a1e427a622ce8dcedba1b386bb023052dbdd74475",
+    "D1B60_B_FWP1_UNTESTED.hex": "e357099aa9e3930b558ca453f71d367a279dae8d4909f6febfb181816af6ddd6",
+    "stylecam.bin": "6f932ae7dc75ebead8fff869289b41b5dc55c0ff147130188f3f133d2a094408",
+    "net_blob.bin": "84aeb3bae88b4c883a5ff8c8111b289f129359cb82d89df49219a743f14587bd"
+  },
+  "selected_blob_crc32": "20d4d7eb",
+  "rollback": "ORIGINAL_RISCV11",
+  "new_board_measurements": false,
+  "full_soc_boot_verified": false,
+  "native_resolution": "640x480",
+  "art_gate": "VG_COLOR_INCREMENT_PASS_FULL_TRACE_GAPS_REMAIN",
+  "research": "CLOSED_NO_NEW_RUN_OR_BIT",
+  "HD720": "NO_GO",
+  "deadline": "2026-10-22T19:30:00+08:00",
+  "decision_completed_at": "2026-10-22T18:09:03+08:00",
+  "deadline_acknowledged_at": "2026-10-22T18:29:49.332914+08:00"
+}

@@ -1,0 +1,1840 @@
+{
+  "current_authority": "LATEST51 17:15 selection +18:05 deadline19:30",
+  "files": [
+    {
+      "path": "evidence/actual_v21b_source_validation.json",
+      "sha256": "7fd669add43b5b5984b05eb3ea10ed030af1bfa5b2d021af8648e6274763a213",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP1/baseline_from_checkpoint.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP1/BUILD_QUEUE.json",
+      "sha256": "d108d49452579430210831027100694b25f02379da80cd8a080846b180bdc1cb",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP1/BUILD_REPRODUCTION.json",
+      "sha256": "779caf1070d75feaa7fe6fc3c8fb3ad01dc22335bafbfb9c217a04827afd7ce9",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP1/BUILD_REPRODUCTION.md",
+      "sha256": "aff0e4dd18f9b1c45a11c2fba6a60f458f00bbdbf1f231505037ba244ac46ae1",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP1/ROM.md",
+      "sha256": "fcc99f243dc0591dade8bdd39868597d3ac84a9689acba76c047cd9eb1ed4101",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP1/ROM_RESULT.json",
+      "sha256": "da9c3d125fd40c86ecd6388d08efca34b305d4dea3fed93125f2ec67d736d5d6",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP1/SOURCE.json",
+      "sha256": "c16cc04348cbbd4c43d1218fd582566d9d1c0a90e69bf3f24ac623e05b9e094b",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP1/XML_TOOL_REWRITE.json",
+      "sha256": "d1b24f56d440e29322bb435440becd6d5794c8fce77ece00e57471a631c45c16",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP2/EVIDENCE_MANIFEST.json",
+      "sha256": "36ffbb4e2c77161e2161fcb6add0e40074bd203663c71325d3c98f974a49f1a7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP2/RESULT.json",
+      "sha256": "2ad33d25e93e44432e237421ce08862acfcabfb4d34def5fcd5b3e01a8396950",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP2/RTL_FULL.md",
+      "sha256": "49760b92359bd097db02c4a31ac3c313914ae9a0142ba7c999825175dcb8308a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP2/SOURCE.json",
+      "sha256": "2a669e714f615d71ff9157239fd22ca8afe0cc83b1b211e8ba0fbbde305cef34",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP2_EVIDENCE_MANIFEST.json",
+      "sha256": "36ffbb4e2c77161e2161fcb6add0e40074bd203663c71325d3c98f974a49f1a7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP2_RESULT.json",
+      "sha256": "2ad33d25e93e44432e237421ce08862acfcabfb4d34def5fcd5b3e01a8396950",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP2_RTL_FULL.md",
+      "sha256": "49760b92359bd097db02c4a31ac3c313914ae9a0142ba7c999825175dcb8308a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/A_SEARCH.json",
+      "sha256": "1797e00b3f6d4e6abb50600852c9207df807ee25fd12ad668293e2f6d015c616",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/ARCHIVE_SEARCH.json",
+      "sha256": "5665a54028af74a7131d334b67c037e22d0aa3ed1443b1f48bc08beb707c95b2",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/BITFILE_QUEUE.json",
+      "sha256": "376c3c2d4d581d5c532f216f94273b922466b992616d3c409d0d3a88da1b5d55",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/BLOB_LOAD.md",
+      "sha256": "56d3715cecc624e89004746860c385706f0f4f4fbd9ba22c6327a7ce23e6b6e0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/BRAM_UPDATE.md",
+      "sha256": "4c85256ff9c4adc38722df3d620224a9d4c9c3eff9b17db5f81c0a12c7151376",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/BUILD_QUEUE.json",
+      "sha256": "f9b6b25c3365653f44d584150ac943397fd8aa8a87bef0c85acc171f20ac98fe",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/COLLECTION_NOTE.md",
+      "sha256": "99731e10aaa3d96e9df40c630a7a884906f656046900ade89aa2362ccd376dbe",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/FULL_BUILD.md",
+      "sha256": "d55adc4c8c6b0c4277a0a63a7e0ef07513c729b370e7a636e1b74b6d5bb44822",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/LOAD_COMPATIBILITY_STATUS.json",
+      "sha256": "09e8d1751c760dba6bcd558f808160343b660d15ee60ed0866475814c0005932",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/RESULT.json",
+      "sha256": "b05a5ee85318ebc37e46110ee2c11f5d592a7cf36bfa4dbac9f9ed5c4daa2159",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/SOURCE.json",
+      "sha256": "3c6d8e91365a7d68f6a3422ce41c47991bd8e95cb1254ed53d4179f936ba92c9",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3/STAGING.json",
+      "sha256": "6f112be9763ceb8ad51dbfca3b0c49a4f1e57e40b3e37c88aae683ebceb525e0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3_A_SEARCH.json",
+      "sha256": "1797e00b3f6d4e6abb50600852c9207df807ee25fd12ad668293e2f6d015c616",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3_ARCHIVE_SEARCH.json",
+      "sha256": "5665a54028af74a7131d334b67c037e22d0aa3ed1443b1f48bc08beb707c95b2",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3_BLOB_LOAD.md",
+      "sha256": "56d3715cecc624e89004746860c385706f0f4f4fbd9ba22c6327a7ce23e6b6e0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3_BRAM_UPDATE.md",
+      "sha256": "4c85256ff9c4adc38722df3d620224a9d4c9c3eff9b17db5f81c0a12c7151376",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3_FULL_BUILD.md",
+      "sha256": "d55adc4c8c6b0c4277a0a63a7e0ef07513c729b370e7a636e1b74b6d5bb44822",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3_LOAD_COMPATIBILITY_STATUS.json",
+      "sha256": "09e8d1751c760dba6bcd558f808160343b660d15ee60ed0866475814c0005932",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3_RESULT.json",
+      "sha256": "b05a5ee85318ebc37e46110ee2c11f5d592a7cf36bfa4dbac9f9ed5c4daa2159",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/DP3_SOURCE.json",
+      "sha256": "3c6d8e91365a7d68f6a3422ce41c47991bd8e95cb1254ed53d4179f936ba92c9",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/F0_FIDELITY.md",
+      "sha256": "e7aab9cee99222053c321f6f986554807bfcb5837bfcff571b0a12dce7390633",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/F0_PREFLIGHT.json",
+      "sha256": "31fa2121d4df686ec8e3e81bce78e173cfffc5b1127f7c57f85a7e139420a523",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/F0_PROVENANCE_CORRECTION.json",
+      "sha256": "300c323ffe16dba8b7d7db6428c73209cc7c488f8ceb7456e11cd2eeb7bcef12",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/F0_PROVENANCE_CORRECTION.md",
+      "sha256": "8fa848dbd33df9549ee29ec422181ed88fdc44132f218544a718ee95c8e66206",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/F0_QUOTA_CURRENT.json",
+      "sha256": "ff456e00fe51534ce1e74c959cfdcbe70bdfd055cc27b6252ac384a240957bbe",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/F0_RESULT.json",
+      "sha256": "42b926269bdc3cd13a59e389b95709432cb701ff2cc335a50574585f1d76163a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/F0_TRAINING_CONTRACT.md",
+      "sha256": "fdec9b165c18b797eaa511e85697b24980baf24f77deac15773646e7221895ff",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/FINAL_QUEUE_AUDIT.json",
+      "sha256": "05dc9bb0a2c8171b05bea444f8f7630deb5282f1f0cb8e9ba99d8f39a199f3f4",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/FPS_SOURCE/SOURCE.json",
+      "sha256": "32ebfc959900c1d68e75c6d0ddefda24d5175e571dfb8989527d53c026afbe66",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/FW_PATCH_ALL_ROM_LOCALIZATION.json",
+      "sha256": "ce35cd8ef87b48f2f67856f4735121977bd0ccd57b5f07ad86dd1fc2e5b787db",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/FW_PATCH_BINARY_RESULT.json",
+      "sha256": "fefc7a4f0c6827a00b4cce0fbe585c504ca7e600659d28c78e79ff1bfc12fddd",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/FW_PATCH_RESULT.md",
+      "sha256": "0281d3260cfea2d8eb257526a10386c2159eebe1ef6ff943a6a71c399252b6b4",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/FW_PATCH_ROM_READBACK.json",
+      "sha256": "b8a5827d6ef0e2e65d0b30e76804ae3209cddccfdbc5b1d58545aa7fb33500ef",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/FW_PATCH_ROM_RESULT.json",
+      "sha256": "17d2df47e4936e091ac878419ba53a6e9e9bf85287be0536bae932de2bff2d04",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/guidance_LATEST.md",
+      "sha256": "a3a3a036677caee8249d10e69b2039f159e7bab0d07eec826bccf4a077122722",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/guidance_OWNER.json",
+      "sha256": "6a730d452cbf3717fc86e85877982daf6f8b252fdc05aa47a7a906698f4ab68d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/guidance_PLAN.md",
+      "sha256": "53c8dc5c99fa32a84f01fe85ebad63436524f249fce50dd66c38098f91d16412",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/guidance_round44_archived.md",
+      "sha256": "71290943a8624c01eb1c01577a50f4d82429127e1418e9bf53439f16837768ac",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/guidance_TRACE.md",
+      "sha256": "1d748c7f95d1d5a778f6598423b9a014a6f9841cbd8faa4b0cc8fe899d492d49",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/hardware_AUDIT.json",
+      "sha256": "ab9e7a2de3bda1a11827f79506928d6cf60c2d0fb64fb44edc8eb63da7d745ef",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/hardware_board_acceptance_20261018.json",
+      "sha256": "c0fa45f7e2fc07ea72924b9f8aff1994836589c8a85865fb8a6d1920396bde95",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/hardware_feedback_NETWORK_COMPARISON_20261019.md",
+      "sha256": "a5d52f4c2d98fdfd23d6bf34d74b24eafa16f0099f461707035db776892170db",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/hardware_README.md",
+      "sha256": "6a8a690fa089eaee7ec079b056ca250c86a1d59b0e07dd29801c217d13f9d21f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/hardware_resource_report.md",
+      "sha256": "496770aef69bf61b6c725d48df0cd1ffd0766a2b1814ddbdd5b1ca860601c984",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/hardware_REVIEW.md",
+      "sha256": "0bca8a1ae8a1714d1eae3e5721c417c28d821e0e3f9184c6c77f672ac6705428",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/HD720/COST_PRELIMINARY.json",
+      "sha256": "1424aecd3692ae312d5e25cf51e292d67476b481b21fb1d457ccf0288004a4a4",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/HD720/FEASIBILITY.md",
+      "sha256": "ebc9b09ee00d128bdb0b79dc6b2515dde0ef72303447c7f7c9108e7b7fd7c7ec",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/HD720/FEASIBILITY_PRE_MAP.md",
+      "sha256": "bbafde023cba8c3aed0fa7e5b58c432a8ff2b1eb30ad3d9f72a676461101d6f9",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/HD720/MAP_MEASURED.json",
+      "sha256": "2f4ee39785b158fb841c13734b72fea8dc293e17396dc97859996ae663c29358",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/HD720/SOURCE.json",
+      "sha256": "c9b0615d0e0d462e5b7959cedff4cf835afbf22e9dbac17c030949137e7df934",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/HD720/SYNTH_QUEUE.json",
+      "sha256": "05a8e1647d13e506aa2e69a9dd62e88888f4a476f319ac2d676573dd2edf9534",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/HD720/VARIANT_COST.json",
+      "sha256": "24cef4dbb7d197a97474b42b02f0495ba8f9c4fd3dec74f3fc4fa74b63bb234c",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/HD720_MAP_MEASURED.json",
+      "sha256": "2f4ee39785b158fb841c13734b72fea8dc293e17396dc97859996ae663c29358",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/HD720_SOURCE.json",
+      "sha256": "c9b0615d0e0d462e5b7959cedff4cf835afbf22e9dbac17c030949137e7df934",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/HD720_VARIANT_COST.json",
+      "sha256": "24cef4dbb7d197a97474b42b02f0495ba8f9c4fd3dec74f3fc4fa74b63bb234c",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/misattributed_graphic_v6_validation.json",
+      "sha256": "729ccc55eabb5a43adea478b049387a0e2fbe54b15c1e75fb6a8ed48d5f8c806",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/PROVENANCE_CORRECTION.json",
+      "sha256": "300c323ffe16dba8b7d7db6428c73209cc7c488f8ceb7456e11cd2eeb7bcef12",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/PROVENANCE_CORRECTION.md",
+      "sha256": "8fa848dbd33df9549ee29ec422181ed88fdc44132f218544a718ee95c8e66206",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/QUEUE_R44.json",
+      "sha256": "79236e94b11e7379bad84cea46b33d326f1123f1dc2b50b54e1ddaf6b55842ff",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/QUEUE_R47_UK_REPAIR.json",
+      "sha256": "3ad0ef54f17ee2fa974317a5b7a0a8539c706aca399567258e100c8c092ae441",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/QUEUE_R48_J4.json",
+      "sha256": "50106b151e245681162dafe50d45adf7fc3c9f885a370b285883d92f5f37b2f8",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R44_CANDIDATE_FIDELITY.json",
+      "sha256": "db5ee38dd9faea056ef5a1b856553f0c2f1b6edbfbdbf67466d5afb818005ecc",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R44_CODEX_VISUAL_NOTES.md",
+      "sha256": "9ab7daa4cc9c811bf69082322b3786712404952e269dc2551e0cf7d50f6c6897",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R44_SUMMARY.json",
+      "sha256": "8fa75d9f9ea002d5b47ea2c85f047667aa7c830ae444c038f4f8ecb78cc5d264",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R46_CANDIDATE_FIDELITY.json",
+      "sha256": "4455d834bfaa73f94d10182a50a65f07effa7be5ed0fe8e9776cfeb65203d8cb",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R46_REVIEW.md",
+      "sha256": "0d353b799231af31f50b3c2ea873b894bef7b793440d0460c017740bd30c0ea7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R47_J3_UK_R1_CANDIDATE_FIDELITY.json",
+      "sha256": "c43170996b270c2ef9fe42081d5a008c8a911e33fb0274ca25dd12907b045550",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R47_J3_UK_R1_CODEX_VISUAL_NOTES.md",
+      "sha256": "a23f902e3a4a2c47904d55ebf29807bd30b045272154bcd908bba3254ecf4c08",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R47_J3_UK_R1_RESULT.json",
+      "sha256": "d2f121de34a3b6835399e2b698f9e7622b13457423a571bb2d01a5a37198e588",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_INK_CANDIDATE_FIDELITY.json",
+      "sha256": "68048ecbdffc0d71215394c75529a989d54b12baf0bdfd85f52185b100d441bc",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_INK_CODEX_VISUAL_NOTES.md",
+      "sha256": "df66248f8fda17522200f352498bed080b46027229e28f5f84a4e838228b2413",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_INK_DESCRIPTIVE_DIAGNOSTICS.json",
+      "sha256": "e2b36491c706eaecbf1ba83d99099e3ff01d0f20989eefe2a8e3ce1ece6038d4",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_INK_RESULT.json",
+      "sha256": "6bdd89769efb03314b1ebee121c08b4d3c4600c979f0b00823709118cdca4212",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_UK_CANDIDATE_FIDELITY.json",
+      "sha256": "f339dccc62e932c41d5df908267aee8b22ed50458a6d2f2f5aa52d08af4f6bef",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_UK_CODEX_VISUAL_NOTES.md",
+      "sha256": "58c4261b15ae6c5f2b66910341861ed596e9165c628024ee3d69bff070f3f61c",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_UK_DESCRIPTIVE_DIAGNOSTICS.json",
+      "sha256": "bcb0a1a714e636e56d9be3e0c69c02e84dde03ec05156f96a7187c2c9aadce60",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_UK_RESULT.json",
+      "sha256": "425f5cc17f687c3d4ff7ae4dc7416d280e4fe359a6474d34f680104be119081f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_VG_CANDIDATE_FIDELITY.json",
+      "sha256": "7c21d7bbc6bf06990777338b9ad321a660358a9a6075607f2e1a334eabe6c832",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_VG_CODEX_VISUAL_NOTES.md",
+      "sha256": "0c24643c458a094be7dcc00caa6dca67009c7bc96b2e175bad6e464e21bdea1e",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_VG_DESCRIPTIVE_DIAGNOSTICS.json",
+      "sha256": "417979688d24e3623182cc74c9457cae0eb96d392197b5baf1e95079dd11f022",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_J4_VG_RESULT.json",
+      "sha256": "c683c1ec96243c588af1d45424e1a61d1c21650e63f22b3902f4513318b83111",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R48_PREFLIGHT.json",
+      "sha256": "081f0c68b18fc3864f524ef0878cebdd646bfbb74e72f19bdf6f2d5e50bcf055",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R49_J5_CALIBRATION_CHECK.json",
+      "sha256": "d2362471208cc19b3ab601419a5d12c306fb227ffcca08ff06a9e6049b122381",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R49_J5_CANDIDATE_FIDELITY.json",
+      "sha256": "1a3c49584bc617e5a49d48a0c68128d62504b980c6a9590fa3db944504dd7813",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R49_J5_CODEX_VISUAL_NOTES.md",
+      "sha256": "5de0284a959f629cea3fcaeeaa6a09c7506e7ed5a83fb5681fc194f6358e0a5d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R49_J5_PREFLIGHT.json",
+      "sha256": "00d2e9a7aa8bac2fb21fb018aca23e36d1717686698879c3352864f1016fb4b2",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R49_J5_QUEUE_R49_J5.json",
+      "sha256": "56725f8c8a2e22c865df03daa18a26e0fe8589ee3d47226bb54a1ed894444bbe",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R49_J5_RESULT.json",
+      "sha256": "89a19f66d13d66439b0a67f1b49101c7e65ade244ce86595619c4d04306f1fed",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R50_J6_CALIBRATION_CHECK.json",
+      "sha256": "50128707ef455f00675d9ce4b90f12f66f7e69e3b200d68aeb1aac4747985244",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R50_J6_CANDIDATE_FIDELITY.json",
+      "sha256": "5c44da5b4b137b73ceeb042358860f0cab33209874243f6953d50359756c8e7f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R50_J6_CODEX_VISUAL_NOTES.md",
+      "sha256": "ccb65a160bdaed4cc9efc243c6cd4246f0520b906ed38ff549fd1c8ac9be9549",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R50_J6_PALETTE.json",
+      "sha256": "4cb4467555feca7f7e2c495c78ab8dd25899036ea1950f87d094c40567ecc39e",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R50_J6_PREFLIGHT.json",
+      "sha256": "08bf5014f7797d342e892015ffc1013ecf85f7f89b7dd74161b1cec961d9165e",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R50_J6_QUEUE_R50_J6.json",
+      "sha256": "968aa64b838558e120b5ac67305046272b84b3cc19f938e5ae7096af74a7fc74",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/R50_J6_RESULT.json",
+      "sha256": "a7b9b70b9577291a4fc3619a2a2e7aab11c738fd3259d3f76d4b8e88f2c67513",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "evidence/README_CURRENT_SCOPE.md",
+      "sha256": "7a35c11a3a64d1c2375f88bcf6f5b4a39108abbbba382f27ae87051ef09a6968",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/baseline/original_generated/export.json",
+      "sha256": "0f33845b70b760bde68d6a12355aba8f878aa758b7f204b4cef184ea09a8337f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/baseline/qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B/DP2_RESULT.json",
+      "sha256": "2ad33d25e93e44432e237421ce08862acfcabfb4d34def5fcd5b3e01a8396950",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B/FULL_BUILD.md",
+      "sha256": "d55adc4c8c6b0c4277a0a63a7e0ef07513c729b370e7a636e1b74b6d5bb44822",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B/MANIFEST.json",
+      "sha256": "0f46f957e10f8c11edb4da7d7515041d5c6e796a6e2ccec1e751690fd1286308",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B/PNR_RESULT.json",
+      "sha256": "b05a5ee85318ebc37e46110ee2c11f5d592a7cf36bfa4dbac9f9ed5c4daa2159",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B/README.md",
+      "sha256": "0cb6096ce1460d8427b97bb5a4097eca2e8860f258ee3d2cb18822f2411f5fb7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B/SOURCE.json",
+      "sha256": "3c6d8e91365a7d68f6a3422ce41c47991bd8e95cb1254ed53d4179f936ba92c9",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_CRC/BLOB_LOAD.md",
+      "sha256": "b2081bad28514f9d65b661e665ad4fa7d98dec9314965bc9c1b3fc594c9a24ee",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_CRC/CRC_REMEDY_RESULT.json",
+      "sha256": "b1695e4a13ec3dd8e80b99ae968c20085dcfab5d132fb61494d8d4cb28abd288",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_CRC/DP2_RESULT.json",
+      "sha256": "2ad33d25e93e44432e237421ce08862acfcabfb4d34def5fcd5b3e01a8396950",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_CRC/LOAD_COMPATIBILITY_STATUS.json",
+      "sha256": "09e8d1751c760dba6bcd558f808160343b660d15ee60ed0866475814c0005932",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_CRC/MANIFEST.json",
+      "sha256": "b50e38a94b12f4a8736be7a6bc9f4f6c1e150c80f3ec06ead1399afb7e02af9d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_CRC/PAYLOAD_ROUNDTRIP.json",
+      "sha256": "440be56ac7174faaac74e019c1f30237f871f17f5727997780b0f393de61bb54",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_CRC/README.md",
+      "sha256": "a731e7107f10b3e53a25ed9d13107ad6b7f14d0415c0c832c04cffc70f93ea88",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_CRC/RESULT.json",
+      "sha256": "bfe8ad273ba062cf8c57c7644b2c41fd495a2c815b2e132a04033943e3896fa5",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_CRC/RV32_LOADER_RESULT.json",
+      "sha256": "5eb36a0ab4121303287bc3f99b234f5d080139aa585188408891a9dec8fed848",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_FWP1/ALL_ROM_LOCALIZATION.json",
+      "sha256": "ce35cd8ef87b48f2f67856f4735121977bd0ccd57b5f07ad86dd1fc2e5b787db",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_FWP1/BINARY_RESULT.json",
+      "sha256": "fefc7a4f0c6827a00b4cce0fbe585c504ca7e600659d28c78e79ff1bfc12fddd",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_FWP1/MANIFEST.json",
+      "sha256": "e7040a0d7cb4591d8f6b383979affa28a87a02d52a2e2a7ab958c5f60d742885",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_FWP1/README.md",
+      "sha256": "e932a7b17f93dabf8f97b14547bc6dc1a3f382ce51ec9954c3df1e23118b2416",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_FWP1/RESULT.md",
+      "sha256": "0281d3260cfea2d8eb257526a10386c2159eebe1ef6ff943a6a71c399252b6b4",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_FWP1/ROM_READBACK.json",
+      "sha256": "b8a5827d6ef0e2e65d0b30e76804ae3209cddccfdbc5b1d58545aa7fb33500ef",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/candidates/D1B60_B_FWP1/ROM_RESULT.json",
+      "sha256": "17d2df47e4936e091ac878419ba53a6e9e9bf85287be0536bae932de2bff2d04",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/DRAFT_MANIFEST.json",
+      "sha256": "469e9d3bb68cbf243827a1c1968b86b85efe7fffe95f6b59b1d09fcafeb535ba",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/DRAFT_VERIFICATION.json",
+      "sha256": "a5233a5420660eb8bc5d5ae83bcd42a661cc72211db3b3c6309394b328f5e89a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/actual_v21b_source_validation.json",
+      "sha256": "7fd669add43b5b5984b05eb3ea10ed030af1bfa5b2d021af8648e6274763a213",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP2_EVIDENCE_MANIFEST.json",
+      "sha256": "36ffbb4e2c77161e2161fcb6add0e40074bd203663c71325d3c98f974a49f1a7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP2_RESULT.json",
+      "sha256": "2ad33d25e93e44432e237421ce08862acfcabfb4d34def5fcd5b3e01a8396950",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP2_RTL_FULL.md",
+      "sha256": "49760b92359bd097db02c4a31ac3c313914ae9a0142ba7c999825175dcb8308a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP3_A_SEARCH.json",
+      "sha256": "1797e00b3f6d4e6abb50600852c9207df807ee25fd12ad668293e2f6d015c616",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP3_ARCHIVE_SEARCH.json",
+      "sha256": "5665a54028af74a7131d334b67c037e22d0aa3ed1443b1f48bc08beb707c95b2",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP3_BLOB_LOAD.md",
+      "sha256": "56d3715cecc624e89004746860c385706f0f4f4fbd9ba22c6327a7ce23e6b6e0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP3_BRAM_UPDATE.md",
+      "sha256": "4c85256ff9c4adc38722df3d620224a9d4c9c3eff9b17db5f81c0a12c7151376",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP3_FULL_BUILD.md",
+      "sha256": "d55adc4c8c6b0c4277a0a63a7e0ef07513c729b370e7a636e1b74b6d5bb44822",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP3_LOAD_COMPATIBILITY_STATUS.json",
+      "sha256": "09e8d1751c760dba6bcd558f808160343b660d15ee60ed0866475814c0005932",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP3_RESULT.json",
+      "sha256": "b05a5ee85318ebc37e46110ee2c11f5d592a7cf36bfa4dbac9f9ed5c4daa2159",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/DP3_SOURCE.json",
+      "sha256": "3c6d8e91365a7d68f6a3422ce41c47991bd8e95cb1254ed53d4179f936ba92c9",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/F0_FIDELITY.md",
+      "sha256": "e7aab9cee99222053c321f6f986554807bfcb5837bfcff571b0a12dce7390633",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/F0_PREFLIGHT.json",
+      "sha256": "31fa2121d4df686ec8e3e81bce78e173cfffc5b1127f7c57f85a7e139420a523",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/F0_PROVENANCE_CORRECTION.json",
+      "sha256": "300c323ffe16dba8b7d7db6428c73209cc7c488f8ceb7456e11cd2eeb7bcef12",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/F0_PROVENANCE_CORRECTION.md",
+      "sha256": "8fa848dbd33df9549ee29ec422181ed88fdc44132f218544a718ee95c8e66206",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/F0_QUOTA_CURRENT.json",
+      "sha256": "ff456e00fe51534ce1e74c959cfdcbe70bdfd055cc27b6252ac384a240957bbe",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/F0_RESULT.json",
+      "sha256": "42b926269bdc3cd13a59e389b95709432cb701ff2cc335a50574585f1d76163a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/F0_TRAINING_CONTRACT.md",
+      "sha256": "fdec9b165c18b797eaa511e85697b24980baf24f77deac15773646e7221895ff",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/FPS_SOURCE/SOURCE.json",
+      "sha256": "32ebfc959900c1d68e75c6d0ddefda24d5175e571dfb8989527d53c026afbe66",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/FW_PATCH_ALL_ROM_LOCALIZATION.json",
+      "sha256": "ce35cd8ef87b48f2f67856f4735121977bd0ccd57b5f07ad86dd1fc2e5b787db",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/FW_PATCH_BINARY_RESULT.json",
+      "sha256": "fefc7a4f0c6827a00b4cce0fbe585c504ca7e600659d28c78e79ff1bfc12fddd",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/FW_PATCH_RESULT.md",
+      "sha256": "0281d3260cfea2d8eb257526a10386c2159eebe1ef6ff943a6a71c399252b6b4",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/FW_PATCH_ROM_READBACK.json",
+      "sha256": "b8a5827d6ef0e2e65d0b30e76804ae3209cddccfdbc5b1d58545aa7fb33500ef",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/FW_PATCH_ROM_RESULT.json",
+      "sha256": "17d2df47e4936e091ac878419ba53a6e9e9bf85287be0536bae932de2bff2d04",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/guidance_LATEST.md",
+      "sha256": "20394bc80adf412c6b53e9ce5d4394c51eb2c4818dac1ac2e1e28268315997a2",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/guidance_OWNER.json",
+      "sha256": "6a730d452cbf3717fc86e85877982daf6f8b252fdc05aa47a7a906698f4ab68d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/guidance_PLAN.md",
+      "sha256": "91b11613314913630f5924b07529e85daaf76a19a586758941eef7e663372492",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/guidance_round44_archived.md",
+      "sha256": "71290943a8624c01eb1c01577a50f4d82429127e1418e9bf53439f16837768ac",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/guidance_TRACE.md",
+      "sha256": "1d748c7f95d1d5a778f6598423b9a014a6f9841cbd8faa4b0cc8fe899d492d49",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/hardware_AUDIT.json",
+      "sha256": "ab9e7a2de3bda1a11827f79506928d6cf60c2d0fb64fb44edc8eb63da7d745ef",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/hardware_board_acceptance_20261018.json",
+      "sha256": "c0fa45f7e2fc07ea72924b9f8aff1994836589c8a85865fb8a6d1920396bde95",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/hardware_feedback_NETWORK_COMPARISON_20261019.md",
+      "sha256": "a5d52f4c2d98fdfd23d6bf34d74b24eafa16f0099f461707035db776892170db",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/hardware_README.md",
+      "sha256": "6a8a690fa089eaee7ec079b056ca250c86a1d59b0e07dd29801c217d13f9d21f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/hardware_resource_report.md",
+      "sha256": "496770aef69bf61b6c725d48df0cd1ffd0766a2b1814ddbdd5b1ca860601c984",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/hardware_REVIEW.md",
+      "sha256": "0bca8a1ae8a1714d1eae3e5721c417c28d821e0e3f9184c6c77f672ac6705428",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/misattributed_graphic_v6_validation.json",
+      "sha256": "729ccc55eabb5a43adea478b049387a0e2fbe54b15c1e75fb6a8ed48d5f8c806",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/PROVENANCE_CORRECTION.json",
+      "sha256": "300c323ffe16dba8b7d7db6428c73209cc7c488f8ceb7456e11cd2eeb7bcef12",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/PROVENANCE_CORRECTION.md",
+      "sha256": "8fa848dbd33df9549ee29ec422181ed88fdc44132f218544a718ee95c8e66206",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/QUEUE_R44.json",
+      "sha256": "79236e94b11e7379bad84cea46b33d326f1123f1dc2b50b54e1ddaf6b55842ff",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/QUEUE_R47_UK_REPAIR.json",
+      "sha256": "3ad0ef54f17ee2fa974317a5b7a0a8539c706aca399567258e100c8c092ae441",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/QUEUE_R48_J4.json",
+      "sha256": "50106b151e245681162dafe50d45adf7fc3c9f885a370b285883d92f5f37b2f8",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R44_CANDIDATE_FIDELITY.json",
+      "sha256": "db5ee38dd9faea056ef5a1b856553f0c2f1b6edbfbdbf67466d5afb818005ecc",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R44_CODEX_VISUAL_NOTES.md",
+      "sha256": "9ab7daa4cc9c811bf69082322b3786712404952e269dc2551e0cf7d50f6c6897",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R44_SUMMARY.json",
+      "sha256": "8fa75d9f9ea002d5b47ea2c85f047667aa7c830ae444c038f4f8ecb78cc5d264",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R46_CANDIDATE_FIDELITY.json",
+      "sha256": "4455d834bfaa73f94d10182a50a65f07effa7be5ed0fe8e9776cfeb65203d8cb",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R46_REVIEW.md",
+      "sha256": "0d353b799231af31f50b3c2ea873b894bef7b793440d0460c017740bd30c0ea7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R47_J3_UK_R1_CANDIDATE_FIDELITY.json",
+      "sha256": "c43170996b270c2ef9fe42081d5a008c8a911e33fb0274ca25dd12907b045550",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R47_J3_UK_R1_CODEX_VISUAL_NOTES.md",
+      "sha256": "a23f902e3a4a2c47904d55ebf29807bd30b045272154bcd908bba3254ecf4c08",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R47_J3_UK_R1_RESULT.json",
+      "sha256": "d2f121de34a3b6835399e2b698f9e7622b13457423a571bb2d01a5a37198e588",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_INK_CANDIDATE_FIDELITY.json",
+      "sha256": "68048ecbdffc0d71215394c75529a989d54b12baf0bdfd85f52185b100d441bc",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_INK_CODEX_VISUAL_NOTES.md",
+      "sha256": "df66248f8fda17522200f352498bed080b46027229e28f5f84a4e838228b2413",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_INK_DESCRIPTIVE_DIAGNOSTICS.json",
+      "sha256": "e2b36491c706eaecbf1ba83d99099e3ff01d0f20989eefe2a8e3ce1ece6038d4",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_INK_RESULT.json",
+      "sha256": "6bdd89769efb03314b1ebee121c08b4d3c4600c979f0b00823709118cdca4212",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_UK_CANDIDATE_FIDELITY.json",
+      "sha256": "f339dccc62e932c41d5df908267aee8b22ed50458a6d2f2f5aa52d08af4f6bef",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_UK_CODEX_VISUAL_NOTES.md",
+      "sha256": "58c4261b15ae6c5f2b66910341861ed596e9165c628024ee3d69bff070f3f61c",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_UK_DESCRIPTIVE_DIAGNOSTICS.json",
+      "sha256": "bcb0a1a714e636e56d9be3e0c69c02e84dde03ec05156f96a7187c2c9aadce60",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_UK_RESULT.json",
+      "sha256": "425f5cc17f687c3d4ff7ae4dc7416d280e4fe359a6474d34f680104be119081f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_VG_CANDIDATE_FIDELITY.json",
+      "sha256": "7c21d7bbc6bf06990777338b9ad321a660358a9a6075607f2e1a334eabe6c832",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_VG_CODEX_VISUAL_NOTES.md",
+      "sha256": "0c24643c458a094be7dcc00caa6dca67009c7bc96b2e175bad6e464e21bdea1e",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_VG_DESCRIPTIVE_DIAGNOSTICS.json",
+      "sha256": "417979688d24e3623182cc74c9457cae0eb96d392197b5baf1e95079dd11f022",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_J4_VG_RESULT.json",
+      "sha256": "c683c1ec96243c588af1d45424e1a61d1c21650e63f22b3902f4513318b83111",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R48_PREFLIGHT.json",
+      "sha256": "081f0c68b18fc3864f524ef0878cebdd646bfbb74e72f19bdf6f2d5e50bcf055",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R49_J5_CALIBRATION_CHECK.json",
+      "sha256": "d2362471208cc19b3ab601419a5d12c306fb227ffcca08ff06a9e6049b122381",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R49_J5_CANDIDATE_FIDELITY.json",
+      "sha256": "1a3c49584bc617e5a49d48a0c68128d62504b980c6a9590fa3db944504dd7813",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R49_J5_CODEX_VISUAL_NOTES.md",
+      "sha256": "5de0284a959f629cea3fcaeeaa6a09c7506e7ed5a83fb5681fc194f6358e0a5d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R49_J5_PREFLIGHT.json",
+      "sha256": "00d2e9a7aa8bac2fb21fb018aca23e36d1717686698879c3352864f1016fb4b2",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R49_J5_QUEUE_R49_J5.json",
+      "sha256": "56725f8c8a2e22c865df03daa18a26e0fe8589ee3d47226bb54a1ed894444bbe",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R49_J5_RESULT.json",
+      "sha256": "89a19f66d13d66439b0a67f1b49101c7e65ade244ce86595619c4d04306f1fed",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R50_J6_CALIBRATION_CHECK.json",
+      "sha256": "50128707ef455f00675d9ce4b90f12f66f7e69e3b200d68aeb1aac4747985244",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R50_J6_CANDIDATE_FIDELITY.json",
+      "sha256": "5c44da5b4b137b73ceeb042358860f0cab33209874243f6953d50359756c8e7f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R50_J6_CODEX_VISUAL_NOTES.md",
+      "sha256": "ccb65a160bdaed4cc9efc243c6cd4246f0520b906ed38ff549fd1c8ac9be9549",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R50_J6_PALETTE.json",
+      "sha256": "4cb4467555feca7f7e2c495c78ab8dd25899036ea1950f87d094c40567ecc39e",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R50_J6_PREFLIGHT.json",
+      "sha256": "08bf5014f7797d342e892015ffc1013ecf85f7f89b7dd74161b1cec961d9165e",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R50_J6_QUEUE_R50_J6.json",
+      "sha256": "968aa64b838558e120b5ac67305046272b84b3cc19f938e5ae7096af74a7fc74",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/evidence/R50_J6_RESULT.json",
+      "sha256": "a7b9b70b9577291a4fc3619a2a2e7aab11c738fd3259d3f76d4b8e88f2c67513",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/EXPERIMENTS.md",
+      "sha256": "11e255b26d79134bea05c0866e761d816e900d7e025f284f59b2a501ac5c436a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/FINAL_DECISION.md",
+      "sha256": "5c8bb5c3e6766a31ac4b7028d39316315f991dd0eb984be2bed9ad0a29ad39cc",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/FPS_OVERLAY.md",
+      "sha256": "01696c1edf69bc21de93cd9f1dfe5ac84085c7d2599aad5a7b09d20801e37545",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/GAPS.md",
+      "sha256": "9e17a1bd1cd0390c0664d0771dd9e18c2de48e4ed46f21a9cd4d3a30cf4eb6e8",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/index.html",
+      "sha256": "4e9e975a73601763a02fd39e2f1678615fc2e3746537ee2f2c1d4ceca3f50ced",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/PARAMETER_BYTES.json",
+      "sha256": "fbed04680b250b25860ef9cef8fa4d10124634967067286492b69aa299fc5eb0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/POST_DELIVERY_TEST.md",
+      "sha256": "55472988e4b50e7fb74be1649fb82ce17b15eb6aba78be0ca4d07feb6d7d05d7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/R48_DRAFT_CHECK.json",
+      "sha256": "e9c90b46e0a49d1f8574c7d588b41ee8b89cc7a9a3a5d71d194b878c2d134a7b",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/README.md",
+      "sha256": "be7f1ea26de3e61bf5489049257a5c6d1e39f7e9b33b9dd888bb893cf4e4f0e1",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/REPRODUCE.md",
+      "sha256": "8f736f1904ddf2a63f543c0aae77466bf5a0d3d4337c055fe9d97eb70626e7f5",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/RESEARCH_CANDIDATES.md",
+      "sha256": "ae36f30e0382255b12d03c9b693d1818620adee9283d34cf6b822fc70098745d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/RESEARCH_STATUS.md",
+      "sha256": "4e52c41d20020d91f05e212f48bcda7e525ce13dd203b62c6c771e75c0659f5b",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/rollback_RISCV11/resource_report.md",
+      "sha256": "496770aef69bf61b6c725d48df0cd1ffd0766a2b1814ddbdd5b1ca860601c984",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/rollback_RISCV11/SOURCE.json",
+      "sha256": "69ea93b046ea7436895e244c370a9ec228bad04e25a8a8eff94a6722e46c39b3",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/STATUS_AND_LIMITS.md",
+      "sha256": "e783187c7d78ca611b733d338def5e14d9b1338511feb31967ae4cc4f5060d0c",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/pre51/WHY_NOT_V5.md",
+      "sha256": "1b613c139c0b6067d93dd7c627e0d798db4d2b56d2a44df7078c0b6050a82282",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "history/README.md",
+      "sha256": "30e8d4688a04ef21ed766788027a3bb52f53718c92dff4450179df066299fea1",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/CANDIDATE_FIDELITY.json",
+      "sha256": "db5ee38dd9faea056ef5a1b856553f0c2f1b6edbfbdbf67466d5afb818005ecc",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/CODEX_VISUAL_NOTES.md",
+      "sha256": "9ab7daa4cc9c811bf69082322b3786712404952e269dc2551e0cf7d50f6c6897",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D0/index.html",
+      "sha256": "3baffb84f0ae073cff3934660c7337e706a03050867920cc93a272105b589e00",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D0/key.json",
+      "sha256": "82ecc8d65f56f82c35ebc59bab8bfcb07749cac5f28ceb392ac489932e18244a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D0/RESULT.json",
+      "sha256": "0a06872f0721f9e4ffdf6de73fe59b0b4356b01863b15ae9ab569d93f503331e",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D0_D1B60/index.html",
+      "sha256": "4ac6db46c298a99025fbd5c8b43e15d55691fae3b04d743b46ef022c92a41dac",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D0_D1B60/key.json",
+      "sha256": "a9f448413ba6ff8f1d2a57d70c4660383e969fcd589630014f8a1e25ef3a3d81",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D0_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/DEPLOYMENT_HOLD.md",
+      "sha256": "faebfa1cfac9e5c3852b049c7068889ba91a61a5b5e9b5c5473ace266710077d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/expanded/index.html",
+      "sha256": "0a183fb145fc00af6aed1f18093007ce494d667069014247c7834d8c889133d5",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/expanded/key.json",
+      "sha256": "40a0acf491479b1c21fdaf1f6b8a345997e4765d834f33660ea211d63450a4bb",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/expanded/RESULT.json",
+      "sha256": "e48c36a5316fe92dd5203930c9ac1272a9bb11c08779addb84806084c5a43219",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/EXPANDED.md",
+      "sha256": "59a35a491107f659310640b2dcf6c805654f0e8064fdff9fb29aff204a4a7e42",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/EXPANDED_VISUAL_NOTES.md",
+      "sha256": "f44e2c76c32438f2b573540fbe99fcc9e61c053b2e4be0da80536a6790fc9ffe",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/HG0/optional_blob/qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/HG0/RESULT.json",
+      "sha256": "95a519e0897cfd3182692e0836d325376b6d0125b4a4e3f13ff1c083d99e280a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/HG0/rtl_dynamic_style0/result.json",
+      "sha256": "a498f860d6db0e361e0a795e0beb022f6d6ac186a2baf388cec200769b40d938",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/HG0/rtl_dynamic_style1/result.json",
+      "sha256": "56e26314d036d5692df787c9520b5f6fd1df22f87be623816b95943e8fc980a3",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/HG0/rtl_dynamic_style2/result.json",
+      "sha256": "cf1ae37d090ad6debf0c89462af4c7e28dcd75b2ca58d531ca6bccd2a5188f7c",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/HG0/rtl_fixed_scene0/result.json",
+      "sha256": "f714c79f405ac2babb677c3b6e4f3d0c0ae82cfda2383ab17897128a40109f1e",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/HG0/rtl_fixed_scene1/result.json",
+      "sha256": "f714c79f405ac2babb677c3b6e4f3d0c0ae82cfda2383ab17897128a40109f1e",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/HG0.md",
+      "sha256": "a69e1cb9764e0dc73c152644ee4fe9b3048f8b5b3a93f5fa39456998efd70077",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/index.html",
+      "sha256": "3baffb84f0ae073cff3934660c7337e706a03050867920cc93a272105b589e00",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/key.json",
+      "sha256": "82ecc8d65f56f82c35ebc59bab8bfcb07749cac5f28ceb392ac489932e18244a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60/RESULT.json",
+      "sha256": "26025227be3bf399b618d4fd05c45c3cab19fae346e784d9d5a52c4914e046fe",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D1B60_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B/index.html",
+      "sha256": "3baffb84f0ae073cff3934660c7337e706a03050867920cc93a272105b589e00",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B/key.json",
+      "sha256": "82ecc8d65f56f82c35ebc59bab8bfcb07749cac5f28ceb392ac489932e18244a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B/RESULT.json",
+      "sha256": "b0c8754d623306fed812fc1cccc33e23649e53584d458368e991889659cd5b59",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B60/index.html",
+      "sha256": "3baffb84f0ae073cff3934660c7337e706a03050867920cc93a272105b589e00",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B60/key.json",
+      "sha256": "82ecc8d65f56f82c35ebc59bab8bfcb07749cac5f28ceb392ac489932e18244a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B60/RESULT.json",
+      "sha256": "c03375991a9d7e7746d185a348a792c5159b4c8ac29ccd1e32f1f2c4440e9d3c",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B60_CAL_R1/index.html",
+      "sha256": "3baffb84f0ae073cff3934660c7337e706a03050867920cc93a272105b589e00",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B60_CAL_R1/key.json",
+      "sha256": "82ecc8d65f56f82c35ebc59bab8bfcb07749cac5f28ceb392ac489932e18244a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B60_CAL_R1/RESULT.json",
+      "sha256": "1a4fd9a762945b3aa3fb12120d2c99a7d9573e052b19ceb9a0d8ff17c2045fc7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B60_CAL_R1_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B60_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D2B_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B/index.html",
+      "sha256": "3baffb84f0ae073cff3934660c7337e706a03050867920cc93a272105b589e00",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B/key.json",
+      "sha256": "82ecc8d65f56f82c35ebc59bab8bfcb07749cac5f28ceb392ac489932e18244a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B/RESULT.json",
+      "sha256": "5907bc98e7b73df3b69915be05167cbcba241746c76ae82e52d161dcc1f37461",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B60/index.html",
+      "sha256": "3baffb84f0ae073cff3934660c7337e706a03050867920cc93a272105b589e00",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B60/key.json",
+      "sha256": "82ecc8d65f56f82c35ebc59bab8bfcb07749cac5f28ceb392ac489932e18244a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B60/RESULT.json",
+      "sha256": "5d2ba2268fed9a41b6115dcb38435fff9d38787ec28fb5fb022b4080031fb95a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B60_CAL_R1/index.html",
+      "sha256": "3baffb84f0ae073cff3934660c7337e706a03050867920cc93a272105b589e00",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B60_CAL_R1/key.json",
+      "sha256": "82ecc8d65f56f82c35ebc59bab8bfcb07749cac5f28ceb392ac489932e18244a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B60_CAL_R1/RESULT.json",
+      "sha256": "c89ad7ec579e6d87edc9b516ccc539cf4503d2b3b332a66da8591baaf74a2391",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B60_CAL_R1_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B60_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/D3B_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J1_60/index.html",
+      "sha256": "3baffb84f0ae073cff3934660c7337e706a03050867920cc93a272105b589e00",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J1_60/key.json",
+      "sha256": "82ecc8d65f56f82c35ebc59bab8bfcb07749cac5f28ceb392ac489932e18244a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J1_60/RESULT.json",
+      "sha256": "ab841e2c65e9503e7f60273afb42fac94c3a4e60a13e03b7e6a851198a63cd11",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J1_60_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J1_UK_INK_REVIEW/index.html",
+      "sha256": "6ee06501a5db3ae2b15c5386fb7aca81c23a70a691e1bd2b1df50fdef47ea714",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J1_UK_INK_REVIEW/key.json",
+      "sha256": "36160a2f344e9cfb89156eb6ba872ec2835f7e60b2ca2e180ce4644487f6dcec",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_INK/CANDIDATE_FIDELITY.json",
+      "sha256": "8495d82cccafb7c897335d64781d73136d943f02b19a1ae1c6bd424419914e5f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_INK/CODEX_VISUAL_NOTES.md",
+      "sha256": "cdeac01e352f9b806355891cd226b2dc7e13d72fd87756617ad350186701b55a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_INK/index.html",
+      "sha256": "3c34f3fe7f9360ad520cde20720737884c1683b7ff876c2f4a601a91f5be8c7d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_INK/key.json",
+      "sha256": "ceb3c2cded8728124b27edfad4d2c10ffbfa76cb175e79876ad9c129362cafe7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_INK/RESULT.json",
+      "sha256": "0e0c0fac7e0af833c37244ef0168f570aa69610bf807801c7411cb2817c7d378",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_INK_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_UK_R1/CANDIDATE_FIDELITY.json",
+      "sha256": "c43170996b270c2ef9fe42081d5a008c8a911e33fb0274ca25dd12907b045550",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_UK_R1/CODEX_VISUAL_NOTES.md",
+      "sha256": "a23f902e3a4a2c47904d55ebf29807bd30b045272154bcd908bba3254ecf4c08",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_UK_R1/index.html",
+      "sha256": "3c34f3fe7f9360ad520cde20720737884c1683b7ff876c2f4a601a91f5be8c7d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_UK_R1/key.json",
+      "sha256": "ceb3c2cded8728124b27edfad4d2c10ffbfa76cb175e79876ad9c129362cafe7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_UK_R1/RESULT.json",
+      "sha256": "d2f121de34a3b6835399e2b698f9e7622b13457423a571bb2d01a5a37198e588",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J3_UK_R1_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_INK/CANDIDATE_FIDELITY.json",
+      "sha256": "68048ecbdffc0d71215394c75529a989d54b12baf0bdfd85f52185b100d441bc",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_INK/CODEX_VISUAL_NOTES.md",
+      "sha256": "df66248f8fda17522200f352498bed080b46027229e28f5f84a4e838228b2413",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_INK/DESCRIPTIVE_DIAGNOSTICS.json",
+      "sha256": "e2b36491c706eaecbf1ba83d99099e3ff01d0f20989eefe2a8e3ce1ece6038d4",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_INK/index.html",
+      "sha256": "e895d26a5a9fc40748194254b69e516ebb7f672b47942f75a0057907ffab2e01",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_INK/key.json",
+      "sha256": "ceb3c2cded8728124b27edfad4d2c10ffbfa76cb175e79876ad9c129362cafe7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_INK/RESULT.json",
+      "sha256": "6bdd89769efb03314b1ebee121c08b4d3c4600c979f0b00823709118cdca4212",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_INK_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_UK/CANDIDATE_FIDELITY.json",
+      "sha256": "f339dccc62e932c41d5df908267aee8b22ed50458a6d2f2f5aa52d08af4f6bef",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_UK/CODEX_VISUAL_NOTES.md",
+      "sha256": "58c4261b15ae6c5f2b66910341861ed596e9165c628024ee3d69bff070f3f61c",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_UK/DESCRIPTIVE_DIAGNOSTICS.json",
+      "sha256": "bcb0a1a714e636e56d9be3e0c69c02e84dde03ec05156f96a7187c2c9aadce60",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_UK/index.html",
+      "sha256": "a6b28ff62cec38fe96d52f07da070036345722ad904cb9d6fd9e420e083284f1",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_UK/key.json",
+      "sha256": "ceb3c2cded8728124b27edfad4d2c10ffbfa76cb175e79876ad9c129362cafe7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_UK/RESULT.json",
+      "sha256": "425f5cc17f687c3d4ff7ae4dc7416d280e4fe359a6474d34f680104be119081f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_UK_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_VG/CANDIDATE_FIDELITY.json",
+      "sha256": "7c21d7bbc6bf06990777338b9ad321a660358a9a6075607f2e1a334eabe6c832",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_VG/CODEX_VISUAL_NOTES.md",
+      "sha256": "0c24643c458a094be7dcc00caa6dca67009c7bc96b2e175bad6e464e21bdea1e",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_VG/DESCRIPTIVE_DIAGNOSTICS.json",
+      "sha256": "417979688d24e3623182cc74c9457cae0eb96d392197b5baf1e95079dd11f022",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_VG/index.html",
+      "sha256": "e6530d3fbc80e864943125dd2bf060aad00b2542d56a3505a10fff7dc845fc1a",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_VG/key.json",
+      "sha256": "ceb3c2cded8728124b27edfad4d2c10ffbfa76cb175e79876ad9c129362cafe7",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_VG/RESULT.json",
+      "sha256": "c683c1ec96243c588af1d45424e1a61d1c21650e63f22b3902f4513318b83111",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J4_VG_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J5_VG/CANDIDATE_FIDELITY.json",
+      "sha256": "1a3c49584bc617e5a49d48a0c68128d62504b980c6a9590fa3db944504dd7813",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J5_VG/CODEX_VISUAL_NOTES.md",
+      "sha256": "5de0284a959f629cea3fcaeeaa6a09c7506e7ed5a83fb5681fc194f6358e0a5d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J5_VG/index.html",
+      "sha256": "2a8508f0efcda708e464ee9b1533229d7261775afb87843432011f3598df2b14",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J5_VG/key.json",
+      "sha256": "57f8cbb6a110c01ee409d3e599ae47ba651a781081c8f1f9902a978286be16f2",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J5_VG/RESULT.json",
+      "sha256": "89a19f66d13d66439b0a67f1b49101c7e65ade244ce86595619c4d04306f1fed",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J5_VG_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J6_UK/CANDIDATE_FIDELITY.json",
+      "sha256": "5c44da5b4b137b73ceeb042358860f0cab33209874243f6953d50359756c8e7f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J6_UK/CODEX_VISUAL_NOTES.md",
+      "sha256": "ccb65a160bdaed4cc9efc243c6cd4246f0520b906ed38ff549fd1c8ac9be9549",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J6_UK/index.html",
+      "sha256": "7dca2304c271ea66d9a58516a29a75788455bd50f9a63d28def7ba53ff5ef6a6",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J6_UK/key.json",
+      "sha256": "57f8cbb6a110c01ee409d3e599ae47ba651a781081c8f1f9902a978286be16f2",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J6_UK/RESULT.json",
+      "sha256": "a7b9b70b9577291a4fc3619a2a2e7aab11c738fd3259d3f76d4b8e88f2c67513",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/J6_UK_qparams.json",
+      "sha256": "b3760512b460306f3c3cff8b0dec879625d3a53d2b32500293408ab8833d98a0",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/R44/SUMMARY.json",
+      "sha256": "8fa75d9f9ea002d5b47ea2c85f047667aa7c830ae444c038f4f8ecb78cc5d264",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/README_CURRENT_SCOPE.md",
+      "sha256": "2a09d7dcdebe65bf1c3c4dabae5fad8ba93131816f78240e22686445791cae24",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r44_d0/config.json",
+      "sha256": "2be3f9893ab47990b7cbcd8195f04e4597266101a78098d2abb11d4e6d424f04",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r44_d0/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r44_d1b60/config.json",
+      "sha256": "5e4580c874bee3577073237977738dda4c14d8280a01d8cbdfab6abe2e10dc62",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r44_d1b60/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r44_d2b/config.json",
+      "sha256": "e99e3b6252454acc72b738f7257ad27b63908dd087148b6037091f9b1e5e5f89",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r44_d2b/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r44_d3b/config.json",
+      "sha256": "71893b63177b5c77a3fc25be46c05df4ce2a941b6069a580d53f4230178c509d",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r44_d3b/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r44_j1_60/config.json",
+      "sha256": "c5444e9ad9f0e2977a2d7d40c9b65346620188ad254a9642a608d448606dbb35",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r44_j1_60/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r45_d2b60/config.json",
+      "sha256": "b8cf8d752b2d35f5e6c8d97c6388213e3a7aaa84efe861144fc875a5637d5fa5",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r45_d2b60/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r45_d2b60_cal_r1/config.json",
+      "sha256": "ae695fcc6b47b05ea22a6d25a894d935c60472a4a3c3eaea3607c8f03edccf81",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r45_d2b60_cal_r1/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r45_d3b60/config.json",
+      "sha256": "354196bc2ba17c6f14fe226653572754d243b58cf96024502d60ce1b33736234",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r45_d3b60/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r45_d3b60_cal_r1/config.json",
+      "sha256": "73af6e906102688cd5f2c0b34b4db11bf5718de19a3978dd2173716b0661ef5b",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r45_d3b60_cal_r1/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r47_j3_ink/config.json",
+      "sha256": "a092a0a6b880c5c781b99e01f11e3d788c7490de84d05202dd847121ad7c7156",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r47_j3_ink/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r47_j3_uk_r1/config.json",
+      "sha256": "b5d0415cd630609481dbd4b6af03b65b34ae5e310f6bd2b35410507046697d07",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r47_j3_uk_r1/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r48_j4_ink/config.json",
+      "sha256": "79b84bf780b48d245da7dfbd1c38816c29ad5cd73df7ea5afc87fd8dd9307308",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r48_j4_ink/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r48_j4_uk/config.json",
+      "sha256": "1f5a1d51b18632dceb4e3c6531fdb51ff74a97de64c0df61123e01e43c3d3f66",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r48_j4_uk/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r48_j4_vg/config.json",
+      "sha256": "b9584eb43f673ee6d5a3086d7d6447fd11534f366ac7e79c3ac0c84c710a2908",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r48_j4_vg/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r49_j5_vg/config.json",
+      "sha256": "1173676923112b19b8c286d2922e7402cf97c1c00b9258006b46bc67d5a1c6de",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r49_j5_vg/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r50_j6_uk/config.json",
+      "sha256": "6bb3f99746a098dcd4c2d262f783e0d525f7e4e81dabe15544d9ecc5a2e494a5",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r50_j6_uk/J6_CALIBRATION.json",
+      "sha256": "5ca9a81a1a39dfc4d6a80c14c29e5c8eb5e2defe4bcd36901e8e216391dd38bc",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    },
+    {
+      "path": "research/run_metadata/r50_j6_uk/references.json",
+      "sha256": "17cd2d6ede4d024ce6f80c3d8b498d8c8615eb102f93233b8525f0b35ed7f42f",
+      "scope": "Point-in-time evidence; old timestamps and non-adoption flags do not supersede FINAL_DECISION.md"
+    }
+  ]
+}

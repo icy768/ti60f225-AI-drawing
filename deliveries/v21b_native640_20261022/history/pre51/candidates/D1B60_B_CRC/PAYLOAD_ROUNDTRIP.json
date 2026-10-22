@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "case": "new_idempotent",
+      "compared_to": "DP3\\FW_CRC\\layout\\D1_crc_firmware",
+      "results": {
+        "bit": {
+          "after_text_header_exact": true,
+          "full_sha_equal": false,
+          "payload_sha256": "35ba2580a12a68875926f7b238b086693f18a75bf4ad5ea54a6d30a5a18f6cf9"
+        },
+        "hex": {
+          "after_text_header_exact": true,
+          "full_sha_equal": false,
+          "payload_sha256": "a9418d7f1e4d3f09074137ed000b1f2bd28c92e9618515b5b18fb735f6a7082c"
+        }
+      }
+    },
+    {
+      "case": "restore_original",
+      "compared_to": "DP3\\D1B60\\outflow",
+      "results": {
+        "bit": {
+          "after_text_header_exact": true,
+          "full_sha_equal": false,
+          "payload_sha256": "623429e57f4bcebcf5e0e3ca719fb101df6d462f479118b7c5b162fb2a0d28e2"
+        },
+        "hex": {
+          "after_text_header_exact": true,
+          "full_sha_equal": false,
+          "payload_sha256": "90eff1366f730f189f1ffca1486433360dcf1927313a8f7aca1641eb41e4a14c"
+        }
+      }
+    }
+  ],
+  "A_identity_pass": false,
+  "scope": "Local B firmware update idempotence and original restoration through vendor-generated configuration payloads; full container SHA checks remain false",
+  "opaque_lbf_note": "LBF starts LBFEncComp0000001; changed opaque bytes do not by themselves establish changed logical configuration; vendor PGM payloads were compared instead. No decryption or container header normalization."
+}

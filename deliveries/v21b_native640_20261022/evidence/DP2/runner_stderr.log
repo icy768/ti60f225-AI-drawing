@@ -1,0 +1,10 @@
+D:\fpga\v21b_return_20261021\DP2\project\rtl\mac.v:223: warning: Port 7 (raddr) of module wram expects 6 bit(s), given 32.
+D:\fpga\v21b_return_20261021\DP2\project\rtl\mac.v:223:        : Pruning 26 high bits of the expression.
+D:\fpga\v21b_return_20261021\DP2\project\rtl\mac.v:223: warning: Port 7 (raddr) of module wram expects 6 bit(s), given 32.
+D:\fpga\v21b_return_20261021\DP2\project\rtl\mac.v:223:        : Pruning 26 high bits of the expression.
+D:\fpga\v21b_return_20261021\DP2\project\rtl\mac.v:223: warning: Port 7 (raddr) of module wram expects 6 bit(s), given 32.
+D:\fpga\v21b_return_20261021\DP2\project\rtl\mac.v:223:        : Pruning 26 high bits of the expression.
+D:\fpga\v21b_return_20261021\DP2\project\rtl\mac.v:223: warning: Port 7 (raddr) of module wram expects 6 bit(s), given 32.
+D:\fpga\v21b_return_20261021\DP2\project\rtl\mac.v:223:        : Pruning 26 high bits of the expression.
+D:\fpga\v21b_return_20261021\DP2\project\rtl\mac.v:223: warning: Port 7 (raddr) of module wram expects 6 bit(s), given 32.
+D:\fpga\v21b_return_20261021\DP2\project\rtl\mac.v:223:        : Pruning 26 high bits of the expression.

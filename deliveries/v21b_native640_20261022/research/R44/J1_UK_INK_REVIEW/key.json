@@ -1,0 +1,50 @@
+{
+  "0_ukiyo_e": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "0_ink_landscape": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "1_ukiyo_e": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "1_ink_landscape": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "2_ukiyo_e": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "2_ink_landscape": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "3_ukiyo_e": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "3_ink_landscape": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "4_ukiyo_e": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "4_ink_landscape": {
+    "A": "baseline",
+    "B": "candidate"
+  },
+  "5_ukiyo_e": {
+    "A": "candidate",
+    "B": "baseline"
+  },
+  "5_ink_landscape": {
+    "A": "baseline",
+    "B": "candidate"
+  }
+}

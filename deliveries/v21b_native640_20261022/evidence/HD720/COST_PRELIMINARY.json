@@ -1,0 +1,376 @@
+{
+  "time": "2026-10-22T12:45:16.657546+08:00",
+  "status": "PREPARED_FOR_13_00_RESEARCH",
+  "layers": [
+    {
+      "layer": 0,
+      "cin": 3,
+      "cout": 16,
+      "k": 3,
+      "dw": 0,
+      "stride": 2,
+      "up": 0,
+      "input_wh": [
+        640,
+        480
+      ],
+      "output_wh": [
+        320,
+        240
+      ],
+      "pe": 4,
+      "cfg_pe": 4,
+      "gi": 3,
+      "mac_vga": 33177600,
+      "mac720": 99532800,
+      "mac720_per_second": 2985984000,
+      "mac_lanes": 12,
+      "util720_ideal": 1.65888,
+      "line_buffer_rows": 3,
+      "line_bits_vga": 46080,
+      "line_bits720": 92160
+    },
+    {
+      "layer": 1,
+      "cin": 16,
+      "cout": 24,
+      "k": 3,
+      "dw": 0,
+      "stride": 2,
+      "up": 0,
+      "input_wh": [
+        320,
+        240
+      ],
+      "output_wh": [
+        160,
+        120
+      ],
+      "pe": 4,
+      "cfg_pe": 4,
+      "gi": 4,
+      "mac_vga": 66355200,
+      "mac720": 199065600,
+      "mac720_per_second": 5971968000,
+      "mac_lanes": 16,
+      "util720_ideal": 2.48832,
+      "line_buffer_rows": 3,
+      "line_bits_vga": 122880,
+      "line_bits720": 245760
+    },
+    {
+      "layer": 2,
+      "cin": 24,
+      "cout": 24,
+      "k": 3,
+      "dw": 1,
+      "stride": 1,
+      "up": 0,
+      "input_wh": [
+        160,
+        120
+      ],
+      "output_wh": [
+        160,
+        120
+      ],
+      "pe": 1,
+      "cfg_pe": 1,
+      "gi": 4,
+      "mac_vga": 4147200,
+      "mac720": 12441600,
+      "mac720_per_second": 373248000,
+      "mac_lanes": 4,
+      "util720_ideal": 0.62208,
+      "line_buffer_rows": 2,
+      "line_bits_vga": 61440,
+      "line_bits720": 122880
+    },
+    {
+      "layer": 3,
+      "cin": 24,
+      "cout": 24,
+      "k": 1,
+      "dw": 0,
+      "stride": 1,
+      "up": 0,
+      "input_wh": [
+        160,
+        120
+      ],
+      "output_wh": [
+        160,
+        120
+      ],
+      "pe": 1,
+      "cfg_pe": 1,
+      "gi": 4,
+      "mac_vga": 11059200,
+      "mac720": 33177600,
+      "mac720_per_second": 995328000,
+      "mac_lanes": 4,
+      "util720_ideal": 1.65888,
+      "line_buffer_rows": 0,
+      "line_bits_vga": 0,
+      "line_bits720": 0
+    },
+    {
+      "layer": 4,
+      "cin": 24,
+      "cout": 24,
+      "k": 3,
+      "dw": 1,
+      "stride": 1,
+      "up": 0,
+      "input_wh": [
+        160,
+        120
+      ],
+      "output_wh": [
+        160,
+        120
+      ],
+      "pe": 1,
+      "cfg_pe": 1,
+      "gi": 4,
+      "mac_vga": 4147200,
+      "mac720": 12441600,
+      "mac720_per_second": 373248000,
+      "mac_lanes": 4,
+      "util720_ideal": 0.62208,
+      "line_buffer_rows": 2,
+      "line_bits_vga": 61440,
+      "line_bits720": 122880
+    },
+    {
+      "layer": 5,
+      "cin": 24,
+      "cout": 24,
+      "k": 1,
+      "dw": 0,
+      "stride": 1,
+      "up": 0,
+      "input_wh": [
+        160,
+        120
+      ],
+      "output_wh": [
+        160,
+        120
+      ],
+      "pe": 1,
+      "cfg_pe": 1,
+      "gi": 4,
+      "mac_vga": 11059200,
+      "mac720": 33177600,
+      "mac720_per_second": 995328000,
+      "mac_lanes": 4,
+      "util720_ideal": 1.65888,
+      "line_buffer_rows": 0,
+      "line_bits_vga": 0,
+      "line_bits720": 0
+    },
+    {
+      "layer": 6,
+      "cin": 24,
+      "cout": 24,
+      "k": 3,
+      "dw": 1,
+      "stride": 1,
+      "up": 0,
+      "input_wh": [
+        160,
+        120
+      ],
+      "output_wh": [
+        160,
+        120
+      ],
+      "pe": 1,
+      "cfg_pe": 1,
+      "gi": 4,
+      "mac_vga": 4147200,
+      "mac720": 12441600,
+      "mac720_per_second": 373248000,
+      "mac_lanes": 4,
+      "util720_ideal": 0.62208,
+      "line_buffer_rows": 2,
+      "line_bits_vga": 61440,
+      "line_bits720": 122880
+    },
+    {
+      "layer": 7,
+      "cin": 24,
+      "cout": 24,
+      "k": 1,
+      "dw": 0,
+      "stride": 1,
+      "up": 0,
+      "input_wh": [
+        160,
+        120
+      ],
+      "output_wh": [
+        160,
+        120
+      ],
+      "pe": 1,
+      "cfg_pe": 1,
+      "gi": 4,
+      "mac_vga": 11059200,
+      "mac720": 33177600,
+      "mac720_per_second": 995328000,
+      "mac_lanes": 4,
+      "util720_ideal": 1.65888,
+      "line_buffer_rows": 0,
+      "line_bits_vga": 0,
+      "line_bits720": 0
+    },
+    {
+      "layer": 8,
+      "cin": 24,
+      "cout": 24,
+      "k": 3,
+      "dw": 1,
+      "stride": 1,
+      "up": 0,
+      "input_wh": [
+        160,
+        120
+      ],
+      "output_wh": [
+        160,
+        120
+      ],
+      "pe": 1,
+      "cfg_pe": 1,
+      "gi": 4,
+      "mac_vga": 4147200,
+      "mac720": 12441600,
+      "mac720_per_second": 373248000,
+      "mac_lanes": 4,
+      "util720_ideal": 0.62208,
+      "line_buffer_rows": 2,
+      "line_bits_vga": 61440,
+      "line_bits720": 122880
+    },
+    {
+      "layer": 9,
+      "cin": 24,
+      "cout": 24,
+      "k": 1,
+      "dw": 0,
+      "stride": 1,
+      "up": 0,
+      "input_wh": [
+        160,
+        120
+      ],
+      "output_wh": [
+        160,
+        120
+      ],
+      "pe": 1,
+      "cfg_pe": 1,
+      "gi": 4,
+      "mac_vga": 11059200,
+      "mac720": 33177600,
+      "mac720_per_second": 995328000,
+      "mac_lanes": 4,
+      "util720_ideal": 1.65888,
+      "line_buffer_rows": 0,
+      "line_bits_vga": 0,
+      "line_bits720": 0
+    },
+    {
+      "layer": 10,
+      "cin": 24,
+      "cout": 24,
+      "k": 3,
+      "dw": 1,
+      "stride": 1,
+      "up": 1,
+      "input_wh": [
+        160,
+        120
+      ],
+      "output_wh": [
+        320,
+        240
+      ],
+      "pe": 1,
+      "cfg_pe": 1,
+      "gi": 4,
+      "mac_vga": 16588800,
+      "mac720": 49766400,
+      "mac720_per_second": 1492992000,
+      "mac_lanes": 4,
+      "util720_ideal": 2.48832,
+      "line_buffer_rows": 2,
+      "line_bits_vga": 61440,
+      "line_bits720": 122880
+    },
+    {
+      "layer": 11,
+      "cin": 24,
+      "cout": 16,
+      "k": 1,
+      "dw": 0,
+      "stride": 1,
+      "up": 0,
+      "input_wh": [
+        320,
+        240
+      ],
+      "output_wh": [
+        320,
+        240
+      ],
+      "pe": 2,
+      "cfg_pe": 2,
+      "gi": 4,
+      "mac_vga": 29491200,
+      "mac720": 88473600,
+      "mac720_per_second": 2654208000,
+      "mac_lanes": 8,
+      "util720_ideal": 2.21184,
+      "line_buffer_rows": 0,
+      "line_bits_vga": 0,
+      "line_bits720": 0
+    },
+    {
+      "layer": 12,
+      "cin": 16,
+      "cout": 12,
+      "k": 3,
+      "dw": 0,
+      "stride": 1,
+      "up": 0,
+      "input_wh": [
+        320,
+        240
+      ],
+      "output_wh": [
+        320,
+        240
+      ],
+      "pe": 12,
+      "cfg_pe": 6,
+      "gi": 4,
+      "mac_vga": 132710400,
+      "mac720": 398131200,
+      "mac720_per_second": 11943936000,
+      "mac_lanes": 48,
+      "util720_ideal": 1.65888,
+      "line_buffer_rows": 2,
+      "line_bits_vga": 81920,
+      "line_bits720": 163840
+    }
+  ],
+  "mac_per_pixel": 1104.0,
+  "mac72030_G": 30.523392,
+  "mac_lanes_sum": 120,
+  "line_bits_vga": 558080,
+  "line_bits720": 1116160,
+  "scope": "analytical MAC/line-storage counts; no new timing or board claim"
+}

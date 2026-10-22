@@ -1,0 +1,40 @@
+{
+  "commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+  "files": [
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/stylenet_top.v",
+      "sha256": "a478387207461d0df6bea5be2383b7aa5ab839e2588b170e563301f3da4181de",
+      "bytes": 11158
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/conv_layer.v",
+      "sha256": "8d55600fc720ff0c310508803f95c942f8938dbd978d58594895f82e5ba4110b",
+      "bytes": 8056
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/mac.v",
+      "sha256": "0b5f2e5df5692c2b19f87a5d07f14d1864cf9e1bbbe78d1eb583302685eb1dfd",
+      "bytes": 11049
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/requant.v",
+      "sha256": "1d55ae86dca265d72384af8eed102187af1049d31479530a6d235645aaf9e061",
+      "bytes": 6282
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/swg3.v",
+      "sha256": "744e3bf138aed08d6dfa2f52e3b74f5a18cd4f317f50453624c84ba7ed7f6bdb",
+      "bytes": 7744
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/swg3b.v",
+      "sha256": "7da6afa86be298e89de225cfa80e3a67265780b4dd27bb42fedfb4a5d42bb507",
+      "bytes": 9147
+    },
+    {
+      "source": "FPGAProjects/StyleCam_camera/rtl/common.v",
+      "sha256": "bbbbbf33b5434db29a435992dd36eafdf0a9244e29b9ef42060e67b409ccee30",
+      "bytes": 9965
+    }
+  ]
+}

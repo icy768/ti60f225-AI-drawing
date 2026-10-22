@@ -1,0 +1,39 @@
+{
+  "pass": true,
+  "cases": [
+    {
+      "device": "cpu",
+      "style": 0,
+      "mismatch": 0
+    },
+    {
+      "device": "cpu",
+      "style": 1,
+      "mismatch": 0
+    },
+    {
+      "device": "cpu",
+      "style": 2,
+      "mismatch": 0
+    },
+    {
+      "device": "cuda",
+      "style": 0,
+      "mismatch": 0
+    },
+    {
+      "device": "cuda",
+      "style": 1,
+      "mismatch": 0
+    },
+    {
+      "device": "cuda",
+      "style": 2,
+      "mismatch": 0
+    }
+  ],
+  "finite_gradients": true,
+  "no_baseline_state_change": true,
+  "baseline_byte_equal": true,
+  "optimizer_restore_possible": false
+}

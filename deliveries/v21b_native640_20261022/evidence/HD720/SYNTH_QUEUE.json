@@ -1,0 +1,41 @@
+{
+  "owner": "codex",
+  "pid": null,
+  "status": "COMPLETED_READ_REPORTS",
+  "scope": "isolated core map only, no PnR/bitstream/programming",
+  "items": [
+    {
+      "width": 640,
+      "start": "2026-10-22T13:00:04.478052+08:00",
+      "source_sha": {
+        "common.v": "bbbbbf33b5434db29a435992dd36eafdf0a9244e29b9ef42060e67b409ccee30",
+        "conv_layer.v": "8d55600fc720ff0c310508803f95c942f8938dbd978d58594895f82e5ba4110b",
+        "mac.v": "0b5f2e5df5692c2b19f87a5d07f14d1864cf9e1bbbe78d1eb583302685eb1dfd",
+        "requant.v": "1d55ae86dca265d72384af8eed102187af1049d31479530a6d235645aaf9e061",
+        "stylenet_top.v": "a478387207461d0df6bea5be2383b7aa5ab839e2588b170e563301f3da4181de",
+        "swg3.v": "744e3bf138aed08d6dfa2f52e3b74f5a18cd4f317f50453624c84ba7ed7f6bdb",
+        "swg3b.v": "7da6afa86be298e89de225cfa80e3a67265780b4dd27bb42fedfb4a5d42bb507"
+      },
+      "pid": 43416,
+      "rc": 0,
+      "end": "2026-10-22T13:01:13.154198+08:00"
+    },
+    {
+      "width": 1280,
+      "start": "2026-10-22T13:01:13.155199+08:00",
+      "source_sha": {
+        "common.v": "bbbbbf33b5434db29a435992dd36eafdf0a9244e29b9ef42060e67b409ccee30",
+        "conv_layer.v": "8d55600fc720ff0c310508803f95c942f8938dbd978d58594895f82e5ba4110b",
+        "mac.v": "0b5f2e5df5692c2b19f87a5d07f14d1864cf9e1bbbe78d1eb583302685eb1dfd",
+        "requant.v": "1d55ae86dca265d72384af8eed102187af1049d31479530a6d235645aaf9e061",
+        "stylenet_top.v": "67cfed0482b442c6c5389daadf5fad94c277249b963bffb1d9e0a13612c9fa87",
+        "swg3.v": "744e3bf138aed08d6dfa2f52e3b74f5a18cd4f317f50453624c84ba7ed7f6bdb",
+        "swg3b.v": "7da6afa86be298e89de225cfa80e3a67265780b4dd27bb42fedfb4a5d42bb507"
+      },
+      "pid": 23192,
+      "rc": 0,
+      "end": "2026-10-22T13:02:20.104981+08:00"
+    }
+  ],
+  "updated_at": "2026-10-22T13:02:20.104981+08:00"
+}

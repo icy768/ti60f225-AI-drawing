@@ -1,0 +1,348 @@
+{
+  "rows": [
+    {
+      "input": 0,
+      "style": "van_gogh",
+      "parent_p5_p95": [
+        0.1530035294117647,
+        0.5799019607843138
+      ],
+      "candidate_p5_p95": [
+        0.21485058823529413,
+        0.5531372549019608
+      ],
+      "p5_p95_shift_255": [
+        15.771000000000003,
+        -6.825000000000021
+      ],
+      "parent_midgray_fraction": 0.9083561197916666,
+      "candidate_midgray_fraction": 0.9596451822916666,
+      "edge_energy_ratio": 1.0499907046106918
+    },
+    {
+      "input": 0,
+      "style": "ukiyo_e",
+      "parent_p5_p95": [
+        0.0868078431372549,
+        0.5828666666666665
+      ],
+      "candidate_p5_p95": [
+        0.08828235294117646,
+        0.5740627450980392
+      ],
+      "p5_p95_shift_255": [
+        0.3759999999999996,
+        -2.244999999999963
+      ],
+      "parent_midgray_fraction": 0.85369140625,
+      "candidate_midgray_fraction": 0.86923828125,
+      "edge_energy_ratio": 0.9780933606684965
+    },
+    {
+      "input": 0,
+      "style": "ink_landscape",
+      "parent_p5_p95": [
+        0.016941176470588234,
+        0.9611058823529411
+      ],
+      "candidate_p5_p95": [
+        0.016113725490196077,
+        0.9565882352941176
+      ],
+      "p5_p95_shift_255": [
+        -0.21099999999999997,
+        -1.1519999999999964
+      ],
+      "parent_midgray_fraction": 0.312431640625,
+      "candidate_midgray_fraction": 0.30442708333333335,
+      "edge_energy_ratio": 0.9932354044691358
+    },
+    {
+      "input": 1,
+      "style": "van_gogh",
+      "parent_p5_p95": [
+        0.19039196078431372,
+        0.6668235294117647
+      ],
+      "candidate_p5_p95": [
+        0.21633313725490194,
+        0.6021649019607843
+      ],
+      "p5_p95_shift_255": [
+        6.614999999999996,
+        -16.487949999999998
+      ],
+      "parent_midgray_fraction": 0.9360123697916667,
+      "candidate_midgray_fraction": 0.9619270833333333,
+      "edge_energy_ratio": 1.041919884541899
+    },
+    {
+      "input": 1,
+      "style": "ukiyo_e",
+      "parent_p5_p95": [
+        0.08501960784313725,
+        0.6366745098039216
+      ],
+      "candidate_p5_p95": [
+        0.07856450980392157,
+        0.6239294117647058
+      ],
+      "p5_p95_shift_255": [
+        -1.646049999999998,
+        -3.250000000000017
+      ],
+      "parent_midgray_fraction": 0.88658203125,
+      "candidate_midgray_fraction": 0.8897037760416666,
+      "edge_energy_ratio": 0.9821558500516419
+    },
+    {
+      "input": 1,
+      "style": "ink_landscape",
+      "parent_p5_p95": [
+        0.10666254901960785,
+        0.9999999999999999
+      ],
+      "candidate_p5_p95": [
+        0.09663117647058823,
+        0.9991058823529411
+      ],
+      "p5_p95_shift_255": [
+        -2.5580000000000025,
+        -0.22799999999999987
+      ],
+      "parent_midgray_fraction": 0.3190104166666667,
+      "candidate_midgray_fraction": 0.299658203125,
+      "edge_energy_ratio": 1.0064399324538746
+    },
+    {
+      "input": 2,
+      "style": "van_gogh",
+      "parent_p5_p95": [
+        0.17350156862745097,
+        0.6394431372549019
+      ],
+      "candidate_p5_p95": [
+        0.21788196078431374,
+        0.5855727450980391
+      ],
+      "p5_p95_shift_255": [
+        11.317000000000005,
+        -13.736949999999997
+      ],
+      "parent_midgray_fraction": 0.9144140625,
+      "candidate_midgray_fraction": 0.9640201822916666,
+      "edge_energy_ratio": 1.030256782979028
+    },
+    {
+      "input": 2,
+      "style": "ukiyo_e",
+      "parent_p5_p95": [
+        0.10560392156862745,
+        0.6327725490196078
+      ],
+      "candidate_p5_p95": [
+        0.10548980392156863,
+        0.6225647058823528
+      ],
+      "p5_p95_shift_255": [
+        -0.029099999999999127,
+        -2.6030000000000197
+      ],
+      "parent_midgray_fraction": 0.8942740885416667,
+      "candidate_midgray_fraction": 0.9002897135416666,
+      "edge_energy_ratio": 0.9796396086296594
+    },
+    {
+      "input": 2,
+      "style": "ink_landscape",
+      "parent_p5_p95": [
+        0.06024313725490196,
+        0.9995529411764705
+      ],
+      "candidate_p5_p95": [
+        0.05534509803921569,
+        0.9977647058823529
+      ],
+      "p5_p95_shift_255": [
+        -1.2489999999999999,
+        -0.45599999999999974
+      ],
+      "parent_midgray_fraction": 0.393212890625,
+      "candidate_midgray_fraction": 0.3865625,
+      "edge_energy_ratio": 0.998727853346259
+    },
+    {
+      "input": 3,
+      "style": "van_gogh",
+      "parent_p5_p95": [
+        0.2107921568627451,
+        0.6611219607843136
+      ],
+      "candidate_p5_p95": [
+        0.24991764705882355,
+        0.6000433333333333
+      ],
+      "p5_p95_shift_255": [
+        9.977000000000004,
+        -15.575049999999992
+      ],
+      "parent_midgray_fraction": 0.954990234375,
+      "candidate_midgray_fraction": 0.9838313802083334,
+      "edge_energy_ratio": 1.0684883309963982
+    },
+    {
+      "input": 3,
+      "style": "ukiyo_e",
+      "parent_p5_p95": [
+        0.15098392156862747,
+        0.6166352941176471
+      ],
+      "candidate_p5_p95": [
+        0.160194705882353,
+        0.5952825490196078
+      ],
+      "p5_p95_shift_255": [
+        2.348750000000007,
+        -5.444950000000023
+      ],
+      "parent_midgray_fraction": 0.8847981770833333,
+      "candidate_midgray_fraction": 0.9125390625,
+      "edge_energy_ratio": 0.9772614079477748
+    },
+    {
+      "input": 3,
+      "style": "ink_landscape",
+      "parent_p5_p95": [
+        0.07774509803921567,
+        0.9986588235294117
+      ],
+      "candidate_p5_p95": [
+        0.07143529411764706,
+        0.9936745098039215
+      ],
+      "p5_p95_shift_255": [
+        -1.608999999999997,
+        -1.2710000000000115
+      ],
+      "parent_midgray_fraction": 0.298427734375,
+      "candidate_midgray_fraction": 0.27617838541666667,
+      "edge_energy_ratio": 1.0119358095808535
+    },
+    {
+      "input": 4,
+      "style": "van_gogh",
+      "parent_p5_p95": [
+        0.18267450980392158,
+        0.5998550980392156
+      ],
+      "candidate_p5_p95": [
+        0.22976078431372549,
+        0.5695176470588235
+      ],
+      "p5_p95_shift_255": [
+        12.006999999999996,
+        -7.736049999999983
+      ],
+      "parent_midgray_fraction": 0.9338899739583333,
+      "candidate_midgray_fraction": 0.97107421875,
+      "edge_energy_ratio": 1.0598903287822203
+    },
+    {
+      "input": 4,
+      "style": "ukiyo_e",
+      "parent_p5_p95": [
+        0.13694098039215685,
+        0.5977686274509805
+      ],
+      "candidate_p5_p95": [
+        0.13112549019607844,
+        0.5828041176470588
+      ],
+      "p5_p95_shift_255": [
+        -1.4829499999999944,
+        -3.815950000000039
+      ],
+      "parent_midgray_fraction": 0.8954264322916666,
+      "candidate_midgray_fraction": 0.9005729166666666,
+      "edge_energy_ratio": 0.9757852845572875
+    },
+    {
+      "input": 4,
+      "style": "ink_landscape",
+      "parent_p5_p95": [
+        0.032227450980392154,
+        0.9922
+      ],
+      "candidate_p5_p95": [
+        0.02525490196078431,
+        0.9887725490196078
+      ],
+      "p5_p95_shift_255": [
+        -1.7780000000000005,
+        -0.8740000000000137
+      ],
+      "parent_midgray_fraction": 0.27115559895833335,
+      "candidate_midgray_fraction": 0.26210611979166665,
+      "edge_energy_ratio": 1.002847838529141
+    },
+    {
+      "input": 5,
+      "style": "van_gogh",
+      "parent_p5_p95": [
+        0.13298039215686275,
+        0.6559962745098038
+      ],
+      "candidate_p5_p95": [
+        0.1807605882352941,
+        0.5803294117647059
+      ],
+      "p5_p95_shift_255": [
+        12.183949999999992,
+        -19.29504999999997
+      ],
+      "parent_midgray_fraction": 0.8507194010416667,
+      "candidate_midgray_fraction": 0.9298665364583333,
+      "edge_energy_ratio": 1.0648023694287836
+    },
+    {
+      "input": 5,
+      "style": "ukiyo_e",
+      "parent_p5_p95": [
+        0.06526274509803921,
+        0.6488196078431372
+      ],
+      "candidate_p5_p95": [
+        0.06696705882352944,
+        0.62911431372549
+      ],
+      "p5_p95_shift_255": [
+        0.4346000000000067,
+        -5.024850000000038
+      ],
+      "parent_midgray_fraction": 0.858134765625,
+      "candidate_midgray_fraction": 0.87375,
+      "edge_energy_ratio": 0.9840120174493091
+    },
+    {
+      "input": 5,
+      "style": "ink_landscape",
+      "parent_p5_p95": [
+        0.03490980392156862,
+        0.9999999999999999
+      ],
+      "candidate_p5_p95": [
+        0.03164705882352941,
+        0.9999999999999999
+      ],
+      "p5_p95_shift_255": [
+        -0.8319999999999993,
+        0.0
+      ],
+      "parent_midgray_fraction": 0.30124348958333336,
+      "candidate_midgray_fraction": 0.28595377604166666,
+      "edge_energy_ratio": 1.0043908877784622
+    }
+  ],
+  "uses": "inference-only held-out diagnostics, no tuning; global quantiles/edge energy do not certify local contours or art",
+  "adopted": false
+}
