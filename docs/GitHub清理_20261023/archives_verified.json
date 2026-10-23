@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "tags": {
+    "refs/tags/archive/20261023/creative-interaction-legacy": "c287959ad82302fda03bf6fde96710a7a2c9e435",
+    "refs/tags/archive/20261023/develop": "0e7774a4e03e35366c4160ada5a1bed5b9307305",
+    "refs/tags/archive/20261023/riscv08-basic-requirements": "545f3b6a0036ccf8c9305fe47ead505665d414c1",
+    "refs/tags/archive/20261023/riscv10-resource-throughput": "80146c4b6efa00f4a43c80222589542ed9c7b68c",
+    "refs/tags/archive/20261023/tristyle-v4-paired-v5": "a09d8ec2db9e2743ca2b1d535508b13bb071b1a4"
+  },
+  "branches_deleted": false
+}

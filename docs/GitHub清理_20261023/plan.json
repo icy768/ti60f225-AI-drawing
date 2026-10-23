@@ -1,0 +1,85 @@
+{
+  "repository": "icy768/ti60f225-AI-drawing",
+  "date": "2026-10-23",
+  "retain": [
+    {
+      "branch": "codex/consolidated-project-20261023",
+      "sha": "cfde0cbb2da1e6304f98ffa92463ccbc56b28b59"
+    },
+    {
+      "branch": "codex/delivery-v21b-fwp1-20261022",
+      "sha": "7d95dbeaf9b3e9545814be7081390c2f79f2c727"
+    },
+    {
+      "branch": "codex/release-riscv11-ae-in4-20261018",
+      "sha": "47254c25a6e767d7602da96a4529fb84616c9524"
+    },
+    {
+      "branch": "main",
+      "sha": "15554933ea547fcd9bfdce83676f88fb70947496"
+    }
+  ],
+  "archive_and_delete": [
+    {
+      "branch": "codex/resource-throughput-20261013",
+      "sha": "80146c4b6efa00f4a43c80222589542ed9c7b68c",
+      "tag": "archive/20261023/riscv10-resource-throughput",
+      "reason": "RISCV10旧版，已由RISCV11正式版替代，保留独有固化记录"
+    },
+    {
+      "branch": "codex/tristyle-v4-paired-v5-20261018",
+      "sha": "a09d8ec2db9e2743ca2b1d535508b13bb071b1a4",
+      "tag": "archive/20261023/tristyle-v4-paired-v5",
+      "reason": "较大V5历史交付不再作为实时主用，完整交付由归档标签保留"
+    },
+    {
+      "branch": "develop",
+      "sha": "0e7774a4e03e35366c4160ada5a1bed5b9307305",
+      "tag": "archive/20261023/develop",
+      "reason": "旧开发入口，已由main和最新整理分支替代"
+    },
+    {
+      "branch": "feat/basic-requirements",
+      "sha": "545f3b6a0036ccf8c9305fe47ead505665d414c1",
+      "tag": "archive/20261023/riscv08-basic-requirements",
+      "reason": "RISCV08历史基线，已包含于RISCV11/整理分支"
+    },
+    {
+      "branch": "fw/creative-interaction",
+      "sha": "c287959ad82302fda03bf6fde96710a7a2c9e435",
+      "tag": "archive/20261023/creative-interaction-legacy",
+      "reason": "旧交互候选已由最新语音/Wi-Fi交付替代；独有手势代码仅归档，不合入正式版"
+    }
+  ],
+  "close_prs": [
+    {
+      "number": 5,
+      "title": "新增三风格 V4 / 配对 V5 冻结候选交付",
+      "head": "codex/tristyle-v4-paired-v5-20261018",
+      "head_sha": "a09d8ec2db9e2743ca2b1d535508b13bb071b1a4",
+      "base": "main"
+    },
+    {
+      "number": 4,
+      "title": "RISCV10 主链路后续集成（暂缓合并）",
+      "head": "codex/resource-throughput-20261013",
+      "head_sha": "80146c4b6efa00f4a43c80222589542ed9c7b68c",
+      "base": "develop"
+    },
+    {
+      "number": 3,
+      "title": "语音切风格与 Wi-Fi 手机预览（RISCV10 候选，待上板）",
+      "head": "fw/creative-interaction",
+      "head_sha": "c287959ad82302fda03bf6fde96710a7a2c9e435",
+      "base": "codex/resource-throughput-20261013"
+    }
+  ],
+  "retain_prs": [
+    {
+      "number": 6,
+      "title": "集成已上板固化的 RISCV11 自动曝光与 IN4 资源优化正式版",
+      "reason": "已验收RISCV11尚未合入main，正式版集成申请仍有效"
+    }
+  ],
+  "merge_performed": false
+}
