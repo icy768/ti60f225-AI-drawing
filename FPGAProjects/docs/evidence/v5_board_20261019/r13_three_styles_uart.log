@@ -1,0 +1,141 @@
+RGB ID=53430a0d R=100.0% G=100.0% B=100.0% Q8.8=256 256 256 pending=0
+[64000 ms] fps=1.00 cam=29.9 nn_ms=1422.7 pass_ms=1422.7 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=45 cap=2072 skip=2025 run_skip=1875 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1395317 input_wait_us=0 output_wait_us=0 publish_wait_us=756 scan_seq=45 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=2 cycle_sat=0 scan_style=0 proc=45
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[66000 ms] fps=0.50 cam=29.9 nn_ms=1424.4 pass_ms=1424.4 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=46 cap=2132 skip=2084 run_skip=1934 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1399283 input_wait_us=0 output_wait_us=0 publish_wait_us=9662 scan_seq=46 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=36 cycle_sat=0 scan_style=0 proc=46
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[68000 ms] fps=1.00 cam=29.9 nn_ms=1425.5 pass_ms=1425.5 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=47 cap=2192 skip=2143 run_skip=1993 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1400052 input_wait_us=0 output_wait_us=0 publish_wait_us=768 scan_seq=47 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=46 cycle_sat=0 scan_style=0 proc=47
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[70000 ms] fps=1.00 cam=29.9 nn_ms=1428.8 pass_ms=1428.8 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=49 cap=2252 skip=2201 run_skip=2051 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1404543 input_wait_us=0 output_wait_us=0 publish_wait_us=10651 scan_seq=49 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=24 cycle_sat=0 scan_style=0 proc=49
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[72000 ms] fps=0.50 cam=30.0 nn_ms=1430.7 pass_ms=1430.7 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=50 cap=2312 skip=2260 run_skip=2110 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1406439 input_wait_us=0 output_wait_us=0 publish_wait_us=13182 scan_seq=50 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=43 cycle_sat=0 scan_style=0 proc=50
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[74000 ms] fps=1.00 cam=29.9 nn_ms=1433.8 pass_ms=1433.8 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=52 cap=2372 skip=2318 run_skip=2168 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1409356 input_wait_us=0 output_wait_us=0 publish_wait_us=13320 scan_seq=52 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=2 cycle_sat=0 scan_style=0 proc=52
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[76000 ms] fps=0.50 cam=29.9 nn_ms=1433.8 pass_ms=1433.8 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=53 cap=2432 skip=2377 run_skip=2227 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1409597 input_wait_us=0 output_wait_us=0 publish_wait_us=12803 scan_seq=53 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=36 cycle_sat=0 scan_style=0 proc=53
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[78000 ms] fps=1.00 cam=29.9 nn_ms=1433.4 pass_ms=1433.4 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=54 cap=2492 skip=2436 run_skip=2286 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1409120 input_wait_us=0 output_wait_us=0 publish_wait_us=12707 scan_seq=54 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=45 cycle_sat=0 scan_style=0 proc=54
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[80000 ms] fps=1.00 cam=29.9 nn_ms=1436.3 pass_ms=1436.3 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=56 cap=2552 skip=2494 run_skip=2344 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1411581 input_wait_us=0 output_wait_us=0 publish_wait_us=8326 scan_seq=56 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=20 cycle_sat=0 scan_style=0 proc=56
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[82000 ms] fps=0.50 cam=30.0 nn_ms=1436.3 pass_ms=1436.3 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=57 cap=2612 skip=2553 run_skip=2403 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1410602 input_wait_us=0 output_wait_us=0 publish_wait_us=5308 scan_seq=57 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=43 cycle_sat=0 scan_style=0 proc=57
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[84000 ms] fps=1.00 cam=29.9 nn_ms=1438.1 pass_ms=1438.1 nn_max_ms=1445.0 style=0 view=0 ready=7 proc=59 cap=2672 skip=2611 run_skip=2461 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1414257 input_wait_us=0 output_wait_us=0 publish_wait_us=13483 scan_seq=59 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=1 cycle_sat=0 scan_style=0 proc=59
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[86000 ms] fps=0.50 cam=29.9 nn_ms=1443.2 pass_ms=1443.2 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=60 cap=2732 skip=2670 run_skip=2520 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=0 sw_max_us=0
+perf first_us=1415757 input_wait_us=0 output_wait_us=0 publish_wait_us=3581 scan_seq=60 scan_sw_us=0 scan_sw_max_us=0
+TRV5 node=38 cycle_sat=0 scan_style=0 proc=60
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[88000 ms] fps=1.00 cam=29.9 nn_ms=1368.9 pass_ms=1368.9 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=61 cap=2792 skip=2729 run_skip=2579 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1341652 input_wait_us=0 output_wait_us=0 publish_wait_us=1286 scan_seq=61 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=48 cycle_sat=0 scan_style=1 proc=61
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[90000 ms] fps=1.00 cam=29.9 nn_ms=1369.9 pass_ms=1369.9 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=63 cap=2852 skip=2787 run_skip=2637 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1345986 input_wait_us=0 output_wait_us=0 publish_wait_us=12067 scan_seq=63 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=31 cycle_sat=0 scan_style=1 proc=63
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[92000 ms] fps=1.00 cam=30.0 nn_ms=1370.7 pass_ms=1370.7 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=64 cap=2912 skip=2846 run_skip=2696 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1345999 input_wait_us=0 output_wait_us=0 publish_wait_us=7936 scan_seq=64 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=47 cycle_sat=0 scan_style=1 proc=64
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[94000 ms] fps=1.00 cam=30.0 nn_ms=1368.7 pass_ms=1368.7 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=66 cap=2972 skip=2904 run_skip=2754 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1342852 input_wait_us=0 output_wait_us=0 publish_wait_us=3026 scan_seq=66 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=21 cycle_sat=0 scan_style=1 proc=66
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[96000 ms] fps=0.50 cam=30.0 nn_ms=1368.2 pass_ms=1368.2 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=67 cap=3032 skip=2963 run_skip=2813 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1342690 input_wait_us=0 output_wait_us=0 publish_wait_us=1469 scan_seq=67 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=46 cycle_sat=0 scan_style=1 proc=67
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[98000 ms] fps=1.00 cam=29.9 nn_ms=1366.9 pass_ms=1366.9 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=69 cap=3092 skip=3021 run_skip=2871 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1342020 input_wait_us=0 output_wait_us=0 publish_wait_us=16536 scan_seq=69 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=12 cycle_sat=0 scan_style=1 proc=69
+AE mean=9 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[100000 ms] fps=0.50 cam=29.9 nn_ms=1367.2 pass_ms=1367.2 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=70 cap=3152 skip=3080 run_skip=2930 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1342541 input_wait_us=0 output_wait_us=0 publish_wait_us=15975 scan_seq=70 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=45 cycle_sat=0 scan_style=1 proc=70
+AE mean=8 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[102000 ms] fps=1.00 cam=29.9 nn_ms=1367.8 pass_ms=1367.8 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=72 cap=3212 skip=3138 run_skip=2988 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1343871 input_wait_us=0 output_wait_us=0 publish_wait_us=14075 scan_seq=72 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=4 cycle_sat=0 scan_style=1 proc=72
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[104000 ms] fps=0.50 cam=30.0 nn_ms=1369.0 pass_ms=1369.0 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=73 cap=3272 skip=3197 run_skip=3047 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1344848 input_wait_us=0 output_wait_us=0 publish_wait_us=11705 scan_seq=73 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=42 cycle_sat=0 scan_style=1 proc=73
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[106000 ms] fps=1.00 cam=29.9 nn_ms=1371.2 pass_ms=1371.2 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=75 cap=3332 skip=3255 run_skip=3105 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1343284 input_wait_us=0 output_wait_us=0 publish_wait_us=2300 scan_seq=75 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=1 cycle_sat=0 scan_style=1 proc=75
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[108000 ms] fps=0.50 cam=29.9 nn_ms=1369.2 pass_ms=1369.2 nn_max_ms=1445.0 style=1 view=0 ready=7 proc=76 cap=3392 skip=3314 run_skip=3164 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1342378 input_wait_us=0 output_wait_us=0 publish_wait_us=16371 scan_seq=76 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=39 cycle_sat=0 scan_style=1 proc=76
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[110000 ms] fps=1.00 cam=30.0 nn_ms=1369.2 pass_ms=1369.2 nn_max_ms=1445.0 style=2 view=0 ready=7 proc=77 cap=3452 skip=3373 run_skip=3223 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2691671 sw_max_us=2691671
+perf first_us=1344563 input_wait_us=0 output_wait_us=0 publish_wait_us=13734 scan_seq=77 scan_sw_us=2692954 scan_sw_max_us=2692954
+TRV5 node=47 cycle_sat=0 scan_style=1 proc=77
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[112000 ms] fps=1.00 cam=29.9 nn_ms=1473.3 pass_ms=1473.3 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=79 cap=3512 skip=3431 run_skip=3281 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1449544 input_wait_us=0 output_wait_us=0 publish_wait_us=13571 scan_seq=79 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=24 cycle_sat=0 scan_style=2 proc=79
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[114000 ms] fps=0.50 cam=30.0 nn_ms=1475.6 pass_ms=1475.6 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=80 cap=3572 skip=3490 run_skip=3340 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1448318 input_wait_us=0 output_wait_us=0 publish_wait_us=4551 scan_seq=80 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=43 cycle_sat=0 scan_style=2 proc=80
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[116000 ms] fps=1.00 cam=29.9 nn_ms=1471.0 pass_ms=1471.0 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=81 cap=3632 skip=3549 run_skip=3399 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1443926 input_wait_us=0 output_wait_us=0 publish_wait_us=162 scan_seq=81 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=47 cycle_sat=0 scan_style=2 proc=81
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[118000 ms] fps=1.00 cam=29.9 nn_ms=1469.4 pass_ms=1469.4 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=83 cap=3692 skip=3607 run_skip=3457 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1444824 input_wait_us=0 output_wait_us=0 publish_wait_us=8723 scan_seq=83 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=29 cycle_sat=0 scan_style=2 proc=83
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[120000 ms] fps=0.50 cam=29.9 nn_ms=1468.6 pass_ms=1468.6 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=84 cap=3752 skip=3666 run_skip=3516 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1443344 input_wait_us=0 output_wait_us=0 publish_wait_us=6776 scan_seq=84 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=44 cycle_sat=0 scan_style=2 proc=84
+AE mean=6 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[122000 ms] fps=1.00 cam=29.9 nn_ms=1467.5 pass_ms=1467.5 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=86 cap=3812 skip=3724 run_skip=3574 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1441666 input_wait_us=0 output_wait_us=0 publish_wait_us=4913 scan_seq=86 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=2 cycle_sat=0 scan_style=2 proc=86
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[124000 ms] fps=0.50 cam=30.0 nn_ms=1467.5 pass_ms=1467.5 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=87 cap=3872 skip=3783 run_skip=3633 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1441294 input_wait_us=0 output_wait_us=0 publish_wait_us=4067 scan_seq=87 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=36 cycle_sat=0 scan_style=2 proc=87
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[126000 ms] fps=1.00 cam=30.0 nn_ms=1466.6 pass_ms=1466.6 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=88 cap=3932 skip=3842 run_skip=3692 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1440382 input_wait_us=0 output_wait_us=0 publish_wait_us=4077 scan_seq=88 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=45 cycle_sat=0 scan_style=2 proc=88
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[128000 ms] fps=1.00 cam=29.9 nn_ms=1463.8 pass_ms=1463.8 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=90 cap=3992 skip=3900 run_skip=3750 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1438737 input_wait_us=0 output_wait_us=0 publish_wait_us=7970 scan_seq=90 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=9 cycle_sat=0 scan_style=2 proc=90
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[130000 ms] fps=0.50 cam=29.9 nn_ms=1462.4 pass_ms=1462.4 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=91 cap=4052 skip=3959 run_skip=3809 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1438100 input_wait_us=0 output_wait_us=0 publish_wait_us=12158 scan_seq=91 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=38 cycle_sat=0 scan_style=2 proc=91
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF
+[132000 ms] fps=1.00 cam=30.0 nn_ms=1463.4 pass_ms=1463.4 nn_max_ms=1476.7 style=2 view=0 ready=7 proc=92 cap=4112 skip=4018 run_skip=3868 caperr=0 vid_err=0 uf=0 hdmi_err=0 irq_err=0 k3=0 k0=0 sw_us=2116981 sw_max_us=2691671
+perf first_us=1437094 input_wait_us=0 output_wait_us=0 publish_wait_us=15324 scan_seq=92 scan_sw_us=2120601 scan_sw_max_us=2692954
+TRV5 node=47 cycle_sat=0 scan_style=2 proc=92
+AE mean=5 exp_halfline=2988 gain_idx=113 i2c_errors=0 AWB=OFF

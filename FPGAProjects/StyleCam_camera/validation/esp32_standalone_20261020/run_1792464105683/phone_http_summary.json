@@ -1,0 +1,17 @@
+{
+  "port": "COM28",
+  "baud": 115200,
+  "seconds": 6.0,
+  "uart_payload_sent": false,
+  "reset_via_rts": false,
+  "received_bytes": 498,
+  "bridge_banner_seen": false,
+  "ap_reported_ready": false,
+  "psram_fatal": false,
+  "other_fatal": false,
+  "panic_seen": false,
+  "link_stats_seen": true,
+  "wifi_page_confirmed_by_user": false,
+  "voice_link_verified": false,
+  "fpga_modified": false
+}

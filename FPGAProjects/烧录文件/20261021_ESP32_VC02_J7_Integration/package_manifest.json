@@ -1,0 +1,281 @@
+{
+  "date": "2026-10-21",
+  "status": "VC-02 four-command recognition and module UART observed on COM29; external audio unresolved; voice-to-ESP32 and FPGA integration pending",
+  "files": {
+    "esp32/flash_esp32.ps1": {
+      "bytes": 1630,
+      "sha256": "fa11052f7045fc8bdff331ff517702b85ffd0b9110cd14cc33e94ff0d622f7f1"
+    },
+    "esp32/manifest.json": {
+      "bytes": 2477,
+      "sha256": "6f8ec4c25812a99be58276579190bf78713d13e2d8205fff01215af722f2feab"
+    },
+    "esp32/usb_uart/esp32s3_stream.ino.bin": {
+      "bytes": 924064,
+      "sha256": "470a42dd79382f0bfa6ee9bb845039090a270bcf4ed1eb8d658e3e1dc5a3df24"
+    },
+    "esp32/usb_uart/esp32s3_stream.ino.bootloader.bin": {
+      "bytes": 18976,
+      "sha256": "22e423eb146346aef4fca9bc401d3377cc035a0d172f9c695557f954e69401d8"
+    },
+    "esp32/usb_uart/esp32s3_stream.ino.merged.bin": {
+      "bytes": 16777216,
+      "sha256": "714acf36dd57e9c4db696d6e02890c11a4ca8ca3db4dde36a594509b8ba3b3db"
+    },
+    "esp32/usb_uart/esp32s3_stream.ino.partitions.bin": {
+      "bytes": 3072,
+      "sha256": "ace02503447d0f470692e65fa76002f2d77a92dc81cd3813d8aa66718d716da9"
+    },
+    "fpga/build_state.json": {
+      "bytes": 55679,
+      "sha256": "cf02e5b9ea6bd7b89fe2893a11a6109710528c35bf01601fab71953f899234b9"
+    },
+    "fpga/candidate.peri.xml": {
+      "bytes": 74417,
+      "sha256": "08710354bbe0317d2a7d0a088adaa07883b3bc0483dcbfa2305d69feae86b293"
+    },
+    "fpga/candidate.sdc": {
+      "bytes": 39049,
+      "sha256": "81c682862db6d0bc051e0719fda8eb21aaa6aa3ac8cf2823dc4d4b66948ff2b4"
+    },
+    "fpga/candidate.xml": {
+      "bytes": 13994,
+      "sha256": "0d7056659a9011d1530c4a44b2e8ce1087487ccebf3658586a91fa4b14cfab3b"
+    },
+    "fpga/candidate_top.v": {
+      "bytes": 35483,
+      "sha256": "717ee4b8de085f32104e3515ea6a7e3a33d26d307641da3b614dd196e631aff0"
+    },
+    "fpga/interface.log": {
+      "bytes": 290,
+      "sha256": "9fd3321509a33880e7c24f43d9ff37fbe73f81a9529d2f2448525331667bde28"
+    },
+    "fpga/manifest.json": {
+      "bytes": 55679,
+      "sha256": "cf02e5b9ea6bd7b89fe2893a11a6109710528c35bf01601fab71953f899234b9"
+    },
+    "fpga/map.log": {
+      "bytes": 638,
+      "sha256": "96b84156e11d7d67743d903f7535a94f3b6940560e1f856dc6fc66e193dffde9"
+    },
+    "fpga/map.rpt": {
+      "bytes": 529865,
+      "sha256": "23dacdfee5e92aa97c58a428b63eb73e6f3dd793c3372b23fa7009c990f860cc"
+    },
+    "fpga/pgm.log": {
+      "bytes": 2097,
+      "sha256": "9414023166467c4fbbca47d5fa9111bdac40b6e987e504a9a8ae5fb22cd792f9"
+    },
+    "fpga/pinout.csv": {
+      "bytes": 13183,
+      "sha256": "3eb3f0a088bdd545c57ff949080f8e902789d2578262c2f216de7c03ef4c2732"
+    },
+    "fpga/place.rpt": {
+      "bytes": 5570,
+      "sha256": "1ec4d57fd2ca0a37966ca922a4c3469f4eccac57781092b1fbe6183d1f90d9f8"
+    },
+    "fpga/pnr.log": {
+      "bytes": 549,
+      "sha256": "f5e4934970b0ac8041e36a700da774ff2790a3a600b70147ea6685fbccd07e32"
+    },
+    "fpga/StyleCam_RISCV11_J7_Preview.bit": {
+      "bytes": 3165231,
+      "sha256": "da6a063a52a90b94e2306cccd53cddc434b526c88855d6b7fd2bf4d5188d15cc"
+    },
+    "fpga/StyleCam_RISCV11_J7_Preview.hex": {
+      "bytes": 3165291,
+      "sha256": "39125b8aa284bf8ee7689e2f37c2c9441d1dc27c80670e5a0e480eb273e589bc"
+    },
+    "fpga/timing.rpt": {
+      "bytes": 1538606,
+      "sha256": "20882bd25651de19ab524f40bf43a9d7d9b79328ea6228a4ddb23aa2c7601596"
+    },
+    "images/vc02_update_steps.png": {
+      "bytes": 160570,
+      "sha256": "31d132f496ff729f03b339dd9edabc4c0c800d047793134a2c6b15a531fb6a4b"
+    },
+    "images/voice_four_commands_verified_20261022.png": {
+      "bytes": 54909,
+      "sha256": "19f28eff0af97011d9c0798d508f54dee4ed366f8bccc231fa036e66bac11528"
+    },
+    "list_ports.ps1": {
+      "bytes": 206,
+      "sha256": "a6d00301d92e790fa8b8f64d99f61d2719ca1470d339a154682d9929ab1de8a5"
+    },
+    "offline_verification.json": {
+      "bytes": 1471,
+      "sha256": "d23afd9c0cd21a582a0e3a9f6fa6e752af1222a30e4c19d5aa3c8f4f4c0cdcc0"
+    },
+    "prepare_voice_update.ps1": {
+      "bytes": 2727,
+      "sha256": "db02a162491e2efab8d602e5e930eb5915fe175d6a970fc4c82f0d2f3d047f09"
+    },
+    "preview_simulation.json": {
+      "bytes": 3960,
+      "sha256": "e3036aea53e249a347786445a1e967fef5aeba95b87adff8e04c4d6f0d8ed14b"
+    },
+    "program_fpga_ram.ps1": {
+      "bytes": 2734,
+      "sha256": "d7bcf82970b62b66b2e0dd8ca0b569f72fee02f236b8144dcfb0d2a7994febba"
+    },
+    "README.md": {
+      "bytes": 3804,
+      "sha256": "2d52a4e621f7635abf6dd1a18a7844cfdb971a7fef9f1ff412560e0cc55f589f"
+    },
+    "voice/generated_sdk_verification_20261023.json": {
+      "bytes": 5496,
+      "sha256": "1e1e361c2edf683eef4aa46ddc92f2bd45410d01c003d3eef8963760f5779077"
+    },
+    "voice/platform_configuration_review_20261022.json": {
+      "bytes": 1674,
+      "sha256": "3b7ee267db6f5b5d014c7186b1838df01a073992de4163b94c584d5e9dda2489"
+    },
+    "voice/platform_recovery_20261022.json": {
+      "bytes": 661,
+      "sha256": "826439c69cbdcd45874e2d1ab6f54e6d4781975a264b12d37793e32bf6500790"
+    },
+    "voice/prepared_update_tool_20261023.json": {
+      "bytes": 1777,
+      "sha256": "dcfc7541434e5b391b01cc9f7c5e29abacc641e2b08e8615d52c6227ee08e1d3"
+    },
+    "voice/sdk/manifest.json": {
+      "bytes": 178744,
+      "sha256": "3d9111c4f99606c4a2cc161ec356e0a64b6500b4991c38427ad248badcf1661c"
+    },
+    "voice/sdk/README.md": {
+      "bytes": 2252,
+      "sha256": "831199f5e375aefcaf1819352edce56e9f8d32266a05e9ffc83df968e783abb4"
+    },
+    "voice/sdk/StyleCam_VC02_SDK_20261023001_279107_public.zip": {
+      "bytes": 39813619,
+      "sha256": "260872d97197059c5865593d461488e8cb474ea47a857e76b86c510af95fcdf3"
+    },
+    "voice/sdk_evidence_20261023001/cmd_reply_data.json": {
+      "bytes": 1224,
+      "sha256": "a6b72800398c1e4656ed5a1c17501aaf1b84280f9e0185e71712c473a58be630"
+    },
+    "voice/sdk_evidence_20261023001/custom_config.redacted.json": {
+      "bytes": 4238,
+      "sha256": "6d4e358ab0b9bd2b565bb8505b23245c15d170c27a5eaedb59cbce3f3b8095a5"
+    },
+    "voice/sdk_evidence_20261023001/hb_auto_gpio.c": {
+      "bytes": 2183,
+      "sha256": "8a2eca639ce481d4ba425b4b3e821a761593773468be6290f33b3e2186f8b5c6"
+    },
+    "voice/sdk_evidence_20261023001/uni_cust_config.h": {
+      "bytes": 673,
+      "sha256": "390b68a05727945e5e9470373916371e160e6237b0d955b9fec03f7918f2255b"
+    },
+    "voice/sdk_evidence_20261023001/uni_nlu_content.h": {
+      "bytes": 1596,
+      "sha256": "f285e4886ba2de35dff67297ff71c6f28b2b9414817afccf51e641dc665a6569"
+    },
+    "voice/sdk_evidence_20261023001/user_config.h": {
+      "bytes": 5366,
+      "sha256": "cb986edba9547d3d0a3932552ac9aa8173285099c90c0fd71665736d696fe2c2"
+    },
+    "voice/uni_app_release.bin": {
+      "bytes": 1283224,
+      "sha256": "c20df0ebdf9dc243ac2ad4cdac26be2ad8be0e14dbea8e19a279331d9de9ea78"
+    },
+    "voice/uni_app_release_update.bin": {
+      "bytes": 1217688,
+      "sha256": "57fd62fc868b0c7be1a22d5032f8573f4b39b9ea29754826b372eecaa5863239"
+    },
+    "voice/validation_20261023/audio_resource_review.json": {
+      "bytes": 1604,
+      "sha256": "bc9745db6b751884d91643085a7c67bc14211e2e4b092ae9925b7a9d41bb624e"
+    },
+    "voice/validation_20261023/bringup_status.json": {
+      "bytes": 2044,
+      "sha256": "b6423d2e529d7b9c6dfc12b8e95ae5e4de0dc75fa8e337a22a6f3aef35fa6cae"
+    },
+    "voice/validation_20261023/received.bin": {
+      "bytes": 20,
+      "sha256": "7ad5c4d00058cb0d32bbe63f8daa412284490731c337c8ebf4ba78095e2e3b1a"
+    },
+    "voice/validation_20261023/uart_capture.json": {
+      "bytes": 1445,
+      "sha256": "1d1eeda263067f45539b103b5b5cad15d1a078725ea972775bce20c7eaa87c4b"
+    },
+    "voice/voice_commands.csv": {
+      "bytes": 265,
+      "sha256": "b78620fcead4976e434289fe7faba4e48ee36abaf1834e134f878cf585b8f246"
+    },
+    "voice/单板验收_20261023.md": {
+      "bytes": 1940,
+      "sha256": "b606d17c0de9e0a84d3506773de1c05030d91db815ca4342ab930e049df50b08"
+    },
+    "voice/平台同步故障修复.md": {
+      "bytes": 3868,
+      "sha256": "7114b92d0e21c66fc7c2f48dc9dcb3e8603a0afb555bb0498e21db0c22781cb7"
+    },
+    "voice/平台填写内容.txt": {
+      "bytes": 1384,
+      "sha256": "e6e1f5dabc16ea86fa46f14944e54bae933876eee517b60d1a8059a3bae1c82e"
+    },
+    "voice/平台批量导入.txt": {
+      "bytes": 101,
+      "sha256": "28f32a00650800fb6ef8652afc05dcebdb35a9f8afa4ff6e12d0ecfd60f671a7"
+    },
+    "voice/接着当前页面操作.md": {
+      "bytes": 3813,
+      "sha256": "89f38b4eeabf928c514bdb116a3a892026902509e4ebc8297e2a359ded527ed6"
+    },
+    "下一步_语音板烧录.md": {
+      "bytes": 4801,
+      "sha256": "d50c940e81ad3386b25b7518c0c7cd730394bdf4d4576a0d27c32414fb1f15c0"
+    },
+    "操作教程.md": {
+      "bytes": 15780,
+      "sha256": "16ce523b3b6dc911c682cbf725ca5fda0bb19b1e2aaf6a65b0263697e52cbc8a"
+    }
+  },
+  "no_hardware_actions_this_run": false,
+  "requires_local_tools": [
+    "Efinity 2026.1",
+    "downloaded VC-02 updater",
+    "downloaded ESP32 tools for optional reflashing"
+  ],
+  "wake_word": "小安小安",
+  "wake_word_updated": "2026-10-22",
+  "updated": "2026-10-23",
+  "voice_command_count": 4,
+  "voice_commands": [
+    "切换梵高",
+    "切换浮世绘",
+    "切换水墨",
+    "切换画面"
+  ],
+  "voice_four_row_association_verified": true,
+  "voice_static_configuration_verified": true,
+  "voice_sdk_version": "20261023001",
+  "voice_firmware_generated": true,
+  "voice_firmware_downloaded": true,
+  "voice_sdk_and_binary_review_passed": true,
+  "voice_update_prepared": true,
+  "voice_hardware_validated": false,
+  "voice_static_verification_record": "voice/generated_sdk_verification_20261023.json",
+  "voice_update_tool_record": "voice/prepared_update_tool_20261023.json",
+  "voice_board_programmed_by_user": true,
+  "voice_module_recognition_and_uart_validated": true,
+  "voice_module_uart_frame_count": 4,
+  "voice_module_uart_byte_count": 20,
+  "voice_module_audio_reply_validated": false,
+  "voice_to_esp32_hardware_validated": false,
+  "fpga_hardware_validated": false,
+  "hardware_acceptance_record": "voice/validation_20261023/uart_capture.json",
+  "hardware_acceptance_scope": "VC-02 standalone, one observation per command; no flash readback or recognition-rate test",
+  "sdk_publication": {
+    "version": "20261023001",
+    "build_id": "279107",
+    "archive": "voice/sdk/StyleCam_VC02_SDK_20261023001_279107_public.zip",
+    "sdk_files": 554,
+    "redacted_configuration_files": 1,
+    "firmware_recompiled": false,
+    "hardware_programmed_this_publication": false
+  },
+  "publication_excluded_local_files": [
+    "voice/pre_submit_snapshot_20261022.txt"
+  ]
+}

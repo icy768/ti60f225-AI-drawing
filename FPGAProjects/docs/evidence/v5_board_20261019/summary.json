@@ -1,0 +1,627 @@
+{
+  "fpga_id": "53430a0e",
+  "hardware_verified": true,
+  "Flash_modified": false,
+  "github_updated": true,
+  "network_integer_outputs_unchanged": true,
+  "bit_sha256": "8cd69aa5b17a995e3f98d9bf525ef59c098501f92db9a67f2e8dac3b387ca2b6",
+  "trial_crc32": "0cbd58c3",
+  "resources": {
+    "xlr": 57090,
+    "xlr_total": 60800,
+    "ram10": 182,
+    "ram10_total": 256,
+    "dsp": 133,
+    "dsp_total": 160
+  },
+  "setup_min_ns": 0.324,
+  "hold_min_ns": 0.026,
+  "styles": [
+    {
+      "style": 0,
+      "processed_frames": 17,
+      "hdmi_scan_frames": 17,
+      "observation_ms": 20000,
+      "publication_fps": 0.85,
+      "nn_ms_mean": 1127.42,
+      "nn_ms_min": 1124.7,
+      "nn_ms_max": 1129.6,
+      "camera_fps": 30.0,
+      "ae_mean": 11
+    },
+    {
+      "style": 1,
+      "processed_frames": 19,
+      "hdmi_scan_frames": 19,
+      "observation_ms": 20000,
+      "publication_fps": 0.95,
+      "nn_ms_mean": 1059.0,
+      "nn_ms_min": 1057.2,
+      "nn_ms_max": 1060.4,
+      "camera_fps": 30.0,
+      "ae_mean": 11
+    },
+    {
+      "style": 2,
+      "processed_frames": 17,
+      "hdmi_scan_frames": 17,
+      "observation_ms": 20000,
+      "publication_fps": 0.85,
+      "nn_ms_mean": 1147.72,
+      "nn_ms_min": 1142.5,
+      "nn_ms_max": 1152.0,
+      "camera_fps": 30.0,
+      "ae_mean": 12
+    }
+  ],
+  "user_picture_accepted": true,
+  "user_picture_accepted_styles": [
+    0
+  ],
+  "other_style_picture_acceptance_pending": [
+    1,
+    2
+  ],
+  "user_observation_quote": "画面正常，能随场景更新",
+  "acceptance_scope": "Current Van Gogh display only; no separate visual acceptance for ukiyoe or ink",
+  "scope": "Documentation/evidence publication only; no V5 engineering sources, weights or bitstream included",
+  "main_version": "RISCV11 AE/IN4, V21b",
+  "main_version_fpga_id": "53430a0b",
+  "main_version_branch": "codex/release-riscv11-ae-in4-20261018",
+  "main_version_commit": "47254c25a6e767d7602da96a4529fb84616c9524",
+  "main_version_pr": 6,
+  "model_commit": "a09d8ec2db9e2743ca2b1d535508b13bb071b1a4",
+  "model_delivery_pr": 5,
+  "regressions_passed": 12,
+  "real_time_30fps_passed": false,
+  "evidence_files": {
+    "r14_first_frame.json": {
+      "sha256": "36c61d96b6f2d0af5dd3b427fc8f56910294677a79b9e206c09dd8d58e180fdf",
+      "bytes": 435
+    },
+    "r14_first_frame_uart.log": {
+      "sha256": "f22c399b76d0103f4ab532aec3c9f63a42c480e9f3a2ab71c5dd40456acd8b35",
+      "bytes": 2379
+    },
+    "r14_three_styles.json": {
+      "sha256": "6da442161ffcf1574784e69303c03e7ad24e9bb13942b76b8f48e613f9ecb42d",
+      "bytes": 16451
+    },
+    "r14_three_styles_uart.log": {
+      "sha256": "f1f4805cffc433829f3319d35d5336db024fe4d5a0486a25d70f6d5f4385a655",
+      "bytes": 15691
+    },
+    "r13_three_styles.json": {
+      "sha256": "ca3107912ff74e289fecd9c7262bcca7e354f8810110b34693b2f4da891e3cfb",
+      "bytes": 16882
+    },
+    "r13_three_styles_uart.log": {
+      "sha256": "747ba92650be4d2c8b840deaaeeafede7813d52c7c8fd6b3a214d24479a95ece",
+      "bytes": 16151
+    }
+  },
+  "r14_bit_identity_only": {
+    "sha256": "8cd69aa5b17a995e3f98d9bf525ef59c098501f92db9a67f2e8dac3b387ca2b6",
+    "published": false
+  },
+  "network_comparison": {
+    "scope": "Convolution arithmetic and learned parameters; not measured latency or a same-hardware comparison",
+    "old": {
+      "network": "V21b formal RISCV11",
+      "convs": 13,
+      "weights": 9384,
+      "style_affine": 1632,
+      "bias": 12,
+      "parameters": 11028,
+      "MACs_320": 84787200,
+      "MACs_640": 339148800,
+      "layers_320": [
+        {
+          "name": "e1",
+          "output": [
+            160,
+            120,
+            16
+          ],
+          "weights": 432,
+          "MACs": 8294400
+        },
+        {
+          "name": "e2",
+          "output": [
+            80,
+            60,
+            24
+          ],
+          "weights": 3456,
+          "MACs": 16588800
+        },
+        {
+          "name": "r0a",
+          "output": [
+            80,
+            60,
+            24
+          ],
+          "weights": 216,
+          "MACs": 1036800
+        },
+        {
+          "name": "r0d",
+          "output": [
+            80,
+            60,
+            24
+          ],
+          "weights": 576,
+          "MACs": 2764800
+        },
+        {
+          "name": "r1a",
+          "output": [
+            80,
+            60,
+            24
+          ],
+          "weights": 216,
+          "MACs": 1036800
+        },
+        {
+          "name": "r1d",
+          "output": [
+            80,
+            60,
+            24
+          ],
+          "weights": 576,
+          "MACs": 2764800
+        },
+        {
+          "name": "r2a",
+          "output": [
+            80,
+            60,
+            24
+          ],
+          "weights": 216,
+          "MACs": 1036800
+        },
+        {
+          "name": "r2d",
+          "output": [
+            80,
+            60,
+            24
+          ],
+          "weights": 576,
+          "MACs": 2764800
+        },
+        {
+          "name": "r3a",
+          "output": [
+            80,
+            60,
+            24
+          ],
+          "weights": 216,
+          "MACs": 1036800
+        },
+        {
+          "name": "r3d",
+          "output": [
+            80,
+            60,
+            24
+          ],
+          "weights": 576,
+          "MACs": 2764800
+        },
+        {
+          "name": "d1a",
+          "output": [
+            160,
+            120,
+            24
+          ],
+          "weights": 216,
+          "MACs": 4147200
+        },
+        {
+          "name": "d1b",
+          "output": [
+            160,
+            120,
+            16
+          ],
+          "weights": 384,
+          "MACs": 7372800
+        },
+        {
+          "name": "d2",
+          "output": [
+            160,
+            120,
+            12
+          ],
+          "weights": 1728,
+          "MACs": 33177600
+        }
+      ]
+    },
+    "new": {
+      "commit": "a09d8ec2db9e2743ca2b1d535508b13bb071b1a4",
+      "unique_convs": 91,
+      "weights": 413664,
+      "bias": 7329,
+      "parameters": 420993,
+      "styles": [
+        {
+          "style": "vangogh",
+          "nodes": 48,
+          "convs": 34,
+          "operations": {
+            "0": 1,
+            "1": 34,
+            "2": 6,
+            "4": 3,
+            "3": 3,
+            "5": 1
+          },
+          "MACs_320": 877094400,
+          "MACs_640": 3508377600,
+          "ratio_to_old_same_resolution": 10.34465579710145,
+          "ratio_to_old_VGA": 2.5861639492753623,
+          "peak_channels": 160,
+          "max_single_tensor_bytes": 3072000,
+          "top_convs": [
+            {
+              "node": 44,
+              "Cin": 16,
+              "Cout": 16,
+              "kernel": [
+                17,
+                17
+              ],
+              "groups": 16,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 4624,
+              "MACs": 355123200
+            },
+            {
+              "node": 43,
+              "Cin": 40,
+              "Cout": 16,
+              "kernel": [
+                1,
+                1
+              ],
+              "groups": 1,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 640,
+              "MACs": 49152000
+            },
+            {
+              "node": 36,
+              "Cin": 80,
+              "Cout": 24,
+              "kernel": [
+                1,
+                1
+              ],
+              "groups": 1,
+              "output_HW": [
+                120,
+                160
+              ],
+              "weights": 1920,
+              "MACs": 36864000
+            },
+            {
+              "node": 1,
+              "Cin": 3,
+              "Cout": 16,
+              "kernel": [
+                3,
+                3
+              ],
+              "groups": 1,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 432,
+              "MACs": 33177600
+            },
+            {
+              "node": 24,
+              "Cin": 144,
+              "Cout": 48,
+              "kernel": [
+                1,
+                1
+              ],
+              "groups": 1,
+              "output_HW": [
+                60,
+                80
+              ],
+              "weights": 6912,
+              "MACs": 33177600
+            },
+            {
+              "node": 46,
+              "Cin": 16,
+              "Cout": 3,
+              "kernel": [
+                3,
+                3
+              ],
+              "groups": 1,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 432,
+              "MACs": 33177600
+            }
+          ]
+        },
+        {
+          "style": "ukiyoe",
+          "nodes": 50,
+          "convs": 36,
+          "operations": {
+            "0": 1,
+            "1": 36,
+            "2": 6,
+            "4": 3,
+            "3": 3,
+            "5": 1
+          },
+          "MACs_320": 574176000,
+          "MACs_640": 2296704000,
+          "ratio_to_old_same_resolution": 6.771965579710145,
+          "ratio_to_old_VGA": 1.6929913949275361,
+          "peak_channels": 176,
+          "max_single_tensor_bytes": 3072000,
+          "top_convs": [
+            {
+              "node": 46,
+              "Cin": 16,
+              "Cout": 16,
+              "kernel": [
+                9,
+                9
+              ],
+              "groups": 16,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 1296,
+              "MACs": 99532800
+            },
+            {
+              "node": 45,
+              "Cin": 40,
+              "Cout": 16,
+              "kernel": [
+                1,
+                1
+              ],
+              "groups": 1,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 640,
+              "MACs": 49152000
+            },
+            {
+              "node": 1,
+              "Cin": 3,
+              "Cout": 16,
+              "kernel": [
+                3,
+                3
+              ],
+              "groups": 1,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 432,
+              "MACs": 33177600
+            },
+            {
+              "node": 38,
+              "Cin": 72,
+              "Cout": 24,
+              "kernel": [
+                1,
+                1
+              ],
+              "groups": 1,
+              "output_HW": [
+                120,
+                160
+              ],
+              "weights": 1728,
+              "MACs": 33177600
+            },
+            {
+              "node": 48,
+              "Cin": 16,
+              "Cout": 3,
+              "kernel": [
+                3,
+                3
+              ],
+              "groups": 1,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 432,
+              "MACs": 33177600
+            },
+            {
+              "node": 30,
+              "Cin": 152,
+              "Cout": 40,
+              "kernel": [
+                1,
+                1
+              ],
+              "groups": 1,
+              "output_HW": [
+                60,
+                80
+              ],
+              "weights": 6080,
+              "MACs": 29184000
+            }
+          ]
+        },
+        {
+          "style": "ink",
+          "nodes": 49,
+          "convs": 35,
+          "operations": {
+            "0": 1,
+            "1": 35,
+            "2": 6,
+            "4": 3,
+            "3": 3,
+            "5": 1
+          },
+          "MACs_320": 849542400,
+          "MACs_640": 3398169600,
+          "ratio_to_old_same_resolution": 10.019701086956522,
+          "ratio_to_old_VGA": 2.5049252717391304,
+          "peak_channels": 144,
+          "max_single_tensor_bytes": 3072000,
+          "top_convs": [
+            {
+              "node": 45,
+              "Cin": 16,
+              "Cout": 16,
+              "kernel": [
+                17,
+                17
+              ],
+              "groups": 16,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 4624,
+              "MACs": 355123200
+            },
+            {
+              "node": 44,
+              "Cin": 40,
+              "Cout": 16,
+              "kernel": [
+                1,
+                1
+              ],
+              "groups": 1,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 640,
+              "MACs": 49152000
+            },
+            {
+              "node": 36,
+              "Cin": 80,
+              "Cout": 24,
+              "kernel": [
+                1,
+                1
+              ],
+              "groups": 1,
+              "output_HW": [
+                120,
+                160
+              ],
+              "weights": 1920,
+              "MACs": 36864000
+            },
+            {
+              "node": 1,
+              "Cin": 3,
+              "Cout": 16,
+              "kernel": [
+                3,
+                3
+              ],
+              "groups": 1,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 432,
+              "MACs": 33177600
+            },
+            {
+              "node": 47,
+              "Cin": 16,
+              "Cout": 3,
+              "kernel": [
+                3,
+                3
+              ],
+              "groups": 1,
+              "output_HW": [
+                240,
+                320
+              ],
+              "weights": 432,
+              "MACs": 33177600
+            },
+            {
+              "node": 24,
+              "Cin": 136,
+              "Cout": 48,
+              "kernel": [
+                1,
+                1
+              ],
+              "groups": 1,
+              "output_HW": [
+                60,
+                80
+              ],
+              "weights": 6528,
+              "MACs": 31334400
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "source_bound_build_evidence": {
+    "model_sha256": "e789645674e7da5ccaa2c71414e31165e8c83102b08c6b2d6411b94cf51a1889",
+    "trial_crc32": "0cbd58c3",
+    "internal_size": [
+      320,
+      240
+    ],
+    "camera_and_display_size": [
+      640,
+      480
+    ],
+    "parallel_lanes": 16,
+    "stride2_lanes": 8,
+    "network_integer_outputs_unchanged": true
+  }
+}

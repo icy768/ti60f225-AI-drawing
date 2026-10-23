@@ -1,7 +1,16 @@
 # Local reference materials and tools
+/FPGAProjects/reference/
+/docs/整理记录_20261023/*.json
+/docs/整理记录_20261023/*.zip
 /DEMO/
 /other/
 /_tmp_pdf/
+/docs/汇报核对_20261023/
+/FPGAProjects/烧录文件/20261021_ESP32_VC02_J7_Integration/voice/pre_submit_snapshot_20261022.txt
+# Unadopted hardware experiments and their generated mirrors stay local.
+/FPGAProjects/StyleCam_camera/experiments/resource_first_20261023/
+/FPGAProjects/StyleCam_camera/experiments/tristyle_first_20261017/
+/FPGAProjects/StyleCam_camera/experiments/tristyle_v5_20261018/
 /.vscode/
 *.pdf
 *.log

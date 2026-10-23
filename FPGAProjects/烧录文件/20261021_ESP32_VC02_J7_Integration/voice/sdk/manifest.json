@@ -1,0 +1,3358 @@
+{
+  "version": "20261023001",
+  "sdk_build_id": "279107",
+  "source_sdk_archive_sha256": "b05d76dbb9b66609c285aab88c75a5819de7c4e7672bcf1ff5a814983b2ad5e6",
+  "source_firmware_archive_sha256": "72560c4c87e7964e0d438aa803acf99065845b4b0a30fcaa87120befbda4076d",
+  "archive": "StyleCam_VC02_SDK_20261023001_279107_public.zip",
+  "archive_bytes": 39813619,
+  "archive_sha256": "260872d97197059c5865593d461488e8cb474ea47a857e76b86c510af95fcdf3",
+  "sdk_files": 554,
+  "redacted_files": [
+    "unione_lite_app_hb_m/tools/scripts/custom_config.json"
+  ],
+  "removed_fields": [
+    "appKey",
+    "appSecret"
+  ],
+  "all_other_files_byte_identical": true,
+  "original_sdk_unchanged": true,
+  "archive_readback_verified": true,
+  "firmware": {
+    "uni_app_release_update.bin": {
+      "bytes": 1217688,
+      "sha256": "57fd62fc868b0c7be1a22d5032f8573f4b39b9ea29754826b372eecaa5863239"
+    },
+    "uni_app_release.bin": {
+      "bytes": 1283224,
+      "sha256": "c20df0ebdf9dc243ac2ad4cdac26be2ad8be0e14dbea8e19a279331d9de9ea78"
+    }
+  },
+  "firmware_recompiled": false,
+  "programmed": false,
+  "files": {
+    "uni_hb_m_solution/build.properties": {
+      "bytes": 66477,
+      "sha256": "9cd33deaed95803e2f6a3c9a2154c4e0e6fdda895af8b52bdfa295b97b3eefe6",
+      "original_sha256": "9cd33deaed95803e2f6a3c9a2154c4e0e6fdda895af8b52bdfa295b97b3eefe6",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/bin/uni_app_debug.bin": {
+      "bytes": 1217688,
+      "sha256": "7b1965d33400565be12313c737473a77665799c128780bf972e56971a8ae11ec",
+      "original_sha256": "7b1965d33400565be12313c737473a77665799c128780bf972e56971a8ae11ec",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/bin/uni_app_release.bin": {
+      "bytes": 1217688,
+      "sha256": "bb5a52d1ceac0b4d6b1a456ee396355a09b92abb58d7e338b706bab8ca25c996",
+      "original_sha256": "bb5a52d1ceac0b4d6b1a456ee396355a09b92abb58d7e338b706bab8ca25c996",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/dbg/bin/.Andesgdbinit": {
+      "bytes": 8121,
+      "sha256": "f9f32763631a2706f9a38bd6a4da6e458f57d15930e0d243eb8dfe9fd4327bc7",
+      "original_sha256": "f9f32763631a2706f9a38bd6a4da6e458f57d15930e0d243eb8dfe9fd4327bc7",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/dbg/bin/dbg_reset_and_run.txt": {
+      "bytes": 34,
+      "sha256": "de59be4eaa82f41441a02a5b9f94d2039f2f9a8f93e84ce5f957ee5eddb4c903",
+      "original_sha256": "de59be4eaa82f41441a02a5b9f94d2039f2f9a8f93e84ce5f957ee5eddb4c903",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/dbg/bin/nds32le-elf-gdb.exe": {
+      "bytes": 4852238,
+      "sha256": "aef9361f1a9d1ba8ac3b1aba81b1a86c3e4bd9a91526b0c1cf591ae5d1de84ed",
+      "original_sha256": "aef9361f1a9d1ba8ac3b1aba81b1a86c3e4bd9a91526b0c1cf591ae5d1de84ed",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/dll/cyggcc_s-1.dll": {
+      "bytes": 110109,
+      "sha256": "106602093820b29e9bad72d078d668553a8d249a4ee8617dda9cfe06e4b47d91",
+      "original_sha256": "106602093820b29e9bad72d078d668553a8d249a4ee8617dda9cfe06e4b47d91",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/dll/cygiconv-2.dll": {
+      "bytes": 1034269,
+      "sha256": "efa2bff7ec6a71b6fda642837453ec1ba9cd14345f25502946b55b18fdd3ef66",
+      "original_sha256": "efa2bff7ec6a71b6fda642837453ec1ba9cd14345f25502946b55b18fdd3ef66",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/dll/cyglzma-5.dll": {
+      "bytes": 162845,
+      "sha256": "cd0a824f9a5241eb2c741454d5da94caf7de6296021cb36efc7bfae098eca54c",
+      "original_sha256": "cd0a824f9a5241eb2c741454d5da94caf7de6296021cb36efc7bfae098eca54c",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/dll/cygwin1.dll": {
+      "bytes": 3658100,
+      "sha256": "a2097a9c2669e88e5ee023a11f3c45d8121013f09eff41cf1c07b228fda34079",
+      "original_sha256": "a2097a9c2669e88e5ee023a11f3c45d8121013f09eff41cf1c07b228fda34079",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/dll/cygz.dll": {
+      "bytes": 84519,
+      "sha256": "02d6cbb0d4b176b1babf533cf2c890ea1575e8877cfe0cc0a6e9de81b3ddf1fa",
+      "original_sha256": "02d6cbb0d4b176b1babf533cf2c890ea1575e8877cfe0cc0a6e9de81b3ddf1fa",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/downloader.ico": {
+      "bytes": 1081406,
+      "sha256": "fdf2d9856b231bd1176925adc460348441a8e2df5d21fec018d8dd4924084b6a",
+      "original_sha256": "fdf2d9856b231bd1176925adc460348441a8e2df5d21fec018d8dd4924084b6a",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/flash_downloader/mv_download_o26_4kcrc_v1.8.exe": {
+      "bytes": 1182214,
+      "sha256": "d564cd43b896a6a170141404837e563cefd9f46907285b9f4d26b78d734f8c93",
+      "original_sha256": "d564cd43b896a6a170141404837e563cefd9f46907285b9f4d26b78d734f8c93",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/.bash_history": {
+      "bytes": 125,
+      "sha256": "b36975482565c4363030a251173369a6611cb3a3fbfe5ae8d65c288a2177f5f2",
+      "original_sha256": "b36975482565c4363030a251173369a6611cb3a3fbfe5ae8d65c288a2177f5f2",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/.openocd_history": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/aice_adapter.exe": {
+      "bytes": 163342,
+      "sha256": "aa32ecb3214852c378a3d5d1d26703b04c7292a1ac32129532ad063531620935",
+      "original_sha256": "aa32ecb3214852c378a3d5d1d26703b04c7292a1ac32129532ad063531620935",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/andes-iceman.bat": {
+      "bytes": 320,
+      "sha256": "ab828dcb40b18212d427e8b3406040d912ffd632c26fdf6964ed1d75b7e6ad49",
+      "original_sha256": "ab828dcb40b18212d427e8b3406040d912ffd632c26fdf6964ed1d75b7e6ad49",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/board/nds32_xc5.cfg": {
+      "bytes": 1944,
+      "sha256": "4ea52081533ecaa9f03238d42a2f9d004d24c35a2be3520cc25128da3fa63d0d",
+      "original_sha256": "4ea52081533ecaa9f03238d42a2f9d004d24c35a2be3520cc25128da3fa63d0d",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/board/nds32_xc5.cfg.tpl": {
+      "bytes": 1908,
+      "sha256": "bfc9fbafad3e693866d6f3b85c841e98086b2717c04a92193cc224b255a859fb",
+      "original_sha256": "bfc9fbafad3e693866d6f3b85c841e98086b2717c04a92193cc224b255a859fb",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/dbg_reset_and_run.txt": {
+      "bytes": 34,
+      "sha256": "de59be4eaa82f41441a02a5b9f94d2039f2f9a8f93e84ce5f957ee5eddb4c903",
+      "original_sha256": "de59be4eaa82f41441a02a5b9f94d2039f2f9a8f93e84ce5f957ee5eddb4c903",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/ICEman.exe": {
+      "bytes": 2808846,
+      "sha256": "d66f09c9ac3bb52b60b18973aa17c4844aead6c0acd36bb8890b0129d143ac37",
+      "original_sha256": "d66f09c9ac3bb52b60b18973aa17c4844aead6c0acd36bb8890b0129d143ac37",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/ICEman.exe.stackdump": {
+      "bytes": 40,
+      "sha256": "31254118f20be79bbbabd6446bffed0fa4762614c04b17b84fa0e7e498f52d6e",
+      "original_sha256": "31254118f20be79bbbabd6446bffed0fa4762614c04b17b84fa0e7e498f52d6e",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/interface/nds32-aice.cfg": {
+      "bytes": 630,
+      "sha256": "cbf4ef4ae2925d2815bc1a98a555417e082329b14d3a8d51e2432d7aff5e5cbe",
+      "original_sha256": "cbf4ef4ae2925d2815bc1a98a555417e082329b14d3a8d51e2432d7aff5e5cbe",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/interface/nds32-aice.cfg.tpl": {
+      "bytes": 377,
+      "sha256": "451de4c0fbfb214d35c1d72a33b3e40ec00481c088338aa4d4bbcd083703e5b8",
+      "original_sha256": "451de4c0fbfb214d35c1d72a33b3e40ec00481c088338aa4d4bbcd083703e5b8",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/AICE.cat": {
+      "bytes": 5773,
+      "sha256": "2778146f5392332c4e91c4df39d402642236efc7cc508efdd1e602de2bb2131e",
+      "original_sha256": "2778146f5392332c4e91c4df39d402642236efc7cc508efdd1e602de2bb2131e",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/AICE.cer": {
+      "bytes": 582,
+      "sha256": "5dc22d12fcb4346c2dc8d2e295f9d7bd09b45ca744c2f656b28d403f5e07c159",
+      "original_sha256": "5dc22d12fcb4346c2dc8d2e295f9d7bd09b45ca744c2f656b28d403f5e07c159",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/AICE.inf": {
+      "bytes": 7504,
+      "sha256": "a5a5aa3c18f4c480c56b93c9a88bfbbb762f3708dee37e0b2fdef7f8a5d0004a",
+      "original_sha256": "a5a5aa3c18f4c480c56b93c9a88bfbbb762f3708dee37e0b2fdef7f8a5d0004a",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/amd64/install-filter.exe": {
+      "bytes": 44544,
+      "sha256": "df2abf387893332f28c4df68b10a6b176dc9706142055dccccf447f5a9cede2d",
+      "original_sha256": "df2abf387893332f28c4df68b10a6b176dc9706142055dccccf447f5a9cede2d",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/amd64/libusb0.dll": {
+      "bytes": 76384,
+      "sha256": "4f18b5d2c28aa66b648c8683c6d09b52b92cbbee85984bbefad5f38a64bc2a14",
+      "original_sha256": "4f18b5d2c28aa66b648c8683c6d09b52b92cbbee85984bbefad5f38a64bc2a14",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/amd64/libusb0.sys": {
+      "bytes": 52832,
+      "sha256": "8058f2afe6ef96a7d2ded432997fd8655970c9ea75a938ee4557d6a2cb4cc989",
+      "original_sha256": "8058f2afe6ef96a7d2ded432997fd8655970c9ea75a938ee4557d6a2cb4cc989",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/amd64/libusb0_x86.dll": {
+      "bytes": 46592,
+      "sha256": "5e84d13636fbce7869cddc8b20c7d83fa0063e98c319e8e5ab751edc9ee1da76",
+      "original_sha256": "5e84d13636fbce7869cddc8b20c7d83fa0063e98c319e8e5ab751edc9ee1da76",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/amd64/libusbK.dll": {
+      "bytes": 99128,
+      "sha256": "592cd24bae321f1cb6cbe2f6e1bc5c05e279328e1c86814eb64ea1e89fdea188",
+      "original_sha256": "592cd24bae321f1cb6cbe2f6e1bc5c05e279328e1c86814eb64ea1e89fdea188",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/amd64/libusbK.sys": {
+      "bytes": 47928,
+      "sha256": "1df66ff22e2eaec27180756d90926ca5b07e8bcf6b0e4e3c56471e63a3a05fa6",
+      "original_sha256": "1df66ff22e2eaec27180756d90926ca5b07e8bcf6b0e4e3c56471e63a3a05fa6",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/amd64/libusbK_x86.dll": {
+      "bytes": 84280,
+      "sha256": "22803c719494f193d22519bfaff9484fecdcf1fadd6f082efd024fcee0b97ba4",
+      "original_sha256": "22803c719494f193d22519bfaff9484fecdcf1fadd6f082efd024fcee0b97ba4",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/amd64/WdfCoInstaller01011.dll": {
+      "bytes": 1795952,
+      "sha256": "f6fb39a8578f19616570d5a3dc7212c84a9da232b30a03376bbf08f4264fedf2",
+      "original_sha256": "f6fb39a8578f19616570d5a3dc7212c84a9da232b30a03376bbf08f4264fedf2",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/amd64/winusbcoinstaller2.dll": {
+      "bytes": 1002728,
+      "sha256": "981a17effddbc20377512ddaec9f22c2b7067e17a3e2a8ccf82bb7bb7b2420b6",
+      "original_sha256": "981a17effddbc20377512ddaec9f22c2b7067e17a3e2a8ccf82bb7bb7b2420b6",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/dpinst_amd64.exe": {
+      "bytes": 1050104,
+      "sha256": "181bf85d3b5900ff8abed34bc415afc37fc322d9d7702e14d144f96a908f5cab",
+      "original_sha256": "181bf85d3b5900ff8abed34bc415afc37fc322d9d7702e14d144f96a908f5cab",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/dpinst_x86.exe": {
+      "bytes": 921992,
+      "sha256": "d84149976bc94a21b21aa0bc99fcbdee9d1ad4f3387d8b62b90f805ac300ba05",
+      "original_sha256": "d84149976bc94a21b21aa0bc99fcbdee9d1ad4f3387d8b62b90f805ac300ba05",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/FTDI_USB_device.cat": {
+      "bytes": 7643,
+      "sha256": "25eaf37d0eacb8fe18f57f6d58c5468630946be8b0b42e7e4d8474e26c2e9bf2",
+      "original_sha256": "25eaf37d0eacb8fe18f57f6d58c5468630946be8b0b42e7e4d8474e26c2e9bf2",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/FTDI_USB_device.cer": {
+      "bytes": 582,
+      "sha256": "af27de02cb64103dbdcebaf9f1e1f0d85a8e5f9ff8f66e965176c15bbfe0e134",
+      "original_sha256": "af27de02cb64103dbdcebaf9f1e1f0d85a8e5f9ff8f66e965176c15bbfe0e134",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/FTDI_USB_device.inf": {
+      "bytes": 8240,
+      "sha256": "69376f3b4f2e96e4c64c782e4722e5461ac7f4c9307d039125a243afc23334c1",
+      "original_sha256": "69376f3b4f2e96e4c64c782e4722e5461ac7f4c9307d039125a243afc23334c1",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/Install_driver.exe": {
+      "bytes": 45140,
+      "sha256": "7345ca0a8ce0ebbcbb77e0208e1bfe5dac642c0b73ce687c5122ba248b212c0e",
+      "original_sha256": "7345ca0a8ce0ebbcbb77e0208e1bfe5dac642c0b73ce687c5122ba248b212c0e",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/installer_x64.exe": {
+      "bytes": 132096,
+      "sha256": "98aa12f0d851c7873033d05bbc98e0cddf67e7fae44c6ab155bbbaa1e1203ac0",
+      "original_sha256": "98aa12f0d851c7873033d05bbc98e0cddf67e7fae44c6ab155bbbaa1e1203ac0",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/installer_x86.exe": {
+      "bytes": 113152,
+      "sha256": "7201f5377b2f8c0f59c6dade68762b18ee6f462804adf443fa53b45b102a4460",
+      "original_sha256": "7201f5377b2f8c0f59c6dade68762b18ee6f462804adf443fa53b45b102a4460",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/license/libusb0/installer_license.txt": {
+      "bytes": 43302,
+      "sha256": "1a590bfda657dbf1756cd3caa19accf31bf7fae5490e61417d208757fb79bac0",
+      "original_sha256": "1a590bfda657dbf1756cd3caa19accf31bf7fae5490e61417d208757fb79bac0",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/x86/install-filter.exe": {
+      "bytes": 46592,
+      "sha256": "5e84d13636fbce7869cddc8b20c7d83fa0063e98c319e8e5ab751edc9ee1da76",
+      "original_sha256": "5e84d13636fbce7869cddc8b20c7d83fa0063e98c319e8e5ab751edc9ee1da76",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/x86/libusb0.dll": {
+      "bytes": 46592,
+      "sha256": "5e84d13636fbce7869cddc8b20c7d83fa0063e98c319e8e5ab751edc9ee1da76",
+      "original_sha256": "5e84d13636fbce7869cddc8b20c7d83fa0063e98c319e8e5ab751edc9ee1da76",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/x86/libusb0.sys": {
+      "bytes": 42592,
+      "sha256": "aa7d75a4d01b405aab7c848674bbed392b64c6e374e20fd72adc3c96294e2f00",
+      "original_sha256": "aa7d75a4d01b405aab7c848674bbed392b64c6e374e20fd72adc3c96294e2f00",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/x86/libusb0_x86.dll": {
+      "bytes": 67680,
+      "sha256": "00caca07869b19d10b370552ac7cc2f6f2ee246fc15db11650f6cd3f4ef9b666",
+      "original_sha256": "00caca07869b19d10b370552ac7cc2f6f2ee246fc15db11650f6cd3f4ef9b666",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/x86/libusbK.dll": {
+      "bytes": 84280,
+      "sha256": "22803c719494f193d22519bfaff9484fecdcf1fadd6f082efd024fcee0b97ba4",
+      "original_sha256": "22803c719494f193d22519bfaff9484fecdcf1fadd6f082efd024fcee0b97ba4",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/x86/libusbK.sys": {
+      "bytes": 42552,
+      "sha256": "6265ae9ae5c49f515613f0b749ad8390a1b34ca326203318bffeb6c2c281d2d0",
+      "original_sha256": "6265ae9ae5c49f515613f0b749ad8390a1b34ca326203318bffeb6c2c281d2d0",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/x86/WdfCoInstaller01011.dll": {
+      "bytes": 1629040,
+      "sha256": "c7649879a10c9332fc0f9744c7e3224647aee9e7e62c7e21cf9e987462e3dd06",
+      "original_sha256": "c7649879a10c9332fc0f9744c7e3224647aee9e7e62c7e21cf9e987462e3dd06",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/libusb-AICE-driver/x86/winusbcoinstaller2.dll": {
+      "bytes": 851176,
+      "sha256": "ebe3b7708dd974ee87efed3113028d266af87ca8dbae77c47c6f7612824d3d6c",
+      "original_sha256": "ebe3b7708dd974ee87efed3113028d266af87ca8dbae77c47c6f7612824d3d6c",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/nds32_user.cfg": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/only_reset.tpl": {
+      "bytes": 32,
+      "sha256": "7cfc13309d4b04d12c30cbcbd43b384eab1455e02ef629a4652ed92a446c9fcb",
+      "original_sha256": "7cfc13309d4b04d12c30cbcbd43b384eab1455e02ef629a4652ed92a446c9fcb",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/openocd.cfg": {
+      "bytes": 363,
+      "sha256": "3693e1c0c3aab4cdf29765ff6decb76fc1a3d9dbd68273c35e83dff526d698c8",
+      "original_sha256": "3693e1c0c3aab4cdf29765ff6decb76fc1a3d9dbd68273c35e83dff526d698c8",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/openocd.cfg.tpl": {
+      "bytes": 133,
+      "sha256": "03032c43486fea449d4e3af01501a132fa6b40121f0659c1f9d75e01ca3c359d",
+      "original_sha256": "03032c43486fea449d4e3af01501a132fa6b40121f0659c1f9d75e01ca3c359d",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/openocd.cfg.v5": {
+      "bytes": 3080,
+      "sha256": "085fef804c86b3fa3b950c1d399b397cd343cbc9a5f1455fe3e17ff867c68a8f",
+      "original_sha256": "085fef804c86b3fa3b950c1d399b397cd343cbc9a5f1455fe3e17ff867c68a8f",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/openocd.exe": {
+      "bytes": 2786830,
+      "sha256": "c0eca4a9bda2a4d1e75b1dd237c762414ab762e545ee38c29730582768965554",
+      "original_sha256": "c0eca4a9bda2a4d1e75b1dd237c762414ab762e545ee38c29730582768965554",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/reset-hold-script.tpl": {
+      "bytes": 80,
+      "sha256": "9f0e76cc70ecf7976f2389d1de21ed7e32f2dd7803d8ddf656a8897bd49bfda6",
+      "original_sha256": "9f0e76cc70ecf7976f2389d1de21ed7e32f2dd7803d8ddf656a8897bd49bfda6",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/sw-reset-seq.tpl": {
+      "bytes": 53,
+      "sha256": "37becd4ff443c01cab970aef1e31dd7a38fb77a9e87fe7054e41f331e7644580",
+      "original_sha256": "37becd4ff443c01cab970aef1e31dd7a38fb77a9e87fe7054e41f331e7644580",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/target/nds32.cfg.tpl": {
+      "bytes": 692,
+      "sha256": "e43188fbdd9b0253c4185048a1daff6e1378446fdac84e448da28680d1297f27",
+      "original_sha256": "e43188fbdd9b0253c4185048a1daff6e1378446fdac84e448da28680d1297f27",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/ice/target/nds32v3_0.cfg": {
+      "bytes": 676,
+      "sha256": "8b65eaf0e83e04f865ddedcbdf21b3f443232d63d808e828428172d59b99d677",
+      "original_sha256": "8b65eaf0e83e04f865ddedcbdf21b3f443232d63d808e828428172d59b99d677",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/M_Download_Tool_User_Guide.pdf": {
+      "bytes": 892644,
+      "sha256": "d196ebb1b23b08946ef1a5cc0223cb9d1ffee26a811b9ca1376b95daa874a977",
+      "original_sha256": "d196ebb1b23b08946ef1a5cc0223cb9d1ffee26a811b9ca1376b95daa874a977",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/openocd.cfg": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/py/mv_ads_downloader.py": {
+      "bytes": 25172,
+      "sha256": "64a6ac0625acc2c54e47fc55951c1ddd73d4cc89371f9c99851b934de65acee0",
+      "original_sha256": "64a6ac0625acc2c54e47fc55951c1ddd73d4cc89371f9c99851b934de65acee0",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/py/O26_Downloader.py": {
+      "bytes": 17551,
+      "sha256": "b9abaab29a8c01ad7bbeddad834169fc411a9d4ddb8044af67100026775c8b4d",
+      "original_sha256": "b9abaab29a8c01ad7bbeddad834169fc411a9d4ddb8044af67100026775c8b4d",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/reset_and_run.bat": {
+      "bytes": 510,
+      "sha256": "e5143a69da372f58eb0186b4fb8c41952cf10821b19e18594a003dc915437067",
+      "original_sha256": "e5143a69da372f58eb0186b4fb8c41952cf10821b19e18594a003dc915437067",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/run_download.bat": {
+      "bytes": 1345,
+      "sha256": "e2304c636cc4f654b76577b73ae191cd55833bcc3c240ddac7cf93ca957491a3",
+      "original_sha256": "e2304c636cc4f654b76577b73ae191cd55833bcc3c240ddac7cf93ca957491a3",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/run_download_data.bat": {
+      "bytes": 1346,
+      "sha256": "fe77ae2880223f358b32938da64b3af53f9c3e26af34a66ac2644806b5e4b1cc",
+      "original_sha256": "fe77ae2880223f358b32938da64b3af53f9c3e26af34a66ac2644806b5e4b1cc",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Production-Tool/UniOneDownloadTool.exe": {
+      "bytes": 9581458,
+      "sha256": "c73dceb21db27fae706303c00db7e0bc779fc7126e1fd423fe072257d551ce18",
+      "original_sha256": "c73dceb21db27fae706303c00db7e0bc779fc7126e1fd423fe072257d551ce18",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/MSCOMM32.OCX": {
+      "bytes": 103744,
+      "sha256": "e71209a8796269645ae2a30ec2343f2ef58411a486f1329f03c35557c01fc038",
+      "original_sha256": "e71209a8796269645ae2a30ec2343f2ef58411a486f1329f03c35557c01fc038",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/msvcp120.dll": {
+      "bytes": 455488,
+      "sha256": "ac9ddd9f6132d5f05709bbe2cea3b3eabb2df8e4bd79365b336ac9ce7c2d8c3e",
+      "original_sha256": "ac9ddd9f6132d5f05709bbe2cea3b3eabb2df8e4bd79365b336ac9ce7c2d8c3e",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/msvcr120.dll": {
+      "bytes": 971584,
+      "sha256": "1c8449f417566dd0fd69dc21ef77d46b9475fbaac731da35bdc71669f22242c8",
+      "original_sha256": "1c8449f417566dd0fd69dc21ef77d46b9475fbaac731da35bdc71669f22242c8",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/uni_app_debug.bin": {
+      "bytes": 1283224,
+      "sha256": "02ac9659701008bb06eee8846eae9a4711796be64a24b3e203cb3b5dd2ab99a9",
+      "original_sha256": "02ac9659701008bb06eee8846eae9a4711796be64a24b3e203cb3b5dd2ab99a9",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/uni_app_debug_update.bin": {
+      "bytes": 1217688,
+      "sha256": "c40af78539338d0f15cbc7f0edd6f25decb7279edca310ffb820d7a385badbf1",
+      "original_sha256": "c40af78539338d0f15cbc7f0edd6f25decb7279edca310ffb820d7a385badbf1",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/uni_app_release.bin": {
+      "bytes": 1283224,
+      "sha256": "ef3bb9969c505bfe12d85297a3eaea53406521e38d55d5b0bbf5b95ade513758",
+      "original_sha256": "ef3bb9969c505bfe12d85297a3eaea53406521e38d55d5b0bbf5b95ade513758",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/uni_app_release_update.bin": {
+      "bytes": 1217688,
+      "sha256": "b9efb57865e8f85878132c9c924a6a1865c7c0bb5853dd7288027fdfc3b724c2",
+      "original_sha256": "b9efb57865e8f85878132c9c924a6a1865c7c0bb5853dd7288027fdfc3b724c2",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/UniCommon.dll": {
+      "bytes": 206336,
+      "sha256": "e23687a48dc5712623f4dc747accc299e1999d44da71a05dbc1db971fb861bc2",
+      "original_sha256": "e23687a48dc5712623f4dc747accc299e1999d44da71a05dbc1db971fb861bc2",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/UniCommunicateSwitch.dll": {
+      "bytes": 169984,
+      "sha256": "1a0ffc503b9e73b3098c2c65488eb20da6889d61da9d0591641bff6b2c6a5cf7",
+      "original_sha256": "1a0ffc503b9e73b3098c2c65488eb20da6889d61da9d0591641bff6b2c6a5cf7",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/unionedebug.ini": {
+      "bytes": 542,
+      "sha256": "4971c50ac6c7f450cbba75acd6c14e580c91a629955033a29ff9b72f310237f0",
+      "original_sha256": "4971c50ac6c7f450cbba75acd6c14e580c91a629955033a29ff9b72f310237f0",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/UniOneUpdateTool.exe": {
+      "bytes": 3592192,
+      "sha256": "52df6a4adc08475901e174fda1ae37b99dd0936e8093668113e408f4a8131322",
+      "original_sha256": "52df6a4adc08475901e174fda1ae37b99dd0936e8093668113e408f4a8131322",
+      "modified": false
+    },
+    "uni_hb_m_solution/image_demo/Hummingbird-M-Update-Tool/USB_Update_Tool_User_Guide.pdf": {
+      "bytes": 493346,
+      "sha256": "b0ce3f3e7bdcb95ec9389048ce2f4f836c4b75e5b472e43c8d8753c8a9f08db4",
+      "original_sha256": "b0ce3f3e7bdcb95ec9389048ce2f4f836c4b75e5b472e43c8d8753c8a9f08db4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/makefile": {
+      "bytes": 4993,
+      "sha256": "79a23245f07a1ec070de1f3a9bcc14b7025072cc5b63ef554a88e31fa25ce6d7",
+      "original_sha256": "79a23245f07a1ec070de1f3a9bcc14b7025072cc5b63ef554a88e31fa25ce6d7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/middleware/rtos/freertos/src/subdir.mk": {
+      "bytes": 2129,
+      "sha256": "99e30235b52fc48e70cfba8519bd46adeaf5b247e37600d2ab8dc20e106ab93f",
+      "original_sha256": "99e30235b52fc48e70cfba8519bd46adeaf5b247e37600d2ab8dc20e106ab93f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/middleware/rtos/rtos_api/subdir.mk": {
+      "bytes": 718,
+      "sha256": "3b03f8e17c25538d0fc346b419a884b338819f85ac7aa5f7dc3c7343b9973bea",
+      "original_sha256": "3b03f8e17c25538d0fc346b419a884b338819f85ac7aa5f7dc3c7343b9973bea",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/objects.mk": {
+      "bytes": 327,
+      "sha256": "daef0f311fc93020a4014631b35eae4d215d60ffa8ec1d1ab0023e2c59a1c18d",
+      "original_sha256": "daef0f311fc93020a4014631b35eae4d215d60ffa8ec1d1ab0023e2c59a1c18d",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/sources.mk": {
+      "bytes": 3728,
+      "sha256": "8878094e385c27016a1032056226bbb69a66c5a909031af7d227409cf9f3d300",
+      "original_sha256": "8878094e385c27016a1032056226bbb69a66c5a909031af7d227409cf9f3d300",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/app/src/sessions/subdir.mk": {
+      "bytes": 1015,
+      "sha256": "942f379f874422661fac8f33d4c872a6e40667073372f5099317e7c87f298cda",
+      "original_sha256": "942f379f874422661fac8f33d4c872a6e40667073372f5099317e7c87f298cda",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/app/src/subdir.mk": {
+      "bytes": 1053,
+      "sha256": "b0d702dfd752eda5e64358d4efde98761455b90efdc4d8c420c569f8ca970a61",
+      "original_sha256": "b0d702dfd752eda5e64358d4efde98761455b90efdc4d8c420c569f8ca970a61",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/sdk/audio/audio_player/src/subdir.mk": {
+      "bytes": 772,
+      "sha256": "8951b01127e226e1491eb48b90b6c98c41011085b27742eacfc6635ab5d42ac1",
+      "original_sha256": "8951b01127e226e1491eb48b90b6c98c41011085b27742eacfc6635ab5d42ac1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/sdk/idle_detect/src/subdir.mk": {
+      "bytes": 746,
+      "sha256": "0108f84d263ea0580fab0fe3d88b122ef8217bb43c29eb5664413538c980ac02",
+      "original_sha256": "0108f84d263ea0580fab0fe3d88b122ef8217bb43c29eb5664413538c980ac02",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/sdk/player/src/pcm/src/subdir.mk": {
+      "bytes": 897,
+      "sha256": "31b544897d4255a0f767429c12424e6a25ca05f6c5c20da2733d3c9119425aee",
+      "original_sha256": "31b544897d4255a0f767429c12424e6a25ca05f6c5c20da2733d3c9119425aee",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/sdk/player/src/subdir.mk": {
+      "bytes": 836,
+      "sha256": "57d09ee8089aa2633a680fae65dee29b8a0888bf49478185bed39db16c2cf8a5",
+      "original_sha256": "57d09ee8089aa2633a680fae65dee29b8a0888bf49478185bed39db16c2cf8a5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/sdk/vui/src/subdir.mk": {
+      "bytes": 1311,
+      "sha256": "29e1653f661fd0d9edba4f37a1e66361b17c9c2737dc2cdbbf2501eeafa141d9",
+      "original_sha256": "29e1653f661fd0d9edba4f37a1e66361b17c9c2737dc2cdbbf2501eeafa141d9",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/subdir.mk": {
+      "bytes": 369,
+      "sha256": "e5c4ab3de2cb721cc69f9307d9a0b0687c8bc5743b1e6433e9fa1df7eb908544",
+      "original_sha256": "e5c4ab3de2cb721cc69f9307d9a0b0687c8bc5743b1e6433e9fa1df7eb908544",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/arpt/src/subdir.mk": {
+      "bytes": 688,
+      "sha256": "0f5e2bc338462a9c884132bb9e534dc4edd985af5663da59cd9e49d994966cb5",
+      "original_sha256": "0f5e2bc338462a9c884132bb9e534dc4edd985af5663da59cd9e49d994966cb5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/auto_string/src/subdir.mk": {
+      "bytes": 744,
+      "sha256": "f4965fe5cfc12d538a0ab1e9253722619f127cd9102d916852011ef00aaf3c75",
+      "original_sha256": "f4965fe5cfc12d538a0ab1e9253722619f127cd9102d916852011ef00aaf3c75",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/bitmap/src/subdir.mk": {
+      "bytes": 704,
+      "sha256": "7d5a7aa64bb5746bc080fb2d64972c73c4918c8d3438a502038645a5a3b0ae9f",
+      "original_sha256": "7d5a7aa64bb5746bc080fb2d64972c73c4918c8d3438a502038645a5a3b0ae9f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/black_board/src/subdir.mk": {
+      "bytes": 744,
+      "sha256": "dc9f04b25ef5dc2864dd70c5433977a74d8b507ebbac8bd68d469a88b25ba4da",
+      "original_sha256": "dc9f04b25ef5dc2864dd70c5433977a74d8b507ebbac8bd68d469a88b25ba4da",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/cJSON/src/subdir.mk": {
+      "bytes": 790,
+      "sha256": "de862ddb3f13c60147bd6a79365eb69c13862bc6768dcffc4684ded6dec58cdf",
+      "original_sha256": "de862ddb3f13c60147bd6a79365eb69c13862bc6768dcffc4684ded6dec58cdf",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/config/src/subdir.mk": {
+      "bytes": 704,
+      "sha256": "b18344c30af9b0384654af8327788813ba81a7cdd29bc3949341815ccf83d7dc",
+      "original_sha256": "b18344c30af9b0384654af8327788813ba81a7cdd29bc3949341815ccf83d7dc",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/crc16/src/subdir.mk": {
+      "bytes": 696,
+      "sha256": "53f0cbfc2a16412e9a1c3678a91051514d9bb957cc984f6c175cd46e4a0f0814",
+      "original_sha256": "53f0cbfc2a16412e9a1c3678a91051514d9bb957cc984f6c175cd46e4a0f0814",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/data_buf/src/subdir.mk": {
+      "bytes": 717,
+      "sha256": "6bc9b6ca3c02efffff6393349fa085e5e37bfeeb0b93d50571aab07a6930c2c4",
+      "original_sha256": "6bc9b6ca3c02efffff6393349fa085e5e37bfeeb0b93d50571aab07a6930c2c4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/event/src/subdir.mk": {
+      "bytes": 696,
+      "sha256": "5f4c9aacb91f137331ef570059aece218a1efe65fce120b99cc1a365dcfb94ce",
+      "original_sha256": "5f4c9aacb91f137331ef570059aece218a1efe65fce120b99cc1a365dcfb94ce",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/event_list/src/subdir.mk": {
+      "bytes": 736,
+      "sha256": "21c6d0f0bec30813b67f70c17e2e43edaa383d7da92fdb45967620711e4886ac",
+      "original_sha256": "21c6d0f0bec30813b67f70c17e2e43edaa383d7da92fdb45967620711e4886ac",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/event_route/src/subdir.mk": {
+      "bytes": 744,
+      "sha256": "65aa49ca263cfa514e35c51e1df421fef41be4f00d4ec712b3c3b025fc968e2a",
+      "original_sha256": "65aa49ca263cfa514e35c51e1df421fef41be4f00d4ec712b3c3b025fc968e2a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/float2string/src/subdir.mk": {
+      "bytes": 752,
+      "sha256": "c0e2364a6c9a47234df77916aad7f2cbf8e661f945c28235a37e8afe190ac118",
+      "original_sha256": "c0e2364a6c9a47234df77916aad7f2cbf8e661f945c28235a37e8afe190ac118",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/fsm/src/subdir.mk": {
+      "bytes": 680,
+      "sha256": "1bc9814bcf8fbabb6107208512672763992dfcacf69a121d87a4ed1f06b9f368",
+      "original_sha256": "1bc9814bcf8fbabb6107208512672763992dfcacf69a121d87a4ed1f06b9f368",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/hash/src/subdir.mk": {
+      "bytes": 691,
+      "sha256": "6b5c180d624be7d97f9df0e7af00ce1f1467f6fbfe73be383951b6bed3423272",
+      "original_sha256": "6b5c180d624be7d97f9df0e7af00ce1f1467f6fbfe73be383951b6bed3423272",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/interruptable_sleep/src/subdir.mk": {
+      "bytes": 790,
+      "sha256": "4ac91ee7b92cdb73933632d841ad5e8286df5e1eee7980c63448d7fd062e7ac1",
+      "original_sha256": "4ac91ee7b92cdb73933632d841ad5e8286df5e1eee7980c63448d7fd062e7ac1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/list/src/subdir.mk": {
+      "bytes": 691,
+      "sha256": "1b8cca5498ca1b7999b011d578b1d35acb609d35f5ff1d13bfc6015fd0e245bd",
+      "original_sha256": "1b8cca5498ca1b7999b011d578b1d35acb609d35f5ff1d13bfc6015fd0e245bd",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/log/src/subdir.mk": {
+      "bytes": 680,
+      "sha256": "bc96a286d1a88c37a3919410fcc5d1aafe04c7999272b000b21ab74b003366db",
+      "original_sha256": "bc96a286d1a88c37a3919410fcc5d1aafe04c7999272b000b21ab74b003366db",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/string/src/subdir.mk": {
+      "bytes": 704,
+      "sha256": "6734bb5c80303db3a32c29a86b093c78dac2919a6a8944074d8382ff5f87dfb7",
+      "original_sha256": "6734bb5c80303db3a32c29a86b093c78dac2919a6a8944074d8382ff5f87dfb7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/timer/src/subdir.mk": {
+      "bytes": 696,
+      "sha256": "8afd108390ae8fe71b4760775a764b073ed7fcc035a8a01f0a0ac71c44c715da",
+      "original_sha256": "8afd108390ae8fe71b4760775a764b073ed7fcc035a8a01f0a0ac71c44c715da",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/src/utils/uart/src/subdir.mk": {
+      "bytes": 818,
+      "sha256": "9d5deec730e521833b1786caf0bd742f94771070e26bc03bf5ec7bb135a48ff0",
+      "original_sha256": "9d5deec730e521833b1786caf0bd742f94771070e26bc03bf5ec7bb135a48ff0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/startup/subdir.mk": {
+      "bytes": 1166,
+      "sha256": "171d95bb42d75e1bf06ef5c92c510a2cdd9205be47b71043bdf5dc2480ebf8e2",
+      "original_sha256": "171d95bb42d75e1bf06ef5c92c510a2cdd9205be47b71043bdf5dc2480ebf8e2",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/user/src/examples/drivers/subdir.mk": {
+      "bytes": 1628,
+      "sha256": "daafa478284f2a7873e73d077cc2974195630de48124db6b931271dcf86da156",
+      "original_sha256": "daafa478284f2a7873e73d077cc2974195630de48124db6b931271dcf86da156",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/user/src/examples/subdir.mk": {
+      "bytes": 2604,
+      "sha256": "b7c06fd978bac28c95e911bcaee5bd11a19a1e267b62e667b7efd6294eb21cee",
+      "original_sha256": "b7c06fd978bac28c95e911bcaee5bd11a19a1e267b62e667b7efd6294eb21cee",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build/user/src/subdir.mk": {
+      "bytes": 1787,
+      "sha256": "7a5c35958011facaa99dee5ca1d5c592334dcdd5253b29161cb92b5b333a1916",
+      "original_sha256": "7a5c35958011facaa99dee5ca1d5c592334dcdd5253b29161cb92b5b333a1916",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/build.sh": {
+      "bytes": 2494,
+      "sha256": "56a6deab8685b5748d8bc5f289698f221b7c803d6a5c8b419b27bd6baede5037",
+      "original_sha256": "56a6deab8685b5748d8bc5f289698f221b7c803d6a5c8b419b27bd6baede5037",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/ci.yml": {
+      "bytes": 870,
+      "sha256": "a804a2df481e2bfe774ecf8b75ec1a1698f51ddf0074382f4ea22e8ef56ff0d5",
+      "original_sha256": "a804a2df481e2bfe774ecf8b75ec1a1698f51ddf0074382f4ea22e8ef56ff0d5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/aik-config.h": {
+      "bytes": 8434,
+      "sha256": "25e325392e5baf744ff929386801f7592356593d6a7f147f39db3fb7c18d20df",
+      "original_sha256": "25e325392e5baf744ff929386801f7592356593d6a7f147f39db3fb7c18d20df",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/asrfix.h": {
+      "bytes": 5343594,
+      "sha256": "4b96adfa0ae86389786f8a91df934da582c39dbf070aa797c152ec502a08cc35",
+      "original_sha256": "4b96adfa0ae86389786f8a91df934da582c39dbf070aa797c152ec502a08cc35",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/audio_decoder_in_use.h": {
+      "bytes": 508,
+      "sha256": "bb77d71cd17d149e2d202dd698c710d6bc028fc19cf68172924e2a3a400f31ed",
+      "original_sha256": "bb77d71cd17d149e2d202dd698c710d6bc028fc19cf68172924e2a3a400f31ed",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/config_bin.h": {
+      "bytes": 4519,
+      "sha256": "874baf3c55eb16187d7a29337abf5c27abb5f3184b999afc48553b2e244b3853",
+      "original_sha256": "874baf3c55eb16187d7a29337abf5c27abb5f3184b999afc48553b2e244b3853",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/flash_config.h": {
+      "bytes": 911,
+      "sha256": "300f9005431959601f5c1a8dfff36f689278aee1c2c0956b7b3dbe7ce9c7fb4e",
+      "original_sha256": "300f9005431959601f5c1a8dfff36f689278aee1c2c0956b7b3dbe7ce9c7fb4e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/grammar.h": {
+      "bytes": 10151,
+      "sha256": "9c52b79b68fcea6871bd2c72c321c8e2a2b773d30f3e026d05335d5ab00199b1",
+      "original_sha256": "9c52b79b68fcea6871bd2c72c321c8e2a2b773d30f3e026d05335d5ab00199b1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/aik-errno.h": {
+      "bytes": 446,
+      "sha256": "fd722736a5db5321d55328005e4a74701381b48c6bf7f48624b0f25a391f5d59",
+      "original_sha256": "fd722736a5db5321d55328005e4a74701381b48c6bf7f48624b0f25a391f5d59",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/aik-event.h": {
+      "bytes": 2054,
+      "sha256": "073768f640120641ef30ee2cd255a6e12b7521726d71591ba916a47bfa0c5ebf",
+      "original_sha256": "073768f640120641ef30ee2cd255a6e12b7521726d71591ba916a47bfa0c5ebf",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/aik-id.h": {
+      "bytes": 4770,
+      "sha256": "3628d598abda32b9a80d7fdde7fb7cb4a75ba55e8c2235fb4b5edb2bc4518cdc",
+      "original_sha256": "3628d598abda32b9a80d7fdde7fb7cb4a75ba55e8c2235fb4b5edb2bc4518cdc",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/aik-mode.h": {
+      "bytes": 2079,
+      "sha256": "8964d21c2b5b3d54e09edc1dc5fd0c616e06a35b12509065b51d278520edafe4",
+      "original_sha256": "8964d21c2b5b3d54e09edc1dc5fd0c616e06a35b12509065b51d278520edafe4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/aik.h": {
+      "bytes": 4682,
+      "sha256": "26fce80fc1cc64b0fc860ea887260ef0696aa29e92cdd81d6b618e29fa92f695",
+      "original_sha256": "26fce80fc1cc64b0fc860ea887260ef0696aa29e92cdd81d6b618e29fa92f695",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-assert.h": {
+      "bytes": 408,
+      "sha256": "56839f386c250fd89f6b3946108b99d46aaec1d3671e147128ede25b86e031d2",
+      "original_sha256": "56839f386c250fd89f6b3946108b99d46aaec1d3671e147128ede25b86e031d2",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-audio.h": {
+      "bytes": 2486,
+      "sha256": "e1339813f2f6e88d9e057f783339bb80cb145faae1c32d7c64ab2274a14be0a7",
+      "original_sha256": "e1339813f2f6e88d9e057f783339bb80cb145faae1c32d7c64ab2274a14be0a7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-errno.h": {
+      "bytes": 321,
+      "sha256": "c4f82700f77bb99d93ab6d315cf6f655cf2687ee1714c185f84ef9af21e09bda",
+      "original_sha256": "c4f82700f77bb99d93ab6d315cf6f655cf2687ee1714c185f84ef9af21e09bda",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-list.h": {
+      "bytes": 7915,
+      "sha256": "12742eb241d7c0ab2b36b2c6de40ddede37fe62819a0a85fb6b9cbf2f8c9e8ad",
+      "original_sha256": "12742eb241d7c0ab2b36b2c6de40ddede37fe62819a0a85fb6b9cbf2f8c9e8ad",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-log.h": {
+      "bytes": 5321,
+      "sha256": "b985269f3fa191b776f4680035c77addb081bc88e3165025dcc79742b461088c",
+      "original_sha256": "b985269f3fa191b776f4680035c77addb081bc88e3165025dcc79742b461088c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-map.h": {
+      "bytes": 3907,
+      "sha256": "4847e3312834cb91a64d61af820b79b29fbf5a4a1773ff448afa92facbda5d4f",
+      "original_sha256": "4847e3312834cb91a64d61af820b79b29fbf5a4a1773ff448afa92facbda5d4f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-memory.h": {
+      "bytes": 648,
+      "sha256": "97f36a858bbdae8f6b3b8a896b8dc6125c632bb0deb463d5df2988247079fe77",
+      "original_sha256": "97f36a858bbdae8f6b3b8a896b8dc6125c632bb0deb463d5df2988247079fe77",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-mutex.h": {
+      "bytes": 1199,
+      "sha256": "4aab1e0259c65cac8cf62718645330004bcdde4ccf8e2fe9b509afd0ce2efc34",
+      "original_sha256": "4aab1e0259c65cac8cf62718645330004bcdde4ccf8e2fe9b509afd0ce2efc34",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-queue.h": {
+      "bytes": 1674,
+      "sha256": "eb4203086974e8b413541c14bf40bf9ae81444f59d08b73f9a4ff491f802cfd7",
+      "original_sha256": "eb4203086974e8b413541c14bf40bf9ae81444f59d08b73f9a4ff491f802cfd7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-rbtree.h": {
+      "bytes": 6861,
+      "sha256": "5e7c78dd2c9cc07eb6f5d39e8e55fbab7d47f08cfa003d3ed4540f8c828a62ed",
+      "original_sha256": "5e7c78dd2c9cc07eb6f5d39e8e55fbab7d47f08cfa003d3ed4540f8c828a62ed",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-ring-buffer.h": {
+      "bytes": 3134,
+      "sha256": "288ab3d8a2177f9dab8bf8827ef4590c42feb15d2dfd5c6f27926d226238bdf9",
+      "original_sha256": "288ab3d8a2177f9dab8bf8827ef4590c42feb15d2dfd5c6f27926d226238bdf9",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-sem.h": {
+      "bytes": 1470,
+      "sha256": "5a270213f17f68f2811208c370d8f627ab2c03ec2990155dfe48035823ec3644",
+      "original_sha256": "5a270213f17f68f2811208c370d8f627ab2c03ec2990155dfe48035823ec3644",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-stdio.h": {
+      "bytes": 2579,
+      "sha256": "1afbc0aa835dd99755d84d080122573c6e96b7485b002484726090c65c8ba0be",
+      "original_sha256": "1afbc0aa835dd99755d84d080122573c6e96b7485b002484726090c65c8ba0be",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-string.h": {
+      "bytes": 3241,
+      "sha256": "8556630526e3a8e7d9bb5c8c5194cd8caf0dbca1fb73e3a4cd844e4d63ebb772",
+      "original_sha256": "8556630526e3a8e7d9bb5c8c5194cd8caf0dbca1fb73e3a4cd844e4d63ebb772",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-thread-pool.h": {
+      "bytes": 2337,
+      "sha256": "a5ca9949d03d4bbb7190b167b9d55b25da192941b5b41263951a9ab767934bfc",
+      "original_sha256": "a5ca9949d03d4bbb7190b167b9d55b25da192941b5b41263951a9ab767934bfc",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-thread.h": {
+      "bytes": 2963,
+      "sha256": "f897cedd6d6eb31304a3ae13e5a88cc3ea6bf073fc228fb5026989317a5f384a",
+      "original_sha256": "f897cedd6d6eb31304a3ae13e5a88cc3ea6bf073fc228fb5026989317a5f384a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-time.h": {
+      "bytes": 2086,
+      "sha256": "051991ec6c8ac1ca654157e044cbebee0d18ebd1d89bb949f67985e9bada5c04",
+      "original_sha256": "051991ec6c8ac1ca654157e044cbebee0d18ebd1d89bb949f67985e9bada5c04",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-types.h": {
+      "bytes": 513,
+      "sha256": "9fa189414f65a59aa1d18fc9d3e5d842dc42e442b660c57be14e53e754122892",
+      "original_sha256": "9fa189414f65a59aa1d18fc9d3e5d842dc42e442b660c57be14e53e754122892",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-video.h": {
+      "bytes": 2450,
+      "sha256": "abfd8aa85354ab9b1c1e7b90edc6c77cbe7f8a0d8a44b72b3bc36b3de61cc409",
+      "original_sha256": "abfd8aa85354ab9b1c1e7b90edc6c77cbe7f8a0d8a44b72b3bc36b3de61cc409",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal-wav.h": {
+      "bytes": 2577,
+      "sha256": "fdc8e8547e49b53f06625c6c83263c5ef965d6bd922c2caf7853a43d78c7c3a9",
+      "original_sha256": "fdc8e8547e49b53f06625c6c83263c5ef965d6bd922c2caf7853a43d78c7c3a9",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/include/osal/osal.h": {
+      "bytes": 797,
+      "sha256": "0f89c31fba15068fe9c87e85a610ad18d7a9835c9391985f9b660034ef658943",
+      "original_sha256": "0f89c31fba15068fe9c87e85a610ad18d7a9835c9391985f9b660034ef658943",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/pcm_bin.h": {
+      "bytes": 246881,
+      "sha256": "cd6dc23196eb21a4dc6ca8d974286b912c2bf528f9291dacfcee4ef0b10a90d7",
+      "original_sha256": "cd6dc23196eb21a4dc6ca8d974286b912c2bf528f9291dacfcee4ef0b10a90d7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/uni_cmd_code.h": {
+      "bytes": 381,
+      "sha256": "e458bd2b63d2acf00ecad65d0a1134fe4bb9591c69356c99af4615af77410ef3",
+      "original_sha256": "e458bd2b63d2acf00ecad65d0a1134fe4bb9591c69356c99af4615af77410ef3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/uni_cust_config.h": {
+      "bytes": 673,
+      "sha256": "390b68a05727945e5e9470373916371e160e6237b0d955b9fec03f7918f2255b",
+      "original_sha256": "390b68a05727945e5e9470373916371e160e6237b0d955b9fec03f7918f2255b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/uni_nlu_content.h": {
+      "bytes": 1596,
+      "sha256": "f285e4886ba2de35dff67297ff71c6f28b2b9414817afccf51e641dc665a6569",
+      "original_sha256": "f285e4886ba2de35dff67297ff71c6f28b2b9414817afccf51e641dc665a6569",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/include/uni_pcm_array.h": {
+      "bytes": 665,
+      "sha256": "d773f2ab7980828d06fa2c0032677e00c5bc55fa5f3aa12cc46703a6de8b1099",
+      "original_sha256": "d773f2ab7980828d06fa2c0032677e00c5bc55fa5f3aa12cc46703a6de8b1099",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/lib/libbargein.a": {
+      "bytes": 36904,
+      "sha256": "2f8304121348316d03dec5e1f919dbfd060a5c99d1cc67122b7cfc24cf8d351d",
+      "original_sha256": "2f8304121348316d03dec5e1f919dbfd060a5c99d1cc67122b7cfc24cf8d351d",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/lib/libengine.a": {
+      "bytes": 1276792,
+      "sha256": "f5ba59828c9cfefd1192ee6d951f3cb67f891d9127ff849756e8aec297310234",
+      "original_sha256": "f5ba59828c9cfefd1192ee6d951f3cb67f891d9127ff849756e8aec297310234",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/lib/libfft_fix_mfcc_nrd.a": {
+      "bytes": 73792,
+      "sha256": "a14ae2e6f3e3686f6d2ef08a7c24ff7800b7b31dfef8a1e9b384866de35f9934",
+      "original_sha256": "a14ae2e6f3e3686f6d2ef08a7c24ff7800b7b31dfef8a1e9b384866de35f9934",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/lib/libmatrix_op.a": {
+      "bytes": 166546,
+      "sha256": "8d95c66e103a0ced2002da8984b509cbf4ae87050d262c0d4ae18085a694e50f",
+      "original_sha256": "8d95c66e103a0ced2002da8984b509cbf4ae87050d262c0d4ae18085a694e50f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/lib/libual-aik.a": {
+      "bytes": 1936832,
+      "sha256": "8b834fb62f5e4bd345020ba319e477b1258a528055dbbc06d1dda3b6de8bcefa",
+      "original_sha256": "8b834fb62f5e4bd345020ba319e477b1258a528055dbbc06d1dda3b6de8bcefa",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/lib/libual-osal.a": {
+      "bytes": 1243162,
+      "sha256": "46e5394f6a388454849d91719ff4e8bc2326aebe1e0e6391b67bf5b6e89ce923",
+      "original_sha256": "46e5394f6a388454849d91719ff4e8bc2326aebe1e0e6391b67bf5b6e89ce923",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/lib/libunihal.a": {
+      "bytes": 2858738,
+      "sha256": "a9cbea0f6a4208c3b94729d652b15914ff26cc53e1c6334d59be24683862b7e0",
+      "original_sha256": "a9cbea0f6a4208c3b94729d652b15914ff26cc53e1c6334d59be24683862b7e0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/croutine.h": {
+      "bytes": 28910,
+      "sha256": "254157a2cc0d85323ffc20685c73b2d73a81ce517a4237188722d4c5f9e7110b",
+      "original_sha256": "254157a2cc0d85323ffc20685c73b2d73a81ce517a4237188722d4c5f9e7110b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/event_groups.h": {
+      "bytes": 27207,
+      "sha256": "8f3ec42df01ac2408ef001a45e8b116368fcb0198299de8cb5273e4516ebbc8b",
+      "original_sha256": "8f3ec42df01ac2408ef001a45e8b116368fcb0198299de8cb5273e4516ebbc8b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/FreeRTOS.h": {
+      "bytes": 24884,
+      "sha256": "c27c7c547a3e09e97c86b406f393c8630ca7f37aadfe8e95eaf19eb2fe552c69",
+      "original_sha256": "c27c7c547a3e09e97c86b406f393c8630ca7f37aadfe8e95eaf19eb2fe552c69",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/FreeRTOSConfig.h": {
+      "bytes": 16853,
+      "sha256": "49facd5c208bc55730f7217504e661c9e6d0a2ad04a0eba2b9088d09c899cd62",
+      "original_sha256": "49facd5c208bc55730f7217504e661c9e6d0a2ad04a0eba2b9088d09c899cd62",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/list.h": {
+      "bytes": 17549,
+      "sha256": "9497c3f4272d70414c2342e1fa32b6c282e26143dfde4f2264db9f69eba97548",
+      "original_sha256": "9497c3f4272d70414c2342e1fa32b6c282e26143dfde4f2264db9f69eba97548",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/mpu_wrappers.h": {
+      "bytes": 7444,
+      "sha256": "fb47e4b0d9179969850835764afc53fb266b92e378ae997beb4914d448a5b28c",
+      "original_sha256": "fb47e4b0d9179969850835764afc53fb266b92e378ae997beb4914d448a5b28c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/n12_def.h": {
+      "bytes": 1402,
+      "sha256": "83fddbbfc166a1334cd5264bef306b5128b77ab397c354b5a9fab31239ba85b2",
+      "original_sha256": "83fddbbfc166a1334cd5264bef306b5128b77ab397c354b5a9fab31239ba85b2",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/nds32_defs.h": {
+      "bytes": 43512,
+      "sha256": "592cbc08a2536ca4d64cce558d02e59f1a8a623174309a444243cc4ea1b8d547",
+      "original_sha256": "592cbc08a2536ca4d64cce558d02e59f1a8a623174309a444243cc4ea1b8d547",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/nds32_regs.h": {
+      "bytes": 3811,
+      "sha256": "524a0b5bff89dc2b8a6ff7c98d343bde9f0ef13d605a3d2186e6b153a76edcb8",
+      "original_sha256": "524a0b5bff89dc2b8a6ff7c98d343bde9f0ef13d605a3d2186e6b153a76edcb8",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/os_cpu.h": {
+      "bytes": 1635,
+      "sha256": "85dfb3327b104166ac2eca4e9d2aefbafa514daef791c64c39ed90446bb35575",
+      "original_sha256": "85dfb3327b104166ac2eca4e9d2aefbafa514daef791c64c39ed90446bb35575",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/os_cpu_common.h": {
+      "bytes": 6551,
+      "sha256": "e9923cd0fa871d3ab8641da5b7071b0a2f2500b8801ecf6bab7b8c2f35264ac9",
+      "original_sha256": "e9923cd0fa871d3ab8641da5b7071b0a2f2500b8801ecf6bab7b8c2f35264ac9",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/portable.h": {
+      "bytes": 12842,
+      "sha256": "3df76e1f4beada6789b587800ee81dc5478cda42b2b6ee3c2fb58aad468a1b82",
+      "original_sha256": "3df76e1f4beada6789b587800ee81dc5478cda42b2b6ee3c2fb58aad468a1b82",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/portmacro.h": {
+      "bytes": 8831,
+      "sha256": "5e45a3244dc890adfc2dc24961091b7174b7580cefcd7cb9ddcd41a5105d9e61",
+      "original_sha256": "5e45a3244dc890adfc2dc24961091b7174b7580cefcd7cb9ddcd41a5105d9e61",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/projdefs.h": {
+      "bytes": 4340,
+      "sha256": "b45efec2def77cb1dc6ca9be9c4abe8a98f40ef1c735073a9eb32dc96328ab6a",
+      "original_sha256": "b45efec2def77cb1dc6ca9be9c4abe8a98f40ef1c735073a9eb32dc96328ab6a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/queue.h": {
+      "bytes": 62725,
+      "sha256": "ab5af4e2170a1e3b5d858b9e80e07d5f8d743ec3fd438ae58a99f69bbbca7883",
+      "original_sha256": "ab5af4e2170a1e3b5d858b9e80e07d5f8d743ec3fd438ae58a99f69bbbca7883",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/semphr.h": {
+      "bytes": 33922,
+      "sha256": "7fd9211cdd5bb6034543f24a7b110b100285e4bc0fb6697e3ff0ef3c1115e4d7",
+      "original_sha256": "7fd9211cdd5bb6034543f24a7b110b100285e4bc0fb6697e3ff0ef3c1115e4d7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/shell.h": {
+      "bytes": 487,
+      "sha256": "f39d9717722fd96ca2601356edf7c8bd7866b3472a328e5458865917a2afff39",
+      "original_sha256": "f39d9717722fd96ca2601356edf7c8bd7866b3472a328e5458865917a2afff39",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/StackMacros.h": {
+      "bytes": 9233,
+      "sha256": "2703a04bfd4b473d7de72b828f55d86a489a558d881cbf3492b48984bcb9ed03",
+      "original_sha256": "2703a04bfd4b473d7de72b828f55d86a489a558d881cbf3492b48984bcb9ed03",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/task.h": {
+      "bytes": 60705,
+      "sha256": "99e1dcd18caf6dd8dcc861c003ec4bc42e82299241c13c55d7c6129a9c0d097e",
+      "original_sha256": "99e1dcd18caf6dd8dcc861c003ec4bc42e82299241c13c55d7c6129a9c0d097e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/inc/timers.h": {
+      "bytes": 53019,
+      "sha256": "06b6305ff76e758e2489c435ce1ccbd818a1d06fb11c805dbee26d45db1112b0",
+      "original_sha256": "06b6305ff76e758e2489c435ce1ccbd818a1d06fb11c805dbee26d45db1112b0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/croutine.c": {
+      "bytes": 15313,
+      "sha256": "ca97489abc87d7b1bdb5369fc0f2fcee80fee5fd40f41c454fb3b9fb2a63ee8a",
+      "original_sha256": "ca97489abc87d7b1bdb5369fc0f2fcee80fee5fd40f41c454fb3b9fb2a63ee8a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/event_groups.c": {
+      "bytes": 23007,
+      "sha256": "6507de6aed1744a2975bf968e9e6cae81770ba49a1553fe793c3af1211562000",
+      "original_sha256": "6507de6aed1744a2975bf968e9e6cae81770ba49a1553fe793c3af1211562000",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/heap_5s.c": {
+      "bytes": 30489,
+      "sha256": "e5a26cd0607b8d50f597caeea24635a2c3f13cfa1fba2168704f27ac38f296b4",
+      "original_sha256": "e5a26cd0607b8d50f597caeea24635a2c3f13cfa1fba2168704f27ac38f296b4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/list.c": {
+      "bytes": 9398,
+      "sha256": "2072b1a0e86f7dcf867516aed8870d1a2eb4e2b268513cb4112c48e34be21332",
+      "original_sha256": "2072b1a0e86f7dcf867516aed8870d1a2eb4e2b268513cb4112c48e34be21332",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/os_cpu_a.S": {
+      "bytes": 3621,
+      "sha256": "bbe5bd5da9ee1a3a7049e3376674d54488b9a51663be9da8aa1e8cd32103790a",
+      "original_sha256": "bbe5bd5da9ee1a3a7049e3376674d54488b9a51663be9da8aa1e8cd32103790a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/port.c": {
+      "bytes": 18178,
+      "sha256": "c66c6f24521e5b92fa399adc3a93517c4fb512a0e3cd205bf00a5302597e075d",
+      "original_sha256": "c66c6f24521e5b92fa399adc3a93517c4fb512a0e3cd205bf00a5302597e075d",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/portISR.c": {
+      "bytes": 5308,
+      "sha256": "9dcc5639aecbf0b11d8febc93ad4d7a705a07a7413ebf9e6e92eb19e713ee4bd",
+      "original_sha256": "9dcc5639aecbf0b11d8febc93ad4d7a705a07a7413ebf9e6e92eb19e713ee4bd",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/queue.c": {
+      "bytes": 74980,
+      "sha256": "fd729d9a12117417bd1f0d145855dfcb2da88aac0d37b67ed5ca2b71c0180567",
+      "original_sha256": "fd729d9a12117417bd1f0d145855dfcb2da88aac0d37b67ed5ca2b71c0180567",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/shell.c": {
+      "bytes": 8800,
+      "sha256": "363b9d6a9734fa019f223add9f060d23f06a84ea662483ee11ec8e78c20b9650",
+      "original_sha256": "363b9d6a9734fa019f223add9f060d23f06a84ea662483ee11ec8e78c20b9650",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/tasks.c": {
+      "bytes": 117331,
+      "sha256": "43b2a39c4623aca9d00b2b9e5557aff670f12c543d3882f8e67e492eb146833c",
+      "original_sha256": "43b2a39c4623aca9d00b2b9e5557aff670f12c543d3882f8e67e492eb146833c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/freertos/src/timers.c": {
+      "bytes": 33280,
+      "sha256": "fb24f6a655ce5271d74db7a06af6572e1652bc366bb6164c8ece35e387eb36a8",
+      "original_sha256": "fb24f6a655ce5271d74db7a06af6572e1652bc366bb6164c8ece35e387eb36a8",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/rtos_api/rtos_api.c": {
+      "bytes": 6905,
+      "sha256": "1c65c9f00d12ac75edbddcc078823c796a462ddd452545805787020f85bb0b3e",
+      "original_sha256": "1c65c9f00d12ac75edbddcc078823c796a462ddd452545805787020f85bb0b3e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/middleware/rtos/rtos_api/rtos_api.h": {
+      "bytes": 3086,
+      "sha256": "222301fc57b0c941b36b4e96a1eef022dbdd7a643df8178b12fcd88f48390dbe",
+      "original_sha256": "222301fc57b0c941b36b4e96a1eef022dbdd7a643df8178b12fcd88f48390dbe",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/nds32-ae210p.ld": {
+      "bytes": 18285,
+      "sha256": "b66fbd12667eef15e4f5c30af1681879212bc95767dcf6001479e801efab44ce",
+      "original_sha256": "b66fbd12667eef15e4f5c30af1681879212bc95767dcf6001479e801efab44ce",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/nds32-ae210p.sag": {
+      "bytes": 782,
+      "sha256": "f85da98e787cb371c30aa6538d579d7c95b04c3de7486b7cf9de1e8c833a4dd2",
+      "original_sha256": "f85da98e787cb371c30aa6538d579d7c95b04c3de7486b7cf9de1e8c833a4dd2",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/readme.txt": {
+      "bytes": 5752,
+      "sha256": "be34ff096673a6e51758ea449ce5bb1be03a63318ad00e80a94e5d5d9dadd486",
+      "original_sha256": "be34ff096673a6e51758ea449ce5bb1be03a63318ad00e80a94e5d5d9dadd486",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/inc/sessions/uni_session_priority.h": {
+      "bytes": 1876,
+      "sha256": "fbf0917db3388e14fe3af12d6a7a7f969ed41b97aaf500d0d90c1491f9bf9a1a",
+      "original_sha256": "fbf0917db3388e14fe3af12d6a7a7f969ed41b97aaf500d0d90c1491f9bf9a1a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/inc/sessions/uni_setting_session.h": {
+      "bytes": 1653,
+      "sha256": "1b2fc79cb069d6420574a6192b59bf76f3d9ba3f110d1529cd7c7d7ba6028552",
+      "original_sha256": "1b2fc79cb069d6420574a6192b59bf76f3d9ba3f110d1529cd7c7d7ba6028552",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/inc/sessions/uni_wakeup_session.h": {
+      "bytes": 1645,
+      "sha256": "2974fa540f5684f6fd69dd761b366c82f60fbc08af16cc620f91c893af92121f",
+      "original_sha256": "2974fa540f5684f6fd69dd761b366c82f60fbc08af16cc620f91c893af92121f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/inc/sessions/uni_watchdog_session.h": {
+      "bytes": 1851,
+      "sha256": "bb83058ae33c8da216cbdc324ec72418020888e791b0357569f2ac3a11524319",
+      "original_sha256": "bb83058ae33c8da216cbdc324ec72418020888e791b0357569f2ac3a11524319",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/inc/uni_record_save.h": {
+      "bytes": 1374,
+      "sha256": "dfdfb40e199ada4d53eea3f58e84e5fdf51f1c65d77767107c3ec12ab41467c4",
+      "original_sha256": "dfdfb40e199ada4d53eea3f58e84e5fdf51f1c65d77767107c3ec12ab41467c4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/inc/uni_session.h": {
+      "bytes": 3729,
+      "sha256": "644d4ed2d222d2870ed8ce101372fe36f07603705c7c27b853b942b18d13090e",
+      "original_sha256": "644d4ed2d222d2870ed8ce101372fe36f07603705c7c27b853b942b18d13090e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/inc/uni_session_manage.h": {
+      "bytes": 2388,
+      "sha256": "204c9ae814919dd77d56a998a175680d6af04308571ab18d50e63d7d6b0becb5",
+      "original_sha256": "204c9ae814919dd77d56a998a175680d6af04308571ab18d50e63d7d6b0becb5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/inc/uni_user_meeting.h": {
+      "bytes": 2214,
+      "sha256": "4ada97b13bebc20508ffb9bc6a76e03f62017c4c64cc818b65b1471eebdc6e7d",
+      "original_sha256": "4ada97b13bebc20508ffb9bc6a76e03f62017c4c64cc818b65b1471eebdc6e7d",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/inc/uni_version.h": {
+      "bytes": 343,
+      "sha256": "9af22557d7cd19560ccad153ece70d48a4e5b9179c70eed40a589076b0c6d6c1",
+      "original_sha256": "9af22557d7cd19560ccad153ece70d48a4e5b9179c70eed40a589076b0c6d6c1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/src/main.c": {
+      "bytes": 9276,
+      "sha256": "7392d7df0baf09cbcaee7e303583b6ed86379d696b05576fc6a1c108f9bf5336",
+      "original_sha256": "7392d7df0baf09cbcaee7e303583b6ed86379d696b05576fc6a1c108f9bf5336",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/src/sessions/uni_setting_session.c": {
+      "bytes": 26581,
+      "sha256": "813cbb0c044f6ece783317c24e31bc40d0d30cc5a5a8db5cef5e3d4b344a52aa",
+      "original_sha256": "813cbb0c044f6ece783317c24e31bc40d0d30cc5a5a8db5cef5e3d4b344a52aa",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/src/sessions/uni_wakeup_session.c": {
+      "bytes": 26511,
+      "sha256": "34a694725ad2eb1c279069c6743051cc072a13e0c1f000e50a79152525a813ab",
+      "original_sha256": "34a694725ad2eb1c279069c6743051cc072a13e0c1f000e50a79152525a813ab",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/src/sessions/uni_watchdog_session.c": {
+      "bytes": 7311,
+      "sha256": "dd4cb717fc18b0fa40a0e65935046b38490f6eab5333df067b7bb8dad1d206b9",
+      "original_sha256": "dd4cb717fc18b0fa40a0e65935046b38490f6eab5333df067b7bb8dad1d206b9",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/src/uni_record_save.c": {
+      "bytes": 4822,
+      "sha256": "6202c7de72bb863c23c0960b0e8b636d89ffbedde4266e092edaabca15feebbb",
+      "original_sha256": "6202c7de72bb863c23c0960b0e8b636d89ffbedde4266e092edaabca15feebbb",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/src/uni_session.c": {
+      "bytes": 3281,
+      "sha256": "7e27e7e6f53e80f0516efa21528eed173aca6ba8ecee8ffc9deda4fd73301896",
+      "original_sha256": "7e27e7e6f53e80f0516efa21528eed173aca6ba8ecee8ffc9deda4fd73301896",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/src/uni_session_manage.c": {
+      "bytes": 7946,
+      "sha256": "da3c95ec234447d668e1f08b34fd61ca72df238a8b8a443d64750e55829cf5c1",
+      "original_sha256": "da3c95ec234447d668e1f08b34fd61ca72df238a8b8a443d64750e55829cf5c1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/app/src/uni_user_meeting.c": {
+      "bytes": 6354,
+      "sha256": "d223272ea6d1081974227bc9338adf36246c5d6d7f6cb59a9f54052be2bb5f8a",
+      "original_sha256": "d223272ea6d1081974227bc9338adf36246c5d6d7f6cb59a9f54052be2bb5f8a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/interrupt.h": {
+      "bytes": 11244,
+      "sha256": "bd45915b467b3af651150bb8a275a2b994fd4514de3fcbe868088c4b7a98459f",
+      "original_sha256": "bd45915b467b3af651150bb8a275a2b994fd4514de3fcbe868088c4b7a98459f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/irqn.h": {
+      "bytes": 4710,
+      "sha256": "14f1e997e7a6df4b53cb8f51ee5831f5da2aee24e36847a5c184c255dfe269af",
+      "original_sha256": "14f1e997e7a6df4b53cb8f51ee5831f5da2aee24e36847a5c184c255dfe269af",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/type.h": {
+      "bytes": 2512,
+      "sha256": "0ab1fafdee3b5e3be576ff94082492b44b564d9a504d1c63c31a8eaa8985f26b",
+      "original_sha256": "0ab1fafdee3b5e3be576ff94082492b44b564d9a504d1c63c31a8eaa8985f26b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_adc.h": {
+      "bytes": 275,
+      "sha256": "36f04aa5ad6cda2c12a7fe07dc9693fab19518136cb14990c7caf2d07b21e18e",
+      "original_sha256": "36f04aa5ad6cda2c12a7fe07dc9693fab19518136cb14990c7caf2d07b21e18e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_audio.h": {
+      "bytes": 1948,
+      "sha256": "567edc073fe05ff23a1e5931a3522f378bb5af5ca0a360b13727e0549eb1ad58",
+      "original_sha256": "567edc073fe05ff23a1e5931a3522f378bb5af5ca0a360b13727e0549eb1ad58",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_decoder.h": {
+      "bytes": 783,
+      "sha256": "533845b6a6c018719cb33a1a39342d25dddae2c16ab4a0e6cb4ad32f92125a7e",
+      "original_sha256": "533845b6a6c018719cb33a1a39342d25dddae2c16ab4a0e6cb4ad32f92125a7e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_factory.h": {
+      "bytes": 750,
+      "sha256": "e769014a3a79d04c6452f8bd13bdc7dd0ec51f37741d2e17cea19af382e0e366",
+      "original_sha256": "e769014a3a79d04c6452f8bd13bdc7dd0ec51f37741d2e17cea19af382e0e366",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_flash.h": {
+      "bytes": 1113,
+      "sha256": "1c313203e6280c0b6fd65faec6e812fe212685b58772159dbc8eb217ff9becdf",
+      "original_sha256": "1c313203e6280c0b6fd65faec6e812fe212685b58772159dbc8eb217ff9becdf",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_flash_easy.h": {
+      "bytes": 762,
+      "sha256": "dda21cdc6aa8fd99fa3ef5809ffe3d94c182ea6187d05630627fbfc1081f8fcf",
+      "original_sha256": "dda21cdc6aa8fd99fa3ef5809ffe3d94c182ea6187d05630627fbfc1081f8fcf",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_gpio.h": {
+      "bytes": 20947,
+      "sha256": "46e5b6a404bd2c09bed01150ff492506d8d5f71efbe5dd28ecee9676e9b19f5c",
+      "original_sha256": "46e5b6a404bd2c09bed01150ff492506d8d5f71efbe5dd28ecee9676e9b19f5c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_i2c.h": {
+      "bytes": 6072,
+      "sha256": "bc6b7242a112273757d187a6225e7181660d85b293dc3f256366eda955b5e4f0",
+      "original_sha256": "bc6b7242a112273757d187a6225e7181660d85b293dc3f256366eda955b5e4f0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_power.h": {
+      "bytes": 3484,
+      "sha256": "2c53d2d5dd104e1fae15ce3c2f82e5a47b29b918502e11f25971e1152a646e79",
+      "original_sha256": "2c53d2d5dd104e1fae15ce3c2f82e5a47b29b918502e11f25971e1152a646e79",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_pwm.h": {
+      "bytes": 4627,
+      "sha256": "627c9a3f6aa4e7e96b2bbf47d48d3da3e7c1c195ec0375c19ef9716b471f5330",
+      "original_sha256": "627c9a3f6aa4e7e96b2bbf47d48d3da3e7c1c195ec0375c19ef9716b471f5330",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_reset.h": {
+      "bytes": 499,
+      "sha256": "6e8c9ece6120625e9df58753237f3032a2611d9ca459e5306cf345749f2d6b00",
+      "original_sha256": "6e8c9ece6120625e9df58753237f3032a2611d9ca459e5306cf345749f2d6b00",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_timer.h": {
+      "bytes": 1514,
+      "sha256": "8efaf3789684da663072ae5d272447b3f7234002802deabf709ec0137e29db05",
+      "original_sha256": "8efaf3789684da663072ae5d272447b3f7234002802deabf709ec0137e29db05",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_uart.h": {
+      "bytes": 1459,
+      "sha256": "c6ea218413eb2428170ed32c10e893e775c5a859e0172b5a18438c400f6aece5",
+      "original_sha256": "c6ea218413eb2428170ed32c10e893e775c5a859e0172b5a18438c400f6aece5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_uart_upgrade.h": {
+      "bytes": 248,
+      "sha256": "2bf36057fde93d8b98164cc424ab071b4de80e80786900c89cac817766ab9674",
+      "original_sha256": "2bf36057fde93d8b98164cc424ab071b4de80e80786900c89cac817766ab9674",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_uartcmd.h": {
+      "bytes": 934,
+      "sha256": "f93b9d42fe81dd1842715c11bbfe141d0bf57e70eca6ce22854974d15f713b6a",
+      "original_sha256": "f93b9d42fe81dd1842715c11bbfe141d0bf57e70eca6ce22854974d15f713b6a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_hal_watchdog.h": {
+      "bytes": 598,
+      "sha256": "ad80ddb6de6edc101fbac4e9abda4f98b8fc0acc75ce5efaf7d7e4bef4014089",
+      "original_sha256": "ad80ddb6de6edc101fbac4e9abda4f98b8fc0acc75ce5efaf7d7e4bef4014089",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_iot.h": {
+      "bytes": 7304,
+      "sha256": "275ddc5988037f96c86037454f72d05aa189cd60db6d4cd7b8d213d3c9873e18",
+      "original_sha256": "275ddc5988037f96c86037454f72d05aa189cd60db6d4cd7b8d213d3c9873e18",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/hal/inc/uni_types.h": {
+      "bytes": 2616,
+      "sha256": "bc3d96ece5a974f8d9da91195d3af0fa99a84dc75aa506efbdd0c156883cde97",
+      "original_sha256": "bc3d96ece5a974f8d9da91195d3af0fa99a84dc75aa506efbdd0c156883cde97",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/audio/audio_common/inc/uni_audio_common.h": {
+      "bytes": 1405,
+      "sha256": "b1b1a747477d13e96f8e7837db12690da21ccdd7165164525eb29c11125c29e1",
+      "original_sha256": "b1b1a747477d13e96f8e7837db12690da21ccdd7165164525eb29c11125c29e1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/audio/audio_player/inc/uni_audio_player.h": {
+      "bytes": 3835,
+      "sha256": "88b388f64997701afdfd398db1fc90178f1be2c75721470d06b7079867fd66db",
+      "original_sha256": "88b388f64997701afdfd398db1fc90178f1be2c75721470d06b7079867fd66db",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/audio/audio_player/src/uni_audio_player.c": {
+      "bytes": 12792,
+      "sha256": "7192154f5ac074fbee318ad7a8a6c591fdb509160c8e0f9234b11e8820ce699c",
+      "original_sha256": "7192154f5ac074fbee318ad7a8a6c591fdb509160c8e0f9234b11e8820ce699c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/idle_detect/inc/idle_detect.h": {
+      "bytes": 1615,
+      "sha256": "8961a812e5b224923b844f18e89739b736ce4f4cb64fc46b80b4e3f56d1a7b26",
+      "original_sha256": "8961a812e5b224923b844f18e89739b736ce4f4cb64fc46b80b4e3f56d1a7b26",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/idle_detect/src/idle_detect_service.c": {
+      "bytes": 4619,
+      "sha256": "0f9a02884dfc77cdbadad57a34d21ed4cb71240aec86dfb9601e01560e68a02e",
+      "original_sha256": "0f9a02884dfc77cdbadad57a34d21ed4cb71240aec86dfb9601e01560e68a02e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/player/inc/uni_media_player.h": {
+      "bytes": 2562,
+      "sha256": "93a71e140d55c5e8d12f29a44d80c0d9b7fbff528b919b7e5a81af49d84c5013",
+      "original_sha256": "93a71e140d55c5e8d12f29a44d80c0d9b7fbff528b919b7e5a81af49d84c5013",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/player/inc/uni_pcm_default.h": {
+      "bytes": 2027,
+      "sha256": "2cbcc10cb60599276cc71d0840b9f5d7130cae88b66b9155d44daa6697b197db",
+      "original_sha256": "2cbcc10cb60599276cc71d0840b9f5d7130cae88b66b9155d44daa6697b197db",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/player/src/pcm/inc/uni_pcm_player.h": {
+      "bytes": 1483,
+      "sha256": "7cae6da99125f6c97de761831132baedb0e62121ba78a6dfe7fdbaab42545e63",
+      "original_sha256": "7cae6da99125f6c97de761831132baedb0e62121ba78a6dfe7fdbaab42545e63",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/player/src/pcm/inc/uni_pcm_resource.h": {
+      "bytes": 1382,
+      "sha256": "2a13c5b333ef58acb87be39d262786f5685ebbb33c03833ff422234b5ff532f6",
+      "original_sha256": "2a13c5b333ef58acb87be39d262786f5685ebbb33c03833ff422234b5ff532f6",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/player/src/pcm/src/uni_pcm_player.c": {
+      "bytes": 10853,
+      "sha256": "4f053ac228b5d18fb01d57edef62ff06b1693a3353276f552dfbe2d0c849e617",
+      "original_sha256": "4f053ac228b5d18fb01d57edef62ff06b1693a3353276f552dfbe2d0c849e617",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/player/src/pcm/src/uni_pcm_resource.c": {
+      "bytes": 1851,
+      "sha256": "c3fc61f36b6232816e3e0a4afcca93e44a5f19543e984f2731d51794b815845c",
+      "original_sha256": "c3fc61f36b6232816e3e0a4afcca93e44a5f19543e984f2731d51794b815845c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/player/src/uni_media_player.c": {
+      "bytes": 7386,
+      "sha256": "998a9f0a1821af15e53bc649ca4b4891ccb1917ad7da56cb7b6be50915b78ebf",
+      "original_sha256": "998a9f0a1821af15e53bc649ca4b4891ccb1917ad7da56cb7b6be50915b78ebf",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/player/src/uni_pcm_default.c": {
+      "bytes": 3185,
+      "sha256": "f339fb519ac4fb49e03566ba7383651fa3f54a5db9bbb08a5e96bc139e221f40",
+      "original_sha256": "f339fb519ac4fb49e03566ba7383651fa3f54a5db9bbb08a5e96bc139e221f40",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/inc/uni_lasr_result_parser.h": {
+      "bytes": 1446,
+      "sha256": "d5407dcd39e74a187869df09f0d73a43e3275f2f3889ad0e8a2cdef7aa296896",
+      "original_sha256": "d5407dcd39e74a187869df09f0d73a43e3275f2f3889ad0e8a2cdef7aa296896",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/inc/uni_nlu.h": {
+      "bytes": 1479,
+      "sha256": "d67a83cd6fd17d4caa194f59f87bdfbc2b954be3e91e5a60e9294fc619f7b513",
+      "original_sha256": "d67a83cd6fd17d4caa194f59f87bdfbc2b954be3e91e5a60e9294fc619f7b513",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/inc/uni_recog_common.h": {
+      "bytes": 2485,
+      "sha256": "e428aab4925b437ffd546a8e50accd7b9c1982fcbedfde5abebfc57a689d15f4",
+      "original_sha256": "e428aab4925b437ffd546a8e50accd7b9c1982fcbedfde5abebfc57a689d15f4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/inc/uni_recog_engine_control.h": {
+      "bytes": 1791,
+      "sha256": "cbca90351d552c28f862c0e47c4269a85cc206942aa3661e1ba48aea25bd2cde",
+      "original_sha256": "cbca90351d552c28f862c0e47c4269a85cc206942aa3661e1ba48aea25bd2cde",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/inc/uni_recog_preproc.h": {
+      "bytes": 1526,
+      "sha256": "55fe6f6f3136d4edbc1e84b898a59b8dcc9b25555b0412da8957d2dc85c73f2c",
+      "original_sha256": "55fe6f6f3136d4edbc1e84b898a59b8dcc9b25555b0412da8957d2dc85c73f2c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/inc/uni_recog_service.h": {
+      "bytes": 3789,
+      "sha256": "10dcfac22d8416469562829c0c59a229125cd39b29c9ac2b14c088027ab02a96",
+      "original_sha256": "10dcfac22d8416469562829c0c59a229125cd39b29c9ac2b14c088027ab02a96",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/inc/uni_vui_interface.h": {
+      "bytes": 1827,
+      "sha256": "b66c232912ae0bddfda37a46bce65d26bf9843d16ae454a90344c89d8087212a",
+      "original_sha256": "b66c232912ae0bddfda37a46bce65d26bf9843d16ae454a90344c89d8087212a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/src/uni_lasr_result_parser.c": {
+      "bytes": 3359,
+      "sha256": "4535e2afb155c7629385b80dc1b2e74ce03ae0e584a86be28e521d9c12236a6e",
+      "original_sha256": "4535e2afb155c7629385b80dc1b2e74ce03ae0e584a86be28e521d9c12236a6e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/src/uni_nlu.c": {
+      "bytes": 4386,
+      "sha256": "0d3fb2b3bf2150698c4a30720143f43f3ed06af8548e113de7dce3f523f47cc8",
+      "original_sha256": "0d3fb2b3bf2150698c4a30720143f43f3ed06af8548e113de7dce3f523f47cc8",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/src/uni_recog_engine_control.c": {
+      "bytes": 9804,
+      "sha256": "116ba9ab33f2eafa226e253f149439f3058de276b52f985a2c247cc4cbd17ea5",
+      "original_sha256": "116ba9ab33f2eafa226e253f149439f3058de276b52f985a2c247cc4cbd17ea5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/src/uni_recog_preproc.c": {
+      "bytes": 9929,
+      "sha256": "e3b0d5bc4e81bbd6a266fc3b65508234e20c9a68befabcc78574218da129b809",
+      "original_sha256": "e3b0d5bc4e81bbd6a266fc3b65508234e20c9a68befabcc78574218da129b809",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/src/uni_recog_service.c": {
+      "bytes": 7910,
+      "sha256": "342a0047c55ae39bcaaaa18b2a5627a98e3e7cf25295c820cd2a67df66c795fd",
+      "original_sha256": "342a0047c55ae39bcaaaa18b2a5627a98e3e7cf25295c820cd2a67df66c795fd",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/sdk/vui/src/uni_vui_interface.c": {
+      "bytes": 7748,
+      "sha256": "64ccc25774a2a6fdbfcb01ddfbc7b3e88a311a65efa2cbb694b8ba531acaca3b",
+      "original_sha256": "64ccc25774a2a6fdbfcb01ddfbc7b3e88a311a65efa2cbb694b8ba531acaca3b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/arpt/inc/uni_arpt.h": {
+      "bytes": 1301,
+      "sha256": "c2ae1c50eda79be9b46a1ca29974a0e034763845fba9286993b8145fc527da2d",
+      "original_sha256": "c2ae1c50eda79be9b46a1ca29974a0e034763845fba9286993b8145fc527da2d",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/arpt/src/CMakeLists.txt": {
+      "bytes": 159,
+      "sha256": "a51df7966efab9dddbba24003f6e7d6cb854e7b32bc309929d32d1c97b3e0e32",
+      "original_sha256": "a51df7966efab9dddbba24003f6e7d6cb854e7b32bc309929d32d1c97b3e0e32",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/arpt/src/uni_arpt.c": {
+      "bytes": 1522,
+      "sha256": "7cd15754aa06b8206c60b805bee2cb7e9ab96467ed6b0c21365e0b7fc0127286",
+      "original_sha256": "7cd15754aa06b8206c60b805bee2cb7e9ab96467ed6b0c21365e0b7fc0127286",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/auto_string/inc/uni_auto_string.h": {
+      "bytes": 2628,
+      "sha256": "0c259ad384dd348f2ba65c45df5bc848478c699f797cdb04b7a9c2cf6e976b69",
+      "original_sha256": "0c259ad384dd348f2ba65c45df5bc848478c699f797cdb04b7a9c2cf6e976b69",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/auto_string/src/uni_auto_string.c": {
+      "bytes": 4173,
+      "sha256": "dc325196ae7bc1355ec381ba15ca26e4a5e20a9ecff986087a18a7e8debbf4f9",
+      "original_sha256": "dc325196ae7bc1355ec381ba15ca26e4a5e20a9ecff986087a18a7e8debbf4f9",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/bitmap/inc/uni_bitmap.h": {
+      "bytes": 2195,
+      "sha256": "0b11b40aa44b6c9c723bec689532f6d0549180495bc393f3393cfd9305b69876",
+      "original_sha256": "0b11b40aa44b6c9c723bec689532f6d0549180495bc393f3393cfd9305b69876",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/bitmap/src/uni_bitmap.c": {
+      "bytes": 2640,
+      "sha256": "810366913b9687ea0278b1d3411751ebf10df9d22c7ed90234c99af9d5cba826",
+      "original_sha256": "810366913b9687ea0278b1d3411751ebf10df9d22c7ed90234c99af9d5cba826",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/black_board/inc/uni_black_board.h": {
+      "bytes": 2122,
+      "sha256": "3f9c651408cd5a2df2865dc4e744aeea6311b622a8dffd1a5baa529a529f3ff6",
+      "original_sha256": "3f9c651408cd5a2df2865dc4e744aeea6311b622a8dffd1a5baa529a529f3ff6",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/black_board/src/uni_black_board.c": {
+      "bytes": 2207,
+      "sha256": "329e819ca7e9d1f56d9b87ff9db8390a8a734197cf765310194796226aca27bc",
+      "original_sha256": "329e819ca7e9d1f56d9b87ff9db8390a8a734197cf765310194796226aca27bc",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/cJSON/inc/cJSON.h": {
+      "bytes": 15272,
+      "sha256": "4602b5bb8b24f8d11b168563a57fc2077c1c51161c0b42e72a96f4e15e897c60",
+      "original_sha256": "4602b5bb8b24f8d11b168563a57fc2077c1c51161c0b42e72a96f4e15e897c60",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/cJSON/inc/uni_json.h": {
+      "bytes": 1790,
+      "sha256": "cfa8f0743857cad1ee51647d90453335671256bf4b6b7e94462eda8bbdce0a1a",
+      "original_sha256": "cfa8f0743857cad1ee51647d90453335671256bf4b6b7e94462eda8bbdce0a1a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/cJSON/src/cJSON.c": {
+      "bytes": 74203,
+      "sha256": "5c051776e1470ac2a3f88c38af51e8e6ea59061b688bc090cd0f15a7edf3baa3",
+      "original_sha256": "5c051776e1470ac2a3f88c38af51e8e6ea59061b688bc090cd0f15a7edf3baa3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/cJSON/src/uni_json.c": {
+      "bytes": 5842,
+      "sha256": "1a6fa88f75f96ad678134f740019942669788fc78891bc5e3c5ed203d7f848be",
+      "original_sha256": "1a6fa88f75f96ad678134f740019942669788fc78891bc5e3c5ed203d7f848be",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/config/inc/uni_config.h": {
+      "bytes": 2413,
+      "sha256": "8678afbbf8a98a69d3d6537cccb39a72f2b64ac81b79c19181df35a9e5355b94",
+      "original_sha256": "8678afbbf8a98a69d3d6537cccb39a72f2b64ac81b79c19181df35a9e5355b94",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/config/src/uni_config.c": {
+      "bytes": 7169,
+      "sha256": "e70bf58369ce589ca80ee3d147a356f231c7598d3dd80dc2cbfcb29e7c4f6e5a",
+      "original_sha256": "e70bf58369ce589ca80ee3d147a356f231c7598d3dd80dc2cbfcb29e7c4f6e5a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/crc16/inc/uni_crc16.h": {
+      "bytes": 1327,
+      "sha256": "0f0a9ec4da7e314c6ed379e3a2de736218a73a8a9f3f248da55a0a626089547c",
+      "original_sha256": "0f0a9ec4da7e314c6ed379e3a2de736218a73a8a9f3f248da55a0a626089547c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/crc16/src/uni_crc16.c": {
+      "bytes": 3467,
+      "sha256": "f0cb5a782a1a97972bcf81f4c147276e93332ab2b7eb2c21b55341a0e1957de8",
+      "original_sha256": "f0cb5a782a1a97972bcf81f4c147276e93332ab2b7eb2c21b55341a0e1957de8",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/data_buf/inc/uni_databuf.h": {
+      "bytes": 1766,
+      "sha256": "f845f0daa071e76517eb25c8ee6256384d3e1bb4d4f4ea03eefc94d5e37c2e36",
+      "original_sha256": "f845f0daa071e76517eb25c8ee6256384d3e1bb4d4f4ea03eefc94d5e37c2e36",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/data_buf/src/uni_databuf.c": {
+      "bytes": 6074,
+      "sha256": "8dabdf6c67e388626e6dd3c53e81d7466ade35a8c612348061caecddbb901a5b",
+      "original_sha256": "8dabdf6c67e388626e6dd3c53e81d7466ade35a8c612348061caecddbb901a5b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/event/inc/uni_event.h": {
+      "bytes": 2565,
+      "sha256": "1fc7d9cda6b959f2400d82f97819ecb9a2683fe1cb027410d5ae13bbc316002e",
+      "original_sha256": "1fc7d9cda6b959f2400d82f97819ecb9a2683fe1cb027410d5ae13bbc316002e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/event/src/uni_event.c": {
+      "bytes": 1771,
+      "sha256": "f6d68d4496490c6a48d8d355a60c9b9540b09a8fce15ff63a7effa5d5537b398",
+      "original_sha256": "f6d68d4496490c6a48d8d355a60c9b9540b09a8fce15ff63a7effa5d5537b398",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/event_list/inc/uni_event_list.h": {
+      "bytes": 1881,
+      "sha256": "67f7f3137eef8e6494bf1e83bb5e5aa107d83a0bf9b10bb8de359c7e6aed2cda",
+      "original_sha256": "67f7f3137eef8e6494bf1e83bb5e5aa107d83a0bf9b10bb8de359c7e6aed2cda",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/event_list/src/uni_event_list.c": {
+      "bytes": 10694,
+      "sha256": "ba9feb33551c5a0f5c9561189cbc345d31bae85ed7e6204cfd073f129aa56014",
+      "original_sha256": "ba9feb33551c5a0f5c9561189cbc345d31bae85ed7e6204cfd073f129aa56014",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/event_route/inc/uni_event_route.h": {
+      "bytes": 2582,
+      "sha256": "d03d758f393dc0a13f5efbba996443cd9ce8c6772714687a5cf070f1dd6548ae",
+      "original_sha256": "d03d758f393dc0a13f5efbba996443cd9ce8c6772714687a5cf070f1dd6548ae",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/event_route/src/uni_event_route.c": {
+      "bytes": 3892,
+      "sha256": "e758ac51a0014d6c7c90de1fbc6a4b7b42e834b75c901cb6e1e72ee8f60e6628",
+      "original_sha256": "e758ac51a0014d6c7c90de1fbc6a4b7b42e834b75c901cb6e1e72ee8f60e6628",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/float2string/inc/uni_float2string.h": {
+      "bytes": 1485,
+      "sha256": "2116092b32b9af65389bb09ea98d29fdd4939d6b2a97fd619e85a0aa21237826",
+      "original_sha256": "2116092b32b9af65389bb09ea98d29fdd4939d6b2a97fd619e85a0aa21237826",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/float2string/src/uni_float2string.c": {
+      "bytes": 2821,
+      "sha256": "26178fe70f1d6bdb6ab846239900ca443e63b2065c1b6aa2c09d4ebc7fe7c1a3",
+      "original_sha256": "26178fe70f1d6bdb6ab846239900ca443e63b2065c1b6aa2c09d4ebc7fe7c1a3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/fsm/inc/uni_fsm.h": {
+      "bytes": 2985,
+      "sha256": "2ce736d5283d5e9d9247299e824c38d8df34065fc079a1a4e4f3565f2f1f0bb8",
+      "original_sha256": "2ce736d5283d5e9d9247299e824c38d8df34065fc079a1a4e4f3565f2f1f0bb8",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/fsm/src/uni_fsm.c": {
+      "bytes": 4632,
+      "sha256": "1b8bca0d92d51cce3d22b05074bf7c3a49e9f6d12ffe022e07c1d75d954ef631",
+      "original_sha256": "1b8bca0d92d51cce3d22b05074bf7c3a49e9f6d12ffe022e07c1d75d954ef631",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/hash/inc/uni_hash.h": {
+      "bytes": 1349,
+      "sha256": "758209567d2640f89d53fd76a02aa957b48d4048d78ab88ad8ef3af16bc07173",
+      "original_sha256": "758209567d2640f89d53fd76a02aa957b48d4048d78ab88ad8ef3af16bc07173",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/hash/src/bkdr_hash.c": {
+      "bytes": 1467,
+      "sha256": "00281d646bcc67d2932cd959f9c34ca98e6769890cb9b5c4c2a13642534698a7",
+      "original_sha256": "00281d646bcc67d2932cd959f9c34ca98e6769890cb9b5c4c2a13642534698a7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/interruptable_sleep/inc/uni_interruptable.h": {
+      "bytes": 1573,
+      "sha256": "0640c9b9b6d03c22fa349edfa9cf8b8e4508f1e5450f0e5123f0edccf0702684",
+      "original_sha256": "0640c9b9b6d03c22fa349edfa9cf8b8e4508f1e5450f0e5123f0edccf0702684",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/interruptable_sleep/src/uni_interruptable.c": {
+      "bytes": 2378,
+      "sha256": "8d1990d304061fc2fd33c064159ad915b3174d866d2a5a85c67a725cb99525ed",
+      "original_sha256": "8d1990d304061fc2fd33c064159ad915b3174d866d2a5a85c67a725cb99525ed",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/list/inc/list_head.h": {
+      "bytes": 4125,
+      "sha256": "c49da3508489280aebc2aafa93dfa74cb49219dd02ada27ea4f578b60b200c2b",
+      "original_sha256": "c49da3508489280aebc2aafa93dfa74cb49219dd02ada27ea4f578b60b200c2b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/list/src/list_head.c": {
+      "bytes": 563,
+      "sha256": "689a06b59e3e9619122b409896b4c7314aef8a8a1195d225d4090cb61f86fee4",
+      "original_sha256": "689a06b59e3e9619122b409896b4c7314aef8a8a1195d225d4090cb61f86fee4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/log/inc/uni_log.h": {
+      "bytes": 2902,
+      "sha256": "fb3bb30e30c4f6394e922246c774edc19af54d19bf9072f0f186455827e578c6",
+      "original_sha256": "fb3bb30e30c4f6394e922246c774edc19af54d19bf9072f0f186455827e578c6",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/log/src/uni_log.c": {
+      "bytes": 6923,
+      "sha256": "7f5a8264e350ed8ed29a9a70fc44decf77f02d27c4aaf1b4728876528263674e",
+      "original_sha256": "7f5a8264e350ed8ed29a9a70fc44decf77f02d27c4aaf1b4728876528263674e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/string/inc/uni_string.h": {
+      "bytes": 2298,
+      "sha256": "7d389608ca3ee4bde174cdf5e3ed496885489fb74c19777ac095108d2c085225",
+      "original_sha256": "7d389608ca3ee4bde174cdf5e3ed496885489fb74c19777ac095108d2c085225",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/string/src/uni_string.c": {
+      "bytes": 5449,
+      "sha256": "d7c6c950db9636e110f860bd156e3f11e24d0410047393ea2f99c114ce62800e",
+      "original_sha256": "d7c6c950db9636e110f860bd156e3f11e24d0410047393ea2f99c114ce62800e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/timer/inc/uni_timer.h": {
+      "bytes": 1716,
+      "sha256": "edc38810ba4605d3ce2e00464cf8ea4d7ecbfcda10e74c0bc632b58720c45b94",
+      "original_sha256": "edc38810ba4605d3ce2e00464cf8ea4d7ecbfcda10e74c0bc632b58720c45b94",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/timer/src/uni_timer.c": {
+      "bytes": 6097,
+      "sha256": "89ada1fc6b0b099e5b966da3afccee6a82318874de64594f6e0399cadb642f8e",
+      "original_sha256": "89ada1fc6b0b099e5b966da3afccee6a82318874de64594f6e0399cadb642f8e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/uart/demo/uni_raw_uart.c": {
+      "bytes": 869,
+      "sha256": "0cfcdfc35a1607d98234b02ba869f4e90fc5f6f57c5e385000c0e042b028adb5",
+      "original_sha256": "0cfcdfc35a1607d98234b02ba869f4e90fc5f6f57c5e385000c0e042b028adb5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/uart/demo/uni_use_unisound_protocol.c": {
+      "bytes": 1294,
+      "sha256": "17a32d7c55d341f4f85bd163d117187da98f96fe117cac2ff9303e12b8351ca4",
+      "original_sha256": "17a32d7c55d341f4f85bd163d117187da98f96fe117cac2ff9303e12b8351ca4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/uart/doc/uart_protocol.pdf": {
+      "bytes": 629079,
+      "sha256": "bdeab16735e6ec4d84a83e414568d3dd0e0b4f9a97db2769c3f31e681bfb4fdb",
+      "original_sha256": "bdeab16735e6ec4d84a83e414568d3dd0e0b4f9a97db2769c3f31e681bfb4fdb",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/uart/inc/uni_communication.h": {
+      "bytes": 3433,
+      "sha256": "2f7432dfacdd59ad502d6a262b14c2afcb7efdf2a5511d250f6032912c82dbee",
+      "original_sha256": "2f7432dfacdd59ad502d6a262b14c2afcb7efdf2a5511d250f6032912c82dbee",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/uart/inc/uni_uart.h": {
+      "bytes": 3030,
+      "sha256": "5d0a12ad3023e0611c04a9cd01e0d504965ab77102fe0142bbb4d1fbd425b2c5",
+      "original_sha256": "5d0a12ad3023e0611c04a9cd01e0d504965ab77102fe0142bbb4d1fbd425b2c5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/uart/src/uni_communication.c": {
+      "bytes": 24862,
+      "sha256": "de785a160cee61e9197dc76dd36dd8ad9eb379fbd8c847daefef61103ed7ad32",
+      "original_sha256": "de785a160cee61e9197dc76dd36dd8ad9eb379fbd8c847daefef61103ed7ad32",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/src/utils/uart/src/uni_uart.c": {
+      "bytes": 7638,
+      "sha256": "3194ba23cbd89339563674d08998e0e89ca97b14224f52ef7f782b5f4eb468ca",
+      "original_sha256": "3194ba23cbd89339563674d08998e0e89ca97b14224f52ef7f782b5f4eb468ca",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/startup/crt0.S": {
+      "bytes": 7009,
+      "sha256": "622d024dc7fdbfecef6608fd3a9cc004fc55a266f313deb6da5062a6b1087d3b",
+      "original_sha256": "622d024dc7fdbfecef6608fd3a9cc004fc55a266f313deb6da5062a6b1087d3b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/startup/flash_boot.c": {
+      "bytes": 187501,
+      "sha256": "241420e799602c70cc8758ca76b2b17cdfa8158e538fee6587aee94e13e5e3cf",
+      "original_sha256": "241420e799602c70cc8758ca76b2b17cdfa8158e538fee6587aee94e13e5e3cf",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/startup/init-default.c": {
+      "bytes": 12443,
+      "sha256": "c710140f54e94388c93a8fc979a27acbd33e7fc565b19e6aa5cd07a1e033b398",
+      "original_sha256": "c710140f54e94388c93a8fc979a27acbd33e7fc565b19e6aa5cd07a1e033b398",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/startup/interrupt.c": {
+      "bytes": 4009,
+      "sha256": "7f00d61b0478b89b90164dbdc18add881a0f81f87282f59aff522df5054810d4",
+      "original_sha256": "7f00d61b0478b89b90164dbdc18add881a0f81f87282f59aff522df5054810d4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/startup/retarget.c": {
+      "bytes": 1409,
+      "sha256": "326337dc87a2e94c0723b5456df3b4ec4593c2f460996d02415b5d4b140c9310",
+      "original_sha256": "326337dc87a2e94c0723b5456df3b4ec4593c2f460996d02415b5d4b140c9310",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/aik_debug.json": {
+      "bytes": 1329,
+      "sha256": "36722fed29fcd0c7367e0444f03593fb554ee03a6b34a3059c188c4932cb4b8f",
+      "original_sha256": "36722fed29fcd0c7367e0444f03593fb554ee03a6b34a3059c188c4932cb4b8f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/aik_release.json": {
+      "bytes": 1329,
+      "sha256": "dfc7b15bc95bc68fe029317730b0b1a873dfeb6cad219b2cb709f878d4721347",
+      "original_sha256": "dfc7b15bc95bc68fe029317730b0b1a873dfeb6cad219b2cb709f878d4721347",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/asr_thresh.dat": {
+      "bytes": 199,
+      "sha256": "07fe627be9a187d3923f0e8a4f4fb60fd733d3f62fed27715813df1eb2d5537f",
+      "original_sha256": "07fe627be9a187d3923f0e8a4f4fb60fd733d3f62fed27715813df1eb2d5537f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/asrfix.dat": {
+      "bytes": 846500,
+      "sha256": "aede824dadc87725118363498746c2b8875eb3aec2e23dfe58c2dd97255da4a3",
+      "original_sha256": "aede824dadc87725118363498746c2b8875eb3aec2e23dfe58c2dd97255da4a3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/asrfix_cn.dat": {
+      "bytes": 846500,
+      "sha256": "aede824dadc87725118363498746c2b8875eb3aec2e23dfe58c2dd97255da4a3",
+      "original_sha256": "aede824dadc87725118363498746c2b8875eb3aec2e23dfe58c2dd97255da4a3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/asrfix_en.dat": {
+      "bytes": 851300,
+      "sha256": "cc87cb164711ed317b0dd5760e19689d4cdb436789a5d08e38cd8ef46171c094",
+      "original_sha256": "cc87cb164711ed317b0dd5760e19689d4cdb436789a5d08e38cd8ef46171c094",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/auto_code.py": {
+      "bytes": 16828,
+      "sha256": "99773b8bcfb2fbbff8fc4ae14e358b634eb4a75ea23374d96a6ee8f90004ab03",
+      "original_sha256": "99773b8bcfb2fbbff8fc4ae14e358b634eb4a75ea23374d96a6ee8f90004ab03",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/cmd_reply_data.json": {
+      "bytes": 1224,
+      "sha256": "a6b72800398c1e4656ed5a1c17501aaf1b84280f9e0185e71712c473a58be630",
+      "original_sha256": "a6b72800398c1e4656ed5a1c17501aaf1b84280f9e0185e71712c473a58be630",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/config_debug.bin": {
+      "bytes": 709,
+      "sha256": "7daeae9b540cf148a741afba996477e0a9db7bca855b1b2f0ac6e763f2f5eb3b",
+      "original_sha256": "7daeae9b540cf148a741afba996477e0a9db7bca855b1b2f0ac6e763f2f5eb3b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/config_release.bin": {
+      "bytes": 709,
+      "sha256": "65fa918b482ff1c91adc44b25b4fd945f895707b4ec44c876e49f52b53cb5572",
+      "original_sha256": "65fa918b482ff1c91adc44b25b4fd945f895707b4ec44c876e49f52b53cb5572",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/custom_config.json": {
+      "bytes": 4034,
+      "sha256": "4d680d6e9f839cd4f7bb56a6575bbb5c820f1399e7e4c77bc3e7baf7a888f261",
+      "original_sha256": "9e09bd07c5b9966ee1abd28b45cb711adbd205e8a2866e7bce3c72cac9d5faf0",
+      "modified": true
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/default_tones/0.mp3": {
+      "bytes": 1152,
+      "sha256": "be2bbde3f174a75a01f3b8bf79192905602774003195585401401eec9ede7685",
+      "original_sha256": "be2bbde3f174a75a01f3b8bf79192905602774003195585401401eec9ede7685",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/default_tones/1.mp3": {
+      "bytes": 6984,
+      "sha256": "5d3240f67c9d1f0000650633a6b673c51240ef6eee2d5e3240f1a560f44d12e7",
+      "original_sha256": "5d3240f67c9d1f0000650633a6b673c51240ef6eee2d5e3240f1a560f44d12e7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/default_tones/2.mp3": {
+      "bytes": 1224,
+      "sha256": "bbc956ac73e814a1c718386b2c9a9a5763d26b38e61db86abdbe9c5069f4ab21",
+      "original_sha256": "bbc956ac73e814a1c718386b2c9a9a5763d26b38e61db86abdbe9c5069f4ab21",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/default_tones/3.mp3": {
+      "bytes": 1224,
+      "sha256": "bbc956ac73e814a1c718386b2c9a9a5763d26b38e61db86abdbe9c5069f4ab21",
+      "original_sha256": "bbc956ac73e814a1c718386b2c9a9a5763d26b38e61db86abdbe9c5069f4ab21",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/default_tones/4.mp3": {
+      "bytes": 936,
+      "sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "original_sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/default_tones/5.mp3": {
+      "bytes": 1512,
+      "sha256": "a5d420ab609717deaf482ac4981cc29d65cfd279a4ff2c72f6646658c8fac598",
+      "original_sha256": "a5d420ab609717deaf482ac4981cc29d65cfd279a4ff2c72f6646658c8fac598",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/default_tones/6.mp3": {
+      "bytes": 936,
+      "sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "original_sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/default_tones/7.mp3": {
+      "bytes": 1512,
+      "sha256": "a5d420ab609717deaf482ac4981cc29d65cfd279a4ff2c72f6646658c8fac598",
+      "original_sha256": "a5d420ab609717deaf482ac4981cc29d65cfd279a4ff2c72f6646658c8fac598",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/default_tones/8.mp3": {
+      "bytes": 936,
+      "sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "original_sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/default_tones/9.mp3": {
+      "bytes": 2664,
+      "sha256": "5f8684832cc567e7d6cbe01a187c980b190284088385193a6d8f283a7a9aca22",
+      "original_sha256": "5f8684832cc567e7d6cbe01a187c980b190284088385193a6d8f283a7a9aca22",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/grammar.dat": {
+      "bytes": 1600,
+      "sha256": "d044cb3d102fcd431449e86f1fe3f8f68e3a6c1c817645a74a0e60ffe861008f",
+      "original_sha256": "d044cb3d102fcd431449e86f1fe3f8f68e3a6c1c817645a74a0e60ffe861008f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/grammar.zip": {
+      "bytes": 990,
+      "sha256": "df2fd9a9635407692cc4ab99f0ecd1626bcbadcb4cdd0ff28e0fe628f591fdd5",
+      "original_sha256": "df2fd9a9635407692cc4ab99f0ecd1626bcbadcb4cdd0ff28e0fe628f591fdd5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/grammar_jsgf.zip": {
+      "bytes": 739,
+      "sha256": "14a82675a3178974edaae569930b02a6f1b515926699c4a7b267571ba852d9f0",
+      "original_sha256": "14a82675a3178974edaae569930b02a6f1b515926699c4a7b267571ba852d9f0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/input.txt": {
+      "bytes": 112,
+      "sha256": "59e68afafea868f69e036c3db9b8a3facdd658d08709b5711b0d65947d3f4f5b",
+      "original_sha256": "59e68afafea868f69e036c3db9b8a3facdd658d08709b5711b0d65947d3f4f5b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/pcm.bin": {
+      "bytes": 39104,
+      "sha256": "fe316aee08c8c1b19853aea9f5c7b5297e6bd71826d589ad660616ee24cb6f76",
+      "original_sha256": "fe316aee08c8c1b19853aea9f5c7b5297e6bd71826d589ad660616ee24cb6f76",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/pcm_map.txt": {
+      "bytes": 232,
+      "sha256": "445d39eb678968f6d41db202502ad9cfd38d412c6eb28b8cb93cab41fc7eac72",
+      "original_sha256": "445d39eb678968f6d41db202502ad9cfd38d412c6eb28b8cb93cab41fc7eac72",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/res_build_tool.py": {
+      "bytes": 22538,
+      "sha256": "36000ba722e27eab05e9c84d6819e2e8e3cfc30c54c6efe4739956e3e0c17e78",
+      "original_sha256": "36000ba722e27eab05e9c84d6819e2e8e3cfc30c54c6efe4739956e3e0c17e78",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/sucp_cmd_map.txt": {
+      "bytes": 354,
+      "sha256": "83a6d50bc9d3b120691d0ab38f0ad6d3fac1d92753195a6b727785eb8e6b1dc9",
+      "original_sha256": "83a6d50bc9d3b120691d0ab38f0ad6d3fac1d92753195a6b727785eb8e6b1dc9",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/thresh.dat": {
+      "bytes": 197,
+      "sha256": "b052eee45ae14eb7eddb2ed7dccb336c13368b2343f468b5251aab4dd21cd080",
+      "original_sha256": "b052eee45ae14eb7eddb2ed7dccb336c13368b2343f468b5251aab4dd21cd080",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/0.mp3": {
+      "bytes": 1152,
+      "sha256": "be2bbde3f174a75a01f3b8bf79192905602774003195585401401eec9ede7685",
+      "original_sha256": "be2bbde3f174a75a01f3b8bf79192905602774003195585401401eec9ede7685",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/1.mp3": {
+      "bytes": 6984,
+      "sha256": "5d3240f67c9d1f0000650633a6b673c51240ef6eee2d5e3240f1a560f44d12e7",
+      "original_sha256": "5d3240f67c9d1f0000650633a6b673c51240ef6eee2d5e3240f1a560f44d12e7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/101.mp3": {
+      "bytes": 3024,
+      "sha256": "cb0211a9b2eea31a51711252cfce14468339245cbf8fdc5aeebd19ab64d0b46a",
+      "original_sha256": "cb0211a9b2eea31a51711252cfce14468339245cbf8fdc5aeebd19ab64d0b46a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/102.mp3": {
+      "bytes": 3096,
+      "sha256": "365fd4579396c1b544324226a688990ae1af23adbd5edccbb34111522b6dd74e",
+      "original_sha256": "365fd4579396c1b544324226a688990ae1af23adbd5edccbb34111522b6dd74e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/103.mp3": {
+      "bytes": 1296,
+      "sha256": "47c76bf3f4255e7fa049a33c3b4e7631d4cdddb3b87fccec2a3b8fe4e76a63dc",
+      "original_sha256": "47c76bf3f4255e7fa049a33c3b4e7631d4cdddb3b87fccec2a3b8fe4e76a63dc",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/104.mp3": {
+      "bytes": 1440,
+      "sha256": "1bea711455b7d8de4daebff8afc4fb9af96907afc23b16070ef2d07ab20b80dc",
+      "original_sha256": "1bea711455b7d8de4daebff8afc4fb9af96907afc23b16070ef2d07ab20b80dc",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/105.mp3": {
+      "bytes": 3312,
+      "sha256": "484c2c5e6fdbb9bdeeb25f314c78c792d3baab4228f1896f6921a42fb3582452",
+      "original_sha256": "484c2c5e6fdbb9bdeeb25f314c78c792d3baab4228f1896f6921a42fb3582452",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/106.mp3": {
+      "bytes": 2880,
+      "sha256": "997642f7f8ce0b6393b73f3db0e3a1e046852ac0a5a59016d6132e307ebe5b1b",
+      "original_sha256": "997642f7f8ce0b6393b73f3db0e3a1e046852ac0a5a59016d6132e307ebe5b1b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/107.mp3": {
+      "bytes": 864,
+      "sha256": "4efc31429f6465ca67016cec5043d8d92c7330d638de7959d96383a1f1f46158",
+      "original_sha256": "4efc31429f6465ca67016cec5043d8d92c7330d638de7959d96383a1f1f46158",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/108.mp3": {
+      "bytes": 936,
+      "sha256": "177351c0f7436f0b624abcc058e116c3b9ddadf0d27dc7ff21f5e676661dce81",
+      "original_sha256": "177351c0f7436f0b624abcc058e116c3b9ddadf0d27dc7ff21f5e676661dce81",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/109.mp3": {
+      "bytes": 1224,
+      "sha256": "e01171ed9ad4eca12a981fcc880c80cbf9224061a847aa533d127c00a4d60a49",
+      "original_sha256": "e01171ed9ad4eca12a981fcc880c80cbf9224061a847aa533d127c00a4d60a49",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/110.mp3": {
+      "bytes": 1296,
+      "sha256": "0aa047b4c6ed9c0e87c9aad267e7eea578b2e5ad0040afbe696c7967d9775343",
+      "original_sha256": "0aa047b4c6ed9c0e87c9aad267e7eea578b2e5ad0040afbe696c7967d9775343",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/2.mp3": {
+      "bytes": 1224,
+      "sha256": "bbc956ac73e814a1c718386b2c9a9a5763d26b38e61db86abdbe9c5069f4ab21",
+      "original_sha256": "bbc956ac73e814a1c718386b2c9a9a5763d26b38e61db86abdbe9c5069f4ab21",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/3.mp3": {
+      "bytes": 1224,
+      "sha256": "bbc956ac73e814a1c718386b2c9a9a5763d26b38e61db86abdbe9c5069f4ab21",
+      "original_sha256": "bbc956ac73e814a1c718386b2c9a9a5763d26b38e61db86abdbe9c5069f4ab21",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/4.mp3": {
+      "bytes": 936,
+      "sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "original_sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/5.mp3": {
+      "bytes": 1512,
+      "sha256": "a5d420ab609717deaf482ac4981cc29d65cfd279a4ff2c72f6646658c8fac598",
+      "original_sha256": "a5d420ab609717deaf482ac4981cc29d65cfd279a4ff2c72f6646658c8fac598",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/6.mp3": {
+      "bytes": 936,
+      "sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "original_sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/7.mp3": {
+      "bytes": 1512,
+      "sha256": "a5d420ab609717deaf482ac4981cc29d65cfd279a4ff2c72f6646658c8fac598",
+      "original_sha256": "a5d420ab609717deaf482ac4981cc29d65cfd279a4ff2c72f6646658c8fac598",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/8.mp3": {
+      "bytes": 936,
+      "sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "original_sha256": "0be839c38c75ede4a3ac87871c220b4d7f0e30a769fc41a71b8edda32da83226",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/tones/9.mp3": {
+      "bytes": 2664,
+      "sha256": "5f8684832cc567e7d6cbe01a187c980b190284088385193a6d8f283a7a9aca22",
+      "original_sha256": "5f8684832cc567e7d6cbe01a187c980b190284088385193a6d8f283a7a9aca22",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/wav_tones/101.wav": {
+      "bytes": 45518,
+      "sha256": "7138cb2312143e8cc7403d7cf008d814b1180e88637b45231be68f4b43e7d385",
+      "original_sha256": "7138cb2312143e8cc7403d7cf008d814b1180e88637b45231be68f4b43e7d385",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/wav_tones/102.wav": {
+      "bytes": 46958,
+      "sha256": "daa3b390b2717ddd7cbc0411bc0806ff154973eb5bfd33aa5f437edcb4ffab90",
+      "original_sha256": "daa3b390b2717ddd7cbc0411bc0806ff154973eb5bfd33aa5f437edcb4ffab90",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/wav_tones/103.wav": {
+      "bytes": 17678,
+      "sha256": "970f0bdcff7a875dac683f2b680bc2e60c44aa22243137a18fabf7a15e9f62d8",
+      "original_sha256": "970f0bdcff7a875dac683f2b680bc2e60c44aa22243137a18fabf7a15e9f62d8",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/wav_tones/104.wav": {
+      "bytes": 20078,
+      "sha256": "e7a2a404d8f4f61bf3559b608bf7a3518b2fdadfa68e52b0e4c8a95b4bc01d5e",
+      "original_sha256": "e7a2a404d8f4f61bf3559b608bf7a3518b2fdadfa68e52b0e4c8a95b4bc01d5e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/wav_tones/105.wav": {
+      "bytes": 50318,
+      "sha256": "f58eb22634e46d3ca41d370bd0802031913fbe8ba4850772ec09a05ee5071527",
+      "original_sha256": "f58eb22634e46d3ca41d370bd0802031913fbe8ba4850772ec09a05ee5071527",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/wav_tones/106.wav": {
+      "bytes": 43598,
+      "sha256": "c14e6fc4526b439c5d4e276f021957b2dadabb1cfb05ba54989e18fec3dae439",
+      "original_sha256": "c14e6fc4526b439c5d4e276f021957b2dadabb1cfb05ba54989e18fec3dae439",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/wav_tones/107.wav": {
+      "bytes": 10958,
+      "sha256": "ead48b7f1789840aa16b03729a703348ce450402c69e306d2d76b5e629da3bfb",
+      "original_sha256": "ead48b7f1789840aa16b03729a703348ce450402c69e306d2d76b5e629da3bfb",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/wav_tones/108.wav": {
+      "bytes": 11918,
+      "sha256": "d68f0546ea2d127748e4c93699b2dac9f594307223358a85b1ada50c6138b4c0",
+      "original_sha256": "d68f0546ea2d127748e4c93699b2dac9f594307223358a85b1ada50c6138b4c0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/wav_tones/109.wav": {
+      "bytes": 16238,
+      "sha256": "cdd6b6b4e238bfc62f74980da800e38e1a77f3498bcaeab7f8b788d985251b6a",
+      "original_sha256": "cdd6b6b4e238bfc62f74980da800e38e1a77f3498bcaeab7f8b788d985251b6a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/tools/scripts/wav_tones/110.wav": {
+      "bytes": 17678,
+      "sha256": "9f710fe81e418abdf653e60d4a1395158415c3bc7a56c588673334b0355bed31",
+      "original_sha256": "9f710fe81e418abdf653e60d4a1395158415c3bc7a56c588673334b0355bed31",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/uni_ci.yml": {
+      "bytes": 4495,
+      "sha256": "f80d9fa6ce590331fc47a1c85abaef48e74fa09996f3d37872838609fc80cfb2",
+      "original_sha256": "f80d9fa6ce590331fc47a1c85abaef48e74fa09996f3d37872838609fc80cfb2",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/doxy_module.txt": {
+      "bytes": 9521,
+      "sha256": "c437bb21f27a5b3bef3233a8a4804c9a5cc79d2bd7e85d6214ad0302061a772f",
+      "original_sha256": "c437bb21f27a5b3bef3233a8a4804c9a5cc79d2bd7e85d6214ad0302061a772f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/unione.h": {
+      "bytes": 1444,
+      "sha256": "45824a99932f2f58b49237546b12bfbcd0cfe0238202b09d8947783d5922ca09",
+      "original_sha256": "45824a99932f2f58b49237546b12bfbcd0cfe0238202b09d8947783d5922ca09",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_asr.h": {
+      "bytes": 2491,
+      "sha256": "4a33b2fbcde24a11b4f97471889e712e0d3af2ff9c5e9243ae4ad53bdcdc12d7",
+      "original_sha256": "4a33b2fbcde24a11b4f97471889e712e0d3af2ff9c5e9243ae4ad53bdcdc12d7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_config.h": {
+      "bytes": 5366,
+      "sha256": "cb986edba9547d3d0a3932552ac9aa8173285099c90c0fd71665736d696fe2c2",
+      "original_sha256": "cb986edba9547d3d0a3932552ac9aa8173285099c90c0fd71665736d696fe2c2",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_event.h": {
+      "bytes": 6434,
+      "sha256": "b24a1000d4a77b1540da1f1bb4de22bca4c56d7f45b7497018e47cb5dd6e74da",
+      "original_sha256": "b24a1000d4a77b1540da1f1bb4de22bca4c56d7f45b7497018e47cb5dd6e74da",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_file.h": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_flash.h": {
+      "bytes": 2304,
+      "sha256": "48ecf22d9d2ec2343e03ac1b650e40c0884093566c3fc71ea4c2ed3e17918a41",
+      "original_sha256": "48ecf22d9d2ec2343e03ac1b650e40c0884093566c3fc71ea4c2ed3e17918a41",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_gpio.h": {
+      "bytes": 4810,
+      "sha256": "2a2224c173eb1d608317d7025254feda252745d0166df4547b1c1d6fd136ecfa",
+      "original_sha256": "2a2224c173eb1d608317d7025254feda252745d0166df4547b1c1d6fd136ecfa",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_main.h": {
+      "bytes": 1322,
+      "sha256": "12ff4b4e604e5d66fc03a8bd7b44e0f1f8cc231e603457e8327a1393b03c542b",
+      "original_sha256": "12ff4b4e604e5d66fc03a8bd7b44e0f1f8cc231e603457e8327a1393b03c542b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_player.h": {
+      "bytes": 3068,
+      "sha256": "bc9257e54b84b622bfe5646f90c05f39ffaefd2fccfdd993e1d7a3a29f604d1b",
+      "original_sha256": "bc9257e54b84b622bfe5646f90c05f39ffaefd2fccfdd993e1d7a3a29f604d1b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_power.h": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_pwm.h": {
+      "bytes": 3278,
+      "sha256": "59279f602cafec1d5e1482067b43d9e51e6e9f9316c8f3859308fc0b0ee24b1f",
+      "original_sha256": "59279f602cafec1d5e1482067b43d9e51e6e9f9316c8f3859308fc0b0ee24b1f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_record.h": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_timer.h": {
+      "bytes": 2446,
+      "sha256": "74a5f1a86e24ea04cb76bff40ee91d8a6e70adf9412cd1ceb34dcd8ff1fd0e88",
+      "original_sha256": "74a5f1a86e24ea04cb76bff40ee91d8a6e70adf9412cd1ceb34dcd8ff1fd0e88",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_uart.h": {
+      "bytes": 1955,
+      "sha256": "0ed4e7955ea5be2a6fd1533341550ba55e55a321781e5c04f02f56d92f3d537d",
+      "original_sha256": "0ed4e7955ea5be2a6fd1533341550ba55e55a321781e5c04f02f56d92f3d537d",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_uni_sucp.h": {
+      "bytes": 2441,
+      "sha256": "8de9c23d4954b5bdeccc377351cad1b097dd75f3f237b1ae4101fa8e48cb8151",
+      "original_sha256": "8de9c23d4954b5bdeccc377351cad1b097dd75f3f237b1ae4101fa8e48cb8151",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/inc/user_uni_ucp.h": {
+      "bytes": 2144,
+      "sha256": "addeeb5ebd1bea35b5e18c9ecc2638136ebb419d2effae0c06286b4b8da74021",
+      "original_sha256": "addeeb5ebd1bea35b5e18c9ecc2638136ebb419d2effae0c06286b4b8da74021",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/ac_device_simulator.c": {
+      "bytes": 3919,
+      "sha256": "0e68802d3343b9dd6ff90080eecb5be71bba796a2789203eb79ae4e53bde7fd3",
+      "original_sha256": "0e68802d3343b9dd6ff90080eecb5be71bba796a2789203eb79ae4e53bde7fd3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/ac_device_simulator.h": {
+      "bytes": 2507,
+      "sha256": "49206dce2a0c3410649943a63a7187d1470cdaca9d7ec1f2b45532dd3c9ab905",
+      "original_sha256": "49206dce2a0c3410649943a63a7187d1470cdaca9d7ec1f2b45532dd3c9ab905",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_ad_gl5528.c": {
+      "bytes": 1498,
+      "sha256": "63a4dd7120d0b88d036c8d2a8d5688a3eb0fe8d6602e60ca23f95c8cb56ae7ea",
+      "original_sha256": "63a4dd7120d0b88d036c8d2a8d5688a3eb0fe8d6602e60ca23f95c8cb56ae7ea",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_ad_gl5528.h": {
+      "bytes": 1412,
+      "sha256": "a032635f96ad52c498fbad1332c5ee9de6bbf60fa131b45288c1029b3975a8ec",
+      "original_sha256": "a032635f96ad52c498fbad1332c5ee9de6bbf60fa131b45288c1029b3975a8ec",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_digital_keys.c": {
+      "bytes": 4132,
+      "sha256": "00bfa7a8e9a460bc424e0658f7547f83a68ff9f297a6a2a32e34affd771db473",
+      "original_sha256": "00bfa7a8e9a460bc424e0658f7547f83a68ff9f297a6a2a32e34affd771db473",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_digital_keys.h": {
+      "bytes": 1543,
+      "sha256": "a5c4716f3e89d1b6cf1ffb0320a6e9f66a0e241dcda68b18f941272330a63c52",
+      "original_sha256": "a5c4716f3e89d1b6cf1ffb0320a6e9f66a0e241dcda68b18f941272330a63c52",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_i2c_ds3231.c": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_i2c_ds3231.h": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_pwm_led.c": {
+      "bytes": 2592,
+      "sha256": "9d756bf40ed92da46d969b9cd334d3402567c5dd6e2facece7d1e9937053f4c3",
+      "original_sha256": "9d756bf40ed92da46d969b9cd334d3402567c5dd6e2facece7d1e9937053f4c3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_pwm_led.h": {
+      "bytes": 1682,
+      "sha256": "3dff2bfbdcd484252b4e0926eb56adf0379c341af69cd4dd15e5253d3bbdb400",
+      "original_sha256": "3dff2bfbdcd484252b4e0926eb56adf0379c341af69cd4dd15e5253d3bbdb400",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_spi_ssd1306.c": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_spi_ssd1306.h": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_sw_timer.c": {
+      "bytes": 4685,
+      "sha256": "33247a87f4d51072095e833310dc045553868077f9951ca559e117e342fecb45",
+      "original_sha256": "33247a87f4d51072095e833310dc045553868077f9951ca559e117e342fecb45",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_sw_timer.h": {
+      "bytes": 2471,
+      "sha256": "0b4e555fedd46af446b76df0cb9ebe5f0d06625384a70a6913cd72fd2b898cf5",
+      "original_sha256": "0b4e555fedd46af446b76df0cb9ebe5f0d06625384a70a6913cd72fd2b898cf5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_timer_buzzer.c": {
+      "bytes": 2525,
+      "sha256": "0d62e267c7745291c3d6141a670496ac1fca65ed7bbc45f4b739fd423335c550",
+      "original_sha256": "0d62e267c7745291c3d6141a670496ac1fca65ed7bbc45f4b739fd423335c550",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/drivers/user_timer_buzzer.h": {
+      "bytes": 1520,
+      "sha256": "8366d1efc48d5ab4124700930cbcb7ae6a39a5b5107f982b20fd17c863d2f12c",
+      "original_sha256": "8366d1efc48d5ab4124700930cbcb7ae6a39a5b5107f982b20fd17c863d2f12c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_asr_control.c": {
+      "bytes": 2344,
+      "sha256": "cd9338a4c40e4b55fba43b6d26a465a5a400e3be12d294ebe26fa4f84b6ec1d4",
+      "original_sha256": "cd9338a4c40e4b55fba43b6d26a465a5a400e3be12d294ebe26fa4f84b6ec1d4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_auto_gpio.c": {
+      "bytes": 2183,
+      "sha256": "8a2eca639ce481d4ba425b4b3e821a761593773468be6290f33b3e2186f8b5c6",
+      "original_sha256": "8a2eca639ce481d4ba425b4b3e821a761593773468be6290f33b3e2186f8b5c6",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_flash_example.c": {
+      "bytes": 2152,
+      "sha256": "59ddd411655cc3d5b80e62e6ae56ab6feddcc2e5b23b6b7d80ba43f08e36f8e8",
+      "original_sha256": "59ddd411655cc3d5b80e62e6ae56ab6feddcc2e5b23b6b7d80ba43f08e36f8e8",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_gpio_adc.c": {
+      "bytes": 3884,
+      "sha256": "d95e9e20c5ed041702238805c3f2245fa0668506c78b6938274ae899b6b42409",
+      "original_sha256": "d95e9e20c5ed041702238805c3f2245fa0668506c78b6938274ae899b6b42409",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_gpio_key.c": {
+      "bytes": 2562,
+      "sha256": "580bc171c5abe7342ae2b964d23297d1f6f5803fa0bda507bc02a4b2b6a796d6",
+      "original_sha256": "580bc171c5abe7342ae2b964d23297d1f6f5803fa0bda507bc02a4b2b6a796d6",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_housekeeper.c": {
+      "bytes": 17798,
+      "sha256": "1e74757ca59c055576b9020314a054d6d64332e65854a5b590a2b8f27eff0095",
+      "original_sha256": "1e74757ca59c055576b9020314a054d6d64332e65854a5b590a2b8f27eff0095",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_player.c": {
+      "bytes": 2412,
+      "sha256": "ff4514424c7c4357cb185e7280d817aa4aca8b2d859848cdc9a0eb1a350a9ee0",
+      "original_sha256": "ff4514424c7c4357cb185e7280d817aa4aca8b2d859848cdc9a0eb1a350a9ee0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_power_sleep.c": {
+      "bytes": 2668,
+      "sha256": "c8b4485cf6d6877bc4200365c60ac25c2192040f334ade776dfec1c2f32c7761",
+      "original_sha256": "c8b4485cf6d6877bc4200365c60ac25c2192040f334ade776dfec1c2f32c7761",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_pwm_led.c": {
+      "bytes": 2355,
+      "sha256": "fd4fd4fcfc10d9c151ee1cf6b070fdd5f16033fba4e91441bc463dbd2c926fcd",
+      "original_sha256": "fd4fd4fcfc10d9c151ee1cf6b070fdd5f16033fba4e91441bc463dbd2c926fcd",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_smart_ac.c": {
+      "bytes": 9705,
+      "sha256": "8261abb83a64b7b928a5a88a7620f1f7458312d0e7497fd44e8b6e5ce7819a47",
+      "original_sha256": "8261abb83a64b7b928a5a88a7620f1f7458312d0e7497fd44e8b6e5ce7819a47",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_sw_timers.c": {
+      "bytes": 2904,
+      "sha256": "483fb5786bea7d21769d5aded4b5732f1f91620d8280c3cc0edf0ac557fed193",
+      "original_sha256": "483fb5786bea7d21769d5aded4b5732f1f91620d8280c3cc0edf0ac557fed193",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_timer_buzzer.c": {
+      "bytes": 2374,
+      "sha256": "bb01b7f83c1c53e5683cb7361304edcc4a6e7623392c9423df75d1d56e52d232",
+      "original_sha256": "bb01b7f83c1c53e5683cb7361304edcc4a6e7623392c9423df75d1d56e52d232",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_uart.c": {
+      "bytes": 2151,
+      "sha256": "e7ad2e3afc89eab636d5737db21a5e995e94e35c4570be2259681ce61be24b98",
+      "original_sha256": "e7ad2e3afc89eab636d5737db21a5e995e94e35c4570be2259681ce61be24b98",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_uart_sucp.c": {
+      "bytes": 2360,
+      "sha256": "f791a35ba9983be8965a8b2d8ea45b258ae4f9527f130007e5a1a4a3e4f900aa",
+      "original_sha256": "f791a35ba9983be8965a8b2d8ea45b258ae4f9527f130007e5a1a4a3e4f900aa",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/hb_uart_ucp.c": {
+      "bytes": 2601,
+      "sha256": "418d263e7799df71459c034dbf8dfc99d1e8882de51859c16daba53171b82060",
+      "original_sha256": "418d263e7799df71459c034dbf8dfc99d1e8882de51859c16daba53171b82060",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/housekeeper_irc.c": {
+      "bytes": 33110,
+      "sha256": "dd08b870a6cedc96be4e3ded92b8df6ac90591e8c1d7a8c0c274c6a4d86f02b0",
+      "original_sha256": "dd08b870a6cedc96be4e3ded92b8df6ac90591e8c1d7a8c0c274c6a4d86f02b0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/housekeeper_irc.h": {
+      "bytes": 3940,
+      "sha256": "54dcb277b6326cbf7bedb9b74f6fa9f750bd344544c8e4fc5aaa9694485dd857",
+      "original_sha256": "54dcb277b6326cbf7bedb9b74f6fa9f750bd344544c8e4fc5aaa9694485dd857",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/inc_housekeeper/uni_cmd_code.h": {
+      "bytes": 1333,
+      "sha256": "b1c696a434bedd9dceea8373e2453d42500cfbc6cab9db9e9e02e7508368633c",
+      "original_sha256": "b1c696a434bedd9dceea8373e2453d42500cfbc6cab9db9e9e02e7508368633c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/inc_housekeeper/uni_cust_config.h": {
+      "bytes": 713,
+      "sha256": "79119c912299bf9125d53f94968e4354d74cfd69fe5c47f3cb81cc4d9ea23585",
+      "original_sha256": "79119c912299bf9125d53f94968e4354d74cfd69fe5c47f3cb81cc4d9ea23585",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/inc_housekeeper/uni_nlu_content.h": {
+      "bytes": 9431,
+      "sha256": "e7cb964b470cf9f131d41c1e9939f9f27bbfcdf11d92de2703bf062f951b8857",
+      "original_sha256": "e7cb964b470cf9f131d41c1e9939f9f27bbfcdf11d92de2703bf062f951b8857",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/inc_smart_ac/uni_cmd_code.h": {
+      "bytes": 871,
+      "sha256": "09226abd7e9efe014c83318709c060512f7042847e76f83fa5e63ab1f378f166",
+      "original_sha256": "09226abd7e9efe014c83318709c060512f7042847e76f83fa5e63ab1f378f166",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/inc_smart_ac/uni_cust_config.h": {
+      "bytes": 469,
+      "sha256": "d2e4c14510ef0cf131f15c44d1afeff890917ba90232f2ec7e436e994c2082ed",
+      "original_sha256": "d2e4c14510ef0cf131f15c44d1afeff890917ba90232f2ec7e436e994c2082ed",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/inc_smart_ac/uni_nlu_content.h": {
+      "bytes": 5997,
+      "sha256": "62ea1409f1a59f8bd57ad1ca56f1722a8fd907ff8eaf73c70bdb623aceb10fa8",
+      "original_sha256": "62ea1409f1a59f8bd57ad1ca56f1722a8fd907ff8eaf73c70bdb623aceb10fa8",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/aik_debug.json": {
+      "bytes": 1770,
+      "sha256": "a0606a7127a5c7f85435defb090169c8a853e92b402b8e960008ad0f613d9a0b",
+      "original_sha256": "a0606a7127a5c7f85435defb090169c8a853e92b402b8e960008ad0f613d9a0b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/aik_release.json": {
+      "bytes": 1770,
+      "sha256": "ddbfcf961356590a9bafa4b11bcb717ba917044b52257d9ae0b8c8fc1b311419",
+      "original_sha256": "ddbfcf961356590a9bafa4b11bcb717ba917044b52257d9ae0b8c8fc1b311419",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/asrfix_cn.dat": {
+      "bytes": 846500,
+      "sha256": "aede824dadc87725118363498746c2b8875eb3aec2e23dfe58c2dd97255da4a3",
+      "original_sha256": "aede824dadc87725118363498746c2b8875eb3aec2e23dfe58c2dd97255da4a3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/grammar.dat": {
+      "bytes": 6304,
+      "sha256": "a34b91d187b1a1f780f86c2407fd9d0a91f31b11c7ab90f7a474231b6393388e",
+      "original_sha256": "a34b91d187b1a1f780f86c2407fd9d0a91f31b11c7ab90f7a474231b6393388e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/sucp_cmd_map.txt": {
+      "bytes": 3807,
+      "sha256": "ef3f7b6b427d70332435924cc8e78cdf7c0fabdd84ed4c0512154f471046a10a",
+      "original_sha256": "ef3f7b6b427d70332435924cc8e78cdf7c0fabdd84ed4c0512154f471046a10a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/101.mp3": {
+      "bytes": 3024,
+      "sha256": "a823177d2cdcbeb17230a176e691bc70e8ffc49306f994fe223fe33b999912a1",
+      "original_sha256": "a823177d2cdcbeb17230a176e691bc70e8ffc49306f994fe223fe33b999912a1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/102.mp3": {
+      "bytes": 3096,
+      "sha256": "77922d3d2c4a7e9db0fae93bf0643a0bb5fd06ef18986c365e9d386757296a15",
+      "original_sha256": "77922d3d2c4a7e9db0fae93bf0643a0bb5fd06ef18986c365e9d386757296a15",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/103.mp3": {
+      "bytes": 2376,
+      "sha256": "76eef404042a692abc5de12391886ccb67e0551985824a43d6b16aa19b00acf2",
+      "original_sha256": "76eef404042a692abc5de12391886ccb67e0551985824a43d6b16aa19b00acf2",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/104.mp3": {
+      "bytes": 2376,
+      "sha256": "76eef404042a692abc5de12391886ccb67e0551985824a43d6b16aa19b00acf2",
+      "original_sha256": "76eef404042a692abc5de12391886ccb67e0551985824a43d6b16aa19b00acf2",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/105.mp3": {
+      "bytes": 6264,
+      "sha256": "c4069ca4e0b8aaa317bba2205498c4901b85d71ed37b4412b9085856779ec46c",
+      "original_sha256": "c4069ca4e0b8aaa317bba2205498c4901b85d71ed37b4412b9085856779ec46c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/106.mp3": {
+      "bytes": 10656,
+      "sha256": "dc2d6d6db7379c12baa6907a8e69800e8e5627739a5a3dfea8453dcd991a07f0",
+      "original_sha256": "dc2d6d6db7379c12baa6907a8e69800e8e5627739a5a3dfea8453dcd991a07f0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/107.mp3": {
+      "bytes": 3672,
+      "sha256": "1996d120d5690c392a792566ea57cff6e14439a0be82ffd1bb619e58d4776bbc",
+      "original_sha256": "1996d120d5690c392a792566ea57cff6e14439a0be82ffd1bb619e58d4776bbc",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/108.mp3": {
+      "bytes": 4104,
+      "sha256": "cce951e6c730e12bd28341dbc80d152c8582288fe6f143321e63dc0265f4b0c6",
+      "original_sha256": "cce951e6c730e12bd28341dbc80d152c8582288fe6f143321e63dc0265f4b0c6",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/109.mp3": {
+      "bytes": 8352,
+      "sha256": "84084255d4dfcfa212be18845a5509c2884de156aca450380345f3d6dd332758",
+      "original_sha256": "84084255d4dfcfa212be18845a5509c2884de156aca450380345f3d6dd332758",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/110.mp3": {
+      "bytes": 18648,
+      "sha256": "3365f614451670c52204360798733ecafcae27abb88a3089a7239acd283fe19a",
+      "original_sha256": "3365f614451670c52204360798733ecafcae27abb88a3089a7239acd283fe19a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/111.mp3": {
+      "bytes": 10872,
+      "sha256": "388424744a3b3e1d555f2ef4126235859ff707e3673e330c89c618b30329ba7e",
+      "original_sha256": "388424744a3b3e1d555f2ef4126235859ff707e3673e330c89c618b30329ba7e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/112.mp3": {
+      "bytes": 1800,
+      "sha256": "5f2a0c77558145d54ec2f37752870a8d8f1ea4656c7b6dd43599bb630e6eb28f",
+      "original_sha256": "5f2a0c77558145d54ec2f37752870a8d8f1ea4656c7b6dd43599bb630e6eb28f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/113.mp3": {
+      "bytes": 1728,
+      "sha256": "5a71d3993785eec568bc4e723b57f94c01a0657780f28e5a9aa9b73c72228882",
+      "original_sha256": "5a71d3993785eec568bc4e723b57f94c01a0657780f28e5a9aa9b73c72228882",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/114.mp3": {
+      "bytes": 2736,
+      "sha256": "3055002b3ce63841e9ccd6ac9fedcd15c58bb4cc14fdb1af8179d5971afffba9",
+      "original_sha256": "3055002b3ce63841e9ccd6ac9fedcd15c58bb4cc14fdb1af8179d5971afffba9",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/115.mp3": {
+      "bytes": 2664,
+      "sha256": "70fcf578b7f9629f7862f6022abdee6d7f39b755ae1af88422aa5fdb618218de",
+      "original_sha256": "70fcf578b7f9629f7862f6022abdee6d7f39b755ae1af88422aa5fdb618218de",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/116.mp3": {
+      "bytes": 3600,
+      "sha256": "d3686000dd17aa275a1c8172107b68f69563b4dd977e6b82cc1d22446405a885",
+      "original_sha256": "d3686000dd17aa275a1c8172107b68f69563b4dd977e6b82cc1d22446405a885",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/117.mp3": {
+      "bytes": 3528,
+      "sha256": "582da092a0272af20268b7b4774b566cfce90bab99e06c56c36b823ddc4fcad0",
+      "original_sha256": "582da092a0272af20268b7b4774b566cfce90bab99e06c56c36b823ddc4fcad0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/118.mp3": {
+      "bytes": 3600,
+      "sha256": "d9911d37e5b1d37737f23efc9935dbb2893613d5b6f6a1281a2818ed504e42c1",
+      "original_sha256": "d9911d37e5b1d37737f23efc9935dbb2893613d5b6f6a1281a2818ed504e42c1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/119.mp3": {
+      "bytes": 3600,
+      "sha256": "063fc03c631fd1f1a53e9130f56ca03b924e150e37b2db3bd6b22e61abaca364",
+      "original_sha256": "063fc03c631fd1f1a53e9130f56ca03b924e150e37b2db3bd6b22e61abaca364",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/120.mp3": {
+      "bytes": 3744,
+      "sha256": "d5b29d942687ad174bb89bbb61a0efeb6d24f2c494a753b72cd96de5039d8ee3",
+      "original_sha256": "d5b29d942687ad174bb89bbb61a0efeb6d24f2c494a753b72cd96de5039d8ee3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/121.mp3": {
+      "bytes": 3672,
+      "sha256": "c56b05e7fa2407c7b61fcabcb72b0884ceedfd61a141e9675ee81c8e51a50ddd",
+      "original_sha256": "c56b05e7fa2407c7b61fcabcb72b0884ceedfd61a141e9675ee81c8e51a50ddd",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/122.mp3": {
+      "bytes": 3168,
+      "sha256": "f78368f7397116c5ebc5cb02307f398dde18394c25e192aa03559cbeda5aa6d7",
+      "original_sha256": "f78368f7397116c5ebc5cb02307f398dde18394c25e192aa03559cbeda5aa6d7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/123.mp3": {
+      "bytes": 3096,
+      "sha256": "a6be1891302836c3d444d8e3fc0cadfbd189f31955f5ede18edefa5abb0dee69",
+      "original_sha256": "a6be1891302836c3d444d8e3fc0cadfbd189f31955f5ede18edefa5abb0dee69",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/124.mp3": {
+      "bytes": 3096,
+      "sha256": "195411b943b4a044f1f5254aa7654508338508f17e6915affa026b21bb556faa",
+      "original_sha256": "195411b943b4a044f1f5254aa7654508338508f17e6915affa026b21bb556faa",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/125.mp3": {
+      "bytes": 3168,
+      "sha256": "a1d85d845bd319c1a6c1c3f5c68e8f3457b5f71526f97a0da9452f435eebe179",
+      "original_sha256": "a1d85d845bd319c1a6c1c3f5c68e8f3457b5f71526f97a0da9452f435eebe179",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/126.mp3": {
+      "bytes": 3096,
+      "sha256": "0b81d8bd76f10effc61ea1e99089c7b3cef9718226640c477178dfa5b695db6c",
+      "original_sha256": "0b81d8bd76f10effc61ea1e99089c7b3cef9718226640c477178dfa5b695db6c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/127.mp3": {
+      "bytes": 3888,
+      "sha256": "f9a3cdfce6aac8af3e4f8b0460dd7cf1f1479a681d875df8bc4fbdd899e7a531",
+      "original_sha256": "f9a3cdfce6aac8af3e4f8b0460dd7cf1f1479a681d875df8bc4fbdd899e7a531",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/128.mp3": {
+      "bytes": 3168,
+      "sha256": "01693d8c23da89312f8a959a76c949d6da4d6633f924247a24c7756b8096a4e1",
+      "original_sha256": "01693d8c23da89312f8a959a76c949d6da4d6633f924247a24c7756b8096a4e1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/129.mp3": {
+      "bytes": 3888,
+      "sha256": "6b9cc0f8b52938e174085ae42392010fff330353b208d59db243ae68d529c87d",
+      "original_sha256": "6b9cc0f8b52938e174085ae42392010fff330353b208d59db243ae68d529c87d",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/130.mp3": {
+      "bytes": 3168,
+      "sha256": "18b613807bf1c79886219a5dea2b499e4415596770c0627c83e0a83e0dd05f6e",
+      "original_sha256": "18b613807bf1c79886219a5dea2b499e4415596770c0627c83e0a83e0dd05f6e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/131.mp3": {
+      "bytes": 3096,
+      "sha256": "8ad906d954bf1da076a8d2976535170ce77cf91c8572ddce0f97fb672baa7e5e",
+      "original_sha256": "8ad906d954bf1da076a8d2976535170ce77cf91c8572ddce0f97fb672baa7e5e",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/132.mp3": {
+      "bytes": 3096,
+      "sha256": "6d23c0528ddc2a30372b4130f4d9ea5d78d4a6a237048537fb3ddea522f34910",
+      "original_sha256": "6d23c0528ddc2a30372b4130f4d9ea5d78d4a6a237048537fb3ddea522f34910",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/133.mp3": {
+      "bytes": 3096,
+      "sha256": "f3d617603df780ed203725e33267f22f4447021ac05e072e6631992381a97702",
+      "original_sha256": "f3d617603df780ed203725e33267f22f4447021ac05e072e6631992381a97702",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/134.mp3": {
+      "bytes": 3024,
+      "sha256": "8fed964b0af970e3392d7bbcf99c54d41967a1a0749a67349e6634048a2493e4",
+      "original_sha256": "8fed964b0af970e3392d7bbcf99c54d41967a1a0749a67349e6634048a2493e4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/135.mp3": {
+      "bytes": 3384,
+      "sha256": "f6c79a687d0967ac421007a41ee796bffbb58baed31ae38eb6cfbfdd9d13fd0c",
+      "original_sha256": "f6c79a687d0967ac421007a41ee796bffbb58baed31ae38eb6cfbfdd9d13fd0c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/136.mp3": {
+      "bytes": 3384,
+      "sha256": "3797cc50d113ff2933688397d7c3322b8cab41e4fe1e0fdd8ccda6b5cabb5595",
+      "original_sha256": "3797cc50d113ff2933688397d7c3322b8cab41e4fe1e0fdd8ccda6b5cabb5595",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/137.mp3": {
+      "bytes": 3456,
+      "sha256": "cf080438b45630a5b7ac917995029c50c897df80cddd7d1e3e21d1df767204a2",
+      "original_sha256": "cf080438b45630a5b7ac917995029c50c897df80cddd7d1e3e21d1df767204a2",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/138.mp3": {
+      "bytes": 3384,
+      "sha256": "f4e10a9662d1a4b6f74b91dfc7772adada9a53e5cae14914839b5e466854237a",
+      "original_sha256": "f4e10a9662d1a4b6f74b91dfc7772adada9a53e5cae14914839b5e466854237a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/139.mp3": {
+      "bytes": 3384,
+      "sha256": "1da150ad39652079934ae6a312e23c877b2580e6a6b5682e577d316c0c0df021",
+      "original_sha256": "1da150ad39652079934ae6a312e23c877b2580e6a6b5682e577d316c0c0df021",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/140.mp3": {
+      "bytes": 3456,
+      "sha256": "454d6498819f05869ac3fabce53269a3184c7f5264327262d9790031a8235308",
+      "original_sha256": "454d6498819f05869ac3fabce53269a3184c7f5264327262d9790031a8235308",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/141.mp3": {
+      "bytes": 3456,
+      "sha256": "09bdbdb10217b64a5406d3bcf7074bc85bf9dd848bf36ae6364d9b00f0307184",
+      "original_sha256": "09bdbdb10217b64a5406d3bcf7074bc85bf9dd848bf36ae6364d9b00f0307184",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/142.mp3": {
+      "bytes": 3384,
+      "sha256": "8ed79d3d74d549c88b9dabdde5f04a89d8f932d4b2c530b64abcb02cafe96309",
+      "original_sha256": "8ed79d3d74d549c88b9dabdde5f04a89d8f932d4b2c530b64abcb02cafe96309",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/143.mp3": {
+      "bytes": 3456,
+      "sha256": "c9775eca0cc17c2674c4708066b4d70e18999ceb2e47c3aa0beb1242dcdf3ede",
+      "original_sha256": "c9775eca0cc17c2674c4708066b4d70e18999ceb2e47c3aa0beb1242dcdf3ede",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/144.mp3": {
+      "bytes": 3096,
+      "sha256": "bb7b72d0e3f2da821814f58f09ee6b119712b1ef876b5aab70e6fa9c7c4ef3b4",
+      "original_sha256": "bb7b72d0e3f2da821814f58f09ee6b119712b1ef876b5aab70e6fa9c7c4ef3b4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/145.mp3": {
+      "bytes": 3024,
+      "sha256": "403091bc4c2f965ba4c93fe43ea63c120425231d74b733535d8d897ccb9b8808",
+      "original_sha256": "403091bc4c2f965ba4c93fe43ea63c120425231d74b733535d8d897ccb9b8808",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/146.mp3": {
+      "bytes": 3816,
+      "sha256": "775b8d733ea6bf242ac733264c9fef6fdc26f960f32989e4d87636a9ab67c3a2",
+      "original_sha256": "775b8d733ea6bf242ac733264c9fef6fdc26f960f32989e4d87636a9ab67c3a2",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/147.mp3": {
+      "bytes": 3024,
+      "sha256": "4aa91835fc1c99a93478901aea9835ebfde01a6b324456d5e969bec32799ed68",
+      "original_sha256": "4aa91835fc1c99a93478901aea9835ebfde01a6b324456d5e969bec32799ed68",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/148.mp3": {
+      "bytes": 3816,
+      "sha256": "29d2183b3176345dfcb8b5b22d1099d7810d430f97d08415dc82b2fb9e77cc2d",
+      "original_sha256": "29d2183b3176345dfcb8b5b22d1099d7810d430f97d08415dc82b2fb9e77cc2d",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/149.mp3": {
+      "bytes": 2448,
+      "sha256": "a500c68980b33ee41f47d5e1690e0387ea6ef3bf194fe9a6d99a9a21116470f9",
+      "original_sha256": "a500c68980b33ee41f47d5e1690e0387ea6ef3bf194fe9a6d99a9a21116470f9",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/150.mp3": {
+      "bytes": 2376,
+      "sha256": "b468cd17bdeb74c101a672cb992c4330c06a54eb2615f1dd3da6ad8a09479ba7",
+      "original_sha256": "b468cd17bdeb74c101a672cb992c4330c06a54eb2615f1dd3da6ad8a09479ba7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/151.mp3": {
+      "bytes": 2448,
+      "sha256": "f64c7c114972a3c5959383b80064f1137478e119e238149d2d0f5d5fa0158f79",
+      "original_sha256": "f64c7c114972a3c5959383b80064f1137478e119e238149d2d0f5d5fa0158f79",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/152.mp3": {
+      "bytes": 2376,
+      "sha256": "627e73d6b19c75edca9fde672937b9cff42fee381f2d9d3e2cb6c96904ee26ac",
+      "original_sha256": "627e73d6b19c75edca9fde672937b9cff42fee381f2d9d3e2cb6c96904ee26ac",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/153.mp3": {
+      "bytes": 2664,
+      "sha256": "60540cc75a7db52a9e48194b08ff4e7b9f6b1be9e468d8f308751f9ff5840149",
+      "original_sha256": "60540cc75a7db52a9e48194b08ff4e7b9f6b1be9e468d8f308751f9ff5840149",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/154.mp3": {
+      "bytes": 2664,
+      "sha256": "4e1a573068a082006a07ca55df5ec04f9ca5104dfac4dbd6f3d861a0966bee6b",
+      "original_sha256": "4e1a573068a082006a07ca55df5ec04f9ca5104dfac4dbd6f3d861a0966bee6b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/155.mp3": {
+      "bytes": 3240,
+      "sha256": "2b98b5dd3b4f63217fe9b0282f4abe9bbca5e265731f906d45ad31ffd9692ee7",
+      "original_sha256": "2b98b5dd3b4f63217fe9b0282f4abe9bbca5e265731f906d45ad31ffd9692ee7",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/156.mp3": {
+      "bytes": 11952,
+      "sha256": "875cba1d8cbc95f9e824e5432308a4493b9ab99bbdd6673ff11ded2bc76e7d04",
+      "original_sha256": "875cba1d8cbc95f9e824e5432308a4493b9ab99bbdd6673ff11ded2bc76e7d04",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/157.mp3": {
+      "bytes": 4536,
+      "sha256": "0971bc73049e145b0d204c3e8b7968c750a3edea7d7f094d9fd686b46404321b",
+      "original_sha256": "0971bc73049e145b0d204c3e8b7968c750a3edea7d7f094d9fd686b46404321b",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/158.mp3": {
+      "bytes": 3528,
+      "sha256": "6be2f020c10d959a80763b9e0d1917d9f21ec80d21c3e2562ce3ed3e464a7bb3",
+      "original_sha256": "6be2f020c10d959a80763b9e0d1917d9f21ec80d21c3e2562ce3ed3e464a7bb3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/159.mp3": {
+      "bytes": 3528,
+      "sha256": "90b2d97b411a894e2fc1de61fe21ae82b8d51a58361dd7071a8984ca1d0957fb",
+      "original_sha256": "90b2d97b411a894e2fc1de61fe21ae82b8d51a58361dd7071a8984ca1d0957fb",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/160.mp3": {
+      "bytes": 1800,
+      "sha256": "8102e5d97121c8a2ad6f9b92d1d05e5230a4db13f6091bf23c01c0cf74a75707",
+      "original_sha256": "8102e5d97121c8a2ad6f9b92d1d05e5230a4db13f6091bf23c01c0cf74a75707",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/161.mp3": {
+      "bytes": 1944,
+      "sha256": "ca86fe18687fd1d38fca5c1ad86b8197797615b746b0e6c5e4f7cdd95fda33f5",
+      "original_sha256": "ca86fe18687fd1d38fca5c1ad86b8197797615b746b0e6c5e4f7cdd95fda33f5",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/500.mp3": {
+      "bytes": 8352,
+      "sha256": "941a8f8a558143017275f06c1f66bb5239a663640b49d32cfb35345b501a5539",
+      "original_sha256": "941a8f8a558143017275f06c1f66bb5239a663640b49d32cfb35345b501a5539",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/501.mp3": {
+      "bytes": 4896,
+      "sha256": "c023592d250242f477c178f8619f129935e44c9cf50da93e25989c5dd599a6b0",
+      "original_sha256": "c023592d250242f477c178f8619f129935e44c9cf50da93e25989c5dd599a6b0",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/502.mp3": {
+      "bytes": 4968,
+      "sha256": "cfeb0d355d71796c21be3bef5124b3e43d879de18c10c9887049fb6c35dea2c6",
+      "original_sha256": "cfeb0d355d71796c21be3bef5124b3e43d879de18c10c9887049fb6c35dea2c6",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_housekeeper/tones/503.mp3": {
+      "bytes": 2736,
+      "sha256": "7cba3a05450597fd4d62c5fc4ae77f643389efdd658d5fa19fbdd1480d5f92e4",
+      "original_sha256": "7cba3a05450597fd4d62c5fc4ae77f643389efdd658d5fa19fbdd1480d5f92e4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/aik_debug.json": {
+      "bytes": 1331,
+      "sha256": "946bc0bf62ec1fd2db82b3df62e78c5ae56705a3aeb6db8401214432c0499446",
+      "original_sha256": "946bc0bf62ec1fd2db82b3df62e78c5ae56705a3aeb6db8401214432c0499446",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/aik_release.json": {
+      "bytes": 1331,
+      "sha256": "7ab5951d734aae3ec9a5de7ff5b42ac7c16322afb9d85be0bd80104b0db01c40",
+      "original_sha256": "7ab5951d734aae3ec9a5de7ff5b42ac7c16322afb9d85be0bd80104b0db01c40",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/asrfix_cn.dat": {
+      "bytes": 846500,
+      "sha256": "49434993cb22b4fd8f0fecc9989c43b66bdc7b5bc95c27844144f5e89d72bb86",
+      "original_sha256": "49434993cb22b4fd8f0fecc9989c43b66bdc7b5bc95c27844144f5e89d72bb86",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/grammar.dat": {
+      "bytes": 6688,
+      "sha256": "6da0416760bc45a5b305e0bbf8a9ec4659187720fc1b89720325b9550aaf75aa",
+      "original_sha256": "6da0416760bc45a5b305e0bbf8a9ec4659187720fc1b89720325b9550aaf75aa",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/sucp_cmd_map.txt": {
+      "bytes": 2470,
+      "sha256": "dd48c526b8a35174bcaec2cf818cfb649caf2ca5d7163f762eea3cfea2ca5bff",
+      "original_sha256": "dd48c526b8a35174bcaec2cf818cfb649caf2ca5d7163f762eea3cfea2ca5bff",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/101.mp3": {
+      "bytes": 4320,
+      "sha256": "b5890637a7bcbf64bb5930dccc9938ab82401c3c52acd5c5f154ba42ff3ce4a8",
+      "original_sha256": "b5890637a7bcbf64bb5930dccc9938ab82401c3c52acd5c5f154ba42ff3ce4a8",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/102.mp3": {
+      "bytes": 5400,
+      "sha256": "722de03b28e83a2b37905e4b7172e6f928d1ae3558086ee812306dc4ddbe1cb1",
+      "original_sha256": "722de03b28e83a2b37905e4b7172e6f928d1ae3558086ee812306dc4ddbe1cb1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/103.mp3": {
+      "bytes": 1440,
+      "sha256": "3bfb4e261dd98002e7a1e8987f0b274e9704b838cd12fe28caee11ced4354378",
+      "original_sha256": "3bfb4e261dd98002e7a1e8987f0b274e9704b838cd12fe28caee11ced4354378",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/104.mp3": {
+      "bytes": 6480,
+      "sha256": "6e64d144f194918ae38dba1c035a9e64cc8dd04717d1eae89227bc8247024a88",
+      "original_sha256": "6e64d144f194918ae38dba1c035a9e64cc8dd04717d1eae89227bc8247024a88",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/105.mp3": {
+      "bytes": 6552,
+      "sha256": "9b8642a7c9ed284116bc5229987f2ca1ab9d6d9a21f03755c4cfcc0f9d635501",
+      "original_sha256": "9b8642a7c9ed284116bc5229987f2ca1ab9d6d9a21f03755c4cfcc0f9d635501",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/106.mp3": {
+      "bytes": 6552,
+      "sha256": "acf511e1c15c8b1482ad69e8dd3219213f656ea94d9157a0d3fbdb9f6fb58bdd",
+      "original_sha256": "acf511e1c15c8b1482ad69e8dd3219213f656ea94d9157a0d3fbdb9f6fb58bdd",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/107.mp3": {
+      "bytes": 7344,
+      "sha256": "4d764fb6580baf9b14abef9e422b01f035aa5162ef2cb6545c38f5c0ecdd8207",
+      "original_sha256": "4d764fb6580baf9b14abef9e422b01f035aa5162ef2cb6545c38f5c0ecdd8207",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/108.mp3": {
+      "bytes": 4968,
+      "sha256": "275ff43d0eace99099dcbb710d73ac132c7a7c91ed7649151bec655d82025626",
+      "original_sha256": "275ff43d0eace99099dcbb710d73ac132c7a7c91ed7649151bec655d82025626",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/109.mp3": {
+      "bytes": 5040,
+      "sha256": "3344429a021af07b15986d2ead7f495738318a9d5e55c9f4b8d0162a42acba73",
+      "original_sha256": "3344429a021af07b15986d2ead7f495738318a9d5e55c9f4b8d0162a42acba73",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/110.mp3": {
+      "bytes": 5040,
+      "sha256": "004e278430654b69aab8b510d1ec0110f505fb7eac31e9295ba9c78d411cb61c",
+      "original_sha256": "004e278430654b69aab8b510d1ec0110f505fb7eac31e9295ba9c78d411cb61c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/111.mp3": {
+      "bytes": 4392,
+      "sha256": "8fbe3557d2144049dacbbdb0cb693c7497ef893e149c72e9ab6e76aa307b21f6",
+      "original_sha256": "8fbe3557d2144049dacbbdb0cb693c7497ef893e149c72e9ab6e76aa307b21f6",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/112.mp3": {
+      "bytes": 4320,
+      "sha256": "d3947e44e9693423d2c683e0421917a768e4001ef80ba6141e73d7f38153e493",
+      "original_sha256": "d3947e44e9693423d2c683e0421917a768e4001ef80ba6141e73d7f38153e493",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/113.mp3": {
+      "bytes": 4464,
+      "sha256": "1cd4a992a416aeb9c0ee1fad8ac1f8af2cf8ecf7b650e4d16756beef795de390",
+      "original_sha256": "1cd4a992a416aeb9c0ee1fad8ac1f8af2cf8ecf7b650e4d16756beef795de390",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/114.mp3": {
+      "bytes": 4104,
+      "sha256": "794b633ec1e2de14964dc47988750007e77b7b2ba8d3ced761124afa02ec27b1",
+      "original_sha256": "794b633ec1e2de14964dc47988750007e77b7b2ba8d3ced761124afa02ec27b1",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/115.mp3": {
+      "bytes": 3600,
+      "sha256": "445032c0638c7da22b69a981b147f8677ee327acd1d355fa1c1c34f9c3717573",
+      "original_sha256": "445032c0638c7da22b69a981b147f8677ee327acd1d355fa1c1c34f9c3717573",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/116.mp3": {
+      "bytes": 4176,
+      "sha256": "d0d2f5b16fad6b7f9bce2bc1381f41c9c9be4ee640a36ba259829c4ce4ffe89f",
+      "original_sha256": "d0d2f5b16fad6b7f9bce2bc1381f41c9c9be4ee640a36ba259829c4ce4ffe89f",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/117.mp3": {
+      "bytes": 3744,
+      "sha256": "6eb63143a33c86989249de5d295285c5cac713a50d22f2cb97d70007233c6306",
+      "original_sha256": "6eb63143a33c86989249de5d295285c5cac713a50d22f2cb97d70007233c6306",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/118.mp3": {
+      "bytes": 5472,
+      "sha256": "2d9f6f22c6b0ef174d8a0d0758ab9848e041f9c6f34bada343ef0636445e297a",
+      "original_sha256": "2d9f6f22c6b0ef174d8a0d0758ab9848e041f9c6f34bada343ef0636445e297a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/119.mp3": {
+      "bytes": 5688,
+      "sha256": "3f1009163ad6818a3e19e48527f18e0add6d75eb8612eecac99bc2ad66ce395d",
+      "original_sha256": "3f1009163ad6818a3e19e48527f18e0add6d75eb8612eecac99bc2ad66ce395d",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/120.mp3": {
+      "bytes": 5760,
+      "sha256": "70e3c09ceecd51ed7fa0f3702975388dc28557d8b92f133c77ae9f941a3a511a",
+      "original_sha256": "70e3c09ceecd51ed7fa0f3702975388dc28557d8b92f133c77ae9f941a3a511a",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/121.mp3": {
+      "bytes": 5616,
+      "sha256": "a7b7b61557abca1eedc400c5274ecb560dff63f9e364b386b8703f29750c09a4",
+      "original_sha256": "a7b7b61557abca1eedc400c5274ecb560dff63f9e364b386b8703f29750c09a4",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/122.mp3": {
+      "bytes": 4176,
+      "sha256": "74255b7d63e975ff51f524a236af8ace1122afddec06ecb1bc4cff828d4db54c",
+      "original_sha256": "74255b7d63e975ff51f524a236af8ace1122afddec06ecb1bc4cff828d4db54c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/123.mp3": {
+      "bytes": 4032,
+      "sha256": "6a736f62e24fe979fe71ffc31e9d8a940cada826da2453416aa42b0b998f71d3",
+      "original_sha256": "6a736f62e24fe979fe71ffc31e9d8a940cada826da2453416aa42b0b998f71d3",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/124.mp3": {
+      "bytes": 4104,
+      "sha256": "9718bf4a3185a92ec8273403117b78d2ee9d417837c68c8119b9b51832e4dc88",
+      "original_sha256": "9718bf4a3185a92ec8273403117b78d2ee9d417837c68c8119b9b51832e4dc88",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/125.mp3": {
+      "bytes": 4392,
+      "sha256": "ece1afee979ca096f8737feb7a9f473abf160423e986e2075d9ff58dbc5c31cb",
+      "original_sha256": "ece1afee979ca096f8737feb7a9f473abf160423e986e2075d9ff58dbc5c31cb",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/126.mp3": {
+      "bytes": 4536,
+      "sha256": "c1908cf237007ada5731b27fb4e226db2f85d63b3570b1c374e45a23d6b6ce28",
+      "original_sha256": "c1908cf237007ada5731b27fb4e226db2f85d63b3570b1c374e45a23d6b6ce28",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/127.mp3": {
+      "bytes": 4536,
+      "sha256": "ed0de89b0d8fdba7b53f660b100d371f08aceee77e3b2541fbf94d2173d1ad1d",
+      "original_sha256": "ed0de89b0d8fdba7b53f660b100d371f08aceee77e3b2541fbf94d2173d1ad1d",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/examples/res_smart_ac/tones/128.mp3": {
+      "bytes": 4464,
+      "sha256": "a1c5f999187c8738d4239166eeb3ccf1c74210a8a6edfa9de6e4e51a8b1463f8",
+      "original_sha256": "a1c5f999187c8738d4239166eeb3ccf1c74210a8a6edfa9de6e4e51a8b1463f8",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_asr.c": {
+      "bytes": 3242,
+      "sha256": "4591ce159b6da6af22eab7b23fe68859acde465b0200105e45bb911382e93541",
+      "original_sha256": "4591ce159b6da6af22eab7b23fe68859acde465b0200105e45bb911382e93541",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_event.c": {
+      "bytes": 1860,
+      "sha256": "d0cbdfa0903adc75a253b3151c0bdb0ff1a4fb65c1a1a4e32b10edddf5ed0773",
+      "original_sha256": "d0cbdfa0903adc75a253b3151c0bdb0ff1a4fb65c1a1a4e32b10edddf5ed0773",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_file.c": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_flash.c": {
+      "bytes": 2132,
+      "sha256": "0854773f444a72ad28cc6d449f4eca61c3f7262b7ed27970bfad67a4c8defd5c",
+      "original_sha256": "0854773f444a72ad28cc6d449f4eca61c3f7262b7ed27970bfad67a4c8defd5c",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_gpio.c": {
+      "bytes": 14398,
+      "sha256": "6304803a6a28f9aa75cd471d9fd0484a09fac55742f49bb92ee85fa1a5cd9ccd",
+      "original_sha256": "6304803a6a28f9aa75cd471d9fd0484a09fac55742f49bb92ee85fa1a5cd9ccd",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_main.c": {
+      "bytes": 3267,
+      "sha256": "28fd9bb7b7786c1cd255977b8069a4e0b99144e7dc1509f62fbe862d17794d48",
+      "original_sha256": "28fd9bb7b7786c1cd255977b8069a4e0b99144e7dc1509f62fbe862d17794d48",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_player.c": {
+      "bytes": 5838,
+      "sha256": "59ffbc82c84524bc4946d5b47398f090c16589b2d062f5c351b4249c7ee10e38",
+      "original_sha256": "59ffbc82c84524bc4946d5b47398f090c16589b2d062f5c351b4249c7ee10e38",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_power.c": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_pwm.c": {
+      "bytes": 7699,
+      "sha256": "64827695d5da4fd38b2b21a48ca57607dbef28795d2380d1dba95bbddb63ec03",
+      "original_sha256": "64827695d5da4fd38b2b21a48ca57607dbef28795d2380d1dba95bbddb63ec03",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_record.c": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_start.c": {
+      "bytes": 2786,
+      "sha256": "5dcf1e342c985cb581427faa720cd40f6e77c54a50ae9444eaa465780f37d916",
+      "original_sha256": "5dcf1e342c985cb581427faa720cd40f6e77c54a50ae9444eaa465780f37d916",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_timer.c": {
+      "bytes": 2570,
+      "sha256": "06ecc9fa2332b32a9fe137d83851e7ae67661593fcb290fe4971b90c15a31495",
+      "original_sha256": "06ecc9fa2332b32a9fe137d83851e7ae67661593fcb290fe4971b90c15a31495",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_uart.c": {
+      "bytes": 3236,
+      "sha256": "43edef7086585c9c241c6df4b14aa5370888c3cfcd30bf4b2d171926deeaa756",
+      "original_sha256": "43edef7086585c9c241c6df4b14aa5370888c3cfcd30bf4b2d171926deeaa756",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_uni_sucp.c": {
+      "bytes": 6108,
+      "sha256": "ffb5ad2f8164d9d39615382b1fc3b4b365e3bd32649ba00bffcc15c760776635",
+      "original_sha256": "ffb5ad2f8164d9d39615382b1fc3b4b365e3bd32649ba00bffcc15c760776635",
+      "modified": false
+    },
+    "uni_hb_m_solution/unione_lite_app_hb_m/user/src/user_uni_ucp.c": {
+      "bytes": 4210,
+      "sha256": "84a20cff1dd8c1e26cbbd6888ebab1396b31abcde057a371451a79ce234a1edf",
+      "original_sha256": "84a20cff1dd8c1e26cbbd6888ebab1396b31abcde057a371451a79ce234a1edf",
+      "modified": false
+    }
+  }
+}

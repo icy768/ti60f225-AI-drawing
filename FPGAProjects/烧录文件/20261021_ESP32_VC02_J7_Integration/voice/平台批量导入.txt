@@ -1,0 +1,4 @@
+Style0=切换梵高@一
+Style1=切换浮世绘@二
+Style2=切换水墨@三
+ViewNext=切换画面@四

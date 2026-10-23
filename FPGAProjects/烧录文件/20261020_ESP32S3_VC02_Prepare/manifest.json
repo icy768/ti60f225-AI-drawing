@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-20",
+  "status": "offline build; not flashed or board-tested",
+  "cli": "arduino-cli  Version: 1.5.1 Commit: 01f3d4f2b Date: 2026-06-05T10:22:12Z",
+  "source_sha256": {
+    "config.h": "b73cbd61ac953006db7d37fa36ddf59c81ab10f1450e898b94ad4d022a449766",
+    "esp32s3_stream.ino": "ff84d4d118cfa8fa7554297c38444dab595164625e446b5b81444dda9dfdf353",
+    "web_page.h": "39233ab800e40ca468e408572dadefccc2bcd5fd1cbb4a2453acc1b0094258e0"
+  },
+  "variants": {
+    "usb_uart": {
+      "fqbn": "esp32:esp32:esp32s3:FlashSize=16M,PSRAM=opi,PartitionScheme=app3M_fat9M_16MB,USBMode=hwcdc,CDCOnBoot=default",
+      "sha256": {
+        "esp32s3_stream.ino.bin": "470a42dd79382f0bfa6ee9bb845039090a270bcf4ed1eb8d658e3e1dc5a3df24",
+        "esp32s3_stream.ino.bootloader.bin": "a9e4646a54fd2fe0dbfe724788a68597d5fb4820acd1203aa1f8502922243153",
+        "esp32s3_stream.ino.merged.bin": "dfd4bf4545a42e63202f508506b49edf203bf95f64c266d2dfe79df2169e6230",
+        "esp32s3_stream.ino.partitions.bin": "ace02503447d0f470692e65fa76002f2d77a92dc81cd3813d8aa66718d716da9"
+      }
+    },
+    "native_usb": {
+      "fqbn": "esp32:esp32:esp32s3:FlashSize=16M,PSRAM=opi,PartitionScheme=app3M_fat9M_16MB,USBMode=hwcdc,CDCOnBoot=cdc",
+      "sha256": {
+        "esp32s3_stream.ino.bin": "94eff3b6a7dd79191c7ea054b25d0d3115eac065f12d0e15c5e6d15ef75d869f",
+        "esp32s3_stream.ino.bootloader.bin": "a9e4646a54fd2fe0dbfe724788a68597d5fb4820acd1203aa1f8502922243153",
+        "esp32s3_stream.ino.merged.bin": "54e146ad9cf9e298e3d97e2c38413edd56b8642139fd3e7b69a5344cd76fa9b9",
+        "esp32s3_stream.ino.partitions.bin": "ace02503447d0f470692e65fa76002f2d77a92dc81cd3813d8aa66718d716da9"
+      }
+    }
+  },
+  "build_script_sha256": "d0c2d170262eda152ee2a92cb5e86a24836ce11f7040400af95eef72842bee98",
+  "compile_overrides": {
+    "compiler.size.cmd": "xtensa-esp-elf-size"
+  }
+}

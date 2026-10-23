@@ -1,0 +1,334 @@
+{
+  "commit": "7d95dbeaf9b3e9545814be7081390c2f79f2c727",
+  "model": "D1B60_B_FWP1",
+  "scope": "CPU host integer reference, same-frame IN statistics; static-scene approximation. No board, Flash, RTL, full boot or board FPS test in this evaluation.",
+  "size": [
+    640,
+    480
+  ],
+  "input_policy": "Same RGB image, LANCZOS resize to 640x480, no output postprocessing",
+  "torch": "2.13.0+cu126",
+  "checks": {
+    "passed": true,
+    "selected_manifest_files": 33,
+    "downloaded_files": 54,
+    "full_upstream_package_verified": false,
+    "current_local_baseline_exact": true,
+    "convolution_weights_and_topology_unchanged": true,
+    "changed_parameter_fields": [
+      {
+        "layer": 0,
+        "name": "e1",
+        "field": "gamma",
+        "changed_scalars": 16
+      },
+      {
+        "layer": 0,
+        "name": "e1",
+        "field": "beta",
+        "changed_scalars": 16
+      },
+      {
+        "layer": 1,
+        "name": "e2",
+        "field": "gamma",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 1,
+        "name": "e2",
+        "field": "beta",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 2,
+        "name": "r0a",
+        "field": "gamma",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 2,
+        "name": "r0a",
+        "field": "beta",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 3,
+        "name": "r0d",
+        "field": "gamma",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 3,
+        "name": "r0d",
+        "field": "beta",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 4,
+        "name": "r1a",
+        "field": "gamma",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 4,
+        "name": "r1a",
+        "field": "beta",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 5,
+        "name": "r1d",
+        "field": "gamma",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 5,
+        "name": "r1d",
+        "field": "beta",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 6,
+        "name": "r2a",
+        "field": "gamma",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 6,
+        "name": "r2a",
+        "field": "beta",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 7,
+        "name": "r2d",
+        "field": "gamma",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 7,
+        "name": "r2d",
+        "field": "beta",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 8,
+        "name": "r3a",
+        "field": "gamma",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 8,
+        "name": "r3a",
+        "field": "beta",
+        "changed_scalars": 24
+      },
+      {
+        "layer": 9,
+        "name": "r3d",
+        "field": "gamma",
+        "changed_scalars": 23
+      },
+      {
+        "layer": 9,
+        "name": "r3d",
+        "field": "beta",
+        "changed_scalars": 23
+      },
+      {
+        "layer": 10,
+        "name": "d1a",
+        "field": "gamma",
+        "changed_scalars": 23
+      },
+      {
+        "layer": 10,
+        "name": "d1a",
+        "field": "beta",
+        "changed_scalars": 23
+      },
+      {
+        "layer": 11,
+        "name": "d1b",
+        "field": "gamma",
+        "changed_scalars": 16
+      },
+      {
+        "layer": 11,
+        "name": "d1b",
+        "field": "beta",
+        "changed_scalars": 16
+      }
+    ],
+    "changed_affine_scalars": 540,
+    "non_target_styles_parameters_exact": true,
+    "inference_qparams_match_deployed_IN_ROM": true,
+    "qparams_export_blob_matches_selected_blob": true,
+    "blob_bytes": 48616,
+    "blob_crc32": "20d4d7eb",
+    "firmware_changed_bytes": 10,
+    "firmware_ROM_lanes_exact": true,
+    "bit_sha256": "d05ca9a28994af523131805a1e427a622ce8dcedba1b386bb023052dbdd74475"
+  },
+  "cases": [
+    {
+      "case": "person_face",
+      "style": "梵高",
+      "style_index": 0,
+      "source_sha256": "5f269bc4d33161bf57a8366f1eeca10f301823fd445ab7eceb47e70ab272e97c",
+      "max_LSB": 157,
+      "mean_LSB": 17.177180989583334,
+      "changed_pixel_fraction": 0.99951171875,
+      "exact": false,
+      "host_pair_seconds": 0.5275468000327237,
+      "old_sha256": "9036cd229fca3bd7807f0e4af6dfecda0a7d06c9b3d5791c4e2558d85b5d067c",
+      "new_sha256": "5375547d41ddf0372f82048d0407ff64b2cdf87ff4d779b7cdbae67162ebb62d"
+    },
+    {
+      "case": "person_face",
+      "style": "浮世绘",
+      "style_index": 1,
+      "source_sha256": "5f269bc4d33161bf57a8366f1eeca10f301823fd445ab7eceb47e70ab272e97c",
+      "max_LSB": 0,
+      "mean_LSB": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "exact": true,
+      "host_pair_seconds": 0.6063537999871187,
+      "old_sha256": "7971e5d900c74a40f9729badc1436ba7117b531cbb76ae1c00fc008008b66216",
+      "new_sha256": "7971e5d900c74a40f9729badc1436ba7117b531cbb76ae1c00fc008008b66216"
+    },
+    {
+      "case": "person_face",
+      "style": "水墨",
+      "style_index": 2,
+      "source_sha256": "5f269bc4d33161bf57a8366f1eeca10f301823fd445ab7eceb47e70ab272e97c",
+      "max_LSB": 0,
+      "mean_LSB": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "exact": true,
+      "host_pair_seconds": 0.5404683999950066,
+      "old_sha256": "a9c99d8e42ecf5fec14872b81e216f6f83b59dbc6adad7aa661c585fa9f559c4",
+      "new_sha256": "a9c99d8e42ecf5fec14872b81e216f6f83b59dbc6adad7aa661c585fa9f559c4"
+    },
+    {
+      "case": "water_day",
+      "style": "梵高",
+      "style_index": 0,
+      "source_sha256": "769fd330ac8902d64778be5c2448e7d45a85c943e8f2f1dc43a2b70ab861a883",
+      "max_LSB": 140,
+      "mean_LSB": 18.41484157986111,
+      "changed_pixel_fraction": 0.9996842447916666,
+      "exact": false,
+      "host_pair_seconds": 0.4110131000052206,
+      "old_sha256": "6c01e565119839adafab3f7d11262bb424070267ed4114209c51d29fe5629a01",
+      "new_sha256": "1cc4b568500ec7c8b0a83014f07f25df552da1f9bc0cabb815dd814e5cb00457"
+    },
+    {
+      "case": "water_day",
+      "style": "浮世绘",
+      "style_index": 1,
+      "source_sha256": "769fd330ac8902d64778be5c2448e7d45a85c943e8f2f1dc43a2b70ab861a883",
+      "max_LSB": 0,
+      "mean_LSB": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "exact": true,
+      "host_pair_seconds": 0.4222633999888785,
+      "old_sha256": "ca83795938b627d46cc08d2059818fece46b97c06cabc18500da48277b0e810f",
+      "new_sha256": "ca83795938b627d46cc08d2059818fece46b97c06cabc18500da48277b0e810f"
+    },
+    {
+      "case": "water_day",
+      "style": "水墨",
+      "style_index": 2,
+      "source_sha256": "769fd330ac8902d64778be5c2448e7d45a85c943e8f2f1dc43a2b70ab861a883",
+      "max_LSB": 0,
+      "mean_LSB": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "exact": true,
+      "host_pair_seconds": 0.40278720000060275,
+      "old_sha256": "014779df1b7163707137bcd3f28d49ad4a67de8c7f146a99c40010672df3ed6a",
+      "new_sha256": "014779df1b7163707137bcd3f28d49ad4a67de8c7f146a99c40010672df3ed6a"
+    },
+    {
+      "case": "architecture",
+      "style": "梵高",
+      "style_index": 0,
+      "source_sha256": "30417968a68448904fd9f50ba01bff2fa11531d9f95282dd30b2f2019fb59f75",
+      "max_LSB": 136,
+      "mean_LSB": 17.743403862847224,
+      "changed_pixel_fraction": 0.9997688802083333,
+      "exact": false,
+      "host_pair_seconds": 0.41366439999546856,
+      "old_sha256": "258fcfb9d52cb11fcce873ee52e3696f9732a2c3f45fd2bf6e5559992c14f806",
+      "new_sha256": "babfe16ca93f241a1a80328023d43446efdb79bbd4b696f4b4e1931982cb84ec"
+    },
+    {
+      "case": "architecture",
+      "style": "浮世绘",
+      "style_index": 1,
+      "source_sha256": "30417968a68448904fd9f50ba01bff2fa11531d9f95282dd30b2f2019fb59f75",
+      "max_LSB": 0,
+      "mean_LSB": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "exact": true,
+      "host_pair_seconds": 0.39966230001300573,
+      "old_sha256": "61ba5096594da9e55c27308ba7ba4d35e6d64ba32511e80a987038948b8dc6ae",
+      "new_sha256": "61ba5096594da9e55c27308ba7ba4d35e6d64ba32511e80a987038948b8dc6ae"
+    },
+    {
+      "case": "architecture",
+      "style": "水墨",
+      "style_index": 2,
+      "source_sha256": "30417968a68448904fd9f50ba01bff2fa11531d9f95282dd30b2f2019fb59f75",
+      "max_LSB": 0,
+      "mean_LSB": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "exact": true,
+      "host_pair_seconds": 0.4752736000227742,
+      "old_sha256": "8b3b668115f7f628c4e298c81b293ab0b0af2f4901af03053c945eeb5794f09b",
+      "new_sha256": "8b3b668115f7f628c4e298c81b293ab0b0af2f4901af03053c945eeb5794f09b"
+    },
+    {
+      "case": "plants_garden",
+      "style": "梵高",
+      "style_index": 0,
+      "source_sha256": "270a562a7b3a3b6c8921c582acaeb2bcd54c8a3f0f5cefe3668e0fa7c8866f65",
+      "max_LSB": 142,
+      "mean_LSB": 16.311653645833335,
+      "changed_pixel_fraction": 0.9998274739583334,
+      "exact": false,
+      "host_pair_seconds": 0.49348669999744743,
+      "old_sha256": "3d26769d8ebc70bd64d9297470a752cfe27db91d7d8b50a0afdc28e0886fd3a8",
+      "new_sha256": "2c3a3a5c7f62477254d63abd6f7d69f601946ea296ae74672201279b032acb33"
+    },
+    {
+      "case": "plants_garden",
+      "style": "浮世绘",
+      "style_index": 1,
+      "source_sha256": "270a562a7b3a3b6c8921c582acaeb2bcd54c8a3f0f5cefe3668e0fa7c8866f65",
+      "max_LSB": 0,
+      "mean_LSB": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "exact": true,
+      "host_pair_seconds": 0.516653899976518,
+      "old_sha256": "002d930304b128ea51a2aa9350061c4cde8c7885270ef3a303cedeee324d3ee7",
+      "new_sha256": "002d930304b128ea51a2aa9350061c4cde8c7885270ef3a303cedeee324d3ee7"
+    },
+    {
+      "case": "plants_garden",
+      "style": "水墨",
+      "style_index": 2,
+      "source_sha256": "270a562a7b3a3b6c8921c582acaeb2bcd54c8a3f0f5cefe3668e0fa7c8866f65",
+      "max_LSB": 0,
+      "mean_LSB": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "exact": true,
+      "host_pair_seconds": 0.45559620001586154,
+      "old_sha256": "4a929e19f34c236a0181c96d285cc17b0383094448a8d821f94d2a5eaa31e4ef",
+      "new_sha256": "4a929e19f34c236a0181c96d285cc17b0383094448a8d821f94d2a5eaa31e4ef"
+    }
+  ],
+  "passed": true,
+  "non_target_exact_cases": 8
+}

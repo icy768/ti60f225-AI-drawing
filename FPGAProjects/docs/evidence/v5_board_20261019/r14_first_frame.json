@@ -1,0 +1,12 @@
+{
+  "fpga_id": "53430a0e",
+  "mode": "RAM FPGA + UART to volatile DDR",
+  "Flash_modified": false,
+  "model_sha256": "e789645674e7da5ccaa2c71414e31165e8c83102b08c6b2d6411b94cf51a1889",
+  "bit_sha256": "8cd69aa5b17a995e3f98d9bf525ef59c098501f92db9a67f2e8dac3b387ca2b6",
+  "uart_upload_verified": true,
+  "first_frame_published": true,
+  "user_picture_accepted": false,
+  "passed": true,
+  "observation_seconds": 7.9525001
+}

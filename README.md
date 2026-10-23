@@ -1,5 +1,9 @@
 # StyleCam：基于 Ti60F225 的实时 AI 绘画系统
 
+> **老师快速阅读：[网络部分阅读指南](网络部分阅读指南.md)。** 从三风格效果、轻量网络结构到训练量化、FPGA 部署和验证证据，集中了解网络部分的工作；先读约 3 分钟即可掌握主要成果。
+
+> **本地工程已于 2026-10-23 统一到 `C:\Users\lingye\Desktop\FPGA`。** 当前路径、正式版、新版候选和资料位置见 [工程入口](工程入口.md)。10月22日的 D1B60/FWP1 已完成离线效果对比，尚未上板；按最新安排，暂不下载或烧录。
+
 StyleCam 将 **SC431HAI 摄像头**拍摄的实时画面转换为梵高、浮世绘、水墨三种艺术风格，并通过 HDMI 展示原画与风格画。图像采集、颜色处理、INT8 神经网络推理和视频输出在 Ti60F225 FPGA 上完成；片内 Sapphire RISC-V 负责摄像头初始化、自动曝光、模型装载、任务调度、按键交互与 OSD 管理。正常演示无需电脑参与逐帧处理。
 
 项目面向 2026 年全国大学生嵌入式芯片与系统设计竞赛 FPGA 赛道易灵思赛题一，重点是打通摄像头到显示器的完整实时链路，在有限 FPGA 资源内兼顾画面、帧率和交互。
@@ -8,7 +12,9 @@ StyleCam 将 **SC431HAI 摄像头**拍摄的实时画面转换为梵高、浮世
 >
 > 用户已确认自动曝光和三风格画面正常。同一 BIT 重新下载后三风格短时采样为 **29.99～30.01fps**，窗口内无新增运行期跳帧，采集、显示及 AE I²C 错误为 0。已写入 Flash、独立逐字节回读，并在用户按 **RESET_N** 后捕获完整自主启动。物理断电重启、全部布局与长时间压力测试尚未验收。
 >
-> 下载包：[20261018_RISCV11_Main_AE_IN4_Release](FPGAProjects/烧录文件/20261018_RISCV11_Main_AE_IN4_Release/README.md)。当前原 V21b 网络启用自动曝光，手机预览与自动白平衡默认关闭；队友的新网络和手势扩展保留在各自交付/分支，尚未切入本版。固化和清理证据见[集成记录](FPGAProjects/docs/RISCV11固化与总工程集成_20261018.md)。
+> 下载包：[20261018_RISCV11_Main_AE_IN4_Release](FPGAProjects/烧录文件/20261018_RISCV11_Main_AE_IN4_Release/README.md)。当前原 V21b 网络启用自动曝光，手机预览与自动白平衡默认关闭。队友 10 月 18 日的 V4 / paired V5 新网络正在[隔离工程接入试验](FPGAProjects/docs/V5上板结论与网络轻量化建议_20261019.md)，内部 320×240 的[并行加速版](FPGAProjects/docs/V5上板结论与网络轻量化建议_20261019.md)已完成资源、时序和三风格上板验证，R14 按需读取优化版实测 0.85～0.95fps；用户已确认 R14 当前梵高画面正常并能随场景更新；尚未达到流畅实时演示，也未替换正式版。手势扩展保留在各自交付/分支。固化和清理证据见[集成记录](FPGAProjects/docs/RISCV11固化与总工程集成_20261018.md)。
+
+V5 板测结论与轻量化建议已发布至 [GitHub Issue #7](https://github.com/icy768/ti60f225-AI-drawing/issues/7)及[专项报告](FPGAProjects/docs/V5上板结论与网络轻量化建议_20261019.md)。当前继续以 R11/V21b 为主用，V5 实验工程未上传、未覆盖主工程。
 
 ## 项目功能与架构
 
@@ -17,7 +23,7 @@ StyleCam 将 **SC431HAI 摄像头**拍摄的实时画面转换为梵高、浮世
 - **HDMI 对比展示**：支持左原画右风格、风格全屏、原画全屏三种布局；OSD 显示 FPS、风格、网络耗时和摄像头状态。
 - **自动曝光**：在 Gamma 前统计亮度，RISC-V 每 200ms 按需调节 SC431HAI 曝光和模拟增益；复用 APB / I²C，保持摄像头帧周期。目标亮度 64、死区 56～72；AWB 关闭。
 - **独立运行**：开机从 SPI Flash 读取并校验模型，初始化三个风格并连续调度；电脑只用于下载或调试。
-- **创意交互候选**：保留 VC-02 语音、ESP32-S3 控制桥和 96×54 RGB332 手机预览源码。该扩展仍需原生工具链构建、接线和实机并发验证。
+- **创意交互候选**：VC-02 四条命令的 UART 输出已单板验证；ESP32-S3 的 DIO 启动、8MB OPI PSRAM、热点、手机网页及按钮请求已单板验证。独立 J7 预览候选已完成 FPGA 构建和仿真；语音到 FPGA 控制、手机真实预览和整机并发仍待联调。当前 DIO 包复用原生已编译应用并重建启动程序，不宣称完整 DIO 应用重编译通过。
 
 ```mermaid
 flowchart LR
@@ -84,13 +90,13 @@ flowchart LR
 | 工作项 / 分支 | 当前状态 |
 |---|---|
 | 摄像头 → DDR → CNN → HDMI、自动曝光、三风格 | 本版实机通过，已固化并通过 RESET_N 自主启动 |
-| `main` 的整机入口 | 本次集成 RISCV11 AE / IN4；独立的新网络交付目录保留，不启用 |
-| `codex/release-riscv11-ae-in4-20261018` | 本次正式版源码、下载包与证据 |
+| GitHub `main` | 尚未合入本版；PR #6 已创建，按用户安排暂停后续提交和合并；原独立网络交付保留 |
+| `codex/release-riscv11-ae-in4-20261018` | 正式版发布分支保留；当前本地统一目录使用 `codex/consolidated-project-20261023`，整理内容尚未上传 |
 | `feat/basic-requirements` | RISCV08 / ID `53430a08` 恢复基线，保留 |
 | `codex/resource-throughput-20261013` | RISCV10 / ID `53430a0a` 的固化与短时 30fps 基线，保留 |
 | `fw/creative-interaction` / PR #3 | 保留语音、预览及队友手势扩展；最新手势内容未拉取、未并入本版 |
 | 新网络交付及 `codex/tristyle-v4-paired-v5-20261018` | 已确认存在，按用户安排逐步试验，保留 |
-| 原生 ESP32 构建、创意三板联调 | 待完成 |
+| ESP32 / VC-02 单板及创意三板联调 | ESP32 应用已原生构建并完成 DIO 单板验证，VC-02 四条 UART 命令通过；完整三板联调、真实预览和完整 DIO 重编译待完成 |
 | 真实 1280×720@30fps 推理 | 未完成；HDMI 1080p60 不能抵算 |
 | 长期稳定性、标准网络对比、展示与提交材料 | 待完善 |
 
@@ -112,7 +118,9 @@ flowchart LR
 
 ```powershell
 git clone https://github.com/icy768/ti60f225-AI-drawing.git
-cd ti60f225-AI-drawing/FPGAProjects/StyleCam_camera
+cd ti60f225-AI-drawing
+git switch codex/release-riscv11-ae-in4-20261018
+cd FPGAProjects/StyleCam_camera
 
 # 离线核对正式包，不操作硬件
 ./program_ram.ps1 -CheckOnly

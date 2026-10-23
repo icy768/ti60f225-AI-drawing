@@ -1,0 +1,15 @@
+{
+  "number": 6,
+  "html_url": "https://github.com/icy768/ti60f225-AI-drawing/pull/6",
+  "state": "open",
+  "draft": false,
+  "mergeable": false,
+  "mergeable_state": "dirty",
+  "head_sha": "47254c25a6e767d7602da96a4529fb84616c9524",
+  "base_sha": "901534187b38d6e310032dfc686d2767bbd8bc0e",
+  "merged": false,
+  "remote_operations_deferred_by_user": true,
+  "user_instruction": "github可以先不提交",
+  "local_integration_complete": true,
+  "later_local_documentation_not_pushed": true
+}

@@ -22,5 +22,12 @@
   "standalone_candidate_bytes": 14736242,
   "standalone_candidates_archive": "FPGAProjects/_archive/构建缓存清理_20261018/standalone_camera_candidates.zip",
   "standalone_candidates_archive_sha256": "36ac65c500ebbda31dc42956f3e0e6131718e00dec9b0487e6b44ee431201679",
-  "standalone_archive_bytes": 3294818
+  "standalone_archive_bytes": 3294818,
+  "main_outflow_archive": "FPGAProjects/_archive/构建缓存清理_20261018/previous_main_outflow.zip",
+  "main_outflow_archive_sha256": "7865e28a69f42164e610d828a111fc1fc419b8b5d57b920d3fa5432833e34c87",
+  "main_outflow_old_bytes": 82992780,
+  "main_outflow_archive_bytes": 28938649,
+  "main_outflow_current_bytes": 8551309,
+  "main_outflow_synced_to_release": true,
+  "total_net_bytes_reclaimed": 682258586
 }

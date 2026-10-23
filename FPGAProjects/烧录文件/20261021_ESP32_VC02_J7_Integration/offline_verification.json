@@ -1,0 +1,50 @@
+{
+  "fpga_all_flows_passed": true,
+  "fpga_setup_min_ns": 0.355,
+  "fpga_hold_min_ns": 0.026,
+  "fpga_resources": {
+    "xlr": {
+      "used": 56227,
+      "total": 60800
+    },
+    "ram10": {
+      "used": 244,
+      "total": 256
+    },
+    "dsp": {
+      "used": 145,
+      "total": 160
+    }
+  },
+  "main_sources_unchanged": true,
+  "candidate_semantic_changes": [
+    "rtl/ti60f225_oob_top.v",
+    "ti60f225_oob.peri.xml"
+  ],
+  "project_xml_format_normalized": [
+    "ti60f225_oob.xml"
+  ],
+  "project_settings_unchanged": true,
+  "candidate_sha_matches_build": true,
+  "packaged_files_sha_verified": true,
+  "esp32_image_hashes_passed": true,
+  "preview_simulation_cases": 7,
+  "preview_simulations_passed": true,
+  "independent_frame_parser_passed": true,
+  "powershell_scripts_parse_passed": true,
+  "local_document_links_passed": true,
+  "voice_project_bin_present": true,
+  "voice_update_preparation_executed": true,
+  "serial_opened_this_run": false,
+  "hardware_programmed_this_run": false,
+  "fpga_hardware_validated": false,
+  "voice_uart_hardware_validated": false,
+  "updated": "2026-10-23",
+  "voice_sdk_static_checks_passed": true,
+  "voice_sdk_version": "20261023001",
+  "voice_compiled_nlu_checked": true,
+  "voice_binary_compared_except_build_stamp": true,
+  "voice_recognition_hardware_validated": false,
+  "esp32_check_only_rerun": "2026-10-23 PASS",
+  "fpga_check_only_rerun": "2026-10-23 PASS"
+}

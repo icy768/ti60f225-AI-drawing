@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-23",
+  "scope": "VC-02 standalone recognition and module UART only; ESP32 and FPGA not tested",
+  "port": "COM29",
+  "chip_usb": "CH340 VID_1A86 PID_7523",
+  "firmware_platform_version": "20261023001",
+  "firmware_sha256": "57fd62fc868b0c7be1a22d5032f8573f4b39b9ea29754826b372eecaa5863239",
+  "flash_completed_user_report": true,
+  "flash_readback_verified": false,
+  "button_labels_user_report": [
+    "RESET",
+    "IOA20唤醒"
+  ],
+  "voice_wakeup_reply_user_report": false,
+  "ioa20_reply_after_reset_user_report": false,
+  "generated_config_has_ioa20_button_action": false,
+  "uart_capture_run": "run_04_isolated_cold_boot/uart_capture.json",
+  "uart_capture_bytes": 20,
+  "all_four_raw_frames_observed": true,
+  "hardware_photo_reviewed": false,
+  "next_step": "Identify the external sounder and confirm wiring/impedance before further audio changes.",
+  "esp32_programmed_this_run": false,
+  "fpga_programmed_this_run": false,
+  "factory_baseline_user_report": {
+    "ioa20_previously_lit_indicator": true,
+    "old_lamp_commands_worked": true,
+    "voice_replies_were_always_absent": true
+  },
+  "isolated_cold_boot_user_confirmed": true,
+  "first_command_observed": {
+    "word": "切换梵高",
+    "frame": "A1 00 01 01 FF",
+    "run": "run_04_isolated_cold_boot",
+    "correct": true
+  },
+  "waiting_for_other_three_commands": false,
+  "audio_reply_verified": false,
+  "observed_working_condition": "All inter-board Dupont wires disconnected; VC-02 USB cold boot; say wake word then command after one second without waiting for sound or LED.",
+  "causal_limit": "Isolation, power cycling and removing the audio-response wait were changed together; the exact cause of earlier silence is not established.",
+  "voice_recognition_and_module_uart_passed": true,
+  "speaker_connected_user_report": true,
+  "speaker_terminals_user_report": "SPK+/SPK−",
+  "speaker_description_user_report": "黑色的小圆柱体，阻抗功率不详",
+  "speaker_type_verified": false
+}

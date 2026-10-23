@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-22",
+  "basis": "Visible platform DOM, control details and basic information inspected",
+  "static_configuration_passed": true,
+  "wake_word": "小安小安",
+  "uart": {
+    "rx": "GPIO_B6 / Pin7 / UART1_RX",
+    "tx": "GPIO_B7 / Pin8 / UART1_TX",
+    "baud": 115200,
+    "data_bits": 8,
+    "stop_bits": 1,
+    "parity": "none"
+  },
+  "a28": "GPIO default low",
+  "sw_clk_and_sw_d_preserved": true,
+  "b2_b3": "GPIO default low",
+  "audio": {
+    "microphone": "single",
+    "distance": "far 1-5m",
+    "aec": false,
+    "stationary_noise_reduction": false
+  },
+  "automatic_learning": false,
+  "wake_sensitivity": "medium",
+  "command_sensitivity": "medium",
+  "wake_free_selected": 0,
+  "commands": [
+    {
+      "action": "Style0",
+      "word": "切换梵高",
+      "reply": "一",
+      "output": "UART1_TX",
+      "operation": "send",
+      "hex": "A1 00 01 01 FF"
+    },
+    {
+      "action": "Style1",
+      "word": "切换浮世绘",
+      "reply": "二",
+      "output": "UART1_TX",
+      "operation": "send",
+      "hex": "A1 00 02 01 FF"
+    },
+    {
+      "action": "Style2",
+      "word": "切换水墨",
+      "reply": "三",
+      "output": "UART1_TX",
+      "operation": "send",
+      "hex": "A1 00 03 01 FF"
+    },
+    {
+      "action": "ViewNext",
+      "word": "切换画面",
+      "reply": "四",
+      "output": "UART1_TX",
+      "operation": "send",
+      "hex": "A1 00 04 01 FF"
+    }
+  ],
+  "one_uart_output_per_command": true,
+  "firmware_generation_started_by_agent": false,
+  "project_update_bin_present": false,
+  "hardware_validation_performed": false
+}

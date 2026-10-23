@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-20",
+  "status": "ESP32 standalone boot, PSRAM, Wi-Fi webpage and command requests validated; voice UART and FPGA integration pending",
+  "chip": "ESP32-S3 rev 0.2",
+  "port": "COM28",
+  "mac": "1c:29:04:22:84:c4",
+  "flash_bytes": 16777216,
+  "psram_physical_bytes": 8388608,
+  "variant": "usb_uart",
+  "flash_mode": "DIO 80MHz",
+  "psram_mode": "OPI",
+  "backup": {
+    "file": "original_flash_16MB.bin",
+    "bytes": 16777216,
+    "sha256": "7221aeb9f524ccea5571996451c0693366a450ce2b1c2bdcb7bec24a545fccdf"
+  },
+  "flash_programming_hash_verified": true,
+  "bootloader_update": {
+    "offset": 0,
+    "bytes": 18976,
+    "sha256": "22e423eb146346aef4fca9bc401d3377cc035a0d172f9c695557f954e69401d8",
+    "esptool_hash_verified": true
+  },
+  "application_sha256": "470a42dd79382f0bfa6ee9bb845039090a270bcf4ed1eb8d658e3e1dc5a3df24",
+  "application_unchanged_from_original_native_build": true,
+  "qio_startup_message_resolved": true,
+  "boot_capture_seconds": 45,
+  "fatal_or_panic_seen": false,
+  "stats_samples": 50,
+  "minimum_free_psram_bytes": 8314508,
+  "command_count_observed": 3,
+  "preview_frames_observed": 0,
+  "preview_absence_expected_without_fpga": true,
+  "crc_errors_observed": 0,
+  "sync_losses_observed": 0,
+  "user_phone_acceptance": {
+    "wifi_web_and_button_confirmed": true,
+    "statement": "能打开，已点按钮"
+  },
+  "voice_uart_verified": false,
+  "fpga_connected_or_programmed": false,
+  "github_submitted": false,
+  "full_arduino_dio_rebuild_completed": false,
+  "packaging_method": "Reuse hash-verified native-built application and partition binaries; regenerate only the bootloader from the installed official DIO ELF. Full Arduino DIO rebuild stalled before compilation and is not claimed.",
+  "package": "../../../../烧录文件/20261020_ESP32S3_VC02_DIO_BoardTrial"
+}

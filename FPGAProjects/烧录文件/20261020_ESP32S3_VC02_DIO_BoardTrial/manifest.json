@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-20",
+  "status": "usb_uart board-validated for boot, PSRAM, phone Wi-Fi HTTP and command requests; native_usb, voice UART and FPGA integration not board-validated",
+  "method": "Reuse hash-verified native-built application and partition binaries; regenerate only the bootloader from the installed official DIO ELF. Full Arduino DIO rebuild stalled before compilation and is not claimed.",
+  "cli": "arduino-cli  Version: 1.5.1 Commit: 01f3d4f2b Date: 2026-06-05T10:22:12Z",
+  "source_sha256": {
+    "config.h": "b73cbd61ac953006db7d37fa36ddf59c81ab10f1450e898b94ad4d022a449766",
+    "esp32s3_stream.ino": "ff84d4d118cfa8fa7554297c38444dab595164625e446b5b81444dda9dfdf353",
+    "web_page.h": "39233ab800e40ca468e408572dadefccc2bcd5fd1cbb4a2453acc1b0094258e0"
+  },
+  "source_package_manifest_sha256": "7863a662adb8c894129daa448315b17abd8dd98f671b9fcf8a3b03c06c942103",
+  "bootloader_elf": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\esp32\\data\\packages\\esp32\\tools\\esp32-arduino-libs\\idf-release_v5.5-07e9bf49-v1-cn\\esp32s3\\bin\\bootloader_dio_80m.elf",
+  "bootloader_elf_sha256": "2904632a59ccd141a4a7fec4644493c542b65db51c78c018741e0f1ff07e7dc8",
+  "boot_app0_sha256": "f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0",
+  "variants": {
+    "usb_uart": {
+      "fqbn": "esp32:esp32:esp32s3:FlashSize=16M,FlashMode=dio,PSRAM=opi,PartitionScheme=app3M_fat9M_16MB,USBMode=hwcdc,CDCOnBoot=default",
+      "application_original_fqbn": "esp32:esp32:esp32s3:FlashSize=16M,PSRAM=opi,PartitionScheme=app3M_fat9M_16MB,USBMode=hwcdc,CDCOnBoot=default",
+      "application_identical": true,
+      "partition_table_identical": true,
+      "outside_bootloader_identical": true,
+      "bootloader_bytes": 18976,
+      "sha256": {
+        "esp32s3_stream.ino.bin": "470a42dd79382f0bfa6ee9bb845039090a270bcf4ed1eb8d658e3e1dc5a3df24",
+        "esp32s3_stream.ino.bootloader.bin": "22e423eb146346aef4fca9bc401d3377cc035a0d172f9c695557f954e69401d8",
+        "esp32s3_stream.ino.merged.bin": "714acf36dd57e9c4db696d6e02890c11a4ca8ca3db4dde36a594509b8ba3b3db",
+        "esp32s3_stream.ino.partitions.bin": "ace02503447d0f470692e65fa76002f2d77a92dc81cd3813d8aa66718d716da9"
+      }
+    },
+    "native_usb": {
+      "fqbn": "esp32:esp32:esp32s3:FlashSize=16M,FlashMode=dio,PSRAM=opi,PartitionScheme=app3M_fat9M_16MB,USBMode=hwcdc,CDCOnBoot=cdc",
+      "application_original_fqbn": "esp32:esp32:esp32s3:FlashSize=16M,PSRAM=opi,PartitionScheme=app3M_fat9M_16MB,USBMode=hwcdc,CDCOnBoot=cdc",
+      "application_identical": true,
+      "partition_table_identical": true,
+      "outside_bootloader_identical": true,
+      "bootloader_bytes": 18976,
+      "sha256": {
+        "esp32s3_stream.ino.bin": "94eff3b6a7dd79191c7ea054b25d0d3115eac065f12d0e15c5e6d15ef75d869f",
+        "esp32s3_stream.ino.bootloader.bin": "22e423eb146346aef4fca9bc401d3377cc035a0d172f9c695557f954e69401d8",
+        "esp32s3_stream.ino.merged.bin": "91a709212008d446b876d86980d4210372c2185dae46fdce8073b1bfd81e33cd",
+        "esp32s3_stream.ino.partitions.bin": "ace02503447d0f470692e65fa76002f2d77a92dc81cd3813d8aa66718d716da9"
+      }
+    }
+  },
+  "board_validation_record": "../../StyleCam_camera/validation/esp32_standalone_20261020/run_1792464105683/board_validation.json"
+}

@@ -1,0 +1,23 @@
+{
+  "Arduino CLI 1.5.1": {
+    "path": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\esp32\\bin\\arduino-cli.exe",
+    "bytes": 37731328,
+    "sha256": "1017de89179c3167e6b8a38ca6cc4091fa69a3cf97aafa7810f01423003f5571"
+  },
+  "VC-02 serial updater": {
+    "path": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\vc02\\serial-update-tool\\Hummingbird-M-Update-Tool\\UniOneUpdateTool.exe",
+    "bytes": 3592192,
+    "sha256": "52df6a4adc08475901e174fda1ae37b99dd0936e8093668113e408f4a8131322"
+  },
+  "VC-02 updater archive": {
+    "path": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\vc02\\hummingbird-m-update-tool.zip",
+    "bytes": 7088326,
+    "sha256": "eb94d428b98633ca8b41795d0df4d1f3cdf88f06575c4bb3996a1bd314e004d0"
+  },
+  "serial driver archive": {
+    "path": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\vc02\\serial_driver_windows.7z",
+    "bytes": 4040340,
+    "sha256": "5341007725410f06d0267c91a1cf5d2dca1820f20949c470e09a552b69521fac"
+  },
+  "scope": "Downloaded only; no driver installation and no device access"
+}

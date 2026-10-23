@@ -45,7 +45,10 @@
  *  1. UART1 is the user data port, and both its pins and its baud rate are chosen in
  *     the platform.  The vendor walk-through uses 115200 8N1 with B6 = UART1_RX and
  *     B7 = UART1_TX (the VC-02-Kit header silkscreens these RX1 / TX1), which is also
- *     the UART1 factory default per the datasheet - so that is what VOICE_BAUD assumes.
+ *     the UART1 factory default per the kit datasheet - so that is what VOICE_BAUD assumes.
+ *     Note: the 2026 VC-02 module pin table reverses B6/B7 relative to the kit schematic
+ *     and platform tutorial. Wire by the kit's TX1/RX1 labels and verify the actual
+ *     output before changing platform pin assignments; see docs/integration_20261019.md.
  *     Do not enable a second UART1 in the platform or UART1 stops working.  The other
  *     exposed UART, UART0 on IOB8 at 57600, is the log port - not recognition results.
  *     Power the kit from 5 V (VCC 4.5-5.3 V, >= 500 mA); its IO is 3.3 V, so the UART

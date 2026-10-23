@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "cases": {
+    "small": {
+      "passed": true,
+      "log": "OK frame 1 seq=00 40x30 len=2400 crc=00f8\nOK frame 2 seq=01 40x30 len=2400 crc=5341\nOK frame 3 seq=02 40x30 len=2400 crc=a78a\nOK frame 4 seq=03 40x30 len=2400 crc=f433\nOK frame 5 seq=04 40x30 len=2400 crc=5e3d\ntap captured=6 dropped=0 | link frames=5 bytes=13276 aborts=0\nFIFO peak=728 capacity=4096 format=0\nPASS tap decimation, framing, CRC and pixel values\nsim/stream_link_tb.v:195: $finish called at 3600315000 (1ps)\n"
+    },
+    "recovery": {
+      "passed": true,
+      "log": "OK frame 1 seq=01 16x8 len=256 crc=b783\nOK frame 2 seq=02 16x8 len=256 crc=78a8\nOK frame 3 seq=03 16x8 len=256 crc=cdae\nOK frame 4 seq=04 16x8 len=256 crc=f6df\nOK frame 5 seq=05 16x8 len=256 crc=43d9\nOK frame 6 seq=06 16x8 len=256 crc=8cf2\nOK frame 7 seq=07 16x8 len=256 crc=39f4\nOK frame 8 seq=08 16x8 len=256 crc=fa10\nOK frame 9 seq=09 16x8 len=256 crc=4f16\ntap captured=10 dropped=1 | link frames=10 bytes=2708 aborts=1\nFIFO peak=64 capacity=64 format=0\nPASS tap decimation, framing, CRC and pixel values\nsim/stream_link_tb.v:195: $finish called at 1923939000 (1ps)\n"
+    },
+    "1080p60": {
+      "passed": true,
+      "log": "OK frame 1 seq=00 96x54 len=10368 crc=4988\nOK frame 2 seq=01 96x54 len=10368 crc=6404\nOK frame 3 seq=02 96x54 len=10368 crc=1290\ntap captured=4 dropped=0 | link frames=3 bytes=35247 aborts=0\nFIFO peak=3275 capacity=4096 format=0\nPASS tap decimation, framing, CRC and pixel values\nsim/stream_link_tb.v:195: $finish called at 133333525000 (1ps)\n"
+    },
+    "rgb332_small": {
+      "passed": true,
+      "log": "OK frame 1 seq=00 40x30 len=1200 crc=721a\nOK frame 2 seq=01 40x30 len=1200 crc=96cf\nOK frame 3 seq=02 40x30 len=1200 crc=ab91\nOK frame 4 seq=03 40x30 len=1200 crc=4f44\nOK frame 5 seq=04 40x30 len=1200 crc=d12d\nOK frame 6 seq=05 40x30 len=1200 crc=35f8\ntap captured=6 dropped=0 | link frames=6 bytes=7266 aborts=0\nFIFO peak=257 capacity=1024 format=1\nPASS tap decimation, framing, CRC and pixel values\nsim/stream_link_tb.v:195: $finish called at 3600315000 (1ps)\n"
+    },
+    "rgb332_recovery": {
+      "passed": true,
+      "log": "OK frame 1 seq=01 16x8 len=128 crc=cf81\nOK frame 2 seq=02 16x8 len=128 crc=0fca\nOK frame 3 seq=03 16x8 len=128 crc=4ff3\nOK frame 4 seq=04 16x8 len=128 crc=9f7d\nOK frame 5 seq=05 16x8 len=128 crc=df44\nOK frame 6 seq=06 16x8 len=128 crc=1f0f\nOK frame 7 seq=07 16x8 len=128 crc=5f36\nOK frame 8 seq=08 16x8 len=128 crc=ae32\nOK frame 9 seq=09 16x8 len=128 crc=ee0b\ntap captured=10 dropped=1 | link frames=10 bytes=1419 aborts=1\nFIFO peak=64 capacity=64 format=1\nPASS tap decimation, framing, CRC and pixel values\nsim/stream_link_tb.v:195: $finish called at 1923939000 (1ps)\n"
+    },
+    "rgb332_1080p60": {
+      "passed": true,
+      "log": "OK frame 1 seq=00 96x54 len=5184 crc=ec54\nOK frame 2 seq=01 96x54 len=5184 crc=2e26\nOK frame 3 seq=02 96x54 len=5184 crc=7891\ntap captured=4 dropped=0 | link frames=3 bytes=20621 aborts=0\nFIFO peak=442 capacity=1024 format=1\nPASS tap decimation, framing, CRC and pixel values\nsim/stream_link_tb.v:195: $finish called at 133333525000 (1ps)\n"
+    },
+    "rgb332_fast_raster": {
+      "passed": true,
+      "log": "OK frame 1 seq=00 96x54 len=5184 crc=ec54\nOK frame 2 seq=01 96x54 len=5184 crc=2e26\nOK frame 3 seq=02 96x54 len=5184 crc=7891\ntap captured=4 dropped=0 | link frames=3 bytes=20574 aborts=0\nFIFO peak=490 capacity=1024 format=1\nPASS tap decimation, framing, CRC and pixel values\nsim/stream_link_tb.v:195: $finish called at 132000193000 (1ps)\n"
+    }
+  },
+  "hardware_tested": false,
+  "source_sha256": {
+    "FPGAProjects\\StyleCam_camera\\rtl\\sc_stream_link.v": "b4833abba7a523b6ebd4b5c5ac8ec2beb73a71c2e3fd3212115cc76879e2068a",
+    "FPGAProjects\\StyleCam_camera\\rtl\\sc_stream_tap.v": "a27d0f8272f3f67e87b95ceba34b2ebcec37b665668dfcb5664f47b7e810109a"
+  }
+}

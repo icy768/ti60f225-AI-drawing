@@ -1,0 +1,62 @@
+{
+  "started_utc": "2026-10-23T04:10:48.707876+00:00",
+  "port": "COM29",
+  "baud": 115200,
+  "bytes_received": 20,
+  "frames": [
+    {
+      "action": "Style0",
+      "word": "切换梵高",
+      "hex": "A1 00 01 01 FF",
+      "count": 1
+    },
+    {
+      "action": "Style1",
+      "word": "切换浮世绘",
+      "hex": "A1 00 02 01 FF",
+      "count": 1
+    },
+    {
+      "action": "Style2",
+      "word": "切换水墨",
+      "hex": "A1 00 03 01 FF",
+      "count": 1
+    },
+    {
+      "action": "ViewNext",
+      "word": "切换画面",
+      "hex": "A1 00 04 01 FF",
+      "count": 1
+    }
+  ],
+  "events": [
+    {
+      "time_utc": "2026-10-23T04:11:45.659256+00:00",
+      "action": "Style0",
+      "word": "切换梵高",
+      "hex": "A1 00 01 01 FF"
+    },
+    {
+      "time_utc": "2026-10-23T04:13:00.122427+00:00",
+      "action": "Style1",
+      "word": "切换浮世绘",
+      "hex": "A1 00 02 01 FF"
+    },
+    {
+      "time_utc": "2026-10-23T04:13:04.623948+00:00",
+      "action": "Style2",
+      "word": "切换水墨",
+      "hex": "A1 00 03 01 FF"
+    },
+    {
+      "time_utc": "2026-10-23T04:13:08.716413+00:00",
+      "action": "ViewNext",
+      "word": "切换画面",
+      "hex": "A1 00 04 01 FF"
+    }
+  ],
+  "all_four_raw_frames_observed": true,
+  "transmitted_bytes": 0,
+  "reset_requested": false,
+  "firmware_flash_readback_performed": false
+}

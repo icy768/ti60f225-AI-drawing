@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-23",
+  "platform_version": "20261023001",
+  "directory": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\vc02\\stylecam_update_57fd62fc868b",
+  "executable": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\vc02\\stylecam_update_57fd62fc868b\\UniOneUpdateTool.exe",
+  "firmware": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\vc02\\stylecam_update_57fd62fc868b\\uni_app_release_update.bin",
+  "firmware_sha256": "57fd62fc868b0c7be1a22d5032f8573f4b39b9ea29754826b372eecaa5863239",
+  "firmware_bytes": 1217688,
+  "files": {
+    "MSCOMM32.OCX": {
+      "bytes": 103744,
+      "sha256": "e71209a8796269645ae2a30ec2343f2ef58411a486f1329f03c35557c01fc038"
+    },
+    "msvcp120.dll": {
+      "bytes": 455488,
+      "sha256": "ac9ddd9f6132d5f05709bbe2cea3b3eabb2df8e4bd79365b336ac9ce7c2d8c3e"
+    },
+    "msvcr120.dll": {
+      "bytes": 971584,
+      "sha256": "1c8449f417566dd0fd69dc21ef77d46b9475fbaac731da35bdc71669f22242c8"
+    },
+    "UniCommon.dll": {
+      "bytes": 206336,
+      "sha256": "e23687a48dc5712623f4dc747accc299e1999d44da71a05dbc1db971fb861bc2"
+    },
+    "UniCommunicateSwitch.dll": {
+      "bytes": 169984,
+      "sha256": "1a0ffc503b9e73b3098c2c65488eb20da6889d61da9d0591641bff6b2c6a5cf7"
+    },
+    "unionedebug.ini": {
+      "bytes": 542,
+      "sha256": "4971c50ac6c7f450cbba75acd6c14e580c91a629955033a29ff9b72f310237f0"
+    },
+    "UniOneUpdateTool.exe": {
+      "bytes": 3592192,
+      "sha256": "52df6a4adc08475901e174fda1ae37b99dd0936e8093668113e408f4a8131322"
+    }
+  },
+  "tool_launched": false,
+  "serial_port_opened": false,
+  "device_programmed": false,
+  "note": "Prepared and hash-checked only. Select the project update file explicitly in the vendor tool."
+}

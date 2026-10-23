@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-22",
+  "original_draft_preserved": true,
+  "original_page_error": "TypeError: Cannot read properties of undefined (reading 'params') at tx_add",
+  "verified_recovery": "fresh editor; delete the default TurnOn row; bulk import four command lines once",
+  "basic_rows_verified": 4,
+  "control_rows_verified": 4,
+  "control_names": [
+    "Style0",
+    "Style1",
+    "Style2",
+    "ViewNext"
+  ],
+  "new_page_uart_configured": false,
+  "new_page_wake_word_configured": false,
+  "new_page_hex_configured": false,
+  "firmware_generation_started": false,
+  "project_update_bin_present": false,
+  "hardware_programmed": false
+}

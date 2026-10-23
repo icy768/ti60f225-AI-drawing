@@ -1,0 +1,152 @@
+{
+  "verified_date": "2026-10-23",
+  "platform_version": "20261023001",
+  "sdk_build_id": "279107",
+  "offline_app_type": "hb_m-offline-thirdparty",
+  "source_archives": [
+    {
+      "path": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\vc02\\stylecam_sdk_20261023001\\archives\\output.tar.gz",
+      "bytes": 3660674,
+      "sha256": "72560c4c87e7964e0d438aa803acf99065845b4b0a30fcaa87120befbda4076d"
+    },
+    {
+      "path": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\vc02\\stylecam_sdk_20261023001\\archives\\uni_hb_m_solution-279107-20261023.tar.gz",
+      "bytes": 39407933,
+      "sha256": "b05d76dbb9b66609c285aab88c75a5819de7c4e7672bcf1ff5a814983b2ad5e6"
+    }
+  ],
+  "sdk_root": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\vc02\\stylecam_sdk_20261023001\\uni_hb_m_solution\\unione_lite_app_hb_m",
+  "wake_word": "小安小安",
+  "wake_replies": [
+    "我在",
+    "你说",
+    "有什么可以帮到你"
+  ],
+  "custom_command_count": 4,
+  "commands": [
+    {
+      "action": "Style0",
+      "word": "切换梵高",
+      "reply": "一",
+      "uart_hex": "A1 00 01 01 FF",
+      "fpga_character": "0"
+    },
+    {
+      "action": "Style1",
+      "word": "切换浮世绘",
+      "reply": "二",
+      "uart_hex": "A1 00 02 01 FF",
+      "fpga_character": "1"
+    },
+    {
+      "action": "Style2",
+      "word": "切换水墨",
+      "reply": "三",
+      "uart_hex": "A1 00 03 01 FF",
+      "fpga_character": "2"
+    },
+    {
+      "action": "ViewNext",
+      "word": "切换画面",
+      "reply": "四",
+      "uart_hex": "A1 00 04 01 FF",
+      "fpga_character": "v"
+    }
+  ],
+  "uart": {
+    "port": 1,
+    "baud": 115200,
+    "data_bits": 8,
+    "stop_bits": 1,
+    "parity": "none",
+    "rx_platform_pin": 7,
+    "rx_gpio": "B6",
+    "tx_platform_pin": 8,
+    "tx_gpio": "B7"
+  },
+  "checks": {
+    "generated_source_and_config_match": true,
+    "single_raw_uart_send_per_custom_action": true,
+    "unione_and_sample_protocol_disabled": true,
+    "a28_output_low": true,
+    "sw_programming_pins_preserved": true,
+    "wake_action_has_no_uart_output": true,
+    "wake_free_commands_empty": true,
+    "firmware_matches_sdk_except_compile_timestamp": true,
+    "firmware_differs_from_vendor_stock_image": true,
+    "firmware_has_all_four_raw_frame_sequences": true,
+    "firmware_compiled_nlu_words_and_actions_match": true
+  },
+  "binary_comparison": {
+    "exact_sha_match": false,
+    "sdk_update_sha256": "b9efb57865e8f85878132c9c924a6a1865c7c0bb5853dd7288027fdfc3b724c2",
+    "excluded_region": [
+      257508,
+      257527
+    ],
+    "firmware_build_stamp": "2026-10-23 11:20:04",
+    "sdk_build_stamp": "2026-10-23 11:05:08",
+    "all_other_bytes_equal": true
+  },
+  "frame_byte_offsets": {
+    "Style0": 1160272,
+    "Style1": 1160292,
+    "Style2": 1160312,
+    "ViewNext": 1160332
+  },
+  "frame_byte_occurrences": {
+    "Style0": 1,
+    "Style1": 1,
+    "Style2": 1,
+    "ViewNext": 1
+  },
+  "compiled_nlu_word_offsets": {
+    "小安小安": 303168,
+    "切换梵高": 303284,
+    "切换浮世绘": 303336,
+    "切换水墨": 303392,
+    "切换画面": 303444
+  },
+  "update_firmware": {
+    "path": "voice/uni_app_release_update.bin",
+    "bytes": 1217688,
+    "sha256": "57fd62fc868b0c7be1a22d5032f8573f4b39b9ea29754826b372eecaa5863239"
+  },
+  "source_evidence": [
+    {
+      "sdk_path": "tools/scripts/cmd_reply_data.json",
+      "source_sha256": "a6b72800398c1e4656ed5a1c17501aaf1b84280f9e0185e71712c473a58be630",
+      "packaged_path": "voice/sdk_evidence_20261023001/cmd_reply_data.json",
+      "packaged_sha256": "a6b72800398c1e4656ed5a1c17501aaf1b84280f9e0185e71712c473a58be630"
+    },
+    {
+      "sdk_path": "user/inc/user_config.h",
+      "source_sha256": "cb986edba9547d3d0a3932552ac9aa8173285099c90c0fd71665736d696fe2c2",
+      "packaged_path": "voice/sdk_evidence_20261023001/user_config.h",
+      "packaged_sha256": "cb986edba9547d3d0a3932552ac9aa8173285099c90c0fd71665736d696fe2c2"
+    },
+    {
+      "sdk_path": "user/src/examples/hb_auto_gpio.c",
+      "source_sha256": "8a2eca639ce481d4ba425b4b3e821a761593773468be6290f33b3e2186f8b5c6",
+      "packaged_path": "voice/sdk_evidence_20261023001/hb_auto_gpio.c",
+      "packaged_sha256": "8a2eca639ce481d4ba425b4b3e821a761593773468be6290f33b3e2186f8b5c6"
+    },
+    {
+      "sdk_path": "include/uni_nlu_content.h",
+      "source_sha256": "f285e4886ba2de35dff67297ff71c6f28b2b9414817afccf51e641dc665a6569",
+      "packaged_path": "voice/sdk_evidence_20261023001/uni_nlu_content.h",
+      "packaged_sha256": "f285e4886ba2de35dff67297ff71c6f28b2b9414817afccf51e641dc665a6569"
+    },
+    {
+      "sdk_path": "include/uni_cust_config.h",
+      "source_sha256": "390b68a05727945e5e9470373916371e160e6237b0d955b9fec03f7918f2255b",
+      "packaged_path": "voice/sdk_evidence_20261023001/uni_cust_config.h",
+      "packaged_sha256": "390b68a05727945e5e9470373916371e160e6237b0d955b9fec03f7918f2255b"
+    }
+  ],
+  "custom_config_original_sha256": "9e09bd07c5b9966ee1abd28b45cb711adbd205e8a2866e7bce3c72cac9d5faf0",
+  "hardware_programmed_this_run": false,
+  "voice_recognition_runtime_verified": false,
+  "uart_output_runtime_verified": false,
+  "scope": "Static review of downloaded platform configuration, generated C code, compiled NLU, and binary comparison. On-device speech/UART acceptance remains pending."
+}

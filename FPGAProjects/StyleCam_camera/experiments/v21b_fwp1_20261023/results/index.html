@@ -1,0 +1,30 @@
+<!doctype html><meta charset="utf-8"><title>FWP1 新旧网络本地效果对比</title>
+<style>body{font:16px/1.65 system-ui;max-width:1400px;margin:28px auto;padding:0 20px;background:#f4f5f7;color:#142032}img{max-width:100%;height:auto}a{color:#175eab}section{background:white;padding:18px;margin:20px 0}table{border-collapse:collapse}td,th{padding:8px 14px;border:1px solid #ddd}</style>
+<h1>FWP1 新旧网络效果对比</h1>
+<p>固定提交 7d95dbe · 2026-10-23 本地复测 · 4 场景 × 3 风格 × 新旧版本，共 24 次 640×480 整数推理。</p>
+<p>每组从左到右：相同输入、现用 RISCV11、新版 D1B60/FWP1。没有输出后处理。采用本帧 IN 统计，近似静止场景；不是 FPGA 摄像头实测。</p>
+<p>已核对：54 个下载文件的 Git 哈希、完整选定候选文件清单、正式版本基线、候选 qparams 与部署 IN ROM、blob 和固件 ROM。只改梵高 IN 仿射参数，浮世绘/水墨 8 个复测案例逐像素一致。</p>
+<p><a href="result.json">完整复测记录</a> · <a href="../delivery/FINAL_DECISION.md">GitHub 交付决定</a></p>
+<section><h2>梵高</h2><a href="comparison_0.jpg"><img src="comparison_0.jpg"></a>
+<table><tr><th>场景</th><th>新旧平均绝对像素差</th><th>新旧逐像素一致</th></tr>
+<tr><td>person_face</td><td>17.1772 LSB</td><td>False</td></tr>
+<tr><td>water_day</td><td>18.4148 LSB</td><td>False</td></tr>
+<tr><td>architecture</td><td>17.7434 LSB</td><td>False</td></tr>
+<tr><td>plants_garden</td><td>16.3117 LSB</td><td>False</td></tr>
+</table><p>像素差只描述新旧变化，不是画质评分。</p></section>
+<section><h2>浮世绘</h2><a href="comparison_1.jpg"><img src="comparison_1.jpg"></a>
+<table><tr><th>场景</th><th>新旧平均绝对像素差</th><th>新旧逐像素一致</th></tr>
+<tr><td>person_face</td><td>0.0000 LSB</td><td>True</td></tr>
+<tr><td>water_day</td><td>0.0000 LSB</td><td>True</td></tr>
+<tr><td>architecture</td><td>0.0000 LSB</td><td>True</td></tr>
+<tr><td>plants_garden</td><td>0.0000 LSB</td><td>True</td></tr>
+</table><p>像素差只描述新旧变化，不是画质评分。</p></section>
+<section><h2>水墨</h2><a href="comparison_2.jpg"><img src="comparison_2.jpg"></a>
+<table><tr><th>场景</th><th>新旧平均绝对像素差</th><th>新旧逐像素一致</th></tr>
+<tr><td>person_face</td><td>0.0000 LSB</td><td>True</td></tr>
+<tr><td>water_day</td><td>0.0000 LSB</td><td>True</td></tr>
+<tr><td>architecture</td><td>0.0000 LSB</td><td>True</td></tr>
+<tr><td>plants_garden</td><td>0.0000 LSB</td><td>True</td></tr>
+</table><p>像素差只描述新旧变化，不是画质评分。</p></section>
+<section><h2>人物梵高原尺寸</h2><a href="person_vangogh.jpg"><img src="person_vangogh.jpg"></a></section>
+<p>新版板上帧率、动态画质、切换延迟、启动和稳定性本轮未测。不能把旧版约 30fps 当成新版实测值。</p>

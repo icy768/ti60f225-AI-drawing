@@ -1,0 +1,54 @@
+{
+  "usb_uart": {
+    "compiled": true,
+    "image_header_and_hash_valid": true,
+    "size_summary": [
+      "Sketch uses 923919 bytes (29%) of program storage space. Maximum is 3145728 bytes.",
+      "Global variables use 59288 bytes (18%) of dynamic memory, leaving 268392 bytes for local variables. Maximum is 327680 bytes."
+    ]
+  },
+  "native_usb": {
+    "compiled": true,
+    "image_header_and_hash_valid": true,
+    "size_summary": [
+      "Sketch uses 952763 bytes (30%) of program storage space. Maximum is 3145728 bytes.",
+      "Global variables use 59508 bytes (18%) of dynamic memory, leaving 268172 bytes for local variables. Maximum is 327680 bytes."
+    ]
+  },
+  "hardware_tested": false,
+  "fpga_interface_check": {
+    "source_peri_sha256": "0849eab2d45d4dd7ae2f3e2f7cf668c2b0090008e0181026a7ca6c61f9a24530",
+    "candidate_peri_sha256": "08710354bbe0317d2a7d0a088adaa07883b3bc0483dcbfa2305d69feae86b293",
+    "interface_exit": 0,
+    "hardware_verified": false,
+    "mapping": {
+      "uart_rx": "GPIOL_04 / B3 / J7-37",
+      "stream_tx": "GPIOL_06 / C3 / J7-39"
+    },
+    "build_dir": "C:\\Users\\lingye\\Desktop\\FPGA\\FPGAProjects\\tools\\v4_interaction_pincheck",
+    "checked_pinout": {
+      "uart_rx": [
+        "B3",
+        "GPIOL_04",
+        "uart_rx",
+        "Input",
+        "TL",
+        "3.3 V",
+        "3.3 V LVCMOS",
+        "weak pullup",
+        "User IO"
+      ],
+      "stream_tx": [
+        "C3",
+        "GPIOL_06",
+        "stream_tx",
+        "Output",
+        "TL",
+        "3.3 V",
+        "3.3 V LVCMOS",
+        "",
+        "User IO"
+      ]
+    }
+  }
+}
