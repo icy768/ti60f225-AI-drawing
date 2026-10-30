@@ -1,0 +1,14 @@
+{
+  "verified_at": "2026-10-30T15:45:00+08:00",
+  "passed": true,
+  "inventory_files": 978,
+  "all_hashes_match": true,
+  "blob_sha256": "ff96d972e023ff89eaf46b122b319203efd3616f4ee7e07fb5f338fb05c02864",
+  "bitstream_sha256": "e8de86d8f5e9c1912373a23602b09dc97dabf18bdfd52a64dd71d4347eedd034",
+  "blob_is_A35": true,
+  "fallback_package_preserved": true,
+  "f3_passed": true,
+  "D8_prime_status": "NOT_RUN_USER_DIRECT_ADOPTION",
+  "board_verified": false,
+  "fullsize_RTL_verified": false
+}

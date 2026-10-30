@@ -1,3 +1,6 @@
 * -text
 *.bit binary
 *.hex binary
+
+# Complete A35 release archive
+deliveries/tristyle_c48_20261030_R3B_A35/*.zip filter=lfs diff=lfs merge=lfs -text

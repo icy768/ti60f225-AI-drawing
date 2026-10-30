@@ -1,0 +1,28 @@
+{
+  "recorded_at": "2026-10-30T15:40:00+08:00",
+  "interactive_action": true,
+  "actual_time_recorded": true,
+  "protocol": "R3b-patrol3-direct-adoption",
+  "candidate_id": "A35",
+  "use_round3_weights": true,
+  "selected_blob": "weights/model.bin",
+  "selected_blob_sha256": "ff96d972e023ff89eaf46b122b319203efd3616f4ee7e07fb5f338fb05c02864",
+  "checkpoint_sha256": "f143b273f9de756cbe45321a621b6b6eed3aeaeb4d29f5e2fee712cd85ef0e42",
+  "freeze_sha256": "a4ec5eab779d6bda5896d2a4aec8aa93978a13795c71cafd9a2549f33819ddc0",
+  "source": "Actual user instruction in this chat",
+  "user_instruction": "直接采用A35作为新的基线，把A35完整交付包通过PR上传到仓库",
+  "human_direct_adoption_override": true,
+  "D8_prime_status": "NOT_RUN_USER_DIRECT_ADOPTION",
+  "D8_prime_pass": null,
+  "blind_limitation": "盲测题包已生成但用户未作答；公开说明包含风格差异，严格双盲未完成。",
+  "F3_passed": true,
+  "f3_evidence": "evidence/verification/A35_D6.json",
+  "board_verified": false,
+  "fullsize_RTL_verified": false,
+  "known_gaps": [
+    "Van Gogh fidelity approximately 0.53 remains below 0.70",
+    "D5 approximately 1.19–1.25 remains above 1.05",
+    "directional thick Van Gogh brush strokes remain unresolved"
+  ],
+  "fallback_decision_sha256": "997efe228bf6e22335222277eb1ee4c21ec339c892611e0574556752bf22ad65"
+}
