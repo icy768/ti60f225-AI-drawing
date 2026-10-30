@@ -4,6 +4,11 @@
 // Apply the reference display Gamma to each reconstructed RGB pixel, then
 // average 2x2 RGB pixels in the central 1280x960 crop to output 640x480.
 // Per-channel Q8.8 gains precede interpolation, as in the camera example.
+// 输入resize在本模块完成：先重建RGB并查Gamma，再裁剪并做2x2方框平均。
+// 默认LEFT=320、TOP=60，对应中央1280x960，输出640x480。
+// 四个源像素每通道采用(sum+2)>>2四舍五入；不是隔点抽样或双线性插值。
+// 本模块只支持这里的固定2倍缩小，OW/OH不是任意比例缩放配置。
+// 例如1920x1080输入不能直接把OW/OH改成1280x720，否则裁剪区超出输入。
 module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
  parameter GAMMA_FILE="model/camera_gamma.mem")(
  input clk,rst,input vs,input valid,input [39:0] raw,
@@ -11,6 +16,7 @@ module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
  output reg [31:0] frames,format_errors,
  input [15:0] rgb_r_gain,rgb_g_gain,rgb_b_gain,input rgb_request,output reg rgb_ack,
  output reg [55:0] ae_data,output reg ae_request,input ae_ack);
+ // 裁剪区域的源图左上角。滑窗流水中的+2行/+4列用于MHC对齐。
  localparam LEFT=(IW-OW*2)/2,TOP=(IH-OH*2)/2,WORDS=IW/4,AW=$clog2(OW/2);
  reg vs_d,armed,started;reg [11:0] x,y;reg [31:0] samples;
  wire edge_vs=vs!=vs_d;
@@ -204,6 +210,8 @@ module sc_camera_rgb #(parameter IW=1920,IH=1080,OW=640,OH=480,
 
  // Horizontal sums of two Gamma-encoded pixels need nine bits. Buffer the
  // even RGB row, then combine with the odd row for a rounded 2x2 box average.
+ // 每组4个源像素先两两横向相加，得到两个缩小像素的水平部分和。
+ // row_rgb保存偶数源行的部分和；奇数源行到来后纵向相加，再除以4。
  reg [53:0] row_rgb[0:OW/2-1];
  reg [53:0] horizontal,upper,lower;
  wire [9:0] avg_r0={1'b0,upper[8:0]}+{1'b0,lower[8:0]}+10'd2;

@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-30",
+  "scope": "exact release BIT JTAG-loaded to RAM; styles switched from the phone page; ESP32 link sampled over its USB log",
+  "bit_sha256": "79b89374dc39e6afa53f32486ece2783c7389597dbbdcc9c988faa100897f29f",
+  "fpga_id": "53430a0b",
+  "styles": [
+    0,
+    1,
+    2
+  ],
+  "views": [
+    0
+  ],
+  "samples": 26,
+  "duration_ms": 50000,
+  "fps_min": 30.0,
+  "fps_max": 30.05,
+  "steady_skipped_delta": 0,
+  "ready_min": 7,
+  "ae_i2c_errors_max": 0,
+  "errors_max": {
+    "caperr": 0,
+    "vid_err": 0,
+    "uf": 0,
+    "hdmi_err": 0,
+    "irq_err": 0
+  },
+  "phone_link_fps": [
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15
+  ],
+  "phone_link_crc_errors_last": 1,
+  "logs": {
+    "three_styles_ram.log": "ab8f6d0c6bfb4b648173e17120de7d649a8cb89950dbde3069efcb2ed9e81544",
+    "ram_program.log": "df5bdf4823420947778d50f4b8bb0b174dcde3143c9d0c4ffb2aaa401520c4bc",
+    "esp32_link.log": "6fb1882c68008513ec8d8e659ab6bf47ef12b28ceba462993af2fe6eaae97e07"
+  },
+  "physical_power_cycle_verified": false,
+  "passed": true
+}

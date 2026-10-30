@@ -7,10 +7,14 @@
 //   2       1      seq   frame counter, wraps at 256
 //   3       1      width  (pixels)
 //   4       1      height (pixels)
-//   5       1      format 0 = RGB565 little endian, 1 = RGB332
+//   5       1      format 0 = RGB565 little endian, 1 = RGB332,
+//                         0x20 | band = RGB332 rows y % BANDS == band (BANDS > 1)
 //   6..7    2      payload length, little endian
 //   8..      LEN    payload
 //   end     2      CRC16-CCITT (poly 0x1021, init 0xFFFF) over every byte from sync to payload
+//
+// Width and height always describe the full frame.  With BANDS > 1 each packet carries one
+// band (OUT_H / BANDS rows); the band comes from rd[9:8] of the first FIFO word of the packet.
 //
 // The receiver resynchronises by scanning for the sync pair, so a frame lost to an aborted
 // capture costs one frame and does not desynchronise the stream.
@@ -19,6 +23,7 @@ module sc_stream_link #(
  parameter OUT_H = 54,
  parameter DIV   = 33,      // clk / baud, 100 MHz clock: 33 -> 3.03 Mbaud
  parameter FMT   = 0,       // 0 = RGB565 (2 bytes/pixel), 1 = RGB332 (1 byte/pixel)
+ parameter BANDS = 1,       // packets per frame; > 1 requires FMT = 1
  parameter DRAIN_CYCLES = 3000000 // allow the pixel-domain capture inhibit to settle
 )(
  input              clk,
@@ -36,7 +41,7 @@ module sc_stream_link #(
  localparam OUT_W8 = OUT_W[7:0];
  localparam OUT_H8 = OUT_H[7:0];
  localparam BPP    = (FMT == 0) ? 2 : 1;
- localparam LEN    = OUT_W * OUT_H * BPP;
+ localparam LEN    = OUT_W * OUT_H * BPP / BANDS;
  localparam PW     = $clog2(LEN + 1);
 
  localparam ST_IDLE    = 3'd0,
@@ -54,6 +59,7 @@ module sc_stream_link #(
  reg [15:0]   crc;
  reg [1:0]    cidx;
  reg [7:0]    seq;
+ reg [1:0]    band;
  reg [21:0]   drain;
 
  wire tx_ready;
@@ -98,7 +104,7 @@ module sc_stream_link #(
      4'd3: tx_data = seq;
      4'd4: tx_data = OUT_W8;
      4'd5: tx_data = OUT_H8;
-     4'd6: tx_data = (FMT == 0) ? 8'h00 : 8'h01;
+     4'd6: tx_data = (BANDS > 1) ? {6'b001000, band} : (FMT == 0) ? 8'h00 : 8'h01;
      4'd7: tx_data = LEN[7:0];
      4'd8: tx_data = LEN[15:8];
      default: tx_data = 8'h00;
@@ -120,7 +126,7 @@ module sc_stream_link #(
  always @(posedge clk) begin
   if (rst) begin
    st <= ST_IDLE; hidx <= 4'd0; pidx <= 0; widx <= 2'd0; wbuf <= 16'd0; whave <= 1'b0;
-   crc <= 16'hFFFF; cidx <= 2'd0; seq <= 8'd0; drain <= 22'd0;
+   crc <= 16'hFFFF; cidx <= 2'd0; seq <= 8'd0; band <= 2'd0; drain <= 22'd0;
    frames_sent <= 32'd0; bytes_sent <= 32'd0; aborts <= 32'd0;
   end else begin
    if (rready && st == ST_PAYLOAD) begin wbuf <= rd; whave <= 1'b1; widx <= 2'd0; end
@@ -156,6 +162,7 @@ module sc_stream_link #(
    /* ---- state entry ---- */
    if (st == ST_IDLE && rd_v) begin
     st <= ST_HEADER; hidx <= 4'd0; pidx <= 0; widx <= 2'd0; whave <= 1'b0; crc <= 16'hFFFF;
+    band <= rd[9:8];                              // the prefetched first word names the band
    end
 
    /* ---- abandoned capture: flush the partial frame and restart cleanly ---- */

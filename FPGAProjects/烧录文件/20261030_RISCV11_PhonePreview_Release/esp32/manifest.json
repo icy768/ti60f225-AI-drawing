@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-30",
+  "status": "app partition only; flash at 0x10000 over the board-validated DIO bootloader and partition table of the J7 package",
+  "fqbn": "esp32:esp32:esp32s3:FlashSize=16M,PSRAM=opi,PartitionScheme=app3M_fat9M_16MB,USBMode=hwcdc,CDCOnBoot=default",
+  "app_offset": "0x10000",
+  "preview": "160x120 RGB332, 2 bands, complete frames only; viewer push stream on port 82 (fallback /frame.raw?fmt=332&after=<seq>)",
+  "source_sha256": {
+    "config.h": "c04511cfd124a07cba189eb4fb72a56d6f5ef473070cb0eee700c8e5388769f4",
+    "esp32s3_stream.ino": "d0e0dc74d066c9cbd03bde003d389be86f23d0b80d9efe9398074af91ad31a0d",
+    "web_page.h": "7ba7eef48957f2bec0f59455671318d34e364f64fdc562aeb4e0c17564caf14e"
+  },
+  "files": {
+    "esp32s3_stream_previewstyled.ino.bin": "1433ffbd3a31279fe5e803f21217836c5c6c48bc2f2ceb8a33f0d1603f76d6da"
+  },
+  "board_note": "2026-10-30: link 15 complete frames/s; phone page smooth with the port-82 push stream (user confirmed)"
+}

@@ -1,14 +1,14 @@
 # StyleCam_camera：SC431HAI 实时 AI 绘画整机
 
-## 当前默认版本：RISCV11 AE / IN4（2026-10-18）
+## 当前默认版本：RISCV11 AE / IN4 + 手机预览（2026-10-30）
 
-唯一 Efinity 总工程入口为 **`ti60f225_oob.xml`**。本目录已集成上板确认的自动曝光和第四轮 IN 等价资源优化，默认下载包为 [20261018_RISCV11_Main_AE_IN4_Release](../烧录文件/20261018_RISCV11_Main_AE_IN4_Release/README.md)，ID `53430a0b`。
+唯一 Efinity 总工程入口为 **`ti60f225_oob.xml`**。本目录在 10-18 版（自动曝光、第四轮 IN 资源优化）基础上打开手机推流（`PHONE_PREVIEW=1`），默认下载包为 [20261030_RISCV11_PhonePreview_Release](../烧录文件/20261030_RISCV11_PhonePreview_Release/README.md)，ID `53430a0b`。
 
-用户确认自动曝光和三风格画面正常；同一 BIT 重新下载后三风格分屏采样 29.99～30.01fps，无新增运行期 skip、采集 / 显示 / AE I²C 错误。Flash 写入及 500kHz 独立逐字节回读通过，用户按 RESET_N 后已捕获完整自主启动、模型 CRC 与三风格 ready=7。物理断电重启、全部布局和长期压力测试待补验。
+三板（FPGA + ESP32-S3 + VC-02）实物联调通过：手机网页 / 语音切三风格，RAM 板测 50 s 内 fps 30.0、跳帧与各错误计数 0；手机收到 160×120 风格画约 15 帧/s。Flash 写入、整片独立回读与模型区核对通过，RESET_N 自主启动 30fps 且预览正常。物理断电重启和长期压力测试待补验。
 
-2026-10-23 更新了 [语音与 Wi-Fi 三板接入包](../烧录文件/20261021_ESP32_VC02_J7_Integration/README.md)：ESP32 热点/网页已单板验证，VC-02 四条命令 UART 输出已单板验证；独立 J7 预览候选已完成构建，完整三板联调待做。主工程维持本正式版，未采用的资源试验不发布。Resize 与片上权重存储见[技术说明](../docs/Resize与权重存储说明_20261023.md)。
+预览按当前布局只截 640×480 风格画，4×4 精确平均为 160×120 RGB332，分 2 场交错经 3.03 Mbaud 送 ESP32（`rtl/sc_stream_tap.v`、`rtl/sc_stream_link.v`），ESP32 固件见 [wifi_stream](wifi_stream/README.md)。**控制输入改到子卡 J28-37（ESP32 GPIO17），电脑 FTDI 串口只读日志**；不带预览、可用电脑串口控制的上一版仍是 [10-18 包](../烧录文件/20261018_RISCV11_Main_AE_IN4_Release/README.md)。
 
-当前资源 **55615/60800 XLR、243/256 RAM10、145/160 DSP**，余量 **5185 XLR、13 RAM10、15 DSP**；最终 setup **+0.253ns**、hold **+0.026ns**，17 项 setup 和 17 项 hold 关系均为正。固件 13746 B，链接 RAM 16080/16384 B（含 2048 B 栈）。
+当前资源 **56518/60800 XLR、255/256 RAM10、145/160 DSP**（RAM10 几乎用满，新增功能需先腾出存储）；最终 setup **+0.187ns**、hold **+0.026ns**。Resize 与片上权重存储见[技术说明](../docs/Resize与权重存储说明_20261023.md)。
 
 ## 主链路与本轮改动
 
@@ -16,7 +16,7 @@ SC431HAI 1920×1080 RAW10 → BGGR 5×5 MHC、Gamma / RGB 增益 → 裁剪与 2
 
 RISC-V 和 DDR 用户域 100MHz，推理域 150MHz，末层 PE12，四输入 / 三输出银行。模型 48616 字节，Flash 地址 `0x200000`，CRC `373deed7`。本轮保留三风格、模型、卷积和 IN 数值规则，优化外围译码、计数器、OSD 字库、IN 算术与 epsilon 存储。完整 VGA 307200 像素与参考一致，单帧离线仿真 30.45495ms，不含真实 DDR / HDMI。
 
-自动曝光在 Gamma 前测光，由 RISC-V 每 200ms 按需更新 SC431HAI 曝光和模拟增益，目标亮度 64、死区 56～72，不改变摄像头帧周期。**AWB 和手机预览默认关闭**。创意源码保留；队友新网络和最新手势内容未接入本版。
+自动曝光在 Gamma 前测光，由 RISC-V 每 200ms 按需更新 SC431HAI 曝光和模拟增益，目标亮度 64、死区 56～72，不改变摄像头帧周期。**AWB 默认关闭，手机预览默认开启**。队友新网络和最新手势内容未接入本版。
 
 ## 下载与恢复
 
@@ -27,12 +27,13 @@ python program_flash_release.py --check-only
 
 # 按实际串口号下载 RAM
 ./program_ram.ps1 -UartPort COM19
-# 固化配置 Flash，保留模型；完成后先开监听再按 RESET_N
+# 固化配置 Flash，保留模型；完成后先开 COM19 监听再按 RESET_N
 python program_flash_release.py
-./verify_flash_boot.ps1 -UartPort COM19 -ConfigurationResetConfirmed
+# 恢复不带预览的 10-18 版
+python program_flash_release.py --release ..\烧录文件\20261018_RISCV11_Main_AE_IN4_Release
 ```
 
-`program_main_ae_ram.ps1` 同样默认正式包，可用 `-ReleaseDir` 指定旧 RISCV11 包；新旧文件名由清单识别。`program_main_ae_flash.py` 是当前 Flash 实现，先备份、再写入和独立回读。`verify_flash_boot.ps1` / `verify_release_flash_boot.ps1` 委托当前严格启动验证，必须捕获新一轮完整启动。
+`program_main_ae_ram.ps1` 同样默认正式包，可用 `-ReleaseDir` 指定旧 RISCV11 包；新旧文件名由清单识别。`program_main_ae_flash.py` 是当前 Flash 实现，先备份、再写入和独立回读，记录目录由清单的 `flash_record_dir` 决定。`verify_flash_boot.ps1` 会经电脑串口发命令，只适用于 10-18 版；预览版的控制口已移走，启动验证改为被动读 COM19 日志（见发布包 `flash_boot.log`）。`package_phone_preview_release.py package|accept` 负责打包和 RAM 板测记录。
 
 RISCV10 恢复入口为 `program_riscv10_ram.ps1`、`program_riscv10_flash.py`、`verify_riscv10_flash_boot.ps1`，配合其历史分支和包使用。RISCV08 的 `program_native_ram.ps1`、`verify_native_flash_boot.ps1` 及恢复包保留。不同包不能混用源码、ROM、模型及位流。
 

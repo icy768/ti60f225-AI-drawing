@@ -1,9 +1,9 @@
-"""Persist the accepted RISCV11 AE/IN4 image; preserve and verify Flash/model data."""
+"""Persist the accepted RISCV11 release (default: AE/IN4 + phone preview); preserve and verify Flash/model data."""
 from pathlib import Path
 import argparse, datetime, hashlib, json, os, re, subprocess
 
 ROOT=Path(__file__).resolve().parent
-DEFAULT=ROOT.parent/'烧录文件/20261018_RISCV11_Main_AE_IN4_Release'
+DEFAULT=ROOT.parent/'烧录文件/20261030_RISCV11_PhonePreview_Release'
 PROFILE='Generic Board Profile Using FT4232H'
 WEIGHT_ADDRESS=0x200000
 
@@ -21,7 +21,7 @@ def validate(release):
     assert m['setup_min_ns']>0 and m['hold_min_ns']>0
     for name,info in m['files'].items():assert sha(release/name)==info['sha256'],name
     for name,digest in m['source_sha256'].items():assert sha(ROOT/name)==digest,'Built source changed: '+name
-    board=json.loads((release/'board_acceptance_20261018.json').read_text(encoding='utf-8'))
+    board=json.loads((release/m.get('board_acceptance_file','board_acceptance_20261018.json')).read_text(encoding='utf-8'))
     assert board['passed'] and board['styles']==[0,1,2] and board['fps_min']>=29 and board['duration_ms']>=30000
     assert board['steady_skipped_delta']==0 and board['ae_i2c_errors_max']==0
     assert board['bit_sha256']==sha(release/m['bit_file'])
@@ -65,7 +65,8 @@ def main():
             weight_address=WEIGHT_ADDRESS,weight_bytes=len(weights),log_directory=str(folder),
             flash_modified=False,flash_boot_verified=False,physical_power_cycle_verified=False,
             boot_reload_pending=True)
-    target=ROOT/'validation/release_riscv11_20261018/flash_deployment.json'
+    target=ROOT/'validation'/m.get('flash_record_dir','release_riscv11_20261018')/'flash_deployment.json'
+    target.parent.mkdir(exist_ok=True)
     def save():
         text=json.dumps(record,indent=2)+'\n'
         for p in [folder/'record.json',target]:p.write_text(text,encoding='utf-8')

@@ -1,7 +1,7 @@
 /*
  * StyleCam phone preview bridge - ESP32-S3-N16R8
  * ----------------------------------------------
- * Receives the 96x54 RGB332 (or legacy RGB565) preview serialised by Ti60F225 on
+ * Receives the 160x120 banded RGB332 (or legacy RGB332/RGB565) preview serialised by Ti60F225 on
  * `stream_tx` (3 Mbaud 8N1), keeps the newest complete frame in PSRAM and serves it over
  * WiFi so a phone can watch the stylised video.
  *
@@ -102,6 +102,12 @@ static void forwardCommand(char c) {
 
 /* ------------------------------------------------------------------ UART1 frame parser */
 static uint8_t chunk[4096];
+static uint8_t bandBuf[PREVIEW_W * PREVIEW_H / PREVIEW_BANDS];   /* one banded packet, RGB332 */
+
+static inline uint16_t rgb332to565(uint8_t b) {
+  uint8_t r = b >> 5, g = (b >> 2) & 7, blue = b & 3;
+  return ((r << 2 | r >> 1) << 11) | ((g << 3 | g) << 5) | (blue << 3 | blue << 1 | blue >> 1);
+}
 
 /* Frame layout produced by sc_stream_link.v (CRC covers the sync pair onwards):
  *   A5 5A | type | seq | w | h | fmt | len_lo | len_hi | payload... | crc_lo crc_hi */
@@ -135,8 +141,11 @@ static void consumeFpgaByte(uint8_t b) {
             uint16_t bytes = (uint16_t)hdr[5] | ((uint16_t)hdr[6] << 8);
             /* geometry is fixed at compile time: a different length means we are not
              * aligned on a real frame, so resync instead of trusting the header. */
+            bool banded = (hdr[4] & 0xFC) == 0x20 && (hdr[4] & 3) < PREVIEW_BANDS;
+            uint32_t want = banded ? PREVIEW_W * PREVIEW_H / PREVIEW_BANDS
+                                   : PREVIEW_W * PREVIEW_H * (hdr[4] == 0 ? 2 : 1);
             if (hdr[0] != TYPE_VIDEO || hdr[2] != PREVIEW_W || hdr[3] != PREVIEW_H ||
-                hdr[4] > 1 || bytes != PREVIEW_W * PREVIEW_H * (hdr[4] == 0 ? 2 : 1)) {
+                (hdr[4] > 1 && !banded) || bytes != want) {
               crcErrors++; st = S_SYNC0; break;
             }
             len = bytes;
@@ -146,11 +155,11 @@ static void consumeFpgaByte(uint8_t b) {
           break;
 
         case S_PAYLOAD:
-          if (hdr[4] == 1) {
+          if (hdr[4] >= 0x20) {
+            bandBuf[got] = b;        /* rows are placed only after the CRC passes */
+          } else if (hdr[4] == 1) {
             // Expand RGB332 to the existing RGB565 snapshot/HTTP/JPEG layout.
-            uint8_t r = b >> 5, g = (b >> 2) & 7, blue = b & 3;
-            uint16_t rgb = ((r << 2 | r >> 1) << 11) |
-                           ((g << 3 | g) << 5) | (blue << 3 | blue << 1 | blue >> 1);
+            uint16_t rgb = rgb332to565(b);
             back[2 * got] = uint8_t(rgb);
             back[2 * got + 1] = uint8_t(rgb >> 8);
           } else {
@@ -165,7 +174,31 @@ static void consumeFpgaByte(uint8_t b) {
           if (!haveLo) { crcLo = b; haveLo = true; }
           else {
             uint16_t want = (uint16_t)crcLo | ((uint16_t)b << 8);
-            if (want == crc && got == len) {
+            if (want == crc && got == len && hdr[4] >= 0x20) {
+              /* Banded: assemble the rows in the back buffer and publish only when all bands
+               * of one cycle arrived, so a lost band never leaves stale rows on the phone. */
+              static uint32_t bandMask = 0;
+              uint32_t band = hdr[4] & 3, i = 0;
+              if (band == 0) bandMask = 0;
+              for (uint32_t y = band; y < PREVIEW_H; y += PREVIEW_BANDS) {
+                uint8_t *row = back + 2 * y * PREVIEW_W;
+                for (uint32_t x = 0; x < PREVIEW_W; x++, i++) {
+                  uint16_t rgb = rgb332to565(bandBuf[i]);
+                  row[2 * x] = uint8_t(rgb);
+                  row[2 * x + 1] = uint8_t(rgb >> 8);
+                }
+              }
+              bandMask |= 1u << band;
+              if (band == PREVIEW_BANDS - 1 && bandMask == (1u << PREVIEW_BANDS) - 1) {
+                xSemaphoreTake(frameMutex, portMAX_DELAY);
+                uint8_t *t = front; front = back; back = t;
+                frameCount++;
+                lastSeq = hdr[1];
+                frameSeq = lastSeq;
+                xSemaphoreGive(frameMutex);
+                bandMask = 0;
+              }
+            } else if (want == crc && got == len) {
               xSemaphoreTake(frameMutex, portMAX_DELAY);
               uint8_t *t = front; front = back; back = t;
               frameCount++;
@@ -204,18 +237,42 @@ static void handleRoot() {
   server.send_P(200, "text/html; charset=utf-8", INDEX_HTML);
 }
 
+/* RGB565 little endian -> RGB332, exact for the preview (it is RGB332 on the wire).
+ * May run in place: byte i is written after bytes 2i, 2i+1 were read. */
+static void to332(const uint8_t *src, uint8_t *dst, size_t pixels) {
+  for (size_t i = 0; i < pixels; i++) {
+    uint16_t v = src[2 * i] | (src[2 * i + 1] << 8);
+    dst[i] = ((v >> 13) << 5) | (((v >> 8) & 7) << 2) | ((v >> 3) & 3);
+  }
+}
+
+/* GET /frame.raw[?fmt=332][&after=<seq>]
+ * fmt=332 sends one RGB332 byte per pixel (exact: the preview is RGB332 on the wire), half
+ * the bytes of RGB565.  after=<seq> answers 204 at once when no newer frame exists, so the
+ * viewer only moves pixels when there is something new to show. */
 static void handleFrameRaw() {
+  bool p332 = server.arg("fmt") == "332";
+  if (server.hasArg("after") && frameCount != 0 && (uint32_t)server.arg("after").toInt() == frameSeq) {
+    server.send(204, "text/plain", "");
+    return;
+  }
   uint8_t *snapshot = (uint8_t *)ps_malloc(PREVIEW_BYTES);
   if (!snapshot) { server.send(500, "text/plain", "oom"); return; }
   uint32_t seq;
   if (!copyFrame(snapshot, &seq)) { free(snapshot); server.send(503, "text/plain", "no frame yet"); return; }
+  size_t n = PREVIEW_BYTES;
+  if (p332) {
+    to332(snapshot, snapshot, PREVIEW_W * PREVIEW_H);
+    n = PREVIEW_W * PREVIEW_H;
+  }
   server.sendHeader("X-Width", String(frameW));
   server.sendHeader("X-Height", String(frameH));
   server.sendHeader("X-Seq", String(seq));
-  server.setContentLength(PREVIEW_BYTES);
+  server.sendHeader("X-Format", p332 ? "rgb332" : "rgb565le");
+  server.setContentLength(n);
   server.send(200, "application/octet-stream", "");
   WiFiClient c = server.client();
-  c.write(snapshot, PREVIEW_BYTES);
+  c.write(snapshot, n);
   free(snapshot);
 }
 
@@ -256,6 +313,40 @@ static void handleFrameBmp() {
   server.send_P(200, "image/bmp", (const char *)bmp, size);
   free(snapshot);
   free(bmp);
+}
+
+/* GET http://<ap>:RAW_STREAM_PORT/  push stream for the built-in viewer: one response that never
+ * ends, each frame "A5 5A seq 00" + W*H RGB332 bytes, sent as soon as a complete frame is
+ * published.  One connection instead of a request per frame removes the TCP setup and the empty
+ * polls that held the page to ~7 fps.  Own task, so it cannot block the port-80 control API;
+ * a new viewer (page reload) replaces the current one. */
+static WiFiServer rawServer(RAW_STREAM_PORT);
+
+static void rawStreamTask(void *) {
+  const size_t n = 4 + PREVIEW_W * PREVIEW_H;
+  uint8_t *snapshot = (uint8_t *)ps_malloc(PREVIEW_BYTES);
+  uint8_t *packet = (uint8_t *)ps_malloc(n);
+  if (!snapshot || !packet) { Serial.println("raw stream: PSRAM allocation failed"); vTaskDelete(nullptr); }
+  for (;;) {
+    WiFiClient c = rawServer.accept();
+    if (!c) { vTaskDelay(pdMS_TO_TICKS(20)); continue; }
+    c.setTimeout(1);
+    for (uint32_t t0 = millis(); c.connected() && millis() - t0 < 1000;)     /* skip the request */
+      if (c.readStringUntil('\n').length() <= 1) break;
+    c.setNoDelay(true);
+    c.print("HTTP/1.1 200 OK\r\nContent-Type: application/octet-stream\r\nCache-Control: no-store\r\n"
+            "Access-Control-Allow-Origin: *\r\nConnection: close\r\n\r\n");
+    uint32_t last = 0xFFFFFFFFu;
+    while (c.connected() && !rawServer.hasClient()) {
+      uint32_t seq;
+      if (!copyFrame(snapshot, &seq) || seq == last) { vTaskDelay(pdMS_TO_TICKS(3)); continue; }
+      last = seq;
+      packet[0] = SYNC0; packet[1] = SYNC1; packet[2] = uint8_t(seq); packet[3] = 0;
+      to332(snapshot, packet + 4, PREVIEW_W * PREVIEW_H);
+      if (c.write(packet, n) != n) break;
+    }
+    c.stop();
+  }
 }
 
 #if STYLECAM_MJPEG
@@ -554,6 +645,9 @@ void setup() {
 
   Serial1.setRxBufferSize(32768);
   Serial1.begin(FPGA_BAUD, SERIAL_8N1, PIN_FPGA_RX, -1);
+  /* Interrupt at 64 of the 128 hardware FIFO bytes: ~210 us of slack at 3 Mbaud instead of
+   * ~27 us with the default threshold, so Wi-Fi interrupt load does not overrun the FIFO. */
+  Serial1.setRxFIFOFull(64);
   Serial2.begin(VOICE_BAUD, SERIAL_8N1, PIN_VOICE_RX, PIN_FPGA_TX);
 #if VOICE_MODE == VOICE_MODE_FRAME
   Serial.printf("Voice: VC-02 frame mode, %u rules at %d baud - open /voice while you speak\n",
@@ -575,6 +669,9 @@ void setup() {
   server.on("/voice", handleVoice);
   server.onNotFound([]() { server.send(404, "text/plain", "not found"); });
   server.begin();
+  rawServer.begin();
+  rawServer.setNoDelay(true);
+  Serial.printf("Viewer push stream: http://%s:%d/\n", WiFi.softAPIP().toString().c_str(), RAW_STREAM_PORT);
 
 #if STYLECAM_MJPEG
   cam.on("/stream", handleStream);
@@ -589,6 +686,7 @@ void setup() {
   xTaskCreatePinnedToCore(readFpgaTask, "fpga_rx", 4096, nullptr, 6, nullptr, 1);
   xTaskCreatePinnedToCore(readVoiceTask, "voice", 3072, nullptr, 3, nullptr, 1);
   xTaskCreatePinnedToCore(statsTask, "stats", 3072, nullptr, 1, nullptr, 0);
+  xTaskCreatePinnedToCore(rawStreamTask, "raw_stream", 4096, nullptr, 2, nullptr, 0);
 #if STYLECAM_MJPEG
   xTaskCreatePinnedToCore(streamTask, "mjpeg", 4096, nullptr, 2, nullptr, 0);
 #endif

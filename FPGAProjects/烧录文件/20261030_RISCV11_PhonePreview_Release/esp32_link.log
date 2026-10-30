@@ -1,0 +1,8 @@
+[link] frames=27874 fps=15 crcErr=1 syncLoss=0 cmds=17 voice=0 heap=229328 psram=8243540
+[link] frames=27889 fps=15 crcErr=1 syncLoss=0 cmds=17 voice=0 heap=223412 psram=8241132
+[link] frames=27904 fps=15 crcErr=1 syncLoss=0 cmds=17 voice=0 heap=228016 psram=8207052
+[link] frames=27919 fps=15 crcErr=1 syncLoss=0 cmds=17 voice=0 heap=224176 psram=8204532
+[link] frames=27934 fps=15 crcErr=1 syncLoss=0 cmds=17 voice=0 heap=227620 psram=8206836
+[link] frames=27949 fps=15 crcErr=1 syncLoss=0 cmds=17 voice=0 heap=227736 psram=8244224
+[cmd] -> FPGA console: 'v'
+[link] frames=27964 fps=15 crcErr=1 syncLoss=0 cmds=18 voice=0 heap=227724 psram=8209372

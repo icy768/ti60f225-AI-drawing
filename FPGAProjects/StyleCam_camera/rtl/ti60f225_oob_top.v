@@ -7,8 +7,8 @@
 // Example top file for ti60f225 dev kit OOB design
 //
 // Language:  Verilog 2001
-//Ti60f225_sc431hai2hdmi_v6��
-//ʹ�������°汾��framebuffer_v3;
+//Ti60f225_sc431hai2hdmi_v6：
+//使用了最新版本的framebuffer_v3;
 // ------------------------------------------------------------------------------
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -16,8 +16,25 @@
 `include "ddr3_controller/ddr3_parameter.vh"
 // `include "define.v"
 
+// =============================================================================
+// StyleCam 整机顶层。Efinity 工程 ti60f225_oob.xml 的 top_module 指向本模块。
+// 本文件负责连接摄像头、DDR、RISC-V、网络和 HDMI；13 层网络在 stylenet_top.v。
+// 数据流：CSI RAW10 -> preprocess -> capture -> DDR 输入帧
+//         -> replay -> engine.fast.net -> display -> DDR 结果帧 -> HDMI。
+// 权重流：SPI Flash 0x200000 -> RISC-V -> APB regs -> engine -> 各层 wram。
+//         推理直接读 FPGA 片内权重 RAM，当前没有 DDR 权重读取通路。
+//
+// 主要时钟（名称沿用原厂工程，需按实际用途理解）：
+//   i_mipi_rx_pclk：50MHz，摄像头 RAW 解包及 RGB 预处理。
+//   core_clk：100MHz，CPU、APB、帧调度、DDR AXI 用户接口。
+//   i_mipi_tx_pclk：150MHz，当前用于 CNN 推理，并非本设计的 MIPI 图像输出。
+//   hdmi_tx_slow_clk：约148.5MHz，1080p60 像素扫描；网络只处理640x480。
+//   sdram_clk：400MHz，外部DDR物理时钟；跨域由FIFO和命令握手处理。
+// PHONE_PREVIEW=0 时，手机预览不参与综合。缩放/权重/资源说明见根目录
+// 网络硬件结构说明.md。本次阅读注释不改变端口、参数、时序或数据通路。
+// =============================================================================
 module ti60f225_oob_top #(
-    parameter PHONE_PREVIEW = 0, // AE-first build; 1 enables optional RGB332 preview
+    parameter PHONE_PREVIEW = 1, // AE-first build; 1 enables optional RGB332 preview
 
 	parameter                       RANK_RATIO         = 1,       // # of unique CS outputs per rank
 	parameter                       ASYN_AXI_CLK       = `ASYN_AXI_CLK, 
@@ -340,6 +357,9 @@ always @(posedge CLK_25M or posedge global_reset)if(global_reset)rs_u<=7;else rs
 always @(posedge core_clk or posedge global_reset)if(global_reset)rs_a<=7;else rs_a<={rs_a[1:0],1'b0};
 always @(posedge hdmi_tx_slow_clk or posedge global_reset)if(global_reset)rs_p<=7;else rs_p<={rs_p[1:0],1'b0};
 
+// ---- 帧级控制：锁定输入帧，启动推理，等待完整结果后交给显示 ----
+// input_bank/output_bank 是 DDR 图像缓冲编号，不是模型/权重地址。
+// 采集4个输入银行、显示3个输出银行，防止采集、推理和扫描互相覆盖。
 // Camera input ownership, network execution and HDMI publication; the RISC-V (Sapphire) configures
 // the sensor over I2C, admits frames, selects style/layout and draws the OSD through APB registers.
 wire frame_ready,take_frame,release_frame,cap_locked,hold_swap;wire [1:0] ready_bank,input_bank,cap_locked_bank;
@@ -360,6 +380,7 @@ wire [15:0] rgb_r_gain,rgb_g_gain,rgb_b_gain;wire rgb_request,rgb_ack;
 wire [31:0] camera_frames,camera_format_errors;
 reg [31:0] cf1,cf2,ce1,ce2;
 always @(posedge core_clk)begin cf1<=camera_frames;cf2<=cf1;ce1<=camera_format_errors;ce2<=ce1;end
+// 调度器只决定哪一帧、哪种风格、何时开始；不执行卷积运算。
 sc_video_schedule schedule(.clk(core_clk),.rst(rs_a[2]),.run(cpu_run),.step(cpu_step),.style_req(cpu_style),
  .frame_ready(frame_ready),.ready_bank(ready_bank),.take_frame(take_frame),.release_frame(release_frame),.input_bank(input_bank),.hold_swap(hold_swap),
  .engine_idle(engine_idle),.engine_done(engine_done),.engine_ok(engine_ok),.styles_ready(styles_ready),
@@ -371,19 +392,28 @@ sc_video_schedule schedule(.clk(core_clk),.rst(rs_a[2]),.run(cpu_run),.step(cpu_
 assign io_cam_sda_OUT=0;assign io_cam_scl_OUT=0;assign o_cam_rst_p=~cam_enable;
 reg [2:0] camera_reset=7;
 always @(posedge i_mipi_rx_pclk or posedge global_reset)if(global_reset)camera_reset<=7;else camera_reset<={camera_reset[1:0],1'b0};
+// 输入缩放集成在此模块：1920x1080 RAW10 -> BGGR重建/Gamma
+// -> 中央1280x960裁剪 -> 每2x2个RGB像素取平均 -> 640x480。
+// 输出每拍两个RGB像素。此处是固定2倍缩小，不是任意比例resize。
 sc_camera_rgb preprocess(.clk(i_mipi_rx_pclk),.rst(camera_reset[2]),.vs(camera_vs),.valid(camera_de&&camera_hs),.raw(camera_raw),
  .rgb(camera_rgb),.rgb_valid(camera_valid),.sof(camera_sof),.eof(camera_eof),.frames(camera_frames),.format_errors(camera_format_errors),
  .rgb_r_gain(rgb_r_gain),.rgb_g_gain(rgb_g_gain),.rgb_b_gain(rgb_b_gain),.rgb_request(rgb_request),.rgb_ack(rgb_ack),.ae_data(ae_data),.ae_request(ae_request),.ae_ack(ae_ack));
+// 将预处理像素跨到100MHz域，按32位/像素写DDR；H_MIRROR=1在写地址
+// 和像素道次序上实现水平翻转，不另存一整幅镜像。
+// 输入帧DDR基址：0、0x200000、0x800000、0xc00000。
+// 同数值的Flash 0x200000是另一物理器件的地址，与DDR帧不冲突。
 sc_capture #(.WIDTH(640),.H_MIRROR(1)) capture(.cc(i_mipi_rx_pclk),.crst(camera_reset[2]),.rgb(camera_rgb),.cv(camera_valid),.sof(camera_sof),.eof(camera_eof),
  .ac(core_clk),.arst(rs_a[2]),.calibrated(cal_done),.take_frame(take_frame),.release_frame(release_frame),.hold_publish(publish),.hold_swap(hold_swap),
  .frame_ready(frame_ready),.ready_bank(ready_bank),.locked(cap_locked),.locked_bank(cap_locked_bank),
  .completed(captured),.skipped(skipped),.errors(capture_errors),.overflow(capture_overflow),
  .awaddr(cap_awaddr),.awvalid(cap_awvalid),.awready(cap_awready),.wdata(cap_wdata),.wvalid(cap_wvalid),.wready(cap_wready),
  .bvalid(cap_bvalid),.bresp(s_axi_bresp),.bready(cap_bready));
+// 两个DDR写客户端：摄像头输入帧、网络结果帧；这里不写卷积权重。
 sc_write_arbiter writes(.clk(core_clk),.rst(rs_a[2]),
  .a_addr(cap_awaddr),.a_av(cap_awvalid),.a_ar(cap_awready),.a_data(cap_wdata),.a_wv(cap_wvalid),.a_wr(cap_wready),.a_bv(cap_bvalid),.a_br(cap_bready),
  .b_addr(out_awaddr),.b_av(out_awvalid),.b_ar(out_awready),.b_data(out_wdata),.b_wv(out_wvalid),.b_wr(out_wready),.b_bv(out_bvalid),.b_br(out_bready),
  .awaddr(s_axi_awaddr),.awvalid(s_axi_awvalid),.awready(s_axi_awready),.wdata(s_axi_wdata),.wvalid(s_axi_wvalid),.wready(s_axi_wready),.bvalid(s_axi_bvalid),.bready(s_axi_bready));
+// 厂商CSI-2接收IP：从4条MIPI数据lane提取RAW10、行场与有效信号。
 csi_rx_controller inst_efx_csi2_rx
 		(
               .reset_n			(power_reset_n),
@@ -457,9 +487,12 @@ wire [23:0] sink_data;wire sink_valid,sink_ready,new_frame,original_frame;
 wire [23:0] replay_data;wire replay_valid,replay_ready,replay_start,replay_busy;
 wire [31:0] replay_errors;
 wire [31:0] da,ra;wire dav,dardy,drv,drr,rav,rardy,rrv,rrr;
+// 从锁定的DDR输入银行突发读取RGB帧，经FIFO变成150MHz域的像素流。
+// CNN中间特征留在各层行缓存/流水中，不由此模块逐层写回DDR。
 sc_replay replay(.uc(i_mipi_tx_pclk),.urst(rs_n[2]),.ac(core_clk),.arst(rs_a[2]),.start(replay_start),.bank(input_bank),
  .pixel(replay_data),.valid(replay_valid),.ready(replay_ready),.busy(replay_busy),.errors(replay_errors),
  .araddr(ra),.arvalid(rav),.arready(rardy),.rdata(s_axi_rdata),.rvalid(rrv),.rlast(s_axi_rlast),.rresp(s_axi_rresp),.rready(rrr));
+// 两个DDR读客户端：HDMI扫描、网络输入回放；显示优先，避免扫描欠载。
 sc_read_arbiter #(.DISPLAY_PRIORITY(1)) reads(.clk(core_clk),.rst(rs_a[2]),
  .a_addr(da),.a_valid(dav),.a_ready(dardy),.a_rvalid(drv),.a_rready(drr),
  .b_addr(ra),.b_valid(rav),.b_ready(rardy),.b_rvalid(rrv),.b_rready(rrr),
@@ -469,6 +502,9 @@ wire [255:0] display_status;
 wire cfg_we,cfg_sel,cfg_reject;wire [4:0] cfg_lane,cfg_layer;wire [11:0] cfg_addr;wire [37:0] cfg_data;
 wire [31:0] run_cycles,first_output_cycles,input_stalls,output_stalls,auto_cycles,auto_frames,auto_writes,auto_errors,engine_errors;
 wire [1:0] upload_bank;
+// 推理子系统入口：100MHz控制命令跨到150MHz。
+// 内部 sc_engine fast 负责初始化/逐帧IN更新；stylenet_top net含13层硬件。
+// cfg_*携带片内RAM写地址与数据；它们不是DDR指针。
 sc_engine_cdc engine(.clk(core_clk),.system_reset(rs_a[2]),.nc(i_mipi_tx_pclk),.nrst(rs_n[2]),.video_bank(output_bank),.upload_bank(upload_bank),
  .sink_ready(sink_ready),.sink_data(sink_data),.sink_valid(sink_valid),.new_frame(new_frame),
  .replay_data(replay_data),.replay_valid(replay_valid),.replay_ready(replay_ready),.replay_start(replay_start),.replay_busy(replay_busy),
@@ -484,6 +520,8 @@ sc_button #(.CYCLES(1000000)) key3(core_clk,rs_a[2],style_key_n,key3_press,key3_
 sc_button #(.CYCLES(1000000)) key2(core_clk,rs_a[2],i_arstn,key2_press,key2_up);
 // Sapphire RISC-V SoC (RV32I, 16 KB on-chip RAM, UART0 console, SPI0 flash, APB3 slave 0, user interrupt A)
 wire [15:0] apb_paddr;wire apb_penable,apb_psel,apb_pwrite,apb_pready,apb_pslverr,cpu_irq,cpu_reset;wire [31:0] apb_pwdata,apb_prdata;
+// RISC-V只做装载/调度/交互等控制，卷积在FPGA逻辑中完成。
+// 启动固件main.c的weights_load读取Flash并逐条写SC_CFG寄存器。
 soc cpu(.io_systemClk(core_clk),.jtagCtrl_enable(1'b0),.jtagCtrl_tdi(1'b0),.jtagCtrl_capture(1'b0),.jtagCtrl_shift(1'b0),
  .jtagCtrl_update(1'b0),.jtagCtrl_reset(1'b0),.jtagCtrl_tdo(),.jtagCtrl_tck(1'b0),.userInterruptA(cpu_irq),
  .io_apbSlave_0_PADDR(apb_paddr),.io_apbSlave_0_PENABLE(apb_penable),.io_apbSlave_0_PRDATA(apb_prdata),.io_apbSlave_0_PREADY(apb_pready),
@@ -495,6 +533,8 @@ soc cpu(.io_systemClk(core_clk),.jtagCtrl_enable(1'b0),.jtagCtrl_tdi(1'b0),.jtag
  .system_spi_0_io_data_2_read(1'b0),.system_spi_0_io_data_2_write(),.system_spi_0_io_data_2_writeEnable(),
  .system_spi_0_io_data_3_read(1'b0),.system_spi_0_io_data_3_write(),.system_spi_0_io_data_3_writeEnable());
 wire osd_we;wire [10:0] osd_addr;wire [7:0] osd_data;
+// APB控制寄存器桥：风格编号、任务启动、OSD和权重/系数配置口。
+// cfg_sel=1写卷积权重；cfg_sel=0写IN/重量化系数。
 sc_apb_regs regs(.clk(core_clk),.rst(rs_a[2]),
  .paddr(apb_paddr),.psel(apb_psel),.penable(apb_penable),.pwrite(apb_pwrite),.pwdata(apb_pwdata),.prdata(apb_prdata),.pready(apb_pready),.pslverr(apb_pslverr),
  .irq(cpu_irq),.run(cpu_run),.step(cpu_step),.style(cpu_style),.view(view_mode),.cam_enable(cam_enable),
@@ -510,6 +550,10 @@ sc_apb_regs regs(.clk(core_clk),.rst(rs_a[2]),
  .osd_we(osd_we),.osd_addr(osd_addr),.osd_data(osd_data),
  .cfg_we(cfg_we),.cfg_sel(cfg_sel),.cfg_lane(cfg_lane),.cfg_layer(cfg_layer),.cfg_addr(cfg_addr),.cfg_data(cfg_data));
 wire hs,vs,de;wire [7:0] red,green,blue;
+// 将CNN输出写入DDR结果银行，再读原图/结果做1080p HDMI扫描。
+// 分屏各放大1.5倍（最近邻）；单图布局放大2倍。显示放大不提高推理分辨率。
+// 结果帧DDR基址：0x400000、0x600000、0xa00000。
+// 当前各帧按4字节/像素占用，改分辨率时必须重新检查银行间隔和计数器。
 sc_display display(.uc(i_mipi_tx_pclk),.urst(rs_n[2]),.ac(core_clk),.arst(rs_a[2]),
  .pc(hdmi_tx_slow_clk),.prst(rs_p[2]),.calibrated(cal_done),
  .pixel(sink_data),.pv(sink_valid),.pready(sink_ready),.new_frame(new_frame),.original_frame(original_frame),
@@ -528,6 +572,7 @@ assign s_axi_arlock=0;assign s_axi_arcache=0;assign s_axi_arprot=0;
 reg [25:0] heartbeat=0;always @(posedge CLK_25M)heartbeat<=heartbeat+1'b1;
 assign led={cam_enable,cpu_run,styles_ready[2],styles_ready[0],requested_style,cal_done,heartbeat[24]};
 wire [9:0] td0,td1,td2,tck;
+// 把显示模块生成的RGB、行场同步与DE编码为HDMI/TMDS。
 dvi_encoder video(.pixelclk(hdmi_tx_slow_clk),.rst_p(rs_p[2]),.i_bdata(blue),.i_gdata(green),.i_rdata(red),
  .i_de(de),.i_hs(hs),.i_vs(vs),.video_format(2'd0),.video_VIC(7'd0),
  .audio_L(24'd0),.audio_R(24'd0),.audio_valid(1'b0),.audio_N(20'd6144),.audio_CTS(20'd148500),
@@ -543,22 +588,24 @@ assign tmds_tx_clk_TX_RST=0;assign tmds_tx_data0_TX_RST=0;assign tmds_tx_data1_T
 // display chain is untouched; a full FIFO drops a preview frame instead of stalling the raster.
 generate if(PHONE_PREVIEW) begin:phone_preview
 wire [15:0] pv_word;wire pv_wv,pv_ready,pv_abort,pv_rd_v,pv_rready,pv_flush;
-wire [10:0] pv_level;wire [7:0] pv_rd;
+wire [13:0] pv_level;wire [9:0] pv_rd;
 wire [31:0] pv_tap_frames,pv_tap_drops,pv_link_frames,pv_link_bytes,pv_link_aborts;
-sc_stream_tap #(.SRC_W(1920),.SRC_H(1080),.SX(20),.SY(20),.PACE_WORDS(0),.FMT(1)) preview_tap(
- .pc(hdmi_tx_slow_clk),.prst(rs_p[2]),.de(de),.vs(vs),.red(red),.green(green),.blue(blue),
- .wready(pv_ready),.flush_capture(pv_flush),.wlevel({2'b0,pv_level}),.wd(pv_word),.wv(pv_wv),
+sc_stream_tap #(.OUT_W(160),.OUT_H(120),.BANDS(2),.PACE_WORDS(1024)) preview_tap(
+ .pc(hdmi_tx_slow_clk),.prst(rs_p[2]),.de(de),.vs(vs),.red(red),.green(green),.blue(blue),.mode(view_mode),
+ .wready(pv_ready),.flush_capture(pv_flush),.wlevel(pv_level),.wd(pv_word),.wv(pv_wv),
  .abort_toggle(pv_abort),.tap_frames(pv_tap_frames),.tap_drops(pv_tap_drops));
-sc_async_fifo #(.W(8),.AW(10)) preview_fifo(
- .wc(hdmi_tx_slow_clk),.wrst(rs_p[2]),.wd(pv_word[7:0]),.wv(pv_wv),.wready(pv_ready),.wlevel(pv_level),
+sc_async_fifo #(.W(10),.AW(13)) preview_fifo(
+ .wc(hdmi_tx_slow_clk),.wrst(rs_p[2]),.wd(pv_word[9:0]),.wv(pv_wv),.wready(pv_ready),.wlevel(pv_level),
  .rc(core_clk),.rrst(rs_a[2]),.rd(pv_rd),.rv(pv_rd_v),.rready(pv_rready));
-sc_stream_link #(.OUT_W(96),.OUT_H(54),.DIV(33),.FMT(1)) preview_link(
- .clk(core_clk),.rst(rs_a[2]),.rready(pv_rready),.rd({8'b0,pv_rd}),.rd_v(pv_rd_v),.abort_pc(pv_abort),
+sc_stream_link #(.OUT_W(160),.OUT_H(120),.DIV(33),.FMT(1),.BANDS(2)) preview_link(
+ .clk(core_clk),.rst(rs_a[2]),.rready(pv_rready),.rd({6'b0,pv_rd}),.rd_v(pv_rd_v),.abort_pc(pv_abort),
  .uart_tx(stream_tx),.flush_capture(pv_flush),.frames_sent(pv_link_frames),.bytes_sent(pv_link_bytes),.aborts(pv_link_aborts));
 end else begin:no_phone_preview
  assign stream_tx=1'b1;
 end endgenerate
 
+// 外部DDR3控制器：16位物理数据总线，对上提供128位AXI数据总线。
+// 当前DDR用于图像帧；若增加权重DMA，需新增请求客户端/仲裁/缓冲。
 ddr3_top                 u_ddr3_top
 (
 

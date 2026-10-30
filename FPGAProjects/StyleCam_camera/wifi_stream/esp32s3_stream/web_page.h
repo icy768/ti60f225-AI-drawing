@@ -2,8 +2,8 @@
  * web_page.h - self-contained viewer served from flash at http://<ap-ip>/
  *
  * No build step, no external assets: the phone browser pulls the raw RGB565 frame from
- * /frame.raw, expands it on a 96x54 offscreen canvas and blits it scaled up with
- * pixelated filtering, so the tiny preview stays crisp. Buttons post console commands
+ * /frame.raw, expands it on a 160x120 canvas and lets the browser scale it up with smooth
+ * (bilinear) filtering, so the small preview reads as a soft image instead of blocks. Buttons post console commands
  * to /cmd, which the ESP32 forwards to the FPGA serial console.
  */
 #pragma once
@@ -21,8 +21,8 @@ static const char INDEX_HTML[] PROGMEM = R"HTML(<!DOCTYPE html>
   h1{font-size:17px;margin:0 0 2px;letter-spacing:.3px;}
   .sub{color:var(--dim);font-size:12.5px;margin-bottom:12px;}
   .screen{position:relative;background:#000;border:1px solid var(--line);border-radius:12px;overflow:hidden;
-          aspect-ratio:16/9;width:100%;}
-  canvas{width:100%;height:100%;display:block;image-rendering:pixelated;image-rendering:crisp-edges;}
+          aspect-ratio:4/3;width:100%;}
+  canvas{width:100%;height:100%;display:block;image-rendering:auto;}
   .badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.55);border:1px solid var(--line);
          border-radius:999px;padding:3px 9px;font-size:11.5px;color:var(--dim);}
   .badge b{color:var(--fg);font-weight:600;}
@@ -41,10 +41,10 @@ static const char INDEX_HTML[] PROGMEM = R"HTML(<!DOCTYPE html>
 </head>
 <body>
   <h1>StyleCam Live</h1>
-  <div class="sub">Ti60F225 &middot; 96&times;54 preview over WiFi &middot; not the full-HDMI output</div>
+  <div class="sub">Ti60F225 &middot; 160&times;120 stylized picture over WiFi &middot; HDMI shows the full 1080p view</div>
 
   <div class="screen">
-    <canvas id="cv" width="96" height="54"></canvas>
+    <canvas id="cv" width="160" height="120"></canvas>
     <div class="badge"><b id="fps">0</b> fps &middot; seq <b id="seq">-</b></div>
   </div>
 
@@ -70,39 +70,64 @@ static const char INDEX_HTML[] PROGMEM = R"HTML(<!DOCTYPE html>
 
 <script>
 const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
-const off=document.createElement('canvas');off.width=96;off.height=54;
-const octx=off.getContext('2d');const img=octx.createImageData(96,54);
-let busy=false,frames=0,fpsMark=performance.now();
+const W=160,H=120;
+const off=document.createElement('canvas');off.width=W;off.height=H;
+const octx=off.getContext('2d');const img=octx.createImageData(W,H);
+let frames=0,fpsMark=performance.now();
 let seenSeq=null;
+// RGB332 -> 8-bit channel lookup, same bit replication as the ESP32 RGB565 expansion
+const L3=[0,36,73,109,146,182,219,255],L2=[0,85,170,255];
 
-async function pull(){
-  if(busy)return;busy=true;
-  try{
-    const r=await fetch('/frame.raw',{cache:'no-store'});
-    if(r.ok){
-      const buf=new Uint8Array(await r.arrayBuffer());
-      const d=img.data;
-      for(let i=0,p=0;i<96*54;i++,p+=2){
-        const v=buf[p]|(buf[p+1]<<8);
-        const r5=(v>>11)&31,g6=(v>>5)&63,b5=v&31;
-        const o=i*4;
-        d[o]  = (r5<<3)|(r5>>2);
-        d[o+1]= (g6<<2)|(g6>>4);
-        d[o+2]= (b5<<3)|(b5>>2);
-        d[o+3]= 255;
-      }
-      octx.putImageData(img,0,0);
-      ctx.imageSmoothingEnabled=false;
-      ctx.clearRect(0,0,96,54);
-      ctx.drawImage(off,0,0);
-      const seq=r.headers.get('X-Seq');
-      document.getElementById('seq').textContent=seq||'-';
-      if(seq!==seenSeq){frames++;seenSeq=seq;}
-    }
-  }catch(e){/* keep polling */}
-  busy=false;
+function draw(px,seq){
+  const d=img.data;
+  for(let i=0,o=0;i<W*H;i++,o+=4){
+    const v=px[i];
+    d[o]=L3[v>>5];d[o+1]=L3[(v>>2)&7];d[o+2]=L2[v&3];d[o+3]=255;
+  }
+  octx.putImageData(img,0,0);
+  ctx.clearRect(0,0,W,H);
+  ctx.drawImage(off,0,0);
+  document.getElementById('seq').textContent=seq;
+  if(seq!==seenSeq){frames++;seenSeq=seq;}
 }
-setInterval(pull,33);
+
+// Preferred path: one connection to port 82 that pushes every new frame ("A5 5A seq 00" + W*H).
+let streaming=false;
+async function stream(){
+  streaming=true;
+  try{
+    const r=await fetch('http://'+location.hostname+':82/',{cache:'no-store'});
+    if(!r.ok||!r.body)throw 0;
+    const rd=r.body.getReader(),N=4+W*H;
+    let buf=new Uint8Array(0);
+    for(;;){
+      const {value,done}=await rd.read();
+      if(done)break;
+      const nb=new Uint8Array(buf.length+value.length);nb.set(buf);nb.set(value,buf.length);buf=nb;
+      while(buf.length>=N){
+        if(buf[0]!==0xA5||buf[1]!==0x5A){            // resync on the frame header
+          let k=1;while(k+1<buf.length&&!(buf[k]===0xA5&&buf[k+1]===0x5A))k++;
+          buf=buf.slice(k);continue;
+        }
+        draw(buf.subarray(4,N),String(buf[2]));buf=buf.slice(N);
+      }
+    }
+  }catch(e){}
+  streaming=false;pull();setTimeout(stream,3000);   // fall back to polling, retry the stream
+}
+
+// Fallback: ask only for frames newer than the one on screen; 204 means nothing new yet.
+async function pull(){
+  if(streaming)return;
+  let wait=15;
+  try{
+    const q=seenSeq===null?'':'&after='+seenSeq;
+    const r=await fetch('/frame.raw?fmt=332'+q,{cache:'no-store'});
+    if(r.status===200){draw(new Uint8Array(await r.arrayBuffer()),r.headers.get('X-Seq')||'-');wait=0;}
+  }catch(e){wait=200;}
+  setTimeout(pull,wait);
+}
+stream();
 
 setInterval(()=>{
   const now=performance.now();

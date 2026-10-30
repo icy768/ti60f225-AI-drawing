@@ -26,11 +26,15 @@
 #define VOICE_BAUD    115200
 
 /* ---------------------------------------------------------------- preview */
-/* Geometry must match FPGA. UART accepts RGB332 (fmt=1) and legacy RGB565
- * (fmt=0); published buffers and HTTP/JPEG remain RGB565 in both cases. */
-#define PREVIEW_W     96
-#define PREVIEW_H     54
+/* Geometry must match FPGA. UART accepts banded RGB332 (fmt=0x20|band, one packet per
+ * band of rows y % PREVIEW_BANDS == band), RGB332 (fmt=1) and legacy RGB565 (fmt=0);
+ * published buffers and HTTP/JPEG remain RGB565 in all cases. */
+#define PREVIEW_W     160   /* the 640x480 stylized picture averaged 4x4 */
+#define PREVIEW_H     120
+#define PREVIEW_BANDS 2
 #define PREVIEW_BYTES (PREVIEW_W * PREVIEW_H * 2)
+/* Persistent push stream for the built-in viewer (one connection, every new frame). */
+#define RAW_STREAM_PORT 82
 
 /* ---------------------------------------------------------------- serial log */
 #define LOG_BAUD      115200

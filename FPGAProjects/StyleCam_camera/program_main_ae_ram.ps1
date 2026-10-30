@@ -1,6 +1,6 @@
-param([string]$UartPort='COM19',[switch]$CheckOnly,[string]$ReleaseDir='',[string]$EfinityHome='D:/ELS/efinity/2026.1')
+﻿param([string]$UartPort='COM19',[switch]$CheckOnly,[string]$ReleaseDir='',[string]$EfinityHome='D:/ELS/efinity/2026.1')
 $ErrorActionPreference='Stop'
-$taskRelease=if($ReleaseDir){$ReleaseDir}else{Join-Path $PSScriptRoot '../烧录文件/20261018_RISCV11_Main_AE_IN4_Release'}
+$taskRelease=if($ReleaseDir){$ReleaseDir}else{Join-Path $PSScriptRoot '../烧录文件/20261030_RISCV11_PhonePreview_Release'}
 $taskManifest=Get-Content -LiteralPath (Join-Path $taskRelease 'manifest.json') -Raw | ConvertFrom-Json
 if($taskManifest.fpga_id -ne '53430a0b' -or $taskManifest.setup_min_ns -le 0 -or $taskManifest.hold_min_ns -le 0){throw 'Unexpected or failing AE trial'}
 foreach($taskProperty in $taskManifest.files.PSObject.Properties){
