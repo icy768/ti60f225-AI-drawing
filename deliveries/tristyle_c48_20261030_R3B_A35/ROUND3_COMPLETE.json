@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-10-30T15:40:00+08:00",
+  "interactive_action": true,
+  "actual_time_recorded": true,
+  "status": "ROUND3_COMPLETE_A35_DIRECT_ADOPTION",
+  "complete": true,
+  "protocol": "R3b-patrol3-direct-adoption",
+  "selected_candidate": "A35",
+  "delivery": "DELIVERY_20261030_R3B_A35",
+  "D8_prime": "NOT_RUN_USER_DIRECT_ADOPTION",
+  "human_answers_fabricated": false,
+  "F3_passed": true,
+  "board_verified": false,
+  "fullsize_RTL_verified": false,
+  "no_required_work_remaining": true,
+  "fallback_preserved": "DELIVERY_20261030_R3B"
+}

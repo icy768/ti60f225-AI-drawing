@@ -1,0 +1,19 @@
+{
+  "verified_at": "2026-10-30T12:03:04.968796+08:00",
+  "passed": true,
+  "profile": "a08a6412",
+  "candidate_id": "A35",
+  "checkpoint_sha256": "f143b273f9de756cbe45321a621b6b6eed3aeaeb4d29f5e2fee712cd85ef0e42",
+  "blob_sha256": "ff96d972e023ff89eaf46b122b319203efd3616f4ee7e07fb5f338fb05c02864",
+  "evidence_sha256": {
+    "package/manifest.json": "39657ce1aeb3e93964fa4dea05e40e662f4242a4a13cfd3c2d5168bd4d554fb5",
+    "inspector.json": "47971c3e20fc9c4e400e537e13acea85125a6e3ffe0640e744c993a8c79cde3f",
+    "loader.json": "66355eda9fdd93f496b894276680284727a4c8989d6feba03ff6846dfa220db5",
+    "integer_fullsize.json": "44e5b9ec94cf5d9387c27dc7db1009ea0cf6d99f7efa588d507a1e692fcdce06",
+    "rtl_identity.json": "5c16edaef68b95a29df268c2a5d322cd4c53e73cb5ce153bcc520ed944c14c8e",
+    "rtl_640x8/result.json": "4a5a53bb4d4694af02ac57d1eb0172397f27df7ffd2e84e5b60f4db05225efb0"
+  },
+  "board_verified": false,
+  "fullsize_RTL_verified": false,
+  "stimulus_scope": "CPU real COCO inputs 640x480; RTL supplied A35 blob, synthetic input stimulus 640x8"
+}

@@ -14,6 +14,12 @@ StyleCam 将 **SC431HAI 摄像头**拍摄的实时画面转换为梵高、浮世
 >
 > 下文标注 RISCV10 / 2026-10-15 的性能、进度和资源表保留为历史记录；当前主用及 V5 的判断以上述说明和新报告为准。
 
+## A35 baseline delivery · 2026-10-30
+
+The user-selected A35 QAT3000 package is available at [the R3B A35 delivery](deliveries/tristyle_c48_20261030_R3B_A35/README.md). The complete 978-file archive is tracked with Git LFS. Its deployed blob SHA-256 is `ff96d972e023ff89eaf46b122b319203efd3616f4ee7e07fb5f338fb05c02864`; the frozen C48/Fc16/4-residual/13-layer bitstream is retained.
+
+F3 passed with CPU int64 640×480 and RTL 640×8 checks at 0 LSB for all three styles and all 13 layers. The user directly adopted A35; the D8′ human blind test was prepared and independently checked but has no human answers, so the package records `NOT_RUN_USER_DIRECT_ADOPTION`. Board programming, full-size RTL, board FPS, and the known fidelity/D5/Van Gogh brush-stroke gaps remain open.
+
 ## 项目能做什么
 
 - **实时摄像头输入**：接入 SC431HAI 的 MIPI CSI-2 / RAW10 数据，完成原生 BGGR 去马赛克、颜色处理、裁剪缩小与 RGB 水平翻转。
