@@ -1,6 +1,6 @@
 {
   "fpga_id": "53430a0b",
-  "status": "board-accepted in RAM; Flash persistence pending",
+  "status": "board-accepted in RAM; persisted to configuration Flash; RESET_N boot verified",
   "hardware_verified": true,
   "phone_preview_enabled": true,
   "resource_pass": 4,
@@ -308,6 +308,50 @@
     "board_acceptance_20261031.json": {
       "bytes": 7278,
       "sha256": "5a74ef8561aebf5e03d336c9dd87c3c708b49fde821e1a6154b6fc5cd9ba20f8"
+    },
+    "flash_boot.log": {
+      "bytes": 3248,
+      "sha256": "069b703cf43c85fe809520349fdb2e18a7982ca9442c50518e75fbc309ea249f"
+    },
+    "flash_deployment.json": {
+      "bytes": 2009,
+      "sha256": "4d58d622e57599af208bd190b878281c028f9c30435ac042944b29d560c15cb4"
+    },
+    "flash_list.log": {
+      "bytes": 168,
+      "sha256": "f542c6f9e4c29985a7a05b43a12f121e660c1957557109c42ab3850476b2e3ec"
+    },
+    "flash_bridge.log": {
+      "bytes": 357,
+      "sha256": "6d625609894e5d313fe5cfa93d6cacbb70597a0aacb930053dc5492f2f520899"
+    },
+    "flash_backup.log": {
+      "bytes": 298,
+      "sha256": "d01d5f31eb2ca4f5e8e8448fca84e2748127bf2d31ba3544078e3be42ea51a0e"
+    },
+    "flash_backup_verify.log": {
+      "bytes": 298,
+      "sha256": "d01d5f31eb2ca4f5e8e8448fca84e2748127bf2d31ba3544078e3be42ea51a0e"
+    },
+    "flash_weights_before.log": {
+      "bytes": 295,
+      "sha256": "e52d7329743d02ac3f8a395d0356d996fd708120dd2c86f2f7469f1fb02ab71e"
+    },
+    "flash_program.log": {
+      "bytes": 916,
+      "sha256": "3e080808a471cd78b384c5bf3e64c076e4169da3b3248501678273ac8415bc1a"
+    },
+    "flash_config_after.log": {
+      "bytes": 298,
+      "sha256": "f226b0d3e990724a4493b582be93b01f7753e99daa2d29d1af5a0365008bb7db"
+    },
+    "flash_weights_after.log": {
+      "bytes": 295,
+      "sha256": "e52d7329743d02ac3f8a395d0356d996fd708120dd2c86f2f7469f1fb02ab71e"
+    },
+    "README.md": {
+      "bytes": 4596,
+      "sha256": "67a806e6baa541bbb0ad2c698602913649103f5e3ee3e7278afe4195f552061d"
     }
   },
   "source_sha256": {
@@ -459,5 +503,6 @@
     "ti60f225_oob.peri.xml": "08710354bbe0317d2a7d0a088adaa07883b3bc0483dcbfa2305d69feae86b293",
     "ti60f225_oob.sdc": "81c682862db6d0bc051e0719fda8eb21aaa6aa3ac8cf2823dc4d4b66948ff2b4",
     "ti60f225_oob.xml": "825a489973bc0232325bc91c7f28e9520eae637d1a1f4b501a6970890365dca7"
-  }
+  },
+  "flash_boot_verified": true
 }
