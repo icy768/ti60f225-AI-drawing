@@ -127,12 +127,14 @@ def accept_logs(a):
     out_bit = ROOT/'outflow/ti60f225_oob.bit'
     assert sha(out_bit) == sha(RELEASE/m['bit_file']), 'outflow BIT is not the release BIT'
     for src in (a.fpga_log, a.esp_log):
-        assert src.stat().st_mtime > out_bit.stat().st_mtime, 'log predates the routed BIT: '+str(src)
+        if src: assert src.stat().st_mtime > out_bit.stat().st_mtime, 'log predates the routed BIT: '+str(src)
     shutil.copy2(a.fpga_log, RELEASE/'three_styles_ram.log')
-    shutil.copy2(a.esp_log, RELEASE/'esp32_link.log')
+    if a.esp_log: shutil.copy2(a.esp_log, RELEASE/'esp32_link.log')
+    # Without --esp-log the release keeps its previous esp32_link.log (ESP32 app unchanged).
+    assert (RELEASE/'esp32_link.log').exists(), 'no ESP32 link log'
     (RELEASE/'ram_program.log').write_text(a.pgm_log.read_text(encoding='utf-8', errors='replace'), encoding='utf-8')
     record(m, (RELEASE/'three_styles_ram.log').read_text(encoding='utf-8', errors='replace'),
-           (RELEASE/'esp32_link.log').read_text(encoding='utf-8', errors='replace'),
+           (RELEASE/'esp32_link.log').read_text(encoding='utf-8', errors='replace'), a.scope or
            'routed BIT (identical to the release BIT) JTAG-loaded to RAM; interactive phone session: styles, '
            'style blend, Resize views and layouts switched from the phone page; FPGA and ESP32 USB logs recorded')
 
@@ -177,6 +179,7 @@ def main():
     ap.add_argument('--fpga-log', type=Path)
     ap.add_argument('--esp-log', type=Path)
     ap.add_argument('--pgm-log', type=Path)
+    ap.add_argument('--scope', help='logs: describe the session recorded in the acceptance file')
     a = ap.parse_args()
     {'package': package, 'accept': accept, 'logs': accept_logs}[a.step](a)
 

@@ -255,7 +255,7 @@
     }
   },
   "base_release": "20261018_RISCV11_Main_AE_IN4_Release",
-  "configuration_identical_to_previous_package": null,
+  "configuration_identical_to_previous_package": false,
   "bit_file": "StyleCam_RISCV11_Creative.bit",
   "hex_file": "StyleCam_RISCV11_Creative.hex",
   "board_acceptance_file": "board_acceptance_20261031.json",
@@ -263,23 +263,23 @@
   "files": {
     "StyleCam_RISCV11_Creative.bit": {
       "bytes": 3202257,
-      "sha256": "cbe6058df09b5198be10a03590305cfe036a1f32d36ba42c65b61f98ce4c5105"
+      "sha256": "3447879c6f0f235641679bb719b21fcc748b8fb21dfa299494c7d14f93525dc5"
     },
     "StyleCam_RISCV11_Creative.hex": {
       "bytes": 3202317,
-      "sha256": "43ce8b518fa3c2e0ead4b57fecc22e09c93f892bf2973ec6909749615f4044d6"
+      "sha256": "4afb0ba1cb7ea7a4bde8dd4f56922ac4cc36ed440fc1b6e0dcff75fdfa1f99c6"
     },
     "timing.rpt": {
       "bytes": 1576727,
-      "sha256": "2be56c9a79d0a976bd587aaed6adcdc49b1df43067613edd8cc2402d220589fb"
+      "sha256": "598059fcc45e37042a94f4921bd0609672e4b3e4b1cc704d0d6a604dc132183d"
     },
     "place.rpt": {
       "bytes": 5570,
-      "sha256": "6e5a2b80dce949057a3abe78eb149b9762577a3f0c2ad7dfd37bb5af94c8611c"
+      "sha256": "a9b9b6e724a16a3c36fd993b4ee3f1d568c03ef4b9df9e95ec1288d4bb7568a9"
     },
     "map.rpt": {
       "bytes": 532239,
-      "sha256": "9f2a0068d952a3350ad313df14990773383be739fc063b9ecfdf5c9356cfe3c1"
+      "sha256": "a5ec13fa730931f0771fd000b5e3ddda651ce12fedaebb476791322d67acded5"
     },
     "pinout.csv": {
       "bytes": 13183,
@@ -294,28 +294,28 @@
       "sha256": "8298f9abffad441701cfe5ad586bf811e16968ecb6f37b3effa507f888bef541"
     },
     "three_styles_ram.log": {
-      "bytes": 137512,
-      "sha256": "91183e9c23cda03ad2e787cfc94378356453bddbeb9ea4f50faa987bb45940a8"
+      "bytes": 55796,
+      "sha256": "7d070d4986cbc75b1a3efde44554e3bcdf61ca86e8656526ce710c35ac4aa3a1"
     },
     "ram_program.log": {
-      "bytes": 390,
-      "sha256": "b9c4472d2b8da5c74139f8e30de89a5025c20e470214afc25c69176ff9cd5bbe"
+      "bytes": 422,
+      "sha256": "a6eb9494d714503144579121303ccd19358279230dfcb731e013d69f41e4bdad"
     },
     "esp32_link.log": {
       "bytes": 59205,
       "sha256": "1b67e6b4659a66923829af0e42a329bb92e297e0a4a901f13134dce547a298ce"
     },
     "board_acceptance_20261031.json": {
-      "bytes": 7278,
-      "sha256": "5a74ef8561aebf5e03d336c9dd87c3c708b49fde821e1a6154b6fc5cd9ba20f8"
+      "bytes": 7299,
+      "sha256": "8a699ec6a9fd55f6e754bc01f551d9166f4f92351b43ccebc3f08372386c955b"
     },
     "flash_boot.log": {
-      "bytes": 3248,
-      "sha256": "069b703cf43c85fe809520349fdb2e18a7982ca9442c50518e75fbc309ea249f"
+      "bytes": 2436,
+      "sha256": "cf4457596f9f9a04c61c913859023bcf172ebc99c4e257e89bb2de4ba0691549"
     },
     "flash_deployment.json": {
       "bytes": 2009,
-      "sha256": "4d58d622e57599af208bd190b878281c028f9c30435ac042944b29d560c15cb4"
+      "sha256": "f7d658c14f607944cbb6511aafc25d51402d21499c75353d981028e0c32ec1eb"
     },
     "flash_list.log": {
       "bytes": 168,
@@ -350,8 +350,12 @@
       "sha256": "e52d7329743d02ac3f8a395d0356d996fd708120dd2c86f2f7469f1fb02ab71e"
     },
     "README.md": {
-      "bytes": 4596,
-      "sha256": "67a806e6baa541bbb0ad2c698602913649103f5e3ee3e7278afe4195f552061d"
+      "bytes": 4910,
+      "sha256": "72295f48a0d437fc080efb393ec0f2b3d2c4530871a23c6dc90940a63bc7c869"
+    },
+    "blend_session_ram.log": {
+      "bytes": 143462,
+      "sha256": "f638bc10c798c3c69a5f6f17676ad8e28fa8aff7ab56eb9dca7b2cb51a29257d"
     }
   },
   "source_sha256": {
@@ -487,7 +491,7 @@
     "ip/csi_rx_controller/settings.json": "7a8eeff2d303f316ef781f1be6f1cd2ee948487ae5f9f21dd658985d957d70a7",
     "ip/soc/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin": "1743631c16611363e252a1850980a02b5819eb2af507e4e8489411cf785b0ee1",
     "ip/soc/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin": "c405e257b974419ee0ef89deb0d7dfe1f51620bc6c7514e7e7ce47093ff5174a",
-    "ip/soc/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": "55f957afb6a67da97e1e604937e013e16f3bf9dae6f3d0240c03c69e61fe9ac6",
+    "ip/soc/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": "11c0d79fe7b190ff8f554fc37ce2de25718e85372ede026dd162614f7a363796",
     "ip/soc/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin": "2c00c5c7ac13e46fb4ce950501365eace4d44dd0890d65b03105654424263752",
     "ip/soc/settings.json": "a905d72f82d84e9220096ba3a39db1eca9de261b426890c0e01a104224f5f0d5",
     "ip/soc/soc.v": "77f181e7f1c124bcc1845631fbd5b7ba5bbefe0da122422c90d21aafc6a1ad30",
@@ -498,7 +502,7 @@
     "ip/soc/ipm/graph.pickle": "c566ba990cc043c92d7a0e011ec573c278eda509d4893f9971869d68610ab835",
     "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol0.bin": "1743631c16611363e252a1850980a02b5819eb2af507e4e8489411cf785b0ee1",
     "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol1.bin": "c405e257b974419ee0ef89deb0d7dfe1f51620bc6c7514e7e7ce47093ff5174a",
-    "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": "55f957afb6a67da97e1e604937e013e16f3bf9dae6f3d0240c03c69e61fe9ac6",
+    "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol2.bin": "11c0d79fe7b190ff8f554fc37ce2de25718e85372ede026dd162614f7a363796",
     "fw_rom/EfxSapphireSoc.v_toplevel_system_ramA_logic_ram_symbol3.bin": "2c00c5c7ac13e46fb4ce950501365eace4d44dd0890d65b03105654424263752",
     "ti60f225_oob.peri.xml": "08710354bbe0317d2a7d0a088adaa07883b3bc0483dcbfa2305d69feae86b293",
     "ti60f225_oob.sdc": "81c682862db6d0bc051e0719fda8eb21aaa6aa3ac8cf2823dc4d4b66948ff2b4",

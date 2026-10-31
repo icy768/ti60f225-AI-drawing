@@ -4,7 +4,7 @@
 
 唯一 Efinity 总工程入口为 **`ti60f225_oob.xml`**。默认下载包为 [20261031_RISCV11_Creative_Release](../烧录文件/20261031_RISCV11_Creative_Release/README.md)，ID `53430a0b`。在 10-30 手机预览版基础上新增：
 
-- **Resize 单独演示**：view 3/4/5 直接显示 Resize 输出的 640×480 原图，1x / 1.5x / 2x 循环（串口 `z`、手机"Resize 缩放"），推理照常运行（`rtl/sc_display.v`、`rtl/sc_stream_tap.v`）。
+- **Resize 单独演示**：view 3/4/5 直接显示 Resize 输出的 640×480 原图，1x / 1.5x / 2x 循环（板载 K0、串口 `z`、手机"Resize 缩放"），推理照常运行（`rtl/sc_display.v`、`rtl/sc_stream_tap.v`）。
 - **风格混合**：`rtl/sc_in_refresh.v` 在逐层 IN 刷新时把当前风格的 γ/β 向目标风格混合 A/8（串口 `b T A`、手机滑条），参数经 CTRL[13:12]/[19:16] 与引擎邮箱传入；A=0 时与原逻辑逐位一致。
 - **手机页升级与多手机观看**：见 [wifi_stream](wifi_stream/README.md)。
 - 摄像头帧率显示四舍五入（30.0）。
@@ -46,7 +46,7 @@ RISCV10 恢复入口为 `program_riscv10_ram.ps1`、`program_riscv10_flash.py`�
 
 ## 操作与构建
 
-控制台（手机 / 语音经 ESP32 转发，115200 8N1）：`0/1/2` 选风格，`v` 切布局，`z` Resize 缩放，`b T A` 风格混合，`s` 状态，`c` 回读摄像头。K0 循环切布局，KEY3 短按释放切风格、长按约 0.7 秒切布局。RESET_N 用于重新装载配置 Flash。
+控制台（手机 / 语音经 ESP32 转发，115200 8N1）：`0/1/2` 选风格，`v` 切布局，`z` Resize 缩放，`b T A` 风格混合，`s` 状态，`c` 回读摄像头。K0 循环切 Resize 1x / 1.5x / 2x，KEY3 短按释放切风格、长按约 0.7 秒切布局（也退出 Resize）。RESET_N 用于重新装载配置 Flash。
 
 Efinity 2026.1 构建入口为 `python build.py interface / map / pnr / pgm`；`STYLECAM_EFINITY` 指定工具，`STYLECAM_BUILD_DIR` 指定 ASCII 构建镜像。固件源码在 `embedded_sw/soc/software/standalone/stylecam/`，片内 ROM 同步保存在 `fw_rom/` 与 `ip/soc/`。改动硬件或固件后须重新生成配套位流，不能沿用当前已验收哈希。
 

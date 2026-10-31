@@ -1,22 +1,10 @@
 {
   "date": "2026-10-31",
-  "scope": "routed BIT (identical to the release BIT) JTAG-loaded to RAM; interactive phone session: styles, style blend, Resize views and layouts switched from the phone page; FPGA and ESP32 USB logs recorded",
-  "bit_sha256": "cbe6058df09b5198be10a03590305cfe036a1f32d36ba42c65b61f98ce4c5105",
+  "scope": "routed BIT (identical to the release BIT) JTAG-loaded to RAM; board-key session: K0 x12 cycled Resize views 3/4/5, KEY3 long press back to view 0, KEY3 short press styles 0/1/2. ESP32 USB was not connected: esp32_link.log is carried over from the 2026-10-31 blend session (same ESP32 app, same preview RTL; that session also covered style blend 1:0..8, 2:0..7 and phone control)",
+  "bit_sha256": "3447879c6f0f235641679bb719b21fcc748b8fb21dfa299494c7d14f93525dc5",
   "fpga_id": "53430a0b",
   "blends_seen": [
-    "0:0",
-    "1:0",
-    "1:2",
-    "1:4",
-    "1:6",
-    "1:7",
-    "1:8",
-    "2:0",
-    "2:1",
-    "2:2",
-    "2:4",
-    "2:5",
-    "2:7"
+    "0:0"
   ],
   "styles": [
     0,
@@ -25,14 +13,12 @@
   ],
   "views": [
     0,
-    1,
-    2,
     3,
     4,
     5
   ],
-  "samples": 330,
-  "duration_ms": 658000,
+  "samples": 134,
+  "duration_ms": 266000,
   "fps_min": 29.99,
   "fps_max": 30.01,
   "steady_skipped_delta": 0,
@@ -708,8 +694,8 @@
   ],
   "phone_link_crc_errors_last": 2,
   "logs": {
-    "three_styles_ram.log": "91183e9c23cda03ad2e787cfc94378356453bddbeb9ea4f50faa987bb45940a8",
-    "ram_program.log": "b9c4472d2b8da5c74139f8e30de89a5025c20e470214afc25c69176ff9cd5bbe",
+    "three_styles_ram.log": "7d070d4986cbc75b1a3efde44554e3bcdf61ca86e8656526ce710c35ac4aa3a1",
+    "ram_program.log": "a6eb9494d714503144579121303ccd19358279230dfcb731e013d69f41e4bdad",
     "esp32_link.log": "1b67e6b4659a66923829af0e42a329bb92e297e0a4a901f13134dce547a298ce"
   },
   "physical_power_cycle_verified": false,
