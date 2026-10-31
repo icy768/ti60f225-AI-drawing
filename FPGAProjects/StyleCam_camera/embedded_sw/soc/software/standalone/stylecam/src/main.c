@@ -6,7 +6,7 @@
  * - SC431HAI 初始化：通过 APB 下发 I2C 寄存器命令，时序与表格同原 RTL 状态机（rtl/sc431hai/sc_sequence.vh）
  * - 加速器调度：每帧由 CPU 下发单步启动，帧发布中断里统计帧率并下发下一帧
  * - 风格部署：开机依次触发三种风格的 IN 校准作业（13 遍），之后切换风格无需等待
- * - 交互：KEY3 短按切风格、长按切布局；串口 0 1 2 / v 同样可操作；OSD 叠加状态
+ * - 交互：KEY3 短按切风格、长按切布局（也退出 Resize）；K0 切 Resize 1x/1.5x/2x；串口 0 1 2 / v / z 同样可操作；OSD 叠加状态
  * - Resize 演示：串口 z 依次切 1x / 1.5x / 2x 原图（不经网络，推理照常运行），v 回到正常布局
  * - 风格插值：串口 b T A（T 目标风格 0..2，A 0..8）把当前风格的 IN gamma/beta 向 T 混合 A/8；切风格即清除
  * - 语音（创意交互，编译期开关默认关闭）：语音模块经 ESP32-S3 映射成单字符即可，无需改本文件；
@@ -187,8 +187,8 @@ static void on_irq(uint32_t pend)
         key3_long_done = 0;
     }
     if (pend & IRQ_KEY2) {
-        key0_count++; /* Legacy IRQ_KEY2 now comes from the physical K0 button. */
-        step_view(0);
+        key0_count++; /* Legacy IRQ_KEY2 now comes from the physical K0 button: Resize zoom 1x/1.5x/2x. */
+        step_view(1);
         osd_dirty = 1;
     }
     if (pend & IRQ_ERROR) {
