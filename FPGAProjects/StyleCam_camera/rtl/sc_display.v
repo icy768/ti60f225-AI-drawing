@@ -3,13 +3,15 @@
 //   Output lines repeat source rows as 0,0,1,2,2,3..: the first copy is kept in a one-row cache, so
 //   DDR reads each source row once (same burst count per frame as the 2x layouts).
 // mode 1: stylized 2x (1280x960 centred);  mode 2: original 2x
+// Resize demo (original only, the network keeps running): mode 3 native 640x480 1:1,
+// mode 4 original 1.5x alone (960x720 centred, same pattern and row cache as mode 0), mode 5 = mode 2.
 // The original shown beside a stylized frame is the exact input frame that produced it
 // (publish_orig names its input bank, which sc_capture holds until the next frame is shown).
 // OSD: 80x23 character grid, 8x16 font scaled 3x (24x48 px); code 0 transparent, bit7 = highlight.
 module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="model/osd_text.mem")(
  input uc,input urst,input ac,input arst,input pc,input prst,input calibrated,
  input [23:0] pixel,input pv,output pready,input new_frame,input original_frame,
- input [1:0] mode,output [255:0] status,
+ input [2:0] mode,output [255:0] status,
  input [1:0] write_bank,input publish,input [1:0] publish_bank,input [1:0] publish_orig,
  output output_complete,output shown_valid,output [1:0] shown_bank,
  input osd_we,input [10:0] osd_addr,input [7:0] osd_data,
@@ -25,6 +27,8 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  // layout (1080p active 1920x1080)
  localparam FX0=960-IW,FY0=540-IH;                    // 2x full screen
  localparam SW=IW*3/2,SH=IH*3/2,SX0=960-SW,SY0=540-SH/2; // 1.5x side by side
+ localparam NX0=960-IW/2,NY0=540-IH/2;                // 1x native
+ localparam QX0=960-SW/2;                             // 1.5x alone (QX0 is a multiple of 6)
  function [31:0] in_base(input [1:0] b);begin in_base=(b==0)?32'h0:(b==1)?32'h200000:(b==2)?32'h800000:32'hc00000;end endfunction
  function [31:0] out_base(input [1:0] b);begin out_base=(b==0)?32'h400000:(b==1)?32'h600000:32'ha00000;end endfunction
  reg cal1,cal2; always @(posedge uc) begin cal1<=calibrated;cal2<=cal1;end
@@ -89,14 +93,17 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
   end
  end
  // Request a fresh DDR scan during vertical blank; this also recovers alignment after underflow.
- reg [11:0] x,y;reg request_toggle,request_enable;reg [1:0] request_bank,request_orig,request_mode;
- reg image_enable;reg [1:0] shown_mode,dm;
- (* async_reg="true" *) reg [1:0] mode1,mode2;
+ reg [11:0] x,y;reg request_toggle,request_enable;reg [1:0] request_bank,request_orig;reg [2:0] request_mode;
+ reg image_enable;reg [1:0] shown_mode;reg [2:0] dm;
+ reg m15,m1x;                                         // field layout: 1.5x pattern (0/4), native 1x (3)
+ (* async_reg="true" *) reg [2:0] mode1,mode2;
  (* async_reg="true" *) reg [2:0] banks1,banks2;
  reg [31:0] video_frames,underflow,last_underflow;reg underflow_seen;
  wire inside_full=(x>=FX0)&&(x<FX0+IW*2)&&(y>=FY0)&&(y<FY0+IH*2);
  wire inside_sbs=(x>=SX0)&&(x<960+SW)&&(y>=SY0)&&(y<SY0+SH);
- wire inside_image=(dm==0)?inside_sbs:inside_full;
+ wire inside_native=(x>=NX0)&&(x<NX0+IW)&&(y>=NY0)&&(y<NY0+IH);
+ wire inside_single=(x>=QX0)&&(x<QX0+SW)&&(y>=SY0)&&(y<SY0+SH);
+ wire inside_image=(dm==0)?inside_sbs:(dm==3)?inside_native:(dm==4)?inside_single:inside_full;
  wire rf_valid,rf_take,rf_ready;wire [95:0] rf_data;
  wire [9:0] rf_level;
  reg [5:0] flush_count;wire flush=(flush_count!=0);
@@ -105,15 +112,15 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  // 1.5x: six output pixels per FIFO word of four, source pixel pattern 0,0,1,2,2,3
  reg [2:0] c6;
  wire [1:0] sbs_index=c6==0?0:c6==1?0:c6==2?1:c6==3?2:c6==4?2:3;
- wire [1:0] pick=(dm==0)?sbs_index:x[2:1];
- wire last_of_word=(dm==0)?(c6==5):(x[2:0]==7);
+ wire [1:0] pick=m15?sbs_index:m1x?x[1:0]:x[2:1];
+ wire last_of_word=m15?(c6==5):m1x?(x[1:0]==3):(x[2:0]==7);
  // side-by-side row cache: line phase 0 stores the row, phase 1 replays it, phase 2 shows the next row
  reg [1:0] pph;reg [8:0] wi;
  wire full_repeat=y[0]^FY0[0];
- wire use_cache=(dm==0)?(pph==1):full_repeat;
+ wire use_cache=m15?(pph==1):!m1x&&full_repeat;
  wire [95:0] cache_q;
  wire [8:0] cache_ra=(x==2199)?9'd0:(inside_image&&last_of_word)?wi+1'b1:wi;
- sdpram #(.W(96),.D(IW/2),.AW(9)) row_cache(.clk(pc),.we(((dm==0)?(pph==0):!full_repeat)&&image_enable&&inside_image&&last_of_word&&rf_valid),
+ sdpram #(.W(96),.D(IW/2),.AW(9)) row_cache(.clk(pc),.we((m15?(pph==0):!m1x&&!full_repeat)&&image_enable&&inside_image&&last_of_word&&rf_valid),
   .waddr(wi),.wdata(rf_data),.re(1'b1),.raddr(cache_ra),.rdata(cache_q));
  assign rf_take=image_enable&&inside_image&&last_of_word&&!pf_reset&&!use_cache;
  wire [95:0] src_word=use_cache?cache_q:rf_data;
@@ -127,7 +134,7 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
   else if(x<1680)color=24'h0000ff;else color=24'h202020;
   if(image_enable) begin
    color=24'h101010;
-   if(dm!=0&&(x>=FX0-4)&&(x<FX0+IW*2+4)&&(y>=FY0-4)&&(y<FY0+IH*2+4)) color=(shown_mode==1)?24'h20c060:24'h4080ff;
+   if((dm==1||dm==2||dm==5)&&(x>=FX0-4)&&(x<FX0+IW*2+4)&&(y>=FY0-4)&&(y<FY0+IH*2+4)) color=(shown_mode==1)?24'h20c060:24'h4080ff;
    if(inside_image)color=src_valid?{selected_pixel[7:0],selected_pixel[15:8],selected_pixel[23:16]}:24'hff00ff;
   end
  end
@@ -154,7 +161,7 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  always @(posedge pc) begin
   mode1<=mode;mode2<=mode1;banks1<=valid_banks;banks2<=banks1;flush1<=flush;flush2<=flush1;
   if(prst) begin
-   x<=0;y<=0;request_toggle<=0;request_bank<=0;request_enable<=0;request_orig<=0;request_mode<=0;image_enable<=0;shown_mode<=0;dm<=0;
+   x<=0;y<=0;request_toggle<=0;request_bank<=0;request_enable<=0;request_orig<=0;request_mode<=0;image_enable<=0;shown_mode<=0;dm<=0;m15<=1;m1x<=0;
    video_frames<=0;underflow<=0;last_underflow<=0;underflow_seen<=0;hs<=0;vs<=0;de<=0;red<=0;green<=0;blue<=0;
    c6<=0;cx<=0;sx<=0;cy<=0;sy<=0;pph<=0;wi<=0;
   end else begin
@@ -168,7 +175,7 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
    if(image_enable&&inside_image&&!src_valid)begin underflow<=underflow+1'b1;underflow_seen<=1;end
    if(x==0&&y==1080) begin
     video_frames<=video_frames+1'b1;last_underflow<=underflow;underflow<=0;
-    shown_mode<=pubv2?2:0;request_bank<=pubb2;request_orig<=pubo2;request_mode<=mode2;dm<=mode2;
+    shown_mode<=pubv2?2:0;request_bank<=pubb2;request_orig<=pubo2;request_mode<=mode2;dm<=mode2;m15<=(mode2==0)||(mode2==4);m1x<=(mode2==3);
     request_enable<=pubv2&&banks2[pubb2];
     image_enable<=pubv2&&banks2[pubb2];
     request_toggle<=!request_toggle;
@@ -183,7 +190,7 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  end
  (* async_reg="true" *) reg req1,req2,req3;
  reg req_seen,restart,read_enable,read_active,ar_pending,last_burst,scan_started;reg [1:0] read_bank;
- reg [1:0] read_orig,read_mode,ph;reg half;
+ reg [1:0] read_orig,ph;reg [2:0] read_mode;reg half;
  reg [READ_ADDR_W-1:0] read_addr;reg [LINE_W-1:0] line_base;reg [8:0] row;reg [3:0] col;
  reg [31:0] hash,frame_hash,read_frames;reg [3:0] beat;
  function [31:0] rol(input [31:0] d,input integer n);begin rol=(d<<n)|(d>>(32-n));end endfunction
@@ -196,9 +203,9 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
  sc_async_fifo #(.W(96),.AW(9)) display_fifo(ac,arst||flush,compact_read,rf_write,rf_ready,
   pc,pf_reset,rf_data,rf_valid,rf_take,rf_level);
  // Row order: mode 0 reads each source row once (original row then stylized row; the pixel side caches
- // it for the repeated output line); modes 1/2 also read each source row only once.
+ // it for the repeated output line); modes 1..5 also read each source row only once.
  wire sbs=read_mode==0;
- wire use_orig=(read_mode==2)||(sbs&&!half);
+ wire use_orig=(read_mode>=2)||(sbs&&!half);
  wire [31:0] bank_base=use_orig?in_base(read_orig):out_base(read_bank);
  wire line_end=(col==COLS-1)&&(!sbs||half);
  wire row_step=1'b1;
@@ -246,7 +253,8 @@ module sc_display #(parameter IW=640,IH=480,FONT="model/font8x16.mem",TEXT="mode
   p1s<={video_frames,last_underflow};p2s<=p1s;vb1<=valid_banks[1:0];vb2<=vb1;
   uf1<=underflow_seen;uf2<=uf1;
  end
- assign status={30'd0,mode,p2s[63:32],p2s[31:0],d2[127:96],d2[95:64],d2[63:32],d2[31:0],26'd0,uf2,calibrated,vb2,mode};
+ // status[5] (underflow history) is a fixed CPU flag position: keep only mode[1:0] in the low word.
+ assign status={29'd0,mode,p2s[63:32],p2s[31:0],d2[127:96],d2[95:64],d2[63:32],d2[31:0],26'd0,uf2,calibrated,vb2,mode[1:0]};
 endmodule
 // Dual-clock simple dual-port RAM with optional init file (OSD text).
 module sc_dcram #(parameter W=8,D=2048,AW=11,INIT="")(

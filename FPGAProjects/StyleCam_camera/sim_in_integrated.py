@@ -40,12 +40,17 @@ for name in cases:
   assert clean(golden_net)==clean(expected_net),'Golden network geometry differs'
   (folder/'net.v').write_text(expected_net,encoding='utf-8')
   tb=(source/'tb.v').read_text().replace('validation/video_engine/',folder.relative_to(ROOT).as_posix()+'/')
+  # The style blend inputs postdate these golden benches: tie them off (blend disabled).
+  tb=tb.replace(".video_mode(mode),",".video_mode(mode),.video_blend_style(2'd0),.video_blend_alpha(4'd0),",1)
+  assert 'video_blend_alpha' in tb
   files=['sc_engine','sc_in_refresh','sc_in_math','sc_in_alu','common','conv_layer','mac','requant','swg3','swg3b']
   extra=['-DCPU_BLOB']
  else:
   source=REFERENCE/'validation/vga_performance/optimized'
   for f in ['input.hex','expected.hex','records.hex']:asset(source/f,folder/f)
   tb=(REFERENCE/'validation/latency_vga/tb.v').read_text().replace('validation/vga_performance/optimized/',folder.relative_to(ROOT).as_posix()+'/')
+  tb=tb.replace(".video_mode(1'b1),",".video_mode(1'b1),.video_blend_style(2'd0),.video_blend_alpha(4'd0),",1)
+  assert 'video_blend_alpha' in tb
   files=['sc_engine_cdc','sc_engine','sc_in_refresh','sc_in_math','sc_in_alu','common','conv_layer','mac','requant','swg3','swg3b','stylenet_top']
   extra=[]
  tbfile=folder/'tb.v';tbfile.write_text(tb)

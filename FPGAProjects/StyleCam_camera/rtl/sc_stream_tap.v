@@ -13,7 +13,9 @@
 //           output pixels repeat source pixels 0,0,1,2,2,3, so phases {0,2,3,5} of every 6
 //           are exactly source pixels 0..3 (same pattern for lines);
 //   mode 1  stylized 2x, x 320..1599, y 60..1019; phases {0,2,4,6} of every 8;
-//   mode 2  original 2x in the same window as mode 1 (there is no stylized picture to show).
+//   mode 2  original 2x in the same window as mode 1 (there is no stylized picture to show);
+//   Resize demo, original only: mode 3 native 1x, x 640..1279, y 300..779, every pixel;
+//           mode 4 1.5x alone, x 480..1439, y 180..899 (mode 0 pattern); mode 5 as mode 2.
 // So in every layout a preview pixel is the exact mean of a 4x4 block of the 640x480 picture.
 // The layout is sampled once per field from the CPU view register.
 //
@@ -36,7 +38,7 @@ module sc_stream_tap #(
  input      [7:0]  red,
  input      [7:0]  green,
  input      [7:0]  blue,
- input      [1:0]  mode,           // sc_display layout, CPU clock domain
+ input      [2:0]  mode,           // sc_display layout, CPU clock domain
  input             wready,
  input             flush_capture, // asynchronous link-domain recovery request
  input      [13:0] wlevel,
@@ -53,7 +55,7 @@ module sc_stream_tap #(
  localparam VS = 8 + 4;                 // sum of 16 samples
  localparam LAST_ROW = OUT_H - BANDS;   // first row of the last row group
 
- (* async_reg="true" *) reg [1:0] mode1, mode2;
+ (* async_reg="true" *) reg [2:0] mode1, mode2;
  (* async_reg="true" *) reg flush_meta, flush_sync;
  always @(posedge pc) begin
   mode1 <= mode; mode2 <= mode1;
@@ -61,7 +63,9 @@ module sc_stream_tap #(
   else begin flush_meta <= flush_capture; flush_sync <= flush_meta; end
  end
 
- reg          sbs;       // layout of the current field: 1 = side by side (1.5x), 0 = 2x
+ reg [1:0]    lay;       // scale of the current field: 0 = 1.5x, 1 = 2x, 2 = 1x
+ reg [10:0]   X0, Y0;    // window of the current field
+ reg [2:0]    BL;        // last phase of a block
  reg [10:0]   xp, yp;    // pixel inside the active line, line inside the field
  reg [2:0]    xs, ys;    // phase inside the block
  reg [CW:0]   xg;        // output column (one extra bit: past the window)
@@ -70,11 +74,8 @@ module sc_stream_tap #(
  reg          de_d, vs_d, cap;
  reg [HS-1:0] hr, hg, hb;
 
- wire [10:0] X0   = sbs ? 11'd960 : 11'd320;
- wire [10:0] Y0   = sbs ? 11'd180 : 11'd60;
- wire [2:0]  BL   = sbs ? 3'd5 : 3'd7;      // last phase of a block
- function take(input s, input [2:0] p);    // phase holds a distinct source pixel
-  take = s ? (p == 0 || p == 2 || p == 3 || p == 5) : !p[0];
+ function take(input [1:0] l, input [2:0] p);    // phase holds a distinct source pixel
+  take = (l == 0) ? (p == 0 || p == 2 || p == 3 || p == 5) : (l == 1) ? !p[0] : 1'b1;
  endfunction
 
  // Column line buffer: running vertical sums of the three channels.  Read during a block,
@@ -93,10 +94,10 @@ module sc_stream_tap #(
  wire in_x        = de && (xp >= X0) && (xg < OUT_W);
  wire in_y        = (yp >= Y0) && (yg < OUT_H);
  wire row_on      = cap && in_y && ((yg & (BANDS - 1)) == band);
- wire x_take      = take(sbs, xs);
- wire y_take      = take(sbs, ys);
+ wire x_take      = take(lay, xs);
+ wire y_take      = take(lay, ys);
  wire y_first     = (ys == 0);
- wire y_last      = sbs ? (ys == 5) : (ys == 6);
+ wire y_last      = (lay == 0) ? (ys == 5) : (lay == 1) ? (ys == 6) : (ys == 3);
  wire blk_end     = in_x && (xs == BL);
 
  // Horizontal sum of this block including the current pixel, then the block sum.
@@ -130,7 +131,7 @@ module sc_stream_tap #(
 
  always @(posedge pc) begin
   if (prst) begin
-   sbs <= 1'b1; xp <= 0; yp <= 0; xs <= 0; ys <= 0; xg <= 0; yg <= 0; band <= 0;
+   lay <= 2'd0; X0 <= 11'd960; Y0 <= 11'd180; BL <= 3'd5; xp <= 0; yp <= 0; xs <= 0; ys <= 0; xg <= 0; yg <= 0; band <= 0;
    de_d <= 1'b0; vs_d <= 1'b0; cap <= 1'b0; lb_we <= 1'b0;
    hr <= 0; hg <= 0; hb <= 0;
    wd <= 16'd0; wv <= 1'b0; abort_toggle <= 1'b0;
@@ -143,7 +144,12 @@ module sc_stream_tap #(
 
    if (frame_start) begin
     xp <= 0; yp <= 0; xs <= 0; ys <= 0; xg <= 0; yg <= 0;
-    sbs <= (mode2 == 2'd0);
+    case (mode2)
+     3'd0: begin lay <= 2'd0; X0 <= 11'd960; Y0 <= 11'd180; BL <= 3'd5; end
+     3'd3: begin lay <= 2'd2; X0 <= 11'd640; Y0 <= 11'd300; BL <= 3'd3; end
+     3'd4: begin lay <= 2'd0; X0 <= 11'd480; Y0 <= 11'd180; BL <= 3'd5; end
+     default: begin lay <= 2'd1; X0 <= 11'd320; Y0 <= 11'd60; BL <= 3'd7; end
+    endcase
     cap <= (wlevel <= PACE_WORDS[13:0]);      // decide once per field, before the first row
    end else begin
     if (de) begin

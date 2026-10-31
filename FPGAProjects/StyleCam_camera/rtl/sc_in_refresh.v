@@ -1,7 +1,11 @@
 // Read frozen statistics, compute coefficients, write only between frames.
+// Style blend (COMPACT only): with blend_alpha=a (1..8) the gamma/beta of style are replaced by
+// A + floor((B-A)*a/8), B being blend_style, before the unchanged coefficient math; a=0 is the
+// original path, a=8 equals style B exactly. Conv weights are shared, so this is a mixed style.
 module sc_in_refresh #(parameter WIDTH=640,HEIGHT=480,CONSTFILE="model/in_constants.mem",
  COMPACT=1,TRACE=1,PARAMFILE={CONSTFILE,".parameters"},EPSFILE={CONSTFILE,".epsilon"})(
  input clk,rst,start,input [1:0] style,input [3:0] layer,
+ input [1:0] blend_style,input [3:0] blend_alpha,
  output reg busy,done,error,output reg [7:0] stats_index,
  input [39:0] stats_s1,input [59:0] stats_s2,
  output reg cfg_we,output reg [4:0] cfg_layer,output reg [11:0] cfg_addr,output reg [37:0] cfg_data,
@@ -10,20 +14,26 @@ module sc_in_refresh #(parameter WIDTH=640,HEIGHT=480,CONSTFILE="model/in_consta
  reg [37:0] trace[0:863];
  reg [303:0] word;reg [9:0] address;reg [8:0] epsilon_address;
  reg [3:0] state,saved_layer;reg [1:0] saved_style;reg [7:0] cout;
+ reg [1:0] saved_bstyle;reg [3:0] saved_alpha;
  wire constants_ready;
  // Ten parameter banks plus two exact mantissa/shift epsilon banks.
  // Nine reads and a short serial expansion recover the original 304-bit word.
  generate if(COMPACT)begin:g_compact
-  reg loading,ready,finishing,unpacking,pipe_valid;
+  reg loading,ready,finishing,unpacking,pipe_valid,mixing;
   reg [3:0] read_count,index_q,pbank_q;
   reg ebank_q;
-  reg [12:0] pbase;
+  reg [12:0] pbase,pbase_b;
   reg [9:0] ebase;
-  reg [119:0] packed_p;
+  reg [119:0] packed_p,packed_b;
   reg [87:0] packed_e;reg [6:0] epsilon_shift;
+  // Blend: reads 9..14 fetch style B's parameter word, then four serial shift-add steps.
+  reg [2:0] mix_k;reg signed [65:0] mix_dg,mix_ag;reg signed [60:0] mix_db,mix_ab;
+  wire blend=saved_alpha!=0;
+  wire [3:0] last_read=blend?4'd14:4'd8;
   wire [8:0] channel_index=(saved_layer==0?9'd0:9'd16+(saved_layer-1'b1)*9'd24)+stats_index;
   wire [9:0] parameter_index=saved_style*10'd272+channel_index;
-  wire [12:0] pa=pbase+read_count;
+  wire [9:0] parameter_index_b=saved_bstyle*10'd272+channel_index;
+  wire [12:0] pa=(read_count>=9)?pbase_b+(read_count-4'd9):pbase+read_count;
   wire [9:0] ea=ebase+(read_count-4'd6);
   wire load=busy&&(state==1);
   wire [19:0] pq[0:9],eq[0:1];
@@ -33,7 +43,7 @@ module sc_in_refresh #(parameter WIDTH=640,HEIGHT=480,CONSTFILE="model/in_consta
    (* syn_ramstyle="block_ram" *) reg [19:0] mem[0:511];
    reg [19:0] q;
    initial $readmemh({CONSTFILE,".p",DIGIT},mem);
-   always @(posedge clk)if(loading&&read_count<6&&pa[12:9]==bank)q<=mem[pa[8:0]];
+   always @(posedge clk)if(loading&&(read_count<6||(read_count>=9&&read_count<15))&&pa[12:9]==bank)q<=mem[pa[8:0]];
    assign pq[bank]=q;
   end
   for(bank=0;bank<2;bank=bank+1)begin:g_e
@@ -48,17 +58,30 @@ module sc_in_refresh #(parameter WIDTH=640,HEIGHT=480,CONSTFILE="model/in_consta
   wire [135:0] epsilon_value={8'd0,packed_e[87:0],40'd0};
   assign constants_ready=ready;
   always @(posedge clk)begin
-   if(rst||!load)begin loading<=0;ready<=0;finishing<=0;unpacking<=0;pipe_valid<=0;read_count<=0;end
-   else if(!loading&&!ready&&!finishing)begin
-    pbase<=parameter_index*13'd6;ebase<=channel_index*10'd3;
+   if(rst||!load)begin loading<=0;ready<=0;finishing<=0;unpacking<=0;pipe_valid<=0;read_count<=0;mixing<=0;end
+   else if(!loading&&!ready&&!finishing&&!mixing)begin
+    pbase<=parameter_index*13'd6;pbase_b<=parameter_index_b*13'd6;ebase<=channel_index*10'd3;
     loading<=1;read_count<=0;pipe_valid<=0;
    end else if(loading)begin
-    pipe_valid<=read_count<9;index_q<=read_count;pbank_q<=pa[12:9];ebank_q<=ea[9];
-    if(read_count<9)read_count<=read_count+1'b1;
+    pipe_valid<=read_count<=last_read;index_q<=read_count;pbank_q<=pa[12:9];ebank_q<=ea[9];
+    if(read_count<=last_read)read_count<=read_count+1'b1;
     if(pipe_valid)begin
      if(index_q<6)packed_p[index_q*20+:20]<=pq[pbank_q];
-     else packed_e[(index_q-4'd6)*20+:20]<=eq[ebank_q];
-     if(index_q==8)begin loading<=0;finishing<=1;pipe_valid<=0;end
+     else if(index_q<9)packed_e[(index_q-4'd6)*20+:20]<=eq[ebank_q];
+     else packed_b[(index_q-4'd9)*20+:20]<=pq[pbank_q];
+     if(index_q==last_read)begin loading<=0;pipe_valid<=0;if(blend)begin mixing<=1;mix_k<=0;end else finishing<=1;end
+    end
+   end else if(mixing)begin
+    // gamma: 61-bit mantissa [116:56]; beta: 56 bits [55:0]; both two's complement.
+    if(mix_k==0)begin
+     mix_dg<=$signed(packed_b[116:56])-$signed(packed_p[116:56]);mix_db<=$signed(packed_b[55:0])-$signed(packed_p[55:0]);
+     mix_ag<=0;mix_ab<=0;mix_k<=1;
+    end else if(mix_k<5)begin
+     if(saved_alpha[mix_k-1'b1])begin mix_ag<=mix_ag+mix_dg;mix_ab<=mix_ab+mix_db;end
+     mix_dg<=mix_dg<<<1;mix_db<=mix_db<<<1;mix_k<=mix_k+1'b1;
+    end else begin
+     packed_p[116:56]<=packed_p[116:56]+mix_ag[63:3];packed_p[55:0]<=packed_p[55:0]+mix_ab[58:3];
+     mixing<=0;finishing<=1;
     end
    end else if(finishing)begin
     if(!unpacking)begin
@@ -89,6 +112,7 @@ module sc_in_refresh #(parameter WIDTH=640,HEIGHT=480,CONSTFILE="model/in_consta
   if(rst)begin busy<=0;done<=0;error<=0;stats_index<=0;state<=0;cycles<=0;writes<=0;address<=0;epsilon_address<=0;end
   else if(start&&!busy)begin
    busy<=1;error<=0;state<=1;saved_layer<=layer;saved_style<=style;stats_index<=0;
+   saved_bstyle<=blend_style;saved_alpha<=(blend_style>=3||blend_alpha>8)?4'd0:blend_alpha;
    cout<=(layer==0||layer==11)?16:24;address<=style*288+layer*24;epsilon_address<=layer*24;cycles<=0;writes<=0;
    if(layer>=12||style>=3)begin busy<=0;done<=1;error<=1;state<=0;end
   end else if(busy)begin

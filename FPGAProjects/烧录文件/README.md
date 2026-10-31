@@ -1,10 +1,11 @@
 # 下载包与恢复资料
 
-**当前默认正式版为 [RISCV11 AE / IN4 + 手机预览，2026-10-30](20261030_RISCV11_PhonePreview_Release/README.md)。** 总工程入口为 `FPGAProjects/StyleCam_camera/ti60f225_oob.xml`，摄像头为 SC431HAI。
+**当前默认正式版为 [RISCV11 创意交互版，2026-10-31](20261031_RISCV11_Creative_Release/README.md)。** 总工程入口为 `FPGAProjects/StyleCam_camera/ti60f225_oob.xml`，摄像头为 SC431HAI。
 
 | 版本 | 用途与验收 |
 |---|---|
-| [RISCV11 AE / IN4 + 手机预览正式版](20261030_RISCV11_PhonePreview_Release/README.md)，ID `53430a0b` | 三风格 30fps、手机 160×120 风格画约 15 帧/s；Flash 独立回读及 RESET_N 自主启动通过；控制口改到 J28-37 |
+| [RISCV11 创意交互正式版](20261031_RISCV11_Creative_Release/README.md)，ID `53430a0b` | 在 10-30 版上增加 Resize 单独演示（1x/1.5x/2x 原图）、风格混合、手机控制页升级与多手机扫码观看；RAM 板测 30fps、各错误 0；Flash 独立回读通过 |
+| [RISCV11 AE / IN4 + 手机预览版（10-30）](20261030_RISCV11_PhonePreview_Release/README.md)，ID `53430a0b` | 三风格 30fps、手机 160×120 风格画约 15 帧/s；Flash 独立回读及 RESET_N 自主启动通过；`program_main_ae_flash.py --release <该目录>` 可恢复 |
 | [RISCV11 AE / IN4（10-18）](20261018_RISCV11_Main_AE_IN4_Release/README.md)，ID `53430a0b` | 不带预览的上一正式版；电脑 FTDI 串口可控制；`program_flash_release.py --release <该目录>` 可恢复 |
 | ESP32 / VC02 交互包（10-20 ～ 10-21） | 三板语音 / Wi-Fi 接入准备与联调资料 |
 

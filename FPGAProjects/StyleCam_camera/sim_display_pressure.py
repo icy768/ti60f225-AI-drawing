@@ -2,6 +2,7 @@
 
 Runs: legacy SCU09 display without credits (must underflow), then the current display under a
 permanently queued replay client for the stylized 2x, original 2x and side-by-side 1.5x layouts
+and the Resize demo layouts 3 (native 1x), 4 (original 1.5x alone), 5 (original 2x)
 (pixel-exact, no underflow, no R back-pressure). LAT = DDR cycles from AR to the first R beat.
 """
 from pathlib import Path
@@ -42,7 +43,7 @@ module tb;
  .write_bank(1'b1),.publish(pub),.publish_bank(1'b0),.output_complete(),.shown_valid(),.shown_bank(),
 `else
  sc_display #(.IW(640),.IH(32),.TEXT("")) dut(.uc(ac),.urst(rst),.ac(ac),.arst(rst),.pc(pc),.prst(rst),.calibrated(1'b1),
- .pixel(24'd0),.pv(1'b0),.pready(),.new_frame(1'b0),.original_frame(1'b0),.mode(2'd`MODE),.status(status),
+ .pixel(24'd0),.pv(1'b0),.pready(),.new_frame(1'b0),.original_frame(1'b0),.mode(3'd`MODE),.status(status),
  .write_bank(1'b1),.publish(pub),.publish_bank(1'b0),.publish_orig(2'd2),.output_complete(),.shown_valid(),.shown_bank(),
  .osd_we(1'b0),.osd_addr(11'd0),.osd_data(8'd0),
 `endif
@@ -70,7 +71,7 @@ module tb;
 `ifdef LEGACY
  localparam PIPE=1,TOTAL=81920;
 `else
- localparam PIPE=4,TOTAL=(`MODE==0)?92160:81920;
+ localparam PIPE=4,TOTAL=(`MODE==0)?92160:(`MODE==3)?20480:(`MODE==4)?46080:81920;
 `endif
  integer seen=0,mismatches=0,ex,ey,idx,u;reg [23:0] want;reg inwin;
  always @(negedge pc)begin
@@ -80,9 +81,13 @@ module tb;
 `else
   if(`MODE==0)begin
    inwin=ey>=516&&ey<564&&ex<1920;u=ex<960?ex:ex-960;idx=(((ey-516)*2)/3)*640+(u*2)/3;want=ex<960?opattern(idx):pattern(idx);
+  end else if(`MODE==3)begin
+   inwin=ex>=640&&ex<1280&&ey>=524&&ey<556;idx=(ey-524)*640+(ex-640);want=opattern(idx);
+  end else if(`MODE==4)begin
+   inwin=ex>=480&&ex<1440&&ey>=516&&ey<564;idx=(((ey-516)*2)/3)*640+((ex-480)*2)/3;want=opattern(idx);
   end else begin
    inwin=ex>=320&&ex<1600&&ey>=508&&ey<572;idx=((ey-508)/2)*640+(ex-320)/2;
-   want=(`MODE==2)?opattern(idx):pattern(idx);
+   want=(`MODE==1)?pattern(idx):opattern(idx);
   end
 `endif
   if(!rst&&inwin&&dut.image_enable)begin
@@ -110,7 +115,8 @@ endmodule
 (S/'tb.v').write_text(tb)
 # (name, priority, mode, latency, legacy)
 runs=[('legacy',0,1,90,True),('stylized_2x',1,1,90,False),('original_2x',1,2,90,False),
-      ('side_by_side',1,0,90,False)]
+      ('side_by_side',1,0,90,False),('resize_native_1x',1,3,90,False),
+      ('resize_single_1p5x',1,4,90,False),('resize_original_2x',1,5,90,False)]
 results={}
 for name,priority,mode,lat,legacy in runs:
  src=[str(S/'before_sc_display.v')] if legacy else [str(ROOT/'rtl/sc_display.v'),str(ROOT/'rtl/common.v')]

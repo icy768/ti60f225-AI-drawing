@@ -7,6 +7,8 @@
  * - 加速器调度：每帧由 CPU 下发单步启动，帧发布中断里统计帧率并下发下一帧
  * - 风格部署：开机依次触发三种风格的 IN 校准作业（13 遍），之后切换风格无需等待
  * - 交互：KEY3 短按切风格、长按切布局；串口 0 1 2 / v 同样可操作；OSD 叠加状态
+ * - Resize 演示：串口 z 依次切 1x / 1.5x / 2x 原图（不经网络，推理照常运行），v 回到正常布局
+ * - 风格插值：串口 b T A（T 目标风格 0..2，A 0..8）把当前风格的 IN gamma/beta 向 T 混合 A/8；切风格即清除
  * - 语音（创意交互，编译期开关默认关闭）：语音模块经 ESP32-S3 映射成单字符即可，无需改本文件；
  *   若语音模块直连 uart_rx，用 -DSTYLECAM_VOICE_TOKENS=1 打开 't' 关键词模式（见下方 console）
  */
@@ -28,7 +30,8 @@ void trap_entry();
 void main();
 
 static const char *const STYLE_NAME[3] = {"VAN GOGH", "UKIYO-E", "INK WASH"};
-static const char *const VIEW_NAME[3] = {"ORIGINAL | STYLIZED", "STYLIZED FULL", "ORIGINAL FULL"};
+static const char *const VIEW_NAME[6] = {"ORIGINAL | STYLIZED", "STYLIZED FULL", "ORIGINAL FULL",
+                                         "RESIZE 1X 640X480", "RESIZE 1.5X 960X720", "RESIZE 2X 1280X960"};
 
 static volatile uint32_t ctrl;           /* CTRL 影子（不含 STEP） */
 static volatile uint32_t streaming;      /* 1: 发布中断里自动下发下一帧 */
@@ -48,7 +51,14 @@ static void delay_ms(uint32_t ms) { while (ms--) bsp_uDelay(1000); }
 static void ctrl_write(uint32_t v) { ctrl = v; SC_CTRL = v; }
 static void step_frame(void) { SC_CTRL = ctrl | CTRL_STEP; }
 static uint32_t cur_style(void) { return (ctrl >> 4) & 3; }
-static uint32_t cur_view(void) { return (ctrl >> 8) & 3; }
+static uint32_t cur_view(void) { return (ctrl >> 8) & 7; }
+/* 布局 0..2 循环；zoom 时在 Resize 演示 3..5 中循环（从正常布局进入 3） */
+static void step_view(int zoom)
+{
+    uint32_t v = cur_view();
+    v = zoom ? (v < 3 || v == 5 ? 3 : v + 1) : (v >= 2 ? 0 : v + 1);
+    ctrl_write((ctrl & ~CTRL_VIEW(7)) | CTRL_VIEW(v));
+}
 
 static void mark_switch(uint32_t style)
 {
@@ -134,6 +144,11 @@ static void osd_draw(void)
     row_put(1, line, 0);
     row_flush(20);
     row_begin();
+    uint32_t ba = (ctrl >> 16) & 15;
+    if (ba) {
+        p = cat(line, "BLEND TO "); p = cat(p, STYLE_NAME[(ctrl >> 12) & 3]); p = cat(p, " "); p = fmt_u(p, ba * 25 / 2); cat(p, "%");
+        row_put(1, line, 1);
+    }
     row_flush(21);
     row_begin();
     row_flush(22);
@@ -173,8 +188,7 @@ static void on_irq(uint32_t pend)
     }
     if (pend & IRQ_KEY2) {
         key0_count++; /* Legacy IRQ_KEY2 now comes from the physical K0 button. */
-        uint32_t v = cur_view() == 2 ? 0 : cur_view() + 1;
-        ctrl_write((ctrl & ~CTRL_VIEW(3)) | CTRL_VIEW(v));
+        step_view(0);
         osd_dirty = 1;
     }
     if (pend & IRQ_ERROR) {
@@ -190,15 +204,14 @@ static void poll_key3(void)
     if (!key3_wait_release) return;
     uint32_t down = (SC_STATUS >> 27) & 1u;
     if (down && !key3_long_done && us_since(key3_press_t) >= KEY3_HOLD_US) {
-        uint32_t v = cur_view() == 2 ? 0 : cur_view() + 1;
-        ctrl_write((ctrl & ~CTRL_VIEW(3)) | CTRL_VIEW(v));
+        step_view(0);
         key3_long_done = 1;
         osd_dirty = 1;
     }
     if (!down) {
         if (!key3_long_done) {
             uint32_t s = cur_style() == 2 ? 0 : cur_style() + 1;
-            ctrl_write((ctrl & ~CTRL_STYLE(3)) | CTRL_STYLE(s));
+            ctrl_write((ctrl & ~(CTRL_STYLE(3) | CTRL_BLEND_MASK)) | CTRL_STYLE(s));
             mark_switch(s);
             osd_dirty = 1;
         }
@@ -458,8 +471,8 @@ static void print_status(uint32_t t_ms)
     bsp_printf(" pass_ms="); print_x10(pass_cycles / 15000);
     bsp_printf(" nn_max_ms="); print_x10(job_max / 15000);
     poll_key3(); poll_scan();
-    bsp_printf(" style=%d view=%d ready=%d proc=%d cap=%d skip=%d run_skip=%d",
-               cur_style(), cur_view(), ST_STYLES_READY(st), SC_PROCESSED, SC_CAPTURED,
+    bsp_printf(" style=%d view=%d blend=%d:%d ready=%d proc=%d cap=%d skip=%d run_skip=%d",
+               cur_style(), cur_view(), (ctrl >> 12) & 3, (ctrl >> 16) & 15, ST_STYLES_READY(st), SC_PROCESSED, SC_CAPTURED,
                SC_SKIPPED, SC_SKIPPED-stream_skip_base);
     poll_key3(); poll_scan();
     bsp_printf(" caperr=%d vid_err=%d uf=%d hdmi_err=%d irq_err=%d",
@@ -600,8 +613,7 @@ static void act_set_style(uint32_t s)
 static void act_cycle_view(void)
 {
     csr_clear(mstatus, MSTATUS_MIE);
-    uint32_t v = cur_view() == 2 ? 0 : cur_view() + 1;
-    ctrl_write((ctrl & ~CTRL_VIEW(3)) | CTRL_VIEW(v));
+    step_view(0);
     osd_dirty = 1;
     csr_set(mstatus, MSTATUS_MIE);
 }
@@ -650,6 +662,12 @@ static int token_input(char c)
 }
 #endif
 
+static const char HELP[] = "commands: 0 1 2 style, v view, z resize zoom, b T A blend, s status, c camera regs, w reload weights, g R G B percent, q R G B raw, g? query, G reset"
+#if STYLECAM_VOICE_TOKENS
+                   ", t voice keywords"
+#endif
+                   "\r\n";
+static uint8_t blend_wait, blend_t;
 static void console(void)
 {
     if(rgb_active&&us_since(rgb_last)>2000000) {
@@ -662,17 +680,30 @@ static void console(void)
 #endif
         if(rgb_input(c)) continue;
         if(c=='G') { rgb_set(256,256,256); continue; }
+        if (blend_wait) {                                /* b T A：目标风格、混合比例 */
+            uint32_t d = (uint32_t)(c - '0');
+            if (blend_wait == 2) { blend_t = d; blend_wait = 1; continue; }
+            blend_wait = 0;
+            if (blend_t < 3 && d <= 8) {
+                csr_clear(mstatus, MSTATUS_MIE);
+                ctrl_write((ctrl & ~CTRL_BLEND_MASK) | CTRL_BLEND(blend_t, d));
+                osd_dirty = 1;
+                csr_set(mstatus, MSTATUS_MIE);
+            }
+            continue;
+        }
+        if (c == 'b') { blend_wait = 2; continue; }
         csr_clear(mstatus, MSTATUS_MIE);
         if (c >= '0' && c <= '2') {
-            uint32_t s = c - '0';
-            if (s != cur_style()) {
-                ctrl_write((ctrl & ~CTRL_STYLE(3)) | CTRL_STYLE(s));
-                mark_switch(s);
-            }
+            uint32_t s = c - '0', old = cur_style();
+            ctrl_write((ctrl & ~(CTRL_STYLE(3) | CTRL_BLEND_MASK)) | CTRL_STYLE(s));
+            if (s != old) mark_switch(s);
             osd_dirty = 1;
         } else if (c == 'v') {
-            uint32_t v = cur_view() == 2 ? 0 : cur_view() + 1;
-            ctrl_write((ctrl & ~CTRL_VIEW(3)) | CTRL_VIEW(v));
+            step_view(0);
+            osd_dirty = 1;
+        } else if (c == 'z') {
+            step_view(1);
             osd_dirty = 1;
         }
         csr_set(mstatus, MSTATUS_MIE);
@@ -689,11 +720,7 @@ static void console(void)
             bsp_printf("weights reload: %d records, %d us\r\n", r, us);
             resume_stream();
         }
-        if (c == 'h' || c == '?') bsp_printf("commands: 0 1 2 style, v view, s status, c camera readback, w reload weights, g R G B percent, q R G B raw (Enter), g? query, G reset"
-#if STYLECAM_VOICE_TOKENS
-                   ", t voice keywords"
-#endif
-                   "\r\n");
+        if (c == 'h' || c == '?') bsp_printf("%s", HELP);
     }
 }
 
@@ -774,11 +801,7 @@ void main()
     step_frame();
     csr_set(mstatus, MSTATUS_MIE);
     osd_draw();
-    bsp_printf("streaming; commands: 0 1 2 style, v view, s status, c camera readback, w reload weights, g R G B percent, q R G B raw (Enter), g? query, G reset"
-#if STYLECAM_VOICE_TOKENS
-                   ", t voice keywords"
-#endif
-                   "\r\n");
+    bsp_printf("streaming; %s", HELP);
 
     ae_init();
     uint32_t t_last = now(), f_last = frames, p_last = last_pub_t, s_last = SC_SENSOR_FRAMES, uptime_ms = 0, ticks = 0;
@@ -797,7 +820,7 @@ void main()
             uint32_t pub_10us = (p - p_last) / (BSP_CLINT_HZ / 100000);
             fps_x100 = (f != f_last && pub_10us) ? (f - f_last) * 10000000u / pub_10us : 0;
             fps_x10 = (fps_x100 + 5) / 10;                 /* 四舍五入到 0.1 */
-            cam_fps_x10 = (s - s_last) * 10000000u / dt;
+            cam_fps_x10 = ((s - s_last) * 10000000u + dt / 2) / dt;   /* 四舍五入到 0.1 */
             nn_ms_x10 = job_cycles / 15000;             /* 150 MHz accelerator cycles -> 0.1 ms */
             f_last = f; p_last = p; s_last = s; t_last = now(); uptime_ms += dt / 1000;
             osd_draw();

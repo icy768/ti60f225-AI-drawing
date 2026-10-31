@@ -375,7 +375,7 @@ wire [31:0] captured,skipped,capture_errors,capture_overflow;
 wire [39:0] camera_raw;wire camera_vs,camera_hs,camera_de;
 wire [55:0] ae_data;wire ae_request,ae_ack;
 wire [47:0] camera_rgb;wire camera_valid,camera_sof,camera_eof;
-wire cam_enable,cpu_run,cpu_step;wire [1:0] cpu_style,view_mode;
+wire cam_enable,cpu_run,cpu_step;wire [1:0] cpu_style;wire [2:0] view_mode;wire [1:0] blend_style;wire [3:0] blend_alpha;
 wire [15:0] rgb_r_gain,rgb_g_gain,rgb_b_gain;wire rgb_request,rgb_ack;
 wire [31:0] camera_frames,camera_format_errors;
 reg [31:0] cf1,cf2,ce1,ce2;
@@ -508,7 +508,7 @@ wire [1:0] upload_bank;
 sc_engine_cdc engine(.clk(core_clk),.system_reset(rs_a[2]),.nc(i_mipi_tx_pclk),.nrst(rs_n[2]),.video_bank(output_bank),.upload_bank(upload_bank),
  .sink_ready(sink_ready),.sink_data(sink_data),.sink_valid(sink_valid),.new_frame(new_frame),
  .replay_data(replay_data),.replay_valid(replay_valid),.replay_ready(replay_ready),.replay_start(replay_start),.replay_busy(replay_busy),
- .video_start(engine_start),.video_style(engine_style),.video_mode(engine_mode),
+ .video_start(engine_start),.video_style(engine_style),.video_mode(engine_mode),.video_blend_style(blend_style),.video_blend_alpha(blend_alpha),
  .video_idle(engine_idle),.video_done(engine_done),.video_ok(engine_ok),.video_styles_ready(styles_ready),
  .cpu_cfg_we(cfg_we),.cpu_cfg_sel(cfg_sel),.cpu_cfg_lane(cfg_lane),.cpu_cfg_layer(cfg_layer),.cpu_cfg_addr(cfg_addr),.cpu_cfg_data(cfg_data),.cpu_cfg_rejects(cfg_reject),
  .run_cycles(run_cycles),.first_output_cycles(first_output_cycles),.input_stalls(input_stalls),.output_stalls(output_stalls),
@@ -537,7 +537,7 @@ wire osd_we;wire [10:0] osd_addr;wire [7:0] osd_data;
 // cfg_sel=1写卷积权重；cfg_sel=0写IN/重量化系数。
 sc_apb_regs regs(.clk(core_clk),.rst(rs_a[2]),
  .paddr(apb_paddr),.psel(apb_psel),.penable(apb_penable),.pwrite(apb_pwrite),.pwdata(apb_pwdata),.prdata(apb_prdata),.pready(apb_pready),.pslverr(apb_pslverr),
- .irq(cpu_irq),.run(cpu_run),.step(cpu_step),.style(cpu_style),.view(view_mode),.cam_enable(cam_enable),
+ .irq(cpu_irq),.run(cpu_run),.step(cpu_step),.style(cpu_style),.view(view_mode),.blend_style(blend_style),.blend_alpha(blend_alpha),.cam_enable(cam_enable),
  .rgb_r_gain(rgb_r_gain),.rgb_g_gain(rgb_g_gain),.rgb_b_gain(rgb_b_gain),.rgb_request(rgb_request),.rgb_ack(rgb_ack),.ae_data(ae_data),.ae_request(ae_request),.ae_ack(ae_ack),
  .ev_publish(publish),.ev_key3(key3_press),.ev_key2(key2_press),.ev_error(engine_done&&!engine_ok),
  .st_captured(captured),.st_processed(processed),.st_skipped(skipped),.st_cap_errors(capture_errors+capture_overflow),

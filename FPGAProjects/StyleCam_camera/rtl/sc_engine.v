@@ -11,6 +11,7 @@ module sc_engine #(parameter WIDTH=640, HEIGHT=480, N_STYLES=3, IN_TRACE=0, IN_F
  input [23:0] replay_data,input replay_valid,output replay_ready,
  output replay_start,input replay_busy,
  input video_start,input [1:0] video_style,input video_mode,
+ input [1:0] video_blend_style,input [3:0] video_blend_alpha,   // style blend for mode 1 IN updates
  output video_idle,output reg video_done,video_ok,output [2:0] video_styles_ready,
  input cpu_cfg_we,input cpu_cfg_sel,input [4:0] cpu_cfg_lane,input [4:0] cpu_cfg_layer,input [11:0] cpu_cfg_addr,input [37:0] cpu_cfg_data,output reg cpu_cfg_rejects,
  output reg [31:0] run_cycles,first_output_cycles,input_stalls,output_stalls,
@@ -29,12 +30,13 @@ module sc_engine #(parameter WIDTH=640, HEIGHT=480, N_STYLES=3, IN_TRACE=0, IN_F
  reg auto_busy,auto_done,auto_mode;reg [2:0] auto_phase;reg [3:0] auto_layer;
  reg [31:0] auto_math_cycles;
  reg [3:0] rotation[0:2];
+ reg [1:0] blend_style;reg [3:0] blend_alpha;
  reg in_start;wire in_busy,in_done,in_error,in_cfg_we;wire [7:0] in_idx;
  wire [4:0] in_cfg_layer;wire [11:0] in_cfg_addr;wire [37:0] in_cfg_data,in_trace_data;
  wire [31:0] in_cycles,in_writes;
  assign video_idle=state==0&&!active&&tail==0&&!replay_busy&&!auto_busy&&!in_busy;
  sc_in_refresh #(.WIDTH(WIDTH),.HEIGHT(HEIGHT),.CONSTFILE(IN_FILE),.TRACE(IN_TRACE)) in_update(
- .clk(clk),.rst(rst),.start(in_start),.style(style[1:0]),.layer(auto_layer),
+ .clk(clk),.rst(rst),.start(in_start),.style(style[1:0]),.layer(auto_layer),.blend_style(blend_style),.blend_alpha(blend_alpha),
  .busy(in_busy),.done(in_done),.error(in_error),.stats_index(in_idx),.stats_s1(st_s1),.stats_s2(st_s2),
  .cfg_we(in_cfg_we),.cfg_layer(in_cfg_layer),.cfg_addr(in_cfg_addr),.cfg_data(in_cfg_data),
  .trace_index(10'd0),.trace_data(in_trace_data),.cycles(in_cycles),.writes(in_writes));
@@ -56,7 +58,7 @@ module sc_engine #(parameter WIDTH=640, HEIGHT=480, N_STYLES=3, IN_TRACE=0, IN_F
  always @(posedge clk) begin
   video_done<=0; cfg_we<=0; st_arm<=0; st_fs<=0; st_fe<=0;in_start<=0;
   if(rst) begin
-   state<=0; reset_count<=0; tail<=0; active<=0; done<=0; style<=0;
+   state<=0; reset_count<=0; tail<=0; active<=0; done<=0; style<=0; blend_style<=0; blend_alpha<=0;
    enqueued<=0; consumed<=0; produced<=0; errors<=0; st_sel<=31;
    cfg_sel<=0; cfg_lane<=0; cfg_layer<=0; cfg_addr<=0; cfg_data<=0; cpu_cfg_rejects<=0;
    run_cycles<=0;first_output_cycles<=0;input_stalls<=0;output_stalls<=0;
@@ -112,6 +114,7 @@ module sc_engine #(parameter WIDTH=640, HEIGHT=480, N_STYLES=3, IN_TRACE=0, IN_F
    end
    if(video_start&&video_idle)begin
     style<=video_style;auto_mode<=video_mode;auto_layer<=video_mode?rotation[video_style]:0;
+    blend_style<=video_blend_style;blend_alpha<=video_mode?video_blend_alpha:4'd0;  // calibration stays unblended
     auto_busy<=1;auto_done<=0;auto_phase<=1;auto_cycles<=0;auto_frames<=0;auto_writes<=0;auto_math_cycles<=0;auto_errors<=0;
     video_active<=1;video_ok<=0;if(!video_mode)style_ready[video_style]<=0;
    end

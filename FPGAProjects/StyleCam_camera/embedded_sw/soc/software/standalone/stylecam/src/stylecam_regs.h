@@ -7,7 +7,7 @@
 #define SC_REG(off)        (*(volatile uint32_t *)(SC_BASE + (off)))
 
 #define SC_ID              SC_REG(0x00)
-#define SC_CTRL            SC_REG(0x04)   /* [0] run [1] cam_enable [2] step (pulse) [5:4] style [9:8] view */
+#define SC_CTRL            SC_REG(0x04)   /* [0] run [1] cam_enable [2] step (pulse) [5:4] style [10:8] view (3..5 Resize demo) [13:12] blend style [19:16] blend a/8 */
 #define SC_STATUS          SC_REG(0x08)   /* [7:0] flags, [18:16] sched state, [20:19] req style, [26:25] engine style, [28:27] keys down */
 #define SC_IRQ_PEND        SC_REG(0x0C)   /* W1C */
 #define SC_IRQ_EN          SC_REG(0x10)
@@ -51,6 +51,8 @@
 #define CTRL_STEP          (1u << 2)
 #define CTRL_STYLE(s)      ((uint32_t)(s) << 4)
 #define CTRL_VIEW(v)       ((uint32_t)(v) << 8)
+#define CTRL_BLEND(t, a)   (((uint32_t)(t) << 12) | ((uint32_t)(a) << 16))   /* blend toward style t by a/8 */
+#define CTRL_BLEND_MASK    CTRL_BLEND(3, 15)
 /* STATUS flags */
 #define ST_FRAME_READY     (1u << 0)
 #define ST_ENGINE_IDLE     (1u << 1)

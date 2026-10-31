@@ -5,7 +5,7 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A0B,parameter integer I2
  input clk,rst,
  input [15:0] paddr,input psel,penable,pwrite,input [31:0] pwdata,output [31:0] prdata,output pready,output pslverr,
  output irq,
- output reg run,output reg step,output reg [1:0] style,output reg [1:0] view,output reg cam_enable,
+ output reg run,output reg step,output reg [1:0] style,output reg [2:0] view,output reg [1:0] blend_style,output reg [3:0] blend_alpha,output reg cam_enable,
  output reg [15:0] rgb_r_gain,rgb_g_gain,rgb_b_gain,output reg rgb_request,input rgb_ack,
  input [55:0] ae_data,input ae_request,output reg ae_ack,
  input ev_publish,ev_key3,ev_key2,ev_error,
@@ -56,7 +56,7 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A0B,parameter integer I2
   if(rst)begin
    rgb_r_shadow<=256;rgb_g_shadow<=256;rgb_b_shadow<=256;
    rgb_r_gain<=256;rgb_g_gain<=256;rgb_b_gain<=256;rgb_request<=0;
-   run<=0;style<=0;view<=0;cam_enable<=0;pend<=0;en<=0;i2c_read<=0;i2c_addr<=0;i2c_wdata<=0;i2c_done<=0;
+   run<=0;style<=0;view<=0;blend_style<=0;blend_alpha<=0;cam_enable<=0;pend<=0;en<=0;i2c_read<=0;i2c_addr<=0;i2c_wdata<=0;i2c_done<=0;
    cfg_sel<=0;cfg_lane<=0;cfg_layer<=0;cfg_addr<=0;cfg_data<=0;osd_addr<=0;osd_data<=0;
   end else begin
    if(i2c_fin)i2c_done<=1;
@@ -65,7 +65,7 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A0B,parameter integer I2
    if(ev_publish)pend[0]<=1;if(ev_key3)pend[1]<=1;if(ev_key2)pend[2]<=1;if(ev_error)pend[3]<=1;
    if(wr&&osd_sel)begin osd_we<=1;osd_addr<=paddr[12:2];osd_data<=pwdata[7:0];end
    if(wr&&reg_sel)case(ra)
-    6'h01:begin run<=pwdata[0];cam_enable<=pwdata[1];step<=pwdata[2];style<=pwdata[5:4];view<=pwdata[9:8];end
+    6'h01:begin run<=pwdata[0];cam_enable<=pwdata[1];step<=pwdata[2];style<=pwdata[5:4];view<=pwdata[10:8];blend_style<=pwdata[13:12];blend_alpha<=pwdata[19:16];end
     6'h04:en<=pwdata[3:0];
     6'h05:if(!i2c_busy)begin i2c_addr<=pwdata[15:0];i2c_wdata<=pwdata[23:16];i2c_read<=pwdata[24];i2c_start<=1;i2c_done<=0;end
     // 0x50/54/58: shadow 16-bit Q8.8 gains (0..65535), reference zero -> 255; 0x5C: commit on bit 0.
@@ -120,7 +120,7 @@ module sc_apb_regs #(parameter [31:0] VERSION=32'h5343_0A0B,parameter integer I2
  wire s_24=(reg_sel&&ra==6'h24);
  wire s_25=(reg_sel&&ra==6'h25);
  wire [31:0] q=({32{s_00}}&(VERSION))|
-  ({32{s_01}}&({22'd0,view,2'd0,style,1'b0,1'b0,cam_enable,run}))|
+  ({32{s_01}}&({12'd0,blend_alpha,2'd0,blend_style,1'b0,view,2'd0,style,1'b0,1'b0,cam_enable,run}))|
   ({32{s_02}}&({3'd0,st_keys,st_sched,8'd0,st_flags}))|
   ({32{s_03}}&({28'd0,pend}))|
   ({32{s_04}}&({28'd0,en}))|

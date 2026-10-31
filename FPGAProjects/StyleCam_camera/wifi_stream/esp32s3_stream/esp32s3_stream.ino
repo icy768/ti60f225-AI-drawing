@@ -54,6 +54,7 @@
 
 #include "config.h"
 #include "web_page.h"
+#include "qr_codes.h"
 
 /* ------------------------------------------------------------------ wiring */
 /* Everything tunable (SSID, baud rates, preview size, voice debounce) lives in config.h. */
@@ -78,6 +79,14 @@ static volatile char lastVoice = 0;
 static volatile uint32_t voiceCount = 0, cmdCount = 0;
 /* Voice diagnostics: every burst seen, and how many matched no rule. */
 static volatile uint32_t voiceRaw = 0, voiceUnknown = 0;
+/* Recording switch shared by every recorder: phone pages poll it, and a PC bridge watching the
+ * USB log ("[rec] start" / "[rec] stop") can drive an HDMI capture recorder from it. */
+static volatile bool recOn = false;
+static volatile uint32_t recEpoch = 0;          /* increments on every start */
+static volatile char curStyle = '0';            /* last style command sent to the FPGA */
+/* Style blend sent to the FPGA as "b T A" (blend toward style T by A/8); a style command clears it. */
+static volatile uint8_t blendTo = 1, blendA = 0;
+static volatile uint8_t viewers = 0;            /* open port-82 push streams */
 static const uint32_t frameW = PREVIEW_W, frameH = PREVIEW_H;
 static SemaphoreHandle_t frameMutex;
 
@@ -93,7 +102,17 @@ static uint16_t crcStep(uint16_t c, uint8_t b) {
   return c;
 }
 
+static void setRecording(bool on, const char *source) {
+  if (on == recOn) return;
+  if (on) recEpoch++;
+  recOn = on;
+  Serial.printf("[rec] %s style=%c source=%s\n", on ? "start" : "stop", curStyle, source);
+}
+
 static void forwardCommand(char c) {
+  /* 'r' / 'R' start / stop recording; they stay on the ESP32 and never reach the FPGA. */
+  if (c == 'r' || c == 'R') { setRecording(c == 'r', "command"); return; }
+  if (c >= '0' && c <= '2') { curStyle = c; blendA = 0; }    /* the firmware clears the blend too */
   Serial2.write((uint8_t)c);
   Serial2.flush();
   cmdCount++;
@@ -318,8 +337,9 @@ static void handleFrameBmp() {
 /* GET http://<ap>:RAW_STREAM_PORT/  push stream for the built-in viewer: one response that never
  * ends, each frame "A5 5A seq 00" + W*H RGB332 bytes, sent as soon as a complete frame is
  * published.  One connection instead of a request per frame removes the TCP setup and the empty
- * polls that held the page to ~7 fps.  Own task, so it cannot block the port-80 control API;
- * a new viewer (page reload) replaces the current one. */
+ * polls that held the page to ~7 fps.  Own task, so it cannot block the port-80 control API.
+ * Up to AP_MAX_CONN viewers (audience phones) share one snapshot per frame; one more viewer
+ * replaces the oldest connection, which is usually a reloaded page whose old socket lingers. */
 static WiFiServer rawServer(RAW_STREAM_PORT);
 
 static void rawStreamTask(void *) {
@@ -327,25 +347,36 @@ static void rawStreamTask(void *) {
   uint8_t *snapshot = (uint8_t *)ps_malloc(PREVIEW_BYTES);
   uint8_t *packet = (uint8_t *)ps_malloc(n);
   if (!snapshot || !packet) { Serial.println("raw stream: PSRAM allocation failed"); vTaskDelete(nullptr); }
+  WiFiClient cl[AP_MAX_CONN];
+  uint32_t since[AP_MAX_CONN] = {0};
+  uint32_t last = 0xFFFFFFFFu;
   for (;;) {
     WiFiClient c = rawServer.accept();
-    if (!c) { vTaskDelay(pdMS_TO_TICKS(20)); continue; }
-    c.setTimeout(1);
-    for (uint32_t t0 = millis(); c.connected() && millis() - t0 < 1000;)     /* skip the request */
-      if (c.readStringUntil('\n').length() <= 1) break;
-    c.setNoDelay(true);
-    c.print("HTTP/1.1 200 OK\r\nContent-Type: application/octet-stream\r\nCache-Control: no-store\r\n"
-            "Access-Control-Allow-Origin: *\r\nConnection: close\r\n\r\n");
-    uint32_t last = 0xFFFFFFFFu;
-    while (c.connected() && !rawServer.hasClient()) {
-      uint32_t seq;
-      if (!copyFrame(snapshot, &seq) || seq == last) { vTaskDelay(pdMS_TO_TICKS(3)); continue; }
-      last = seq;
-      packet[0] = SYNC0; packet[1] = SYNC1; packet[2] = uint8_t(seq); packet[3] = 0;
-      to332(snapshot, packet + 4, PREVIEW_W * PREVIEW_H);
-      if (c.write(packet, n) != n) break;
+    if (c) {
+      c.setTimeout(1);
+      for (uint32_t t0 = millis(); c.connected() && millis() - t0 < 1000;)   /* skip the request */
+        if (c.readStringUntil('\n').length() <= 1) break;
+      c.setNoDelay(true);
+      c.print("HTTP/1.1 200 OK\r\nContent-Type: application/octet-stream\r\nCache-Control: no-store\r\n"
+              "Access-Control-Allow-Origin: *\r\nConnection: close\r\n\r\n");
+      int slot = 0;                                   /* a free slot, else the oldest viewer */
+      for (int i = 0; i < AP_MAX_CONN; i++) {
+        if (!cl[i].connected()) { slot = i; break; }
+        if (since[i] < since[slot]) slot = i;
+      }
+      cl[slot].stop(); cl[slot] = c; since[slot] = millis();
+      Serial.printf("[view] viewer joined slot %d\n", slot);
     }
-    c.stop();
+    uint8_t live = 0;
+    for (int i = 0; i < AP_MAX_CONN; i++) if (cl[i].connected()) live++;
+    viewers = live;
+    uint32_t seq;
+    if (!live || !copyFrame(snapshot, &seq) || seq == last) { vTaskDelay(pdMS_TO_TICKS(live ? 3 : 20)); continue; }
+    last = seq;
+    packet[0] = SYNC0; packet[1] = SYNC1; packet[2] = uint8_t(seq); packet[3] = 0;
+    to332(snapshot, packet + 4, PREVIEW_W * PREVIEW_H);
+    for (int i = 0; i < AP_MAX_CONN; i++)
+      if (cl[i].connected() && cl[i].write(packet, n) != n) cl[i].stop();
   }
 }
 
@@ -406,20 +437,52 @@ static void handleStatus() {
            "{\"frames\":%lu,\"fps\":%lu,\"seq\":%u,\"w\":%lu,\"h\":%lu,"
            "\"crc_errors\":%lu,\"sync_losses\":%lu,\"commands\":%lu,\"voice\":%lu,\"last_voice\":%d,"
            "\"voice_raw\":%lu,\"voice_unknown\":%lu,"
-           "\"heap\":%lu,\"psram\":%lu}",
+           "\"heap\":%lu,\"psram\":%lu,\"rec\":%d,\"rec_epoch\":%lu,\"style\":%d,"
+           "\"blend_to\":%u,\"blend_a\":%u,\"viewers\":%u}",
            (unsigned long)frameCount, (unsigned long)fpsValue, (unsigned)frameSeq,
            (unsigned long)frameW, (unsigned long)frameH,
            (unsigned long)crcErrors, (unsigned long)syncLosses, (unsigned long)cmdCount,
            (unsigned long)voiceCount, (int)lastVoice,
            (unsigned long)voiceRaw, (unsigned long)voiceUnknown,
-           (unsigned long)ESP.getFreeHeap(), (unsigned long)ESP.getFreePsram());
+           (unsigned long)ESP.getFreeHeap(), (unsigned long)ESP.getFreePsram(),
+           recOn ? 1 : 0, (unsigned long)recEpoch, curStyle - '0',
+           (unsigned)blendTo, (unsigned)blendA, (unsigned)viewers);
   server.send(200, "application/json", buf);
+}
+
+/* GET /rec?on=1|0 : the phone REC button. */
+static void handleRec() {
+  if (server.hasArg("on")) setRecording(server.arg("on") == "1", "phone");
+  char buf[64];
+  snprintf(buf, sizeof(buf), "{\"rec\":%d,\"rec_epoch\":%lu}", recOn ? 1 : 0, (unsigned long)recEpoch);
+  server.send(200, "application/json", buf);
+}
+
+/* GET /blend?to=T&a=A : mix the current style toward style T by A/8 (A = 0 turns it off). */
+static void handleBlend() {
+  int to = server.hasArg("to") ? server.arg("to").toInt() : blendTo;
+  int a = server.hasArg("a") ? server.arg("a").toInt() : 0;
+  if (to < 0 || to > 2 || a < 0 || a > 8) { server.send(400, "text/plain", "bad blend"); return; }
+  blendTo = to; blendA = a;
+  const uint8_t msg[3] = {'b', uint8_t('0' + to), uint8_t('0' + a)};
+  Serial2.write(msg, 3);
+  Serial2.flush();
+  cmdCount++;
+  Serial.printf("[blend] style %c -> %d, %d/8\n", curStyle, to, a);
+  char buf[48];
+  snprintf(buf, sizeof(buf), "{\"blend_to\":%d,\"blend_a\":%d}", to, a);
+  server.send(200, "application/json", buf);
+}
+
+static void handleQr(const char *svg) {
+  server.sendHeader("Cache-Control", "max-age=86400");
+  server.send_P(200, "image/svg+xml", svg);
 }
 
 static void handleCmd() {
   if (!server.hasArg("c") || server.arg("c").length() == 0) { server.send(400, "text/plain", "missing c"); return; }
   char c = server.arg("c")[0];
-  if (strchr("012vswht", c) == nullptr) { server.send(400, "text/plain", "bad c"); return; }
+  if (strchr("012vzswht", c) == nullptr) { server.send(400, "text/plain", "bad c"); return; }
   forwardCommand(c);
   server.send(200, "application/json", "{\"ok\":true}");
 }
@@ -657,7 +720,7 @@ void setup() {
 #endif
 
   WiFi.mode(WIFI_AP);
-  WiFi.softAP(AP_SSID, AP_PASSWORD, AP_CHANNEL, false, 4);
+  WiFi.softAP(AP_SSID, AP_PASSWORD, AP_CHANNEL, false, AP_MAX_CONN);
   WiFi.setSleep(false);
   Serial.printf("AP \"%s\" ready - open http://%s/ on the phone\n", AP_SSID, WiFi.softAPIP().toString().c_str());
 
@@ -667,6 +730,10 @@ void setup() {
   server.on("/status", handleStatus);
   server.on("/cmd", handleCmd);
   server.on("/voice", handleVoice);
+  server.on("/rec", handleRec);
+  server.on("/blend", handleBlend);
+  server.on("/qr/wifi.svg", []() { handleQr(QR_WIFI_SVG); });
+  server.on("/qr/url.svg", []() { handleQr(QR_URL_SVG); });
   server.onNotFound([]() { server.send(404, "text/plain", "not found"); });
   server.begin();
   rawServer.begin();

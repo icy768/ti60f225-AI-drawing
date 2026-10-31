@@ -1,0 +1,15 @@
+{
+  "reference_commit": "53606e2",
+  "cases": {
+    "s0_b1_a0": "PASS style=0 blend=1 alpha=0 coefficients=272\nsim/in_blend_tb.v:41: $finish called at 9658104093 (1ps)",
+    "s0_b1_a1": "PASS style=0 blend=1 alpha=1 coefficients=272\nsim/in_blend_tb.v:41: $finish called at 9678468723 (1ps)",
+    "s0_b1_a4": "PASS style=0 blend=1 alpha=4 coefficients=272\nsim/in_blend_tb.v:41: $finish called at 9679235313 (1ps)",
+    "s0_b1_a7": "PASS style=0 blend=1 alpha=7 coefficients=272\nsim/in_blend_tb.v:41: $finish called at 9678348735 (1ps)",
+    "s0_b1_a8": "PASS style=0 blend=1 alpha=8 coefficients=272\nsim/in_blend_tb.v:41: $finish called at 9677262177 (1ps)",
+    "s1_b2_a3": "PASS style=1 blend=2 alpha=3 coefficients=272\nsim/in_blend_tb.v:41: $finish called at 9677988771 (1ps)",
+    "s1_b2_a8": "PASS style=1 blend=2 alpha=8 coefficients=272\nsim/in_blend_tb.v:41: $finish called at 9680035233 (1ps)",
+    "s2_b0_a5": "PASS style=2 blend=0 alpha=5 coefficients=272\nsim/in_blend_tb.v:41: $finish called at 9680428527 (1ps)",
+    "s2_b1_a6": "PASS style=2 blend=1 alpha=6 coefficients=272\nsim/in_blend_tb.v:41: $finish called at 9677248845 (1ps)",
+    "s1_b0_a2": "PASS style=1 blend=0 alpha=2 coefficients=272\nsim/in_blend_tb.v:41: $finish called at 9679595277 (1ps)"
+  }
+}

@@ -1,9 +1,9 @@
-"""Persist the accepted RISCV11 release (default: AE/IN4 + phone preview); preserve and verify Flash/model data."""
+"""Persist the accepted RISCV11 release (default: phone preview + Resize demo + style blend); preserve and verify Flash/model data."""
 from pathlib import Path
 import argparse, datetime, hashlib, json, os, re, subprocess
 
 ROOT=Path(__file__).resolve().parent
-DEFAULT=ROOT.parent/'烧录文件/20261030_RISCV11_PhonePreview_Release'
+DEFAULT=ROOT.parent/'烧录文件/20261031_RISCV11_Creative_Release'
 PROFILE='Generic Board Profile Using FT4232H'
 WEIGHT_ADDRESS=0x200000
 

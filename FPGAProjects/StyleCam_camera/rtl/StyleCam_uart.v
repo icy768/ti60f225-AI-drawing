@@ -50,7 +50,7 @@ assign video_styles_ready=style_ready;
  reg [9:0] in_trace_index;wire [31:0] in_cycles,in_writes;
  assign video_idle=state==0&&!rv&&!rx_busy&&!active&&tail==0&&!replay_busy&&!auto_busy&&!in_busy;
  sc_in_refresh #(.WIDTH(WIDTH),.HEIGHT(HEIGHT),.CONSTFILE(IN_FILE),.TRACE(IN_TRACE)) in_update(
- .clk(clk),.rst(rst),.start(in_start),.style(style[1:0]),.layer(auto_layer),
+ .clk(clk),.rst(rst),.start(in_start),.style(style[1:0]),.layer(auto_layer),.blend_style(2'd0),.blend_alpha(4'd0),
  .busy(in_busy),.done(in_done),.error(in_error),.stats_index(in_idx),.stats_s1(st_s1),.stats_s2(st_s2),
  .cfg_we(in_cfg_we),.cfg_layer(in_cfg_layer),.cfg_addr(in_cfg_addr),.cfg_data(in_cfg_data),
  .trace_index(in_trace_index),.trace_data(in_trace_data),.cycles(in_cycles),.writes(in_writes));

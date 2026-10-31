@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-31",
+  "status": "app partition only; flash at 0x10000 over the board-validated DIO bootloader and partition table of the J7 package",
+  "fqbn": "esp32:esp32:esp32s3:FlashSize=16M,PSRAM=opi,PartitionScheme=app3M_fat9M_16MB,USBMode=hwcdc,CDCOnBoot=default",
+  "app_offset": "0x10000",
+  "preview": "160x120 RGB332, 2 bands, complete frames only; port-82 push stream for up to 4 viewers (fallback /frame.raw?fmt=332&after=<seq>)",
+  "page": "Chinese control page: style cards, style blend slider (/blend), photo / 3 s timer photo / clip recording, style carousel, Resize zoom, QR share (/qr/wifi.svg, /qr/url.svg)",
+  "source_sha256": {
+    "config.h": "c04511cfd124a07cba189eb4fb72a56d6f5ef473070cb0eee700c8e5388769f4",
+    "esp32s3_stream.ino": "415290f920a28ef102ff1e148f57ca07fbc35752542201f053736fbdd86ccc8e",
+    "web_page.h": "1e20d1c2b75c93d5ccbaadfbf11bfc1a7874bab18f0cb12c87dbf0983d79a48e",
+    "qr_codes.h": "66f10c564ab158539dede1b8c7a29cbd0b140aad2e2c2bea34c01081edc1a60b"
+  },
+  "files": {
+    "esp32s3_stream_creative.ino.bin": "6d958d7dcff35af337dcfec9d9b0fcfe3cda3418ca6ca9c30efea5a2b5fed0c7"
+  },
+  "board_note": "2026-10-31: style blend, Resize views, layouts and styles driven from the phone page; link 14-16 frames/s, no new CRC errors"
+}
